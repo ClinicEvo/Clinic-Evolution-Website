@@ -1,0 +1,356 @@
+import { buildMetadata } from "@/lib/metadata";
+import Button from "@/components/ui/Button";
+import Badge from "@/components/ui/Badge";
+import FadeUp from "@/components/ui/FadeUp";
+import CTASection from "@/components/sections/CTASection";
+import FAQAccordion from "@/components/sections/FAQAccordion";
+import ProcessSteps from "@/components/sections/ProcessSteps";
+import Breadcrumb from "@/components/sections/Breadcrumb";
+import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
+import ServiceSchema from "@/components/schema/ServiceSchema";
+import FAQSchema from "@/components/schema/FAQSchema";
+import ArrowLink from "@/components/ui/ArrowLink";
+
+export const metadata = buildMetadata({
+  title: "AI Patient Reactivation for Clinics",
+  description:
+    "AI patient reactivation and patient recall systems for UK osteopaths, physiotherapists and chiropractors who want to reconnect with past patients and improve rebooking.",
+  path: "/ai-patient-reactivation/",
+});
+
+const faqs = [
+  {
+    question: "What is patient reactivation?",
+    answer:
+      "Patient reactivation is the process of reconnecting with previous patients who may need further support, follow-up care, maintenance appointments or treatment for a recurring issue.",
+  },
+  {
+    question: "How can AI help with patient recall?",
+    answer:
+      "AI can help organise patient segments, identify rebooking opportunities, support personalised communication and reduce manual admin when used safely and responsibly.",
+  },
+  {
+    question: "Is patient reactivation suitable for osteopaths, physios and chiropractors?",
+    answer:
+      "Yes. Many MSK clinics have patients who return when symptoms flare, treatment plans are interrupted or maintenance care is needed. A structured recall system helps clinics re-engage those patients in a professional way.",
+  },
+  {
+    question: "Will this replace our clinic team?",
+    answer:
+      "No. The aim is to support the clinic team by reducing repetitive admin and making follow-up more consistent. Human judgement, clinical context and patient consent remain central.",
+  },
+];
+
+const steps = [
+  {
+    number: 1,
+    title: "Audit",
+    description:
+      "We review your current website, booking journey, patient communication, recall process and available systems.",
+  },
+  {
+    number: 2,
+    title: "Segment",
+    description:
+      "We help identify useful patient groups, such as lapsed patients, incomplete treatment plans, seasonal issues and service-specific follow-up groups.",
+  },
+  {
+    number: 3,
+    title: "Create",
+    description:
+      "We create the messaging, campaign structure and workflow logic needed to reconnect with patients in a clear and appropriate way.",
+  },
+  {
+    number: 4,
+    title: "Implement",
+    description:
+      "We help connect the process with the tools your clinic already uses where possible, such as your CRM, email platform, booking system or automation tools.",
+  },
+  {
+    number: 5,
+    title: "Measure",
+    description:
+      "We review bookings, replies, engagement and patient response so the system improves over time.",
+  },
+];
+
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "AI Patient Reactivation", href: "/ai-patient-reactivation/" },
+];
+
+export default function AiPatientReactivationPage() {
+  return (
+    <>
+      <ServiceSchema
+        name="AI Patient Reactivation for Clinics"
+        description="Patient recall system and clinic marketing automation for UK osteopaths, physiotherapists and chiropractors."
+        url="/ai-patient-reactivation/"
+      />
+      <BreadcrumbSchema items={crumbs} />
+      <FAQSchema items={faqs} />
+
+      {/* Hero */}
+      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
+        <div className="cx-main">
+          <FadeUp>
+            <Breadcrumb items={crumbs} light />
+            <Badge variant="accent" className="mt-6 mb-4">AI patient reactivation for private clinics</Badge>
+          </FadeUp>
+          <FadeUp delay={0.05}>
+            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
+              Reconnect with past patients before they disappear for good
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
+              Most clinics focus heavily on attracting new patients, while
+              hundreds or even thousands of past patients sit quietly in the
+              background.
+            </p>
+            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
+              ClinicEvo helps osteopaths, physiotherapists and chiropractors build
+              responsible AI-supported patient recall systems that identify
+              rebooking opportunities, reconnect with suitable past patients and
+              reduce the pressure on your admin team.
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.15}>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button href="/free-clinic-audit/" size="lg">
+                Get a free clinic audit
+              </Button>
+              <Button href="/seo-for-clinics/" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                Explore clinic growth services
+              </Button>
+            </div>
+          </FadeUp>
+          <FadeUp delay={0.2}>
+            <div className="flex flex-col sm:flex-row gap-6 mt-10">
+              {[
+                "For osteopaths, physiotherapists and chiropractors",
+                "Built around real clinic patient journeys",
+                "Designed to support admin teams, not replace them",
+              ].map((point) => (
+                <div key={point} className="flex items-center gap-2">
+                  <svg className="flex-shrink-0 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="text-sm text-white/60">{point}</span>
+                </div>
+              ))}
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Problem */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="max-w-3xl">
+            <FadeUp>
+              <Badge className="mb-5 inline-block">The opportunity</Badge>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                Most clinics already have growth opportunities sitting in their patient list
+              </h2>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                New patient acquisition is important, but it is not the only way
+                to grow a clinic. Many private clinics have a large number of past
+                patients who have not booked again. Some recovered and moved on.
+                Others may still need support, may have had symptoms return, may
+                have missed a follow-up, or may simply have forgotten to rebook.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                Without a clear patient recall system, these opportunities are
+                easy to miss. The result is familiar: busy periods followed by
+                quiet gaps, inconsistent rebooking, too much reliance on new
+                enquiries, and admin teams trying to manage follow-up manually.
+              </p>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* What the service does */}
+      <section className="section bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="text-center mb-12">
+              <Badge className="mb-5 inline-block">The system</Badge>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
+                A smarter patient recall system for MSK clinics
+              </h2>
+              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+                This is not about spamming your patient list. It is about creating
+                a more thoughtful way to identify appropriate rebooking
+                opportunities and communicate with patients at the right time,
+                in the right tone, and with the right level of care.
+              </p>
+            </div>
+          </FadeUp>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Patient list review",
+                desc: "We help you understand where reactivation opportunities may exist across your existing patient base.",
+              },
+              {
+                title: "Recall campaign planning",
+                desc: "We design sensible patient recall campaigns based on relevance, timing and clinic priorities.",
+              },
+              {
+                title: "AI-supported segmentation",
+                desc: "AI can help organise groups of patients more efficiently, reducing manual work and improving message relevance.",
+              },
+              {
+                title: "Follow-up copy and workflows",
+                desc: "We create patient-friendly communication flows that sound professional, human and appropriate for a healthcare setting.",
+              },
+            ].map((item, i) => (
+              <FadeUp key={item.title} delay={i * 0.07}>
+                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
+                  <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
+            <FadeUp>
+              <Badge className="mb-5 inline-block">How it works</Badge>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
+                How ClinicEvo&apos;s AI patient reactivation works
+              </h2>
+              <p className="text-body text-[var(--color-muted)]">
+                A structured, responsible process from audit through to
+                measurement.
+              </p>
+            </FadeUp>
+            <div>
+              <ProcessSteps steps={steps} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Responsible AI */}
+      <section className="section bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <FadeUp>
+              <div>
+                <Badge className="mb-5 inline-block">Responsible AI</Badge>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                  Built with consent, relevance and clinical context in mind
+                </h2>
+                <p className="text-body text-[var(--color-muted)] mb-5">
+                  AI can be useful in clinic operations, but healthcare
+                  communication needs care. Patient reactivation should never
+                  feel intrusive, misleading or automated for the sake of it.
+                </p>
+                <p className="text-body text-[var(--color-muted)]">
+                  ClinicEvo&apos;s approach is designed to support responsible
+                  communication. AI can help with structure, segmentation,
+                  workflow support and message drafting, but the clinic remains
+                  in control of what is sent and why.
+                </p>
+              </div>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
+                <h3 className="text-h3 text-[var(--color-ink)] mb-6">
+                  Who this is for
+                </h3>
+                <div className="flex flex-col gap-5">
+                  {[
+                    {
+                      label: "Osteopaths",
+                      desc: "Reconnect with past patients who may need maintenance care, follow-up support or help with recurring pain.",
+                      href: "/osteopath-marketing/",
+                      cta: "Marketing for osteopaths",
+                    },
+                    {
+                      label: "Physiotherapists",
+                      desc: "Improve recall after treatment plans, rehab pathways, sports injuries or post-discharge support.",
+                      href: "/physiotherapy-marketing/",
+                      cta: "Physiotherapy marketing",
+                    },
+                    {
+                      label: "Chiropractors",
+                      desc: "Improve follow-up, care plan communication and patient retention without relying only on manual admin.",
+                      href: "/chiropractic-marketing/",
+                      cta: "Chiropractic marketing",
+                    },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <p className="font-semibold text-[var(--color-ink)] text-sm mb-1">{item.label}</p>
+                      <p className="text-body-sm text-[var(--color-muted)] mb-2">{item.desc}</p>
+                      <ArrowLink href={item.href}>{item.cta}</ArrowLink>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* Commercial value */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="max-w-3xl">
+            <FadeUp>
+              <Badge className="mb-5 inline-block">Growth</Badge>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                Growth does not always need to start with a new lead
+              </h2>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                Many clinics spend heavily on SEO, ads and new patient acquisition
+                while overlooking the patients they have already helped. A strong
+                reactivation system can support growth by improving repeat
+                bookings, increasing appointment consistency and reducing
+                dependence on cold traffic.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                That is why patient reactivation should sit alongside{" "}
+                <a href="/seo-for-clinics/" className="text-[var(--color-accent)] hover:underline">SEO for clinics</a>,{" "}
+                <a href="/google-ads-for-clinics/" className="text-[var(--color-accent)] hover:underline">Google Ads for clinics</a> and{" "}
+                <a href="/website-design-for-clinics/" className="text-[var(--color-accent)] hover:underline">clinic website design</a>{" "}
+                as part of a complete clinic growth system.
+              </p>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="max-w-2xl mx-auto">
+            <FadeUp>
+              <div className="text-center mb-10">
+                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <h2 className="text-h2 text-[var(--color-ink)]">
+                  AI patient reactivation FAQs
+                </h2>
+              </div>
+            </FadeUp>
+            <FAQAccordion items={faqs} />
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        heading="Find out what your clinic is missing"
+        subheading="ClinicEvo will review where your clinic may be losing enquiries, rebookings and past patient value, then recommend the most practical next steps."
+      />
+    </>
+  );
+}
