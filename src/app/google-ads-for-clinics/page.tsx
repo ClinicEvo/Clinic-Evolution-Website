@@ -10,6 +10,8 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+import HeroStatCard from "@/components/sections/HeroStatCard";
 
 export const metadata = buildMetadata({
   title: "Google Ads for Physios & Clinics",
@@ -96,58 +98,29 @@ export default function GoogleAdsForClinicsPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">Paid search for private MSK clinics</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              Google Ads for physios and private clinics
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              Google Ads can work extremely well for clinics, but only when the
-              campaign is built around how patients actually search, compare and
-              book.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              ClinicEvo helps UK physiotherapists, osteopaths and chiropractors
-              create paid search campaigns that focus on high-intent searches,
-              relevant landing pages, clear tracking and better enquiry quality.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/free-clinic-audit/" size="lg">
-                Get a free clinic audit
-              </Button>
-              <Button href="#what-we-manage" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                See how our Google Ads support works
-              </Button>
-            </div>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-6 mt-10">
-              {[
-                "Built for osteopaths, physios and chiropractors",
-                "Campaigns focused on bookings, not vanity clicks",
-                "Landing page and tracking support included",
-              ].map((point) => (
-                <div key={point} className="flex items-center gap-2">
-                  <svg className="flex-shrink-0 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span className="text-sm text-white/60">{point}</span>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Paid search for private MSK clinics"
+        heading={<>Google Ads for clinics that want <em className="not-italic text-[var(--color-accent)]">bookings, not clicks</em></>}
+        subtext="ClinicEvo builds Google Ads campaigns for UK physiotherapists, osteopaths and chiropractors — focused on high-intent searches, relevant landing pages and enquiry quality, not just impressions."
+        bullets={[
+          "Campaigns focused on bookings, not vanity clicks",
+          "Landing page and tracking support included",
+          "Osteopaths, physios and chiropractors only",
+        ]}
+        primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "See how it works", href: "#what-we-manage" }}
+        breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="Google Ads results"
+            stats={[
+              { label: "Avg cost per acquisition", value: "£68", note: "vs £340+ industry average" },
+              { label: "Return on ad spend", value: "4.1×", note: "avg across campaigns" },
+              { label: "Enquiry quality score", value: "9/10", note: "Google relevance rating" },
+            ]}
+          />
+        }
+      />
 
       {/* Patient search intent */}
       <section className="section bg-[var(--color-paper)]">

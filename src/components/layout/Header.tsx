@@ -1,109 +1,81 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { mainNav, ctaNav } from "@/lib/nav";
 import Button from "@/components/ui/Button";
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setOpenDropdown(null);
       }
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
-
-  const light = !scrolled;
-
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[var(--color-paper)]/95 backdrop-blur-md border-b border-[var(--color-border)] shadow-sm"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="sticky top-0 z-50 bg-[var(--color-paper)] border-b border-[var(--color-surface)] py-4 lg:py-5">
       <div className="cx-main">
         <nav
           ref={navRef}
-          className="flex items-center justify-between h-16 lg:h-20"
+          className="flex items-center justify-between"
           aria-label="Main navigation"
         >
-          {/* Wordmark */}
+          {/* Logo */}
           <Link
             href="/"
-            className={`font-brand text-2xl transition-colors duration-200 flex-shrink-0 ${
-              light
-                ? "text-white hover:text-[var(--color-accent)]"
-                : "text-[var(--color-ink)] hover:text-[var(--color-accent)]"
-            }`}
+            className="flex flex-col leading-none group"
             aria-label="ClinicEvo home"
             onClick={() => setMobileOpen(false)}
           >
-            ClinicEvo
+            <span
+              className="text-[1.6rem] text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors duration-200 leading-none"
+              style={{ fontFamily: "var(--font-wordmark)" }}
+            >
+              ClinicEvo
+            </span>
+            <span className="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-[var(--color-muted)] mt-0.5">
+              Growth Systems for Clinics
+            </span>
           </Link>
 
-          {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-1" role="list">
+          {/* Desktop Nav */}
+          <ul className="hidden lg:flex items-center gap-2" role="list">
             {mainNav.map((item) => (
-              <li key={item.href} className="relative group/nav">
+              <li key={item.href} className="relative">
                 {item.children ? (
                   <>
                     <button
-                      className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150 ${
+                      className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors rounded-md ${
                         openDropdown === item.label
-                          ? "text-[var(--color-accent)]"
-                          : light
-                          ? "text-white/80 hover:text-white"
-                          : "text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+                          ? "text-[var(--color-accent)] bg-[var(--color-surface)]"
+                          : "text-[var(--color-ink)] hover:bg-[var(--color-surface)]"
                       }`}
+                      aria-haspopup="true"
+                      aria-expanded={openDropdown === item.label}
                       onClick={() =>
                         setOpenDropdown(openDropdown === item.label ? null : item.label)
                       }
-                      aria-expanded={openDropdown === item.label}
-                      aria-haspopup="true"
                     >
                       {item.label}
-                      <svg
-                        aria-hidden="true"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        className={`transition-transform duration-150 ${openDropdown === item.label ? "rotate-180" : ""}`}
-                      >
-                        <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className={openDropdown === item.label ? "rotate-180" : ""}>
+                        <path d="M2 4L5 7L8 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </button>
                     {openDropdown === item.label && (
-                      <ul
-                        className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-lg border border-[var(--color-border)] py-1.5 z-10"
-                        role="list"
-                      >
+                      <ul className="absolute top-full left-0 mt-2 w-56 bg-white border border-[var(--color-surface)] rounded-lg shadow-md p-2 z-10">
                         {item.children.map((child) => (
                           <li key={child.href}>
                             <Link
                               href={child.href}
-                              className="block px-4 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-surface)] transition-colors duration-100"
+                              className="block px-4 py-2.5 text-sm font-medium text-[var(--color-ink)] hover:text-[var(--color-accent)] hover:bg-[var(--color-paper)] rounded-md"
                               onClick={() => setOpenDropdown(null)}
                             >
                               {child.label}
@@ -116,11 +88,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`block px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150 ${
-                      light
-                        ? "text-white/80 hover:text-white"
-                        : "text-[var(--color-muted)] hover:text-[var(--color-ink)]"
-                    }`}
+                    className="block px-4 py-2 text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-surface)] rounded-md transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -129,83 +97,71 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* CTA + hamburger */}
-          <div className="flex items-center gap-3">
-            {light ? (
-              <Link
-                href={ctaNav.href}
-                className="hidden lg:inline-flex items-center justify-center font-sans font-semibold rounded-lg px-4 py-2 text-sm border border-white/40 text-white hover:bg-white/10 hover:border-white/70 transition-colors duration-150 whitespace-nowrap"
-              >
-                {ctaNav.label}
-              </Link>
-            ) : (
-              <Button href={ctaNav.href} size="sm" className="hidden lg:inline-flex">
-                {ctaNav.label}
-              </Button>
-            )}
+          {/* CTA */}
+          <div className="flex items-center gap-4">
+            <Button href={ctaNav.href} size="sm" className="hidden lg:inline-flex">
+              {ctaNav.label}
+            </Button>
+            
             <button
-              className={`lg:hidden p-2 rounded-md transition-colors ${
-                light
-                  ? "text-white hover:bg-white/10"
-                  : "text-[var(--color-ink)] hover:bg-[var(--color-surface)]"
-              }`}
-              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 text-[var(--color-ink)]"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMobileOpen(!mobileOpen)}
             >
-              {mobileOpen ? (
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              )}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                {mobileOpen ? (
+                  <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
+                ) : (
+                  <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
+                )}
+              </svg>
             </button>
           </div>
         </nav>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 bg-[var(--color-paper)] z-40 overflow-y-auto border-t border-[var(--color-border)]">
-          <div className="cx-main py-6 flex flex-col">
+        <div id="mobile-menu" className="lg:hidden fixed inset-0 top-[73px] bg-white z-40 p-6 overflow-y-auto">
+          <ul className="flex flex-col gap-6">
             {mainNav.map((item) => (
-              <div key={item.href}>
+              <li key={item.href}>
                 {item.children ? (
                   <>
-                    <p className="px-3 pt-5 pb-2 text-label text-[var(--color-muted-light)]">
-                      {item.label}
-                    </p>
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-3 py-3 text-base font-medium text-[var(--color-ink)] hover:text-[var(--color-accent)] rounded-md transition-colors"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                    <p className="text-lg font-bold mb-3">{item.label}</p>
+                    <ul className="flex flex-col gap-4 pl-4 border-l-2 border-[var(--color-surface)]">
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            className="text-base font-medium text-[var(--color-ink)]"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </>
                 ) : (
                   <Link
                     href={item.href}
-                    className="block px-3 py-3.5 text-base font-medium text-[var(--color-ink)] hover:text-[var(--color-accent)] border-b border-[var(--color-border)] last:border-0 transition-colors"
+                    className="text-lg font-bold text-[var(--color-ink)]"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.label}
                   </Link>
                 )}
-              </div>
+              </li>
             ))}
-            <div className="pt-6">
-              <Button href={ctaNav.href} size="lg" className="w-full" onClick={() => setMobileOpen(false)}>
+            <li className="pt-6">
+              <Button href={ctaNav.href} size="lg" className="w-full">
                 {ctaNav.label}
               </Button>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       )}
     </header>

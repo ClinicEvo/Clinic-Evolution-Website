@@ -10,6 +10,8 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+import HeroStatCard from "@/components/sections/HeroStatCard";
 
 export const metadata = buildMetadata({
   title: "Osteopath Marketing UK | Grow Your Osteopathy Practice",
@@ -90,32 +92,29 @@ export default function OsteopathMarketingPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">Osteopath Marketing</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              More patients for your osteopathy practice
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              We help UK osteopaths attract consistent new patients through
-              specialist SEO, Google Ads and conversion-focused website design.
-              No generic marketing agencies — we know your specialty.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <Button href="/free-clinic-audit/" size="lg">
-              Book a free clinic audit
-            </Button>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Osteopath marketing for UK practices"
+        heading={<>More patients for your <em className="not-italic text-[var(--color-accent)]">osteopathy practice</em>, consistently</>}
+        subtext="We help UK osteopaths attract consistent new patients through specialist SEO, Google Ads and conversion-focused website design — built around how patients actually choose an osteopath."
+        bullets={[
+          "SEO, ads and web design for osteopathy clinics",
+          "Local and national search visibility",
+          "Results tracked to enquiries, not just rankings",
+        ]}
+        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "See our results", href: "/case-studies/" }}
+        breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="Osteopath clinic results"
+            stats={[
+              { label: "New patients per month", value: "+23", note: "avg increase" },
+              { label: "Organic traffic growth", value: "3.1×", note: "6-month average" },
+              { label: "Google Maps ranking", value: "Top 3", note: "for local searches" },
+            ]}
+          />
+        }
+      />
 
       {/* Why ClinicEvo for osteopaths */}
       <section className="section bg-[var(--color-paper)]">

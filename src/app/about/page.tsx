@@ -8,6 +8,8 @@ import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+
 
 export const metadata = buildMetadata({
   title: "About ClinicEvo | Clinic Marketing Agency for MSK Clinics",
@@ -50,41 +52,19 @@ export default function AboutPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">About ClinicEvo</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-h1 text-white mb-5 max-w-3xl">
-              A clinic marketing agency built around how patients actually choose care
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              ClinicEvo helps UK osteopaths, physiotherapists and chiropractors
-              grow with clearer websites, stronger SEO, better patient journeys,
-              targeted Google Ads and smarter patient reactivation systems.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              The difference is simple: ClinicEvo is built around the realities
-              of private clinic growth, not generic marketing theory.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/free-clinic-audit/" size="lg">
-                Get a free clinic audit
-              </Button>
-              <Button href="/#services" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                Explore our services
-              </Button>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="About ClinicEvo"
+        heading={<>A clinic growth partner built around <em className="not-italic text-[var(--color-accent)]">how patients actually choose care</em></>}
+        subtext="ClinicEvo helps UK osteopaths, physiotherapists and chiropractors grow with clearer websites, stronger SEO, better patient journeys, targeted Google Ads and smarter patient reactivation — built around the realities of private clinic growth, not generic marketing theory."
+        bullets={[
+          "MSK and private healthcare clinics only",
+          "Strategy and delivery, not just advice",
+          "Grounded in real clinic patient journey experience",
+        ]}
+        primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "Explore our services", href: "/#services" }}
+        breadcrumbs={crumbs}
+      />
 
       {/* Why ClinicEvo exists */}
       <section className="section bg-[var(--color-paper)]">

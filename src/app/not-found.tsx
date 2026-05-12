@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--color-paper)]">
+    <div className="min-h-[100dvh] flex items-center justify-center bg-[var(--color-paper)]">
       <div className="cx-tight text-center py-24">
         <p className="text-label text-[var(--color-accent)] mb-4">404</p>
         <h1 className="text-h1 text-[var(--color-ink)] mb-4">Page not found</h1>

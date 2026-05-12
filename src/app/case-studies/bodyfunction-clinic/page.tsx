@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
@@ -9,6 +10,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import { ClinicGrowthStats, SEOVisibilityMetrics, PatientConversionFunnel } from "@/components/case-studies/CaseStudyCharts";
 
 export const metadata = buildMetadata({
   title: "Physio Marketing Case Study | Bodyfunction Clinic | ClinicEvo",
@@ -58,70 +60,104 @@ export default function BodyfunctionCaseStudyPage() {
       <FAQSchema items={faqs} />
 
       {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
+      <section className="bg-[var(--color-paper)] pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative">
+        {/* Subtle decorative background element */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--color-surface)] -z-10 skew-x-[-12deg] translate-x-20 hidden lg:block" />
+        
         <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">Case Study</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-h1 text-white mb-5 max-w-3xl">
-              Bodyfunction Clinic marketing case study
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              Bodyfunction Clinic needed a clearer digital growth foundation: a
-              website structure that better reflected its services, stronger SEO
-              visibility, a more intuitive patient journey and clearer routes
-              from search to booking.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              ClinicEvo&apos;s work focused on turning the website into a more
-              useful growth asset, with clearer service positioning, stronger
-              clinic SEO foundations and a patient journey designed around how
-              people actually search for and choose private treatment.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/free-clinic-audit/" size="lg">
-                Get a free clinic audit
-              </Button>
-              <Button href="/seo-for-clinics/" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                Explore SEO for clinics
-              </Button>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div className="lg:col-span-6">
+              <FadeUp>
+                <Breadcrumb items={crumbs} />
+                <Badge variant="accent" className="mt-6 mb-5">Case Study</Badge>
+              </FadeUp>
+              <FadeUp delay={0.05}>
+                <h1 className="text-h1 text-[var(--color-ink)] mb-6 tracking-tight">
+                  Bodyfunction Clinic marketing case study
+                </h1>
+              </FadeUp>
+              <FadeUp delay={0.1}>
+                <div className="space-y-6 max-w-xl">
+                  <p className="text-body-lg text-[var(--color-muted)] leading-relaxed">
+                    Bodyfunction Clinic needed a clearer digital growth foundation: a
+                    website structure that better reflected its services, stronger SEO
+                    visibility, a more intuitive patient journey and clearer routes
+                    from search to booking.
+                  </p>
+                  <p className="text-body-lg text-[var(--color-muted)] leading-relaxed">
+                    ClinicEvo&apos;s work focused on turning the website into a more
+                    useful growth asset, with clearer service positioning, stronger
+                    clinic SEO foundations and a patient journey designed around how
+                    people actually search for and choose private treatment.
+                  </p>
+                </div>
+              </FadeUp>
+              <FadeUp delay={0.15}>
+                <div className="flex flex-col sm:flex-row gap-5 mt-10">
+                  <Button href="/free-clinic-audit/" size="lg">
+                    Get a free clinic audit
+                  </Button>
+                  <Button href="/seo-for-clinics/" variant="outline" size="lg" >
+                    Explore SEO for clinics
+                  </Button>
+                </div>
+              </FadeUp>
             </div>
-          </FadeUp>
+            
+            <div className="lg:col-span-6 relative">
+              <FadeUp delay={0.2}>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-white/20">
+                  <Image
+                    src="https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-clinic-team-at-reception-01.png"
+                    alt="Bodyfunction Clinic team at reception"
+                    fill
+                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    priority
+                  />
+                </div>
+                {/* Visual accent */}
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[var(--color-accent)]/10 rounded-2xl -z-10 blur-2xl" />
+              </FadeUp>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Snapshot */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
-          <div className="max-w-3xl mb-12">
-            <FadeUp>
-              <Badge className="mb-5 inline-block">Overview</Badge>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                A real clinic growth project, not a theoretical strategy
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Many clinic websites look professional on the surface but are not
-                structured around how patients search, compare and book.
-                Bodyfunction Clinic offered strong clinical services, but the
-                digital presence needed clearer SEO architecture, better content
-                structure and a more intentional conversion journey.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                The aim was not simply to make the website look better. The goal
-                was to make it easier for prospective patients to understand the
-                clinic, find the right service, trust the practitioners and take
-                the next step.
-              </p>
-            </FadeUp>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div className="lg:col-span-7">
+              <FadeUp>
+                <Badge className="mb-5 inline-block">Overview</Badge>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                  A real clinic growth project, not a theoretical strategy
+                </h2>
+                <div className="space-y-5">
+                  <p className="text-body-lg text-[var(--color-muted)]">
+                    Many clinic websites look professional on the surface but are not
+                    structured around how patients search, compare and book.
+                    Bodyfunction Clinic offered strong clinical services, but the
+                    digital presence needed clearer SEO architecture, better content
+                    structure and a more intentional conversion journey.
+                  </p>
+                  <p className="text-body-lg text-[var(--color-muted)]">
+                    The aim was not simply to make the website look better. The goal
+                    was to make it easier for prospective patients to understand the
+                    clinic, find the right service, trust the practitioners and take
+                    the next step.
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+            <div className="lg:col-span-5">
+              <FadeUp delay={0.1}>
+                <ClinicGrowthStats />
+              </FadeUp>
+            </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
             {[
               { label: "Clinic type", value: "Private healthcare / MSK clinic" },
               { label: "Focus areas", value: "Website structure, SEO, service pages, patient journey" },
@@ -129,9 +165,9 @@ export default function BodyfunctionCaseStudyPage() {
               { label: "Strategy", value: "Build a stronger digital foundation for long-term clinic growth" },
             ].map((card, i) => (
               <FadeUp key={card.label} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-6 border border-[var(--color-border)] h-full">
-                  <p className="text-sm font-semibold text-[var(--color-accent)] mb-2 uppercase tracking-wider">{card.label}</p>
-                  <p className="text-body text-[var(--color-ink)]">{card.value}</p>
+                <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)] h-full shadow-sm hover:shadow-md transition-shadow">
+                  <p className="text-xs font-bold text-[var(--color-accent)] mb-4 uppercase tracking-widest">{card.label}</p>
+                  <p className="text-body font-medium text-[var(--color-ink)]">{card.value}</p>
                 </div>
               </FadeUp>
             ))}
@@ -142,44 +178,61 @@ export default function BodyfunctionCaseStudyPage() {
       {/* Challenge */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-            <FadeUp>
-              <Badge className="mb-5 inline-block">The challenge</Badge>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                The challenge
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Bodyfunction Clinic had valuable clinical expertise, but the website
-                needed to work harder as a patient acquisition and trust-building
-                tool.
-              </p>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                For clinic owners, this is often where growth is lost. The clinic
-                may be clinically strong, but the website does not clearly
-                translate that value into visibility, trust and bookings.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.1}>
-              <div className="bg-[var(--color-surface)] rounded-2xl p-7 border border-[var(--color-border)]">
-                <p className="text-label text-[var(--color-accent)] mb-5">Common issues identified:</p>
-                <div className="flex flex-col gap-3">
-                  {[
-                    "Service pages were not fully structured around patient search intent.",
-                    "Important treatment and condition areas needed clearer SEO targeting.",
-                    "The patient journey could be made simpler and more reassuring.",
-                    "The website needed stronger internal linking between services, conditions and booking actions.",
-                    "Past and returning patient opportunities were not being used as effectively as they could be.",
-                  ].map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <svg className="flex-shrink-0 mt-1 text-[var(--color-error)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                      </svg>
-                      <span className="text-body-sm text-[var(--color-muted)]">{item}</span>
-                    </div>
-                  ))}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+            <div className="lg:col-span-6 space-y-12">
+              <FadeUp>
+                <Badge className="mb-5 inline-block">The challenge</Badge>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-8 leading-tight">
+                  The challenge
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed">
+                    Bodyfunction Clinic had valuable clinical expertise, but the website
+                    needed to work harder as a patient acquisition and trust-building
+                    tool.
+                  </p>
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed">
+                    For clinic owners, this is often where growth is lost. The clinic
+                    may be clinically strong, but the website does not clearly
+                    translate that value into visibility, trust and bookings.
+                  </p>
                 </div>
-              </div>
-            </FadeUp>
+              </FadeUp>
+              <FadeUp delay={0.1}>
+                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-border)]">
+                  <Image
+                    src="https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-clinic-neck-treatment-session-close.png"
+                    alt="Neck treatment session at Bodyfunction Clinic"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </FadeUp>
+            </div>
+            
+            <div className="lg:col-span-6 lg:pt-32">
+              <FadeUp delay={0.1}>
+                <div className="bg-[var(--color-surface)] rounded-2xl p-8 border border-[var(--color-border)] shadow-sm">
+                  <p className="text-label text-[var(--color-accent)] mb-6 font-bold tracking-wider uppercase text-xs">Common issues identified:</p>
+                  <div className="space-y-4">
+                    {[
+                      "Service pages were not fully structured around patient search intent.",
+                      "Important treatment and condition areas needed clearer SEO targeting.",
+                      "The patient journey could be made simpler and more reassuring.",
+                      "The website needed stronger internal linking between services, conditions and booking actions.",
+                      "Past and returning patient opportunities were not being used as effectively as they could be.",
+                    ].map((item) => (
+                      <div key={item} className="flex items-start gap-4 p-3 bg-white/50 rounded-xl border border-white transition-all hover:shadow-sm">
+                        <svg className="flex-shrink-0 mt-1 text-[var(--color-error)]" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                          <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                        <span className="text-body-sm text-[var(--color-ink)] font-medium leading-snug">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </FadeUp>
+            </div>
           </div>
         </div>
       </section>
@@ -187,30 +240,39 @@ export default function BodyfunctionCaseStudyPage() {
       {/* Opportunity */}
       <section className="section bg-[var(--color-surface)]">
         <div className="cx-main">
-          <div className="max-w-3xl">
-            <FadeUp>
-              <Badge className="mb-5 inline-block">The opportunity</Badge>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                The clinic growth opportunity
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Private clinic growth is rarely about one isolated tactic. A clinic
-                does not grow from SEO alone, a new website alone, or a few ads
-                alone. Growth comes when the digital system works together.
-              </p>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                For Bodyfunction Clinic, the opportunity was to improve the
-                foundations: clearer pages, stronger search intent, better
-                explanations, more useful calls to action and a smoother path from
-                first visit to booking.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                This is the kind of work many osteopaths, physiotherapists and
-                chiropractors need before increasing ad spend or chasing more
-                traffic. The website needs to be able to convert the people who
-                already find it.
-              </p>
-            </FadeUp>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div className="lg:col-span-7">
+              <FadeUp>
+                <Badge className="mb-5 inline-block">The opportunity</Badge>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                  The clinic growth opportunity
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed">
+                    Private clinic growth is rarely about one isolated tactic. A clinic
+                    does not grow from SEO alone, a new website alone, or a few ads
+                    alone. Growth comes when the digital system works together.
+                  </p>
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed">
+                    For Bodyfunction Clinic, the opportunity was to improve the
+                    foundations: clearer pages, stronger search intent, better
+                    explanations, more useful calls to action and a smoother path from
+                    first visit to booking.
+                  </p>
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed">
+                    This is the kind of work many osteopaths, physiotherapists and
+                    chiropractors need before increasing ad spend or chasing more
+                    traffic. The website needs to be able to convert the people who
+                    already find it.
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+            <div className="lg:col-span-5">
+              <FadeUp delay={0.1}>
+                <SEOVisibilityMetrics />
+              </FadeUp>
+            </div>
           </div>
         </div>
       </section>
@@ -297,58 +359,86 @@ export default function BodyfunctionCaseStudyPage() {
       {/* Journey & Conversion */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="max-w-3xl">
-            <FadeUp>
-              <Badge className="mb-5 inline-block">Conversion</Badge>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                Patient journey and conversion improvements
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Patients do not make healthcare decisions in the same way they buy
-                ordinary local services. They need to feel understood, reassured and
-                confident that the clinic can help with their specific issue.
-              </p>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                That means the website has to do more than list treatments. It needs
-                to explain who the service is for, what the patient can expect, when
-                treatment may be appropriate and how to take the next step.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                For Bodyfunction Clinic, the focus was on making that journey
-                clearer, reducing friction and helping more visitors move from
-                interest to action.
-              </p>
-            </FadeUp>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="max-w-xl order-2 lg:order-1">
+              <FadeUp>
+                <Badge className="mb-5 inline-block">Conversion</Badge>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-8 leading-tight">
+                  Patient journey and conversion improvements
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed">
+                    Patients do not make healthcare decisions in the same way they buy
+                    ordinary local services. They need to feel understood, reassured and
+                    confident that the clinic can help with their specific issue.
+                  </p>
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed">
+                    That means the website has to do more than list treatments. It needs
+                    to explain who the service is for, what the patient can expect, when
+                    treatment may be appropriate and how to take the next step.
+                  </p>
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed italic border-l-2 border-[var(--color-accent)] pl-6 py-2">
+                    For Bodyfunction Clinic, the focus was on making that journey
+                    clearer, reducing friction and helping more visitors move from
+                    interest to action.
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+            
+            <div className="order-1 lg:order-2 relative">
+              <FadeUp delay={0.1}>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-[var(--color-border)]">
+                  <Image
+                    src="https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-physiotherapy-strength-conditioning-floor-exercise-02.png"
+                    alt="Physiotherapy strength and conditioning floor exercise"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                {/* Visual accent */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-[var(--color-accent)]/5 rounded-full -z-10 blur-xl" />
+              </FadeUp>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Why it matters */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
-          <div className="max-w-3xl">
-            <FadeUp>
-              <Badge className="mb-5 inline-block">Takeaway</Badge>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                What other clinics can learn from this
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                The Bodyfunction Clinic project highlights a common issue for
-                private clinics: the website exists, the services are valuable, but
-                the digital structure is not yet strong enough to support growth
-                properly.
-              </p>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                For osteopaths, physiotherapists and chiropractors, the lesson is
-                simple. Before spending heavily on ads or posting more content,
-                make sure the core website is built around search intent, patient
-                trust and booking behaviour.
-              </p>
-              <p className="text-body text-[var(--color-muted)] font-semibold">
-                A stronger digital foundation can help every other marketing channel
-                perform better.
-              </p>
-            </FadeUp>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div className="lg:col-span-7">
+              <FadeUp>
+                <Badge className="mb-5 inline-block">Takeaway</Badge>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                  What other clinics can learn from this
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed">
+                    The Bodyfunction Clinic project highlights a common issue for
+                    private clinics: the website exists, the services are valuable, but
+                    the digital structure is not yet strong enough to support growth
+                    properly.
+                  </p>
+                  <p className="text-body text-[var(--color-muted)] leading-relaxed">
+                    For osteopaths, physiotherapists and chiropractors, the lesson is
+                    simple. Before spending heavily on ads or posting more content,
+                    make sure the core website is built around search intent, patient
+                    trust and booking behaviour.
+                  </p>
+                  <p className="text-body text-[var(--color-muted)] font-semibold border-l-4 border-[var(--color-accent)] pl-6 py-1">
+                    A stronger digital foundation can help every other marketing channel
+                    perform better.
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+            <div className="lg:col-span-5">
+              <FadeUp delay={0.1}>
+                <PatientConversionFunnel />
+              </FadeUp>
+            </div>
           </div>
         </div>
       </section>

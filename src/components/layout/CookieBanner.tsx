@@ -55,7 +55,7 @@ export default function CookieBanner() {
       aria-live="polite"
       className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6"
     >
-      <div className="max-w-2xl mx-auto bg-[var(--color-ink)] text-white rounded-2xl shadow-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div className="max-w-2xl mx-auto bg-[var(--color-ink)] text-white rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <p className="text-sm text-[var(--color-muted-light)] flex-1">
           We use cookies to analyse site traffic and improve your experience. See
           our{" "}

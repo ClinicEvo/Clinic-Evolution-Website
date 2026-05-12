@@ -10,26 +10,26 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-  heading = "Ready to grow your clinic?",
-  subheading = "Book a free audit and get a personalised plan for your practice within 2 business days.",
+  heading = "Ready to build a system?",
+  subheading = "Book a free audit and get a predictable growth plan for your clinic within 2 business days.",
   primaryLabel = ctaNav.label,
   primaryHref = ctaNav.href,
 }: CTASectionProps) {
   return (
-    <section className="bg-[var(--color-ink)] section">
+    <section className="bg-[var(--color-paper)] section">
       <div className="cx-main">
-        <div className="max-w-2xl">
-          <p className="text-label text-[var(--color-accent)] mb-5">Get started</p>
-          <h2 className="text-h1 text-white mb-5">{heading}</h2>
-          <p className="text-body-lg text-white/60 mb-10">{subheading}</p>
-          <div className="flex flex-col sm:flex-row items-start gap-4">
+        <div className="max-w-3xl">
+          <p className="text-label text-[var(--color-accent)] mb-6">Take the first step</p>
+          <h2 className="text-h1 text-[var(--color-ink)] mb-8">{heading}</h2>
+          <p className="text-body-lg text-[var(--color-muted)] mb-12 max-w-2xl">{subheading}</p>
+          <div className="flex flex-col sm:flex-row items-start gap-6">
             <Button href={primaryHref} size="lg">
               {primaryLabel}
             </Button>
             {siteConfig.email && (
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-2 text-sm font-medium text-white/40 hover:text-white transition-colors pt-4 sm:pt-0"
+                className="text-sm font-bold text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors"
               >
                 or email {siteConfig.email}
               </a>

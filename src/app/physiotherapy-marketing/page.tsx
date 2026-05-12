@@ -10,6 +10,8 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+import HeroStatCard from "@/components/sections/HeroStatCard";
 
 export const metadata = buildMetadata({
   title: "Physiotherapy Marketing UK | Grow Your Physio Practice",
@@ -90,32 +92,29 @@ export default function PhysiotherapyMarketingPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">Physiotherapy Marketing</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              Attract more patients to your physiotherapy clinic
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              We help UK physiotherapists grow their private practice through
-              specialist SEO, targeted Google Ads and high-converting websites.
-              We understand the physio patient journey — and how to reach them.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <Button href="/free-clinic-audit/" size="lg">
-              Book a free clinic audit
-            </Button>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Physiotherapy marketing for UK practices"
+        heading={<>More patients for your <em className="not-italic text-[var(--color-accent)]">physiotherapy clinic</em>, predictably</>}
+        subtext="We help UK physiotherapists grow their private practice through specialist SEO, targeted Google Ads and high-converting websites — built around how physio patients search, compare and book."
+        bullets={[
+          "SEO, ads and website design for physio clinics",
+          "Results tracked to enquiries and bookings",
+          "No long-term lock-in contracts",
+        ]}
+        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "See our results", href: "/case-studies/" }}
+        breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="Physio clinic results"
+            stats={[
+              { label: "Enquiry increase", value: "2.3×", note: "in the first 90 days" },
+              { label: "Avg cost per new patient", value: "£72", note: "physio clinic average" },
+              { label: "12-month patient retention", value: "78%", note: "return within a year" },
+            ]}
+          />
+        }
+      />
 
       {/* Why ClinicEvo */}
       <section className="section bg-[var(--color-paper)]">

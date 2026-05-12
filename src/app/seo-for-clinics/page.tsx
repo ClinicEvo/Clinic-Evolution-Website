@@ -10,6 +10,8 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+import HeroStatCard from "@/components/sections/HeroStatCard";
 
 export const metadata = buildMetadata({
   title: "SEO for Medical Clinics | Specialist Clinic SEO",
@@ -90,58 +92,29 @@ export default function SeoForClinicsPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">Specialist SEO for private healthcare clinics</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              SEO for medical clinics that need more patient enquiries
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              ClinicEvo helps UK private clinics improve their visibility on
-              Google, strengthen their service pages and turn more local searches
-              into patient enquiries.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              Our clinic SEO work is built around how real patients search,
-              compare and choose osteopaths, physiotherapists, chiropractors and
-              other MSK providers.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/free-clinic-audit/" size="lg">
-                Get a free clinic SEO audit
-              </Button>
-              <Button href="#what-we-improve" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                See how our clinic SEO works
-              </Button>
-            </div>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-6 mt-10">
-              {[
-                "SEO for MSK and private healthcare clinics",
-                "Local SEO, service pages and technical improvements",
-                "Built around enquiries, bookings and patient trust",
-              ].map((point) => (
-                <div key={point} className="flex items-center gap-2">
-                  <svg className="flex-shrink-0 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span className="text-sm text-white/60">{point}</span>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Specialist SEO for private healthcare clinics"
+        heading={<>SEO for clinics that need <em className="not-italic text-[var(--color-accent)]">more patient enquiries</em></>}
+        subtext="ClinicEvo helps UK private clinics improve their visibility on Google, strengthen their service pages and turn more local searches into booked appointments — built around how MSK patients actually search and decide."
+        bullets={[
+          "Local SEO, service pages and technical improvements",
+          "Built around enquiries, bookings and patient trust",
+          "MSK and private healthcare specialists only",
+        ]}
+        primaryCta={{ label: "Get a free clinic SEO audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "See how clinic SEO works", href: "#what-we-improve" }}
+        breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="SEO results"
+            stats={[
+              { label: "Organic enquiry growth", value: "340%", note: "avg increase in 6 months" },
+              { label: "Local keyword rankings", value: "#1–3", note: "for 18+ target terms" },
+              { label: "Cost per patient (SEO)", value: "£0", note: "ongoing vs paid acquisition" },
+            ]}
+          />
+        }
+      />
 
       {/* Positioning */}
       <section className="section bg-[var(--color-paper)]">

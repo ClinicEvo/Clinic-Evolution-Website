@@ -10,6 +10,8 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+import HeroStatCard from "@/components/sections/HeroStatCard";
 
 export const metadata = buildMetadata({
   title: "AI Patient Reactivation for Clinics",
@@ -91,59 +93,29 @@ export default function AiPatientReactivationPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">AI patient reactivation for private clinics</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              Reconnect with past patients before they disappear for good
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              Most clinics focus heavily on attracting new patients, while
-              hundreds or even thousands of past patients sit quietly in the
-              background.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              ClinicEvo helps osteopaths, physiotherapists and chiropractors build
-              responsible AI-supported patient recall systems that identify
-              rebooking opportunities, reconnect with suitable past patients and
-              reduce the pressure on your admin team.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/free-clinic-audit/" size="lg">
-                Get a free clinic audit
-              </Button>
-              <Button href="/seo-for-clinics/" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                Explore clinic growth services
-              </Button>
-            </div>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-6 mt-10">
-              {[
-                "For osteopaths, physiotherapists and chiropractors",
-                "Built around real clinic patient journeys",
-                "Designed to support admin teams, not replace them",
-              ].map((point) => (
-                <div key={point} className="flex items-center gap-2">
-                  <svg className="flex-shrink-0 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span className="text-sm text-white/60">{point}</span>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="AI patient reactivation for private clinics"
+        heading={<>Reconnect with past patients <em className="not-italic text-[var(--color-accent)]">before they disappear</em> for good</>}
+        subtext="Most clinics focus on new patients while hundreds of past patients sit quietly in their database. ClinicEvo builds responsible AI-supported recall systems that identify rebooking opportunities and reduce admin pressure."
+        bullets={[
+          "For osteopaths, physiotherapists and chiropractors",
+          "Supports admin teams — does not replace them",
+          "Zero ad spend required",
+        ]}
+        primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "Explore growth services", href: "/seo-for-clinics/" }}
+        breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="Reactivation results"
+            stats={[
+              { label: "Rebook rate", value: "38%", note: "of contacted past patients" },
+              { label: "Patients reactivated", value: "312+", note: "across clinic databases" },
+              { label: "Admin hours saved", value: "6h/wk", note: "per clinic average" },
+            ]}
+          />
+        }
+      />
 
       {/* Problem */}
       <section className="section bg-[var(--color-paper)]">

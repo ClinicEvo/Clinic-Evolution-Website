@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import PageTransition from "@/components/layout/PageTransition";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import CookieBanner from "@/components/layout/CookieBanner";
 import OrganizationSchema from "@/components/schema/OrganizationSchema";
@@ -15,12 +15,19 @@ const brume = localFont({
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "./fonts/Inter-Variable.woff2",
   variable: "--font-inter",
   display: "swap",
+  weight: "100 900",
 });
 
+const interTight = localFont({
+  src: "./fonts/InterTight-Variable.woff2",
+  variable: "--font-inter-tight",
+  display: "swap",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -46,10 +53,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-GB" className={`${inter.variable} ${brume.variable}`}>
+    <html lang="en-GB" className={`${inter.variable} ${interTight.variable} ${brume.variable}`} suppressHydrationWarning>
       <head>
         <OrganizationSchema />
-        {/* GA4 consent-mode default — analytics blocked until user accepts */}
         {process.env.NEXT_PUBLIC_GA4_ID && (
           <>
             <script
@@ -70,16 +76,16 @@ export default function RootLayout({
           </>
         )}
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--color-accent)] focus:text-white focus:rounded-lg"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:bg-[var(--color-accent)] focus:text-white focus:rounded-md focus:shadow-md"
         >
           Skip to main content
         </a>
         <Header />
-        <main id="main-content" tabIndex={-1}>
-          {children}
+        <main id="main-content">
+          <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
         <WhatsAppButton />

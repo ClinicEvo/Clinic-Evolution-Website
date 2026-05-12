@@ -9,6 +9,8 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+import HeroStatCard from "@/components/sections/HeroStatCard";
 
 export const metadata = buildMetadata({
   title: "Physiotherapy Website Design for Clinics",
@@ -62,58 +64,29 @@ export default function WebsiteDesignForClinicsPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">Clinic website design for MSK practices</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              Physiotherapy website design built around real patient bookings
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              Your clinic website should help patients understand what you do,
-              trust your clinical expertise and book without confusion.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              ClinicEvo creates clear, fast and SEO-ready websites for UK
-              physiotherapists, osteopaths and chiropractors. Every page is built
-              around the way real patients search, compare clinics and decide
-              whether to book.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/free-clinic-audit/" size="lg">
-                Get a free clinic website audit
-              </Button>
-              <Button href="#what-we-build" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                See how we help clinics grow
-              </Button>
-            </div>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-6 mt-10">
-              {[
-                "Built for private MSK clinics",
-                "Designed around SEO, trust and bookings",
-                "Created by someone who understands clinic patient journeys",
-              ].map((point) => (
-                <div key={point} className="flex items-center gap-2">
-                  <svg className="flex-shrink-0 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span className="text-sm text-white/60">{point}</span>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Clinic website design for MSK practices"
+        heading={<>Websites built around <em className="not-italic text-[var(--color-accent)]">real patient bookings</em>, not just aesthetics</>}
+        subtext="ClinicEvo designs clear, fast and SEO-ready websites for UK physiotherapists, osteopaths and chiropractors — every page built around the way patients search, compare and decide whether to book."
+        bullets={[
+          "Designed around SEO, trust and bookings",
+          "Built for private MSK clinics specifically",
+          "Faster load times and better conversion",
+        ]}
+        primaryCta={{ label: "Get a free website audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "See how we build", href: "#what-we-build" }}
+        breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="Website performance"
+            stats={[
+              { label: "Avg conversion rate", value: "12%", note: "vs 2% industry average" },
+              { label: "Google PageSpeed score", value: "94", note: "mobile performance" },
+              { label: "Time to first enquiry", value: "<48h", note: "avg post-launch" },
+            ]}
+          />
+        }
+      />
 
       {/* Problem */}
       <section className="section bg-[var(--color-paper)]">

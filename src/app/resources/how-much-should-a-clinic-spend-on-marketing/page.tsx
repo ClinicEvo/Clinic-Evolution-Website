@@ -1,6 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
-import ServiceSchema from "@/components/schema/ServiceSchema"; // Using general schema for articles where appropriate or custom ArticleSchema if preferred
 
 export const metadata = buildMetadata({
   title: "How Much Should a Clinic Spend on Marketing? | ClinicEvo",
@@ -286,6 +285,13 @@ export default function ArticlePage() {
     },
   ];
 
+  const relatedLinks = [
+    { label: "How to get more patients to your clinic", href: "/resources/how-to-get-more-patients-to-your-clinic/" },
+    { label: "SEO for clinics", href: "/seo-for-clinics/" },
+    { label: "Google Ads for clinics", href: "/google-ads-for-clinics/" },
+    { label: "AI patient reactivation", href: "/ai-patient-reactivation/" },
+  ];
+
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
@@ -294,6 +300,7 @@ export default function ArticlePage() {
       intro={intro}
       sections={sections}
       faqs={faqs}
+      relatedLinks={relatedLinks}
     />
   );
 }

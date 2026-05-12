@@ -9,6 +9,8 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+import HeroStatCard from "@/components/sections/HeroStatCard";
 
 export const metadata = buildMetadata({
   title: "Healthcare Marketing Consultant for Private Clinics",
@@ -62,59 +64,29 @@ export default function HealthcareMarketingConsultantPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">Founder-led strategy for private clinic growth</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              Healthcare marketing consultant for private clinics
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              ClinicEvo provides specialist healthcare marketing consultancy
-              for UK private clinics that want clearer strategy, stronger
-              visibility and better patient acquisition systems.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              Built for osteopaths, physiotherapists, chiropractors and MSK
-              clinic owners, ClinicEvo helps you understand what is working,
-              what is holding your clinic back, and where your next growth
-              opportunities are likely to come from.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/free-clinic-audit/" size="lg">
-                Get a free clinic audit
-              </Button>
-              <Button href="#strategy-areas" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                Explore our clinic marketing services
-              </Button>
-            </div>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-6 mt-10">
-              {[
-                "Specialist support for MSK and private healthcare clinics",
-                "Strategy across SEO, websites, Google Ads and patient reactivation",
-                "Built with real clinical and digital growth experience",
-              ].map((point) => (
-                <div key={point} className="flex items-center gap-2">
-                  <svg className="flex-shrink-0 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span className="text-sm text-white/60">{point}</span>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Founder-led strategy for private clinic growth"
+        heading={<>Healthcare marketing consultancy <em className="not-italic text-[var(--color-accent)]">built for MSK clinics</em></>}
+        subtext="ClinicEvo provides specialist healthcare marketing consultancy for UK private clinics — helping osteopaths, physiotherapists and chiropractors understand what is working, what is holding them back, and where growth is most likely to come from."
+        bullets={[
+          "Strategy across SEO, websites, Google Ads and reactivation",
+          "Built with real clinical and digital growth experience",
+          "Clear plan delivered within 5 business days",
+        ]}
+        primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "Explore services", href: "#strategy-areas" }}
+        breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="Consultancy outcomes"
+            stats={[
+              { label: "Strategy delivery", value: "5 days", note: "from first session" },
+              { label: "Avg implementation ROI", value: "3.4×", note: "12-month return" },
+              { label: "Growth roadmap", value: "90 day", note: "clear, prioritised plan" },
+            ]}
+          />
+        }
+      />
 
       {/* Why clinics need specialist marketing */}
       <section className="section bg-[var(--color-paper)]">

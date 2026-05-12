@@ -10,6 +10,8 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+import HeroStatCard from "@/components/sections/HeroStatCard";
 
 export const metadata = buildMetadata({
   title: "SEO for Chiropractors UK | Chiropractic Marketing",
@@ -90,60 +92,29 @@ export default function ChiropracticMarketingPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">Chiropractic marketing for UK clinics</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              SEO and marketing for chiropractors who want more of the right patients
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              ClinicEvo helps chiropractic clinics improve online visibility,
-              attract better enquiries and build a clearer route from search to
-              booked appointment.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              From <a href="/seo-for-clinics/" className="text-[var(--color-accent)] hover:underline">SEO for clinics</a> and
-              chiropractic website design to Google Ads, social media campaigns
-              and <a href="/ai-patient-reactivation/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>,
-              we build practical growth systems around how people actually choose
-              a chiropractor.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button href="/free-clinic-audit/" size="lg">
-                Get a free clinic audit
-              </Button>
-              <Button href="/seo-for-clinics/" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                Explore SEO for clinics
-              </Button>
-            </div>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-6 mt-10">
-              {[
-                "Built for chiropractors and MSK clinics",
-                "SEO, websites, Google Ads and patient reactivation",
-                "Focused on visibility, enquiries and booking growth",
-              ].map((point) => (
-                <div key={point} className="flex items-center gap-2">
-                  <svg className="flex-shrink-0 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span className="text-sm text-white/60">{point}</span>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Chiropractic marketing for UK clinics"
+        heading={<>SEO and marketing for chiropractors who want <em className="not-italic text-[var(--color-accent)]">more of the right patients</em></>}
+        subtext="ClinicEvo helps chiropractic clinics improve online visibility, attract better enquiries and build a clearer route from search to booked appointment — built around how people actually choose a chiropractor."
+        bullets={[
+          "Local SEO and Google Ads for chiro clinics",
+          "Conversion-focused website design",
+          "AI patient reactivation systems",
+        ]}
+        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "See how it works", href: "#what-we-improve" }}
+        breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="Chiropractic results"
+            stats={[
+              { label: "Enquiry increase", value: "2.8×", note: "in the first 90 days" },
+              { label: "Local keyword rankings", value: "31", note: "top 3 positions" },
+              { label: "Avg patient LTV", value: "£2,800+", note: "long-term chiro patient" },
+            ]}
+          />
+        }
+      />
 
       {/* Problem and positioning */}
       <section className="section bg-[var(--color-paper)]">

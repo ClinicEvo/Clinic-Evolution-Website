@@ -16,13 +16,16 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
 
   return (
     <dl className="flex flex-col divide-y divide-[var(--color-border)]">
-      {items.map((item, index) => (
+      {items.map((item, index) => {
+        const answerId = `faq-answer-${index}`;
+        return (
         <div key={index}>
           <dt>
             <button
               className="w-full flex items-center justify-between gap-4 py-5 text-left text-[var(--color-ink)] font-semibold text-base sm:text-lg hover:text-[var(--color-accent)] transition-colors duration-150"
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
               aria-expanded={openIndex === index}
+              aria-controls={answerId}
             >
               {item.question}
               <svg
@@ -44,6 +47,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
             </button>
           </dt>
           <dd
+            id={answerId}
             className={`overflow-hidden transition-all duration-300 ${
               openIndex === index ? "max-h-[500px] pb-5" : "max-h-0"
             }`}
@@ -51,7 +55,8 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
             <p className="text-body text-[var(--color-muted)]">{item.answer}</p>
           </dd>
         </div>
-      ))}
+        );
+      })}
     </dl>
   );
 }

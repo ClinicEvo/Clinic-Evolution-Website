@@ -1,13 +1,12 @@
 import { buildMetadata } from "@/lib/metadata";
-import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
-import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
-import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+
 
 export const metadata = buildMetadata({
   title: "Free Clinic Marketing Audit | ClinicEvo",
@@ -55,61 +54,18 @@ export default function FreeClinicAuditPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-8 mb-6">Free audit for UK MSK clinics</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              Get a free clinic marketing audit
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              Your clinic may already have a website, Google profile, service
-              pages and social media, but that does not always mean the right
-              patients can find you, understand your offer, or feel ready to book.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              The free ClinicEvo audit gives you a clear view of what is working,
-              what is being missed, and where your clinic has the strongest
-              opportunity to improve enquiries, bookings and patient reactivation.
-              Built for osteopaths, physiotherapists and chiropractors, the audit
-              looks at your clinic through both a marketing lens and a real
-              patient journey lens.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Button href="#audit-form" size="lg">
-                Request your free audit
-              </Button>
-            </div>
-            <p className="text-sm text-white/50 mt-6 max-w-md">
-              No pressure. No jargon. Just a practical review of where your clinic can improve online.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-8 mt-14">
-              {[
-                "For osteopaths, physiotherapists and chiropractors",
-                "Reviews website, SEO, local visibility and patient journey",
-                "Clear recommendations, not a generic automated report",
-              ].map((point) => (
-                <div key={point} className="flex items-center gap-3">
-                  <svg className="flex-shrink-0 text-[var(--color-accent)]" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span className="text-sm font-medium text-white/70">{point}</span>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Free audit for UK MSK clinics"
+        heading={<>Get a free clinic <em className="not-italic text-[var(--color-accent)]">marketing audit</em></>}
+        subtext="The free ClinicEvo audit gives you a clear view of what is working, what is being missed, and where your clinic has the strongest opportunity to improve enquiries, bookings and patient reactivation."
+        bullets={[
+          "Reviews website, SEO, local visibility and patient journey",
+          "Clear recommendations, not a generic automated report",
+          "For osteopaths, physiotherapists and chiropractors",
+        ]}
+        primaryCta={{ label: "Request your free audit", href: "#audit-form" }}
+        breadcrumbs={crumbs}
+      />
 
       {/* Problem */}
       <section className="section bg-[var(--color-paper)]">
@@ -298,34 +254,34 @@ export default function FreeClinicAuditPage() {
       </section>
 
       {/* Form Section */}
-      <section id="audit-form" className="section bg-[var(--color-ink)]">
+      <section id="audit-form" className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
                 <Badge variant="accent" className="mb-4">Request</Badge>
-                <h2 className="text-h2 text-white mb-5">
+                <h2 className="text-h2 text-[var(--color-ink)] mb-5">
                   Request your free clinic audit
                 </h2>
-                <p className="text-body-lg text-white/70 mb-5">
+                <p className="text-body-lg text-[var(--color-muted)] mb-5">
                   Complete the short form below and share your clinic website.
                   ClinicEvo will review your current digital presence and identify
                   the clearest opportunities for improvement.
                 </p>
                 <div className="hidden lg:flex flex-col gap-4 mt-10">
-                  <div className="bg-white/5 rounded-xl p-5 border border-white/10">
-                    <p className="text-body-sm text-white/80 font-medium mb-1">Clinic-led advice</p>
-                    <p className="text-sm text-white/50">Built around MSK patient journeys</p>
+                  <div className="bg-[var(--color-surface)] rounded-xl p-5 border border-[var(--color-border)]">
+                    <p className="text-body-sm text-[var(--color-ink)] font-medium mb-1">Clinic-led advice</p>
+                    <p className="text-sm text-[var(--color-muted)]">Built around MSK patient journeys</p>
                   </div>
-                  <div className="bg-white/5 rounded-xl p-5 border border-white/10">
-                    <p className="text-body-sm text-white/80 font-medium mb-1">No automated spam</p>
-                    <p className="text-sm text-white/50">Human review of your website</p>
+                  <div className="bg-[var(--color-surface)] rounded-xl p-5 border border-[var(--color-border)]">
+                    <p className="text-body-sm text-[var(--color-ink)] font-medium mb-1">No automated spam</p>
+                    <p className="text-sm text-[var(--color-muted)]">Human review of your website</p>
                   </div>
                 </div>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)] shadow-xl">
+              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
                 <form 
                   action="https://formspree.io/f/xbjnqpyz" // Place real endpoint here
                   method="POST" 
@@ -388,7 +344,7 @@ export default function FreeClinicAuditPage() {
                     <textarea id="message" name="message" rows={3} className="w-full p-4 border border-[var(--color-border)] rounded-lg resize-none focus:outline-none focus:border-[var(--color-accent)]"></textarea>
                   </div>
 
-                  <button type="submit" className="w-full h-12 bg-[var(--color-accent)] hover:bg-[#085a5a] text-white font-semibold rounded-lg transition-colors mt-2">
+                  <button type="submit" className="w-full h-12 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dim)] text-white font-semibold rounded-lg transition-colors mt-2">
                     Request my free audit
                   </button>
                   <p className="text-xs text-[var(--color-muted)] text-center mt-2">

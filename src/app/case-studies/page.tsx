@@ -1,10 +1,13 @@
 import { buildMetadata } from "@/lib/metadata";
+import Image from "next/image";
 import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+
 
 export const metadata = buildMetadata({
   title: "Clinic Marketing Case Studies | ClinicEvo",
@@ -23,38 +26,31 @@ export default function CaseStudiesPage() {
     <>
       <BreadcrumbSchema items={crumbs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-6 mb-4">Proof</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              Real results for private clinics
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 max-w-xl">
-              See how we have helped osteopaths, physiotherapists and
-              chiropractors improve their SEO visibility, website conversion and
-              patient enquiries.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Client results"
+        heading={<>Real growth from <em className="not-italic text-[var(--color-accent)]">real clinic systems</em></>}
+        subtext="These are not hypothetical projections. They are measured results from clinics that invested in proper digital growth systems — tracked from enquiry to booked appointment."
+        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        breadcrumbs={crumbs}
+      />
 
       {/* Case Studies Grid */}
       <section className="section bg-[var(--color-surface)] min-h-[50vh]">
         <div className="cx-main">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <FadeUp>
-              <div className="bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden h-full flex flex-col hover:border-[var(--color-accent)] transition-colors">
-                <div className="bg-[var(--color-paper)] border-b border-[var(--color-border)] p-8 flex items-center justify-center min-h-[240px]">
-                  <div className="text-center">
+              <div className="bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden h-full flex flex-col hover:border-[var(--color-accent)] transition-colors group">
+                <div className="relative border-b border-[var(--color-border)] p-8 flex items-center justify-center min-h-[240px] overflow-hidden">
+                  <Image
+                    src="https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-clinic-team-at-reception-01.png"
+                    alt="Bodyfunction Clinic reception"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-white/80" />
+                  <div className="relative text-center">
                     <p className="text-display text-[var(--color-accent)] font-bold">3×</p>
-                    <p className="text-body text-[var(--color-muted)]">new patient enquiries</p>
+                    <p className="text-body text-[var(--color-muted)] font-medium">new patient enquiries</p>
                   </div>
                 </div>
                 <div className="p-8 flex flex-col flex-1">

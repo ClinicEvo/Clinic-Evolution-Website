@@ -2,9 +2,10 @@ import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
-import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
+import PageHero from "@/components/sections/PageHero";
+
 
 export const metadata = buildMetadata({
   title: "Contact ClinicEvo | Clinic Marketing Support",
@@ -23,42 +24,14 @@ export default function ContactPage() {
     <>
       <BreadcrumbSchema items={crumbs} />
 
-      {/* Hero */}
-      <section className="bg-[var(--color-ink)] pt-40 pb-28 lg:pt-48 lg:pb-36">
-        <div className="cx-main">
-          <FadeUp>
-            <Breadcrumb items={crumbs} light />
-            <Badge variant="accent" className="mt-8 mb-6">Contact ClinicEvo</Badge>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h1 className="text-display text-white mb-8 max-w-3xl leading-tight">
-              Speak to us about growing your clinic online
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="text-body-lg text-white/70 mb-6 max-w-2xl leading-relaxed">
-              If you run an osteopathy, physiotherapy or chiropractic clinic and
-              want clearer digital growth support, we would be happy to hear from you.
-            </p>
-            <p className="text-body-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
-              Use this page to ask about SEO, website design, Google Ads, patient
-              reactivation, clinic marketing strategy or a full digital growth review.
-              If you are not sure where to start, the simplest next step is a free
-              clinic audit.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Button href="/free-clinic-audit/" size="lg">
-                Get a free clinic audit
-              </Button>
-              <Button href="#contact-form" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                Send an enquiry
-              </Button>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        badge="Contact ClinicEvo"
+        heading={<>Speak to us about <em className="not-italic text-[var(--color-accent)]">growing your clinic online</em></>}
+        subtext="If you run an osteopathy, physiotherapy or chiropractic clinic and want clearer digital growth support, we would be happy to hear from you. Not sure where to start? The free audit is the simplest next step."
+        primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "Send an enquiry", href: "#contact-form" }}
+        breadcrumbs={crumbs}
+      />
 
       {/* What you can ask us about */}
       <section className="section bg-[var(--color-paper)]">
@@ -264,7 +237,7 @@ export default function ContactPage() {
                     </label>
                   </div>
 
-                  <button type="submit" className="w-full h-12 bg-[var(--color-accent)] hover:bg-[#085a5a] text-white font-semibold rounded-lg transition-colors mt-2">
+                  <button type="submit" className="w-full h-12 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dim)] text-white font-semibold rounded-lg transition-colors mt-2">
                     Send enquiry
                   </button>
                 </form>
@@ -277,11 +250,11 @@ export default function ContactPage() {
       {/* Audit alternative */}
       <section className="section bg-[var(--color-surface)]">
         <div className="cx-main">
-          <div className="bg-[var(--color-ink)] rounded-2xl p-8 lg:p-12 text-center max-w-4xl mx-auto">
-            <h2 className="text-h2 text-white mb-5">
+          <div className="bg-[var(--color-paper)] rounded-2xl p-8 lg:p-12 text-center max-w-4xl mx-auto">
+            <h2 className="text-h2 text-[var(--color-ink)] mb-5">
               Not sure what your clinic needs yet?
             </h2>
-            <p className="text-body-lg text-white/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-body-lg text-[var(--color-muted)] mb-8 max-w-2xl mx-auto">
               If you are unsure whether your clinic needs SEO, a new website,
               Google Ads or a better patient follow-up system, start with a free
               clinic audit. We will look at your current website, search visibility,
