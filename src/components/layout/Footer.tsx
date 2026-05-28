@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer
       className="text-white border-t border-white/5 relative overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #181d2e 0%, #111520 100%)" }}
+      style={{ background: "var(--color-ink)" }}
     >
       {/* Subtle radial glow top-left */}
       <div
@@ -30,10 +30,10 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-14 border-b border-white/8 mb-14">
           <div>
             <p className="font-display font-bold text-[1.35rem] leading-snug text-white mb-1">
-              Ready to grow your clinic?
+              Find out where your clinic is losing patients.
             </p>
             <p className="text-sm text-white/50">
-              Free audit — personalised growth report within 2 business days.
+              Free audit — honest assessment within 2 business days. No jargon. No commitment.
             </p>
           </div>
           <Link
@@ -54,14 +54,21 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link
               href="/"
-              className="text-[1.5rem] leading-none text-white hover:text-[var(--color-accent)] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-wordmark)" }}
+              className="flex flex-col leading-none"
+              aria-label="ClinicEvo home"
             >
-              ClinicEvo
+              <span
+                className="text-[1.6rem] text-white transition-colors duration-200 leading-none"
+                style={{ fontFamily: "var(--font-dm-sans-medium)", letterSpacing: "0.1em" }}
+              >
+                clinic <span style={{ color: "var(--color-accent)" }}>evo</span>
+              </span>
+              <span className="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-white/45 mt-0.5">
+                Patient Acquisition &amp; Retention Systems
+              </span>
             </Link>
             <p className="mt-5 text-sm text-white/45 max-w-xs leading-relaxed">
-              Growth systems for UK MSK clinics that want predictable,
-              measurable patient flow.
+              Patient acquisition and retention systems for UK MSK clinics.
             </p>
             <div className="mt-7 flex items-center gap-4">
               <a

@@ -10,8 +10,8 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-  heading = "Ready to build a system?",
-  subheading = "Book a free audit and get a predictable growth plan for your clinic within 2 business days.",
+  heading = "Find out exactly where your clinic is losing patients.",
+  subheading = "Book a free clinic audit. We review your diary, your search visibility, your enquiry handling and your follow-up systems — and tell you honestly where patients are falling through the gaps. Within two business days.",
   primaryLabel = ctaNav.label,
   primaryHref = ctaNav.href,
 }: CTASectionProps) {

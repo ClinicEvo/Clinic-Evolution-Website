@@ -4,12 +4,12 @@
 
 @theme {
   /* Colours */
-  --color-paper:        #F7F5F2;   /* warm off-white background */
-  --color-ink:          #111111;   /* near black text */
-  --color-surface:      #E5E2DC;   /* light grey for cards/dividers */
-  --color-muted:        #625F5C;   /* warm dark grey — AA-accessible on paper and surface */
-  --color-accent:       #5C6FAE;   /* slate blue brand accent */
-  --color-accent-dim:   #4A5A8F;   /* slate blue hover state */
+  --color-paper:        #FFFFFF;   /* white background */
+  --color-ink:          #191919;   /* #210B2Bdeep purple text */
+  --color-surface:      #FAF9F8;   /* #E5E2DC light grey for cards/dividers */
+  --color-muted:        #8A8989;   /* #aa9a96 #a59592 #7A6E6A #625F5C warm dark grey — AA-accessible on paper and surface */
+  --color-accent:       #F97B6B;   /* coral brand accent */
+  --color-accent-dim:   #e0614f;   /* coral hover state */
   --color-dark:         #1B2230;   /* deep navy for footer/contrast sections */
   --color-white:        #FFFFFF;
   --color-border:       #E5E2DC;
@@ -23,8 +23,8 @@
   --shadow-none:    none;
 
   /* Font families */
-  --font-sans:      var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display:   var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-sans:      var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display:   var(--font-plus-jakarta-semibold), ui-sans-serif, system-ui, sans-serif;
   --font-wordmark:  var(--font-brume), ui-sans-serif, system-ui, sans-serif;
 
   /* Containers */
@@ -73,6 +73,11 @@ a {
 }
 
 /* ─── Typography ────────────────────────────────────────────────────────────── */
+h1 {
+  font-family: var(--font-plus-jakarta-semibold), var(--font-display);
+  font-weight: 600;
+}
+
 .text-display {
   font-family: var(--font-display);
   font-size: clamp(3.5rem, 8vw, 4.5rem); /* 56-72px */
@@ -118,7 +123,7 @@ a {
   font-weight: 600;
   color: var(--color-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.15em; /*0.05em;*/ 
 }
 
 /* ─── Article prose ─────────────────────────────────────────────────────────── */

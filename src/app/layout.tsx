@@ -9,6 +9,27 @@ import CookieBanner from "@/components/layout/CookieBanner";
 import OrganizationSchema from "@/components/schema/OrganizationSchema";
 import { siteConfig } from "@/lib/metadata";
 
+const dmSansLight = localFont({
+  src: "./fonts/DMSans_24pt-Light.woff2",
+  variable: "--font-dm-sans",
+  display: "swap",
+  weight: "300",
+});
+
+const dmSansMedium = localFont({
+  src: "./fonts/DMSans_18pt-Medium.woff2",
+  variable: "--font-dm-sans-medium",
+  display: "swap",
+  weight: "500",
+});
+
+const plusJakartaSemiBold = localFont({
+  src: "./fonts/PlusJakartaSans-SemiBold.woff2",
+  variable: "--font-plus-jakarta-semibold",
+  display: "swap",
+  weight: "600",
+});
+
 const brume = localFont({
   src: "./fonts/Brume-Regular.woff2",
   variable: "--font-brume",
@@ -53,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-GB" className={`${inter.variable} ${interTight.variable} ${brume.variable}`} suppressHydrationWarning>
+    <html lang="en-GB" className={`${dmSansLight.variable} ${dmSansMedium.variable} ${inter.variable} ${interTight.variable} ${brume.variable} ${plusJakartaSemiBold.variable}`} suppressHydrationWarning>
       <head>
         <OrganizationSchema />
         {process.env.NEXT_PUBLIC_GA4_ID && (

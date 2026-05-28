@@ -1,13 +1,18 @@
 "use client";
 
-import { ComponentPropsWithoutRef, ReactNode } from "react";
+import React, { ComponentPropsWithoutRef, ReactNode } from "react";
 import Link from "next/link";
 
 type Variant = "primary" | "secondary" | "ghost" | "outline";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-sans font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap active:scale-[0.99]";
+  "inline-flex items-center justify-center gap-2 font-sans rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap active:scale-[0.99]";
+
+const baseStyle = {
+  fontWeight: "var(--font-weight-semibold)",
+  letterSpacing: "0.03rem",
+} as React.CSSProperties;
 
 const variants: Record<Variant, string> = {
   primary:
@@ -40,20 +45,22 @@ export default function Button({
   href,
   children,
   className = "",
+  style,
   ...props
 }: ButtonProps) {
   const combinedClasses = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
+  const combinedStyle = { ...baseStyle, ...style };
 
   if (href) {
     return (
-      <Link href={href} className={combinedClasses}>
+      <Link href={href} className={combinedClasses} style={combinedStyle}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={combinedClasses} {...props}>
+    <button className={combinedClasses} style={combinedStyle} {...props}>
       {children}
     </button>
   );

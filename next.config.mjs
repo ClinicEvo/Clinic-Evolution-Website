@@ -1,6 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
+  async redirects() {
+    return [
+      {
+        source: "/ai-patient-reactivation/",
+        destination: "/ai-integration/",
+        permanent: true,
+      },
+      {
+        source: "/ai-patient-reactivation",
+        destination: "/ai-integration/",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {
