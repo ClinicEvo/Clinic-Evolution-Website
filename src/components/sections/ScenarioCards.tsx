@@ -173,25 +173,25 @@ const cards = [
   {
     icon: <PhoneOffIcon />,
     heading: "The phone rings out.",
-    body: "A prospective patient calls while you are mid-treatment. That call was worth £300–500 in treatment revenue — and nothing to generate. It's gone.",
+    body: "A prospective patient calls while you are mid-treatment. That call was worth £300–500 in treatment revenue. It cost nothing to generate. It's gone.",
     illustration: <MissedCallIllustration />,
   },
   {
     icon: <ClockIcon />,
     heading: "Your reply goes out at 9am.",
-    body: "A form is submitted at 9pm. The clinic that responds first gets the booking. Not the best clinic. The fastest.",
+    body: "A form is submitted at 9pm. Nobody replies until the following morning. The clinic that responds first gets the booking. Not the best clinic. The fastest.",
     illustration: <LateResponseIllustration />,
   },
   {
     icon: <MessageIcon />,
     heading: "No system. No follow-up. No booking.",
-    body: "An enquiry arrives through Facebook. Someone screenshots it and drops it in a WhatsApp thread. Nobody follows up.",
+    body: "An enquiry arrives through Facebook and disappears into a WhatsApp thread nobody revisits.",
     illustration: <LostEnquiryIllustration />,
   },
   {
     icon: <UserXIcon />,
     heading: "Nobody contacts them.",
-    body: "A patient attends twice, recovers well, and says they'll book again. At £63 per follow-up across five sessions, that's £250 in lost revenue — per patient, every time.",
+    body: "A patient attends twice, makes a good recovery, and says they will book again when they need you. A clinic rebooking at 60% loses four out of every ten patients after a single session. That is £250 in lost revenue per patient who doesn't return.",
     illustration: <LapsedPatientIllustration />,
   },
 ];
@@ -204,7 +204,7 @@ export default function ScenarioCards() {
   const reduce = useReducedMotion();
 
   return (
-    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {cards.map((card, i) => (
         <motion.div
           key={card.heading}

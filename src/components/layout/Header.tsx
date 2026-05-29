@@ -122,7 +122,7 @@ export default function Header() {
 
             {/* CTA */}
             <div className="flex items-center gap-4">
-              <Button href={ctaNav.href} size="sm" className="hidden lg:inline-flex" style={{ letterSpacing: "0.08em" }}>
+              <Button href={ctaNav.href} size="md" className="hidden lg:inline-flex !rounded-full" style={{ letterSpacing: "0.06em" }}>
                 {ctaNav.label}
               </Button>
 
