@@ -1,23 +1,30 @@
 @import "tailwindcss";
 
-/* ─── ClinicEvo Brand System v1 ────────────────────────────────────────── */
+/* ─── ClinicEvo Brand System v2 ────────────────────────────────────────── */
 
 @theme {
-  /* Colours */
-  --color-paper:        #FFFFFF;   /* white background */
-  --color-ink:          #191919;   /* #210B2Bdeep purple text */
-  --color-surface:      #FAF9F8;   /* #E5E2DC light grey for cards/dividers */
-  --color-muted:        #8A8989;   /* #aa9a96 #a59592 #7A6E6A #625F5C warm dark grey — AA-accessible on paper and surface */
-  --color-accent:       #F97B6B;   /* coral brand accent */
-  --color-accent-dim:   #e0614f;   /* coral hover state */
-  --color-dark:         #1B2230;   /* deep navy for footer/contrast sections */
+  /* Base colours */
+  --color-paper:        #FFFFFF;
+  --color-ink:          #191919;
+  --color-surface:      #FAF9F8;
+  --color-muted:        #8A8989;
+  --color-accent:       #F97B6B;   /* coral — retained for backwards compat */
+  --color-accent-dim:   #e0614f;
+  --color-dark:         #1B2230;
   --color-white:        #FFFFFF;
   --color-border:       #E5E2DC;
-  --color-error:        #B91C1C;   /* error/required field indicators */
-  --color-muted-light:  #BDB8AF;   /* placeholder text, secondary UI labels */
-  --color-accent-light: #EEF0F8;   /* light accent tint for success states */
+  --color-error:        #B91C1C;
+  --color-muted-light:  #BDB8AF;
+  --color-accent-light: #EEF0F8;
 
-  /* Shadows - Minimal/Flat approach */
+  /* Brand purple system */
+  --color-purple:       #6B21A8;
+  --color-purple-dark:  #3B0764;
+  --color-purple-hover: #7C3AED;
+  --color-hero-bg:      #0D0818;
+  --color-navy:         #0A1628;
+
+  /* Shadows */
   --shadow-sm:      0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md:      0 2px 4px 0 rgb(0 0 0 / 0.05);
   --shadow-none:    none;
@@ -28,8 +35,8 @@
   --font-wordmark:  var(--font-brume), ui-sans-serif, system-ui, sans-serif;
 
   /* Containers */
-  --container-wide:   80rem;     /* 1280px max width */
-  --container-main:   75rem;     /* 1200px */
+  --container-wide:   80rem;
+  --container-main:   75rem;   /* 1200px */
 }
 
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
@@ -43,7 +50,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -55,8 +62,8 @@ a {
 /* ─── Containers ────────────────────────────────────────────────────────────── */
 .cx-main {
   margin-inline: auto;
-  padding-inline: 2rem;
-  max-width: var(--container-wide);
+  padding-inline: 2.5rem;
+  max-width: 75rem; /* 1200px */
 }
 
 @media (max-width: 640px) {
@@ -66,7 +73,7 @@ a {
 }
 
 /* ─── Section spacing ───────────────────────────────────────────────────────── */
-.section { padding-block: 6.25rem; } /* 100px vertical base */
+.section { padding-block: 7.5rem; } /* 120px vertical */
 
 @media (max-width: 640px) {
   .section { padding-block: 5rem; }
@@ -75,35 +82,44 @@ a {
 /* ─── Typography ────────────────────────────────────────────────────────────── */
 h1 {
   font-family: var(--font-plus-jakarta-semibold), var(--font-display);
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .text-display {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 8vw, 4.5rem); /* 56-72px */
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(3rem, 6vw, 4.5rem); /* up to 72px */
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.028em;
 }
 
 .text-h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 5vw, 2.75rem); /* 36-44px */
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.5rem, 5vw, 3.75rem); /* up to 60px */
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
 }
 
 .text-h2 {
   font-family: var(--font-display);
-  font-size: 1.75rem; /* 28px */
-  font-weight: 600;
-  line-height: 1.3;
+  font-size: clamp(1.75rem, 4vw, 3.25rem); /* up to 52px */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.019em;
 }
 
 .text-h3 {
   font-family: var(--font-display);
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.75rem; /* 28px */
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.011em;
+}
+
+.text-h4 {
+  font-family: var(--font-display);
+  font-size: 1.25rem; /* 20px */
   font-weight: 600;
   line-height: 1.4;
 }
@@ -115,7 +131,7 @@ h1 {
 
 .text-body {
   font-size: 1rem; /* 16px */
-  line-height: 1.6;
+  line-height: 1.75;
 }
 
 .text-label {
@@ -123,7 +139,7 @@ h1 {
   font-weight: 600;
   color: var(--color-muted);
   text-transform: uppercase;
-  letter-spacing: 0.15em; /*0.05em;*/ 
+  letter-spacing: 0.15em;
 }
 
 /* ─── Article prose ─────────────────────────────────────────────────────────── */
@@ -223,6 +239,44 @@ h1 {
 .article-prose strong {
   font-weight: 600;
   color: var(--color-ink);
+}
+
+/* ─── Grain texture ─────────────────────────────────────────────────────────── */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.grain::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.04;
+  z-index: -1;
+  animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%,100% { background-position: 0 0; }
+  10%      { background-position: -5% -10%; }
+  20%      { background-position: -15% 5%; }
+  30%      { background-position: 7% -25%; }
+  40%      { background-position: -5% 25%; }
+  50%      { background-position: -15% 10%; }
+  60%      { background-position: 15% 0; }
+  70%      { background-position: 0 15%; }
+  80%      { background-position: 3% 35%; }
+  90%      { background-position: -10% 10%; }
+}
+
+/* ─── Pulse ring (for live indicator dots) ──────────────────────────────────── */
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(3); opacity: 0; }
 }
 
 /* ─── Reduced motion ────────────────────────────────────────────────────────── */

@@ -44,9 +44,9 @@ export default function Header() {
             >
               <span
                 className="text-[1.6rem] text-[var(--color-ink)] transition-colors duration-200 leading-none"
-                style={{ fontFamily: "var(--font-dm-sans-medium)", letterSpacing: "0.1em" }}
+                style={{ fontFamily: "var(--font-dm-sans-medium)", letterSpacing: "0.1em", fontWeight: 700 }}
               >
-                clinic <span style={{ color: "var(--color-accent)" }}>evo</span>
+                clinic <span style={{ color: "#6B21A8" }}>evo</span>
               </span>
               <span className="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-[var(--color-muted)] mt-0.5">
                 Patient Acquisition &amp; Retention Systems
@@ -60,12 +60,15 @@ export default function Header() {
                   {item.children ? (
                     <>
                       <button
-                        className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors rounded-md ${
+                        className={`flex items-center gap-1.5 px-4 py-2 text-[14px] font-medium transition-colors rounded-md ${
                           openDropdown === item.label
-                            ? "text-[var(--color-accent)] bg-[var(--color-surface)]"
-                            : "text-[var(--color-ink)] hover:bg-[var(--color-surface)]"
+                            ? "bg-[var(--color-surface)]"
+                            : "hover:bg-[var(--color-surface)]"
                         }`}
-                        style={{ letterSpacing: "0.04em" }}
+                        style={{
+                          color: openDropdown === item.label ? "#111827" : "#6B7280",
+                          letterSpacing: "0.01em",
+                        }}
                         aria-haspopup="true"
                         aria-expanded={openDropdown === item.label}
                         onClick={() =>
@@ -110,8 +113,8 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block px-4 py-2 text-sm font-semibold text-[var(--color-ink)] hover:bg-[var(--color-surface)] rounded-md transition-colors"
-                      style={{ letterSpacing: "0.04em" }}
+                      className="block px-4 py-2 rounded-md transition-colors hover:bg-[var(--color-surface)]"
+                      style={{ fontSize: "14px", fontWeight: 500, color: "#6B7280", letterSpacing: "0.01em" }}
                     >
                       {item.label}
                     </Link>
@@ -122,7 +125,7 @@ export default function Header() {
 
             {/* CTA */}
             <div className="flex items-center gap-4">
-              <Button href={ctaNav.href} size="md" className="hidden lg:inline-flex !rounded-full" style={{ letterSpacing: "0.06em" }}>
+              <Button href={ctaNav.href} size="md" className="hidden lg:inline-flex" style={{ letterSpacing: "0.03em", background: "#6B21A8", borderRadius: "8px" }}>
                 {ctaNav.label}
               </Button>
 

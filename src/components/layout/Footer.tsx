@@ -14,8 +14,8 @@ export default function Footer() {
 
   return (
     <footer
-      className="text-white border-t border-white/5 relative overflow-hidden"
-      style={{ background: "var(--color-ink)" }}
+      className="text-white relative overflow-hidden"
+      style={{ background: "#0D0818", borderTop: "2px solid #6B21A8" }}
     >
       {/* Subtle radial glow top-left */}
       <div
@@ -38,7 +38,8 @@ export default function Footer() {
           </div>
           <Link
             href="/free-clinic-audit/"
-            className="flex-shrink-0 inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover,var(--color-accent))]/90 text-white text-sm font-bold px-5 py-3 rounded-lg transition-opacity hover:opacity-90 whitespace-nowrap"
+            className="flex-shrink-0 inline-flex items-center gap-2 text-white text-sm font-bold px-5 py-3 rounded-lg transition-opacity hover:opacity-90 whitespace-nowrap"
+            style={{ background: "#6B21A8" }}
           >
             Book free audit
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -59,9 +60,9 @@ export default function Footer() {
             >
               <span
                 className="text-[1.6rem] text-white transition-colors duration-200 leading-none"
-                style={{ fontFamily: "var(--font-dm-sans-medium)", letterSpacing: "0.1em" }}
+                style={{ fontFamily: "var(--font-dm-sans-medium)", letterSpacing: "0.1em", fontWeight: 700 }}
               >
-                clinic <span style={{ color: "var(--color-accent)" }}>evo</span>
+                clinic <span style={{ color: "#6B21A8" }}>evo</span>
               </span>
               <span className="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-white/45 mt-0.5">
                 Patient Acquisition &amp; Retention Systems
@@ -93,11 +94,11 @@ export default function Footer() {
 
           {/* Who We Help */}
           <div>
-            <h3 className="text-[0.7rem] font-bold uppercase tracking-[0.08em] text-[var(--color-accent)] mb-5">Who We Help</h3>
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] text-white mb-5">Who We Help</h3>
             <ul className="flex flex-col gap-3.5" role="list">
               {footerNav.whoWeHelp.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-white/55 hover:text-white transition-colors">
+                  <Link href={item.href} className="text-[13px] text-white/50 hover:text-white/85 transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -107,11 +108,11 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-[0.7rem] font-bold uppercase tracking-[0.08em] text-[var(--color-accent)] mb-5">Services</h3>
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] text-white mb-5">Services</h3>
             <ul className="flex flex-col gap-3.5" role="list">
               {footerNav.services.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-white/55 hover:text-white transition-colors">
+                  <Link href={item.href} className="text-[13px] text-white/50 hover:text-white/85 transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -121,7 +122,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-[0.7rem] font-bold uppercase tracking-[0.08em] text-[var(--color-accent)] mb-5">Company</h3>
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] text-white mb-5">Company</h3>
             <ul className="flex flex-col gap-3.5" role="list">
               {footerNav.company.map((item) => {
                 const isAudit = item.href.includes("audit");

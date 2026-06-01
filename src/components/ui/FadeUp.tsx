@@ -1,9 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
-import { useInView } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, useReducedMotion, useInView } from "framer-motion";
+import { useRef, ReactNode } from "react";
 
 interface FadeUpProps {
   children: ReactNode;
@@ -19,9 +17,18 @@ export default function FadeUp({ children, delay = 0, className }: FadeUpProps) 
   return (
     <motion.div
       ref={ref}
-      initial={reduce ? {} : { opacity: 0, y: 20 }}
-      animate={isInView || reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={reduce ? {} : { opacity: 0, y: 24, scale: 0.97 }}
+      animate={isInView || reduce ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 24, scale: 0.97 }}
+      transition={
+        reduce
+          ? {}
+          : {
+              type: "spring",
+              stiffness: 70,
+              damping: 18,
+              delay,
+            }
+      }
       className={className}
     >
       {children}

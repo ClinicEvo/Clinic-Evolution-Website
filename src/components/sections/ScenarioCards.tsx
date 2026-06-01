@@ -175,24 +175,28 @@ const cards = [
     heading: "The phone rings out.",
     body: "A prospective patient calls while you are mid-treatment. That call was worth £300–500 in treatment revenue. It cost nothing to generate. It's gone.",
     illustration: <MissedCallIllustration />,
+    accentColor: "#EF4444",
   },
   {
     icon: <ClockIcon />,
     heading: "Your reply goes out at 9am.",
     body: "A form is submitted at 9pm. Nobody replies until the following morning. The clinic that responds first gets the booking. Not the best clinic. The fastest.",
     illustration: <LateResponseIllustration />,
+    accentColor: "#F59E0B",
   },
   {
     icon: <MessageIcon />,
     heading: "No system. No follow-up. No booking.",
     body: "An enquiry arrives through Facebook and disappears into a WhatsApp thread nobody revisits.",
     illustration: <LostEnquiryIllustration />,
+    accentColor: "#F97316",
   },
   {
     icon: <UserXIcon />,
     heading: "Nobody contacts them.",
     body: "A patient attends twice, makes a good recovery, and says they will book again when they need you. A clinic rebooking at 60% loses four out of every ten patients after a single session. That is £250 in lost revenue per patient who doesn't return.",
     illustration: <LapsedPatientIllustration />,
+    accentColor: "#EF4444",
   },
 ];
 
@@ -212,9 +216,14 @@ export default function ScenarioCards() {
           animate={inView || reduce ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.45, delay: i * 0.1, ease }}
           className="flex flex-col bg-white rounded-2xl border border-[var(--color-border)] p-6 overflow-hidden"
+          style={{ borderTop: `3px solid ${card.accentColor}` }}
+          whileHover={{ y: -5, boxShadow: "0 16px 48px rgba(0,0,0,0.10)" }}
         >
           {/* Icon badge */}
-          <div className="w-9 h-9 rounded-xl bg-[var(--color-accent)]/8 flex items-center justify-center text-[var(--color-accent)] mb-5 flex-shrink-0">
+          <div
+            className="w-9 h-9 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
+            style={{ background: `${card.accentColor}14`, color: card.accentColor }}
+          >
             {card.icon}
           </div>
           {/* Heading */}
