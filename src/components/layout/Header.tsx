@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { mainNav, ctaNav } from "@/lib/nav";
 import Button from "@/components/ui/Button";
 
@@ -42,15 +43,14 @@ export default function Header() {
               aria-label="ClinicEvo home"
               onClick={() => setMobileOpen(false)}
             >
-              <span
-                className="text-[1.6rem] text-[var(--color-ink)] transition-colors duration-200 leading-none"
-                style={{ fontFamily: "var(--font-dm-sans-medium)", letterSpacing: "0.1em", fontWeight: 700 }}
-              >
-                clinic <span style={{ color: "#6B21A8" }}>evo</span>
-              </span>
-              <span className="text-[0.55rem] font-bold tracking-[0.18em] uppercase text-[var(--color-muted)] mt-0.5">
-                Patient Acquisition &amp; Retention Systems
-              </span>
+              <Image
+                src="/images/cevo_newlogo.png"
+                alt="Clinic Evo"
+                width={140}
+                height={40}
+                style={{ objectFit: "contain" }}
+                priority
+              />
             </Link>
 
             {/* Desktop Nav */}
@@ -66,7 +66,7 @@ export default function Header() {
                             : "hover:bg-[var(--color-surface)]"
                         }`}
                         style={{
-                          color: openDropdown === item.label ? "#111827" : "#6B7280",
+                          color: "var(--color-ink)",
                           letterSpacing: "0.01em",
                         }}
                         aria-haspopup="true"
@@ -114,7 +114,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       className="block px-4 py-2 rounded-md transition-colors hover:bg-[var(--color-surface)]"
-                      style={{ fontSize: "14px", fontWeight: 500, color: "#6B7280", letterSpacing: "0.01em" }}
+                      style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-ink)", letterSpacing: "0.01em" }}
                     >
                       {item.label}
                     </Link>
@@ -125,7 +125,7 @@ export default function Header() {
 
             {/* CTA */}
             <div className="flex items-center gap-4">
-              <Button href={ctaNav.href} size="md" className="hidden lg:inline-flex" style={{ letterSpacing: "0.03em", background: "#6B21A8", borderRadius: "8px" }}>
+              <Button href={ctaNav.href} size="md" className="hidden lg:inline-flex" style={{ letterSpacing: "0.03em", background: "#ff5b4a", borderRadius: "8px" }}>
                 {ctaNav.label}
               </Button>
 

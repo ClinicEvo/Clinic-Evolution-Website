@@ -35,7 +35,7 @@ function MetricTile({ label, value, prefix = "", change, active }: {
 }) {
   const count = useCountUp(value, 1.4, active);
   return (
-    <div style={{ background: "#1A0F2E", padding: "18px 20px" }}>
+    <div style={{ background: "#0d1b2a", padding: "18px 20px" }}>
       <p style={{ fontFamily: "var(--font-sans)", fontSize: "11px", color: "rgba(255,255,255,0.4)", marginBottom: "6px" }}>
         {label}
       </p>
@@ -63,7 +63,7 @@ export default function DashboardMockup() {
     >
       <div
         style={{
-          background: "#1A0F2E",
+          background: "#0d1b2a",
           border: "1px solid rgba(155,95,227,0.25)",
           borderRadius: "12px",
           overflow: "hidden",
@@ -74,7 +74,7 @@ export default function DashboardMockup() {
           className="flex items-center gap-2"
           style={{ padding: "14px 20px", borderBottom: "1px solid rgba(155,95,227,0.15)" }}
         >
-          <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#9B5FE3" }} />
+          <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#ff5b4a" }} />
           <span style={{ fontFamily: "var(--font-sans)", fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.5)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
             Patient Pulse — Live Dashboard
           </span>
@@ -108,7 +108,7 @@ export default function DashboardMockup() {
                 transition={{ delay: 0.5 + i * 0.04, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 style={{
                   flex: 1,
-                  background: `rgba(107,33,168,${(0.25 + (h / 95) * 0.75).toFixed(2)})`,
+                  background: `rgba(255,91,74,${(0.25 + (h / 95) * 0.75).toFixed(2)})`,
                   borderRadius: "3px 3px 0 0",
                 }}
               />

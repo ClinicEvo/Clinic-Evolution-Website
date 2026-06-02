@@ -5,11 +5,11 @@
 @theme {
   /* Base colours */
   --color-paper:        #FFFFFF;
-  --color-ink:          #191919;
+  --color-ink:          #0d1b2a;
   --color-surface:      #FAF9F8;
   --color-muted:        #8A8989;
-  --color-accent:       #F97B6B;   /* coral — retained for backwards compat */
-  --color-accent-dim:   #e0614f;
+  --color-accent:       #ff5b4a;
+  --color-accent-dim:   #e04535;
   --color-dark:         #1B2230;
   --color-white:        #FFFFFF;
   --color-border:       #E5E2DC;

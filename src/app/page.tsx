@@ -7,6 +7,8 @@ import DashboardMockup from "@/components/hero/DashboardMockup";
 import AnimatedHeadline from "@/components/ui/AnimatedHeadline";
 import TiltCard from "@/components/ui/TiltCard";
 
+const ACCENT = "#ff5b4a";
+
 const systemStages = [
   {
     num: "01",
@@ -52,7 +54,7 @@ const disciplineCards = [
     body: "We understand your patients, your GOsC obligations and how osteopathy patients search and choose.",
     href: "/osteopath-marketing/",
     anchor: "marketing for osteopaths",
-    accentColor: "#6B21A8",
+    accentColor: ACCENT,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="5" r="2" />
@@ -108,8 +110,7 @@ export default function HomePage() {
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section
-        className="grain min-h-[calc(100vh-73px)] flex items-center py-14 lg:py-20"
-        style={{ background: "#0D0818" }}
+        className="min-h-[calc(100vh-73px)] flex items-center py-14 lg:py-20 bg-white"
       >
         <div className="cx-main w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -122,9 +123,9 @@ export default function HomePage() {
                   style={{
                     padding: "4px 12px",
                     borderRadius: "99px",
-                    background: "rgba(155,95,227,0.15)",
-                    border: "1px solid rgba(155,95,227,0.3)",
-                    color: "#C4A0F0",
+                    background: "rgba(255,91,74,0.1)",
+                    border: "1px solid rgba(255,91,74,0.3)",
+                    color: ACCENT,
                     fontSize: "11px",
                     fontWeight: 500,
                     letterSpacing: "0.06em",
@@ -139,7 +140,7 @@ export default function HomePage() {
                 text="The only growth system built for MSK clinics."
                 as="h1"
                 baseDelay={0.08}
-                className="font-display text-white mb-6"
+                className="font-display text-[var(--color-ink)] mb-6"
                 style={{
                   fontSize: "4.2rem",
                   fontWeight: 800,
@@ -155,7 +156,7 @@ export default function HomePage() {
                     fontFamily: "var(--font-sans)",
                     fontSize: "17px",
                     lineHeight: 1.7,
-                    color: "rgba(255,255,255,0.55)",
+                    color: "#6B7280",
                     maxWidth: "480px",
                   }}
                 >
@@ -169,7 +170,7 @@ export default function HomePage() {
                     href="/free-clinic-audit/"
                     className="inline-flex items-center font-semibold text-white transition-colors hover:opacity-90"
                     style={{
-                      background: "#7B3FBE",
+                      background: ACCENT,
                       padding: "13px 24px",
                       borderRadius: "8px",
                       fontSize: "15px",
@@ -180,11 +181,11 @@ export default function HomePage() {
                   </Link>
                   <Link
                     href="#system-section"
-                    className="inline-flex items-center gap-2 transition-colors hover:border-white/40"
+                    className="inline-flex items-center gap-2 transition-colors"
                     style={{
                       background: "transparent",
-                      border: "1px solid rgba(255,255,255,0.2)",
-                      color: "rgba(255,255,255,0.6)",
+                      border: "1px solid rgba(0,0,0,0.15)",
+                      color: "#6B7280",
                       padding: "13px 24px",
                       borderRadius: "8px",
                       fontSize: "15px",
@@ -200,7 +201,7 @@ export default function HomePage() {
                   style={{
                     fontFamily: "var(--font-sans)",
                     fontSize: "12px",
-                    color: "rgba(255,255,255,0.3)",
+                    color: "rgba(0,0,0,0.35)",
                   }}
                 >
                   30-minute call · No contract · Immediate findings
@@ -210,14 +211,14 @@ export default function HomePage() {
               <FadeUp delay={0.22}>
                 <div
                   className="mt-8 pt-8 flex items-center gap-4"
-                  style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
+                  style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}
                 >
                   <div className="flex">
                     {[
-                      { initials: "SM", bg: "#6B21A8" },
+                      { initials: "SM", bg: ACCENT },
                       { initials: "DM", bg: "#0F766E" },
                       { initials: "JR", bg: "#1E3A5F" },
-                      { initials: "KW", bg: "#7C3AED" },
+                      { initials: "KW", bg: "#e04535" },
                     ].map((a, i) => (
                       <div
                         key={a.initials}
@@ -232,7 +233,7 @@ export default function HomePage() {
                           fontSize: "10px",
                           fontWeight: 600,
                           color: "white",
-                          border: "2px solid #0D0818",
+                          border: "2px solid #ffffff",
                           marginLeft: i > 0 ? "-7px" : 0,
                           position: "relative",
                           zIndex: 4 - i,
@@ -246,11 +247,11 @@ export default function HomePage() {
                     style={{
                       fontFamily: "var(--font-sans)",
                       fontSize: "12px",
-                      color: "rgba(255,255,255,0.4)",
+                      color: "rgba(0,0,0,0.45)",
                     }}
                   >
                     Trusted by{" "}
-                    <span style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>40+</span>{" "}
+                    <span style={{ color: "#191919", fontWeight: 500 }}>40+</span>{" "}
                     UK MSK clinics
                   </p>
                 </div>
@@ -267,7 +268,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Problem ───────────────────────────────────────────────────────── */}
-      <section id="problem-section" className="section" style={{ background: "#FAFAF8" }}>
+      <section id="problem-section" className="section bg-white">
         <div className="cx-main">
           <FadeUp>
             <p
@@ -276,7 +277,7 @@ export default function HomePage() {
                 fontWeight: 600,
                 textTransform: "uppercase",
                 letterSpacing: "0.12em",
-                color: "#6B21A8",
+                color: ACCENT,
                 marginBottom: "16px",
               }}
             >
@@ -301,7 +302,7 @@ export default function HomePage() {
       </section>
 
       {/* ── System ────────────────────────────────────────────────────────── */}
-      <section id="system-section" className="grain section" style={{ background: "#0A1628" }}>
+      <section id="system-section" className="section bg-white">
         <div className="cx-main">
           <FadeUp>
             <p
@@ -310,14 +311,14 @@ export default function HomePage() {
                 fontWeight: 600,
                 textTransform: "uppercase",
                 letterSpacing: "0.12em",
-                color: "rgba(155,95,227,0.8)",
+                color: ACCENT,
                 marginBottom: "16px",
               }}
             >
               How ClinicEvo works
             </p>
             <h2
-              className="font-display font-bold text-white"
+              className="font-display font-bold text-[var(--color-ink)]"
               style={{
                 fontSize: "clamp(2rem, 4vw, 3.25rem)",
                 lineHeight: 1.1,
@@ -331,7 +332,7 @@ export default function HomePage() {
               style={{
                 fontFamily: "var(--font-sans)",
                 fontSize: "18px",
-                color: "rgba(255,255,255,0.55)",
+                color: "#6B7280",
                 lineHeight: 1.7,
                 maxWidth: "560px",
                 marginBottom: "64px",
@@ -342,7 +343,6 @@ export default function HomePage() {
           </FadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-5 mb-12 relative">
-            {/* Connector line between step nodes */}
             <div
               className="hidden md:block absolute"
               style={{
@@ -350,7 +350,7 @@ export default function HomePage() {
                 left: "calc(10% + 12px)",
                 right: "calc(10% + 12px)",
                 height: "1px",
-                background: "rgba(155,95,227,0.3)",
+                background: "rgba(255,91,74,0.2)",
                 zIndex: 0,
               }}
               aria-hidden="true"
@@ -361,46 +361,34 @@ export default function HomePage() {
                 <div
                   className="relative flex flex-col h-full transition-all"
                   style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(155,95,227,0.15)",
+                    background: "#fafafa",
+                    border: "1px solid rgba(0,0,0,0.07)",
                     borderRadius: "12px",
                     padding: "24px",
                   }}
                 >
                   <span
                     className="font-display font-extrabold mb-3 block"
-                    style={{
-                      fontSize: "40px",
-                      color: "#9B5FE3",
-                      lineHeight: 1,
-                    }}
+                    style={{ fontSize: "40px", color: ACCENT, lineHeight: 1 }}
                   >
                     {stage.num}
                   </span>
                   <h3
-                    className="font-display font-semibold text-white mb-3"
+                    className="font-display font-semibold text-[var(--color-ink)] mb-3"
                     style={{ fontSize: "17px" }}
                   >
                     {stage.label}
                   </h3>
                   <p
                     className="flex-1 mb-4"
-                    style={{
-                      fontSize: "13px",
-                      color: "rgba(255,255,255,0.5)",
-                      lineHeight: 1.6,
-                    }}
+                    style={{ fontSize: "13px", color: "#6B7280", lineHeight: 1.6 }}
                   >
                     {stage.body}
                   </p>
                   <Link
                     href={stage.href}
                     className="inline-flex items-center gap-1.5 transition-opacity hover:opacity-75"
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: 500,
-                      color: "#9B5FE3",
-                    }}
+                    style={{ fontSize: "12px", fontWeight: 500, color: ACCENT }}
                   >
                     {stage.anchor}
                     <svg width="10" height="10" viewBox="0 0 14 14" fill="none">
@@ -415,10 +403,10 @@ export default function HomePage() {
           <FadeUp delay={0.5}>
             <Link
               href="/patient-pulse/"
-              className="inline-flex items-center gap-2 font-semibold transition-colors hover:bg-white/5"
+              className="inline-flex items-center gap-2 font-semibold transition-colors hover:bg-[#ff5b4a] hover:text-white"
               style={{
-                border: "1px solid rgba(255,255,255,0.25)",
-                color: "white",
+                border: `1px solid ${ACCENT}`,
+                color: ACCENT,
                 padding: "12px 24px",
                 borderRadius: "8px",
                 fontSize: "15px",
@@ -435,13 +423,14 @@ export default function HomePage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            {/* Left — branded stat card with testimonial */}
+            {/* Left — stat card with testimonial (light version) */}
             <FadeUp>
               <div
                 className="rounded-2xl overflow-hidden"
                 style={{
-                  background: "#1A0F2E",
-                  border: "1px solid rgba(107,33,168,0.25)",
+                  background: "#ffffff",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                  borderTop: `3px solid ${ACCENT}`,
                 }}
               >
                 <div style={{ padding: "40px" }}>
@@ -451,18 +440,19 @@ export default function HomePage() {
                       fontWeight: 600,
                       textTransform: "uppercase",
                       letterSpacing: "0.12em",
-                      color: "#9B5FE3",
+                      color: ACCENT,
                       marginBottom: "16px",
                     }}
                   >
                     Founding partner results
                   </p>
                   <p
-                    className="font-display font-extrabold text-white"
+                    className="font-display font-extrabold"
                     style={{
                       fontSize: "clamp(3rem, 6vw, 4rem)",
                       lineHeight: 1,
                       letterSpacing: "-0.03em",
+                      color: ACCENT,
                     }}
                   >
                     342
@@ -471,7 +461,7 @@ export default function HomePage() {
                     style={{
                       fontFamily: "var(--font-sans)",
                       fontSize: "16px",
-                      color: "rgba(255,255,255,0.6)",
+                      color: "#6B7280",
                       marginTop: "8px",
                       lineHeight: 1.5,
                     }}
@@ -483,7 +473,7 @@ export default function HomePage() {
                     style={{
                       marginTop: "32px",
                       paddingTop: "28px",
-                      borderTop: "1px solid rgba(155,95,227,0.2)",
+                      borderTop: "1px solid rgba(0,0,0,0.08)",
                     }}
                   >
                     <p
@@ -491,7 +481,7 @@ export default function HomePage() {
                         fontFamily: "var(--font-sans)",
                         fontStyle: "italic",
                         fontSize: "15px",
-                        color: "rgba(255,255,255,0.55)",
+                        color: "#374151",
                         lineHeight: 1.7,
                         marginBottom: "20px",
                       }}
@@ -504,7 +494,7 @@ export default function HomePage() {
                           width: 40,
                           height: 40,
                           borderRadius: "50%",
-                          background: "#6B21A8",
+                          background: ACCENT,
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -522,7 +512,7 @@ export default function HomePage() {
                             fontFamily: "var(--font-display)",
                             fontSize: "13px",
                             fontWeight: 600,
-                            color: "white",
+                            color: "#191919",
                           }}
                         >
                           Danny Morgan
@@ -531,7 +521,7 @@ export default function HomePage() {
                           style={{
                             fontFamily: "var(--font-sans)",
                             fontSize: "12px",
-                            color: "rgba(255,255,255,0.4)",
+                            color: "#9CA3AF",
                           }}
                         >
                           Bodyfunction Clinic, London — Founding partner
@@ -597,9 +587,9 @@ export default function HomePage() {
                       <div
                         className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-lg"
                         style={{
-                          background: "rgba(107,33,168,0.08)",
-                          border: "1px solid rgba(107,33,168,0.15)",
-                          color: "#6B21A8",
+                          background: "rgba(255,91,74,0.08)",
+                          border: "1px solid rgba(255,91,74,0.15)",
+                          color: ACCENT,
                         }}
                       >
                         {item.icon}
@@ -619,7 +609,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Who We Help ───────────────────────────────────────────────────── */}
-      <section id="who-we-help" className="section" style={{ background: "#F5F4F1" }}>
+      <section id="who-we-help" className="section bg-white">
         <div className="cx-main">
           <FadeUp>
             <p
@@ -628,7 +618,7 @@ export default function HomePage() {
                 fontWeight: 600,
                 textTransform: "uppercase",
                 letterSpacing: "0.12em",
-                color: "#6B21A8",
+                color: ACCENT,
                 marginBottom: "16px",
               }}
             >
@@ -690,22 +680,14 @@ export default function HomePage() {
                   </h3>
                   <p
                     className="flex-1 mb-6"
-                    style={{
-                      fontSize: "14px",
-                      color: "#6B7280",
-                      lineHeight: 1.6,
-                    }}
+                    style={{ fontSize: "14px", color: "#6B7280", lineHeight: 1.6 }}
                   >
                     {card.body}
                   </p>
                   <Link
                     href={card.href}
                     className="inline-flex items-center gap-2 transition-all group-hover:gap-3"
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: 500,
-                      color: card.accentColor,
-                    }}
+                    style={{ fontSize: "14px", fontWeight: 500, color: card.accentColor }}
                   >
                     {card.anchor}
                     <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -723,7 +705,7 @@ export default function HomePage() {
       <section
         id="book-audit"
         className="grain text-center"
-        style={{ background: "#3B0764", padding: "140px 0" }}
+        style={{ background: ACCENT, padding: "140px 0" }}
       >
         <div className="cx-main">
           <FadeUp>
@@ -743,7 +725,7 @@ export default function HomePage() {
               style={{
                 fontFamily: "var(--font-sans)",
                 fontSize: "18px",
-                color: "rgba(255,255,255,0.6)",
+                color: "rgba(255,255,255,0.75)",
                 lineHeight: 1.7,
                 maxWidth: "540px",
               }}
@@ -755,7 +737,7 @@ export default function HomePage() {
               className="inline-flex items-center font-semibold transition-colors hover:bg-white/90"
               style={{
                 background: "white",
-                color: "#3B0764",
+                color: ACCENT,
                 padding: "14px 28px",
                 borderRadius: "8px",
                 fontSize: "15px",
@@ -769,7 +751,7 @@ export default function HomePage() {
               style={{
                 fontFamily: "var(--font-sans)",
                 fontSize: "13px",
-                color: "rgba(255,255,255,0.4)",
+                color: "rgba(255,255,255,0.6)",
               }}
             >
               47 UK clinics audited · No cost · No commitment
@@ -790,7 +772,7 @@ export default function HomePage() {
                     fontWeight: 600,
                     textTransform: "uppercase",
                     letterSpacing: "0.12em",
-                    color: "#6B21A8",
+                    color: ACCENT,
                     marginBottom: "12px",
                   }}
                 >
@@ -810,10 +792,10 @@ export default function HomePage() {
             </FadeUp>
             <Link
               href="/resources/"
-              className="inline-flex items-center gap-2 font-semibold transition-colors hover:bg-[#6B21A8] hover:text-white flex-shrink-0"
+              className="inline-flex items-center gap-2 font-semibold transition-colors hover:bg-[#ff5b4a] hover:text-white flex-shrink-0"
               style={{
-                border: "2px solid #6B21A8",
-                color: "#6B21A8",
+                border: `2px solid ${ACCENT}`,
+                color: ACCENT,
                 padding: "10px 20px",
                 borderRadius: "8px",
                 fontSize: "14px",
