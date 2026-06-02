@@ -132,12 +132,12 @@ export default function HomePage() {
                     textTransform: "uppercase",
                   }}
                 >
-                  UK MSK Growth Partner
+                  Specialist clinic marketing and patient systems for osteopaths, physiotherapists, chiropractors and MSK clinics
                 </span>
               </FadeUp>
 
               <AnimatedHeadline
-                text="The only growth system built for MSK clinics."
+                text="More patients. Better follow-up. Fuller diaries."
                 as="h1"
                 baseDelay={0.08}
                 className="font-display text-[var(--color-ink)] mb-6"
@@ -160,7 +160,7 @@ export default function HomePage() {
                     maxWidth: "480px",
                   }}
                 >
-                  We build and run the patient acquisition systems that fill diaries, recover lapsed patients, and scale revenue — for UK osteopaths, physiotherapists and chiropractors.
+                  We help MSK clinics get found, fill their diaries and keep them full.
                 </p>
               </FadeUp>
 
@@ -177,7 +177,7 @@ export default function HomePage() {
                       fontFamily: "var(--font-display)",
                     }}
                   >
-                    Book your free clinic audit
+                    Book a Free Clinic Audit
                   </Link>
                   <Link
                     href="#system-section"
@@ -191,9 +191,9 @@ export default function HomePage() {
                       fontSize: "15px",
                     }}
                   >
-                    See it in action
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <polygon points="5,3 19,12 5,21" />
+                    See How It Works
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </Link>
                 </div>
@@ -204,56 +204,28 @@ export default function HomePage() {
                     color: "rgba(0,0,0,0.35)",
                   }}
                 >
-                  30-minute call · No contract · Immediate findings
+                  We review your search visibility, website, enquiry handling and follow-up, then tell you exactly where patients are slipping through. Back to you within two business days. No commitment.
                 </p>
               </FadeUp>
 
               <FadeUp delay={0.22}>
                 <div
-                  className="mt-8 pt-8 flex items-center gap-4"
+                  className="mt-8 pt-8 flex flex-wrap gap-x-6 gap-y-2"
                   style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}
                 >
-                  <div className="flex">
-                    {[
-                      { initials: "SM", bg: ACCENT },
-                      { initials: "DM", bg: "#0F766E" },
-                      { initials: "JR", bg: "#1E3A5F" },
-                      { initials: "KW", bg: "#e04535" },
-                    ].map((a, i) => (
-                      <div
-                        key={a.initials}
-                        style={{
-                          width: 26,
-                          height: 26,
-                          borderRadius: "50%",
-                          background: a.bg,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontSize: "10px",
-                          fontWeight: 600,
-                          color: "white",
-                          border: "2px solid #ffffff",
-                          marginLeft: i > 0 ? "-7px" : 0,
-                          position: "relative",
-                          zIndex: 4 - i,
-                        }}
-                      >
-                        {a.initials}
-                      </div>
-                    ))}
-                  </div>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "12px",
-                      color: "rgba(0,0,0,0.45)",
-                    }}
-                  >
-                    Trusted by{" "}
-                    <span style={{ color: "#191919", fontWeight: 500 }}>40+</span>{" "}
-                    UK MSK clinics
-                  </p>
+                  {[
+                    "Built by clinicians with real-world MSK clinic experience",
+                    "Specialist support for UK MSK clinics",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="flex items-center gap-2"
+                      style={{ fontFamily: "var(--font-sans)", fontSize: "12px", color: "rgba(0,0,0,0.5)" }}
+                    >
+                      <span style={{ width: 5, height: 5, borderRadius: "50%", background: ACCENT, flexShrink: 0, display: "inline-block" }} />
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </FadeUp>
             </div>
@@ -281,7 +253,7 @@ export default function HomePage() {
                 marginBottom: "16px",
               }}
             >
-              The four ways clinics lose patients before they even book
+              Why most clinic marketing underperforms
             </p>
             <h2
               className="font-display font-bold text-[var(--color-ink)]"
@@ -326,7 +298,7 @@ export default function HomePage() {
                 marginBottom: "16px",
               }}
             >
-              The CE Patient Engine
+              Marketing, follow-up and patient communication built to work together.
             </h2>
             <p
               style={{
@@ -338,7 +310,9 @@ export default function HomePage() {
                 marginBottom: "64px",
               }}
             >
-              Five connected systems that turn strangers into long-term patients — and bring lapsed ones back.
+              Most agencies generate leads and leave the rest to you. An enquiry arrives, but too often it is not followed up quickly enough. ClinicEvo helps you get found, convert more enquiries, follow up faster and bring inactive patients back.
+              <br /><br />
+              We build the website, SEO, Google Ads, follow-up and patient communication systems that turn more enquiries into long-term patients. Every part is built to work with the others — including Patient Pulse, our automated follow-up and patient recall system.
             </p>
           </FadeUp>
 
@@ -412,7 +386,7 @@ export default function HomePage() {
                 fontSize: "15px",
               }}
             >
-              See Patient Pulse in action →
+              See how the follow-up system works →
             </Link>
           </FadeUp>
         </div>
@@ -709,6 +683,18 @@ export default function HomePage() {
       >
         <div className="cx-main">
           <FadeUp>
+            <p
+              style={{
+                fontSize: "11px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+                color: "rgba(255,255,255,0.7)",
+                marginBottom: "16px",
+              }}
+            >
+              Get started
+            </p>
             <h2
               className="font-display font-extrabold text-white mx-auto mb-6"
               style={{
@@ -718,7 +704,7 @@ export default function HomePage() {
                 maxWidth: "680px",
               }}
             >
-              See exactly where your clinic is losing patients.
+              Find out where your clinic is losing patients.
             </h2>
             <p
               className="mx-auto mb-10"
@@ -730,7 +716,7 @@ export default function HomePage() {
                 maxWidth: "540px",
               }}
             >
-              We review your search visibility, website, follow-up handling, and ad systems — then show you exactly where patients are falling through the gaps.
+              Book a free clinic audit. We review your search visibility, website, enquiry handling and follow-up systems, then tell you honestly where patients are falling through the gaps. Back to you within two business days. No commitment. No agency jargon.
             </p>
             <Link
               href="/free-clinic-audit/"
@@ -744,7 +730,7 @@ export default function HomePage() {
                 fontFamily: "var(--font-display)",
               }}
             >
-              Book your free clinic audit
+              Book Your Free Clinic Audit
             </Link>
             <p
               className="mt-5"
@@ -754,7 +740,7 @@ export default function HomePage() {
                 color: "rgba(255,255,255,0.6)",
               }}
             >
-              47 UK clinics audited · No cost · No commitment
+              Specialist support for UK osteopaths, physiotherapists, chiropractors and MSK clinics.
             </p>
           </FadeUp>
         </div>
