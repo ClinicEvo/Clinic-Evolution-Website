@@ -1,33 +1,36 @@
 @import "tailwindcss";
 
-/* ─── ClinicEvo Brand System v2 ────────────────────────────────────────── */
+/* ─── Clinic Evo Brand System v2 ────────────────────────────────────────── */
 
 @theme {
-  /* Base colours */
-  --color-paper:        #FFFFFF;
-  --color-ink:          #0d1b2a;
-  --color-surface:      #FAF9F8;
-  --color-muted:        #8A8989;
-  --color-accent:       #ff5b4a;
-  --color-accent-dim:   #e04535;
-  --color-dark:         #1B2230;
+  /* Base colours — Clinic Evo brand (cool navy / clean white) */
+  --color-paper:        #FFFFFF; /* Clean white */
+  --color-ink:          #0D1B2A; /* Brand navy */
+  --color-surface:      #F5F7FA; /* Light grey */
+  --color-muted:        #6B7280; /* Cool grey — secondary text */
+  --color-accent:       #FF5B4A; /* Brand coral */
+  --color-accent-dim:   #E04535;
+  --color-dark:         #0D1B2A; /* Navy — dark sections */
   --color-white:        #FFFFFF;
-  --color-border:       #E5E2DC;
+  --color-border:       #E5E7EB; /* Mid grey divider */
   --color-error:        #B91C1C;
-  --color-muted-light:  #BDB8AF;
-  --color-accent-light: #EEF0F8;
+  --color-muted-light:  #D1D5DB; /* Cool light grey */
+  --color-accent-light: #FFF1EF; /* Light coral wash */
+  --color-charcoal:     #374151; /* Brand charcoal */
+  --color-navy:         #0D1B2A;
 
-  /* Brand purple system */
-  --color-purple:       #6B21A8;
-  --color-purple-dark:  #3B0764;
-  --color-purple-hover: #7C3AED;
-  --color-hero-bg:      #0D0818;
-  --color-navy:         #0A1628;
-
-  /* Shadows */
-  --shadow-sm:      0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md:      0 2px 4px 0 rgb(0 0 0 / 0.05);
+  /* Refined, high-restraint shadows */
+  --shadow-sm:      0 1px 2px 0 rgba(13, 27, 42, 0.02);
+  --shadow-md:      0 4px 20px -2px rgba(13, 27, 42, 0.04), 0 2px 8px -1px rgba(13, 27, 42, 0.02);
+  --shadow-card:    0 1px 2px rgba(13, 27, 42, 0.04), 0 12px 32px -16px rgba(13, 27, 42, 0.12);
+  --shadow-card-hover: 0 2px 4px rgba(13, 27, 42, 0.05), 0 24px 48px -20px rgba(13, 27, 42, 0.20);
   --shadow-none:    none;
+
+  /* Consistent radius scale */
+  --radius-sm:      6px;
+  --radius-btn:     8px;
+  --radius-card:    14px;
+  --radius-panel:   18px;
 
   /* Font families */
   --font-sans:      var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
@@ -49,6 +52,7 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  font-weight: 400; /* Regular — light weight read as washed-out/low-contrast on white */
   font-size: 1rem;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -73,10 +77,43 @@ a {
 }
 
 /* ─── Section spacing ───────────────────────────────────────────────────────── */
-.section { padding-block: 7.5rem; } /* 120px vertical */
+.section { padding-block: 8.5rem; } /* 136px vertical padding for premium breathing room */
 
 @media (max-width: 640px) {
-  .section { padding-block: 5rem; }
+  .section { padding-block: 6rem; }
+}
+
+/* ─── Eyebrow / section label ───────────────────────────────────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+.eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--color-accent);
+  opacity: 0.55;
+}
+
+/* ─── Card surface — real depth, consistent radius ──────────────────────────── */
+.card-surface {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-surface:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
 }
 
 /* ─── Typography ────────────────────────────────────────────────────────────── */
@@ -90,7 +127,7 @@ h1 {
   font-size: clamp(3rem, 6vw, 4.5rem); /* up to 72px */
   font-weight: 800;
   line-height: 1.05;
-  letter-spacing: -0.028em;
+  letter-spacing: 0;
 }
 
 .text-h1 {
@@ -98,7 +135,7 @@ h1 {
   font-size: clamp(2.5rem, 5vw, 3.75rem); /* up to 60px */
   font-weight: 800;
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
 }
 
 .text-h2 {
@@ -106,7 +143,7 @@ h1 {
   font-size: clamp(1.75rem, 4vw, 3.25rem); /* up to 52px */
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -0.019em;
+  letter-spacing: 0;
 }
 
 .text-h3 {
@@ -114,7 +151,7 @@ h1 {
   font-size: 1.75rem; /* 28px */
   font-weight: 600;
   line-height: 1.3;
-  letter-spacing: -0.011em;
+  letter-spacing: 0;
 }
 
 .text-h4 {
@@ -122,6 +159,7 @@ h1 {
   font-size: 1.25rem; /* 20px */
   font-weight: 600;
   line-height: 1.4;
+  letter-spacing: 0;
 }
 
 .text-body-lg {
@@ -135,8 +173,8 @@ h1 {
 }
 
 .text-label {
-  font-size: 0.875rem; /* 14px */
-  font-weight: 600;
+  font-size: 0.68rem; /* 11px editorial sub-label */
+  font-weight: 700;
   color: var(--color-muted);
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -278,6 +316,13 @@ h1 {
   0%   { transform: scale(1); opacity: 0.7; }
   100% { transform: scale(3); opacity: 0; }
 }
+
+/* Mega-menu entrance */
+@keyframes mega-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.mega-in { animation: mega-in 150ms ease-out; transform-origin: top; }
 
 /* ─── Reduced motion ────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

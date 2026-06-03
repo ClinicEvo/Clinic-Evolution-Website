@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const siteConfig = {
-  name: "ClinicEvo",
+  name: "Clinic Evo",
   legalName: "Clinic Evolution Ltd",
   tagline: "Clinic Marketing Agency UK",
   url: "https://www.clinicevo.co.uk",
@@ -23,7 +23,7 @@ export const siteConfig = {
   },
   areaServed: "United Kingdom",
   description:
-    "ClinicEvo helps UK osteopaths, physiotherapists and chiropractors attract more patients with specialist clinic marketing, SEO, Google Ads, websites and AI patient reactivation.",
+    "Clinic Evo helps UK osteopaths, physiotherapists and chiropractors attract more patients with specialist clinic marketing, SEO, Google Ads, websites and AI patient reactivation.",
 };
 
 export function buildMetadata({

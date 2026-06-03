@@ -3,13 +3,46 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Monitor,
+  MagnifyingGlass,
+  Target,
+  ChatCircleDots,
+  Phone,
+  Sparkle,
+  ChartLineUp,
+  type Icon,
+} from "@phosphor-icons/react";
 import { mainNav, ctaNav } from "@/lib/nav";
 import Button from "@/components/ui/Button";
+
+const iconMap: Record<string, Icon> = {
+  Monitor,
+  MagnifyingGlass,
+  Target,
+  ChatCircleDots,
+  Phone,
+  Sparkle,
+  ChartLineUp,
+};
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearCloseTimer = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  const scheduleClose = () => {
+    clearCloseTimer();
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 120);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -17,8 +50,19 @@ export default function Header() {
         setOpenDropdown(null);
       }
     };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpenDropdown(null);
+        setMobileOpen(false);
+      }
+    };
     document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+      clearCloseTimer();
+    };
   }, []);
 
   return (
@@ -29,7 +73,7 @@ export default function Header() {
       </div>
 
       {/* Main header */}
-      <header className="bg-[var(--color-paper)] border-b border-[var(--color-surface)] py-4 lg:py-5">
+      <header className="bg-[var(--color-paper)] border-b border-[var(--color-border)] py-4 lg:py-5">
         <div className="cx-main">
           <nav
             ref={navRef}
@@ -40,7 +84,7 @@ export default function Header() {
             <Link
               href="/"
               className="flex flex-col leading-none group"
-              aria-label="ClinicEvo home"
+              aria-label="Clinic Evo home"
               onClick={() => setMobileOpen(false)}
             >
               <Image
@@ -55,77 +99,169 @@ export default function Header() {
 
             {/* Desktop Nav */}
             <ul className="hidden lg:flex items-center gap-1" role="list">
-              {mainNav.map((item) => (
-                <li key={item.label} className="relative">
-                  {item.children ? (
-                    <>
-                      <button
-                        className={`flex items-center gap-1.5 px-4 py-2 text-[14px] font-medium transition-colors rounded-md ${
-                          openDropdown === item.label
-                            ? "bg-[var(--color-surface)]"
-                            : "hover:bg-[var(--color-surface)]"
-                        }`}
-                        style={{
-                          color: "var(--color-ink)",
-                          letterSpacing: "0.01em",
-                        }}
-                        aria-haspopup="true"
-                        aria-expanded={openDropdown === item.label}
-                        onClick={() =>
-                          setOpenDropdown(openDropdown === item.label ? null : item.label)
-                        }
+              {mainNav.map((item) => {
+                const hasMenu = Boolean(item.groups || item.children);
+                return (
+                  <li
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={
+                      hasMenu
+                        ? () => {
+                            clearCloseTimer();
+                            setOpenDropdown(item.label);
+                          }
+                        : undefined
+                    }
+                    onMouseLeave={hasMenu ? scheduleClose : undefined}
+                  >
+                    {hasMenu ? (
+                      <>
+                        <button
+                          className={`flex items-center gap-1.5 px-4 py-2 text-[14px] font-medium transition-colors ${
+                            openDropdown === item.label
+                              ? "bg-[var(--color-surface)]"
+                              : "hover:bg-[var(--color-surface)]"
+                          }`}
+                          style={{
+                            color: "var(--color-ink)",
+                            letterSpacing: "0.01em",
+                          }}
+                          aria-haspopup="true"
+                          aria-expanded={openDropdown === item.label}
+                          onClick={() =>
+                            setOpenDropdown(openDropdown === item.label ? null : item.label)
+                          }
+                        >
+                          {item.label}
+                          <svg
+                            width="10"
+                            height="10"
+                            viewBox="0 0 10 10"
+                            fill="none"
+                            className={`transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`}
+                          >
+                            <path d="M2 4L5 7L8 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </button>
+
+                        {/* Mega-menu (grouped), pt-2 keeps the gap hoverable (no dead zone) */}
+                        {item.groups && openDropdown === item.label && (
+                          <div className="absolute top-full left-0 pt-2 z-10">
+                            <div className="mega-in flex bg-[var(--color-paper)] border border-[var(--color-border)] shadow-[var(--shadow-md)]">
+                              <div className="grid grid-cols-3 gap-x-8 gap-y-6 p-7 w-[640px]">
+                                {item.groups.map((group) => (
+                                  <div key={group.label}>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-muted)] mb-3">
+                                      {group.label}
+                                    </p>
+                                    <ul className="flex flex-col gap-1">
+                                      {group.items.map((child) => {
+                                        const IconCmp = child.icon ? iconMap[child.icon] : null;
+                                        return (
+                                          <li key={child.href}>
+                                            <Link
+                                              href={child.href}
+                                              className="flex gap-3 -mx-2 px-2 py-2 rounded-md hover:bg-[var(--color-surface)] transition-colors group"
+                                              onClick={() => setOpenDropdown(null)}
+                                            >
+                                              {IconCmp && (
+                                                <span className="mt-0.5 shrink-0 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
+                                                  <IconCmp size={17} weight="regular" />
+                                                </span>
+                                              )}
+                                              <span className="block">
+                                                <span className="block text-[13px] font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-0.5 leading-tight">
+                                                  {child.label}
+                                                </span>
+                                                {child.description && (
+                                                  <span className="block text-[11px] text-[var(--color-muted)] leading-normal font-light">
+                                                    {child.description}
+                                                  </span>
+                                                )}
+                                              </span>
+                                            </Link>
+                                          </li>
+                                        );
+                                      })}
+                                    </ul>
+                                  </div>
+                                ))}
+                              </div>
+
+                              {item.callout && (
+                                <Link
+                                  href={item.callout.href}
+                                  onClick={() => setOpenDropdown(null)}
+                                  className="flex flex-col justify-between w-[220px] p-7 border-l border-[var(--color-border)] group"
+                                  style={{ background: "linear-gradient(180deg, #fff 0%, var(--color-accent-light) 100%)" }}
+                                >
+                                  <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-accent-dim)] mb-2">
+                                      {item.callout.eyebrow}
+                                    </p>
+                                    <p className="text-[17px] font-semibold leading-snug mb-2 text-[var(--color-ink)]">
+                                      {item.callout.title}
+                                    </p>
+                                    <p className="text-[11px] text-[var(--color-charcoal)] leading-normal font-light">
+                                      {item.callout.description}
+                                    </p>
+                                  </div>
+                                  <span className="inline-flex items-center gap-1.5 mt-5 px-3.5 py-2 text-[12px] font-semibold text-white rounded-md bg-[var(--color-accent)] group-hover:bg-[var(--color-accent-dim)] transition-colors self-start">
+                                    {item.callout.ctaLabel}
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="transition-transform group-hover:translate-x-0.5">
+                                      <path d="M3 6h6M6 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                  </span>
+                                </Link>
+                              )}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Simple dropdown (flat children) */}
+                        {item.children && openDropdown === item.label && (
+                          <div className="absolute top-full left-0 pt-2 z-10">
+                            <ul className="mega-in w-72 bg-[var(--color-paper)] border border-[var(--color-border)] shadow-[var(--shadow-md)] divide-y divide-[var(--color-border)]">
+                              {item.children.map((child) => (
+                                <li key={child.href}>
+                                  <Link
+                                    href={child.href}
+                                    className="block px-5 py-4 hover:bg-[var(--color-surface)] transition-colors group"
+                                    onClick={() => setOpenDropdown(null)}
+                                  >
+                                    <p className="text-[13px] font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-1 leading-tight">
+                                      {child.label}
+                                    </p>
+                                    {child.description && (
+                                      <p className="text-[11px] text-[var(--color-muted)] leading-normal font-light">
+                                        {child.description}
+                                      </p>
+                                    )}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2 transition-colors hover:bg-[var(--color-surface)]"
+                        style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-ink)", letterSpacing: "0.01em" }}
                       >
                         {item.label}
-                        <svg
-                          width="10"
-                          height="10"
-                          viewBox="0 0 10 10"
-                          fill="none"
-                          className={`transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`}
-                        >
-                          <path d="M2 4L5 7L8 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </button>
-
-                      {openDropdown === item.label && (
-                        <ul className="absolute top-full left-0 mt-2 w-72 bg-white border border-[var(--color-surface)] rounded-xl shadow-lg p-2 z-10">
-                          {item.children.map((child) => (
-                            <li key={child.href}>
-                              <Link
-                                href={child.href}
-                                className="block px-4 py-3 rounded-lg hover:bg-[var(--color-paper)] transition-colors group"
-                                onClick={() => setOpenDropdown(null)}
-                              >
-                                <p className="text-sm font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-0.5">
-                                  {child.label}
-                                </p>
-                                {child.description && (
-                                  <p className="text-xs text-[var(--color-muted)] leading-snug">
-                                    {child.description}
-                                  </p>
-                                )}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="block px-4 py-2 rounded-md transition-colors hover:bg-[var(--color-surface)]"
-                      style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-ink)", letterSpacing: "0.01em" }}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
 
             {/* CTA */}
             <div className="flex items-center gap-4">
-              <Button href={ctaNav.href} size="md" className="hidden lg:inline-flex" style={{ letterSpacing: "0.03em", background: "#ff5b4a", borderRadius: "8px" }}>
+              <Button href={ctaNav.href} size="md" className="hidden lg:inline-flex" style={{ letterSpacing: "0.03em", background: "#ff5b4a" }}>
                 {ctaNav.label}
               </Button>
 
@@ -154,7 +290,62 @@ export default function Header() {
             <ul className="flex flex-col gap-6">
               {mainNav.map((item) => (
                 <li key={item.label}>
-                  {item.children ? (
+                  {item.groups ? (
+                    <>
+                      <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-muted)] mb-4">
+                        {item.label}
+                      </p>
+                      <div className="flex flex-col gap-5 pl-4 border-l-2 border-[var(--color-surface)]">
+                        {item.groups.map((group) => (
+                          <div key={group.label}>
+                            <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-muted)] mb-2">
+                              {group.label}
+                            </p>
+                            <ul className="flex flex-col gap-3">
+                              {group.items.map((child) => {
+                                const IconCmp = child.icon ? iconMap[child.icon] : null;
+                                return (
+                                  <li key={child.href}>
+                                    <Link
+                                      href={child.href}
+                                      className="flex items-center gap-2.5 text-base font-semibold text-[var(--color-ink)] hover:text-[var(--color-accent)] transition-colors"
+                                      onClick={() => setMobileOpen(false)}
+                                    >
+                                      {IconCmp && (
+                                        <IconCmp size={18} weight="regular" className="shrink-0 text-[var(--color-muted)]" />
+                                      )}
+                                      {child.label}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                      {item.callout && (
+                        <Link
+                          href={item.callout.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="mt-5 flex flex-col gap-1 p-5 rounded-md border border-[var(--color-border)]"
+                          style={{ background: "linear-gradient(180deg, #fff 0%, var(--color-accent-light) 100%)" }}
+                        >
+                          <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-accent-dim)]">
+                            {item.callout.eyebrow}
+                          </span>
+                          <span className="text-[15px] font-semibold leading-snug text-[var(--color-ink)]">
+                            {item.callout.title}
+                          </span>
+                          <span className="mt-1 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[var(--color-accent-dim)]">
+                            {item.callout.ctaLabel}
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                              <path d="M3 6h6M6 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                        </Link>
+                      )}
+                    </>
+                  ) : item.children ? (
                     <>
                       <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-muted)] mb-3">
                         {item.label}

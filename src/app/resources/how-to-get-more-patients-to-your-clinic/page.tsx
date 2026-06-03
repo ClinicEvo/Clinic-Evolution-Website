@@ -2,9 +2,9 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "How to Get More Patients to Your Clinic | ClinicEvo",
+  title: "How to Get More Patients to Your Clinic | Clinic Evo",
   description:
-    "A practical guide to the digital levers that help private clinics attract more patient enquiries — covering local search, service pages, SEO and conversion.",
+    "A practical guide to the digital levers that help private clinics attract more patient enquiries, covering local search, service pages, SEO and conversion.",
   path: "/resources/how-to-get-more-patients-to-your-clinic/",
 });
 
@@ -67,7 +67,7 @@ export default function ArticlePage() {
       title: "Improve your local search visibility",
       content: (
         <>
-          <p>The single most common way patients find a new clinic is through a local Google search. &quot;Physio near me&quot;, &quot;osteopath in [town]&quot;, &quot;back pain treatment [location]&quot; — these are high-intent searches from people who are ready to book.</p>
+          <p>The single most common way patients find a new clinic is through a local Google search. &quot;Physio near me&quot;, &quot;osteopath in [town]&quot;, &quot;back pain treatment [location]&quot;, these are high-intent searches from people who are ready to book.</p>
           <p>Appearing well in these searches depends on several things working together:</p>
           <ul>
             <li>A Google Business Profile that is complete, accurate and regularly updated</li>
@@ -110,7 +110,7 @@ export default function ArticlePage() {
             <li>A visible phone number and booking link in the site header</li>
             <li>Clear calls to action on every key page, not just the contact page</li>
             <li>A booking form that asks only what is necessary</li>
-            <li>Fast response to enquiries — ideally within a few hours</li>
+            <li>Fast response to enquiries, ideally within a few hours</li>
             <li>Clear information about what happens after booking (confirmation, what to bring, what to expect)</li>
           </ul>
           <p>The easier you make it to take the next step, the more visitors will take it.</p>
@@ -154,7 +154,7 @@ export default function ArticlePage() {
           <p>Build your review presence by:</p>
           <ul>
             <li>Making it easy for patients to leave a review (direct link, simple request)</li>
-            <li>Asking at the right moment — after a positive appointment outcome</li>
+            <li>Asking at the right moment, after a positive appointment outcome</li>
             <li>Responding to all reviews professionally</li>
             <li>Keeping your Google Business Profile active with updated information</li>
           </ul>

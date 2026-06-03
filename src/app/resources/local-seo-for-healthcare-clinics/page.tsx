@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Local SEO for Healthcare Clinics | ClinicEvo",
+  title: "Local SEO for Healthcare Clinics | Clinic Evo",
   description:
     "A guide to local SEO for healthcare clinics that want to appear more consistently for relevant local patient searches.",
   path: "/resources/local-seo-for-healthcare-clinics/",
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: "How do patients find healthcare clinics online?",
-    answer: "Primarily through local Google searches, Google Maps and recommendations. Patients searching for a clinic are typically high-intent — they want to book an appointment, not just research. Appearing well for those searches is one of the most valuable marketing outcomes for a private clinic.",
+    answer: "Primarily through local Google searches, Google Maps and recommendations. Patients searching for a clinic are typically high-intent, they want to book an appointment, not just research. Appearing well for those searches is one of the most valuable marketing outcomes for a private clinic.",
   },
   {
     question: "Is Google Business Profile important for healthcare clinics?",
@@ -37,7 +37,7 @@ export default function ArticlePage() {
   const intro = (
     <>
       <p className="mb-4">
-        For a healthcare clinic, local search visibility is one of the most valuable digital assets you can build. The patients who find you through local search are typically ready to book — they are looking for a specific type of care near them.
+        For a healthcare clinic, local search visibility is one of the most valuable digital assets you can build. The patients who find you through local search are typically ready to book, they are looking for a specific type of care near them.
       </p>
       <p>
         This guide covers how private healthcare clinics can improve their local SEO and attract more of the right patients from search.
@@ -50,7 +50,7 @@ export default function ArticlePage() {
       title: "How local search works for healthcare clinics",
       content: (
         <>
-          <p>When a patient searches for a healthcare service in Google — &quot;osteopath near me&quot;, &quot;chiropractor [town]&quot;, &quot;physio for shoulder pain&quot; — Google typically shows a mix of results:</p>
+          <p>When a patient searches for a healthcare service in Google, &quot;osteopath near me&quot;, &quot;chiropractor [town]&quot;, &quot;physio for shoulder pain&quot;, Google typically shows a mix of results:</p>
           <ul>
             <li>The map pack: three local business listings with a map</li>
             <li>Organic search results: website pages ranked by relevance</li>
@@ -73,7 +73,7 @@ export default function ArticlePage() {
             <li>A clear description that mentions your main services and location</li>
             <li>All relevant healthcare service categories</li>
             <li>High-quality photos of the clinic, waiting area and practitioners</li>
-            <li>Regular Google Posts — news, seasonal content, offers</li>
+            <li>Regular Google Posts, news, seasonal content, offers</li>
             <li>A steady stream of managed reviews</li>
           </ul>
           <p>Healthcare clinics face specific GBP considerations: marking individual practitioners correctly, handling multiple location profiles if applicable, and ensuring service descriptions are accurate and compliant.</p>
@@ -105,14 +105,14 @@ export default function ArticlePage() {
           <p>Reviews play an outsized role in healthcare local SEO compared to many other industries. This is because:</p>
           <ul>
             <li>Reviews directly influence local search rankings</li>
-            <li>Healthcare patients research carefully before booking — reviews affect conversion as much as ranking</li>
-            <li>Review recency matters — a clinic with regular new reviews outperforms one with older ones</li>
+            <li>Healthcare patients research carefully before booking, reviews affect conversion as much as ranking</li>
+            <li>Review recency matters, a clinic with regular new reviews outperforms one with older ones</li>
           </ul>
           <p>For healthcare clinics, managing reviews requires additional care:</p>
           <ul>
-            <li>Responses must maintain patient confidentiality — never confirm or deny treatment details in a response</li>
+            <li>Responses must maintain patient confidentiality, never confirm or deny treatment details in a response</li>
             <li>Negative reviews should be handled professionally and promptly</li>
-            <li>Reviews must be genuine — fake reviews risk Google penalties and regulatory scrutiny</li>
+            <li>Reviews must be genuine, fake reviews risk Google penalties and regulatory scrutiny</li>
           </ul>
           <p>A clinic with a strong, current and genuine review presence has a significant structural advantage in local healthcare search.</p>
         </>
@@ -124,7 +124,7 @@ export default function ArticlePage() {
         <>
           <p>Healthcare SEO has specific requirements that general SEO guidance does not always address.</p>
           <h3>YMYL content</h3>
-          <p>Google classifies healthcare content as &quot;Your Money or Your Life&quot; — content where poor quality or inaccuracy could harm users. This means healthcare pages are held to a higher standard of expertise, authority and trustworthiness (known as E-E-A-T in Google&apos;s guidelines).</p>
+          <p>Google classifies healthcare content as &quot;Your Money or Your Life&quot;, content where poor quality or inaccuracy could harm users. This means healthcare pages are held to a higher standard of expertise, authority and trustworthiness (known as E-E-A-T in Google&apos;s guidelines).</p>
           <h3>Practitioner credibility signals</h3>
           <p>Practitioner profiles with clear qualifications, registration numbers (GPhC, HCPC, GCC, etc.) and professional affiliations help Google assess the credibility of healthcare content.</p>
           <h3>Content accuracy</h3>
@@ -136,7 +136,7 @@ export default function ArticlePage() {
       title: "Local citations for healthcare clinics",
       content: (
         <>
-          <p>Citations — mentions of your practice name, address and phone number on other websites — help Google verify that your clinic is a legitimate, established business in a specific location.</p>
+          <p>Citations, mentions of your practice name, address and phone number on other websites, help Google verify that your clinic is a legitimate, established business in a specific location.</p>
           <p>For healthcare clinics, citations appear across several types of directories:</p>
           <ul>
             <li>General business directories: Google, Bing, Yell, Yelp</li>

@@ -16,7 +16,7 @@ import HeroStatCard from "@/components/sections/HeroStatCard";
 export const metadata = buildMetadata({
   title: "Physiotherapy Marketing UK | Grow Your Physio Practice",
   description:
-    "Specialist marketing for UK physiotherapists. SEO, Google Ads and website design that attracts more patients to your physio clinic. Book a free audit.",
+    "Specialist marketing for UK physiotherapists. SEO, Google Ads and website design that attracts more patients to your physio clinic. Book a free clinic audit.",
   path: "/physiotherapy-marketing/",
 });
 
@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Which physiotherapy keywords do you target?",
     answer:
-      "We research and target the full spectrum — from broad terms like 'physiotherapist near me' and 'private physio [city]' to condition-specific queries like 'sports injury physio' and 'post-operative rehabilitation'. Keyword strategy is tailored to your specialisms.",
+      "We research and target the full spectrum, from broad terms like 'physiotherapist near me' and 'private physio [city]' to condition-specific queries like 'sports injury physio' and 'post-operative rehabilitation'. Keyword strategy is tailored to your specialisms.",
   },
   {
     question: "Can you help with sports physiotherapy marketing specifically?",
@@ -65,7 +65,7 @@ const steps = [
     number: 3,
     title: "Campaign launch",
     description:
-      "We build and launch your SEO foundations, Google Ads campaigns, or website — depending on your plan. You'll see new patient enquiries flowing within weeks of your ads going live.",
+      "We build and launch your SEO foundations, Google Ads campaigns, or website, depending on your plan. You'll see new patient enquiries flowing within weeks of your ads going live.",
   },
   {
     number: 4,
@@ -95,7 +95,7 @@ export default function PhysiotherapyMarketingPage() {
       <PageHero
         badge="Physiotherapy marketing for UK practices"
         heading={<>More patients for your <em className="not-italic text-[var(--color-accent)]">physiotherapy clinic</em>, predictably</>}
-        subtext="We help UK physiotherapists grow their private practice through specialist SEO, targeted Google Ads and high-converting websites — built around how physio patients search, compare and book."
+        subtext="We help UK physiotherapists grow their private practice through specialist SEO, targeted Google Ads and high-converting websites, built around how physio patients search, compare and book."
         bullets={[
           "SEO, ads and website design for physio clinics",
           "Results tracked to enquiries and bookings",
@@ -116,18 +116,18 @@ export default function PhysiotherapyMarketingPage() {
         }
       />
 
-      {/* Why ClinicEvo */}
+      {/* Why Clinic Evo */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Why ClinicEvo</Badge>
+                <Badge className="mb-5 inline-block">Why Clinic Evo</Badge>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Physio marketing that speaks your language
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  Physiotherapy covers a huge range of specialisms — from sports
+                  Physiotherapy covers a huge range of specialisms, from sports
                   rehabilitation to neurological rehab, women&apos;s health to
                   paediatric physio. Generic marketing agencies treat them all the
                   same. We don&apos;t.
@@ -245,7 +245,7 @@ export default function PhysiotherapyMarketingPage() {
 
       <CTASection
         heading="Ready to grow your physiotherapy practice?"
-        subheading="Book a free audit and get a personalised growth plan for your clinic."
+        subheading="Book a free clinic audit and get a personalised growth plan for your clinic."
       />
     </>
   );

@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Do you only work with osteopaths?",
     answer:
-      "We work exclusively with UK musculoskeletal clinics — osteopaths, physiotherapists and chiropractors. This focus means our strategies are built around the specific patient journeys and search behaviour in your field.",
+      "We work exclusively with UK musculoskeletal clinics, osteopaths, physiotherapists and chiropractors. This focus means our strategies are built around the specific patient journeys and search behaviour in your field.",
   },
   {
     question: "What does the free clinic audit include?",
@@ -39,7 +39,7 @@ const faqs = [
   {
     question: "Can you help a new osteopathy practice with no online presence?",
     answer:
-      "Yes. We frequently work with practices launching from scratch. We'll build the right foundations — website, Google Business Profile, and initial SEO — to get you visible quickly.",
+      "Yes. We frequently work with practices launching from scratch. We'll build the right foundations, website, Google Business Profile, and initial SEO, to get you visible quickly.",
   },
   {
     question: "Do you manage Google Ads for osteopaths?",
@@ -53,7 +53,7 @@ const steps = [
     number: 1,
     title: "Free clinic audit",
     description:
-      "We assess your current online presence — website, Google rankings, and any paid campaigns — and identify the biggest growth opportunities specific to your practice.",
+      "We assess your current online presence, website, Google rankings, and any paid campaigns, and identify the biggest growth opportunities specific to your practice.",
   },
   {
     number: 2,
@@ -95,7 +95,7 @@ export default function OsteopathMarketingPage() {
       <PageHero
         badge="Osteopath marketing for UK practices"
         heading={<>More patients for your <em className="not-italic text-[var(--color-accent)]">osteopathy practice</em>, consistently</>}
-        subtext="We help UK osteopaths attract consistent new patients through specialist SEO, Google Ads and conversion-focused website design — built around how patients actually choose an osteopath."
+        subtext="We help UK osteopaths attract consistent new patients through specialist SEO, Google Ads and conversion-focused website design, built around how patients actually choose an osteopath."
         bullets={[
           "SEO, ads and web design for osteopathy clinics",
           "Local and national search visibility",
@@ -116,19 +116,19 @@ export default function OsteopathMarketingPage() {
         }
       />
 
-      {/* Why ClinicEvo for osteopaths */}
+      {/* Why Clinic Evo for osteopaths */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Why ClinicEvo</Badge>
+                <Badge className="mb-5 inline-block">Why Clinic Evo</Badge>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Marketing that understands osteopathy
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   Generic marketing agencies don&apos;t understand the nuances of
-                  osteopathic care — the patient journey from acute pain to long-term
+                  osteopathic care, the patient journey from acute pain to long-term
                   wellness, the role of word-of-mouth and referrals, or how patients
                   search when they&apos;re in discomfort.
                 </p>
@@ -242,7 +242,7 @@ export default function OsteopathMarketingPage() {
 
       <CTASection
         heading="Ready to grow your osteopathy practice?"
-        subheading="Book a free audit and discover exactly what's holding your clinic back online."
+        subheading="Book a free clinic audit and discover exactly what's holding your clinic back online."
       />
     </>
   );

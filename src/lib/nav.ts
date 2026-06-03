@@ -2,50 +2,95 @@ export interface NavItem {
   label: string;
   href: string;
   description?: string;
+  icon?: string;
   children?: NavItem[];
+  groups?: NavGroup[];
+  callout?: NavCallout;
+}
+
+export interface NavGroup {
+  label: string;
+  items: NavItem[];
+}
+
+export interface NavCallout {
+  eyebrow: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  href: string;
 }
 
 export const mainNav: NavItem[] = [
   {
     label: "Solutions",
     href: "/#system-section",
-    children: [
+    groups: [
       {
-        label: "Clinic Websites",
-        href: "/website-design-for-clinics/",
-        description: "Built for MSK patients — condition pages, trust signals, and booking paths that convert.",
+        label: "Get Found",
+        items: [
+          {
+            label: "Clinic Websites",
+            href: "/website-design-for-clinics/",
+            icon: "Monitor",
+            description: "Built for MSK patients, condition pages, trust signals, and booking paths that convert.",
+          },
+          {
+            label: "SEO for Clinics",
+            href: "/seo-for-clinics/",
+            icon: "MagnifyingGlass",
+            description: "Own the local search results your patients use before they pick up the phone.",
+          },
+          {
+            label: "Google Ads for Clinics",
+            href: "/google-ads-for-clinics/",
+            icon: "Target",
+            description: "Paid search targeting high-intent MSK patients in your area, not wasted broad terms.",
+          },
+        ],
       },
       {
-        label: "SEO for Clinics",
-        href: "/seo-for-clinics/",
-        description: "Own the local search results your patients use before they pick up the phone.",
+        label: "Convert Enquiries",
+        items: [
+          {
+            label: "Patient Pulse",
+            href: "/patient-pulse/",
+            icon: "ChatCircleDots",
+            description: "Automatic SMS follow-up for every enquiry, within minutes, not the next morning.",
+          },
+          {
+            label: "Call Handling",
+            href: "/call-centre/",
+            icon: "Phone",
+            description: "Every call answered by a trained handler who knows your clinic and your availability.",
+          },
+        ],
       },
       {
-        label: "Google Ads for Clinics",
-        href: "/google-ads-for-clinics/",
-        description: "Paid search targeting high-intent MSK patients in your area — not wasted broad terms.",
-      },
-      {
-        label: "Patient Pulse",
-        href: "/patient-pulse/",
-        description: "Automatic SMS follow-up for every enquiry — within minutes, not the next morning.",
-      },
-      {
-        label: "Call Handling",
-        href: "/call-centre/",
-        description: "Every call answered by a trained handler who knows your clinic and your availability.",
-      },
-      {
-        label: "AI Integration",
-        href: "/ai-integration/",
-        description: "Automated reactivation sequences that contact lapsed patients before a competitor does.",
-      },
-      {
-        label: "Digital Marketing",
-        href: "/digital-marketing/",
-        description: "Coordinated strategy across every channel your patients use to find a clinic.",
+        label: "Grow & Retain",
+        items: [
+          {
+            label: "AI Integration",
+            href: "/ai-integration/",
+            icon: "Sparkle",
+            description: "Automated reactivation sequences that contact lapsed patients before a competitor does.",
+          },
+          {
+            label: "Digital Marketing",
+            href: "/digital-marketing/",
+            icon: "ChartLineUp",
+            description: "Every channel above, run as one coordinated strategy for ongoing growth.",
+          },
+        ],
       },
     ],
+    callout: {
+      eyebrow: "Not sure where to start?",
+      title: "Book a free clinic audit",
+      description: "A practising osteopath reviews your clinic's online presence and shows you where patients are slipping away.",
+      ctaLabel: "Get your audit",
+      href: "/free-clinic-audit/",
+    },
   },
   {
     label: "Who We Help",
@@ -73,7 +118,7 @@ export const mainNav: NavItem[] = [
 ];
 
 export const ctaNav = {
-  label: "Book Your Free Audit",
+  label: "Book a free clinic audit",
   href: "/free-clinic-audit/",
 };
 

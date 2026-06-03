@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "How to Market a Private Practice Online | ClinicEvo",
+  title: "How to Market a Private Practice Online | Clinic Evo",
   description:
     "A guide for clinic owners who want to understand the foundations of online marketing for private healthcare services.",
   path: "/resources/how-to-market-a-private-practice-online/",
@@ -52,11 +52,11 @@ export default function ArticlePage() {
         <>
           <p>The majority of new patients find private clinics through one of three routes:</p>
           <ul>
-            <li>A local Google search — &quot;physio near me&quot;, &quot;osteopath [town]&quot;, &quot;back pain treatment [location]&quot;</li>
+            <li>A local Google search, &quot;physio near me&quot;, &quot;osteopath [town]&quot;, &quot;back pain treatment [location]&quot;</li>
             <li>A personal recommendation from someone they trust</li>
             <li>Their GP or another healthcare professional</li>
           </ul>
-          <p>Online marketing primarily influences the first of these, but it can also support the second — a well-presented, highly reviewed clinic makes it easier for someone to recommend you confidently.</p>
+          <p>Online marketing primarily influences the first of these, but it can also support the second, a well-presented, highly reviewed clinic makes it easier for someone to recommend you confidently.</p>
           <p>Understanding this helps you focus your marketing energy on the channels that actually drive patient decisions, rather than on activity that feels busy but does not convert.</p>
         </>
       ),
@@ -65,7 +65,7 @@ export default function ArticlePage() {
       title: "Your website is your most important marketing asset",
       content: (
         <>
-          <p>For a private practice, the website is where trust is built or lost. Before booking, most patients will visit your website at least once. What they find — or do not find — determines whether they contact you.</p>
+          <p>For a private practice, the website is where trust is built or lost. Before booking, most patients will visit your website at least once. What they find, or do not find, determines whether they contact you.</p>
           <p>A practice website needs to communicate:</p>
           <ul>
             <li>What conditions and services you offer</li>
@@ -83,7 +83,7 @@ export default function ArticlePage() {
       title: "Local SEO for private practices",
       content: (
         <>
-          <p>Local search is how most patients find a private practice for the first time. Appearing prominently in local Google results — especially the map pack that appears when patients search for clinics near them — is one of the highest-value marketing outcomes for a private practice.</p>
+          <p>Local search is how most patients find a private practice for the first time. Appearing prominently in local Google results, especially the map pack that appears when patients search for clinics near them, is one of the highest-value marketing outcomes for a private practice.</p>
           <p>Local SEO for a private practice involves:</p>
           <ul>
             <li>A fully completed Google Business Profile with accurate opening hours, services, photos and regular updates</li>
@@ -143,9 +143,9 @@ export default function ArticlePage() {
       title: "Patient retention as part of online marketing",
       content: (
         <>
-          <p>Online marketing is often discussed purely in terms of acquisition — getting new patients through the door. But retention and recall matter too.</p>
+          <p>Online marketing is often discussed purely in terms of acquisition, getting new patients through the door. But retention and recall matter too.</p>
           <p>A past patient who received good care, feels remembered and receives a relevant, well-timed follow-up communication is likely to rebook. That conversion is typically easier and cheaper than acquiring a new patient from scratch.</p>
-          <p>Building basic patient reactivation into your practice operations — even in a simple form — can meaningfully increase the return on every patient you acquire.</p>
+          <p>Building basic patient reactivation into your practice operations, even in a simple form, can meaningfully increase the return on every patient you acquire.</p>
         </>
       ),
     },

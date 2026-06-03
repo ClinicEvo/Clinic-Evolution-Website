@@ -6,7 +6,7 @@ export default function WhatsAppButton() {
   const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
   if (!number) return null;
 
-  const href = `https://wa.me/${number}?text=${encodeURIComponent("Hi ClinicEvo, I'd like to enquire about your services.")}`;
+  const href = `https://wa.me/${number}?text=${encodeURIComponent("Hi Clinic Evo, I'd like to enquire about your services.")}`;
 
   return (
     <a

@@ -15,7 +15,7 @@ import HeroStatCard from "@/components/sections/HeroStatCard";
 export const metadata = buildMetadata({
   title: "Physiotherapy Website Design for Clinics",
   description:
-    "ClinicEvo designs clear, fast and booking-focused websites for UK physiotherapists, osteopaths and chiropractors, built around trust, SEO and patient enquiries.",
+    "Clinic Evo designs clear, fast and booking-focused websites for UK physiotherapists, osteopaths and chiropractors, built around trust, SEO and patient enquiries.",
   path: "/website-design-for-clinics/",
 });
 
@@ -28,17 +28,17 @@ const faqs = [
   {
     question: "Do you design websites for physiotherapy clinics?",
     answer:
-      "Yes. ClinicEvo designs websites for UK physiotherapy clinics, including service pages, practitioner profiles, booking journeys, local SEO structure and content designed to support patient acquisition.",
+      "Yes. Clinic Evo designs websites for UK physiotherapy clinics, including service pages, practitioner profiles, booking journeys, local SEO structure and content designed to support patient acquisition.",
   },
   {
     question: "Can you help with website design for osteopaths?",
     answer:
-      "Yes. ClinicEvo supports osteopaths with website design, SEO structure, service pages and patient-facing copy that explains osteopathic care clearly and builds trust with new patients.",
+      "Yes. Clinic Evo supports osteopaths with website design, SEO structure, service pages and patient-facing copy that explains osteopathic care clearly and builds trust with new patients.",
   },
   {
     question: "Do you work with chiropractic clinics?",
     answer:
-      "Yes. ClinicEvo creates chiropractic clinic websites that support SEO, service clarity, practitioner credibility and patient enquiry generation.",
+      "Yes. Clinic Evo creates chiropractic clinic websites that support SEO, service clarity, practitioner credibility and patient enquiry generation.",
   },
   {
     question: "Should I redesign my clinic website or improve the current one?",
@@ -67,7 +67,7 @@ export default function WebsiteDesignForClinicsPage() {
       <PageHero
         badge="Clinic website design for MSK practices"
         heading={<>Websites built around <em className="not-italic text-[var(--color-accent)]">real patient bookings</em>, not just aesthetics</>}
-        subtext="ClinicEvo designs clear, fast and SEO-ready websites for UK physiotherapists, osteopaths and chiropractors — every page built around the way patients search, compare and decide whether to book."
+        subtext="Clinic Evo designs clear, fast and SEO-ready websites for UK physiotherapists, osteopaths and chiropractors, every page built around the way patients search, compare and decide whether to book."
         bullets={[
           "Designed around SEO, trust and bookings",
           "Built for private MSK clinics specifically",
@@ -107,7 +107,7 @@ export default function WebsiteDesignForClinicsPage() {
                 For physiotherapy, osteopathy and chiropractic clinics, the website
                 needs to work much harder than a brochure. It has to support SEO,
                 explain services clearly, answer patient concerns and guide people
-                towards booking. That is why ClinicEvo designs clinic websites
+                towards booking. That is why Clinic Evo designs clinic websites
                 around patient behaviour, not generic templates.
               </p>
             </FadeUp>
@@ -125,7 +125,7 @@ export default function WebsiteDesignForClinicsPage() {
                 Website design for physios, osteopaths and chiropractors
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                ClinicEvo focuses on MSK clinics where trust, education and local
+                Clinic Evo focuses on MSK clinics where trust, education and local
                 visibility directly affect patient enquiries.
               </p>
             </div>
@@ -235,7 +235,7 @@ export default function WebsiteDesignForClinicsPage() {
                 What we can improve or build for your clinic
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                Depending on your current website, ClinicEvo can either improve
+                Depending on your current website, Clinic Evo can either improve
                 what already exists or design a new clinic website from the ground
                 up.
               </p>
@@ -261,18 +261,18 @@ export default function WebsiteDesignForClinicsPage() {
         </div>
       </section>
 
-      {/* Why ClinicEvo */}
+      {/* Why Clinic Evo */}
       <section className="section bg-[var(--color-surface)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Why ClinicEvo</Badge>
+                <Badge className="mb-5 inline-block">Why Clinic Evo</Badge>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Why ClinicEvo is different
+                  Why Clinic Evo is different
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  ClinicEvo is built specifically for private MSK clinics. That
+                  Clinic Evo is built specifically for private MSK clinics. That
                   means the website copy, page structure and design decisions are
                   shaped by real patient journeys rather than generic marketing
                   assumptions.
@@ -292,7 +292,7 @@ export default function WebsiteDesignForClinicsPage() {
                   Designed around real clinic growth work
                 </h3>
                 <p className="text-body text-[var(--color-muted)] mb-6">
-                  ClinicEvo&apos;s approach is shaped by real work with private
+                  Clinic Evo&apos;s approach is shaped by real work with private
                   clinics, including Bodyfunction Clinic. The focus is on
                   improving the foundations that affect patient enquiries: service
                   page clarity, search visibility, booking confidence and the

@@ -96,10 +96,10 @@ export default function AiPatientReactivationPage() {
       <PageHero
         badge="AI patient reactivation for private clinics"
         heading={<>Reconnect with past patients <em className="not-italic text-[var(--color-accent)]">before they disappear</em> for good</>}
-        subtext="Most clinics focus on new patients while hundreds of past patients sit quietly in their database. ClinicEvo builds responsible AI-supported recall systems that identify rebooking opportunities and reduce admin pressure."
+        subtext="Most clinics focus on new patients while hundreds of past patients sit quietly in their database. Clinic Evo builds responsible AI-supported recall systems that identify rebooking opportunities and reduce admin pressure."
         bullets={[
           "For osteopaths, physiotherapists and chiropractors",
-          "Supports admin teams — does not replace them",
+          "Supports admin teams, does not replace them",
           "Zero ad spend required",
         ]}
         primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
@@ -198,7 +198,7 @@ export default function AiPatientReactivationPage() {
             <FadeUp>
               <Badge className="mb-5 inline-block">How it works</Badge>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                How ClinicEvo&apos;s AI patient reactivation works
+                How Clinic Evo&apos;s AI patient reactivation works
               </h2>
               <p className="text-body text-[var(--color-muted)]">
                 A structured, responsible process from audit through to
@@ -228,7 +228,7 @@ export default function AiPatientReactivationPage() {
                   feel intrusive, misleading or automated for the sake of it.
                 </p>
                 <p className="text-body text-[var(--color-muted)]">
-                  ClinicEvo&apos;s approach is designed to support responsible
+                  Clinic Evo&apos;s approach is designed to support responsible
                   communication. AI can help with structure, segmentation,
                   workflow support and message drafting, but the clinic remains
                   in control of what is sent and why.
@@ -321,7 +321,7 @@ export default function AiPatientReactivationPage() {
 
       <CTASection
         heading="Find out what your clinic is missing"
-        subheading="ClinicEvo will review where your clinic may be losing enquiries, rebookings and past patient value, then recommend the most practical next steps."
+        subheading="Clinic Evo will review where your clinic may be losing enquiries, rebookings and past patient value, then recommend the most practical next steps."
       />
     </>
   );

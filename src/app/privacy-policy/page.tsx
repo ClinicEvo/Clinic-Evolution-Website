@@ -4,9 +4,9 @@ import FadeUp from "@/components/ui/FadeUp";
 import Link from "next/link";
 
 export const metadata = buildMetadata({
-  title: "Privacy Policy | ClinicEvo",
+  title: "Privacy Policy | Clinic Evo",
   description:
-    "Read the ClinicEvo privacy policy to understand how we collect, use, store and protect personal data when you use our website or contact us.",
+    "Read the Clinic Evo privacy policy to understand how we collect, use, store and protect personal data when you use our website or contact us.",
   path: "/privacy-policy/",
   noIndex: false,
 });
@@ -84,7 +84,7 @@ export default function PrivacyPolicyPage() {
             <div className="max-w-prose">
               <FadeUp>
                 <p className="text-body text-[var(--color-muted)] mb-12 leading-relaxed">
-                  This privacy policy explains how ClinicEvo collects, uses and protects personal data when you use our website, contact us, submit an enquiry, request a free clinic audit, or work with us. We aim to be clear and transparent about the information we collect and how it is used.
+                  This privacy policy explains how Clinic Evo collects, uses and protects personal data when you use our website, contact us, submit an enquiry, request a free clinic audit, or work with us. We aim to be clear and transparent about the information we collect and how it is used.
                 </p>
               </FadeUp>
 
@@ -94,8 +94,8 @@ export default function PrivacyPolicyPage() {
                     Who we are
                   </h2>
                   <div className="article-prose">
-                    <p>ClinicEvo provides digital growth, website, SEO, Google Ads and patient reactivation support for private clinics, including osteopaths, physiotherapists and chiropractors.</p>
-                    <p>For the purposes of this privacy policy, the data controller is Clinic Evolution Ltd, trading as ClinicEvo.</p>
+                    <p>Clinic Evo provides digital growth, website, SEO, Google Ads and patient reactivation support for private clinics, including osteopaths, physiotherapists and chiropractors.</p>
+                    <p>For the purposes of this privacy policy, the data controller is Clinic Evolution Ltd, trading as Clinic Evo.</p>
                     <p>Website: <a href="https://www.clinicevo.co.uk">www.clinicevo.co.uk</a><br />Email: <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a></p>
                     <p>If you have any questions about this privacy policy or how we use your personal data, contact us at <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>.</p>
                   </div>

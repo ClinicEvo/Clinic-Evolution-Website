@@ -2,9 +2,9 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Chiropractic Marketing Case Study | ClinicEvo",
+  title: "Chiropractic Marketing Case Study | Clinic Evo",
   description:
-    "An overview of the digital marketing approach ClinicEvo applies to chiropractic clinics, covering website structure, SEO, patient journey and enquiry growth.",
+    "An overview of the digital marketing approach Clinic Evo applies to chiropractic clinics, covering website structure, SEO, patient journey and enquiry growth.",
   path: "/resources/chiropractic-marketing-case-study/",
 });
 
@@ -28,8 +28,8 @@ const faqs = [
     answer: "Google Ads can produce enquiries quickly. SEO and website improvements typically take 3 to 6 months to show meaningful ranking and traffic changes. Patient reactivation can generate bookings from an existing database relatively quickly with the right approach.",
   },
   {
-    question: "Does ClinicEvo work with chiropractic clinics?",
-    answer: "Yes. ClinicEvo supports osteopathy, physiotherapy and chiropractic clinics with website design, SEO, Google Ads and patient reactivation. Work is adapted to the specific clinical and marketing context of each clinic.",
+    question: "Does Clinic Evo work with chiropractic clinics?",
+    answer: "Yes. Clinic Evo supports osteopathy, physiotherapy and chiropractic clinics with website design, SEO, Google Ads and patient reactivation. Work is adapted to the specific clinical and marketing context of each clinic.",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function ArticlePage() {
         Chiropractic clinics face specific challenges in digital marketing: patient hesitation before booking, a need to communicate clinical credibility clearly, and significant reliance on local search in competitive markets.
       </p>
       <p>
-        This resource outlines the ClinicEvo approach to chiropractic clinic marketing and what effective digital growth looks like in practice for this type of clinic.
+        This resource outlines the Clinic Evo approach to chiropractic clinic marketing and what effective digital growth looks like in practice for this type of clinic.
       </p>
     </>
   );
@@ -52,15 +52,15 @@ export default function ArticlePage() {
         <>
           <p>Chiropractic clinics occupy an interesting position in the private healthcare market. The clinical outcomes are well-evidenced for many musculoskeletal conditions, but public awareness and trust varies significantly.</p>
           <p>This creates a specific marketing challenge. A chiropractic website needs to do more than list services. It needs to educate, reassure and build credibility before a patient is ready to book.</p>
-          <p>The clinics that do this well — that explain clearly what chiropractic helps with, who the practitioners are, what patients can expect, and why the service can be trusted — consistently attract more enquiries than those with generic, thin websites.</p>
+          <p>The clinics that do this well, that explain clearly what chiropractic helps with, who the practitioners are, what patients can expect, and why the service can be trusted, consistently attract more enquiries than those with generic, thin websites.</p>
         </>
       ),
     },
     {
-      title: "What ClinicEvo reviews in a chiropractic audit",
+      title: "What Clinic Evo reviews in a chiropractic audit",
       content: (
         <>
-          <p>When ClinicEvo reviews a chiropractic clinic&apos;s digital presence, the audit covers several interconnected areas.</p>
+          <p>When Clinic Evo reviews a chiropractic clinic&apos;s digital presence, the audit covers several interconnected areas.</p>
           <h3>Website structure and content</h3>
           <p>Are there dedicated pages for the conditions the clinic treats? Does the website explain who the service is for and what to expect? Are GCC registration and practitioner credentials visible? Is the booking journey clear?</p>
           <h3>Local search visibility</h3>
@@ -111,7 +111,7 @@ export default function ArticlePage() {
       content: (
         <>
           <p>Many chiropractic clinics have a database of past patients who completed a course of treatment and then drifted away. Some of these patients may have had their issue recur, may be experiencing a new problem, or may benefit from maintenance care.</p>
-          <p>A structured patient reactivation approach — identifying suitable past patients and communicating with them at the right time — can generate a meaningful number of booked appointments from an existing database.</p>
+          <p>A structured patient reactivation approach, identifying suitable past patients and communicating with them at the right time, can generate a meaningful number of booked appointments from an existing database.</p>
           <p>For chiropractic, where patients often present with recurring MSK conditions, the clinical rationale for recall is often strong. The challenge is implementing a system that is timely, clinically appropriate and easy to manage operationally.</p>
         </>
       ),
@@ -120,7 +120,7 @@ export default function ArticlePage() {
       title: "What results chiropractic clinics can expect",
       content: (
         <>
-          <p>The impact of a structured approach to chiropractic digital marketing varies by clinic, market and starting point. In general, clinics working with ClinicEvo can expect:</p>
+          <p>The impact of a structured approach to chiropractic digital marketing varies by clinic, market and starting point. In general, clinics working with Clinic Evo can expect:</p>
           <ul>
             <li>A clearer, more professionally structured website that better reflects clinical quality</li>
             <li>Improved visibility in local chiropractic searches over time</li>
@@ -139,12 +139,12 @@ export default function ArticlePage() {
         <>
           <p>The fastest way to understand where your chiropractic clinic stands digitally is to search for what your patients would search. Try:</p>
           <ul>
-            <li>&quot;chiropractor [your town]&quot; — where do you appear?</li>
-            <li>&quot;back pain chiropractor near me&quot; — are you visible?</li>
-            <li>Your own practice name — does the Google Business Profile look complete and current?</li>
+            <li>&quot;chiropractor [your town]&quot;, where do you appear?</li>
+            <li>&quot;back pain chiropractor near me&quot;, are you visible?</li>
+            <li>Your own practice name, does the Google Business Profile look complete and current?</li>
           </ul>
           <p>Then look at your own website as a new patient would. Is it immediately clear what you offer and who it is for? Is booking obvious? Are there trust signals and practitioner information visible without hunting?</p>
-          <p>These two exercises will quickly reveal the main gaps. A ClinicEvo free clinic audit can then provide a more structured assessment of where the strongest opportunities are.</p>
+          <p>These two exercises will quickly reveal the main gaps. A Clinic Evo free clinic audit can then provide a more structured assessment of where the strongest opportunities are.</p>
         </>
       ),
     },

@@ -12,6 +12,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "SEO for Medical Clinics | Specialist Clinic SEO",
@@ -42,9 +43,9 @@ const faqs = [
       "Blog posts can help, but clinics should usually fix core service pages first. The most important SEO pages are often the treatment, condition, location and practitioner pages that support patient decisions and booking intent.",
   },
   {
-    question: "Can ClinicEvo help with SEO for an existing clinic website?",
+    question: "Can Clinic Evo help with SEO for an existing clinic website?",
     answer:
-      "Yes. ClinicEvo can audit an existing clinic website, identify SEO weaknesses, improve service pages, strengthen internal linking, refine local SEO and create a clearer plan for increasing patient enquiries.",
+      "Yes. Clinic Evo can audit an existing clinic website, identify SEO weaknesses, improve service pages, strengthen internal linking, refine local SEO and create a clearer plan for increasing patient enquiries.",
   },
 ];
 
@@ -95,7 +96,7 @@ export default function SeoForClinicsPage() {
       <PageHero
         badge="Specialist SEO for private healthcare clinics"
         heading={<>SEO for clinics that need <em className="not-italic text-[var(--color-accent)]">more patient enquiries</em></>}
-        subtext="ClinicEvo helps UK private clinics improve their visibility on Google, strengthen their service pages and turn more local searches into booked appointments — built around how MSK patients actually search and decide."
+        subtext="Clinic Evo helps UK private clinics improve their visibility on Google, strengthen their service pages and turn more local searches into booked appointments, built around how MSK patients actually search and decide."
         bullets={[
           "Local SEO, service pages and technical improvements",
           "Built around enquiries, bookings and patient trust",
@@ -139,7 +140,7 @@ export default function SeoForClinicsPage() {
                 do next.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                ClinicEvo builds SEO around that patient journey.
+                Clinic Evo builds SEO around that patient journey.
               </p>
             </FadeUp>
           </div>
@@ -147,15 +148,15 @@ export default function SeoForClinicsPage() {
       </section>
 
       {/* What we improve */}
-      <section id="what-we-improve" className="section bg-[var(--color-surface)]">
+      <section id="what-we-improve" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">What we improve</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">What we improve</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                What ClinicEvo improves
+                What Clinic Evo improves
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic SEO works best when the whole website supports search
                 visibility and patient decision-making. We look at the technical
                 foundation, content structure, local signals and conversion points
@@ -163,7 +164,7 @@ export default function SeoForClinicsPage() {
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "Service page SEO", desc: "We improve the pages that describe your treatments, conditions and clinic services so they are clearer for both patients and Google." },
               { title: "Local SEO", desc: "We strengthen the signals that help your clinic appear for relevant local searches, including location terms, Google Business Profile alignment and service-area relevance." },
@@ -173,7 +174,7 @@ export default function SeoForClinicsPage() {
               { title: "Booking journey improvements", desc: "We review how easily a patient can move from search to understanding, trust and booking." },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
@@ -183,23 +184,35 @@ export default function SeoForClinicsPage() {
         </div>
       </section>
 
+      {/* Proof band */}
+      <StatBand
+        eyebrow="What good clinic SEO looks like"
+        heading="Visibility you can measure in enquiries, not vanity rankings."
+        body="We tie every SEO improvement back to the metric that matters: more of the right patients finding your clinic at the moment they are ready to book."
+        stats={[
+          { value: "340%", label: "Average organic enquiry growth in six months" },
+          { value: "#1\u20133", label: "Local rankings across 18+ target search terms" },
+          { value: "\u00a30", label: "Ongoing cost per patient from organic search" },
+        ]}
+      />
+
       {/* Who this is for */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Who we help</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Who we help</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 SEO for osteopaths, physios and chiropractors
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                ClinicEvo focuses on MSK and private healthcare clinics where
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Clinic Evo focuses on MSK and private healthcare clinics where
                 patient trust, clinical credibility and local search visibility
                 are central to growth. Each discipline has its own search patterns.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "Osteopaths",
@@ -221,7 +234,7 @@ export default function SeoForClinicsPage() {
               },
             ].map((item, i) => (
               <FadeUp key={item.href} delay={i * 0.07}>
-                <div className="bg-[var(--color-surface)] rounded-2xl p-7 border border-[var(--color-border)] h-full flex flex-col">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{item.desc}</p>
                   <ArrowLink href={item.href}>{item.cta}</ArrowLink>
@@ -233,7 +246,7 @@ export default function SeoForClinicsPage() {
       </section>
 
       {/* Common problems */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
@@ -254,7 +267,7 @@ export default function SeoForClinicsPage() {
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)]">
+              <div className="card-surface p-7 md:p-8">
                 <p className="text-label text-[var(--color-accent)] mb-5">Common SEO issues we fix</p>
                 <div className="flex flex-col gap-3">
                   {[
@@ -292,7 +305,7 @@ export default function SeoForClinicsPage() {
                 What is included in clinic SEO?
               </h2>
               <p className="text-body text-[var(--color-muted)]">
-                ClinicEvo can support your clinic with a full SEO improvement
+                Clinic Evo can support your clinic with a full SEO improvement
                 plan or focused work on the areas that matter most.
               </p>
             </FadeUp>
@@ -325,7 +338,7 @@ export default function SeoForClinicsPage() {
       </section>
 
       {/* Patient acquisition */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
@@ -339,7 +352,7 @@ export default function SeoForClinicsPage() {
                 actively looking for help.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                ClinicEvo connects SEO with the wider growth system: better website
+                Clinic Evo connects SEO with the wider growth system: better website
                 pages through{" "}
                 <a href="/website-design-for-clinics/" className="text-[var(--color-accent)] hover:underline">clinic website design</a>,
                 stronger local visibility,{" "}
@@ -374,7 +387,7 @@ export default function SeoForClinicsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

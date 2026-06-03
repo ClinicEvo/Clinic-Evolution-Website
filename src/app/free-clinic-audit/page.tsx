@@ -9,9 +9,9 @@ import PageHero from "@/components/sections/PageHero";
 
 
 export const metadata = buildMetadata({
-  title: "Free Clinic Marketing Audit | ClinicEvo",
+  title: "Free Clinic Marketing Audit | Clinic Evo",
   description:
-    "Request a free ClinicEvo audit for your clinic website, SEO, local visibility, patient journey and missed enquiry opportunities. Built for UK osteopaths, physios and chiropractors.",
+    "Request a free Clinic Evo audit for your clinic website, SEO, local visibility, patient journey and missed enquiry opportunities. Built for UK osteopaths, physios and chiropractors.",
   path: "/free-clinic-audit/",
 });
 
@@ -24,22 +24,22 @@ const faqs = [
   {
     question: "What kind of clinics can request an audit?",
     answer:
-      "ClinicEvo focuses mainly on osteopaths, physiotherapists, chiropractors and MSK clinics. Multi-disciplinary private clinics can also request an audit if they want to improve their website, SEO, Google Ads performance or patient reactivation.",
+      "Clinic Evo focuses mainly on osteopaths, physiotherapists, chiropractors and MSK clinics. Multi-disciplinary private clinics can also request an audit if they want to improve their website, SEO, Google Ads performance or patient reactivation.",
   },
   {
-    question: "Do I need to be ready to work with ClinicEvo?",
+    question: "Do I need to be ready to work with Clinic Evo?",
     answer:
       "No. The audit is useful even if you are still deciding what your clinic needs. It can help you understand whether your biggest opportunity is SEO, website design, Google Ads, patient reactivation or something else.",
   },
   {
     question: "Will you review my whole website?",
     answer:
-      "The audit focuses on the parts of your website and digital presence most likely to affect visibility, trust, enquiries and bookings. For larger websites, ClinicEvo will prioritise the most commercially important pages and patient journeys.",
+      "The audit focuses on the parts of your website and digital presence most likely to affect visibility, trust, enquiries and bookings. For larger websites, Clinic Evo will prioritise the most commercially important pages and patient journeys.",
   },
   {
     question: "What happens after I request the audit?",
     answer:
-      "ClinicEvo will review your submission and website, then share the main opportunities and recommended next steps. If there is a good fit, we can also discuss how ClinicEvo may be able to help implement the improvements.",
+      "Clinic Evo will review your submission and website, then share the main opportunities and recommended next steps. If there is a good fit, we can also discuss how Clinic Evo may be able to help implement the improvements.",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function FreeClinicAuditPage() {
       <PageHero
         badge="Free audit for UK MSK clinics"
         heading={<>Get a free clinic <em className="not-italic text-[var(--color-accent)]">marketing audit</em></>}
-        subtext="The free ClinicEvo audit gives you a clear view of what is working, what is being missed, and where your clinic has the strongest opportunity to improve enquiries, bookings and patient reactivation."
+        subtext="The free Clinic Evo audit gives you a clear view of what is working, what is being missed, and where your clinic has the strongest opportunity to improve enquiries, bookings and patient reactivation."
         bullets={[
           "Reviews website, SEO, local visibility and patient journey",
           "Clear recommendations, not a generic automated report",
@@ -198,7 +198,7 @@ export default function FreeClinicAuditPage() {
                 What you will receive
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
-                After reviewing your clinic&apos;s digital presence, ClinicEvo
+                After reviewing your clinic&apos;s digital presence, Clinic Evo
                 will share a practical summary of the main opportunities we can
                 identify.
               </p>
@@ -238,7 +238,7 @@ export default function FreeClinicAuditPage() {
                 options, and feel confident enough to take the next step.
               </p>
               <p className="text-body text-[var(--color-muted)] mb-5">
-                That is why the ClinicEvo audit looks at the full journey, not just
+                That is why the Clinic Evo audit looks at the full journey, not just
                 rankings. The goal is to identify where your digital presence can
                 better support enquiries, bookings, follow-ups and long-term
                 patient value.
@@ -265,7 +265,7 @@ export default function FreeClinicAuditPage() {
                 </h2>
                 <p className="text-body-lg text-[var(--color-muted)] mb-5">
                   Complete the short form below and share your clinic website.
-                  ClinicEvo will review your current digital presence and identify
+                  Clinic Evo will review your current digital presence and identify
                   the clearest opportunities for improvement.
                 </p>
                 <div className="hidden lg:flex flex-col gap-4 mt-10">

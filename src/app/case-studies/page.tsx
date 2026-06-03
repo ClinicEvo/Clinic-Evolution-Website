@@ -10,9 +10,9 @@ import PageHero from "@/components/sections/PageHero";
 
 
 export const metadata = buildMetadata({
-  title: "Clinic Marketing Case Studies | ClinicEvo",
+  title: "Clinic Marketing Case Studies | Clinic Evo",
   description:
-    "See how ClinicEvo helps UK osteopaths, physiotherapists and chiropractors improve their digital presence, SEO and patient enquiries.",
+    "See how Clinic Evo helps UK osteopaths, physiotherapists and chiropractors improve their digital presence, SEO and patient enquiries.",
   path: "/case-studies/",
 });
 
@@ -29,7 +29,7 @@ export default function CaseStudiesPage() {
       <PageHero
         badge="Client results"
         heading={<>Real growth from <em className="not-italic text-[var(--color-accent)]">real clinic systems</em></>}
-        subtext="These are not hypothetical projections. They are measured results from clinics that invested in proper digital growth systems — tracked from enquiry to booked appointment."
+        subtext="These are not hypothetical projections. They are measured results from clinics that invested in proper digital growth systems, tracked from enquiry to booked appointment."
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
       />

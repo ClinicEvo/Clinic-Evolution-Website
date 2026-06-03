@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Patient Recall System: What It Is and Why Clinics Need One | ClinicEvo",
+  title: "Patient Recall System: What It Is and Why Clinics Need One | Clinic Evo",
   description:
     "A guide to patient recall, follow-up and reactivation systems for private clinics that want to reconnect with past patients more effectively.",
   path: "/resources/patient-recall-system/",
@@ -17,7 +17,7 @@ const crumbs = [
 const faqs = [
   {
     question: "What is the difference between patient recall and patient reactivation?",
-    answer: "Recall typically refers to proactively contacting patients for scheduled reviews or follow-up — often used in dental and optometry. Reactivation is broader: it means identifying past patients who may benefit from returning and communicating with them at the right time, based on clinical suitability.",
+    answer: "Recall typically refers to proactively contacting patients for scheduled reviews or follow-up, often used in dental and optometry. Reactivation is broader: it means identifying past patients who may benefit from returning and communicating with them at the right time, based on clinical suitability.",
   },
   {
     question: "Is patient recall appropriate for MSK clinics?",
@@ -51,7 +51,7 @@ export default function ArticlePage() {
       content: (
         <>
           <p>A patient recall system is a structured process for identifying past patients who may benefit from returning to the clinic, and reaching out to them at the right time with the right message.</p>
-          <p>In healthcare, recall has long been used in dentistry and optometry — the reminder to book your six-month check-up or annual eye test. For MSK clinics, the same principle applies but with a different framing.</p>
+          <p>In healthcare, recall has long been used in dentistry and optometry, the reminder to book your six-month check-up or annual eye test. For MSK clinics, the same principle applies but with a different framing.</p>
           <p>The goal is not to chase appointments for its own sake. It is to reconnect patients with care that may genuinely be relevant to them, whether that is a follow-up after a resolved episode, seasonal maintenance treatment, or reconnection after a longer gap.</p>
         </>
       ),
@@ -109,12 +109,12 @@ export default function ArticlePage() {
       title: "Patient recall versus new patient acquisition",
       content: (
         <>
-          <p>Most clinic marketing conversations focus almost entirely on new patient acquisition. This is understandable — new patients feel like growth.</p>
+          <p>Most clinic marketing conversations focus almost entirely on new patient acquisition. This is understandable, new patients feel like growth.</p>
           <p>But patient recall and reactivation often has a significantly better return on effort. The reasons are straightforward:</p>
           <ul>
-            <li>Past patients already know the clinic — there is no need to build trust from scratch</li>
+            <li>Past patients already know the clinic, there is no need to build trust from scratch</li>
             <li>The communication cost is lower than acquiring someone who has never heard of you</li>
-            <li>Conversion rates are typically higher — a reminder to someone who has already experienced your care is different from a cold introduction</li>
+            <li>Conversion rates are typically higher, a reminder to someone who has already experienced your care is different from a cold introduction</li>
             <li>Recall can generate appointments quickly, often faster than SEO or advertising</li>
           </ul>
           <p>A clinic that invests in both acquisition and retention will almost always outperform one that focuses on acquisition alone.</p>
@@ -126,9 +126,9 @@ export default function ArticlePage() {
       content: (
         <>
           <p>You do not need a complex system to start. A practical first step is to review your appointment data and identify a segment of past patients who have not returned in the last six to twelve months and whose condition history suggests they may benefit from a follow-up.</p>
-          <p>Send a straightforward, personal message — not a bulk marketing email. Acknowledge the gap, reference their history briefly, and make it simple to book if it would be helpful.</p>
+          <p>Send a straightforward, personal message, not a bulk marketing email. Acknowledge the gap, reference their history briefly, and make it simple to book if it would be helpful.</p>
           <p>Track how many respond and book. This will give you a baseline for what recall looks like for your clinic before you invest in a more automated system.</p>
-          <p>From there, the goal is to build recall into a regular, structured process — not a one-off campaign.</p>
+          <p>From there, the goal is to build recall into a regular, structured process, not a one-off campaign.</p>
         </>
       ),
     },

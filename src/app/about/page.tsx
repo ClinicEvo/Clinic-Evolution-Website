@@ -12,17 +12,17 @@ import PageHero from "@/components/sections/PageHero";
 
 
 export const metadata = buildMetadata({
-  title: "About ClinicEvo | Clinic Marketing Agency for MSK Clinics",
+  title: "About Clinic Evo | Clinic Marketing Agency for MSK Clinics",
   description:
-    "Learn why ClinicEvo helps UK osteopaths, physiotherapists and chiropractors grow with specialist clinic marketing, SEO, websites, Google Ads and patient reactivation.",
+    "Learn why Clinic Evo helps UK osteopaths, physiotherapists and chiropractors grow with specialist clinic marketing, SEO, websites, Google Ads and patient reactivation.",
   path: "/about/",
 });
 
 const faqs = [
   {
-    question: "Is ClinicEvo only for MSK clinics?",
+    question: "Is Clinic Evo only for MSK clinics?",
     answer:
-      "ClinicEvo is focused on MSK and private healthcare clinics, especially osteopaths, physiotherapists and chiropractors. This focus allows the strategy, copy, SEO and website work to be more specific than a general marketing agency.",
+      "Clinic Evo is focused on MSK and private healthcare clinics, especially osteopaths, physiotherapists and chiropractors. This focus allows the strategy, copy, SEO and website work to be more specific than a general marketing agency.",
   },
   {
     question: "Why does clinical understanding matter in clinic marketing?",
@@ -30,12 +30,12 @@ const faqs = [
       "Clinical understanding helps the marketing reflect how patients actually search, compare and book care. It also makes service pages, condition content, booking journeys and follow-up systems more relevant to real clinic behaviour.",
   },
   {
-    question: "Does ClinicEvo build websites as well as marketing strategy?",
+    question: "Does Clinic Evo build websites as well as marketing strategy?",
     answer:
-      "Yes. ClinicEvo can support clinic website design, SEO, Google Ads and patient reactivation. The aim is to connect the website, visibility, enquiry journey and follow-up process into one clearer growth system.",
+      "Yes. Clinic Evo can support clinic website design, SEO, Google Ads and patient reactivation. The aim is to connect the website, visibility, enquiry journey and follow-up process into one clearer growth system.",
   },
   {
-    question: "Can ClinicEvo help if my clinic already has a website?",
+    question: "Can Clinic Evo help if my clinic already has a website?",
     answer:
       "Yes. Many clinics already have a website but need clearer messaging, stronger SEO, better service pages, improved booking journeys or more effective follow-up systems. The audit will identify whether your current website can be improved or whether a rebuild would be more effective.",
   },
@@ -53,9 +53,9 @@ export default function AboutPage() {
       <FAQSchema items={faqs} />
 
       <PageHero
-        badge="About ClinicEvo"
+        badge="About Clinic Evo"
         heading={<>A clinic growth partner built around <em className="not-italic text-[var(--color-accent)]">how patients actually choose care</em></>}
-        subtext="ClinicEvo helps UK osteopaths, physiotherapists and chiropractors grow with clearer websites, stronger SEO, better patient journeys, targeted Google Ads and smarter patient reactivation — built around the realities of private clinic growth, not generic marketing theory."
+        subtext="Clinic Evo helps UK osteopaths, physiotherapists and chiropractors grow with clearer websites, stronger SEO, better patient journeys, targeted Google Ads and smarter patient reactivation, built around the realities of private clinic growth, not generic marketing theory."
         bullets={[
           "MSK and private healthcare clinics only",
           "Strategy and delivery, not just advice",
@@ -66,14 +66,14 @@ export default function AboutPage() {
         breadcrumbs={crumbs}
       />
 
-      {/* Why ClinicEvo exists */}
+      {/* Why Clinic Evo exists */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
               <Badge className="mb-5 inline-block">Purpose</Badge>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                Why ClinicEvo exists
+                Why Clinic Evo exists
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
                 Most private clinics do not have a traffic problem alone.
@@ -91,7 +91,7 @@ export default function AboutPage() {
                 looks trustworthy, and makes the next step easy.
               </p>
               <p className="text-body text-[var(--color-muted)] font-semibold">
-                ClinicEvo exists to help clinics build that full digital journey properly.
+                Clinic Evo exists to help clinics build that full digital journey properly.
               </p>
             </FadeUp>
           </div>
@@ -109,7 +109,7 @@ export default function AboutPage() {
                   Built for osteopaths, physiotherapists and chiropractors
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  ClinicEvo focuses on MSK and private healthcare clinics,
+                  Clinic Evo focuses on MSK and private healthcare clinics,
                   especially osteopaths, physiotherapists and chiropractors.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-5">
@@ -123,7 +123,7 @@ export default function AboutPage() {
                   Your marketing needs to reflect that.
                 </p>
                 <p className="text-body text-[var(--color-muted)]">
-                  ClinicEvo helps clinics communicate clearly, appear for the
+                  Clinic Evo helps clinics communicate clearly, appear for the
                   right searches, and turn more of the right visitors into
                   enquiries and bookings.
                 </p>
@@ -168,7 +168,7 @@ export default function AboutPage() {
                 journey, and the follow-up process after treatment.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                Because ClinicEvo is built with direct understanding of osteopathy,
+                Because Clinic Evo is built with direct understanding of osteopathy,
                 clinic websites and patient behaviour, the work is more specific
                 from the start.
               </p>
@@ -206,17 +206,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* What ClinicEvo improves */}
+      {/* What Clinic Evo improves */}
       <section className="section bg-[var(--color-surface)]">
         <div className="cx-main">
           <FadeUp>
             <div className="text-center mb-12">
               <Badge className="mb-5 inline-block">Services</Badge>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                What ClinicEvo helps clinics improve
+                What Clinic Evo helps clinics improve
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                ClinicEvo brings together the main digital growth levers a
+                Clinic Evo brings together the main digital growth levers a
                 private clinic needs, then connects them into a simple, practical
                 system.
               </p>
@@ -268,7 +268,7 @@ export default function AboutPage() {
                   Proof matters more than promises
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  ClinicEvo&apos;s approach is shaped by real clinic growth work,
+                  Clinic Evo&apos;s approach is shaped by real clinic growth work,
                   including the digital strategy and patient journey work behind
                   Bodyfunction Clinic.
                 </p>
@@ -315,7 +315,7 @@ export default function AboutPage() {
                 Clear strategy, practical delivery, no generic playbook
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
-                ClinicEvo is designed for clinic owners who want a practical
+                Clinic Evo is designed for clinic owners who want a practical
                 growth partner rather than vague marketing advice. Or if you need
                 strategic oversight before committing to a larger build, the{" "}
                 <a href="/healthcare-marketing-consultant/" className="text-[var(--color-accent)] hover:underline">healthcare marketing consultant</a>{" "}
@@ -384,7 +384,7 @@ export default function AboutPage() {
               <div className="text-center mb-10">
                 <Badge className="mb-5 inline-block">FAQ</Badge>
                 <h2 className="text-h2 text-[var(--color-ink)]">
-                  About ClinicEvo FAQs
+                  About Clinic Evo FAQs
                 </h2>
               </div>
             </FadeUp>
@@ -395,7 +395,7 @@ export default function AboutPage() {
 
       <CTASection
         heading="Start with a free clinic audit"
-        subheading="The easiest way to see where ClinicEvo can help is to start with a free clinic marketing audit. We will review your website, SEO, local visibility, patient journey and conversion points, then highlight the opportunities most likely to improve enquiries and bookings."
+        subheading="The easiest way to see where Clinic Evo can help is to start with a free clinic marketing audit. We will review your website, SEO, local visibility, patient journey and conversion points, then highlight the opportunities most likely to improve enquiries and bookings."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />

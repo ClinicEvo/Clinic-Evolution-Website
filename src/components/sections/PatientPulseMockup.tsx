@@ -8,14 +8,14 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const events = [
   {
     icon: "check",
-    title: "New enquiry — Google Ads",
+    title: "New enquiry, Google Ads",
     sub: '"physio near me" · Auto SMS sent',
     time: "2 min ago",
     accent: true,
   },
   {
     icon: "call",
-    title: "Missed call — 07XXX XXX XXX",
+    title: "Missed call, 07XXX XXX XXX",
     sub: "Callback queued",
     time: "8 min ago",
     accent: false,
@@ -84,7 +84,7 @@ export default function PatientPulseMockup() {
         <div className="flex items-center gap-2.5">
           <span className="text-xs font-bold text-[var(--color-ink)] tracking-wide">Patient Pulse</span>
           <span className="text-[0.6rem] font-semibold text-[var(--color-muted)] bg-[var(--color-surface)] px-2 py-0.5 rounded-full">
-            by ClinicEvo
+            by Clinic Evo
           </span>
         </div>
         <div className="flex items-center gap-1.5">

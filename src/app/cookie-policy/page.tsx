@@ -4,9 +4,9 @@ import FadeUp from "@/components/ui/FadeUp";
 import Link from "next/link";
 
 export const metadata = buildMetadata({
-  title: "Cookie Policy | ClinicEvo",
+  title: "Cookie Policy | Clinic Evo",
   description:
-    "Read the ClinicEvo Cookie Policy to understand how we use cookies and similar technologies on our website.",
+    "Read the Clinic Evo Cookie Policy to understand how we use cookies and similar technologies on our website.",
   path: "/cookie-policy/",
   noIndex: false,
 });
@@ -18,7 +18,7 @@ const crumbs = [
 
 const sections = [
   "What are cookies?",
-  "How ClinicEvo uses cookies",
+  "How Clinic Evo uses cookies",
   "Types of cookies we may use",
   "Managing your cookie preferences",
   "Changes to this Cookie Policy",
@@ -77,7 +77,7 @@ export default function CookiePolicyPage() {
             <div className="max-w-prose">
               <FadeUp>
                 <p className="text-body text-[var(--color-muted)] mb-12 leading-relaxed">
-                  This Cookie Policy explains how ClinicEvo uses cookies and similar technologies on our website. By using our website, you can choose whether to allow certain types of cookies. Some cookies are essential for the website to work properly. Others help us understand how people use the site and improve performance.
+                  This Cookie Policy explains how Clinic Evo uses cookies and similar technologies on our website. By using our website, you can choose whether to allow certain types of cookies. Some cookies are essential for the website to work properly. Others help us understand how people use the site and improve performance.
                 </p>
               </FadeUp>
 
@@ -94,12 +94,12 @@ export default function CookiePolicyPage() {
               </FadeUp>
 
               <FadeUp delay={0.06}>
-                <article id={slugify("How ClinicEvo uses cookies")} className="mb-12 scroll-mt-28">
+                <article id={slugify("How Clinic Evo uses cookies")} className="mb-12 scroll-mt-28">
                   <h2 className="font-display font-bold text-[1.5rem] leading-tight tracking-tight text-[var(--color-ink)] mb-4 pb-4 border-b border-[var(--color-border)]">
-                    How ClinicEvo uses cookies
+                    How Clinic Evo uses cookies
                   </h2>
                   <div className="article-prose">
-                    <p>ClinicEvo may use cookies to:</p>
+                    <p>Clinic Evo may use cookies to:</p>
                     <ul>
                       <li>keep the website secure and functioning correctly</li>
                       <li>remember your cookie preferences</li>
@@ -123,13 +123,13 @@ export default function CookiePolicyPage() {
                     <p>Essential cookies are needed for the website to function. These may include cookies that support security, page loading, form functionality and cookie preference settings. These cookies cannot usually be switched off because the website may not work properly without them.</p>
 
                     <h3>Analytics cookies</h3>
-                    <p>Analytics cookies help us understand how visitors use the website — for example, which pages are visited, how long people spend on the site, and which pages lead to enquiries. This information helps us improve the website and make the content more useful for clinic owners. Analytics cookies are only used where the appropriate consent has been collected.</p>
+                    <p>Analytics cookies help us understand how visitors use the website, for example, which pages are visited, how long people spend on the site, and which pages lead to enquiries. This information helps us improve the website and make the content more useful for clinic owners. Analytics cookies are only used where the appropriate consent has been collected.</p>
 
                     <h3>Marketing cookies</h3>
                     <p>Marketing cookies may be used to measure the effectiveness of advertising campaigns or help show relevant advertising on other platforms. These cookies may be set by third-party platforms such as Google or Meta, depending on which services are active on the website. Marketing cookies are only used where the visitor has given consent.</p>
 
                     <h3>Third-party cookies</h3>
-                    <p>Some cookies may be set by third-party services used on the ClinicEvo website. Examples may include:</p>
+                    <p>Some cookies may be set by third-party services used on the Clinic Evo website. Examples may include:</p>
                     <ul>
                       <li>Google Analytics</li>
                       <li>Google Tag Manager</li>
@@ -147,7 +147,7 @@ export default function CookiePolicyPage() {
                     Managing your cookie preferences
                   </h2>
                   <div className="article-prose">
-                    <p>When you first visit the ClinicEvo website, you will be shown a cookie banner that allows you to accept or decline non-essential cookies.</p>
+                    <p>When you first visit the Clinic Evo website, you will be shown a cookie banner that allows you to accept or decline non-essential cookies.</p>
                     <p>You can also control cookies through your browser settings. Most browsers allow you to block cookies, delete existing cookies or receive a warning before cookies are stored. Please note that blocking some cookies may affect how the website works.</p>
                   </div>
                 </article>
@@ -170,7 +170,7 @@ export default function CookiePolicyPage() {
                     Contact us
                   </h2>
                   <div className="article-prose">
-                    <p>If you have any questions about this Cookie Policy or how ClinicEvo uses cookies, please contact us via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>.</p>
+                    <p>If you have any questions about this Cookie Policy or how Clinic Evo uses cookies, please contact us via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>.</p>
                     <p>You may also find the following pages useful: <Link href="/privacy-policy/">Privacy Policy</Link> and <Link href="/terms/">Terms</Link>.</p>
                   </div>
                 </article>

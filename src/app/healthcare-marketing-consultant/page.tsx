@@ -15,7 +15,7 @@ import HeroStatCard from "@/components/sections/HeroStatCard";
 export const metadata = buildMetadata({
   title: "Healthcare Marketing Consultant for Private Clinics",
   description:
-    "ClinicEvo provides healthcare marketing consultancy for UK private clinics, helping osteopaths, physios and chiropractors improve SEO, websites, ads and patient growth systems.",
+    "Clinic Evo provides healthcare marketing consultancy for UK private clinics, helping osteopaths, physios and chiropractors improve SEO, websites, ads and patient growth systems.",
   path: "/healthcare-marketing-consultant/",
 });
 
@@ -28,17 +28,17 @@ const faqs = [
   {
     question: "Is this different from hiring a marketing agency?",
     answer:
-      "Yes. A marketing agency usually focuses on delivery, while a consultant can help you decide what should be done first and why. ClinicEvo can support both strategy and delivery, but this page is designed for clinic owners who want a clearer growth plan before committing budget.",
+      "Yes. A marketing agency usually focuses on delivery, while a consultant can help you decide what should be done first and why. Clinic Evo can support both strategy and delivery, but this page is designed for clinic owners who want a clearer growth plan before committing budget.",
   },
   {
     question: "Do you work with all healthcare businesses?",
     answer:
-      "ClinicEvo is focused on private clinics, especially osteopaths, physiotherapists, chiropractors and MSK clinics. This focus means the advice can be more specific to patient journeys, local visibility, service pages, trust signals and booking behaviour.",
+      "Clinic Evo is focused on private clinics, especially osteopaths, physiotherapists, chiropractors and MSK clinics. This focus means the advice can be more specific to patient journeys, local visibility, service pages, trust signals and booking behaviour.",
   },
   {
     question: "Can you review our existing clinic website?",
     answer:
-      "Yes. A website review is often the best starting point. ClinicEvo can assess your service pages, user journey, mobile experience, local SEO, technical issues, calls to action and whether the website is helping or limiting patient enquiries.",
+      "Yes. A website review is often the best starting point. Clinic Evo can assess your service pages, user journey, mobile experience, local SEO, technical issues, calls to action and whether the website is helping or limiting patient enquiries.",
   },
   {
     question: "What should a private clinic fix first in its marketing?",
@@ -67,7 +67,7 @@ export default function HealthcareMarketingConsultantPage() {
       <PageHero
         badge="Founder-led strategy for private clinic growth"
         heading={<>Healthcare marketing consultancy <em className="not-italic text-[var(--color-accent)]">built for MSK clinics</em></>}
-        subtext="ClinicEvo provides specialist healthcare marketing consultancy for UK private clinics — helping osteopaths, physiotherapists and chiropractors understand what is working, what is holding them back, and where growth is most likely to come from."
+        subtext="Clinic Evo provides specialist healthcare marketing consultancy for UK private clinics, helping osteopaths, physiotherapists and chiropractors understand what is working, what is holding them back, and where growth is most likely to come from."
         bullets={[
           "Strategy across SEO, websites, Google Ads and reactivation",
           "Built with real clinical and digital growth experience",
@@ -125,7 +125,7 @@ export default function HealthcareMarketingConsultantPage() {
                 A clearer growth strategy for your clinic
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                ClinicEvo helps clinic owners make better decisions across the
+                Clinic Evo helps clinic owners make better decisions across the
                 main areas that affect patient acquisition and retention.
               </p>
             </div>
@@ -160,7 +160,7 @@ export default function HealthcareMarketingConsultantPage() {
                 For clinic owners who want senior guidance before spending more money
               </h2>
               <p className="text-body text-[var(--color-muted)]">
-                ClinicEvo works especially well for osteopaths, physiotherapists,
+                Clinic Evo works especially well for osteopaths, physiotherapists,
                 chiropractors and MSK clinics where local search, trust,
                 education and booking confidence all matter.
               </p>
@@ -191,18 +191,18 @@ export default function HealthcareMarketingConsultantPage() {
         </div>
       </section>
 
-      {/* Why ClinicEvo */}
+      {/* Why Clinic Evo */}
       <section className="section bg-[var(--color-surface)]">
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Why ClinicEvo</Badge>
+              <Badge className="mb-5 inline-block">Why Clinic Evo</Badge>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Healthcare marketing consultancy grounded in clinic reality
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
                 Many marketing consultants understand campaigns. Fewer understand
-                how patients choose a private clinic. ClinicEvo brings together
+                how patients choose a private clinic. Clinic Evo brings together
                 clinical understanding, digital growth experience and practical
                 website strategy.
               </p>
@@ -296,7 +296,7 @@ export default function HealthcareMarketingConsultantPage() {
                   search demand.
                 </p>
                 <p className="text-body text-[var(--color-muted)]">
-                  ClinicEvo helps you avoid that problem by starting with
+                  Clinic Evo helps you avoid that problem by starting with
                   strategy. The first step is to look at your current position,
                   your competitors, your website, your Google visibility, your
                   patient journey and your missed opportunities.
@@ -310,7 +310,7 @@ export default function HealthcareMarketingConsultantPage() {
                   Built from real clinic growth work
                 </h3>
                 <p className="text-body text-[var(--color-muted)] mb-6">
-                  ClinicEvo&apos;s approach is shaped by hands-on work with
+                  Clinic Evo&apos;s approach is shaped by hands-on work with
                   private clinics, including Bodyfunction Clinic. The focus is
                   on strengthening the digital foundations that actually influence
                   patient growth.

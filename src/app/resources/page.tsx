@@ -8,7 +8,7 @@ import PageHero from "@/components/sections/PageHero";
 import { ReactNode } from "react";
 
 export const metadata = buildMetadata({
-  title: "Clinic Marketing Resources for Private Clinics | ClinicEvo",
+  title: "Clinic Marketing Resources for Private Clinics | Clinic Evo",
   description:
     "Practical clinic marketing resources for osteopaths, physiotherapists and chiropractors, covering SEO, Google Ads, patient acquisition and patient reactivation.",
   path: "/resources/",
@@ -274,7 +274,7 @@ export default function ResourcesHubPage() {
       <PageHero
         badge="Clinic growth resources"
         heading={<>Read the thinking <em className="not-italic text-[var(--color-accent)]">behind the system</em></>}
-        subtext="Practical guides on patient acquisition, clinic SEO, Google Ads, website conversion and patient reactivation — written for UK osteopaths, physiotherapists and chiropractors."
+        subtext="Practical guides on patient acquisition, clinic SEO, Google Ads, website conversion and patient reactivation, written for UK osteopaths, physiotherapists and chiropractors."
         breadcrumbs={crumbs}
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
       />
@@ -289,7 +289,7 @@ export default function ResourcesHubPage() {
                 Practical guidance for growing a private clinic
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
-                ClinicEvo&apos;s resource library is designed to support clinic owners
+                Clinic Evo&apos;s resource library is designed to support clinic owners
                 who want to make better decisions about marketing, SEO, paid ads,
                 websites and patient reactivation.
               </p>
@@ -424,14 +424,14 @@ export default function ResourcesHubPage() {
                 {
                   icon: icons.buildings,
                   title: "Bodyfunction Clinic case study",
-                  desc: "A core ClinicEvo proof asset showing how clinic website, SEO and patient journey work can support a stronger digital growth system.",
+                  desc: "A core Clinic Evo proof asset showing how clinic website, SEO and patient journey work can support a stronger digital growth system.",
                   href: "/case-studies/bodyfunction-clinic/",
                   action: "Read the case study",
                 },
                 {
                   icon: icons.article,
                   title: "Chiropractic marketing case study",
-                  desc: "An overview of the digital marketing approach ClinicEvo applies to chiropractic clinics, covering website structure, SEO and enquiry growth.",
+                  desc: "An overview of the digital marketing approach Clinic Evo applies to chiropractic clinics, covering website structure, SEO and enquiry growth.",
                   href: "/resources/chiropractic-marketing-case-study/",
                   action: "View resource",
                 },
@@ -464,7 +464,7 @@ export default function ResourcesHubPage() {
 
       <CTASection
         heading="Need a clearer plan for your clinic?"
-        subheading="Reading about clinic marketing can help you understand the options. The more useful next step is to look at your own website, search visibility, booking journey and patient follow-up system. ClinicEvo's free clinic audit gives you a practical view of what is working, what is missing and where the strongest opportunities are likely to be."
+        subheading="Reading about clinic marketing can help you understand the options. The more useful next step is to look at your own website, search visibility, booking journey and patient follow-up system. Clinic Evo's free clinic audit gives you a practical view of what is working, what is missing and where the strongest opportunities are likely to be."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />

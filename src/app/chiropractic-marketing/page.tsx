@@ -16,7 +16,7 @@ import HeroStatCard from "@/components/sections/HeroStatCard";
 export const metadata = buildMetadata({
   title: "SEO for Chiropractors UK | Chiropractic Marketing",
   description:
-    "ClinicEvo helps UK chiropractors attract more patients with specialist chiropractic marketing, SEO, clinic website design, Google Ads and patient reactivation.",
+    "Clinic Evo helps UK chiropractors attract more patients with specialist chiropractic marketing, SEO, clinic website design, Google Ads and patient reactivation.",
   path: "/chiropractic-marketing/",
 });
 
@@ -37,14 +37,14 @@ const faqs = [
       "Google Ads can be useful for chiropractors when campaigns target high-intent searches and send visitors to relevant landing pages. They usually work best when the clinic website is clear, fast and easy to book from.",
   },
   {
-    question: "Does ClinicEvo build websites for chiropractic clinics?",
+    question: "Does Clinic Evo build websites for chiropractic clinics?",
     answer:
-      "Yes. ClinicEvo helps chiropractic clinics create clearer, more conversion-focused websites that support SEO, patient education, trust-building and online booking.",
+      "Yes. Clinic Evo helps chiropractic clinics create clearer, more conversion-focused websites that support SEO, patient education, trust-building and online booking.",
   },
   {
-    question: "Can ClinicEvo help with chiropractic social media marketing?",
+    question: "Can Clinic Evo help with chiropractic social media marketing?",
     answer:
-      "Yes. ClinicEvo can help chiropractic clinics use clearer educational content, social media ads and patient-focused messaging to support awareness, trust and enquiries.",
+      "Yes. Clinic Evo can help chiropractic clinics use clearer educational content, social media ads and patient-focused messaging to support awareness, trust and enquiries.",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function ChiropracticMarketingPage() {
       <PageHero
         badge="Chiropractic marketing for UK clinics"
         heading={<>SEO and marketing for chiropractors who want <em className="not-italic text-[var(--color-accent)]">more of the right patients</em></>}
-        subtext="ClinicEvo helps chiropractic clinics improve online visibility, attract better enquiries and build a clearer route from search to booked appointment — built around how people actually choose a chiropractor."
+        subtext="Clinic Evo helps chiropractic clinics improve online visibility, attract better enquiries and build a clearer route from search to booked appointment, built around how people actually choose a chiropractor."
         bullets={[
           "Local SEO and Google Ads for chiro clinics",
           "Conversion-focused website design",
@@ -145,7 +145,7 @@ export default function ChiropracticMarketingPage() {
                   and make the next step feel easy.
                 </p>
                 <p className="text-body text-[var(--color-muted)]">
-                  ClinicEvo helps chiropractic clinics create a clearer digital
+                  Clinic Evo helps chiropractic clinics create a clearer digital
                   presence that supports search visibility, patient confidence and
                   enquiry growth.
                 </p>
@@ -255,10 +255,10 @@ export default function ChiropracticMarketingPage() {
             <div className="text-center mb-12">
               <Badge className="mb-5 inline-block">Services</Badge>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                How ClinicEvo helps chiropractors grow online
+                How Clinic Evo helps chiropractors grow online
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                ClinicEvo gives chiropractic clinics focused digital support across
+                Clinic Evo gives chiropractic clinics focused digital support across
                 the areas most likely to improve visibility, enquiries, bookings
                 and patient retention.
               </p>
@@ -384,7 +384,7 @@ export default function ChiropracticMarketingPage() {
                   Proof from real clinic growth work
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  ClinicEvo&apos;s approach is shaped by real work with private
+                  Clinic Evo&apos;s approach is shaped by real work with private
                   clinics, including Bodyfunction Clinic. The focus was to improve
                   the digital foundation, strengthen service pages, make the
                   patient journey clearer and build smarter systems for growth.
@@ -455,7 +455,7 @@ export default function ChiropracticMarketingPage() {
 
       <CTASection
         heading="Ready to grow your chiropractic clinic?"
-        subheading="Book a free audit and see exactly what's holding your clinic back online."
+        subheading="Book a free clinic audit and see exactly what's holding your clinic back online."
       />
     </>
   );

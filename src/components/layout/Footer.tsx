@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { footerNav } from "@/lib/nav";
 import { siteConfig } from "@/lib/metadata";
 
@@ -12,13 +11,40 @@ const LinkedInIcon = () => (
   </svg>
 );
 
+/* Brand lockup recreated for dark backgrounds, no white plate needed */
+const FooterLogo = () => (
+  <span className="inline-flex items-center gap-2.5">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      {/* navy/light ring with orange accent arc on the right */}
+      <circle cx="16" cy="16" r="14" stroke="rgba(255,255,255,0.85)" strokeWidth="2" />
+      <path
+        d="M16 2a14 14 0 0 1 0 28"
+        stroke={ACCENT}
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      {/* orange check / V mark */}
+      <path
+        d="M9 13l5 8 4-13"
+        stroke={ACCENT}
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+    <span className="font-display font-bold text-white text-[1.35rem] leading-none tracking-tight">
+      Clinic Evo
+    </span>
+  </span>
+);
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer
       className="relative overflow-hidden text-white"
-      style={{ background: "#0d1b2a", borderTop: `2px solid ${ACCENT}` }}
+      style={{ background: "#0d1b2a", borderTop: "1px solid rgba(255,255,255,0.08)" }}
     >
       <div className="cx-main pt-16 pb-10">
 
@@ -32,15 +58,15 @@ export default function Footer() {
               Find out where your clinic is losing patients.
             </p>
             <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
-              Free audit — honest assessment within 2 business days. No jargon. No commitment.
+              Free audit, honest assessment within 2 business days. No jargon. No commitment.
             </p>
           </div>
           <Link
             href="/free-clinic-audit/"
-            className="flex-shrink-0 inline-flex items-center gap-2 text-white text-sm font-bold px-5 py-3 rounded-lg transition-opacity hover:opacity-90 whitespace-nowrap"
+            className="flex-shrink-0 inline-flex items-center gap-2 text-white text-sm font-bold px-5 py-3 rounded-[4px] transition-opacity hover:opacity-90 whitespace-nowrap"
             style={{ background: ACCENT }}
           >
-            Book free audit
+            Book a free clinic audit
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -52,16 +78,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" aria-label="ClinicEvo home" className="inline-block">
-              <div style={{ background: "white", borderRadius: "8px", padding: "6px 12px", display: "inline-flex" }}>
-                <Image
-                  src="/images/cevo_newlogo.png"
-                  alt="Clinic Evo"
-                  width={120}
-                  height={34}
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
+            <Link href="/" aria-label="Clinic Evo home" className="inline-block">
+              <FooterLogo />
             </Link>
             <p className="mt-5 text-sm max-w-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
               Patient acquisition and retention systems for UK MSK clinics.
@@ -79,7 +97,7 @@ export default function Footer() {
                   href={siteConfig.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="ClinicEvo on LinkedIn"
+                  aria-label="Clinic Evo on LinkedIn"
                   className="transition-colors hover:text-white"
                   style={{ color: "rgba(255,255,255,0.35)" }}
                 >

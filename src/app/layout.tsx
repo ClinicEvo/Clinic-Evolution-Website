@@ -9,18 +9,26 @@ import CookieBanner from "@/components/layout/CookieBanner";
 import OrganizationSchema from "@/components/schema/OrganizationSchema";
 import { siteConfig } from "@/lib/metadata";
 
-const dmSansLight = localFont({
-  src: "./fonts/DMSans_24pt-Light.woff2",
+const dmSans = localFont({
+  src: [
+    {
+      path: "./fonts/DMSans_24pt-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/DMSans_24pt-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/DMSans_18pt-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   variable: "--font-dm-sans",
   display: "swap",
-  weight: "300",
-});
-
-const dmSansMedium = localFont({
-  src: "./fonts/DMSans_18pt-Medium.woff2",
-  variable: "--font-dm-sans-medium",
-  display: "swap",
-  weight: "500",
 });
 
 const plusJakartaSemiBold = localFont({
@@ -34,20 +42,6 @@ const brume = localFont({
   src: "./fonts/Brume-Regular.woff2",
   variable: "--font-brume",
   display: "swap",
-});
-
-const inter = localFont({
-  src: "./fonts/Inter-Variable.woff2",
-  variable: "--font-inter",
-  display: "swap",
-  weight: "100 900",
-});
-
-const interTight = localFont({
-  src: "./fonts/InterTight-Variable.woff2",
-  variable: "--font-inter-tight",
-  display: "swap",
-  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -74,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-GB" className={`${dmSansLight.variable} ${dmSansMedium.variable} ${inter.variable} ${interTight.variable} ${brume.variable} ${plusJakartaSemiBold.variable}`} suppressHydrationWarning>
+    <html lang="en-GB" className={`${dmSans.variable} ${brume.variable} ${plusJakartaSemiBold.variable}`} suppressHydrationWarning>
       <head>
         <OrganizationSchema />
         {process.env.NEXT_PUBLIC_GA4_ID && (

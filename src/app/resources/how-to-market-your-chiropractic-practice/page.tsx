@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "How to Market Your Chiropractic Practice | ClinicEvo",
+  title: "How to Market Your Chiropractic Practice | Clinic Evo",
   description:
     "A chiropractic-specific guide covering visibility, trust, patient education and ways to reduce reliance on referral-only growth.",
   path: "/resources/how-to-market-your-chiropractic-practice/",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "How do chiropractic practices get more referrals?",
-    answer: "GP and healthcare referrals are harder to rely on than they once were. Building a strong online presence — good reviews, clear service pages, local visibility — means patients can find you directly rather than waiting for a referral.",
+    answer: "GP and healthcare referrals are harder to rely on than they once were. Building a strong online presence, good reviews, clear service pages, local visibility, means patients can find you directly rather than waiting for a referral.",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function ArticlePage() {
             <li>How many sessions will I need?</li>
             <li>What are the qualifications of the chiropractor?</li>
           </ul>
-          <p>Marketing that addresses these questions directly — through well-written service and condition pages, practitioner profiles and clear FAQs — significantly reduces the barrier to booking.</p>
+          <p>Marketing that addresses these questions directly, through well-written service and condition pages, practitioner profiles and clear FAQs, significantly reduces the barrier to booking.</p>
           <p>The clinic that answers patient questions most completely often wins the enquiry, regardless of whether it ranks first in Google.</p>
         </>
       ),
@@ -123,7 +123,7 @@ export default function ArticlePage() {
         <>
           <p>Many chiropractic practices historically relied on GP referrals, word of mouth and professional networks. These still matter, but they are less reliable as sole growth sources than they once were.</p>
           <p>GP referrals to chiropractic are inconsistent across areas. Word of mouth is difficult to control and scale. A practice that can generate its own direct patient enquiries online has a more stable growth foundation.</p>
-          <p>Building direct online enquiry flow — through local SEO, a well-converting website and, where appropriate, Google Ads — means the practice is not dependent on any single referral source it cannot influence.</p>
+          <p>Building direct online enquiry flow, through local SEO, a well-converting website and, where appropriate, Google Ads, means the practice is not dependent on any single referral source it cannot influence.</p>
         </>
       ),
     },

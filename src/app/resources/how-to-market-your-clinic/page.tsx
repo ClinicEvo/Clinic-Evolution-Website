@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "How to Market Your Clinic | ClinicEvo",
+  title: "How to Market Your Clinic | Clinic Evo",
   description:
     "A practical overview of how private clinics can approach digital marketing without wasting time on disconnected tactics.",
   path: "/resources/how-to-market-your-clinic/",
@@ -40,7 +40,7 @@ export default function ArticlePage() {
         Private clinic marketing does not have to be complicated. But it does need to be joined up.
       </p>
       <p>
-        This guide covers how to think about marketing your clinic in a way that focuses on outcomes rather than activity — and helps you prioritise the changes that are most likely to make a difference.
+        This guide covers how to think about marketing your clinic in a way that focuses on outcomes rather than activity, and helps you prioritise the changes that are most likely to make a difference.
       </p>
     </>
   );
@@ -50,7 +50,7 @@ export default function ArticlePage() {
       title: "Think about marketing as a system, not a list of tactics",
       content: (
         <>
-          <p>The most common clinic marketing mistake is treating each activity — a new website, some Google Ads, a social media page — as a separate project rather than part of an interconnected system.</p>
+          <p>The most common clinic marketing mistake is treating each activity, a new website, some Google Ads, a social media page, as a separate project rather than part of an interconnected system.</p>
           <p>A clinic&apos;s digital presence works as a whole. Search visibility brings visitors. The website converts them into enquiries. The booking journey turns enquiries into appointments. Patient communication encourages retention and recall.</p>
           <p>When one part of that system is broken, everything downstream suffers. Driving more traffic to a website that cannot convert is expensive. Running Google Ads without tracking which keywords produce bookings is wasteful. Building a strong website without any SEO means it will be hard to find.</p>
           <p>Effective clinic marketing means understanding which part of the system needs attention first.</p>
@@ -84,7 +84,7 @@ export default function ArticlePage() {
           <h3>Communicate relevance</h3>
           <p>Visitors should immediately understand what conditions you treat, who you help, and where you are. This is surprisingly often unclear on clinic websites.</p>
           <h3>Build trust</h3>
-          <p>Reviews, practitioner credentials, before-and-after outcomes, professional associations, clear pricing where appropriate — these all help a visitor feel confident enough to book.</p>
+          <p>Reviews, practitioner credentials, before-and-after outcomes, professional associations, clear pricing where appropriate, these all help a visitor feel confident enough to book.</p>
           <h3>Make booking easy</h3>
           <p>The fewer clicks and form fields between a visitor and an enquiry, the more enquiries you will receive. Booking CTAs should appear at multiple points on every service page, not just on a contact page.</p>
         </>
@@ -104,7 +104,7 @@ export default function ArticlePage() {
             <li>Content that matches the searches your patients actually make</li>
             <li>Good internal linking between related pages</li>
           </ul>
-          <p>SEO takes time — typically 3 to 6 months before significant results. But once it works, it provides ongoing visibility without the ongoing cost of paid advertising.</p>
+          <p>SEO takes time, typically 3 to 6 months before significant results. But once it works, it provides ongoing visibility without the ongoing cost of paid advertising.</p>
         </>
       ),
     },
@@ -129,7 +129,7 @@ export default function ArticlePage() {
       content: (
         <>
           <p>Many clinic owners focus entirely on new patient acquisition while ignoring a database of past patients who already know and trust them.</p>
-          <p>A structured approach to patient recall and reactivation — reaching out to past patients at the right time, with clinically relevant communication — can be one of the most efficient ways to increase appointment bookings.</p>
+          <p>A structured approach to patient recall and reactivation, reaching out to past patients at the right time, with clinically relevant communication, can be one of the most efficient ways to increase appointment bookings.</p>
           <p>It requires less effort to reactivate a satisfied past patient than to attract a completely new one, and the conversion rate is typically higher.</p>
         </>
       ),

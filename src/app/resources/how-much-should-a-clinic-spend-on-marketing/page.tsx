@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "How Much Should a Clinic Spend on Marketing? | ClinicEvo",
+  title: "How Much Should a Clinic Spend on Marketing? | Clinic Evo",
   description:
     "A practical guide to clinic marketing budgets for private practice owners, covering SEO, Google Ads, websites, patient acquisition and how to invest sensibly.",
   path: "/resources/how-much-should-a-clinic-spend-on-marketing/",

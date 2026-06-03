@@ -12,7 +12,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 export const metadata = buildMetadata({
   title: "AI Integration & Patient Reactivation for MSK Clinics",
   description:
-    "Automated patient reactivation and recall systems for UK osteopaths, physiotherapists and chiropractors. Lapsed patients contacted at 3, 6 and 12 months — without manual effort.",
+    "Automated patient reactivation and recall systems for UK osteopaths, physiotherapists and chiropractors. Lapsed patients contacted at 3, 6 and 12 months, without manual effort.",
   path: "/ai-integration/",
 });
 
@@ -25,17 +25,17 @@ const faqs = [
   {
     question: "What is patient reactivation?",
     answer:
-      "Patient reactivation is the process of reconnecting with previous patients who have not been seen for a period of time. For most MSK clinics, a significant portion of past patients are candidates for a return visit — but nobody has contacted them.",
+      "Patient reactivation is the process of reconnecting with previous patients who have not been seen for a period of time. For most MSK clinics, a significant portion of past patients are candidates for a return visit, but nobody has contacted them.",
   },
   {
     question: "How does automated reactivation work?",
     answer:
-      "ClinicEvo sets up automated sequences that contact lapsed patients at defined intervals — typically 3, 6 and 12 months after their last appointment. Messages are personalised, sent at appropriate times, and designed to prompt a booking without being aggressive.",
+      "Clinic Evo sets up automated sequences that contact lapsed patients at defined intervals, typically 3, 6 and 12 months after their last appointment. Messages are personalised, sent at appropriate times, and designed to prompt a booking without being aggressive.",
   },
   {
     question: "Does this require AI tools the clinic manages?",
     answer:
-      "No. ClinicEvo manages the entire system. The clinic does not need to learn new software or manage automated sequences manually. Everything runs through Patient Pulse.",
+      "No. Clinic Evo manages the entire system. The clinic does not need to learn new software or manage automated sequences manually. Everything runs through Patient Pulse.",
   },
   {
     question: "What kind of results can a clinic expect?",
@@ -56,7 +56,7 @@ const automations = [
   },
   {
     title: "Review requests",
-    desc: "After a positive session, every patient receives a review request timed to when they are most likely to respond — same day, not weeks later.",
+    desc: "After a positive session, every patient receives a review request timed to when they are most likely to respond, same day, not weeks later.",
   },
   {
     title: "Post-treatment follow-up",
@@ -97,11 +97,11 @@ export default function AiIntegrationPage() {
             </em>
           </>
         }
-        subtext="Most MSK clinic databases contain hundreds of patients who haven't been seen in months. They are not gone — they just haven't been contacted. ClinicEvo's AI integration brings them back automatically."
+        subtext="Most MSK clinic databases contain hundreds of patients who haven't been seen in months. They are not gone, they just haven't been contacted. Clinic Evo's AI integration brings them back automatically."
         bullets={[
           "Automated reactivation at 3, 6 and 12 months",
           "Review requests after every positive session",
-          "All managed through Patient Pulse — no new tools to learn",
+          "All managed through Patient Pulse, no new tools to learn",
         ]}
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See all automations", href: "#automations" }}
@@ -129,7 +129,7 @@ export default function AiIntegrationPage() {
             <p className="text-body text-[var(--color-muted)]">
               Automated reactivation is not a replacement for new patient acquisition.
               It is a parallel system that extracts consistent value from existing
-              relationships — without adding any manual effort to the clinic.
+              relationships, without adding any manual effort to the clinic.
             </p>
           </FadeUp>
         </div>
@@ -155,14 +155,14 @@ export default function AiIntegrationPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {automations.map((a, i) => (
               <FadeUp key={a.title} delay={i * 0.07}>
-                <div className="flex flex-col h-full bg-white border border-[var(--color-border)] rounded-xl p-7">
-                  <div className="w-7 h-7 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mb-4">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <path d="M2 6l3 3 5-5" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <div className="flex flex-col h-full bg-transparent pt-6 border-t border-[var(--color-border)]">
+                  <div className="w-8 h-8 rounded-[4px] bg-[var(--color-surface)] flex items-center justify-center mb-4 text-[var(--color-ink)]">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{a.title}</h3>
-                  <p className="text-body text-[var(--color-muted)] leading-relaxed">{a.desc}</p>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2 font-semibold">{a.title}</h3>
+                  <p className="text-sm text-[var(--color-muted)] leading-relaxed font-light">{a.desc}</p>
                 </div>
               </FadeUp>
             ))}
@@ -181,7 +181,7 @@ export default function AiIntegrationPage() {
             <p className="text-body text-[var(--color-muted)] mb-8">
               Automated reactivation solves the retention problem. But clinics also
               need to be found, to convert visitors into enquiries, to follow up
-              immediately, and to answer calls. ClinicEvo connects all five stages
+              immediately, and to answer calls. Clinic Evo connects all five stages
               into a single system.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">

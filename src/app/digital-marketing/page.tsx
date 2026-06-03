@@ -8,9 +8,9 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import Badge from "@/components/ui/Badge";
 
 export const metadata = buildMetadata({
-  title: "Digital Marketing for MSK Clinics — Coordinated Growth",
+  title: "Digital Marketing for MSK Clinics, Coordinated Growth",
   description:
-    "ClinicEvo builds coordinated digital marketing systems for UK osteopaths, physiotherapists and chiropractors — SEO, Google Ads, follow-up and patient retention working together.",
+    "Clinic Evo builds coordinated digital marketing systems for UK osteopaths, physiotherapists and chiropractors, SEO, Google Ads, follow-up and patient retention working together.",
   path: "/digital-marketing/",
 });
 
@@ -22,7 +22,7 @@ const crumbs = [
 const channels = [
   {
     title: "Search engine optimisation",
-    desc: "Ranking for the terms your patients use — 'physio near me', 'osteopath [town]', 'back pain specialist' — so new patients find you before they find a competitor.",
+    desc: "Ranking for the terms your patients use, 'physio near me', 'osteopath [town]', 'back pain specialist', so new patients find you before they find a competitor.",
     href: "/seo-for-clinics/",
     cta: "SEO for clinics",
   },
@@ -34,7 +34,7 @@ const channels = [
   },
   {
     title: "Clinic website design",
-    desc: "Websites built for MSK patients — condition pages, local trust signals, and booking paths that convert visitors into enquiries.",
+    desc: "Websites built for MSK patients, condition pages, local trust signals, and booking paths that convert visitors into enquiries.",
     href: "/website-design-for-clinics/",
     cta: "clinic website design",
   },
@@ -78,7 +78,7 @@ export default function DigitalMarketingPage() {
             </em>
           </>
         }
-        subtext="Most agencies handle one part of the chain — traffic, or a website, or follow-up emails — and leave everything else disconnected. ClinicEvo coordinates every channel so nothing falls through the gaps."
+        subtext="Most agencies handle one part of the chain, traffic, or a website, or follow-up emails, and leave everything else disconnected. Clinic Evo coordinates every channel so nothing falls through the gaps."
         bullets={[
           "SEO, Google Ads, web design and follow-up connected",
           "Built exclusively for MSK clinics",
@@ -104,11 +104,11 @@ export default function DigitalMarketingPage() {
             </p>
             <p className="text-body text-[var(--color-muted)] mb-5">
               The result is a clinic that is visible in search, has a decent website,
-              and still loses patients — because the handoff between traffic, enquiry,
+              and still loses patients, because the handoff between traffic, enquiry,
               follow-up and booking has never been connected.
             </p>
             <p className="text-body text-[var(--color-muted)]">
-              ClinicEvo connects the entire chain. Each component is built to hand off
+              Clinic Evo connects the entire chain. Each component is built to hand off
               to the next. Remove one and the chain breaks. Run them together and
               growth becomes measurable, consistent and self-reinforcing.
             </p>
@@ -126,7 +126,7 @@ export default function DigitalMarketingPage() {
                 Every part of the growth chain
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl">
-                ClinicEvo works exclusively with MSK clinics — osteopaths,
+                Clinic Evo works exclusively with MSK clinics, osteopaths,
                 physiotherapists and chiropractors. Not gyms. Not dentists.
                 Not generic private healthcare.
               </p>
@@ -136,9 +136,9 @@ export default function DigitalMarketingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {channels.map((c, i) => (
               <FadeUp key={c.title} delay={i * 0.07}>
-                <div className="flex flex-col h-full bg-white border border-[var(--color-border)] rounded-xl p-7">
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-3">{c.title}</h3>
-                  <p className="text-body text-[var(--color-muted)] leading-relaxed flex-1 mb-5">{c.desc}</p>
+                <div className="flex flex-col h-full bg-transparent pt-6 border-t border-[var(--color-border)]">
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-3 font-semibold">{c.title}</h3>
+                  <p className="text-sm text-[var(--color-muted)] leading-relaxed flex-1 mb-5 font-light">{c.desc}</p>
                   <ArrowLink href={c.href}>{c.cta}</ArrowLink>
                 </div>
               </FadeUp>
@@ -158,7 +158,7 @@ export default function DigitalMarketingPage() {
             <p className="text-body text-[var(--color-muted)] mb-8">
               Each MSK discipline has different patient decision-making patterns,
               different search behaviour, different regulatory requirements and different
-              competitive landscapes. ClinicEvo builds for those differences — not a
+              competitive landscapes. Clinic Evo builds for those differences, not a
               generic healthcare template applied to every clinic.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
@@ -172,7 +172,7 @@ export default function DigitalMarketingPage() {
 
       <CTASection
         heading="See the whole system working for your clinic"
-        subheading="Book a free clinic audit. We review every part of your current digital presence and show you honestly where growth is being lost — and what a connected system would do differently."
+        subheading="Book a free clinic audit. We review every part of your current digital presence and show you honestly where growth is being lost, and what a connected system would do differently."
       />
     </>
   );

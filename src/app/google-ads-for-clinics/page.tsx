@@ -16,7 +16,7 @@ import HeroStatCard from "@/components/sections/HeroStatCard";
 export const metadata = buildMetadata({
   title: "Google Ads for Physios & Clinics",
   description:
-    "ClinicEvo builds Google Ads campaigns for UK physiotherapists, osteopaths and chiropractors, helping clinics attract high-intent patients and reduce wasted ad spend.",
+    "Clinic Evo builds Google Ads campaigns for UK physiotherapists, osteopaths and chiropractors, helping clinics attract high-intent patients and reduce wasted ad spend.",
   path: "/google-ads-for-clinics/",
 });
 
@@ -39,12 +39,12 @@ const faqs = [
   {
     question: "Can you manage Google Ads if our clinic already has campaigns running?",
     answer:
-      "Yes. ClinicEvo can review existing campaigns, identify wasted spend, improve keyword targeting, refine ad copy, check tracking and recommend better landing page alignment.",
+      "Yes. Clinic Evo can review existing campaigns, identify wasted spend, improve keyword targeting, refine ad copy, check tracking and recommend better landing page alignment.",
   },
   {
     question: "Do you build landing pages for Google Ads campaigns?",
     answer:
-      "Yes. If the existing website pages are not strong enough, ClinicEvo can recommend or create landing pages that match the campaign intent and give patients a clearer route to enquire or book.",
+      "Yes. If the existing website pages are not strong enough, Clinic Evo can recommend or create landing pages that match the campaign intent and give patients a clearer route to enquire or book.",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function GoogleAdsForClinicsPage() {
       <PageHero
         badge="Paid search for private MSK clinics"
         heading={<>Google Ads for clinics that want <em className="not-italic text-[var(--color-accent)]">bookings, not clicks</em></>}
-        subtext="ClinicEvo builds Google Ads campaigns for UK physiotherapists, osteopaths and chiropractors — focused on high-intent searches, relevant landing pages and enquiry quality, not just impressions."
+        subtext="Clinic Evo builds Google Ads campaigns for UK physiotherapists, osteopaths and chiropractors, focused on high-intent searches, relevant landing pages and enquiry quality, not just impressions."
         bullets={[
           "Campaigns focused on bookings, not vanity clicks",
           "Landing page and tracking support included",
@@ -144,7 +144,7 @@ export default function GoogleAdsForClinicsPage() {
                 journey.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                ClinicEvo builds Google Ads campaigns around patient intent, not
+                Clinic Evo builds Google Ads campaigns around patient intent, not
                 broad traffic.
               </p>
             </FadeUp>
@@ -213,7 +213,7 @@ export default function GoogleAdsForClinicsPage() {
                 Paid search for physios, osteopaths and chiropractors
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                ClinicEvo focuses on private MSK clinics, where patient trust
+                Clinic Evo focuses on private MSK clinics, where patient trust
                 and clinical relevance matter. Each clinic type needs its own
                 keyword strategy, ad messaging and landing page structure.
               </p>
@@ -262,7 +262,7 @@ export default function GoogleAdsForClinicsPage() {
                 What we manage for your clinic
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                ClinicEvo can support the full paid search journey, from campaign
+                Clinic Evo can support the full paid search journey, from campaign
                 setup to landing page improvements and conversion tracking.
               </p>
             </div>
@@ -303,7 +303,7 @@ export default function GoogleAdsForClinicsPage() {
                 still lose the enquiry.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                That is why ClinicEvo looks at the full journey: search term, ad,
+                That is why Clinic Evo looks at the full journey: search term, ad,
                 landing page, trust signals, call to action, booking route and
                 follow-up. We also connect paid search with{" "}
                 <a href="/website-design-for-clinics/" className="text-[var(--color-accent)] hover:underline">clinic website design</a>,{" "}
@@ -323,7 +323,7 @@ export default function GoogleAdsForClinicsPage() {
             <FadeUp>
               <Badge className="mb-5 inline-block">Process</Badge>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                How ClinicEvo approaches Google Ads
+                How Clinic Evo approaches Google Ads
               </h2>
               <p className="text-body text-[var(--color-muted)]">
                 A structured approach that starts with understanding your clinic,

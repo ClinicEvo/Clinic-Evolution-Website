@@ -171,7 +171,7 @@ export default function PatientFunnel() {
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-4 h-px bg-[var(--color-accent)] inline-block" />
-          <span className="text-[0.6rem] font-bold text-[var(--color-accent)] uppercase tracking-wider">With ClinicEvo</span>
+          <span className="text-[0.6rem] font-bold text-[var(--color-accent)] uppercase tracking-wider">With Clinic Evo</span>
         </div>
       </motion.div>
 

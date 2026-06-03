@@ -13,9 +13,9 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import { ClinicGrowthStats, SEOVisibilityMetrics, PatientConversionFunnel } from "@/components/case-studies/CaseStudyCharts";
 
 export const metadata = buildMetadata({
-  title: "Physio Marketing Case Study | Bodyfunction Clinic | ClinicEvo",
+  title: "Physio Marketing Case Study | Bodyfunction Clinic | Clinic Evo",
   description:
-    "See how ClinicEvo improved the digital growth foundations for Bodyfunction Clinic through clearer website structure, SEO-led service pages, stronger patient journeys and clinic marketing strategy.",
+    "See how Clinic Evo improved the digital growth foundations for Bodyfunction Clinic through clearer website structure, SEO-led service pages, stronger patient journeys and clinic marketing strategy.",
   path: "/case-studies/bodyfunction-clinic/",
 });
 
@@ -85,7 +85,7 @@ export default function BodyfunctionCaseStudyPage() {
                     from search to booking.
                   </p>
                   <p className="text-body-lg text-[var(--color-muted)] leading-relaxed">
-                    ClinicEvo&apos;s work focused on turning the website into a more
+                    Clinic Evo&apos;s work focused on turning the website into a more
                     useful growth asset, with clearer service positioning, stronger
                     clinic SEO foundations and a patient journey designed around how
                     people actually search for and choose private treatment.
@@ -284,7 +284,7 @@ export default function BodyfunctionCaseStudyPage() {
             <div className="text-center mb-12">
               <Badge className="mb-5 inline-block">Improvements</Badge>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                What ClinicEvo improved
+                What Clinic Evo improved
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
                 The work focused on the areas that matter most for a private
@@ -450,10 +450,10 @@ export default function BodyfunctionCaseStudyPage() {
             <div className="text-center mb-12">
               <Badge className="mb-5 inline-block">Capabilities</Badge>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                Related ClinicEvo support
+                Related Clinic Evo support
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                ClinicEvo can help your clinic improve the same core growth
+                Clinic Evo can help your clinic improve the same core growth
                 foundations: search visibility, service page structure, patient
                 journey, booking flow and reactivation opportunities.
               </p>

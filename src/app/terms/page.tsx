@@ -4,9 +4,9 @@ import FadeUp from "@/components/ui/FadeUp";
 import Link from "next/link";
 
 export const metadata = buildMetadata({
-  title: "Terms | ClinicEvo",
+  title: "Terms | Clinic Evo",
   description:
-    "Read the terms for using the ClinicEvo website and enquiring about our clinic marketing, SEO, website design, Google Ads and patient reactivation services.",
+    "Read the terms for using the Clinic Evo website and enquiring about our clinic marketing, SEO, website design, Google Ads and patient reactivation services.",
   path: "/terms/",
   noIndex: true,
 });
@@ -18,7 +18,7 @@ const crumbs = [
 
 const sections = [
   "About these terms",
-  "About ClinicEvo",
+  "About Clinic Evo",
   "Using this website",
   "Website content",
   "Enquiries and service information",
@@ -83,7 +83,7 @@ export default function TermsPage() {
             <div className="max-w-prose">
               <FadeUp>
                 <p className="text-body text-[var(--color-muted)] mb-12 leading-relaxed">
-                  These terms explain the basis on which you may use the ClinicEvo website. By accessing or using this website, you agree to these terms. If you do not agree with these terms, you should not use this website.
+                  These terms explain the basis on which you may use the Clinic Evo website. By accessing or using this website, you agree to these terms. If you do not agree with these terms, you should not use this website.
                 </p>
               </FadeUp>
 
@@ -93,20 +93,20 @@ export default function TermsPage() {
                     About these terms
                   </h2>
                   <div className="article-prose">
-                    <p>These terms explain the basis on which you may use the ClinicEvo website. By accessing or using this website, you agree to these terms.</p>
+                    <p>These terms explain the basis on which you may use the Clinic Evo website. By accessing or using this website, you agree to these terms.</p>
                     <p>If you do not agree with these terms, you should not use this website.</p>
                   </div>
                 </article>
               </FadeUp>
 
               <FadeUp delay={0.05}>
-                <article id={slugify("About ClinicEvo")} className="mb-12 scroll-mt-28">
+                <article id={slugify("About Clinic Evo")} className="mb-12 scroll-mt-28">
                   <h2 className="font-display font-bold text-[1.5rem] leading-tight tracking-tight text-[var(--color-ink)] mb-4 pb-4 border-b border-[var(--color-border)]">
-                    About ClinicEvo
+                    About Clinic Evo
                   </h2>
                   <div className="article-prose">
-                    <p>ClinicEvo provides digital growth, website, SEO, Google Ads and patient reactivation support for private clinics, with a focus on osteopaths, physiotherapists, chiropractors and other MSK healthcare businesses.</p>
-                    <p>References to "ClinicEvo", "we", "us" or "our" in these terms refer to Clinic Evolution Ltd, trading as ClinicEvo.</p>
+                    <p>Clinic Evo provides digital growth, website, SEO, Google Ads and patient reactivation support for private clinics, with a focus on osteopaths, physiotherapists, chiropractors and other MSK healthcare businesses.</p>
+                    <p>References to "Clinic Evo", "we", "us" or "our" in these terms refer to Clinic Evolution Ltd, trading as Clinic Evo.</p>
                   </div>
                 </article>
               </FadeUp>
@@ -141,7 +141,7 @@ export default function TermsPage() {
                     Enquiries and service information
                   </h2>
                   <div className="article-prose">
-                    <p>Submitting an enquiry through this website does not create a client relationship or guarantee that ClinicEvo will provide services to you.</p>
+                    <p>Submitting an enquiry through this website does not create a client relationship or guarantee that Clinic Evo will provide services to you.</p>
                     <p>Any proposal, quotation, scope of work, timeline, pricing or commercial arrangement will be agreed separately in writing. Where a separate agreement, proposal or contract is provided, that document will take priority over the general information on this website.</p>
                     <p>We may decline enquiries or projects at our discretion.</p>
                   </div>
@@ -154,7 +154,7 @@ export default function TermsPage() {
                     No clinical advice
                   </h2>
                   <div className="article-prose">
-                    <p>ClinicEvo works with healthcare and MSK clinic businesses, but the content on this website is not clinical advice and should not be used to diagnose, treat or manage any health condition.</p>
+                    <p>Clinic Evo works with healthcare and MSK clinic businesses, but the content on this website is not clinical advice and should not be used to diagnose, treat or manage any health condition.</p>
                     <p>If you are a patient seeking healthcare advice, you should contact a suitably qualified healthcare professional.</p>
                   </div>
                 </article>
@@ -166,7 +166,7 @@ export default function TermsPage() {
                     Intellectual property
                   </h2>
                   <div className="article-prose">
-                    <p>Unless otherwise stated, the content on this website, including text, branding, design, layout, images and other materials, belongs to ClinicEvo or is licensed for use by ClinicEvo.</p>
+                    <p>Unless otherwise stated, the content on this website, including text, branding, design, layout, images and other materials, belongs to Clinic Evo or is licensed for use by Clinic Evo.</p>
                     <p>You may view and use the website for your own personal or business information. You must not copy, reproduce, modify, distribute, sell or use website content for commercial purposes without prior written permission.</p>
                   </div>
                 </article>
@@ -190,7 +190,7 @@ export default function TermsPage() {
                     Limitation of liability
                   </h2>
                   <div className="article-prose">
-                    <p>To the fullest extent permitted by law, ClinicEvo will not be liable for any loss or damage arising from your use of this website, reliance on website content, inability to access the website, or use of any third-party website linked from this site.</p>
+                    <p>To the fullest extent permitted by law, Clinic Evo will not be liable for any loss or damage arising from your use of this website, reliance on website content, inability to access the website, or use of any third-party website linked from this site.</p>
                     <p>Nothing in these terms limits or excludes liability where it would be unlawful to do so.</p>
                   </div>
                 </article>
@@ -224,7 +224,7 @@ export default function TermsPage() {
                     Contact
                   </h2>
                   <div className="article-prose">
-                    <p>If you have any questions about these terms, please contact ClinicEvo via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>.</p>
+                    <p>If you have any questions about these terms, please contact Clinic Evo via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>.</p>
                     <p>You may also find these pages useful: <Link href="/privacy-policy/">Privacy Policy</Link> and <Link href="/cookie-policy/">Cookie Policy</Link>.</p>
                   </div>
                 </article>

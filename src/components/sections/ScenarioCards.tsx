@@ -7,39 +7,57 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 // ── Icons ─────────────────────────────────────────────────────────────────
 
+// 28px line icons, 1.6 stroke, sized to read as deliberate, not decorative chips.
+const iconProps = {
+  width: 28,
+  height: 28,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.6,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+};
+
+// Missed call, handset with a clear cross
 function PhoneOffIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M10.68 13.31a16 16 0 003.41 2.6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7 2 2 0 011.72 2v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07" />
-      <path d="M14.35 14.35L3.7 3.7" />
-      <path d="M3.07 10.8A19.5 19.5 0 012 5.76a2 2 0 011.17-1.85L5.5 2.8" />
+    <svg {...iconProps}>
+      <path d="M5 3.5h3l1.5 4.2-2 1.4a12.5 12.5 0 005.4 5.4l1.4-2 4.2 1.5v3a1.8 1.8 0 01-2 1.8A16.5 16.5 0 014 5.5a1.8 1.8 0 011-2Z" />
+      <path d="M16.5 3.5l4 4M20.5 3.5l-4 4" />
     </svg>
   );
 }
 
+// Slow reply, clock with an alert tick
 function ClockIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 6v6l4 2" strokeLinejoin="round" />
+    <svg {...iconProps}>
+      <circle cx="12" cy="12.5" r="8.5" />
+      <path d="M12 8v4.5l3 1.8" />
+      <path d="M12 2.5v1.5" />
     </svg>
   );
 }
 
+// Dropped enquiry, chat bubble with a broken/slash line
 function MessageIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+    <svg {...iconProps}>
+      <path d="M20 14.5a2 2 0 01-2 2H8l-4 3.5v-13a2 2 0 012-2h12a2 2 0 012 2Z" />
+      <path d="M9 9.5h6M9 12.5h3" />
     </svg>
   );
 }
 
+// Lapsed patient, a person and a clock: time passing with no recall
 function UserXIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M17 11l4 4m0-4l-4 4" />
+    <svg {...iconProps}>
+      <circle cx="9" cy="7.5" r="3.3" />
+      <path d="M3.5 19.5v-1a4 4 0 014-4h3" />
+      <circle cx="16.5" cy="16" r="4.5" />
+      <path d="M16.5 13.8v2.2l1.5 1" />
     </svg>
   );
 }
@@ -48,16 +66,16 @@ function UserXIcon() {
 
 function MissedCallIllustration() {
   return (
-    <div aria-hidden className="mt-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-2.5">
+    <div aria-hidden className="mt-8 rounded-lg border border-[var(--color-border)] p-4 space-y-2.5">
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center flex-shrink-0">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <div className="w-8 h-8 rounded-full border border-[var(--color-border)] flex items-center justify-center flex-shrink-0 text-[var(--color-accent)]">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
           </svg>
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-xs font-semibold text-[var(--color-ink)]">Incoming call</p>
-          <p className="text-[0.65rem] text-[var(--color-muted)]">New patient — mid-treatment</p>
+          <p className="text-[0.65rem] text-[var(--color-muted)]">New patient, mid-treatment</p>
         </div>
         <div className="flex items-center gap-1">
           {[0, 1, 2].map((i) => (
@@ -65,9 +83,9 @@ function MissedCallIllustration() {
           ))}
         </div>
       </div>
-      <div className="flex items-center justify-between rounded-lg bg-red-50 border border-red-100 px-3 py-2.5">
-        <span className="text-[0.68rem] font-semibold text-red-700">Missed — no answer</span>
-        <span className="text-[0.68rem] font-bold text-red-700">~£400 lost</span>
+      <div className="flex items-center justify-between border-t border-[var(--color-border)] pt-2.5">
+        <span className="text-[0.68rem] font-semibold text-[var(--color-accent)]">Missed, no answer</span>
+        <span className="text-[0.68rem] font-bold text-[var(--color-ink)]">~£400 lost</span>
       </div>
     </div>
   );
@@ -75,19 +93,19 @@ function MissedCallIllustration() {
 
 function LateResponseIllustration() {
   const steps = [
-    { time: "9:00 PM", label: "Form submitted", dot: "bg-[var(--color-accent)]", text: "text-[var(--color-ink)]" },
-    { time: "9:00 AM", label: "Your reply sent", dot: "bg-[var(--color-border)]", text: "text-[var(--color-muted)]" },
-    { time: "9:05 AM", label: "Already booked elsewhere", dot: "bg-red-400", text: "text-red-600" },
+    { time: "9:00 PM", label: "Form submitted", dot: "border border-[var(--color-accent)] bg-transparent", text: "text-[var(--color-ink)]" },
+    { time: "9:00 AM", label: "Your reply sent", dot: "border border-[var(--color-border)] bg-transparent", text: "text-[var(--color-muted)]" },
+    { time: "9:05 AM", label: "Already booked elsewhere", dot: "bg-[var(--color-accent)]", text: "text-[var(--color-accent)]" },
   ];
 
   return (
-    <div aria-hidden className="mt-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+    <div aria-hidden className="mt-8 rounded-lg border border-[var(--color-border)] p-4">
       <div className="flex gap-4">
         {/* Timeline */}
         <div className="flex flex-col items-center pt-1 flex-shrink-0">
           {steps.map((step, i) => (
             <div key={i} className="flex flex-col items-center">
-              <div className={`w-2 h-2 rounded-full ${step.dot}`} />
+              <div className={`w-2.5 h-2.5 rounded-full ${step.dot}`} />
               {i < steps.length - 1 && <div className="w-px flex-1 bg-[var(--color-border)] my-1.5" style={{ height: "28px" }} />}
             </div>
           ))}
@@ -102,7 +120,7 @@ function LateResponseIllustration() {
           ))}
         </div>
         <div className="flex-shrink-0 self-start mt-0.5">
-          <span className="inline-block rounded-full bg-amber-100 border border-amber-200 px-2 py-0.5 text-[0.6rem] font-bold text-amber-700">
+          <span className="inline-block rounded-[4px] border border-[var(--color-border)] px-2 py-0.5 text-[0.6rem] font-bold text-[var(--color-ink)] bg-transparent">
             12 hr gap
           </span>
         </div>
@@ -113,10 +131,10 @@ function LateResponseIllustration() {
 
 function LostEnquiryIllustration() {
   return (
-    <div aria-hidden className="mt-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-2">
+    <div aria-hidden className="mt-8 rounded-lg border border-[var(--color-border)] p-4 space-y-2">
       {/* Patient message bubble */}
       <div className="flex justify-start">
-        <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-white border border-[var(--color-border)] px-3 py-2">
+        <div className="max-w-[85%] rounded-lg rounded-tl-sm bg-[#F5F7FA] border border-[var(--color-border)] px-3 py-2">
           <p className="text-[0.68rem] text-[var(--color-ink)] leading-relaxed">
             Hi, I&apos;d like to book an appointment for my back pain…
           </p>
@@ -127,8 +145,8 @@ function LostEnquiryIllustration() {
         → Screenshotted &amp; dropped in WhatsApp
       </p>
       {/* No response notice */}
-      <div className="rounded-lg bg-red-50 border border-red-100 px-3 py-2">
-        <p className="text-[0.68rem] font-semibold text-red-700">No follow-up. Thread never revisited.</p>
+      <div className="rounded-[4px] border border-[var(--color-border)] px-3 py-2">
+        <p className="text-[0.68rem] font-semibold text-[var(--color-accent)]">No follow-up. Thread never revisited.</p>
       </div>
     </div>
   );
@@ -136,10 +154,10 @@ function LostEnquiryIllustration() {
 
 function LapsedPatientIllustration() {
   return (
-    <div aria-hidden className="mt-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 space-y-2.5">
+    <div aria-hidden className="mt-8 rounded-lg border border-[var(--color-border)] p-4 space-y-2.5">
       {/* Patient row */}
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-white border border-[var(--color-border)] flex items-center justify-center flex-shrink-0">
+        <div className="w-8 h-8 rounded-full bg-[#F5F7FA] border border-[var(--color-border)] flex items-center justify-center flex-shrink-0">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" strokeWidth="1.5" strokeLinecap="round">
             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
             <circle cx="12" cy="7" r="4" />
@@ -149,19 +167,19 @@ function LapsedPatientIllustration() {
           <p className="text-xs font-semibold text-[var(--color-ink)]">Sarah M.</p>
           <p className="text-[0.65rem] text-[var(--color-muted)]">Last seen: 4 months ago</p>
         </div>
-        <span className="text-[0.6rem] font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
+        <span className="text-[0.6rem] font-bold text-[var(--color-ink)] border border-[var(--color-border)] rounded-[4px] px-2 py-0.5 bg-transparent">
           Lapsed
         </span>
       </div>
       {/* Follow-up status */}
-      <div className="flex items-center justify-between rounded-lg bg-white border border-[var(--color-border)] px-3 py-2">
+      <div className="flex items-center justify-between rounded-[4px] border border-[var(--color-border)] px-3 py-2 bg-transparent">
         <span className="text-[0.68rem] text-[var(--color-ink)]">Follow-up sent</span>
-        <span className="text-[0.68rem] font-bold text-red-500">None</span>
+        <span className="text-[0.68rem] font-bold text-[var(--color-accent)]">None</span>
       </div>
       {/* Revenue row */}
-      <div className="flex items-center justify-between rounded-lg bg-red-50 border border-red-100 px-3 py-2">
-        <span className="text-[0.68rem] text-red-700">Unrealised revenue</span>
-        <span className="text-[0.68rem] font-bold text-red-700">£250</span>
+      <div className="flex items-center justify-between rounded-[4px] border border-[var(--color-border)] px-3 py-2 bg-transparent text-[var(--color-accent)]">
+        <span className="text-[0.68rem] text-[var(--color-ink)]">Unrealised revenue</span>
+        <span className="text-[0.68rem] font-bold">£250</span>
       </div>
     </div>
   );
@@ -175,28 +193,24 @@ const cards = [
     heading: "The phone rings out.",
     body: "A prospective patient calls while you are mid-treatment. That call was worth £300–500 in treatment revenue. It cost nothing to generate. It's gone.",
     illustration: <MissedCallIllustration />,
-    accentColor: "#EF4444",
   },
   {
     icon: <ClockIcon />,
     heading: "Your reply goes out at 9am.",
     body: "A form is submitted at 9pm. Nobody replies until the following morning. The clinic that responds first gets the booking. Not the best clinic. The fastest.",
     illustration: <LateResponseIllustration />,
-    accentColor: "#F59E0B",
   },
   {
     icon: <MessageIcon />,
     heading: "No system. No follow-up. No booking.",
     body: "An enquiry arrives through Facebook and disappears into a WhatsApp thread nobody revisits.",
     illustration: <LostEnquiryIllustration />,
-    accentColor: "#F97316",
   },
   {
     icon: <UserXIcon />,
     heading: "Nobody contacts them.",
     body: "A patient attends twice, makes a good recovery, and says they will book again when they need you. A clinic rebooking at 60% loses four out of every ten patients after a single session. That is £250 in lost revenue per patient who doesn't return.",
     illustration: <LapsedPatientIllustration />,
-    accentColor: "#EF4444",
   },
 ];
 
@@ -208,34 +222,36 @@ export default function ScenarioCards() {
   const reduce = useReducedMotion();
 
   return (
-    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7">
       {cards.map((card, i) => (
         <motion.div
           key={card.heading}
           initial={reduce ? {} : { opacity: 0, y: 16 }}
           animate={inView || reduce ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.45, delay: i * 0.1, ease }}
-          className="flex flex-col bg-white rounded-2xl border border-[var(--color-border)] p-6 overflow-hidden"
-          style={{ borderTop: `3px solid ${card.accentColor}` }}
-          whileHover={{ y: -5, boxShadow: "0 16px 48px rgba(0,0,0,0.10)" }}
+          whileHover={reduce ? {} : { y: -4 }}
+          className="card-surface group/card flex flex-col overflow-hidden p-7 md:p-8"
         >
-          {/* Icon badge */}
-          <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-            style={{ background: `${card.accentColor}14`, color: card.accentColor }}
-          >
-            {card.icon}
+          {/* Header: leak-point number + icon */}
+          <div className="mb-6 flex items-start justify-between">
+            <span className="text-[var(--color-accent)]">{card.icon}</span>
+            <span
+              className="font-display text-[34px] font-light leading-none text-[var(--color-muted-light)] transition-colors group-hover/card:text-[var(--color-accent)]"
+              aria-hidden
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
           </div>
           {/* Heading */}
-          <h3 className="font-display font-bold text-[var(--color-ink)] text-lg leading-snug mb-3">
+          <h3 className="font-display font-bold text-[var(--color-ink)] text-xl leading-snug mb-3">
             {card.heading}
           </h3>
           {/* Body */}
-          <p className="text-sm text-[var(--color-ink)] leading-relaxed">
+          <p className="text-sm text-[var(--color-charcoal)] leading-relaxed">
             {card.body}
           </p>
-          {/* Illustration */}
-          {card.illustration}
+          {/* Evidence mockup, pinned to the card bottom so all four align */}
+          <div className="mt-auto">{card.illustration}</div>
         </motion.div>
       ))}
     </div>

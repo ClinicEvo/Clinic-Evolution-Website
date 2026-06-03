@@ -59,7 +59,7 @@ export default function AuditForm() {
       )}
 
       <Button type="submit" size="lg" disabled={state === "submitting"} className="w-full sm:w-auto">
-        {state === "submitting" ? "Sending…" : "Book my free audit"}
+        {state === "submitting" ? "Sending…" : "Book a free clinic audit"}
       </Button>
 
       <p className="text-xs text-[var(--color-muted)]">

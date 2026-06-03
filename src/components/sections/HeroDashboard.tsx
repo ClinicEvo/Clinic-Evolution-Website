@@ -133,10 +133,10 @@ export default function HeroDashboard() {
             </clipPath>
           </defs>
 
-          {/* Area — clipped */}
+          {/* Area, clipped */}
           <path d={AREA} fill="url(#lineGrad)" clipPath="url(#sparkClip)" />
 
-          {/* Line — pathLength draw */}
+          {/* Line, pathLength draw */}
           <motion.path
             d={LINE}
             fill="none"
@@ -149,7 +149,7 @@ export default function HeroDashboard() {
             transition={{ duration: 1.3, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           />
 
-          {/* Dot — scale in after line finishes */}
+          {/* Dot, scale in after line finishes */}
           <motion.circle
             cx="400" cy="5" r="3.5"
             fill="var(--color-accent)"

@@ -4,8 +4,8 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import FadeUp from "@/components/ui/FadeUp";
 
 export const metadata = buildMetadata({
-  title: "Audit Request Received | ClinicEvo",
-  description: "Your free clinic audit request has been received. ClinicEvo will review your clinic's digital presence and be in touch within 2 business days.",
+  title: "Audit Request Received | Clinic Evo",
+  description: "Your free clinic audit request has been received. Clinic Evo will review your clinic's digital presence and be in touch within 2 business days.",
   path: "/free-clinic-audit/thank-you/",
   noIndex: true,
 });
@@ -46,7 +46,7 @@ export default function AuditThankYouPage() {
 
           <FadeUp delay={0.1}>
             <p className="text-body-lg text-[var(--color-muted)] mb-8 leading-relaxed max-w-xl">
-              ClinicEvo will review your clinic's website, search visibility, local presence and patient journey. You can expect to hear from us within 2 business days.
+              Clinic Evo will review your clinic's website, search visibility, local presence and patient journey. You can expect to hear from us within 2 business days.
             </p>
           </FadeUp>
 

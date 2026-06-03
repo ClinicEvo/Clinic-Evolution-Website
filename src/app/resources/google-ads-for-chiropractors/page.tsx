@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Google Ads for Chiropractors | ClinicEvo",
+  title: "Google Ads for Chiropractors | Clinic Evo",
   description:
     "A chiropractic-specific guide to using Google Ads for high-intent patient searches, new patient acquisition and campaign management.",
   path: "/resources/google-ads-for-chiropractors/",
@@ -17,7 +17,7 @@ const crumbs = [
 const faqs = [
   {
     question: "Are Google Ads effective for chiropractic clinics?",
-    answer: "Yes, particularly for new patient acquisition. Chiropractic searches are high intent — people searching for a chiropractor near them are typically ready to book. Well-targeted ads that reach these searches and send traffic to relevant landing pages produce consistent results.",
+    answer: "Yes, particularly for new patient acquisition. Chiropractic searches are high intent, people searching for a chiropractor near them are typically ready to book. Well-targeted ads that reach these searches and send traffic to relevant landing pages produce consistent results.",
   },
   {
     question: "What keywords should a chiropractor target with Google Ads?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "Should a chiropractic clinic use Google Ads or SEO?",
-    answer: "Both have a role. SEO builds long-term visibility at lower ongoing cost but takes time. Google Ads can generate enquiries quickly but requires ongoing spend. Most clinics benefit from both — SEO as a foundation, ads for faster results and diary gap management.",
+    answer: "Both have a role. SEO builds long-term visibility at lower ongoing cost but takes time. Google Ads can generate enquiries quickly but requires ongoing spend. Most clinics benefit from both, SEO as a foundation, ads for faster results and diary gap management.",
   },
 ];
 
@@ -52,12 +52,12 @@ export default function ArticlePage() {
         <>
           <p>Chiropractic is one of the strongest categories for Google Search Ads. The reasons are:</p>
           <ul>
-            <li>High patient intent: people searching for a chiropractor near them are not browsing — they are looking for help with a specific problem</li>
+            <li>High patient intent: people searching for a chiropractor near them are not browsing, they are looking for help with a specific problem</li>
             <li>Local demand: most chiropractic searches include location intent, which is exactly what Google Ads local targeting is designed for</li>
             <li>Relatively contained competition: in most UK towns, chiropractic Google Ads has fewer active advertisers than categories like accountancy or legal services</li>
             <li>Clear commercial value: a new chiropractic patient is worth significantly more than the cost of a click, making the maths work for well-run campaigns</li>
           </ul>
-          <p>The challenge is not whether Google Ads works for chiropractic — it is setting campaigns up to target the right searches and convert the traffic they generate.</p>
+          <p>The challenge is not whether Google Ads works for chiropractic, it is setting campaigns up to target the right searches and convert the traffic they generate.</p>
         </>
       ),
     },
@@ -84,10 +84,10 @@ export default function ArticlePage() {
           <p>Effective chiropractic ad copy can address these concerns directly:</p>
           <ul>
             <li>Mention GCC registration (the professional regulator) as a trust signal</li>
-            <li>Reference the specific condition in the headline — &quot;Back pain? Registered chiropractors in [town]&quot;</li>
+            <li>Reference the specific condition in the headline, &quot;Back pain? Registered chiropractors in [town]&quot;</li>
             <li>Use ad extensions to highlight new patient offers, free consultations or transparent pricing</li>
           </ul>
-          <p>A landing page that then continues to address patient questions — what to expect, who the practitioners are, what the first appointment involves — will convert ad traffic significantly better than a generic clinic page.</p>
+          <p>A landing page that then continues to address patient questions, what to expect, who the practitioners are, what the first appointment involves, will convert ad traffic significantly better than a generic clinic page.</p>
         </>
       ),
     },
@@ -98,9 +98,9 @@ export default function ArticlePage() {
           <p>A well-structured chiropractic Google Ads account makes it easier to optimise performance and allocate budget effectively.</p>
           <p>A practical structure for a chiropractic clinic:</p>
           <ul>
-            <li><strong>Campaign 1:</strong> Brand searches (your clinic name) — protect against competitors bidding on your name</li>
-            <li><strong>Campaign 2:</strong> Core chiropractic searches — &quot;chiropractor near me&quot;, &quot;chiropractor [town]&quot;</li>
-            <li><strong>Campaign 3:</strong> Condition-specific searches — back pain, sciatica, neck pain, headaches</li>
+            <li><strong>Campaign 1:</strong> Brand searches (your clinic name), protect against competitors bidding on your name</li>
+            <li><strong>Campaign 2:</strong> Core chiropractic searches, &quot;chiropractor near me&quot;, &quot;chiropractor [town]&quot;</li>
+            <li><strong>Campaign 3:</strong> Condition-specific searches, back pain, sciatica, neck pain, headaches</li>
           </ul>
           <p>Separating these into distinct campaigns allows independent budget control and cleaner performance data. A condition campaign that converts well can be given more budget without cannibalising core searches.</p>
         </>
@@ -114,11 +114,11 @@ export default function ArticlePage() {
           <p>Key principles for chiropractic landing pages:</p>
           <ul>
             <li>Match the landing page to the ad and search: a back pain ad should go to a back pain page</li>
-            <li>Keep the booking path short — phone number and booking form should be visible without scrolling</li>
+            <li>Keep the booking path short, phone number and booking form should be visible without scrolling</li>
             <li>Answer the questions a first-time patient would have: what happens at the first appointment, how many sessions, what the cost is</li>
             <li>Include GCC registration and practitioner credentials prominently</li>
             <li>Use genuine reviews and patient outcomes where professionally appropriate</li>
-            <li>Optimise for mobile — most local searches happen on phones</li>
+            <li>Optimise for mobile, most local searches happen on phones</li>
           </ul>
           <p>A patient who arrives from an ad has strong intent. The landing page job is to confirm they are in the right place and make it easy to take the next step.</p>
         </>

@@ -27,7 +27,7 @@ export default function PageHero({
   breadcrumbs,
 }: PageHeroProps) {
   return (
-    <section className="bg-[var(--color-paper)] pt-36 pb-24 lg:pt-44 lg:pb-32">
+    <section className="grain bg-[var(--color-paper)] pt-36 pb-24 lg:pt-44 lg:pb-32">
       <div className="cx-main">
         {breadcrumbs && (
           <FadeUp>
@@ -36,7 +36,7 @@ export default function PageHero({
         )}
 
         <div className={`grid gap-12 lg:gap-16 items-center mt-6 ${rightPanel ? "lg:grid-cols-[1fr_380px]" : ""}`}>
-          {/* Left — copy */}
+          {/* Left, copy */}
           <div>
             <FadeUp delay={0.03}>
               <Badge variant="accent" className="mb-6">{badge}</Badge>
@@ -47,7 +47,7 @@ export default function PageHero({
               </h1>
             </FadeUp>
             <FadeUp delay={0.12}>
-              <p className="text-body-lg text-[var(--color-ink)]/60 mb-8 max-w-xl leading-relaxed">
+              <p className="text-body-lg text-[var(--color-charcoal)] mb-8 max-w-xl leading-relaxed">
                 {subtext}
               </p>
             </FadeUp>
@@ -75,7 +75,7 @@ export default function PageHero({
                       <svg className="flex-shrink-0 text-[var(--color-accent)]" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                         <path d="M2.5 7l3 3 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-sm font-medium text-[var(--color-ink)]/60">{b}</span>
+                      <span className="text-sm font-medium text-[var(--color-charcoal)]">{b}</span>
                     </div>
                   ))}
                 </div>
@@ -83,7 +83,7 @@ export default function PageHero({
             )}
           </div>
 
-          {/* Right — optional panel */}
+          {/* Right, optional panel */}
           {rightPanel && (
             <FadeUp delay={0.22}>
               <div className="hidden lg:block">{rightPanel}</div>

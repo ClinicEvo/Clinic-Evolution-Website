@@ -8,9 +8,9 @@ import PageHero from "@/components/sections/PageHero";
 
 
 export const metadata = buildMetadata({
-  title: "Contact ClinicEvo | Clinic Marketing Support",
+  title: "Contact Clinic Evo | Clinic Marketing Support",
   description:
-    "Contact ClinicEvo to discuss SEO, website design, Google Ads, patient reactivation or digital growth support for your osteopathy, physiotherapy or chiropractic clinic.",
+    "Contact Clinic Evo to discuss SEO, website design, Google Ads, patient reactivation or digital growth support for your osteopathy, physiotherapy or chiropractic clinic.",
   path: "/contact/",
 });
 
@@ -25,7 +25,7 @@ export default function ContactPage() {
       <BreadcrumbSchema items={crumbs} />
 
       <PageHero
-        badge="Contact ClinicEvo"
+        badge="Contact Clinic Evo"
         heading={<>Speak to us about <em className="not-italic text-[var(--color-accent)]">growing your clinic online</em></>}
         subtext="If you run an osteopathy, physiotherapy or chiropractic clinic and want clearer digital growth support, we would be happy to hear from you. Not sure where to start? The free audit is the simplest next step."
         primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
@@ -43,7 +43,7 @@ export default function ContactPage() {
                 What you can ask us about
               </h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                ClinicEvo works with private MSK clinics that want a more
+                Clinic Evo works with private MSK clinics that want a more
                 joined-up approach to digital growth. You can get in touch if you
                 need help with a specific area, or if you want a clearer plan for
                 improving your clinic&apos;s online visibility and patient enquiries.
@@ -100,7 +100,7 @@ export default function ContactPage() {
                 Specialist support for private MSK clinics
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
-                ClinicEvo is built for clinics where trust, clinical credibility
+                Clinic Evo is built for clinics where trust, clinical credibility
                 and patient education matter. The main focus is on osteopaths,
                 physiotherapists and chiropractors, although we can also support
                 selected private clinics with similar patient journeys.
@@ -233,7 +233,7 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3 mt-2">
                     <input required type="checkbox" id="consent" name="consent" className="mt-1 flex-shrink-0" />
                     <label htmlFor="consent" className="text-xs text-[var(--color-muted)] cursor-pointer">
-                      I consent to ClinicEvo contacting me about my enquiry. I understand my details will be handled in line with the <a href="/privacy-policy/" className="underline hover:text-[var(--color-accent)]">privacy policy</a>.
+                      I consent to Clinic Evo contacting me about my enquiry. I understand my details will be handled in line with the <a href="/privacy-policy/" className="underline hover:text-[var(--color-accent)]">privacy policy</a>.
                     </label>
                   </div>
 

@@ -8,9 +8,9 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import Badge from "@/components/ui/Badge";
 
 export const metadata = buildMetadata({
-  title: "Call Handling for MSK Clinics — Never Miss a Patient",
+  title: "Call Handling for MSK Clinics, Never Miss a Patient",
   description:
-    "ClinicEvo's call handling service ensures every patient call to your UK osteopathy, physiotherapy or chiropractic clinic is answered by a trained handler. No voicemail. No missed appointments.",
+    "Clinic Evo's call handling service ensures every patient call to your UK osteopathy, physiotherapy or chiropractic clinic is answered by a trained handler. No voicemail. No missed appointments.",
   path: "/call-centre/",
 });
 
@@ -26,7 +26,7 @@ const points = [
   },
   {
     title: "Trained on your clinic",
-    desc: "Handlers are briefed on your services, your practitioners, your availability and your booking process — not a generic script.",
+    desc: "Handlers are briefed on your services, your practitioners, your availability and your booking process, not a generic script.",
   },
   {
     title: "Linked to Patient Pulse",
@@ -58,7 +58,7 @@ export default function CallCentrePage() {
             </em>
           </>
         }
-        subtext="A prospective patient who rings while you are mid-treatment and hears a voicemail is a £300–500 revenue opportunity that cost nothing to generate — and is now gone. ClinicEvo's call handling service makes sure that never happens."
+        subtext="A prospective patient who rings while you are mid-treatment and hears a voicemail is a £300–500 revenue opportunity that cost nothing to generate, and is now gone. Clinic Evo's call handling service makes sure that never happens."
         bullets={[
           "Every call answered by a trained handler",
           "Handlers briefed on your clinic, services and availability",
@@ -79,7 +79,7 @@ export default function CallCentrePage() {
             </h2>
             <p className="text-body text-[var(--color-muted)] mb-5">
               A typical MSK patient who calls a clinic is usually ready to book. They
-              have already decided they need treatment. They are not researching —
+              have already decided they need treatment. They are not researching,
               they are choosing which clinic to attend. When your phone rings out,
               they call the next clinic on the list.
             </p>
@@ -87,12 +87,12 @@ export default function CallCentrePage() {
               A single missed patient represents £300–500 in immediate treatment
               revenue, and potentially £1,500+ across a full treatment course and
               future return visits. Across a year of missed calls, the total is
-              significant — and entirely preventable.
+              significant, and entirely preventable.
             </p>
             <p className="text-body text-[var(--color-muted)]">
-              ClinicEvo's call handling service sits alongside{" "}
+              Clinic Evo's call handling service sits alongside{" "}
               <a href="/patient-pulse/" className="text-[var(--color-accent)] hover:underline">Patient Pulse</a>{" "}
-              to ensure nothing falls through the gap — whether the enquiry comes by
+              to ensure nothing falls through the gap, whether the enquiry comes by
               phone, form, or message.
             </p>
           </FadeUp>
@@ -118,15 +118,15 @@ export default function CallCentrePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {points.map((p, i) => (
               <FadeUp key={p.title} delay={i * 0.08}>
-                <div className="flex gap-5 bg-white border border-[var(--color-border)] rounded-xl p-7 h-full">
-                  <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mt-0.5">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <path d="M2 6l3 3 5-5" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <div className="flex gap-5 bg-transparent pt-6 border-t border-[var(--color-border)] h-full">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-[4px] bg-[var(--color-surface)] flex items-center justify-center text-[var(--color-ink)] mt-0.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-h3 text-[var(--color-ink)] mb-2">{p.title}</h3>
-                    <p className="text-body text-[var(--color-muted)] leading-relaxed">{p.desc}</p>
+                    <h3 className="text-h4 text-[var(--color-ink)] mb-2 font-semibold">{p.title}</h3>
+                    <p className="text-sm text-[var(--color-muted)] leading-relaxed font-light">{p.desc}</p>
                   </div>
                 </div>
               </FadeUp>
@@ -145,18 +145,18 @@ export default function CallCentrePage() {
             </h2>
             <p className="text-body text-[var(--color-muted)] mb-8">
               Call handling solves the phone problem. But a complete clinic needs more
-              than answered calls — it needs a fast SMS follow-up for online enquiries,
+              than answered calls, it needs a fast SMS follow-up for online enquiries,
               a booking system that converts callers, and a reactivation system that
-              brings lapsed patients back. ClinicEvo connects all of these.
+              brings lapsed patients back. Clinic Evo connects all of these.
             </p>
-            <ArrowLink href="/patient-pulse/">Patient Pulse — the lead management system</ArrowLink>
+            <ArrowLink href="/patient-pulse/">Patient Pulse, the lead management system</ArrowLink>
           </FadeUp>
         </div>
       </section>
 
       <CTASection
         heading="Stop losing patients to unanswered calls"
-        subheading="Book a free clinic audit. We'll identify exactly how many enquiries your clinic is likely losing to unanswered calls — and what a full system would do about it."
+        subheading="Book a free clinic audit. We'll identify exactly how many enquiries your clinic is likely losing to unanswered calls, and what a full system would do about it."
       />
     </>
   );
