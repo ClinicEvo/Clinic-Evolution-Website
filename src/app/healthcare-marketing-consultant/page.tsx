@@ -263,7 +263,7 @@ export default function HealthcareMarketingConsultantPage() {
               {
                 title: "AI patient reactivation",
                 desc: "Use smarter systems to reconnect with past patients and support recall, follow-up and retention.",
-                href: "/ai-patient-reactivation/",
+                href: "/ai-integration/",
                 cta: "AI patient reactivation",
               },
               {

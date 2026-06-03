@@ -169,7 +169,7 @@ export default function ArticlePage() {
     { label: "Patient recall system guide", href: "/resources/patient-recall-system/" },
     { label: "SEO for clinics", href: "/seo-for-clinics/" },
     { label: "Google Ads for clinics", href: "/google-ads-for-clinics/" },
-    { label: "AI patient reactivation", href: "/ai-patient-reactivation/" },
+    { label: "AI patient reactivation", href: "/ai-integration/" },
   ];
 
   return (

@@ -70,7 +70,7 @@ export default function ContactPage() {
               {
                 title: "AI patient reactivation",
                 desc: "Reconnect with suitable past patients using smarter recall and rebooking systems that reduce manual admin.",
-                href: "/ai-patient-reactivation/",
+                href: "/ai-integration/",
               },
               {
                 title: "Marketing consultancy",

@@ -243,7 +243,7 @@ export default function AboutPage() {
               {
                 title: "AI patient reactivation",
                 desc: "Reconnect with past patients and support rebooking with smarter recall systems.",
-                href: "/ai-patient-reactivation/",
+                href: "/ai-integration/",
               },
             ].map((s, i) => (
               <FadeUp key={s.href} delay={i * 0.05}>

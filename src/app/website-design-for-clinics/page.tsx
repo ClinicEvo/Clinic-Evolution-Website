@@ -216,7 +216,7 @@ export default function WebsiteDesignForClinicsPage() {
                 For clinics that already have a website, we can also support with{" "}
                 <a href="/seo-for-clinics/" className="text-[var(--color-accent)] hover:underline">SEO for clinics</a>,{" "}
                 <a href="/google-ads-for-clinics/" className="text-[var(--color-accent)] hover:underline">Google Ads for clinics</a> and{" "}
-                <a href="/ai-patient-reactivation/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
+                <a href="/ai-integration/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
                 once the website foundation is clear.
               </p>
             </FadeUp>

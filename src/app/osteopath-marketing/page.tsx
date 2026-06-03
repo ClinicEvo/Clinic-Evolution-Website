@@ -201,7 +201,7 @@ export default function OsteopathMarketingPage() {
               { title: "SEO for Osteopaths", desc: "Technical and content SEO that ranks your practice for local and condition-specific searches.", href: "/seo-for-clinics/" },
               { title: "Google Ads for Osteopaths", desc: "Patient-ready campaigns targeting people actively searching for osteopathic treatment.", href: "/google-ads-for-clinics/" },
               { title: "Osteopath Website Design", desc: "Fast, trust-building websites designed specifically to convert visitors into new patients.", href: "/website-design-for-clinics/" },
-              { title: "AI Patient Reactivation", desc: "Re-engage patients who haven't visited in months with personalised automated messages.", href: "/ai-patient-reactivation/" },
+              { title: "AI Patient Reactivation", desc: "Re-engage patients who haven't visited in months with personalised automated messages.", href: "/ai-integration/" },
             ].map((s, i) => (
               <FadeUp key={s.href} delay={i * 0.07}>
                 <div className="card-surface flex h-full flex-col p-7 md:p-8">

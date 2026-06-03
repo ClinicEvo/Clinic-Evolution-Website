@@ -306,7 +306,7 @@ export default function ChiropracticMarketingPage() {
               {
                 title: "AI patient reactivation",
                 desc: "Reconnect with suitable past patients using smarter recall and follow-up systems that support long-term clinic growth.",
-                href: "/ai-patient-reactivation/",
+                href: "/ai-integration/",
                 cta: "Explore AI patient reactivation",
               },
             ].map((s, i) => (

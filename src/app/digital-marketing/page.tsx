@@ -7,6 +7,11 @@ import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Badge from "@/components/ui/Badge";
 import StatBand from "@/components/sections/StatBand";
+import HeroStatCard from "@/components/sections/HeroStatCard";
+import ProofBand from "@/components/sections/ProofBand";
+import PatientFunnel from "@/components/sections/PatientFunnel";
+import FAQAccordion from "@/components/sections/FAQAccordion";
+import FAQSchema from "@/components/schema/FAQSchema";
 
 export const metadata = buildMetadata({
   title: "Digital Marketing for MSK Clinics, Coordinated Growth",
@@ -26,36 +31,70 @@ const channels = [
     desc: "Ranking for the terms your patients use, 'physio near me', 'osteopath [town]', 'back pain specialist', so new patients find you before they find a competitor.",
     href: "/seo-for-clinics/",
     cta: "SEO for clinics",
+    icon: <><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></>,
   },
   {
     title: "Google Ads",
     desc: "Paid search targeting high-intent MSK patients in your area. Campaigns built around patient decision-making, not broad healthcare keywords.",
     href: "/google-ads-for-clinics/",
     cta: "Google Ads for clinics",
+    icon: <><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3" /></>,
   },
   {
     title: "Clinic website design",
     desc: "Websites built for MSK patients, condition pages, local trust signals, and booking paths that convert visitors into enquiries.",
     href: "/website-design-for-clinics/",
     cta: "clinic website design",
+    icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M7 6.5h.01M10 6.5h.01" /></>,
   },
   {
     title: "Patient Pulse follow-up",
     desc: "Automatic SMS follow-up for every enquiry, structured lead pipelines, and two-way messaging from one inbox.",
     href: "/patient-pulse/",
     cta: "Patient Pulse",
+    icon: <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />,
   },
   {
     title: "Call handling",
     desc: "Every patient call answered by a trained handler who knows your clinic. No voicemail. No missed appointments.",
     href: "/call-centre/",
     cta: "call handling",
+    icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />,
   },
   {
     title: "AI patient reactivation",
     desc: "Lapsed patients contacted automatically at 3, 6 and 12 months. Review requests timed to positive sessions.",
     href: "/ai-integration/",
     cta: "AI patient reactivation",
+    icon: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
+  },
+];
+
+const faqs = [
+  {
+    question: "What does digital marketing for a clinic include?",
+    answer:
+      "For an MSK clinic it usually combines SEO, Google Ads, website design, immediate enquiry follow-up, call handling and patient reactivation. Clinic Evo coordinates these as one system rather than treating them as separate, disconnected services.",
+  },
+  {
+    question: "Why coordinate channels instead of buying them separately?",
+    answer:
+      "Most clinics lose patients in the gaps between suppliers, the enquiry that arrives after hours and never gets a reply, or the caller who reaches voicemail. When traffic, follow-up, calls and retention are run by one team, every handoff is covered and nothing falls through.",
+  },
+  {
+    question: "Do I have to take every service at once?",
+    answer:
+      "No. Clinic Evo can start with the part of the chain that is leaking the most, then connect the others over time. The plan is built around where your clinic is losing patients now, not a fixed package.",
+  },
+  {
+    question: "Is this suitable for osteopaths, physios and chiropractors?",
+    answer:
+      "Yes. Clinic Evo works exclusively with MSK clinics. Each discipline has different patient decision-making, search behaviour and competition, so the marketing is built for those differences rather than a generic healthcare template.",
+  },
+  {
+    question: "How do you measure whether it is working?",
+    answer:
+      "Every channel is tied back to booked appointments, not vanity metrics. You see how traffic becomes enquiries, how enquiries become bookings, and how patients are retained, so spend stays connected to revenue.",
   },
 ];
 
@@ -68,6 +107,7 @@ export default function DigitalMarketingPage() {
         url="/digital-marketing/"
       />
       <BreadcrumbSchema items={crumbs} />
+      <FAQSchema items={faqs} />
 
       <PageHero
         badge="Coordinated clinic growth"
@@ -79,7 +119,7 @@ export default function DigitalMarketingPage() {
             </em>
           </>
         }
-        subtext="Most agencies handle one part of the chain, traffic, or a website, or follow-up emails, and leave everything else disconnected. Clinic Evo coordinates every channel so nothing falls through the gaps."
+        subtext="Most agencies handle one part of the chain, the traffic, the website, or the follow-up, and leave everything else disconnected. Clinic Evo coordinates every channel so nothing falls through the gaps."
         bullets={[
           "SEO, Google Ads, web design and follow-up connected",
           "Built exclusively for MSK clinics",
@@ -88,6 +128,16 @@ export default function DigitalMarketingPage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See all services", href: "#services" }}
         breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="One connected system"
+            stats={[
+              { label: "Growth channels", value: "6", note: "coordinated under one plan" },
+              { label: "Visitor to booking", value: "2.1×", note: "vs single-channel setups" },
+              { label: "Built for", value: "MSK", note: "clinics only, never generic" },
+            ]}
+          />
+        }
       />
 
       {/* The disconnected agency problem */}
@@ -134,12 +184,15 @@ export default function DigitalMarketingPage() {
             </div>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {channels.map((c, i) => (
               <FadeUp key={c.title} delay={i * 0.07}>
-                <div className="flex flex-col h-full bg-transparent pt-6 border-t-2 border-[var(--color-accent)]/40">
-                  <h3 className="text-h4 text-[var(--color-ink)] mb-3 font-semibold">{c.title}</h3>
-                  <p className="text-body-sm text-[var(--color-muted)] leading-relaxed flex-1 mb-5">{c.desc}</p>
+                <div className="card-surface group flex h-full flex-col p-7 md:p-8">
+                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{c.icon}</svg>
+                  </div>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{c.title}</h3>
+                  <p className="text-body text-[var(--color-muted)] flex-1 mb-5">{c.desc}</p>
                   <ArrowLink href={c.href}>{c.cta}</ArrowLink>
                 </div>
               </FadeUp>
@@ -158,6 +211,34 @@ export default function DigitalMarketingPage() {
           { value: "5", label: "Connected stages from first search to rebooking" },
           { value: "1", label: "Team accountable end to end, instead of scattered vendors" },
         ]}
+      />
+
+      {/* The connected chain */}
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">The chain in numbers</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
+                Where patients are won and lost, stage by stage
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Each stage hands off to the next. A weak link anywhere drags down
+                everything downstream, which is why coordinating the chain beats
+                optimising any single channel in isolation.
+              </p>
+            </div>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <PatientFunnel />
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Proof band */}
+      <ProofBand
+        eyebrow="What a connected system looks like"
+        quote="We went from page 4 to position 1 in 11 weeks, and the follow-up system recovered 34 lapsed patients in the first month. It finally works as one thing."
       />
 
       {/* Who we help */}
@@ -180,6 +261,23 @@ export default function DigitalMarketingPage() {
               <ArrowLink href="/chiropractic-marketing/">chiropractic marketing</ArrowLink>
             </div>
           </FadeUp>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <div className="cx-main">
+          <div className="max-w-2xl mx-auto">
+            <FadeUp>
+              <div className="text-center mb-10">
+                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <h2 className="text-h2 text-[var(--color-ink)]">
+                  Digital marketing for clinics FAQs
+                </h2>
+              </div>
+            </FadeUp>
+            <FAQAccordion items={faqs} />
+          </div>
         </div>
       </section>
 

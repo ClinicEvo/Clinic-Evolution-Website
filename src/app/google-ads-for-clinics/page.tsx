@@ -307,7 +307,7 @@ export default function GoogleAdsForClinicsPage() {
                 follow-up. We also connect paid search with{" "}
                 <a href="/website-design-for-clinics/" className="text-[var(--color-accent)] hover:underline">clinic website design</a>,{" "}
                 <a href="/seo-for-clinics/" className="text-[var(--color-accent)] hover:underline">SEO for clinics</a> and{" "}
-                <a href="/ai-patient-reactivation/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
+                <a href="/ai-integration/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
                 where it makes sense.
               </p>
             </FadeUp>

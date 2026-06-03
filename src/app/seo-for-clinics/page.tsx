@@ -344,7 +344,7 @@ export default function SeoForClinicsPage() {
                 stronger local visibility,{" "}
                 <a href="/google-ads-for-clinics/" className="text-[var(--color-accent)] hover:underline">Google Ads for clinics</a>{" "}
                 where useful, and{" "}
-                <a href="/ai-patient-reactivation/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
+                <a href="/ai-integration/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
                 for people already in your database.
               </p>
             </FadeUp>

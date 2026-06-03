@@ -136,7 +136,7 @@ export default function ArticlePage() {
 
   const relatedLinks = [
     { label: "How to get more patients to your clinic", href: "/resources/how-to-get-more-patients-to-your-clinic/" },
-    { label: "AI patient reactivation service", href: "/ai-patient-reactivation/" },
+    { label: "AI patient reactivation service", href: "/ai-integration/" },
     { label: "How to market your clinic", href: "/resources/how-to-market-your-clinic/" },
   ];
 

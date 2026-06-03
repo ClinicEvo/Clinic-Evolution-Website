@@ -464,7 +464,7 @@ export default function BodyfunctionCaseStudyPage() {
               { label: "SEO for clinics", href: "/seo-for-clinics/" },
               { label: "Clinic website design", href: "/website-design-for-clinics/" },
               { label: "Google Ads for clinics", href: "/google-ads-for-clinics/" },
-              { label: "AI patient reactivation", href: "/ai-patient-reactivation/" },
+              { label: "AI patient reactivation", href: "/ai-integration/" },
             ].map((link, i) => (
               <FadeUp key={link.href} delay={i * 0.05}>
                 <a href={link.href} className="card-surface block group p-6">

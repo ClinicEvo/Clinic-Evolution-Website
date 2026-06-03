@@ -178,7 +178,7 @@ export default function ArticlePage() {
             Many clinics focus only on new patients while ignoring past patients who may still need support. A patient recall or reactivation system can help identify suitable patients and encourage them to return at the right time.
           </p>
           <p>
-            <a href="/ai-patient-reactivation/">Read about patient reactivation systems</a>
+            <a href="/ai-integration/">Read about patient reactivation systems</a>
           </p>
 
           <h3>Measurement</h3>
@@ -289,7 +289,7 @@ export default function ArticlePage() {
     { label: "How to get more patients to your clinic", href: "/resources/how-to-get-more-patients-to-your-clinic/" },
     { label: "SEO for clinics", href: "/seo-for-clinics/" },
     { label: "Google Ads for clinics", href: "/google-ads-for-clinics/" },
-    { label: "AI patient reactivation", href: "/ai-patient-reactivation/" },
+    { label: "AI patient reactivation", href: "/ai-integration/" },
   ];
 
   return (

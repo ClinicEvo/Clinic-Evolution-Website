@@ -204,7 +204,7 @@ export default function PhysiotherapyMarketingPage() {
               { title: "SEO for Physiotherapists", desc: "Rank for local searches and specialty-specific queries that bring in the patients you want.", href: "/seo-for-clinics/" },
               { title: "Google Ads for Physio Clinics", desc: "Targeted PPC campaigns that drive booked appointments, not just clicks.", href: "/google-ads-for-clinics/" },
               { title: "Physiotherapy Website Design", desc: "Professional, fast websites that convert visitors into new patients.", href: "/website-design-for-clinics/" },
-              { title: "Patient Reactivation", desc: "Re-engage discharged and lapsed patients automatically with personalised AI messages.", href: "/ai-patient-reactivation/" },
+              { title: "Patient Reactivation", desc: "Re-engage discharged and lapsed patients automatically with personalised AI messages.", href: "/ai-integration/" },
             ].map((s, i) => (
               <FadeUp key={s.href} delay={i * 0.07}>
                 <div className="card-surface flex h-full flex-col p-7 md:p-8">
