@@ -23,14 +23,14 @@ const events = [
   {
     icon: "star",
     title: "Review request sent",
-    sub: "★★★★★  “Really helpful, would recommend”",
+    sub: "5-star reply: “Really helpful, would recommend”",
     time: "1 hr ago",
     accent: true,
   },
   {
     icon: "check",
     title: "6-month reactivation sent",
-    sub: "Sarah M. · Replied: &ldquo;Yes, please book me in&rdquo;",
+    sub: "Sarah M. replied: “Yes, please book me in”",
     time: "2 hrs ago",
     accent: true,
   },

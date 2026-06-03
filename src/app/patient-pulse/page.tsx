@@ -1,12 +1,17 @@
+import { ReactNode } from "react";
 import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
+import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Badge from "@/components/ui/Badge";
 import StatBand from "@/components/sections/StatBand";
+import ProofBand from "@/components/sections/ProofBand";
+import FAQAccordion from "@/components/sections/FAQAccordion";
+import PatientPulseMockup from "@/components/sections/PatientPulseMockup";
 
 export const metadata = buildMetadata({
   title: "Patient Pulse, Lead Management & Follow-Up for MSK Clinics",
@@ -20,30 +25,87 @@ const crumbs = [
   { label: "Patient Pulse", href: "/patient-pulse/" },
 ];
 
-const features = [
+interface Feature {
+  title: string;
+  desc: string;
+  icon: ReactNode;
+}
+
+const features: Feature[] = [
   {
     title: "Automatic SMS within minutes",
     desc: "Every new enquiry, from Google, Facebook, your website, or any other source, triggers an automatic SMS response within minutes. Not the next morning. Within minutes.",
+    icon: (
+      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
+    ),
   },
   {
     title: "Structured lead pipelines",
     desc: "Every lead moves through a clear pipeline from first contact to booked appointment. Nothing falls through the gap between appointments.",
+    icon: <path d="M3 4h18l-7 8v6l-4 2v-8z" />,
   },
   {
     title: "Two-way messaging from one inbox",
     desc: "WhatsApp, SMS and email from a single platform. No switching between apps, no missed threads, no leads lost in personal phone messages.",
+    icon: (
+      <>
+        <path d="M22 12h-6l-2 3h-4l-2-3H2" />
+        <path d="M5.5 5h13l3.5 7v6a2 2 0 01-2 2H4a2 2 0 01-2-2v-6z" />
+      </>
+    ),
   },
   {
     title: "12-month nurture sequences",
     desc: "Leads not ready to book today enter an automated nurture sequence that stays in contact for up to 12 months, without any manual effort.",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </>
+    ),
   },
   {
     title: "Review requests",
     desc: "Every patient who leaves a positive session receives a review request the same day, timed to when they are most likely to respond.",
+    icon: <path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17l-6.9 3.5 1.6-6.8L1.4 9.1l7-.6z" />,
   },
   {
     title: "Lapsed patient reactivation",
     desc: "Patients who haven't been seen in 3, 6 or 12 months are contacted automatically, before they find a different clinic.",
+    icon: (
+      <>
+        <path d="M21 12a9 9 0 11-3-6.7L21 8" />
+        <path d="M21 3v5h-5" />
+      </>
+    ),
+  },
+];
+
+const faqs = [
+  {
+    question: "How fast does Patient Pulse respond to a new enquiry?",
+    answer:
+      "Automatically, within minutes, day or night. Every enquiry from Google, Facebook, your website or any other source triggers an SMS response without anyone at the clinic needing to act, so the first impression is instant even when every practitioner is in a treatment room.",
+  },
+  {
+    question: "Does Patient Pulse integrate with my clinic booking software?",
+    answer:
+      "Patient Pulse is designed to sit alongside the practice management and booking tools MSK clinics already use, capturing enquiries, missed calls and conversations in one place. As part of your free clinic audit we confirm exactly how it connects to your current setup.",
+  },
+  {
+    question: "Do I keep my patient data and pipelines if I stop working with Clinic Evo?",
+    answer:
+      "Yes. Your lead pipelines, nurture sequences and patient database belong to your clinic, not to us. If you ever stop working with Clinic Evo, Patient Pulse and everything in it stays with you.",
+  },
+  {
+    question: "Is Patient Pulse compliant for UK healthcare clinics?",
+    answer:
+      "Patient Pulse is built specifically for UK osteopaths, physiotherapists and chiropractors, with the consent, messaging and data handling expectations of regulated MSK practice in mind, rather than a generic sales CRM.",
+  },
+  {
+    question: "Can Patient Pulse reactivate patients who haven't been seen in months?",
+    answer:
+      "Yes. Lapsed patients are contacted automatically at 3, 6 and 12 months with messaging designed to bring them back before they choose a different clinic. This is one of the fastest ways most clinics recover revenue from people already in their database.",
   },
 ];
 
@@ -56,6 +118,7 @@ export default function PatientPulsePage() {
         url="/patient-pulse/"
       />
       <BreadcrumbSchema items={crumbs} />
+      <FAQSchema items={faqs} />
 
       <PageHero
         badge="The product at the heart of it"
@@ -76,6 +139,7 @@ export default function PatientPulsePage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See all features", href: "#features" }}
         breadcrumbs={crumbs}
+        rightPanel={<PatientPulseMockup />}
       />
 
       {/* The problem */}
@@ -122,21 +186,21 @@ export default function PatientPulsePage() {
             </div>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => (
               <FadeUp key={f.title} delay={i * 0.07}>
-                <div className="flex flex-col h-full bg-transparent pt-6 border-t-2 border-[var(--color-accent)]/40">
-                  <div className="w-8 h-8 rounded-[4px] bg-[var(--color-paper)] border border-[var(--color-border)] flex items-center justify-center mb-4 text-[var(--color-accent)]">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <polyline points="20 6 9 17 4 12" />
+                <li className="flex flex-col h-full bg-transparent pt-6 border-t-2 border-[var(--color-accent)]/40 list-none">
+                  <div className="mb-4 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      {f.icon}
                     </svg>
                   </div>
                   <h3 className="text-h4 text-[var(--color-ink)] mb-2 font-semibold">{f.title}</h3>
                   <p className="text-body-sm text-[var(--color-muted)] leading-relaxed">{f.desc}</p>
-                </div>
+                </li>
               </FadeUp>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -150,6 +214,12 @@ export default function PatientPulsePage() {
           { value: "12 mo", label: "Nurture sequences that keep not-yet-ready leads warm" },
           { value: "3, 6, 12", label: "Month intervals at which lapsed patients are reactivated" },
         ]}
+      />
+
+      {/* Testimonial */}
+      <ProofBand
+        eyebrow="Patient Pulse in a working clinic"
+        quote="The follow-up system alone recovered 34 lapsed patients in the first month. Enquiries that used to sit in a personal phone now get answered in minutes."
       />
 
       {/* Why it's different */}
@@ -166,10 +236,15 @@ export default function PatientPulsePage() {
               relationship, and the specific compliance requirements of UK osteopaths,
               physiotherapists and chiropractors.
             </p>
-            <p className="text-body text-[var(--color-muted)] mb-8">
+            <p className="text-body text-[var(--color-muted)] mb-5">
               When you stop working with Clinic Evo, Patient Pulse stays. Your lead
               pipelines, your nurture sequences, your patient database, they belong
               to your clinic, not to us.
+            </p>
+            <p className="text-body text-[var(--color-muted)] mb-8">
+              Patient Pulse also captures every phone enquiry when paired with our{" "}
+              <a href="/call-centre/" className="text-[var(--color-accent)] hover:underline">call handling service</a>,
+              so a missed call becomes a logged, followed-up lead instead of a lost one.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <ArrowLink href="/osteopath-marketing/">marketing for osteopaths</ArrowLink>
@@ -177,6 +252,23 @@ export default function PatientPulsePage() {
               <ArrowLink href="/chiropractic-marketing/">chiropractic marketing</ArrowLink>
             </div>
           </FadeUp>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <div className="cx-main">
+          <div className="max-w-2xl mx-auto">
+            <FadeUp>
+              <div className="text-center mb-10">
+                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <h2 className="text-h2 text-[var(--color-ink)]">
+                  Patient Pulse FAQs
+                </h2>
+              </div>
+            </FadeUp>
+            <FAQAccordion items={faqs} />
+          </div>
         </div>
       </section>
 
