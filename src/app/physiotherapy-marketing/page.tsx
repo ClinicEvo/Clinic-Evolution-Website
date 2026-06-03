@@ -12,6 +12,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "Physiotherapy Marketing UK | Grow Your Physio Practice",
@@ -155,7 +156,7 @@ export default function PhysiotherapyMarketingPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-[var(--color-surface)] rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <p className="text-label text-[var(--color-accent)] mb-4">What we focus on</p>
                 <div className="flex flex-col gap-5">
                   {[
@@ -175,18 +176,30 @@ export default function PhysiotherapyMarketingPage() {
         </div>
       </section>
 
+      {/* Proof band */}
+      <StatBand
+        eyebrow="What physio clinics see"
+        heading="Specialist marketing that fills specialist diaries."
+        body="From sports rehab to post-surgical care, we tie every channel back to booked appointments and patients who keep coming back."
+        stats={[
+          { value: "2.3×", label: "Average enquiry increase in the first 90 days" },
+          { value: "£72", label: "Average cost per new physio patient" },
+          { value: "78%", label: "Patient retention within a 12-month window" },
+        ]}
+      />
+
       {/* Services */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Services</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Services</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Marketing services for physiotherapists
               </h2>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               { title: "SEO for Physiotherapists", desc: "Rank for local searches and specialty-specific queries that bring in the patients you want.", href: "/seo-for-clinics/" },
               { title: "Google Ads for Physio Clinics", desc: "Targeted PPC campaigns that drive booked appointments, not just clicks.", href: "/google-ads-for-clinics/" },
@@ -194,7 +207,7 @@ export default function PhysiotherapyMarketingPage() {
               { title: "Patient Reactivation", desc: "Re-engage discharged and lapsed patients automatically with personalised AI messages.", href: "/ai-patient-reactivation/" },
             ].map((s, i) => (
               <FadeUp key={s.href} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)]">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4">{s.desc}</p>
                   <ArrowLink href={s.href}>Learn more</ArrowLink>
@@ -227,7 +240,7 @@ export default function PhysiotherapyMarketingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

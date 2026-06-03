@@ -37,12 +37,12 @@ export default function ContactPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-4">Topics</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Topics</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 What you can ask us about
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic Evo works with private MSK clinics that want a more
                 joined-up approach to digital growth. You can get in touch if you
                 need help with a specific area, or if you want a clearer plan for
@@ -50,7 +50,7 @@ export default function ContactPage() {
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "SEO for clinics",
@@ -79,7 +79,7 @@ export default function ContactPage() {
               },
             ].map((topic, i) => (
               <FadeUp key={topic.href} delay={i * 0.05}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full flex flex-col hover:border-[var(--color-accent)] transition-colors group">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8 group">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">{topic.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{topic.desc}</p>
                   <ArrowLink href={topic.href}>Learn more</ArrowLink>
@@ -91,15 +91,15 @@ export default function ContactPage() {
       </section>
 
       {/* Who we work with */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-3xl mb-12">
             <FadeUp>
-              <Badge className="mb-4">Audience</Badge>
+              <p className="eyebrow mb-4">Audience</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-5">
                 Specialist support for private MSK clinics
               </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
+              <p className="text-body text-[var(--color-charcoal)] mb-5">
                 Clinic Evo is built for clinics where trust, clinical credibility
                 and patient education matter. The main focus is on osteopaths,
                 physiotherapists and chiropractors, although we can also support
@@ -126,7 +126,7 @@ export default function ContactPage() {
               },
             ].map((card, i) => (
               <FadeUp key={card.href} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full flex flex-col hover:border-[var(--color-accent)] transition-colors group">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8 group">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">{card.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{card.desc}</p>
                   <ArrowLink href={card.href}>View marketing approach</ArrowLink>
@@ -138,7 +138,7 @@ export default function ContactPage() {
       </section>
 
       {/* Form Section */}
-      <section id="contact-form" className="section bg-[var(--color-paper)] border-y border-[var(--color-border)]">
+      <section id="contact-form" className="section grain bg-[var(--color-paper)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
@@ -151,7 +151,7 @@ export default function ContactPage() {
                   Tell us a little about your clinic and what you need help with. We
                   will review your message and come back with the most useful next step.
                 </p>
-                <div className="bg-[var(--color-surface)] rounded-2xl p-7 border border-[var(--color-border)]">
+                <div className="card-surface p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-4">
                     Contact details
                   </h3>
@@ -166,8 +166,8 @@ export default function ContactPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)] shadow-sm">
-                <form 
+              <div className="card-surface p-8">
+                <form
                   action="https://formspree.io/f/xbjnqpyz" // Place real endpoint here
                   method="POST" 
                   className="flex flex-col gap-5"
@@ -248,9 +248,9 @@ export default function ContactPage() {
       </section>
 
       {/* Audit alternative */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
-          <div className="bg-[var(--color-paper)] rounded-2xl p-8 lg:p-12 text-center max-w-4xl mx-auto">
+          <div className="card-surface p-8 lg:p-12 text-center max-w-4xl mx-auto">
             <h2 className="text-h2 text-[var(--color-ink)] mb-5">
               Not sure what your clinic needs yet?
             </h2>

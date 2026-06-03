@@ -128,7 +128,7 @@ export default function ArticleLayout({
               <div className="sticky top-28 flex flex-col gap-6">
 
                 {/* TOC */}
-                <div className="bg-[var(--color-surface)] rounded-2xl p-6 border border-[var(--color-border)]">
+                <div className="card-surface p-6">
                   <p className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-widest mb-4">
                     In this guide
                   </p>
@@ -163,7 +163,7 @@ export default function ArticleLayout({
 
                 {/* Related links */}
                 {relatedLinks && relatedLinks.length > 0 && (
-                  <div className="bg-white rounded-2xl p-6 border border-[var(--color-border)]">
+                  <div className="card-surface p-6">
                     <p className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-widest mb-4">
                       Related reading
                     </p>
@@ -192,7 +192,7 @@ export default function ArticleLayout({
 
       {/* FAQ */}
       {faqs && faqs.length > 0 && (
-        <section className="section bg-[var(--color-surface)] border-t border-[var(--color-border)]">
+        <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
           <div className="cx-main">
             <div className="max-w-2xl mx-auto">
               <FadeUp>

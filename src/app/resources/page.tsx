@@ -23,7 +23,7 @@ const crumbs = [
 
 function IconTile({ children }: { children: ReactNode }) {
   return (
-    <div className="w-11 h-11 rounded-xl bg-[#EAECF5] flex items-center justify-center mb-5 flex-shrink-0 text-[var(--color-accent)]">
+    <div className="w-11 h-11 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center mb-5 flex-shrink-0 text-[var(--color-accent)]">
       {children}
     </div>
   );
@@ -164,7 +164,7 @@ function ResourceCardEl({ card, delay }: { card: ResourceCard; delay: number }) 
     <FadeUp delay={delay}>
       <a
         href={card.href}
-        className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full flex flex-col hover:border-[var(--color-accent)] transition-colors group block"
+        className="card-surface p-7 h-full flex flex-col group block"
       >
         {card.icon}
         <h3 className="font-semibold text-[var(--color-ink)] mb-3 group-hover:text-[var(--color-accent)] transition-colors leading-snug">
@@ -280,7 +280,7 @@ export default function ResourcesHubPage() {
       />
 
       {/* Intro */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-b border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
@@ -333,7 +333,7 @@ export default function ResourcesHubPage() {
       </section>
 
       {/* Clinic growth strategy resources */}
-      <section className="section bg-[var(--color-surface)] border-t border-[var(--color-border)]">
+      <section className="section grain bg-[var(--color-surface)] border-t border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
             <div className="mb-10">
@@ -379,7 +379,7 @@ export default function ResourcesHubPage() {
       </section>
 
       {/* Google Ads for clinics resources */}
-      <section className="section bg-[var(--color-surface)] border-t border-[var(--color-border)]">
+      <section className="section grain bg-[var(--color-surface)] border-t border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
             <div className="mb-10">
@@ -439,7 +439,7 @@ export default function ResourcesHubPage() {
                 <FadeUp key={item.href} delay={i * 0.1}>
                   <a
                     href={item.href}
-                    className="bg-white rounded-2xl p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors group flex gap-5 items-start block"
+                    className="card-surface p-6 group flex gap-5 items-start block"
                   >
                     <div className="flex-shrink-0">{item.icon}</div>
                     <div className="flex-1 min-w-0">

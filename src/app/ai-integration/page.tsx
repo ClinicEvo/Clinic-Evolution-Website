@@ -8,6 +8,7 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import Badge from "@/components/ui/Badge";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import FAQSchema from "@/components/schema/FAQSchema";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "AI Integration & Patient Reactivation for MSK Clinics",
@@ -136,15 +137,15 @@ export default function AiIntegrationPage() {
       </section>
 
       {/* Automations */}
-      <section id="automations" className="section bg-[var(--color-surface)]/30">
+      <section id="automations" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="mb-12">
-              <Badge className="mb-5 inline-block">What&apos;s included</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">What&apos;s included</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Retention automations built for MSK clinics
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Every automation is managed through{" "}
                 <a href="/patient-pulse/" className="text-[var(--color-accent)] hover:underline">Patient Pulse</a>.
                 The clinic does not need to learn new tools or manage sequences manually.
@@ -155,20 +156,32 @@ export default function AiIntegrationPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {automations.map((a, i) => (
               <FadeUp key={a.title} delay={i * 0.07}>
-                <div className="flex flex-col h-full bg-transparent pt-6 border-t border-[var(--color-border)]">
-                  <div className="w-8 h-8 rounded-[4px] bg-[var(--color-surface)] flex items-center justify-center mb-4 text-[var(--color-ink)]">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <div className="flex flex-col h-full bg-transparent pt-6 border-t-2 border-[var(--color-accent)]/40">
+                  <div className="w-8 h-8 rounded-[4px] bg-[var(--color-paper)] border border-[var(--color-border)] flex items-center justify-center mb-4 text-[var(--color-accent)]">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
                   <h3 className="text-h4 text-[var(--color-ink)] mb-2 font-semibold">{a.title}</h3>
-                  <p className="text-sm text-[var(--color-muted)] leading-relaxed font-light">{a.desc}</p>
+                  <p className="text-body-sm text-[var(--color-muted)] leading-relaxed">{a.desc}</p>
                 </div>
               </FadeUp>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Proof band */}
+      <StatBand
+        eyebrow="The revenue sitting in your database"
+        heading="Your next bookings are already in your patient list."
+        body="Reactivation runs in parallel with new-patient acquisition, pulling consistent revenue from relationships you have already paid to build."
+        stats={[
+          { value: "£250", label: "Lost revenue per patient who drops out of a five-session course" },
+          { value: "30 days", label: "Typical window to first return bookings once the system is live" },
+          { value: "3, 6, 12", label: "Month intervals at which lapsed patients are contacted" },
+        ]}
+      />
 
       {/* Connected to the system */}
       <section className="section bg-[var(--color-paper)]">
@@ -193,7 +206,7 @@ export default function AiIntegrationPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-surface)]/30">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main max-w-2xl mx-auto">
           <FadeUp>
             <div className="text-center mb-10">

@@ -6,6 +6,7 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Badge from "@/components/ui/Badge";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "Patient Pulse, Lead Management & Follow-Up for MSK Clinics",
@@ -106,15 +107,15 @@ export default function PatientPulsePage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="section bg-[var(--color-surface)]/30">
+      <section id="features" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="mb-12">
-              <Badge className="mb-5 inline-block">What Patient Pulse does</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">What Patient Pulse does</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Every part of the follow-up chain, automated
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Patient Pulse is not a single tool. It is a connected set of systems
                 that covers every stage from the first enquiry to the returning patient.
               </p>
@@ -124,20 +125,32 @@ export default function PatientPulsePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => (
               <FadeUp key={f.title} delay={i * 0.07}>
-                <div className="flex flex-col h-full bg-transparent pt-6 border-t border-[var(--color-border)]">
-                  <div className="w-8 h-8 rounded-[4px] bg-[var(--color-surface)] flex items-center justify-center mb-4 text-[var(--color-ink)]">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <div className="flex flex-col h-full bg-transparent pt-6 border-t-2 border-[var(--color-accent)]/40">
+                  <div className="w-8 h-8 rounded-[4px] bg-[var(--color-paper)] border border-[var(--color-border)] flex items-center justify-center mb-4 text-[var(--color-accent)]">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
                   <h3 className="text-h4 text-[var(--color-ink)] mb-2 font-semibold">{f.title}</h3>
-                  <p className="text-sm text-[var(--color-muted)] leading-relaxed font-light">{f.desc}</p>
+                  <p className="text-body-sm text-[var(--color-muted)] leading-relaxed">{f.desc}</p>
                 </div>
               </FadeUp>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Proof band */}
+      <StatBand
+        eyebrow="Why fast follow-up wins"
+        heading="The clinic that replies first books the patient."
+        body="Patient Pulse closes the gap between enquiry and response, then keeps every lead and lapsed patient in contact automatically."
+        stats={[
+          { value: "<5 min", label: "Automatic first response to every new enquiry, day or night" },
+          { value: "12 mo", label: "Nurture sequences that keep not-yet-ready leads warm" },
+          { value: "3, 6, 12", label: "Month intervals at which lapsed patients are reactivated" },
+        ]}
+      />
 
       {/* Why it's different */}
       <section className="section bg-[var(--color-paper)]">

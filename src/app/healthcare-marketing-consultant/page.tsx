@@ -11,6 +11,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "Healthcare Marketing Consultant for Private Clinics",
@@ -116,21 +117,21 @@ export default function HealthcareMarketingConsultantPage() {
       </section>
 
       {/* Strategy areas */}
-      <section id="strategy-areas" className="section bg-[var(--color-surface)]">
+      <section id="strategy-areas" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Strategy</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Strategy</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 A clearer growth strategy for your clinic
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic Evo helps clinic owners make better decisions across the
                 main areas that affect patient acquisition and retention.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "Clinic positioning", desc: "Clarify what your clinic should be known for, which services need stronger visibility, and how to communicate your value without sounding generic." },
               { title: "Website and conversion review", desc: "Identify whether your website explains your services clearly, supports trust, loads quickly, works well on mobile and makes booking easy." },
@@ -140,7 +141,7 @@ export default function HealthcareMarketingConsultantPage() {
               { title: "Measurement and priorities", desc: "Turn scattered marketing activity into a practical plan with clearer priorities, better tracking and a more realistic view of what to do first." },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
@@ -149,6 +150,18 @@ export default function HealthcareMarketingConsultantPage() {
           </div>
         </div>
       </section>
+
+      {/* Proof band */}
+      <StatBand
+        eyebrow="What consultancy delivers"
+        heading="A prioritised plan, not a longer to-do list."
+        body="The aim is clarity: a clear view of what to fix first, why it matters and what return it is likely to produce before you commit budget."
+        stats={[
+          { value: "5 days", label: "From first session to a delivered strategy" },
+          { value: "3.4×", label: "Average 12-month return on implemented recommendations" },
+          { value: "90 days", label: "A clear, prioritised growth roadmap to work from" },
+        ]}
+      />
 
       {/* Who this is for */}
       <section className="section bg-[var(--color-paper)]">
@@ -166,7 +179,7 @@ export default function HealthcareMarketingConsultantPage() {
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-[var(--color-surface)] rounded-2xl p-7 border border-[var(--color-border)]">
+              <div className="card-surface p-7 md:p-8">
                 <p className="text-label text-[var(--color-accent)] mb-5">This page is for you if:</p>
                 <div className="flex flex-col gap-3">
                   {[
@@ -192,7 +205,7 @@ export default function HealthcareMarketingConsultantPage() {
       </section>
 
       {/* Why Clinic Evo */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
@@ -220,14 +233,14 @@ export default function HealthcareMarketingConsultantPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Services</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Services</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Practical support across your clinic&apos;s digital growth system
               </h2>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "SEO for clinics",
@@ -267,7 +280,7 @@ export default function HealthcareMarketingConsultantPage() {
               },
             ].map((s, i) => (
               <FadeUp key={s.href} delay={i * 0.07}>
-                <div className="bg-[var(--color-surface)] rounded-2xl p-7 border border-[var(--color-border)] h-full flex flex-col">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
                   <ArrowLink href={s.href}>{s.cta}</ArrowLink>
@@ -279,7 +292,7 @@ export default function HealthcareMarketingConsultantPage() {
       </section>
 
       {/* Founder-led strategy */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
@@ -304,7 +317,7 @@ export default function HealthcareMarketingConsultantPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <p className="text-label text-[var(--color-accent)] mb-4">Proof</p>
                 <h3 className="text-h3 text-[var(--color-ink)] mb-4">
                   Built from real clinic growth work
@@ -325,7 +338,7 @@ export default function HealthcareMarketingConsultantPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-paper)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

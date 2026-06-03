@@ -12,6 +12,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "SEO for Chiropractors UK | Chiropractic Marketing",
@@ -152,7 +153,7 @@ export default function ChiropracticMarketingPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-[var(--color-surface)] rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <Badge variant="surface" className="mb-5">Why referrals alone aren&apos;t enough</Badge>
                 <p className="text-body text-[var(--color-muted)] mb-4">
                   Referrals are valuable, but they are not a complete growth system.
@@ -177,16 +178,28 @@ export default function ChiropracticMarketingPage() {
         </div>
       </section>
 
+      {/* Proof band */}
+      <StatBand
+        eyebrow="What chiropractic clinics see"
+        heading="Less reliance on referrals. More patients who find you first."
+        body="We build the digital foundation that turns searches into enquiries and one-off visits into long-term chiropractic patients."
+        stats={[
+          { value: "2.8×", label: "Average enquiry increase in the first 90 days" },
+          { value: "31", label: "Local keywords ranking in the top three positions" },
+          { value: "£2,800+", label: "Average lifetime value of a long-term chiro patient" },
+        ]}
+      />
+
       {/* Growth system */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Growth system</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Growth system</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 A stronger website, clearer SEO and smarter patient follow-up
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Chiropractic marketing works best when the main parts of your
                 digital presence support each other. Your SEO brings in relevant
                 search traffic. Your website converts that traffic into enquiries.
@@ -195,7 +208,7 @@ export default function ChiropracticMarketingPage() {
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               {
                 title: "Improve visibility for high-intent searches",
@@ -237,7 +250,7 @@ export default function ChiropracticMarketingPage() {
               },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <div className="text-[var(--color-accent)] mb-4">{item.icon}</div>
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
@@ -252,19 +265,19 @@ export default function ChiropracticMarketingPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Services</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Services</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 How Clinic Evo helps chiropractors grow online
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic Evo gives chiropractic clinics focused digital support across
                 the areas most likely to improve visibility, enquiries, bookings
                 and patient retention.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "SEO for chiropractors",
@@ -298,7 +311,7 @@ export default function ChiropracticMarketingPage() {
               },
             ].map((s, i) => (
               <FadeUp key={s.title} delay={i * 0.07}>
-                <div className="bg-[var(--color-surface)] rounded-2xl p-7 border border-[var(--color-border)] h-full flex flex-col">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
                   <ArrowLink href={s.href}>{s.cta}</ArrowLink>
@@ -310,7 +323,7 @@ export default function ChiropracticMarketingPage() {
       </section>
 
       {/* Why generic marketing is not enough */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
@@ -338,7 +351,7 @@ export default function ChiropracticMarketingPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <h3 className="text-h3 text-[var(--color-ink)] mb-6">
                   Built for clinic owners who want practical growth
                 </h3>
@@ -400,7 +413,7 @@ export default function ChiropracticMarketingPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-[var(--color-surface)] rounded-2xl p-10 border border-[var(--color-border)] text-center">
+              <div className="card-surface p-10 text-center">
                 <p className="text-display text-[var(--color-accent)] font-bold mb-2">3×</p>
                 <p className="text-body text-[var(--color-muted)]">new patient enquiries</p>
               </div>
@@ -410,7 +423,7 @@ export default function ChiropracticMarketingPage() {
       </section>
 
       {/* Process */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <FadeUp>
@@ -437,7 +450,7 @@ export default function ChiropracticMarketingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-paper)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

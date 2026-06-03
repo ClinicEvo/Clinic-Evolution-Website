@@ -35,11 +35,11 @@ export default function CaseStudiesPage() {
       />
 
       {/* Case Studies Grid */}
-      <section className="section bg-[var(--color-surface)] min-h-[50vh]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)] min-h-[50vh]">
         <div className="cx-main">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <FadeUp>
-              <div className="bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden h-full flex flex-col hover:border-[var(--color-accent)] transition-colors group">
+              <div className="card-surface overflow-hidden h-full flex flex-col group">
                 <div className="relative border-b border-[var(--color-border)] p-8 flex items-center justify-center min-h-[240px] overflow-hidden">
                   <Image
                     src="https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-clinic-team-at-reception-01.png"

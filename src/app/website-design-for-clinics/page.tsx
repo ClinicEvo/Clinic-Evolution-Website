@@ -11,6 +11,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "Physiotherapy Website Design for Clinics",
@@ -116,21 +117,21 @@ export default function WebsiteDesignForClinicsPage() {
       </section>
 
       {/* Who this is for */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Who we help</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Who we help</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Website design for physios, osteopaths and chiropractors
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic Evo focuses on MSK clinics where trust, education and local
                 visibility directly affect patient enquiries.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "Physiotherapy clinics",
@@ -152,7 +153,7 @@ export default function WebsiteDesignForClinicsPage() {
               },
             ].map((item, i) => (
               <FadeUp key={item.href} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full flex flex-col">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{item.desc}</p>
                   <ArrowLink href={item.href}>{item.cta}</ArrowLink>
@@ -167,18 +168,18 @@ export default function WebsiteDesignForClinicsPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Essentials</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Essentials</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 What your clinic website needs to get right
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 A clinic website should make the patient journey easier from
                 the first search to the first booking.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "Clear service pages", desc: "Each treatment or service should have a page that explains who it is for, what it can help with, what to expect and how to book." },
               { title: "Local SEO structure", desc: "Your website should help Google understand your services, location, clinical focus and relevance to local patient searches." },
@@ -188,7 +189,7 @@ export default function WebsiteDesignForClinicsPage() {
               { title: "Fast, mobile-first performance", desc: "Many patients search on mobile. Your website needs to load quickly, read clearly and make booking easy on smaller screens." },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="bg-[var(--color-surface)] rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
@@ -198,8 +199,20 @@ export default function WebsiteDesignForClinicsPage() {
         </div>
       </section>
 
+      {/* Proof band */}
+      <StatBand
+        eyebrow="What a clinic website should deliver"
+        heading="A website measured in booked appointments, not page views."
+        body="Every design decision is tied to the moment that matters: a patient deciding your clinic is the one they trust enough to book."
+        stats={[
+          { value: "12%", label: "Average booking conversion rate, versus a 2% industry norm" },
+          { value: "94", label: "Typical Google PageSpeed score on mobile at launch" },
+          { value: "<48h", label: "Average time to first patient enquiry after going live" },
+        ]}
+      />
+
       {/* SEO and conversion */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
@@ -229,19 +242,19 @@ export default function WebsiteDesignForClinicsPage() {
       <section id="what-we-build" className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">What we build</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">What we build</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 What we can improve or build for your clinic
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Depending on your current website, Clinic Evo can either improve
                 what already exists or design a new clinic website from the ground
                 up.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "New clinic websites", desc: "A complete website for a new or growing clinic, including homepage, service pages, practitioner pages, contact page and booking journey." },
               { title: "Website redesigns", desc: "A clearer, stronger version of your current website, built around better structure, messaging, SEO and conversion." },
@@ -251,7 +264,7 @@ export default function WebsiteDesignForClinicsPage() {
               { title: "Ongoing optimisation", desc: "Support after launch to improve content, track visibility and strengthen the pages most likely to generate enquiries." },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="bg-[var(--color-surface)] rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
@@ -262,7 +275,7 @@ export default function WebsiteDesignForClinicsPage() {
       </section>
 
       {/* Why Clinic Evo */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
@@ -286,7 +299,7 @@ export default function WebsiteDesignForClinicsPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <p className="text-label text-[var(--color-accent)] mb-5">Case study</p>
                 <h3 className="text-h3 text-[var(--color-ink)] mb-4">
                   Designed around real clinic growth work
@@ -308,7 +321,7 @@ export default function WebsiteDesignForClinicsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-paper)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

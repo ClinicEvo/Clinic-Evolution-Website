@@ -6,6 +6,7 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Badge from "@/components/ui/Badge";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "Digital Marketing for MSK Clinics, Coordinated Growth",
@@ -117,15 +118,15 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Services */}
-      <section id="services" className="section bg-[var(--color-surface)]/30">
+      <section id="services" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="mb-12">
-              <Badge className="mb-5 inline-block">All services</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">All services</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Every part of the growth chain
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic Evo works exclusively with MSK clinics, osteopaths,
                 physiotherapists and chiropractors. Not gyms. Not dentists.
                 Not generic private healthcare.
@@ -136,9 +137,9 @@ export default function DigitalMarketingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {channels.map((c, i) => (
               <FadeUp key={c.title} delay={i * 0.07}>
-                <div className="flex flex-col h-full bg-transparent pt-6 border-t border-[var(--color-border)]">
+                <div className="flex flex-col h-full bg-transparent pt-6 border-t-2 border-[var(--color-accent)]/40">
                   <h3 className="text-h4 text-[var(--color-ink)] mb-3 font-semibold">{c.title}</h3>
-                  <p className="text-sm text-[var(--color-muted)] leading-relaxed flex-1 mb-5 font-light">{c.desc}</p>
+                  <p className="text-body-sm text-[var(--color-muted)] leading-relaxed flex-1 mb-5">{c.desc}</p>
                   <ArrowLink href={c.href}>{c.cta}</ArrowLink>
                 </div>
               </FadeUp>
@@ -146,6 +147,18 @@ export default function DigitalMarketingPage() {
           </div>
         </div>
       </section>
+
+      {/* Proof band */}
+      <StatBand
+        eyebrow="One connected system"
+        heading="Six channels, five stages, one team accountable for the whole chain."
+        body="Most clinics buy each piece from a different supplier and own the gaps between them. Clinic Evo runs the whole chain so every handoff is covered."
+        stats={[
+          { value: "6", label: "Growth channels coordinated under a single plan" },
+          { value: "5", label: "Connected stages from first search to rebooking" },
+          { value: "1", label: "Team accountable end to end, instead of scattered vendors" },
+        ]}
+      />
 
       {/* Who we help */}
       <section className="section bg-[var(--color-paper)]">

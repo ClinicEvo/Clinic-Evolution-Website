@@ -100,21 +100,21 @@ export default function FreeClinicAuditPage() {
       </section>
 
       {/* What it includes */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-4">Included</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Included</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 What your free clinic audit includes
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 The audit is designed to give you a practical view of your current
                 digital growth foundations.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "Website clarity", desc: "We review whether your website clearly explains who you help, what you treat, where you are based, and why a patient should book with your clinic." },
               { title: "SEO visibility", desc: "We look at whether your clinic is visible for relevant search terms, including treatment, condition, practitioner and local search opportunities." },
@@ -125,7 +125,7 @@ export default function FreeClinicAuditPage() {
               { title: "Paid search readiness", desc: "We assess whether your website is ready to convert traffic from Google Ads, or whether the foundation needs improving first." },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.05}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
@@ -173,7 +173,7 @@ export default function FreeClinicAuditPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-[var(--color-surface)] rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <h3 className="text-h3 text-[var(--color-ink)] mb-4">
                   Core disciplines
                 </h3>
@@ -189,7 +189,7 @@ export default function FreeClinicAuditPage() {
       </section>
 
       {/* What you receive & Beyond traffic */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
@@ -269,20 +269,20 @@ export default function FreeClinicAuditPage() {
                   the clearest opportunities for improvement.
                 </p>
                 <div className="hidden lg:flex flex-col gap-4 mt-10">
-                  <div className="bg-[var(--color-surface)] rounded-xl p-5 border border-[var(--color-border)]">
+                  <div className="card-surface p-5">
                     <p className="text-body-sm text-[var(--color-ink)] font-medium mb-1">Clinic-led advice</p>
-                    <p className="text-sm text-[var(--color-muted)]">Built around MSK patient journeys</p>
+                    <p className="text-body-sm text-[var(--color-muted)]">Built around MSK patient journeys</p>
                   </div>
-                  <div className="bg-[var(--color-surface)] rounded-xl p-5 border border-[var(--color-border)]">
+                  <div className="card-surface p-5">
                     <p className="text-body-sm text-[var(--color-ink)] font-medium mb-1">No automated spam</p>
-                    <p className="text-sm text-[var(--color-muted)]">Human review of your website</p>
+                    <p className="text-body-sm text-[var(--color-muted)]">Human review of your website</p>
                   </div>
                 </div>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
-                <form 
+              <div className="card-surface p-8">
+                <form
                   action="https://formspree.io/f/xbjnqpyz" // Place real endpoint here
                   method="POST" 
                   className="flex flex-col gap-5"
@@ -358,7 +358,7 @@ export default function FreeClinicAuditPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

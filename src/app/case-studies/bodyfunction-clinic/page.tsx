@@ -124,7 +124,7 @@ export default function BodyfunctionCaseStudyPage() {
       </section>
 
       {/* Snapshot */}
-      <section className="section bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <div className="lg:col-span-7">
@@ -165,7 +165,7 @@ export default function BodyfunctionCaseStudyPage() {
               { label: "Strategy", value: "Build a stronger digital foundation for long-term clinic growth" },
             ].map((card, i) => (
               <FadeUp key={card.label} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)] h-full shadow-sm hover:shadow-md transition-shadow">
+                <div className="card-surface p-8 h-full">
                   <p className="text-xs font-bold text-[var(--color-accent)] mb-4 uppercase tracking-widest">{card.label}</p>
                   <p className="text-body font-medium text-[var(--color-ink)]">{card.value}</p>
                 </div>
@@ -238,7 +238,7 @@ export default function BodyfunctionCaseStudyPage() {
       </section>
 
       {/* Opportunity */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <div className="lg:col-span-7">
@@ -281,18 +281,18 @@ export default function BodyfunctionCaseStudyPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Improvements</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Improvements</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 What Clinic Evo improved
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 The work focused on the areas that matter most for a private
                 clinic&apos;s digital growth.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "Website structure", desc: "We reviewed how the website was organised and identified where service, condition and booking journeys could be made clearer for patients and search engines." },
               { title: "SEO-led service content", desc: "We strengthened the role of important service pages so they could better target relevant clinic SEO searches and answer the questions prospective patients are likely to have before booking." },
@@ -302,7 +302,7 @@ export default function BodyfunctionCaseStudyPage() {
               { title: "Reactivation opportunities", desc: "We identified opportunities for smarter follow-up and patient reactivation so the clinic could create value beyond new patient acquisition alone." },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
@@ -313,7 +313,7 @@ export default function BodyfunctionCaseStudyPage() {
       </section>
 
       {/* SEO & Structure */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
@@ -342,7 +342,7 @@ export default function BodyfunctionCaseStudyPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <h3 className="text-h3 text-[var(--color-ink)] mb-4">
                   Related services
                 </h3>
@@ -405,7 +405,7 @@ export default function BodyfunctionCaseStudyPage() {
       </section>
 
       {/* Why it matters */}
-      <section className="section bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <div className="lg:col-span-7">
@@ -447,12 +447,12 @@ export default function BodyfunctionCaseStudyPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Capabilities</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Capabilities</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Related Clinic Evo support
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic Evo can help your clinic improve the same core growth
                 foundations: search visibility, service page structure, patient
                 journey, booking flow and reactivation opportunities.
@@ -467,7 +467,7 @@ export default function BodyfunctionCaseStudyPage() {
               { label: "AI patient reactivation", href: "/ai-patient-reactivation/" },
             ].map((link, i) => (
               <FadeUp key={link.href} delay={i * 0.05}>
-                <a href={link.href} className="block group bg-white rounded-2xl p-6 border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors">
+                <a href={link.href} className="card-surface block group p-6">
                   <span className="font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">{link.label}</span>
                   <svg className="mt-4 text-[var(--color-accent)]" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                     <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -480,7 +480,7 @@ export default function BodyfunctionCaseStudyPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

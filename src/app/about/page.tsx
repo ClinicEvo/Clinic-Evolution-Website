@@ -9,6 +9,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
+import StatBand from "@/components/sections/StatBand";
 
 
 export const metadata = buildMetadata({
@@ -99,7 +100,7 @@ export default function AboutPage() {
       </section>
 
       {/* Built for MSK clinics */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
@@ -130,7 +131,7 @@ export default function AboutPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <h3 className="text-h3 text-[var(--color-ink)] mb-4">
                   Core disciplines
                 </h3>
@@ -207,15 +208,15 @@ export default function AboutPage() {
       </section>
 
       {/* What Clinic Evo improves */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Services</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Services</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 What Clinic Evo helps clinics improve
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic Evo brings together the main digital growth levers a
                 private clinic needs, then connects them into a simple, practical
                 system.
@@ -246,7 +247,7 @@ export default function AboutPage() {
               },
             ].map((s, i) => (
               <FadeUp key={s.href} delay={i * 0.05}>
-                <div className="bg-white rounded-2xl p-6 border border-[var(--color-border)] h-full flex flex-col hover:border-[var(--color-accent)] transition-colors group">
+                <div className="card-surface p-6 h-full flex flex-col group">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
                   <ArrowLink href={s.href}>Learn more</ArrowLink>
@@ -256,6 +257,18 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Proof band */}
+      <StatBand
+        eyebrow="One connected system"
+        heading="Not scattered tactics. A single system built for clinic growth."
+        body="Visibility, website, enquiries, calls and follow-up are designed to work as one, so each stage strengthens the next instead of competing for attention."
+        stats={[
+          { value: "5", label: "Connected growth stages, from first search to rebooking" },
+          { value: "3", label: "MSK disciplines we specialise in: osteo, physio, chiro" },
+          { value: "1", label: "Single system in place of disconnected tools and agencies" },
+        ]}
+      />
 
       {/* Proof */}
       <section className="section bg-[var(--color-paper)]">
@@ -286,7 +299,7 @@ export default function AboutPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-[var(--color-surface)] rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <p className="text-label text-[var(--color-accent)] mb-5">Case study</p>
                 <h3 className="text-h3 text-[var(--color-ink)] mb-4">
                   Bodyfunction Clinic
@@ -306,7 +319,7 @@ export default function AboutPage() {
       </section>
 
       {/* Working style */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
@@ -336,7 +349,7 @@ export default function AboutPage() {
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <p className="text-label text-[var(--color-accent)] mb-6">Core principles</p>
                 <div className="flex flex-col gap-6">
                   {[
@@ -377,7 +390,7 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-paper)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

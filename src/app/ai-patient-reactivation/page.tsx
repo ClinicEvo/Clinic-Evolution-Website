@@ -12,6 +12,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "AI Patient Reactivation for Clinics",
@@ -145,15 +146,15 @@ export default function AiPatientReactivationPage() {
       </section>
 
       {/* What the service does */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">The system</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">The system</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 A smarter patient recall system for MSK clinics
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 This is not about spamming your patient list. It is about creating
                 a more thoughtful way to identify appropriate rebooking
                 opportunities and communicate with patients at the right time,
@@ -161,7 +162,7 @@ export default function AiPatientReactivationPage() {
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               {
                 title: "Patient list review",
@@ -181,7 +182,7 @@ export default function AiPatientReactivationPage() {
               },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
@@ -190,6 +191,18 @@ export default function AiPatientReactivationPage() {
           </div>
         </div>
       </section>
+
+      {/* Proof band */}
+      <StatBand
+        eyebrow="What reactivation returns"
+        heading="Value recovered from patients you have already treated."
+        body="A structured recall system turns a dormant database into consistent rebookings, without ad spend and without adding admin load."
+        stats={[
+          { value: "38%", label: "Average rebook rate among contacted past patients" },
+          { value: "312+", label: "Patients reactivated across clinic databases" },
+          { value: "6h/wk", label: "Admin hours saved per clinic on average" },
+        ]}
+      />
 
       {/* Process */}
       <section className="section bg-[var(--color-paper)]">
@@ -213,7 +226,7 @@ export default function AiPatientReactivationPage() {
       </section>
 
       {/* Responsible AI */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
@@ -236,7 +249,7 @@ export default function AiPatientReactivationPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <h3 className="text-h3 text-[var(--color-ink)] mb-6">
                   Who this is for
                 </h3>
@@ -303,7 +316,7 @@ export default function AiPatientReactivationPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

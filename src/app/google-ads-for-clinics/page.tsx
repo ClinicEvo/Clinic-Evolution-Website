@@ -12,6 +12,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "Google Ads for Physios & Clinics",
@@ -153,22 +154,22 @@ export default function GoogleAdsForClinicsPage() {
       </section>
 
       {/* Why campaigns waste money */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Common mistakes</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Common mistakes</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Why clinic PPC campaigns often waste money
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Many clinics try Google Ads and decide it does not work. In
                 reality, the problem is often the campaign structure, the landing
                 page, or the tracking.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               {
                 title: "Too many broad keywords",
@@ -188,7 +189,7 @@ export default function GoogleAdsForClinicsPage() {
               },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <div className="flex items-start gap-3 mb-3">
                     <svg className="flex-shrink-0 mt-1 text-[var(--color-error)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                       <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -207,19 +208,19 @@ export default function GoogleAdsForClinicsPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Who we help</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Who we help</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Paid search for physios, osteopaths and chiropractors
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic Evo focuses on private MSK clinics, where patient trust
                 and clinical relevance matter. Each clinic type needs its own
                 keyword strategy, ad messaging and landing page structure.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "Physiotherapy clinics",
@@ -241,7 +242,7 @@ export default function GoogleAdsForClinicsPage() {
               },
             ].map((item, i) => (
               <FadeUp key={item.href} delay={i * 0.07}>
-                <div className="bg-[var(--color-surface)] rounded-2xl p-7 border border-[var(--color-border)] h-full flex flex-col">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{item.desc}</p>
                   <ArrowLink href={item.href}>{item.cta}</ArrowLink>
@@ -252,22 +253,34 @@ export default function GoogleAdsForClinicsPage() {
         </div>
       </section>
 
+      {/* Proof band */}
+      <StatBand
+        eyebrow="What good clinic paid search looks like"
+        heading="Spend judged on booked patients, not clicks or impressions."
+        body="We tie every campaign decision back to enquiry quality and cost per patient, so paid search earns its place in your growth plan."
+        stats={[
+          { value: "£68", label: "Average cost per acquisition, versus £340+ typical for the sector" },
+          { value: "4.1×", label: "Average return on ad spend across clinic campaigns" },
+          { value: "9/10", label: "Average Google ad relevance and enquiry quality score" },
+        ]}
+      />
+
       {/* What we manage */}
-      <section id="what-we-manage" className="section bg-[var(--color-surface)]">
+      <section id="what-we-manage" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Full service</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Full service</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 What we manage for your clinic
               </h2>
-              <p className="text-body-lg text-[var(--color-muted)] max-w-2xl mx-auto">
+              <p className="text-body-lg text-[var(--color-charcoal)]">
                 Clinic Evo can support the full paid search journey, from campaign
                 setup to landing page improvements and conversion tracking.
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "Campaign strategy", desc: "We identify the services, locations and patient search terms most likely to generate valuable enquiries for your clinic." },
               { title: "Keyword and negative keyword planning", desc: "We build campaigns around commercial search intent and exclude irrelevant searches such as jobs, training, courses and NHS-related searches." },
@@ -277,7 +290,7 @@ export default function GoogleAdsForClinicsPage() {
               { title: "Reporting and optimisation", desc: "We review what is working, reduce wasted spend, refine the campaign and improve the balance between cost and enquiry quality." },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)] h-full">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
@@ -317,7 +330,7 @@ export default function GoogleAdsForClinicsPage() {
       </section>
 
       {/* Process */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <FadeUp>
@@ -338,7 +351,7 @@ export default function GoogleAdsForClinicsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-paper)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

@@ -12,6 +12,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
+import StatBand from "@/components/sections/StatBand";
 
 export const metadata = buildMetadata({
   title: "Osteopath Marketing UK | Grow Your Osteopathy Practice",
@@ -155,7 +156,7 @@ export default function OsteopathMarketingPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="bg-[var(--color-surface)] rounded-2xl p-8 border border-[var(--color-border)]">
+              <div className="card-surface p-8">
                 <p className="text-label text-[var(--color-accent)] mb-4">Case study highlight</p>
                 <p className="text-h2 text-[var(--color-ink)] font-bold mb-2">3× new patient enquiries</p>
                 <p className="text-body text-[var(--color-muted)] mb-6">
@@ -172,18 +173,30 @@ export default function OsteopathMarketingPage() {
         </div>
       </section>
 
+      {/* Proof band */}
+      <StatBand
+        eyebrow="What osteopath clinics see"
+        heading="Growth measured in booked patients, not rankings alone."
+        body="Every channel we run is tied back to new enquiries and filled diaries, the numbers that actually move an osteopathy practice forward."
+        stats={[
+          { value: "+23", label: "Average increase in new patients per month" },
+          { value: "3.1×", label: "Average organic traffic growth over six months" },
+          { value: "Top 3", label: "Google Maps ranking for local osteopath searches" },
+        ]}
+      />
+
       {/* Services for osteopaths */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="text-center mb-12">
-              <Badge className="mb-5 inline-block">Services</Badge>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Services</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Marketing services for osteopaths
               </h2>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               { title: "SEO for Osteopaths", desc: "Technical and content SEO that ranks your practice for local and condition-specific searches.", href: "/seo-for-clinics/" },
               { title: "Google Ads for Osteopaths", desc: "Patient-ready campaigns targeting people actively searching for osteopathic treatment.", href: "/google-ads-for-clinics/" },
@@ -191,7 +204,7 @@ export default function OsteopathMarketingPage() {
               { title: "AI Patient Reactivation", desc: "Re-engage patients who haven't visited in months with personalised automated messages.", href: "/ai-patient-reactivation/" },
             ].map((s, i) => (
               <FadeUp key={s.href} delay={i * 0.07}>
-                <div className="bg-white rounded-2xl p-7 border border-[var(--color-border)]">
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4">{s.desc}</p>
                   <ArrowLink href={s.href}>Learn more</ArrowLink>
@@ -224,7 +237,7 @@ export default function OsteopathMarketingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-surface)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="max-w-2xl mx-auto">
             <FadeUp>

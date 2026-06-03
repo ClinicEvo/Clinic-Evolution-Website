@@ -180,7 +180,7 @@ export default function CookiePolicyPage() {
             {/* Sidebar TOC */}
             <aside className="hidden lg:block">
               <div className="sticky top-28">
-                <div className="bg-[var(--color-surface)] rounded-xl p-6 border border-[var(--color-border)]">
+                <div className="card-surface p-6">
                   <p className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-widest mb-4">
                     On this page
                   </p>

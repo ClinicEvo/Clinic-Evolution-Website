@@ -51,7 +51,7 @@ export default function AuditThankYouPage() {
           </FadeUp>
 
           <FadeUp delay={0.14}>
-            <div className="bg-[var(--color-surface)] rounded-xl p-6 border border-[var(--color-border)] mb-10 max-w-lg">
+            <div className="card-surface p-6 mb-10 max-w-lg">
               <p className="text-sm font-semibold text-[var(--color-ink)] mb-3">What happens next</p>
               <ol className="flex flex-col gap-3">
                 {[
