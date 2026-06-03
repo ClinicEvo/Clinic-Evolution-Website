@@ -41,7 +41,7 @@ function Band({ eyebrow, heading, body, stats }: Omit<StatBandProps, "bare">) {
               key={stat.label}
               className="flex items-baseline gap-5 py-5 first:pt-0 lg:first:pt-5"
             >
-              <span className="font-display text-4xl font-semibold leading-none text-[var(--color-accent)] md:text-5xl">
+              <span className="shrink-0 whitespace-nowrap font-display text-4xl font-semibold leading-none text-[var(--color-accent)] md:text-5xl">
                 {stat.value}
               </span>
               <span className="text-sm leading-snug text-white/70">{stat.label}</span>
