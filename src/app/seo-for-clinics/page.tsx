@@ -1,18 +1,16 @@
 import { buildMetadata } from "@/lib/metadata";
-import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import ProcessSteps from "@/components/sections/ProcessSteps";
-import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
-import HeroStatCard from "@/components/sections/HeroStatCard";
-import StatBand from "@/components/sections/StatBand";
+import ProofBand from "@/components/sections/ProofBand";
+import SerpMockup from "@/components/sections/mockups/SerpMockup";
 
 export const metadata = buildMetadata({
   title: "SEO for Medical Clinics | Specialist Clinic SEO",
@@ -105,16 +103,7 @@ export default function SeoForClinicsPage() {
         primaryCta={{ label: "Get a free clinic SEO audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See how clinic SEO works", href: "#what-we-improve" }}
         breadcrumbs={crumbs}
-        rightPanel={
-          <HeroStatCard
-            title="SEO results"
-            stats={[
-              { label: "Organic enquiry growth", value: "340%", note: "avg increase in 6 months" },
-              { label: "Local keyword rankings", value: "#1–3", note: "for 18+ target terms" },
-              { label: "Cost per patient (SEO)", value: "£0", note: "ongoing vs paid acquisition" },
-            ]}
-          />
-        }
+        rightPanel={<SerpMockup />}
       />
 
       {/* Positioning */}
@@ -166,16 +155,19 @@ export default function SeoForClinicsPage() {
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { title: "Service page SEO", desc: "We improve the pages that describe your treatments, conditions and clinic services so they are clearer for both patients and Google." },
-              { title: "Local SEO", desc: "We strengthen the signals that help your clinic appear for relevant local searches, including location terms, Google Business Profile alignment and service-area relevance." },
-              { title: "Technical SEO", desc: "We review crawlability, metadata, headings, page speed, indexation, broken links, redirects, schema and the technical barriers that can hold rankings back." },
-              { title: "Content strategy", desc: "We identify the pages and resources your clinic needs to answer real patient questions and support stronger organic growth over time." },
-              { title: "Internal linking", desc: "We connect related services, conditions, locations and resources so Google can understand your clinic\u2019s expertise and patients can move through the site more easily." },
-              { title: "Booking journey improvements", desc: "We review how easily a patient can move from search to understanding, trust and booking." },
+              { title: "Service page SEO", desc: "We improve the pages that describe your treatments, conditions and clinic services so they are clearer for both patients and Google.", icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 9h10M7 13h6" /></> },
+              { title: "Local SEO", desc: "We strengthen the signals that help your clinic appear for relevant local searches, including location terms, Google Business Profile alignment and service-area relevance.", icon: <><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></> },
+              { title: "Technical SEO", desc: "We review crawlability, metadata, headings, page speed, indexation, broken links, redirects, schema and the technical barriers that can hold rankings back.", icon: <><path d="M10.3 5.7a3 3 0 104 4l5 5a2 2 0 01-3 3l-5-5a3 3 0 01-4-4z" /></> },
+              { title: "Content strategy", desc: "We identify the pages and resources your clinic needs to answer real patient questions and support stronger organic growth over time.", icon: <><path d="M4 5h16M4 12h10M4 19h7" /></> },
+              { title: "Internal linking", desc: "We connect related services, conditions, locations and resources so Google can understand your clinic\u2019s expertise and patients can move through the site more easily.", icon: <><path d="M9 12a3 3 0 013-3h3a3 3 0 010 6h-1.5" /><path d="M15 12a3 3 0 01-3 3H9a3 3 0 010-6h1.5" /></> },
+              { title: "Booking journey", desc: "We review how easily a patient can move from search to understanding, trust and booking.", icon: <><path d="M5 12h14M13 6l6 6-6 6" /></> },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="card-surface flex h-full flex-col p-7 md:p-8">
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
+                <div className="card-surface group flex h-full flex-col p-7 md:p-8">
+                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
+                  </div>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
               </FadeUp>
@@ -185,15 +177,9 @@ export default function SeoForClinicsPage() {
       </section>
 
       {/* Proof band */}
-      <StatBand
+      <ProofBand
         eyebrow="What good clinic SEO looks like"
-        heading="Visibility you can measure in enquiries, not vanity rankings."
-        body="We tie every SEO improvement back to the metric that matters: more of the right patients finding your clinic at the moment they are ready to book."
-        stats={[
-          { value: "340%", label: "Average organic enquiry growth in six months" },
-          { value: "#1\u20133", label: "Local rankings across 18+ target search terms" },
-          { value: "\u00a30", label: "Ongoing cost per patient from organic search" },
-        ]}
+        quote="We went from page 4 to position 1 in 11 weeks. The follow-up system alone recovered 34 lapsed patients in the first month."
       />
 
       {/* Who this is for */}
@@ -363,6 +349,30 @@ export default function SeoForClinicsPage() {
               </p>
             </FadeUp>
           </div>
+
+          <FadeUp delay={0.1}>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              {[
+                { title: "Local SEO for physio clinics", href: "/resources/local-seo-for-physio-clinics/" },
+                { title: "Local SEO for medical clinics", href: "/resources/local-seo-for-medical-clinics/" },
+                { title: "Local SEO for healthcare clinics", href: "/resources/local-seo-for-healthcare-clinics/" },
+              ].map((r) => (
+                <a
+                  key={r.href}
+                  href={r.href}
+                  className="card-surface group flex items-center justify-between gap-4 p-6"
+                >
+                  <div>
+                    <p className="text-label text-[var(--color-accent)] mb-2">Guide</p>
+                    <h3 className="text-h4 text-[var(--color-ink)]">{r.title}</h3>
+                  </div>
+                  <svg className="flex-shrink-0 text-[var(--color-muted)] transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--color-accent)]" width="18" height="18" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </FadeUp>
         </div>
       </section>
 

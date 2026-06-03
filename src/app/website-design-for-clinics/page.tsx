@@ -1,20 +1,18 @@
 import { buildMetadata } from "@/lib/metadata";
-import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
-import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
-import HeroStatCard from "@/components/sections/HeroStatCard";
-import StatBand from "@/components/sections/StatBand";
+import ProofBand from "@/components/sections/ProofBand";
+import ClinicSiteMockup from "@/components/sections/mockups/ClinicSiteMockup";
 
 export const metadata = buildMetadata({
-  title: "Physiotherapy Website Design for Clinics",
+  title: "Clinic Website Design for Physios, Osteopaths & Chiropractors",
   description:
     "Clinic Evo designs clear, fast and booking-focused websites for UK physiotherapists, osteopaths and chiropractors, built around trust, SEO and patient enquiries.",
   path: "/website-design-for-clinics/",
@@ -77,16 +75,7 @@ export default function WebsiteDesignForClinicsPage() {
         primaryCta={{ label: "Get a free website audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See how we build", href: "#what-we-build" }}
         breadcrumbs={crumbs}
-        rightPanel={
-          <HeroStatCard
-            title="Website performance"
-            stats={[
-              { label: "Avg conversion rate", value: "12%", note: "vs 2% industry average" },
-              { label: "Google PageSpeed score", value: "94", note: "mobile performance" },
-              { label: "Time to first enquiry", value: "<48h", note: "avg post-launch" },
-            ]}
-          />
-        }
+        rightPanel={<ClinicSiteMockup />}
       />
 
       {/* Problem */}
@@ -181,16 +170,19 @@ export default function WebsiteDesignForClinicsPage() {
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { title: "Clear service pages", desc: "Each treatment or service should have a page that explains who it is for, what it can help with, what to expect and how to book." },
-              { title: "Local SEO structure", desc: "Your website should help Google understand your services, location, clinical focus and relevance to local patient searches." },
-              { title: "Practitioner credibility", desc: "Patients want to know who they are booking with. Practitioner profiles, qualifications and clinical interests all matter." },
-              { title: "Booking-focused user journey", desc: "Your calls to action, booking buttons, forms and contact options should be visible, simple and consistent across the site." },
-              { title: "Trust signals", desc: "Reviews, case studies, professional memberships, clinic photos and clear explanations reduce uncertainty and improve conversion." },
-              { title: "Fast, mobile-first performance", desc: "Many patients search on mobile. Your website needs to load quickly, read clearly and make booking easy on smaller screens." },
+              { title: "Clear service pages", desc: "Each treatment or service should have a page that explains who it is for, what it can help with, what to expect and how to book.", icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 9h10M7 13h6" /></> },
+              { title: "Local SEO structure", desc: "Your website should help Google understand your services, location, clinical focus and relevance to local patient searches.", icon: <><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></> },
+              { title: "Practitioner credibility", desc: "Patients want to know who they are booking with. Practitioner profiles, qualifications and clinical interests all matter.", icon: <><circle cx="12" cy="8" r="4" /><path d="M5 21v-1a7 7 0 0114 0v1" /></> },
+              { title: "Booking-focused journey", desc: "Your calls to action, booking buttons, forms and contact options should be visible, simple and consistent across the site.", icon: <><rect x="4" y="5" width="16" height="16" rx="2" /><path d="M8 3v4M16 3v4M4 11h16M9 16l2 2 4-4" /></> },
+              { title: "Trust signals", desc: "Reviews, case studies, professional memberships, clinic photos and clear explanations reduce uncertainty and improve conversion.", icon: <><path d="M12 3l7 3v5c0 4.5-2.8 7.6-7 9-4.2-1.4-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" /></> },
+              { title: "Fast, mobile-first performance", desc: "Many patients search on mobile. Your website needs to load quickly, read clearly and make booking easy on smaller screens.", icon: <><rect x="7" y="3" width="10" height="18" rx="2" /><path d="M11 18h2" /></> },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="card-surface flex h-full flex-col p-7 md:p-8">
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
+                <div className="card-surface group flex h-full flex-col p-7 md:p-8">
+                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
+                  </div>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
               </FadeUp>
@@ -200,15 +192,9 @@ export default function WebsiteDesignForClinicsPage() {
       </section>
 
       {/* Proof band */}
-      <StatBand
-        eyebrow="What a clinic website should deliver"
-        heading="A website measured in booked appointments, not page views."
-        body="Every design decision is tied to the moment that matters: a patient deciding your clinic is the one they trust enough to book."
-        stats={[
-          { value: "12%", label: "Average booking conversion rate, versus a 2% industry norm" },
-          { value: "94", label: "Typical Google PageSpeed score on mobile at launch" },
-          { value: "<48h", label: "Average time to first patient enquiry after going live" },
-        ]}
+      <ProofBand
+        eyebrow="Built in a real clinic"
+        quote="We went from page 4 to position 1 in 11 weeks. The follow-up system alone recovered 34 lapsed patients in the first month."
       />
 
       {/* SEO and conversion */}
@@ -265,7 +251,10 @@ export default function WebsiteDesignForClinicsPage() {
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
                 <div className="card-surface flex h-full flex-col p-7 md:p-8">
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
+                  <span className="mb-4 font-display text-2xl font-light leading-none text-[var(--color-muted-light)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
               </FadeUp>

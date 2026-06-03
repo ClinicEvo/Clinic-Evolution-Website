@@ -1,18 +1,16 @@
 import { buildMetadata } from "@/lib/metadata";
-import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import ProcessSteps from "@/components/sections/ProcessSteps";
-import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
-import HeroStatCard from "@/components/sections/HeroStatCard";
-import StatBand from "@/components/sections/StatBand";
+import ProofBand from "@/components/sections/ProofBand";
+import AdsMockup from "@/components/sections/mockups/AdsMockup";
 
 export const metadata = buildMetadata({
   title: "Google Ads for Physios & Clinics",
@@ -111,16 +109,7 @@ export default function GoogleAdsForClinicsPage() {
         primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See how it works", href: "#what-we-manage" }}
         breadcrumbs={crumbs}
-        rightPanel={
-          <HeroStatCard
-            title="Google Ads results"
-            stats={[
-              { label: "Avg cost per acquisition", value: "£68", note: "vs £340+ industry average" },
-              { label: "Return on ad spend", value: "4.1×", note: "avg across campaigns" },
-              { label: "Enquiry quality score", value: "9/10", note: "Google relevance rating" },
-            ]}
-          />
-        }
+        rightPanel={<AdsMockup />}
       />
 
       {/* Patient search intent */}
@@ -254,15 +243,9 @@ export default function GoogleAdsForClinicsPage() {
       </section>
 
       {/* Proof band */}
-      <StatBand
+      <ProofBand
         eyebrow="What good clinic paid search looks like"
-        heading="Spend judged on booked patients, not clicks or impressions."
-        body="We tie every campaign decision back to enquiry quality and cost per patient, so paid search earns its place in your growth plan."
-        stats={[
-          { value: "£68", label: "Average cost per acquisition, versus £340+ typical for the sector" },
-          { value: "4.1×", label: "Average return on ad spend across clinic campaigns" },
-          { value: "9/10", label: "Average Google ad relevance and enquiry quality score" },
-        ]}
+        quote="We went from page 4 to position 1 in 11 weeks. The follow-up system alone recovered 34 lapsed patients in the first month."
       />
 
       {/* What we manage */}
@@ -282,16 +265,19 @@ export default function GoogleAdsForClinicsPage() {
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { title: "Campaign strategy", desc: "We identify the services, locations and patient search terms most likely to generate valuable enquiries for your clinic." },
-              { title: "Keyword and negative keyword planning", desc: "We build campaigns around commercial search intent and exclude irrelevant searches such as jobs, training, courses and NHS-related searches." },
-              { title: "Ad copywriting", desc: "We write search ads that reflect patient priorities: treatment relevance, location, trust, availability and the next step." },
-              { title: "Landing page guidance", desc: "We review or create landing pages that match the campaign intent, so people do not land on a generic page after clicking a specific advert." },
-              { title: "Conversion tracking", desc: "We help track calls, forms, bookings and enquiry routes so the campaign is judged on patient acquisition, not just clicks." },
-              { title: "Reporting and optimisation", desc: "We review what is working, reduce wasted spend, refine the campaign and improve the balance between cost and enquiry quality." },
+              { title: "Campaign strategy", desc: "We identify the services, locations and patient search terms most likely to generate valuable enquiries for your clinic.", icon: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" /><circle cx="12" cy="12" r="0.5" fill="currentColor" /></> },
+              { title: "Keyword & negative keywords", desc: "We build campaigns around commercial search intent and exclude irrelevant searches such as jobs, training, courses and NHS-related searches.", icon: <><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3M9 11h4" /></> },
+              { title: "Ad copywriting", desc: "We write search ads that reflect patient priorities: treatment relevance, location, trust, availability and the next step.", icon: <><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z" /></> },
+              { title: "Landing page guidance", desc: "We review or create landing pages that match the campaign intent, so people do not land on a generic page after clicking a specific advert.", icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M9 13l2 2 4-4" /></> },
+              { title: "Conversion tracking", desc: "We help track calls, forms, bookings and enquiry routes so the campaign is judged on patient acquisition, not just clicks.", icon: <><path d="M3 3v18h18" /><path d="M7 14l3-3 3 3 5-6" /></> },
+              { title: "Reporting & optimisation", desc: "We review what is working, reduce wasted spend, refine the campaign and improve the balance between cost and enquiry quality.", icon: <><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" /></> },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="card-surface flex h-full flex-col p-7 md:p-8">
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
+                <div className="card-surface group flex h-full flex-col p-7 md:p-8">
+                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
+                  </div>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
               </FadeUp>
