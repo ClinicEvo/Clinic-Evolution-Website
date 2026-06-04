@@ -34,7 +34,7 @@ const systemStages = [
   {
     num: "04",
     label: "Book",
-    body: "A clear route to book by phone or online, with no enquiry left sitting unanswered.",
+    body: "Calls answered and ad leads called back, then booked straight into your diary, with no enquiry left sitting unanswered.",
     href: "/call-centre/",
     anchor: "call handling",
   },

@@ -14,41 +14,41 @@ import FAQAccordion from "@/components/sections/FAQAccordion";
 import CallCostCalculator from "@/components/sections/CallCostCalculator";
 
 export const metadata = buildMetadata({
-  title: "Call Handling for MSK Clinics, Never Miss a Patient",
+  title: "Call Handling & Booking for MSK Clinics, Inbound & Outbound",
   description:
-    "Clinic Evo's call handling service ensures every patient call to your UK osteopathy, physiotherapy or chiropractic clinic is answered by a trained handler. No voicemail. No missed appointments.",
+    "Clinic Evo answers every patient call to your UK osteopathy, physiotherapy or chiropractic clinic, calls back the leads your marketing generates, and books patients straight into your diary. No voicemail. No lead left waiting.",
   path: "/call-centre/",
 });
 
 const crumbs = [
   { label: "Home", href: "/" },
-  { label: "Call Handling", href: "/call-centre/" },
+  { label: "Call Handling & Booking", href: "/call-centre/" },
 ];
 
 const steps = [
   {
     number: 1,
-    title: "A patient calls your clinic",
+    title: "A patient calls, or a lead comes in",
     description:
-      "From a Google search, an ad or a recommendation, on whichever lines you choose to divert, including the ones that currently ring out while you are with a patient.",
+      "Inbound calls land on whichever lines you choose to divert, including the ones that ring out while you are with a patient. New enquiries from your ads and website forms arrive at the same time.",
   },
   {
     number: 2,
-    title: "A trained handler answers",
+    title: "A trained handler answers, or calls them back",
     description:
-      "Briefed on your services, practitioners, availability and booking process. A real person who knows your clinic, not a generic script and never a voicemail.",
+      "Every inbound call is answered by a handler briefed on your services, practitioners and availability, never left to voicemail. Leads from your marketing get a fast outbound call back, while their intent is still high.",
   },
   {
     number: 3,
-    title: "The call is logged into Patient Pulse",
+    title: "The patient is booked into your diary",
     description:
-      "Every enquiry, callback and new lead is captured automatically in one place, so nothing is left on a notepad or lost on a personal phone.",
+      "Because handlers know your live availability and booking process, they book the patient straight into your diary, synced to avoid double-bookings, rather than simply taking a message.",
   },
   {
     number: 4,
-    title: "Follow-up happens automatically",
+    title: "Everything is logged into Patient Pulse",
     description:
-      "Bookings are confirmed, and any caller who didn't book enters the same fast follow-up sequence as your online enquiries, including out-of-hours calls.",
+      "Every call, callback and new lead is captured in one place. Bookings are confirmed, and anyone not yet booked enters the same fast follow-up as your online enquiries, including out-of-hours.",
   },
 ];
 
@@ -69,9 +69,14 @@ const faqs = [
       "Every call is logged directly into Patient Pulse, our lead management system. Missed calls, enquiries and new leads are tracked and entered into the same automatic follow-up as your online enquiries, so phone and digital enquiries are handled the same way.",
   },
   {
+    question: "Do you call back the leads my marketing generates?",
+    answer:
+      "Yes. As well as answering inbound calls, handlers make outbound calls to the new enquiries your ads and website forms generate, reaching them quickly while their intent is high, rather than leaving them waiting for someone at the clinic to find a spare moment.",
+  },
+  {
     question: "Will handlers be able to book patients in?",
     answer:
-      "Handlers are briefed on your booking process and availability so they can guide a caller towards an appointment and capture everything needed to confirm it, rather than simply taking a message.",
+      "Yes. Handlers are briefed on your booking process and work from your live availability, so they book patients straight into your diary, synced to avoid double-bookings, rather than simply taking a message for someone else to action later.",
   },
   {
     question: "What does a missed call actually cost my clinic?",
@@ -84,28 +89,28 @@ export default function CallCentrePage() {
   return (
     <>
       <ServiceSchema
-        name="Call Handling for MSK Clinics"
-        description="Professional call handling for UK osteopaths, physiotherapists and chiropractors. Every patient call answered. No voicemail."
+        name="Call Handling & Booking for MSK Clinics"
+        description="Inbound and outbound call handling for UK osteopaths, physiotherapists and chiropractors. Every patient call answered, every marketing lead called back, and patients booked straight into your diary."
         url="/call-centre/"
       />
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
       <PageHero
-        badge="No missed appointments"
+        badge="Inbound & outbound"
         heading={
           <>
             Every call answered.{" "}
             <em className="not-italic text-[var(--color-accent)]">
-              Every enquiry captured.
+              Every lead booked.
             </em>
           </>
         }
-        subtext="A prospective patient who rings while you are mid-treatment and hears a voicemail is a £300–500 revenue opportunity that cost nothing to generate, and is now gone. Clinic Evo's call handling service makes sure that never happens."
+        subtext="A patient who rings while you are mid-treatment and hears a voicemail is a £300–500 opportunity, gone. So is a lead from your ads that nobody calls back. Clinic Evo answers your calls, rings those leads back, and books patients straight into your diary."
         bullets={[
-          "Every call answered by a trained handler",
-          "Handlers briefed on your clinic, services and availability",
-          "All calls logged into Patient Pulse automatically",
+          "Every inbound call answered by a trained handler",
+          "Leads from your ads and forms called back while intent is high",
+          "Patients booked straight into your diary, not left as a message",
         ]}
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "How it works", href: "#how-it-works" }}
@@ -134,10 +139,12 @@ export default function CallCentrePage() {
                 significant, and entirely preventable.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                Clinic Evo's call handling service sits alongside{" "}
+                The same is true of a lead your ads worked hard to generate: if
+                nobody rings it back quickly, it goes cold. Clinic Evo's call
+                handling sits alongside{" "}
                 <a href="/patient-pulse/" className="text-[var(--color-accent)] hover:underline">Patient Pulse</a>{" "}
                 to ensure nothing falls through the gap, whether the enquiry comes by
-                phone, form, or message.
+                phone, form, or ad, inbound or called back.
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
@@ -171,13 +178,13 @@ export default function CallCentrePage() {
 
       {/* Proof band */}
       <StatBand
-        eyebrow="The cost of an unanswered phone"
-        heading="Every missed call is a patient who books the next clinic instead."
-        body="A caller who reaches voicemail rarely calls back. Trained handling turns those ringing phones into booked appointments."
+        eyebrow="The cost of an unworked enquiry"
+        heading="A missed call, or a lead nobody rings back, is a patient who books the next clinic instead."
+        body="A caller who reaches voicemail rarely calls back, and a lead left waiting goes cold. Answered calls and fast callbacks turn both into booked appointments."
         stats={[
           { value: "£300–500", label: "Immediate treatment revenue in a single missed patient" },
           { value: "£1,500+", label: "Lifetime value across a full course and return visits" },
-          { value: "0", label: "Voicemails: every call answered by a real handler" },
+          { value: "0", label: "Leads left waiting: every call answered, every lead called back" },
         ]}
       />
 

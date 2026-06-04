@@ -203,7 +203,7 @@ const cards = [
   {
     icon: <MessageIcon />,
     heading: "No system. No follow-up. No booking.",
-    body: "An enquiry arrives through Facebook and disappears into a WhatsApp thread nobody revisits.",
+    body: "A lead you paid to generate arrives through Facebook and disappears into a WhatsApp thread nobody revisits. No one calls it back.",
     illustration: <LostEnquiryIllustration />,
   },
   {
