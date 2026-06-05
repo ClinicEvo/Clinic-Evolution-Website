@@ -59,7 +59,7 @@ export default function BodyfunctionCaseStudyPage() {
       <FAQSchema items={faqs} />
 
       {/* Hero */}
-      <section className="bg-[var(--color-paper)] pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative">
+      <section className="bg-[var(--color-paper)] pt-20 pb-20 lg:pt-28 lg:pb-32 overflow-hidden relative">
         {/* Subtle decorative background element */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--color-surface)] -z-10 skew-x-[-12deg] translate-x-20 hidden lg:block" />
         

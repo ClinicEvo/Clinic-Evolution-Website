@@ -13,6 +13,7 @@ interface PageHeroProps {
   secondaryCta?: { label: string; href: string };
   rightPanel?: ReactNode;
   breadcrumbs?: Array<{ label: string; href: string }>;
+  compactBottom?: boolean;
 }
 
 export default function PageHero({
@@ -24,9 +25,10 @@ export default function PageHero({
   secondaryCta,
   rightPanel,
   breadcrumbs,
+  compactBottom,
 }: PageHeroProps) {
   return (
-    <section className="grain bg-[var(--color-paper)] pt-20 pb-16 lg:pt-28 lg:pb-24">
+    <section className={`grain bg-[var(--color-paper)] pt-20 lg:pt-28 ${compactBottom ? "pb-6 lg:pb-8" : "pb-16 lg:pb-24"}`}>
       <div className="cx-main">
         {breadcrumbs && (
           <FadeUp>

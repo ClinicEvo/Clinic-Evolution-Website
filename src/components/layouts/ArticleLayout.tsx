@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import FadeUp from "@/components/ui/FadeUp";
 import Breadcrumb from "@/components/sections/Breadcrumb";
 import CTASection from "@/components/sections/CTASection";
@@ -26,6 +27,7 @@ interface ArticleLayoutProps {
   faqs?: FAQ[];
   relatedLinks?: { label: string; href: string }[];
   children?: React.ReactNode;
+  heroImage?: string;
 }
 
 function slugify(str: string) {
@@ -51,6 +53,7 @@ export default function ArticleLayout({
   faqs,
   relatedLinks,
   children,
+  heroImage,
 }: ArticleLayoutProps) {
   const readTime = estimateReadTime(sections);
 
@@ -59,40 +62,61 @@ export default function ArticleLayout({
       <BreadcrumbSchema items={breadcrumbs} />
       {faqs && faqs.length > 0 && <FAQSchema items={faqs} />}
 
-      {/* Hero ─ light, asymmetric */}
-      <section className="bg-[var(--color-paper)] pt-32 pb-16 lg:pt-44 lg:pb-24 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--color-surface)] -z-10 skew-x-[-12deg] translate-x-20 hidden lg:block" />
+      {/* Hero */}
+      <section className="bg-[var(--color-paper)] pt-20 pb-16 lg:pt-28 lg:pb-24 relative overflow-hidden">
+        {!heroImage && (
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--color-surface)] -z-10 skew-x-[-12deg] translate-x-20 hidden lg:block" />
+        )}
         <div className="cx-main">
           <FadeUp>
             <Breadcrumb items={breadcrumbs} />
           </FadeUp>
-          <div className="mt-6 max-w-3xl">
-            <FadeUp delay={0.03}>
-              <p className="eyebrow mb-5">{eyebrow}</p>
-            </FadeUp>
-            <FadeUp delay={0.07}>
-              <h1 className="font-display font-bold text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.1] tracking-[-0.025em] text-[var(--color-ink)] mb-6">
-                {title}
-              </h1>
-            </FadeUp>
-            <FadeUp delay={0.11}>
-              <div className="text-body-lg text-[var(--color-muted)] leading-relaxed mb-6 max-w-2xl">
-                {intro}
-              </div>
-            </FadeUp>
-            <FadeUp delay={0.14}>
-              <div className="flex items-center gap-4 text-sm text-[var(--color-muted)]">
-                <span className="flex items-center gap-1.5">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.5" />
-                    <path d="M7 4.5V7l2 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                  {readTime} min read
-                </span>
-                <span className="w-px h-3 bg-[var(--color-border)]" />
-                <span>Clinic Evo</span>
-              </div>
-            </FadeUp>
+          <div className={`mt-6 ${heroImage ? "grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-10 lg:gap-16 items-center" : "max-w-3xl"}`}>
+            {/* Text */}
+            <div>
+              <FadeUp delay={0.03}>
+                <p className="eyebrow mb-5">{eyebrow}</p>
+              </FadeUp>
+              <FadeUp delay={0.07}>
+                <h1 className="font-display font-bold text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.1] tracking-[-0.025em] text-[var(--color-ink)] mb-6">
+                  {title}
+                </h1>
+              </FadeUp>
+              <FadeUp delay={0.11}>
+                <div className="text-body-lg text-[var(--color-muted)] leading-relaxed mb-6 max-w-2xl">
+                  {intro}
+                </div>
+              </FadeUp>
+              <FadeUp delay={0.14}>
+                <div className="flex items-center gap-4 text-sm text-[var(--color-muted)]">
+                  <span className="flex items-center gap-1.5">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.5" />
+                      <path d="M7 4.5V7l2 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                    {readTime} min read
+                  </span>
+                  <span className="w-px h-3 bg-[var(--color-border)]" />
+                  <span>Clinic Evo</span>
+                </div>
+              </FadeUp>
+            </div>
+
+            {/* Featured image — right column */}
+            {heroImage && (
+              <FadeUp delay={0.1}>
+                <div className="relative w-full h-[240px] lg:h-[340px] rounded-2xl overflow-hidden border border-[var(--color-border)] flex-shrink-0">
+                  <Image
+                    src={heroImage}
+                    alt={title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 440px"
+                    priority
+                  />
+                </div>
+              </FadeUp>
+            )}
           </div>
         </div>
       </section>

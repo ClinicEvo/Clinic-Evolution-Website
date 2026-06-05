@@ -13,6 +13,81 @@ const nextConfig = {
         destination: "/ai-integration/",
         permanent: true,
       },
+      {
+        source: "/resources/",
+        destination: "/learning-hub/",
+        permanent: true,
+      },
+      {
+        source: "/resources",
+        destination: "/learning-hub/",
+        permanent: true,
+      },
+      {
+        source: "/resources/how-much-should-a-clinic-spend-on-marketing/",
+        destination: "/learning-hub/how-much-should-a-clinic-spend-on-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/resources/how-to-get-more-patients-to-your-clinic/",
+        destination: "/learning-hub/how-to-get-more-patients-to-your-clinic/",
+        permanent: true,
+      },
+      {
+        source: "/resources/patient-recall-system/",
+        destination: "/learning-hub/patient-recall-system/",
+        permanent: true,
+      },
+      {
+        source: "/resources/how-to-market-your-clinic/",
+        destination: "/learning-hub/how-to-market-your-clinic/",
+        permanent: true,
+      },
+      {
+        source: "/resources/how-to-market-a-private-practice-online/",
+        destination: "/learning-hub/how-to-market-a-private-practice-online/",
+        permanent: true,
+      },
+      {
+        source: "/resources/how-to-market-your-chiropractic-practice/",
+        destination: "/learning-hub/how-to-market-your-chiropractic-practice/",
+        permanent: true,
+      },
+      {
+        source: "/resources/physio-business-growth/",
+        destination: "/learning-hub/physio-business-growth/",
+        permanent: true,
+      },
+      {
+        source: "/resources/local-seo-for-physio-clinics/",
+        destination: "/learning-hub/local-seo-for-physio-clinics/",
+        permanent: true,
+      },
+      {
+        source: "/resources/local-seo-for-healthcare-clinics/",
+        destination: "/learning-hub/local-seo-for-healthcare-clinics/",
+        permanent: true,
+      },
+      {
+        source: "/resources/local-seo-for-medical-clinics/",
+        destination: "/learning-hub/local-seo-for-medical-clinics/",
+        permanent: true,
+      },
+      {
+        source: "/resources/google-ads-for-physios/",
+        destination: "/learning-hub/google-ads-for-physios/",
+        permanent: true,
+      },
+      {
+        source: "/resources/google-ads-for-chiropractors/",
+        destination: "/learning-hub/google-ads-for-chiropractors/",
+        permanent: true,
+      },
+      {
+        source: "/resources/chiropractic-marketing-case-study/",
+        destination: "/learning-hub/chiropractic-marketing-case-study/",
+        permanent: true,
+      },
     ];
   },
 

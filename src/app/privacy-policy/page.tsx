@@ -42,7 +42,7 @@ export default function PrivacyPolicyPage() {
       <BreadcrumbSchema items={crumbs} />
 
       {/* Hero */}
-      <section className="bg-[var(--color-paper)] pt-32 pb-16 lg:pt-44 lg:pb-24 relative overflow-hidden">
+      <section className="bg-[var(--color-paper)] pt-20 pb-16 lg:pt-28 lg:pb-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--color-surface)] -z-10 skew-x-[-12deg] translate-x-20 hidden lg:block" />
         <div className="cx-main">
           <FadeUp>

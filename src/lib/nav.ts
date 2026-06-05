@@ -117,7 +117,7 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: "Client Results", href: "/case-studies/" },
-  { label: "Resources", href: "/resources/" },
+  { label: "Learning Hub", href: "/learning-hub/" },
 ];
 
 export const ctaNav = {
@@ -144,7 +144,7 @@ export const footerNav = {
   company: [
     { label: "About", href: "/about/" },
     { label: "Client Results", href: "/case-studies/" },
-    { label: "Resources", href: "/resources/" },
+    { label: "Learning Hub", href: "/learning-hub/" },
     { label: "Contact", href: "/contact/" },
     { label: "Healthcare Marketing Consultant", href: "/healthcare-marketing-consultant/" },
     { label: "Free Clinic Audit", href: "/free-clinic-audit/" },
