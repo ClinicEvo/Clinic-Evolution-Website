@@ -1,6 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
@@ -143,7 +142,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-4">Contact</Badge>
+                <p className="eyebrow mb-4">Contact</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-5">
                   Send an enquiry
                 </h2>

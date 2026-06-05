@@ -1,6 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -94,7 +93,7 @@ export default function HealthcareMarketingConsultantPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">The challenge</Badge>
+              <p className="eyebrow mb-5">The challenge</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Private clinic marketing is different from ordinary local business marketing
               </h2>
@@ -168,7 +167,7 @@ export default function HealthcareMarketingConsultantPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Is this for you?</Badge>
+              <p className="eyebrow mb-5">Is this for you?</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 For clinic owners who want senior guidance before spending more money
               </h2>
@@ -209,7 +208,7 @@ export default function HealthcareMarketingConsultantPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Why Clinic Evo</Badge>
+              <p className="eyebrow mb-5">Why Clinic Evo</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Healthcare marketing consultancy grounded in clinic reality
               </h2>
@@ -297,7 +296,7 @@ export default function HealthcareMarketingConsultantPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Strategy first</Badge>
+                <p className="eyebrow mb-5">Strategy first</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Senior advice before you commit to the wrong marketing activity
                 </h2>
@@ -343,7 +342,7 @@ export default function HealthcareMarketingConsultantPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Healthcare marketing consultant FAQs
                 </h2>

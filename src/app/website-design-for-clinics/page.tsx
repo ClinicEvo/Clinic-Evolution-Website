@@ -1,5 +1,4 @@
 import { buildMetadata } from "@/lib/metadata";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -83,7 +82,7 @@ export default function WebsiteDesignForClinicsPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">The problem</Badge>
+              <p className="eyebrow mb-5">The problem</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 A clinic website has to do more than look professional
               </h2>
@@ -202,7 +201,7 @@ export default function WebsiteDesignForClinicsPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">SEO-first design</Badge>
+              <p className="eyebrow mb-5">SEO-first design</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Built with SEO, trust and conversion in mind
               </h2>
@@ -269,7 +268,7 @@ export default function WebsiteDesignForClinicsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Why Clinic Evo</Badge>
+                <p className="eyebrow mb-5">Why Clinic Evo</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Why Clinic Evo is different
                 </h2>
@@ -315,7 +314,7 @@ export default function WebsiteDesignForClinicsPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Clinic website design FAQs
                 </h2>

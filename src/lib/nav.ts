@@ -99,21 +99,24 @@ export const mainNav: NavItem[] = [
       {
         label: "Osteopaths",
         href: "/osteopath-marketing/",
+        icon: "OsteopathIcon",
         description: "Marketing built by a GOsC-registered practising osteopath.",
       },
       {
         label: "Physiotherapists",
         href: "/physiotherapy-marketing/",
+        icon: "PhysioIcon",
         description: "SEO and advertising for the most competitive MSK discipline in local search.",
       },
       {
         label: "Chiropractors",
         href: "/chiropractic-marketing/",
+        icon: "ChiroIcon",
         description: "Trust-first marketing built around the longer chiropractic consideration cycle.",
       },
     ],
   },
-  { label: "Results", href: "/case-studies/" },
+  { label: "Client Results", href: "/case-studies/" },
   { label: "Resources", href: "/resources/" },
 ];
 
@@ -140,7 +143,7 @@ export const footerNav = {
   ],
   company: [
     { label: "About", href: "/about/" },
-    { label: "Results", href: "/case-studies/" },
+    { label: "Client Results", href: "/case-studies/" },
     { label: "Resources", href: "/resources/" },
     { label: "Contact", href: "/contact/" },
     { label: "Healthcare Marketing Consultant", href: "/healthcare-marketing-consultant/" },

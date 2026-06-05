@@ -55,7 +55,7 @@ function Band({
           >
             <path d="M0 26V14.5C0 6.7 4.6 1.3 13.2 0l1.3 4.2C9.8 5.6 7.5 8 7.3 11.7H14V26H0Zm19 0V14.5C19 6.7 23.6 1.3 32.2 0l1.3 4.2c-4.7 1.4-7 3.8-7.2 7.5H33V26H19Z" />
           </svg>
-          <blockquote className="mt-5 font-display text-2xl font-medium leading-[1.4] text-white md:text-[1.9rem]">
+          <blockquote className="text-h3 mt-5 font-medium text-white">
             {quote}
           </blockquote>
           <div className="mt-8 flex items-center gap-3.5">
@@ -70,7 +70,7 @@ function Band({
             </div>
             <div>
               <p className="font-display text-sm font-semibold text-white">{authorName}</p>
-              <p className="text-[13px] text-white/55">{authorRole}</p>
+              <p className="text-body-sm text-white/55">{authorRole}</p>
             </div>
           </div>
           {ctaHref && (

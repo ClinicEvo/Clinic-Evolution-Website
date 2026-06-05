@@ -1,6 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -72,7 +71,7 @@ export default function AboutPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Purpose</Badge>
+              <p className="eyebrow mb-5">Purpose</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Why Clinic Evo exists
               </h2>
@@ -105,7 +104,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Focus</Badge>
+                <p className="eyebrow mb-5">Focus</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Built for osteopaths, physiotherapists and chiropractors
                 </h2>
@@ -151,7 +150,7 @@ export default function AboutPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
-              <Badge className="mb-5 inline-block">The difference</Badge>
+              <p className="eyebrow mb-5">The difference</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 The difference is clinical understanding
               </h2>
@@ -276,7 +275,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Evidence</Badge>
+                <p className="eyebrow mb-5">Evidence</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Proof matters more than promises
                 </h2>
@@ -323,7 +322,7 @@ export default function AboutPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Approach</Badge>
+              <p className="eyebrow mb-5">Approach</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Clear strategy, practical delivery, no generic playbook
               </h2>
@@ -395,7 +394,7 @@ export default function AboutPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   About Clinic Evo FAQs
                 </h2>

@@ -1,5 +1,4 @@
 import React from "react";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import Breadcrumb from "@/components/sections/Breadcrumb";
 import CTASection from "@/components/sections/CTASection";
@@ -69,7 +68,7 @@ export default function ArticleLayout({
           </FadeUp>
           <div className="mt-6 max-w-3xl">
             <FadeUp delay={0.03}>
-              <Badge variant="accent" className="mb-5">{eyebrow}</Badge>
+              <p className="eyebrow mb-5">{eyebrow}</p>
             </FadeUp>
             <FadeUp delay={0.07}>
               <h1 className="font-display font-bold text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.1] tracking-[-0.025em] text-[var(--color-ink)] mb-6">
@@ -197,7 +196,7 @@ export default function ArticleLayout({
             <div className="max-w-2xl mx-auto">
               <FadeUp>
                 <div className="text-center mb-10">
-                  <Badge className="mb-4">FAQ</Badge>
+                  <p className="eyebrow mb-4">FAQ</p>
                   <h2 className="font-display font-bold text-[clamp(1.75rem,3vw,2.5rem)] tracking-tight text-[var(--color-ink)]">
                     Frequently asked questions
                   </h2>

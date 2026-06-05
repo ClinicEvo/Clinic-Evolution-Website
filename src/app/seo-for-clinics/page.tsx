@@ -1,5 +1,4 @@
 import { buildMetadata } from "@/lib/metadata";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -111,7 +110,7 @@ export default function SeoForClinicsPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Why clinic SEO is different</Badge>
+              <p className="eyebrow mb-5">Why clinic SEO is different</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Clinic SEO is different from normal local SEO
               </h2>
@@ -236,7 +235,7 @@ export default function SeoForClinicsPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Common problems</Badge>
+              <p className="eyebrow mb-5">Common problems</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Why most clinic websites struggle to rank
               </h2>
@@ -286,7 +285,7 @@ export default function SeoForClinicsPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
-              <Badge className="mb-5 inline-block">What is included</Badge>
+              <p className="eyebrow mb-5">What is included</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 What is included in clinic SEO?
               </h2>
@@ -328,7 +327,7 @@ export default function SeoForClinicsPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Growth</Badge>
+              <p className="eyebrow mb-5">Growth</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 How SEO supports patient acquisition
               </h2>
@@ -381,7 +380,7 @@ export default function SeoForClinicsPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Process</Badge>
+              <p className="eyebrow mb-5">Process</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 A practical clinic SEO process
               </h2>
@@ -402,7 +401,7 @@ export default function SeoForClinicsPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   SEO for clinics FAQs
                 </h2>

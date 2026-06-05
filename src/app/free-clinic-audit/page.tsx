@@ -1,5 +1,4 @@
 import { buildMetadata } from "@/lib/metadata";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
@@ -72,7 +71,7 @@ export default function FreeClinicAuditPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-4">The challenge</Badge>
+              <p className="eyebrow mb-4">The challenge</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-5">
                 See what is holding your clinic back online
               </h2>
@@ -141,7 +140,7 @@ export default function FreeClinicAuditPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-4">Audience</Badge>
+                <p className="eyebrow mb-4">Audience</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-5">
                   Who the audit is for
                 </h2>
@@ -193,7 +192,7 @@ export default function FreeClinicAuditPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
-              <Badge className="mb-4">Deliverables</Badge>
+              <p className="eyebrow mb-4">Deliverables</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-5">
                 What you will receive
               </h2>
@@ -227,7 +226,7 @@ export default function FreeClinicAuditPage() {
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <Badge className="mb-4">Philosophy</Badge>
+              <p className="eyebrow mb-4">Philosophy</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-5">
                 Good clinic marketing is not only about getting more traffic
               </h2>
@@ -259,7 +258,7 @@ export default function FreeClinicAuditPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge variant="accent" className="mb-4">Request</Badge>
+                <p className="eyebrow mb-4">Request</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-5">
                   Request your free clinic audit
                 </h2>
@@ -363,7 +362,7 @@ export default function FreeClinicAuditPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-4">FAQ</Badge>
+                <p className="eyebrow mb-4">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Free clinic audit FAQs
                 </h2>

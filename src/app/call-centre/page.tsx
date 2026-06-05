@@ -6,7 +6,6 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
-import Badge from "@/components/ui/Badge";
 import StatBand from "@/components/sections/StatBand";
 import ProofBand from "@/components/sections/ProofBand";
 import ProcessSteps from "@/components/sections/ProcessSteps";
@@ -122,7 +121,7 @@ export default function CallCentrePage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
-              <Badge className="mb-5 inline-block">The cost of a missed call</Badge>
+              <p className="eyebrow mb-5">The cost of a missed call</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 A missed call is not an inconvenience. It is lost revenue.
               </h2>
@@ -198,7 +197,7 @@ export default function CallCentrePage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main max-w-3xl">
           <FadeUp>
-            <Badge className="mb-5 inline-block">Part of the whole chain</Badge>
+            <p className="eyebrow mb-5">Part of the whole chain</p>
             <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
               Call handling works best as part of the system
             </h2>
@@ -219,7 +218,7 @@ export default function CallCentrePage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Call handling FAQs
                 </h2>

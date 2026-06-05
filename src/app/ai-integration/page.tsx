@@ -5,7 +5,6 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
-import Badge from "@/components/ui/Badge";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import FAQSchema from "@/components/schema/FAQSchema";
 import StatBand from "@/components/sections/StatBand";
@@ -165,7 +164,7 @@ export default function AiIntegrationPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main max-w-3xl">
           <FadeUp>
-            <Badge className="mb-5 inline-block">The retention gap</Badge>
+            <p className="eyebrow mb-5">The retention gap</p>
             <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
               Your best source of new bookings is your existing patient database
             </h2>
@@ -226,7 +225,7 @@ export default function AiIntegrationPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <FadeUp>
-              <Badge className="mb-5 inline-block">How it works</Badge>
+              <p className="eyebrow mb-5">How it works</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 A responsible setup, from database to first bookings
               </h2>
@@ -266,7 +265,7 @@ export default function AiIntegrationPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Responsible by design</Badge>
+                <p className="eyebrow mb-5">Responsible by design</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Automated, but never intrusive
                 </h2>
@@ -311,7 +310,7 @@ export default function AiIntegrationPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main max-w-3xl">
           <FadeUp>
-            <Badge className="mb-5 inline-block">Part of the whole chain</Badge>
+            <p className="eyebrow mb-5">Part of the whole chain</p>
             <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
               Retention is the fifth stage. All five need to work.
             </h2>
@@ -334,7 +333,7 @@ export default function AiIntegrationPage() {
         <div className="cx-main max-w-2xl mx-auto">
           <FadeUp>
             <div className="text-center mb-10">
-              <Badge className="mb-5 inline-block">FAQ</Badge>
+              <p className="eyebrow mb-5">FAQ</p>
               <h2 className="text-h2 text-[var(--color-ink)]">
                 Common questions about patient reactivation
               </h2>

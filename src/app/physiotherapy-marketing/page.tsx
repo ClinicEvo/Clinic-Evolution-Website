@@ -1,6 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -123,7 +122,7 @@ export default function PhysiotherapyMarketingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Why Clinic Evo</Badge>
+                <p className="eyebrow mb-5">Why Clinic Evo</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Physio marketing that speaks your language
                 </h2>
@@ -223,7 +222,7 @@ export default function PhysiotherapyMarketingPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <FadeUp>
-              <Badge className="mb-5 inline-block">How it works</Badge>
+              <p className="eyebrow mb-5">How it works</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 A clear path to more patients
               </h2>
@@ -245,7 +244,7 @@ export default function PhysiotherapyMarketingPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Questions from physiotherapy clinic owners
                 </h2>

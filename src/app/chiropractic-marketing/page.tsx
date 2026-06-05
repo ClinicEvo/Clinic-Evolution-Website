@@ -1,6 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -123,7 +122,7 @@ export default function ChiropracticMarketingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">The challenge</Badge>
+                <p className="eyebrow mb-5">The challenge</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Chiropractic marketing built around trust, visibility and patient acquisition
                 </h2>
@@ -154,7 +153,7 @@ export default function ChiropracticMarketingPage() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
-                <Badge variant="surface" className="mb-5">Why referrals alone aren&apos;t enough</Badge>
+                <p className="eyebrow mb-5">Why referrals alone aren&apos;t enough</p>
                 <p className="text-body text-[var(--color-muted)] mb-4">
                   Referrals are valuable, but they are not a complete growth system.
                   A clinic that relies too heavily on word of mouth can become
@@ -328,7 +327,7 @@ export default function ChiropracticMarketingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Specialist focus</Badge>
+                <p className="eyebrow mb-5">Specialist focus</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Why generic marketing does not work well for chiropractic clinics
                 </h2>
@@ -392,7 +391,7 @@ export default function ChiropracticMarketingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Proof</Badge>
+                <p className="eyebrow mb-5">Proof</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Proof from real clinic growth work
                 </h2>
@@ -427,7 +426,7 @@ export default function ChiropracticMarketingPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <FadeUp>
-              <Badge className="mb-5 inline-block">How it works</Badge>
+              <p className="eyebrow mb-5">How it works</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 Start with a free chiropractic marketing audit
               </h2>
@@ -455,7 +454,7 @@ export default function ChiropracticMarketingPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Chiropractic marketing FAQs
                 </h2>

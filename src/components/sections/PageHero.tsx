@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
 import Breadcrumb from "@/components/sections/Breadcrumb";
@@ -27,7 +26,7 @@ export default function PageHero({
   breadcrumbs,
 }: PageHeroProps) {
   return (
-    <section className="grain bg-[var(--color-paper)] pt-36 pb-24 lg:pt-44 lg:pb-32">
+    <section className="grain bg-[var(--color-paper)] pt-20 pb-16 lg:pt-28 lg:pb-24">
       <div className="cx-main">
         {breadcrumbs && (
           <FadeUp>
@@ -39,10 +38,10 @@ export default function PageHero({
           {/* Left, copy */}
           <div>
             <FadeUp delay={0.03}>
-              <Badge variant="accent" className="mb-6">{badge}</Badge>
+              <p className="eyebrow mb-6">{badge}</p>
             </FadeUp>
             <FadeUp delay={0.07}>
-              <h1 className="font-display font-bold text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.07] tracking-[-0.025em] text-[var(--color-ink)] mb-6 max-w-2xl">
+              <h1 className="text-h1 tracking-[-0.025em] text-[var(--color-ink)] mb-6 max-w-2xl">
                 {heading}
               </h1>
             </FadeUp>

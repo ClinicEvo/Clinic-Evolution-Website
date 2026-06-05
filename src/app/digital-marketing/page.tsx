@@ -5,7 +5,6 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
-import Badge from "@/components/ui/Badge";
 import StatBand from "@/components/sections/StatBand";
 import HeroStatCard from "@/components/sections/HeroStatCard";
 import ProofBand from "@/components/sections/ProofBand";
@@ -144,7 +143,7 @@ export default function DigitalMarketingPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main max-w-3xl">
           <FadeUp>
-            <Badge className="mb-5 inline-block">The problem with single-channel agencies</Badge>
+            <p className="eyebrow mb-5">The problem with single-channel agencies</p>
             <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
               Every gap in your diary has a cause. Most agencies only fix one part of it.
             </h2>
@@ -245,7 +244,7 @@ export default function DigitalMarketingPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main max-w-3xl">
           <FadeUp>
-            <Badge className="mb-5 inline-block">Discipline-specific</Badge>
+            <p className="eyebrow mb-5">Discipline-specific</p>
             <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
               Digital marketing built for your discipline
             </h2>
@@ -270,7 +269,7 @@ export default function DigitalMarketingPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Digital marketing for clinics FAQs
                 </h2>

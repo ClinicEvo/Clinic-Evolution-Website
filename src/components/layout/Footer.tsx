@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { footerNav } from "@/lib/nav";
 import { siteConfig } from "@/lib/metadata";
 
@@ -11,31 +12,14 @@ const LinkedInIcon = () => (
   </svg>
 );
 
-/* Brand lockup recreated for dark backgrounds, no white plate needed */
 const FooterLogo = () => (
-  <span className="inline-flex items-center gap-2.5">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      {/* navy/light ring with orange accent arc on the right */}
-      <circle cx="16" cy="16" r="14" stroke="rgba(255,255,255,0.85)" strokeWidth="2" />
-      <path
-        d="M16 2a14 14 0 0 1 0 28"
-        stroke={ACCENT}
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      {/* orange check / V mark */}
-      <path
-        d="M9 13l5 8 4-13"
-        stroke={ACCENT}
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-    <span className="font-display font-bold text-white text-[1.35rem] leading-none tracking-tight">
-      Clinic Evo
-    </span>
-  </span>
+  <Image
+    src="/images/cevo_newlogo_dark.png"
+    alt="Clinic Evo"
+    width={160}
+    height={46}
+    style={{ objectFit: "contain" }}
+  />
 );
 
 export default function Footer() {

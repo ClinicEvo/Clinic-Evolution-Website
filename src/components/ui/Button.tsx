@@ -14,6 +14,13 @@ const baseStyle = {
   letterSpacing: "0.03rem",
 } as React.CSSProperties;
 
+const variantStyles: Record<Variant, React.CSSProperties> = {
+  primary:   { color: "#fff" },
+  secondary: { color: "#fff" },
+  ghost:     {},
+  outline:   {},
+};
+
 const variants: Record<Variant, string> = {
   primary:
     "bg-[var(--color-accent)] !text-white hover:bg-[var(--color-accent-dim)]",
@@ -49,7 +56,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const combinedClasses = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
-  const combinedStyle = { ...baseStyle, ...style };
+  const combinedStyle = { ...baseStyle, ...variantStyles[variant], ...style };
 
   if (href) {
     return (

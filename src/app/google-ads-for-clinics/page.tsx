@@ -1,5 +1,4 @@
 import { buildMetadata } from "@/lib/metadata";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -117,7 +116,7 @@ export default function GoogleAdsForClinicsPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Patient intent</Badge>
+              <p className="eyebrow mb-5">Patient intent</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Google Ads built around real patient searches
               </h2>
@@ -291,7 +290,7 @@ export default function GoogleAdsForClinicsPage() {
         <div className="cx-main">
           <div className="max-w-3xl">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Conversion</Badge>
+              <p className="eyebrow mb-5">Conversion</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                 Clicks are only useful if the booking journey works
               </h2>
@@ -320,7 +319,7 @@ export default function GoogleAdsForClinicsPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <FadeUp>
-              <Badge className="mb-5 inline-block">Process</Badge>
+              <p className="eyebrow mb-5">Process</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 How Clinic Evo approaches Google Ads
               </h2>
@@ -342,7 +341,7 @@ export default function GoogleAdsForClinicsPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Google Ads for clinics FAQs
                 </h2>

@@ -150,7 +150,7 @@ export default function HomePage() {
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative border-b border-[var(--color-border)] bg-[var(--color-paper)] grain">
-        <div className="grid items-stretch lg:grid-cols-2">
+        <div className="grid items-stretch lg:grid-cols-2 lg:gap-x-16">
 
           {/* Left, copy, aligned to the container edge */}
           <div
@@ -174,7 +174,7 @@ export default function HomePage() {
                   className="mt-7"
                   style={{
                     fontFamily: "var(--font-sans)",
-                    fontSize: "19px",
+                    fontSize: "18px",
                     lineHeight: 1.6,
                     color: "var(--color-charcoal)",
                     maxWidth: "452px",
@@ -255,14 +255,7 @@ export default function HomePage() {
               Why most clinic marketing underperforms
             </p>
             <h2
-              className="font-display font-bold text-[var(--color-ink)]"
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3.25rem)",
-                lineHeight: 1.1,
-                letterSpacing: "0",
-                maxWidth: "680px",
-                marginBottom: "56px",
-              }}
+              className="text-h2 text-[var(--color-ink)] max-w-[680px] mb-14"
             >
               Most MSK clinics are leaking patients long before treatment begins.
             </h2>
@@ -272,8 +265,7 @@ export default function HomePage() {
 
           <FadeUp>
             <p
-              className="mx-auto mt-16 max-w-2xl text-center font-display font-medium text-[var(--color-ink)]"
-              style={{ fontSize: "clamp(1.25rem, 2.4vw, 1.6rem)", lineHeight: 1.4 }}
+              className="text-h4 mx-auto mt-16 max-w-2xl text-center font-medium text-[var(--color-ink)]"
             >
               Four quiet leaks. Most clinics never see them in the accounts, they just feel the empty diary.{" "}
               <span className="text-[var(--color-accent)]">A connected system closes all four.</span>
@@ -292,25 +284,12 @@ export default function HomePage() {
               How Clinic Evo works
             </p>
             <h2
-              className="font-display font-bold text-[var(--color-ink)]"
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3.25rem)",
-                lineHeight: 1.1,
-                letterSpacing: "0",
-                marginBottom: "16px",
-              }}
+              className="text-h2 text-[var(--color-ink)] mb-4"
             >
               Marketing, follow-up and patient communication built to work together.
             </h2>
             <p
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: "18px",
-                color: "var(--color-charcoal)",
-                lineHeight: 1.7,
-                maxWidth: "580px",
-                marginBottom: "0",
-              }}
+              className="text-body-lg text-[var(--color-charcoal)] max-w-[580px]"
             >
               Most agencies generate leads and leave the rest to you. We build the website, SEO, Google Ads and follow-up that work as one system, every part designed to turn more enquiries into long-term patients, including Patient Pulse, our automated follow-up and recall engine.
             </p>
@@ -329,14 +308,12 @@ export default function HomePage() {
                     {stage.num}
                   </span>
                   <h3
-                    className="font-display font-semibold text-[var(--color-ink)] mb-3"
-                    style={{ fontSize: "17px" }}
+                    className="text-h4 text-[var(--color-ink)] mb-3"
                   >
                     {stage.label}
                   </h3>
                   <p
-                    className="flex-1 mb-4"
-                    style={{ fontSize: "13px", color: "var(--color-muted)", lineHeight: 1.6 }}
+                    className="text-body-sm text-[var(--color-muted)] flex-1 mb-4"
                   >
                     {stage.body}
                   </p>
@@ -496,12 +473,7 @@ export default function HomePage() {
               <FadeUp>
                 <p className="text-label mb-5">Built in practice, not theory</p>
                 <h2
-                  className="font-display font-bold text-[var(--color-ink)] mb-5"
-                  style={{
-                    fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
-                    lineHeight: 1.15,
-                    letterSpacing: "0",
-                  }}
+                  className="text-h2 text-[var(--color-ink)] mb-5"
                 >
                   Built in a real clinic. Proven in practice.
                 </h2>
@@ -575,13 +547,7 @@ export default function HomePage() {
               Our specialisms
             </p>
             <h2
-              className="font-display font-bold text-[var(--color-ink)]"
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3.25rem)",
-                lineHeight: 1.1,
-                letterSpacing: "0",
-                marginBottom: "48px",
-              }}
+              className="text-h2 text-[var(--color-ink)] mb-12"
             >
               Built for MSK clinics.
             </h2>
@@ -606,14 +572,12 @@ export default function HomePage() {
                     {card.title}
                   </p>
                   <h3
-                    className="font-display font-semibold text-[var(--color-ink)] mb-4"
-                    style={{ fontSize: "22px", lineHeight: 1.3, letterSpacing: "0" }}
+                    className="text-h4 text-[var(--color-ink)] mb-4"
                   >
                     {card.headline}
                   </h3>
                   <p
-                    className="flex-1 mb-6"
-                    style={{ fontSize: "14px", color: "var(--color-charcoal)", lineHeight: 1.65 }}
+                    className="text-body-sm text-[var(--color-charcoal)] flex-1 mb-6"
                   >
                     {card.body}
                   </p>
@@ -662,13 +626,7 @@ export default function HomePage() {
                 Get started
               </p>
               <h2
-                className="font-display font-extrabold text-[var(--color-ink)] mx-auto mb-6"
-                style={{
-                  fontSize: "clamp(2rem, 4vw, 3.25rem)",
-                  lineHeight: 1.15,
-                  letterSpacing: "0",
-                  maxWidth: "680px",
-                }}
+                className="text-h2 text-[var(--color-ink)] mx-auto mb-6 max-w-[680px]"
               >
                 Find out where your clinic is losing patients.
               </h2>

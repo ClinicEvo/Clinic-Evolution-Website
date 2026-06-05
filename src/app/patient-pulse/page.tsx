@@ -7,7 +7,6 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
-import Badge from "@/components/ui/Badge";
 import StatBand from "@/components/sections/StatBand";
 import ProofBand from "@/components/sections/ProofBand";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -146,7 +145,7 @@ export default function PatientPulsePage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main max-w-3xl">
           <FadeUp>
-            <Badge className="mb-5 inline-block">Why follow-up matters</Badge>
+            <p className="eyebrow mb-5">Why follow-up matters</p>
             <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
               The clinic that responds first gets the booking
             </h2>
@@ -226,7 +225,7 @@ export default function PatientPulsePage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main max-w-3xl">
           <FadeUp>
-            <Badge className="mb-5 inline-block">Built for MSK clinics</Badge>
+            <p className="eyebrow mb-5">Built for MSK clinics</p>
             <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
               Not a generic CRM. Built inside a working clinic.
             </h2>
@@ -261,7 +260,7 @@ export default function PatientPulsePage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Patient Pulse FAQs
                 </h2>

@@ -1,6 +1,5 @@
 import { buildMetadata } from "@/lib/metadata";
 import Image from "next/image";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import Breadcrumb from "@/components/sections/Breadcrumb";
@@ -54,7 +53,7 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
                 <div className="p-8 flex flex-col flex-1">
-                  <Badge variant="surface" className="mb-4 self-start">Physiotherapy & MSK</Badge>
+                  <p className="eyebrow mb-4">Physiotherapy & MSK</p>
                   <h2 className="text-h3 text-[var(--color-ink)] mb-4">
                     Bodyfunction Clinic
                   </h2>

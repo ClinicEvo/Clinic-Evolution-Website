@@ -31,25 +31,12 @@ export default function CTASection({
           <FadeUp>
             <p className="eyebrow mb-4 justify-center">Take the first step</p>
             <h2
-              className="mx-auto mb-6 font-display font-extrabold text-[var(--color-ink)]"
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3.25rem)",
-                lineHeight: 1.15,
-                letterSpacing: "0",
-                maxWidth: "680px",
-              }}
+              className="text-h2 mx-auto mb-6 text-[var(--color-ink)] max-w-[680px]"
             >
               {heading}
             </h2>
             <p
-              className="mx-auto mb-10"
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: "17px",
-                color: "var(--color-muted)",
-                lineHeight: 1.7,
-                maxWidth: "560px",
-              }}
+              className="text-body-lg mx-auto mb-10 max-w-[560px] text-[var(--color-muted)]"
             >
               {subheading}
             </p>

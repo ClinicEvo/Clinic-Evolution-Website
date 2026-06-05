@@ -1,7 +1,6 @@
 import { buildMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -69,7 +68,7 @@ export default function BodyfunctionCaseStudyPage() {
             <div className="lg:col-span-6">
               <FadeUp>
                 <Breadcrumb items={crumbs} />
-                <Badge variant="accent" className="mt-6 mb-5">Case Study</Badge>
+                <p className="eyebrow mt-6 mb-5">Case Study</p>
               </FadeUp>
               <FadeUp delay={0.05}>
                 <h1 className="text-h1 text-[var(--color-ink)] mb-6 tracking-tight">
@@ -129,7 +128,7 @@ export default function BodyfunctionCaseStudyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <div className="lg:col-span-7">
               <FadeUp>
-                <Badge className="mb-5 inline-block">Overview</Badge>
+                <p className="eyebrow mb-5">Overview</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   A real clinic growth project, not a theoretical strategy
                 </h2>
@@ -181,7 +180,7 @@ export default function BodyfunctionCaseStudyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
             <div className="lg:col-span-6 space-y-12">
               <FadeUp>
-                <Badge className="mb-5 inline-block">The challenge</Badge>
+                <p className="eyebrow mb-5">The challenge</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-8 leading-tight">
                   The challenge
                 </h2>
@@ -243,7 +242,7 @@ export default function BodyfunctionCaseStudyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <div className="lg:col-span-7">
               <FadeUp>
-                <Badge className="mb-5 inline-block">The opportunity</Badge>
+                <p className="eyebrow mb-5">The opportunity</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   The clinic growth opportunity
                 </h2>
@@ -318,7 +317,7 @@ export default function BodyfunctionCaseStudyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
               <div>
-                <Badge className="mb-5 inline-block">Foundations</Badge>
+                <p className="eyebrow mb-5">Foundations</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   SEO and website structure
                 </h2>
@@ -362,7 +361,7 @@ export default function BodyfunctionCaseStudyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="max-w-xl order-2 lg:order-1">
               <FadeUp>
-                <Badge className="mb-5 inline-block">Conversion</Badge>
+                <p className="eyebrow mb-5">Conversion</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-8 leading-tight">
                   Patient journey and conversion improvements
                 </h2>
@@ -410,7 +409,7 @@ export default function BodyfunctionCaseStudyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <div className="lg:col-span-7">
               <FadeUp>
-                <Badge className="mb-5 inline-block">Takeaway</Badge>
+                <p className="eyebrow mb-5">Takeaway</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   What other clinics can learn from this
                 </h2>
@@ -485,7 +484,7 @@ export default function BodyfunctionCaseStudyPage() {
           <div className="max-w-2xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
-                <Badge className="mb-5 inline-block">FAQ</Badge>
+                <p className="eyebrow mb-5">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
                   Clinic marketing case study FAQs
                 </h2>

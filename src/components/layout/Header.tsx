@@ -16,7 +16,41 @@ import {
 import { mainNav, ctaNav } from "@/lib/nav";
 import Button from "@/components/ui/Button";
 
-const iconMap: Record<string, Icon> = {
+type AnyIcon = Icon | React.ComponentType<{ size?: number }>;
+
+const OsteopathIcon = ({ size = 17 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <circle cx="12" cy="5" r="2" />
+    <path d="M12 7v5" />
+    <path d="M9 12c0 0-2 1-2 4s2 4 2 4" />
+    <path d="M15 12c0 0 2 1 2 4s-2 4-2 4" />
+    <path d="M10 20h4" />
+    <circle cx="12" cy="12" r="1" />
+  </svg>
+);
+
+const PhysioIcon = ({ size = 17 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <circle cx="12" cy="4" r="2" />
+    <path d="M6 8l3 2 1 4-3 7" />
+    <path d="M18 8l-3 2-1 4 3 7" />
+    <path d="M9 10h6" />
+  </svg>
+);
+
+const ChiroIcon = ({ size = 17 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 3c-1 0-2 .5-2 1.5S11 6 12 6s2-.5 2-1.5S13 3 12 3z" />
+    <path d="M12 6c-1 0-2 .5-2 1.5S11 9 12 9s2-.5 2-1.5S13 6 12 6z" />
+    <path d="M12 9c-1 0-2 .5-2 1.5S11 12 12 12s2-.5 2-1.5S13 9 12 9z" />
+    <path d="M12 12c-1 0-2 .5-2 1.5S11 15 12 15s2-.5 2-1.5S13 12 12 12z" />
+    <path d="M12 15c-1 0-2 .5-2 1.5S11 18 12 18s2-.5 2-1.5S13 15 12 15z" />
+    <path d="M10 4.5 Q8 8 8 12 Q8 16 10 19.5" />
+    <path d="M14 4.5 Q16 8 16 12 Q16 16 14 19.5" />
+  </svg>
+);
+
+const iconMap: Record<string, AnyIcon> = {
   Monitor,
   MagnifyingGlass,
   Target,
@@ -24,6 +58,9 @@ const iconMap: Record<string, Icon> = {
   Phone,
   Sparkle,
   ChartLineUp,
+  OsteopathIcon,
+  PhysioIcon,
+  ChiroIcon,
 };
 
 export default function Header() {
@@ -74,7 +111,7 @@ export default function Header() {
 
       {/* Main header */}
       <header className="bg-[var(--color-paper)] border-b border-[var(--color-border)] py-4 lg:py-5">
-        <div className="cx-main">
+        <div className="cx-main relative">
           <nav
             ref={navRef}
             className="flex items-center justify-between"
@@ -90,8 +127,8 @@ export default function Header() {
               <Image
                 src="/images/cevo_newlogo.png"
                 alt="Clinic Evo"
-                width={140}
-                height={40}
+                width={180}
+                height={52}
                 style={{ objectFit: "contain" }}
                 priority
               />
@@ -104,7 +141,7 @@ export default function Header() {
                 return (
                   <li
                     key={item.label}
-                    className="relative"
+                    className={item.groups ? "static" : "relative"}
                     onMouseEnter={
                       hasMenu
                         ? () => {
@@ -145,102 +182,114 @@ export default function Header() {
                           </svg>
                         </button>
 
-                        {/* Mega-menu (grouped), pt-2 keeps the gap hoverable (no dead zone) */}
+                        {/* Mega-menu (grouped) — aligned with logo + CTA */}
                         {item.groups && openDropdown === item.label && (
-                          <div className="absolute top-full left-0 pt-2 z-10">
-                            <div className="mega-in flex bg-[var(--color-paper)] border border-[var(--color-border)] shadow-[var(--shadow-md)]">
-                              <div className="grid grid-cols-3 gap-x-8 gap-y-6 p-7 w-[640px]">
-                                {item.groups.map((group) => (
-                                  <div key={group.label}>
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-muted)] mb-3">
-                                      {group.label}
-                                    </p>
-                                    <ul className="flex flex-col gap-1">
-                                      {group.items.map((child) => {
-                                        const IconCmp = child.icon ? iconMap[child.icon] : null;
-                                        return (
-                                          <li key={child.href}>
-                                            <Link
-                                              href={child.href}
-                                              className="flex gap-3 -mx-2 px-2 py-2 rounded-md hover:bg-[var(--color-surface)] transition-colors group"
-                                              onClick={() => setOpenDropdown(null)}
-                                            >
-                                              {IconCmp && (
-                                                <span className="mt-0.5 shrink-0 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
-                                                  <IconCmp size={17} weight="regular" />
-                                                </span>
-                                              )}
-                                              <span className="block">
-                                                <span className="block text-[13px] font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-0.5 leading-tight">
-                                                  {child.label}
-                                                </span>
-                                                {child.description && (
-                                                  <span className="block text-[11px] text-[var(--color-muted)] leading-normal font-light">
-                                                    {child.description}
+                          <div className="absolute top-full left-10 right-10 mt-2 z-10">
+                            <div className="mega-in bg-[var(--color-paper)] border border-[var(--color-border)] shadow-[var(--shadow-md)] rounded-[var(--radius-card)] overflow-hidden">
+                              <div className="flex">
+                                  <div className="grid grid-cols-3 gap-x-8 gap-y-6 p-8 flex-1">
+                                    {item.groups.map((group) => (
+                                      <div key={group.label}>
+                                        <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-muted)] mb-3">
+                                          {group.label}
+                                        </p>
+                                        <ul className="flex flex-col gap-1">
+                                          {group.items.map((child) => {
+                                            const IconCmp = child.icon ? iconMap[child.icon] : null;
+                                            return (
+                                              <li key={child.href}>
+                                                <Link
+                                                  href={child.href}
+                                                  className="flex gap-3 -mx-2 px-2 py-2 rounded-md hover:bg-[var(--color-surface)] transition-colors group"
+                                                  onClick={() => setOpenDropdown(null)}
+                                                >
+                                                  {IconCmp && (
+                                                    <span className="mt-0.5 shrink-0 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
+                                                      <IconCmp size={17} weight="regular" />
+                                                    </span>
+                                                  )}
+                                                  <span className="block">
+                                                    <span className="block text-[13px] font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-0.5 leading-tight">
+                                                      {child.label}
+                                                    </span>
+                                                    {child.description && (
+                                                      <span className="block text-[11px] text-[var(--color-muted)] leading-normal font-light">
+                                                        {child.description}
+                                                      </span>
+                                                    )}
                                                   </span>
-                                                )}
-                                              </span>
-                                            </Link>
-                                          </li>
-                                        );
-                                      })}
-                                    </ul>
+                                                </Link>
+                                              </li>
+                                            );
+                                          })}
+                                        </ul>
+                                      </div>
+                                    ))}
                                   </div>
-                                ))}
-                              </div>
 
-                              {item.callout && (
-                                <Link
-                                  href={item.callout.href}
-                                  onClick={() => setOpenDropdown(null)}
-                                  className="flex flex-col justify-between w-[220px] p-7 border-l border-[var(--color-border)] group"
-                                  style={{ background: "linear-gradient(180deg, #fff 0%, var(--color-accent-light) 100%)" }}
-                                >
-                                  <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-accent-dim)] mb-2">
-                                      {item.callout.eyebrow}
-                                    </p>
-                                    <p className="text-[17px] font-semibold leading-snug mb-2 text-[var(--color-ink)]">
-                                      {item.callout.title}
-                                    </p>
-                                    <p className="text-[11px] text-[var(--color-charcoal)] leading-normal font-light">
-                                      {item.callout.description}
-                                    </p>
-                                  </div>
-                                  <span className="inline-flex items-center gap-1.5 mt-5 px-3.5 py-2 text-[12px] font-semibold text-white rounded-md bg-[var(--color-accent)] group-hover:bg-[var(--color-accent-dim)] transition-colors self-start">
-                                    {item.callout.ctaLabel}
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="transition-transform group-hover:translate-x-0.5">
-                                      <path d="M3 6h6M6 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                  </span>
-                                </Link>
-                              )}
+                                  {item.callout && (
+                                    <Link
+                                      href={item.callout.href}
+                                      onClick={() => setOpenDropdown(null)}
+                                      className="flex flex-col justify-between w-[260px] flex-shrink-0 py-8 pl-8 border-l border-[var(--color-border)] group"
+                                      style={{ background: "linear-gradient(180deg, #fff 0%, var(--color-accent-light) 100%)" }}
+                                    >
+                                      <div>
+                                        <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-accent-dim)] mb-2">
+                                          {item.callout.eyebrow}
+                                        </p>
+                                        <p className="text-[17px] font-semibold leading-snug mb-2 text-[var(--color-ink)]">
+                                          {item.callout.title}
+                                        </p>
+                                        <p className="text-[11px] text-[var(--color-charcoal)] leading-normal font-light">
+                                          {item.callout.description}
+                                        </p>
+                                      </div>
+                                      <span className="inline-flex items-center gap-1.5 mt-5 px-3.5 py-2 text-[12px] font-semibold text-white rounded-md bg-[var(--color-accent)] group-hover:bg-[var(--color-accent-dim)] transition-colors self-start">
+                                        {item.callout.ctaLabel}
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="transition-transform group-hover:translate-x-0.5">
+                                          <path d="M3 6h6M6 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                      </span>
+                                    </Link>
+                                  )}
+                              </div>
                             </div>
                           </div>
                         )}
 
                         {/* Simple dropdown (flat children) */}
                         {item.children && openDropdown === item.label && (
-                          <div className="absolute top-full left-0 pt-2 z-10">
-                            <ul className="mega-in w-72 bg-[var(--color-paper)] border border-[var(--color-border)] shadow-[var(--shadow-md)] divide-y divide-[var(--color-border)]">
-                              {item.children.map((child) => (
-                                <li key={child.href}>
-                                  <Link
-                                    href={child.href}
-                                    className="block px-5 py-4 hover:bg-[var(--color-surface)] transition-colors group"
-                                    onClick={() => setOpenDropdown(null)}
-                                  >
-                                    <p className="text-[13px] font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-1 leading-tight">
-                                      {child.label}
-                                    </p>
-                                    {child.description && (
-                                      <p className="text-[11px] text-[var(--color-muted)] leading-normal font-light">
-                                        {child.description}
-                                      </p>
-                                    )}
-                                  </Link>
-                                </li>
-                              ))}
+                          <div className="absolute top-full left-0 mt-2 z-10">
+                            <ul className="mega-in w-72 bg-[var(--color-paper)] border border-[var(--color-border)] shadow-[var(--shadow-md)] rounded-[var(--radius-card)] overflow-hidden divide-y divide-[var(--color-border)]">
+                              {item.children.map((child) => {
+                                const IconCmp = child.icon ? iconMap[child.icon] : null;
+                                return (
+                                  <li key={child.href}>
+                                    <Link
+                                      href={child.href}
+                                      className="flex gap-3 px-5 py-4 hover:bg-[var(--color-surface)] transition-colors group"
+                                      onClick={() => setOpenDropdown(null)}
+                                    >
+                                      {IconCmp && (
+                                        <span className="mt-0.5 shrink-0 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
+                                          <IconCmp size={17} />
+                                        </span>
+                                      )}
+                                      <span>
+                                        <span className="block text-[13px] font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-0.5 leading-tight">
+                                          {child.label}
+                                        </span>
+                                        {child.description && (
+                                          <span className="block text-[11px] text-[var(--color-muted)] leading-normal font-light">
+                                            {child.description}
+                                          </span>
+                                        )}
+                                      </span>
+                                    </Link>
+                                  </li>
+                                );
+                              })}
                             </ul>
                           </div>
                         )}

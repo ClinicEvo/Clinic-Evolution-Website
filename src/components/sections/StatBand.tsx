@@ -25,11 +25,11 @@ function Band({ eyebrow, heading, body, stats }: Omit<StatBandProps, "bare">) {
           <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
             {eyebrow}
           </p>
-          <h3 className="mt-4 max-w-md font-display text-3xl font-semibold leading-[1.15] text-white md:text-[2.4rem]">
+          <h3 className="text-h2 mt-4 max-w-md text-white">
             {heading}
           </h3>
           {body && (
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/65">
+            <p className="text-body mt-5 max-w-md leading-relaxed text-white/65">
               {body}
             </p>
           )}
