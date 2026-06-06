@@ -103,25 +103,23 @@ export default function AboutPage() {
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-start">
-            <FadeUp>
-              <div className="lg:col-span-5">
-                <p className="eyebrow mb-5">Founders</p>
-                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Founded by clinicians who understand both sides of clinic growth
-                </h2>
-                <p className="text-body text-[var(--color-muted)] mb-5">
-                  Clinic Evo was founded by Danny and Simon, two osteopaths who
-                  met while studying for their integrated Master&apos;s in
-                  Osteopathy.
-                </p>
-                <p className="text-body text-[var(--color-muted)]">
-                  They lived together during university and built their first
-                  business, Worldly Aromas, while completing the demands of a
-                  four-year clinical degree. That experience shaped the way they
-                  think about business: practical, resilient and built around
-                  real-world pressure.
-                </p>
-              </div>
+            <FadeUp className="lg:col-span-5">
+              <p className="eyebrow mb-5">Founders</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                Founded by clinicians who understand both sides of clinic growth
+              </h2>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                Clinic Evo was founded by Danny and Simon, two osteopaths who
+                met while studying for their integrated Master&apos;s in
+                Osteopathy.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                They lived together during university and built their first
+                business, Worldly Aromas, while completing the demands of a
+                four-year clinical degree. That experience shaped the way they
+                think about business: practical, resilient and built around
+                real-world pressure.
+              </p>
             </FadeUp>
 
             <div className="lg:col-span-7 flex flex-col gap-6">
