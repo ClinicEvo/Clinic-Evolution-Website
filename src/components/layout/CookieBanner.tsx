@@ -53,10 +53,11 @@ export default function CookieBanner() {
       role="dialog"
       aria-label="Cookie consent"
       aria-live="polite"
-      className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6"
+      className="cookie-in fixed z-50 inset-x-0 bottom-0 p-4 sm:inset-x-auto sm:bottom-6 sm:left-6 sm:p-0"
+      style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
     >
-      <div className="max-w-2xl mx-auto bg-[var(--color-ink)] text-white rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <p className="text-sm text-[var(--color-muted-light)] flex-1">
+      <div className="mx-auto w-full max-w-sm bg-[var(--color-ink)] text-white rounded-2xl p-5 shadow-[0_12px_40px_-8px_rgba(13,27,42,0.45)]">
+        <p className="text-sm leading-relaxed text-[var(--color-muted-light)]">
           We use cookies to analyse site traffic and improve your experience. See
           our{" "}
           <Link
@@ -67,16 +68,16 @@ export default function CookieBanner() {
           </Link>
           .
         </p>
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="mt-4 flex items-center gap-3">
+          <Button size="sm" onClick={accept} className="flex-1 sm:flex-initial">
+            Accept cookies
+          </Button>
           <button
             onClick={decline}
-            className="text-sm text-[var(--color-muted-light)] hover:text-white transition-colors underline underline-offset-2"
+            className="flex-1 sm:flex-initial rounded-[4px] px-5 py-2.5 text-xs uppercase tracking-widest font-[var(--font-weight-semibold)] text-[var(--color-muted-light)] hover:text-white transition-colors"
           >
             Decline
           </button>
-          <Button size="sm" onClick={accept}>
-            Accept cookies
-          </Button>
         </div>
       </div>
     </div>

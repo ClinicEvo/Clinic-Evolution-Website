@@ -341,6 +341,13 @@ h1 {
 }
 .mega-in { animation: mega-in 150ms ease-out; transform-origin: top; }
 
+/* Cookie banner entrance — slides up from the bottom edge */
+@keyframes cookie-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.cookie-in { animation: cookie-in 320ms cubic-bezier(0.22, 1, 0.36, 1); }
+
 /* ─── Reduced motion ────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
