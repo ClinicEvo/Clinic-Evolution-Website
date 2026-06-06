@@ -1,10 +1,8 @@
 import { buildMetadata } from "@/lib/metadata";
-import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import ProcessSteps from "@/components/sections/ProcessSteps";
-import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
@@ -102,15 +100,15 @@ export default function OsteopathMarketingPage() {
           "Results tracked to enquiries, not just rankings",
         ]}
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
-        secondaryCta={{ label: "See our results", href: "/case-studies/" }}
+        secondaryCta={{ label: "See how it works", href: "#what-we-improve" }}
         breadcrumbs={crumbs}
         rightPanel={
           <HeroStatCard
             title="Osteopath clinic results"
             stats={[
-              { label: "New patients per month", value: "+23", note: "avg increase" },
-              { label: "Organic traffic growth", value: "3.1×", note: "6-month average" },
-              { label: "Google Maps ranking", value: "Top 3", note: "for local searches" },
+              { label: "New patient enquiries", value: "2.4×", note: "6-month average" },
+              { label: "Avg cost per new patient", value: "£68", note: "osteo clinic average" },
+              { label: "Patient course value", value: "£900+", note: "typical care plan" },
             ]}
           />
         }
@@ -156,16 +154,21 @@ export default function OsteopathMarketingPage() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
-                <p className="text-label text-[var(--color-accent)] mb-4">Case study highlight</p>
-                <p className="text-h2 text-[var(--color-ink)] font-bold mb-2">3× new patient enquiries</p>
-                <p className="text-body text-[var(--color-muted)] mb-6">
-                  A London osteopathy practice increased their monthly new patient
-                  enquiries threefold within 6 months through targeted local SEO
-                  and a rebuilt website.
-                </p>
-                <ArrowLink href="/case-studies/bodyfunction-clinic/">
-                  Read the full case study
-                </ArrowLink>
+                <h3 className="text-h3 text-[var(--color-ink)] mb-6">
+                  Built around how osteopathy patients decide
+                </h3>
+                <div className="flex flex-col gap-5">
+                  {[
+                    { label: "Acute pain searches", desc: "Reaching people searching in discomfort who want to book quickly and locally." },
+                    { label: "Trust before booking", desc: "Explaining your approach, practitioners and treatment clearly so patients feel confident." },
+                    { label: "Long-term care plans", desc: "Supporting rebooking and maintenance visits, not just the first appointment." },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <p className="font-semibold text-[var(--color-ink)] text-sm mb-1">{item.label}</p>
+                      <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </FadeUp>
           </div>
@@ -184,29 +187,53 @@ export default function OsteopathMarketingPage() {
         ]}
       />
 
-      {/* Services for osteopaths */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      {/* Growth system */}
+      <section id="what-we-improve" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
             <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">Services</p>
+              <p className="eyebrow mb-4">Growth system</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                Marketing services for osteopaths
+                A stronger website, clearer SEO and smarter patient follow-up
               </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Osteopathy marketing works best when every part of your digital
+                presence supports the next. Your SEO brings in relevant search
+                traffic, your website turns that traffic into enquiries, your ads
+                accelerate demand and your follow-up brings the right patients back.
+              </p>
             </div>
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
-              { title: "SEO for Osteopaths", desc: "Technical and content SEO that ranks your practice for local and condition-specific searches.", href: "/seo-for-clinics/" },
-              { title: "Google Ads for Osteopaths", desc: "Patient-ready campaigns targeting people actively searching for osteopathic treatment.", href: "/google-ads-for-clinics/" },
-              { title: "Osteopath Website Design", desc: "Fast, trust-building websites designed specifically to convert visitors into new patients.", href: "/website-design-for-clinics/" },
-              { title: "AI Patient Reactivation", desc: "Re-engage patients who haven't visited in months with personalised automated messages.", href: "/ai-integration/" },
-            ].map((s, i) => (
-              <FadeUp key={s.href} delay={i * 0.07}>
-                <div className="card-surface flex h-full flex-col p-7 md:p-8">
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{s.title}</h3>
-                  <p className="text-body text-[var(--color-muted)] mb-4">{s.desc}</p>
-                  <ArrowLink href={s.href}>Learn more</ArrowLink>
+              {
+                title: "Improve visibility for high-intent searches",
+                desc: "We help your clinic rank for local osteopath searches, condition-led queries and treatment-specific terms that match real patient demand.",
+                icon: <><circle cx="11" cy="11" r="7" /><path d="M16.5 16.5L20 20" /></>,
+              },
+              {
+                title: "Build patient trust before they enquire",
+                desc: "We improve how your website explains your treatments, practitioners, approach, reviews, location and booking process.",
+                icon: <><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.7 7.1 18.2l.9-5.5-4-3.9 5.5-.8L12 3z" /></>,
+              },
+              {
+                title: "Run campaigns that focus on enquiries",
+                desc: "Google Ads and social campaigns support growth when they are connected to clear landing pages and proper conversion tracking, not just clicks.",
+                icon: <><path d="M4 15l5-5 4 4 6-8" /></>,
+              },
+              {
+                title: "Reconnect with lapsed patients",
+                desc: "AI patient reactivation identifies and re-engages people who may need follow-up care, maintenance appointments or support with recurring issues.",
+                icon: <><circle cx="12" cy="12" r="8" /><path d="M12 8v4l3 2" /></>,
+              },
+            ].map((item, i) => (
+              <FadeUp key={item.title} delay={i * 0.07}>
+                <div className="card-surface group flex h-full flex-col p-7 md:p-8">
+                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
+                  </div>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{item.title}</h3>
+                  <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
               </FadeUp>
             ))}
@@ -214,8 +241,147 @@ export default function OsteopathMarketingPage() {
         </div>
       </section>
 
-      {/* Process */}
+      {/* Services for osteopaths */}
       <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Services</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
+                Marketing services for osteopaths
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Focused digital support across the areas most likely to improve
+                visibility, enquiries, bookings and patient retention for your
+                osteopathy practice.
+              </p>
+            </div>
+          </FadeUp>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              { title: "SEO for Osteopaths", desc: "Technical and content SEO that ranks your practice for local and condition-specific searches.", href: "/seo-for-clinics/", cta: "Explore SEO for clinics", icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 9h10M7 13h6" /></> },
+              { title: "Google Ads for Osteopaths", desc: "Patient-ready campaigns targeting people actively searching for osteopathic treatment.", href: "/google-ads-for-clinics/", cta: "Explore Google Ads for clinics", icon: <><path d="M4 15l5-5 4 4 6-8" /><path d="M19 6v4h-4" /></> },
+              { title: "Osteopath Website Design", desc: "Fast, trust-building websites designed specifically to convert visitors into new patients.", href: "/website-design-for-clinics/", cta: "Explore clinic website design", icon: <><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M3 9h18M8 21h8" /></> },
+              { title: "AI Patient Reactivation", desc: "Re-engage patients who haven't visited in months with personalised automated messages.", href: "/ai-integration/", cta: "Explore AI patient reactivation", icon: <><circle cx="12" cy="12" r="8" /><path d="M12 8v4l3 2" /></> },
+              { title: "Local SEO", desc: "Strengthen the local signals and Google Business Profile that help you win 'near me' searches.", href: "/seo-for-clinics/", cta: "Explore local SEO", icon: <><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></> },
+              { title: "Free clinic audit", desc: "A clear, prioritised review of where your clinic is losing visibility, enquiries and rebookings.", href: "/free-clinic-audit/", cta: "Get a free clinic audit", icon: <><path d="M5 12h14M13 6l6 6-6 6" /></> },
+            ].map((s, i) => (
+              <FadeUp key={s.title} delay={i * 0.07}>
+                <div className="card-surface flex h-full flex-col p-7 md:p-8">
+                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{s.icon}</svg>
+                  </div>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{s.title}</h3>
+                  <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
+                  <ArrowLink href={s.href}>{s.cta}</ArrowLink>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why generic marketing is not enough */}
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <FadeUp>
+              <div>
+                <p className="eyebrow mb-5">Specialist focus</p>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                  Why generic marketing does not work well for osteopathy clinics
+                </h2>
+                <p className="text-body text-[var(--color-muted)] mb-5">
+                  A generic agency may understand websites, traffic or paid ads. That
+                  does not mean they understand the hesitations patients feel before
+                  booking with an osteopath.
+                </p>
+                <p className="text-body text-[var(--color-muted)] mb-5">
+                  Osteopathy patients often want reassurance. They may be comparing
+                  osteopaths with physios, chiropractors and NHS pathways. They may be
+                  unsure what treatment involves, how many sessions they need or
+                  whether the clinic feels credible.
+                </p>
+                <p className="text-body text-[var(--color-muted)]">
+                  Your website and marketing need to answer those questions clearly,
+                  without overpromising, using language that respects both patient
+                  concerns and professional standards.
+                </p>
+              </div>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="card-surface p-8">
+                <h3 className="text-h3 text-[var(--color-ink)] mb-6">
+                  Built for clinic owners who want practical growth
+                </h3>
+                <div className="flex flex-col gap-5">
+                  {[
+                    {
+                      label: "Specialist MSK clinic focus",
+                      desc: "The strategy is built around osteopaths, physiotherapists, chiropractors and private MSK clinics, not every possible business category.",
+                    },
+                    {
+                      label: "Patient journey thinking",
+                      desc: "We look at how patients move from search to service page, from service page to enquiry, and from past treatment to future rebooking.",
+                    },
+                    {
+                      label: "SEO-first website structure",
+                      desc: "Pages are planned around search demand, local relevance, patient questions and conversion intent.",
+                    },
+                    {
+                      label: "Clear, commercially useful recommendations",
+                      desc: "The goal is not marketing noise. It is the work most likely to improve patient acquisition and clinic growth.",
+                    },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <p className="font-semibold text-[var(--color-ink)] text-sm mb-1">{item.label}</p>
+                      <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* Case study teaser */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <FadeUp>
+              <div>
+                <p className="eyebrow mb-5">Proof</p>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                  3× new patient enquiries for a London osteopathy practice
+                </h2>
+                <p className="text-body text-[var(--color-muted)] mb-5">
+                  A London osteopathy practice increased their monthly new patient
+                  enquiries threefold within 6 months through targeted local SEO and
+                  a rebuilt, conversion-focused website.
+                </p>
+                <p className="text-body text-[var(--color-muted)] mb-6">
+                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> shows
+                  how focused website, SEO and patient journey improvements support a
+                  stronger private clinic growth strategy.
+                </p>
+                <ArrowLink href="/case-studies/bodyfunction-clinic/">
+                  Read the full case study
+                </ArrowLink>
+              </div>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="card-surface p-10 text-center">
+                <p className="text-display text-[var(--color-accent)] font-bold mb-2">3×</p>
+                <p className="text-body text-[var(--color-muted)]">new patient enquiries</p>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <FadeUp>

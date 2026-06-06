@@ -1,10 +1,8 @@
 import { buildMetadata } from "@/lib/metadata";
-import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import ProcessSteps from "@/components/sections/ProcessSteps";
-import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
