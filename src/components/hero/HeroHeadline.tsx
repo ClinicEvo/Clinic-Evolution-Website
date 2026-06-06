@@ -10,7 +10,7 @@ export default function HeroHeadline() {
     <h1
       className="font-display text-[var(--color-ink)]"
       style={{
-        fontSize: "4rem",
+        fontSize: "clamp(1.75rem, 8vw, 4rem)",
         fontWeight: 600,
         lineHeight: 1.0,
         letterSpacing: "-0.02em",
