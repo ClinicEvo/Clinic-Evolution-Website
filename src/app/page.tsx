@@ -695,7 +695,7 @@ export default function HomePage() {
               </div>
             </FadeUp>
             <Link
-              href="/resources/"
+              href="/learning-hub/"
               className="inline-flex items-center gap-2 font-semibold transition-all hover:border-[var(--color-ink)] hover:bg-[var(--color-surface)] flex-shrink-0"
               style={{
                 border: `1px solid var(--color-border)`,
@@ -709,27 +709,30 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <ResourceCard
-              category="Growth"
-              title="Why Most MSK Clinics Lose Patients Before Treatment Begins"
-              excerpt="The four moments where potential patients slip through, and what a connected system does differently."
-              href="/resources/why-most-msk-clinics-lose-patients-before-treatment-begins/"
-              readTime="8 min read"
+              category="Patient Acquisition"
+              title="How to get more patients to your clinic"
+              excerpt="A clear breakdown of the main digital levers that help clinics attract more patient enquiries, from local search to conversion-focused service pages."
+              href="/learning-hub/how-to-get-more-patients-to-your-clinic/"
+              readTime="7 min read"
+              image="/images/resources/get-more-patients.jpg"
             />
             <ResourceCard
               category="SEO"
-              title="The Local SEO Mistakes Most Clinics Still Make"
-              excerpt="What actually works to get your clinic to the top of local search results, and why most clinics get it wrong."
-              href="/resources/local-seo-for-healthcare-clinics/"
-              readTime="6 min read"
+              title="Local SEO for healthcare clinics"
+              excerpt="A broader guide to local SEO for healthcare clinics that want to appear more consistently for relevant local searches."
+              href="/learning-hub/local-seo-for-healthcare-clinics/"
+              readTime="5 min read"
+              image="/images/resources/local-seo-healthcare.jpg"
             />
             <ResourceCard
               category="Patient Retention"
-              title="The Follow-Up Systems Most Clinics Still Do Manually"
-              excerpt="Using structured automation to turn your database of lapsed patients into booked appointments."
-              href="/resources/the-follow-up-systems-most-clinics-still-do-manually/"
+              title="Patient recall system: what it is and why clinics need one"
+              excerpt="A guide to patient recall, follow-up and reactivation systems for clinics that want to reconnect with past patients more effectively."
+              href="/learning-hub/patient-recall-system/"
               readTime="5 min read"
+              image="/images/resources/patient-recall.jpg"
             />
           </div>
         </div>
