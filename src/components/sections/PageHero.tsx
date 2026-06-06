@@ -87,7 +87,7 @@ export default function PageHero({
           {/* Right, optional panel */}
           {rightPanel && (
             <FadeUp delay={0.22}>
-              <div className="hidden lg:block">{rightPanel}</div>
+              <div>{rightPanel}</div>
             </FadeUp>
           )}
         </div>
