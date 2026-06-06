@@ -310,9 +310,11 @@ export default function Header() {
 
             {/* CTA */}
             <div className="flex items-center gap-4">
-              <Button href={ctaNav.href} size="md" className="hidden lg:inline-flex" style={{ letterSpacing: "0.03em", background: "#ff5b4a" }}>
-                {ctaNav.label}
-              </Button>
+              <div className="hidden lg:block">
+                <Button href={ctaNav.href} size="md" style={{ letterSpacing: "0.03em", background: "#ff5b4a" }}>
+                  {ctaNav.label}
+                </Button>
+              </div>
 
               <button
                 className="lg:hidden p-2 text-[var(--color-ink)]"
