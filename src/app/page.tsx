@@ -255,7 +255,7 @@ export default function HomePage() {
               Why most clinic marketing underperforms
             </p>
             <h2
-              className="text-h2 text-[var(--color-ink)] max-w-[680px] mb-14"
+              className="text-h2 text-balance text-[var(--color-ink)] max-w-[680px] mb-14"
             >
               Most MSK clinics are leaking patients long before treatment begins.
             </h2>
@@ -265,7 +265,7 @@ export default function HomePage() {
 
           <FadeUp>
             <p
-              className="text-h4 mx-auto mt-16 max-w-2xl text-center font-medium text-[var(--color-ink)]"
+              className="text-h3 mx-auto mt-16 max-w-3xl text-balance text-center font-medium text-[var(--color-ink)]"
             >
               Four quiet leaks. Most clinics never see them in the accounts, they just feel the empty diary.{" "}
               <span className="text-[var(--color-accent)]">A connected system closes all four.</span>
