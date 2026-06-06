@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
@@ -98,8 +99,112 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Built for MSK clinics */}
+      {/* Founders */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-start">
+            <FadeUp>
+              <div className="lg:col-span-5">
+                <p className="eyebrow mb-5">Founders</p>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                  Founded by clinicians who understand both sides of clinic growth
+                </h2>
+                <p className="text-body text-[var(--color-muted)] mb-5">
+                  Clinic Evo was founded by Danny and Simon, two osteopaths who
+                  met while studying for their integrated Master&apos;s in
+                  Osteopathy.
+                </p>
+                <p className="text-body text-[var(--color-muted)]">
+                  They lived together during university and built their first
+                  business, Worldly Aromas, while completing the demands of a
+                  four-year clinical degree. That experience shaped the way they
+                  think about business: practical, resilient and built around
+                  real-world pressure.
+                </p>
+              </div>
+            </FadeUp>
+
+            <div className="lg:col-span-7 flex flex-col gap-6">
+              <FadeUp delay={0.1}>
+                <div className="card-surface p-8">
+                  <div className="flex items-center gap-5 mb-6">
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden border border-[var(--color-border)] flex-shrink-0">
+                      <Image
+                        src="/images/danny-morgan-angel-clinic.png"
+                        alt="Danny Morgan, co-founder of Clinic Evo and founder of Bodyfunction Clinic"
+                        fill
+                        className="object-cover"
+                        sizes="64px"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-h3 text-[var(--color-ink)] leading-tight">
+                        Danny Morgan
+                      </h3>
+                      <p className="text-label text-[var(--color-accent)] mt-1">
+                        Co-founder · Osteopath · Founder of Bodyfunction Clinic
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-body text-[var(--color-muted)]">
+                    Danny went on to found Bodyfunction Clinic, where he still
+                    practises today. Through building and running a successful MSK
+                    clinic, he learned what actually affects growth in private
+                    healthcare: local visibility, patient trust, enquiry handling,
+                    follow-up, diary management and the systems behind the patient
+                    journey.
+                  </p>
+                </div>
+              </FadeUp>
+
+              <FadeUp delay={0.15}>
+                <div className="card-surface p-8">
+                  <div className="flex items-center gap-5 mb-6">
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden border border-[var(--color-border)] flex-shrink-0">
+                      <Image
+                        src="/images/Simon-Smith.png"
+                        alt="Simon Smith, co-founder of Clinic Evo and founder of Neometa"
+                        fill
+                        className="object-cover"
+                        sizes="64px"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-h3 text-[var(--color-ink)] leading-tight">
+                        Simon Smith
+                      </h3>
+                      <p className="text-label text-[var(--color-accent)] mt-1">
+                        Co-founder · Osteopath · Founder of Neometa
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-body text-[var(--color-muted)]">
+                    Simon went on to found Neometa, a web design, SEO and digital
+                    marketing agency. He has worked with start-ups and established
+                    companies, supporting them with website strategy, search
+                    visibility, business coaching, AI automation and digital
+                    growth systems.
+                  </p>
+                </div>
+              </FadeUp>
+
+              <FadeUp delay={0.2}>
+                <div className="border-l-2 border-[var(--color-accent)] pl-6 py-1">
+                  <p className="text-body-lg text-[var(--color-charcoal)]">
+                    Together, they built Clinic Evo to combine clinical
+                    understanding with the digital systems clinics need to get
+                    found, convert enquiries, retain patients and grow with more
+                    structure.
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Built for MSK clinics */}
+      <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <FadeUp>
@@ -146,7 +251,7 @@ export default function AboutPage() {
       </section>
 
       {/* Clinical understanding */}
-      <section className="section bg-[var(--color-paper)]">
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
@@ -207,7 +312,7 @@ export default function AboutPage() {
       </section>
 
       {/* What Clinic Evo improves */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
             <div className="mb-12 max-w-2xl">
