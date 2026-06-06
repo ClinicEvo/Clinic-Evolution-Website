@@ -66,187 +66,78 @@ export default function FreeClinicAuditPage() {
         breadcrumbs={crumbs}
       />
 
-      {/* Problem */}
-      <section className="section bg-[var(--color-paper)]">
-        <div className="cx-main">
-          <div className="max-w-3xl">
-            <FadeUp>
-              <p className="eyebrow mb-4">The challenge</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-5">
-                See what is holding your clinic back online
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Most private clinics do not have one single marketing problem. They
-                usually have several small issues that compound over time.
-              </p>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Your website may look fine but fail to explain your services clearly.
-                Your Google rankings may be weak for the treatments patients
-                actually search for. Your booking buttons may be too hidden. Your
-                service pages may not answer the questions people ask before booking.
-                Your past patients may be sitting in your database with no
-                structured follow-up process.
-              </p>
-              <p className="text-body text-[var(--color-muted)] font-semibold">
-                A clinic marketing audit helps identify those gaps before you spend
-                money on redesigns, SEO retainers or paid ads. The aim is simple:
-                understand where your clinic is losing visibility, trust, enquiries
-                or rebookings, then decide what to fix first.
-              </p>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* What it includes */}
+      {/* What the audit covers + what you receive */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
-          <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">Included</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                What your free clinic audit includes
-              </h2>
-              <p className="text-body-lg text-[var(--color-charcoal)]">
-                The audit is designed to give you a practical view of your current
-                digital growth foundations.
-              </p>
-            </div>
-          </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { title: "Website clarity", desc: "We review whether your website clearly explains who you help, what you treat, where you are based, and why a patient should book with your clinic." },
-              { title: "SEO visibility", desc: "We look at whether your clinic is visible for relevant search terms, including treatment, condition, practitioner and local search opportunities." },
-              { title: "Local SEO and Google visibility", desc: "We review your local search presence, including how clearly Google can understand your location, services, service area and clinic relevance." },
-              { title: "Patient journey", desc: "We check how easy it is for a new patient to move from landing on your site to choosing a service, trusting the clinic and making a booking." },
-              { title: "Conversion points", desc: "We look at calls to action, booking links, forms, phone visibility, service page structure and common friction points." },
-              { title: "Patient reactivation opportunities", desc: "We identify whether there are opportunities to reconnect with past patients through recall, follow-up or reactivation systems." },
-              { title: "Paid search readiness", desc: "We assess whether your website is ready to convert traffic from Google Ads, or whether the foundation needs improving first." },
-            ].map((item, i) => (
-              <FadeUp key={item.title} delay={i * 0.05}>
-                <div className="card-surface flex h-full flex-col p-7 md:p-8">
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
-                  <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Who it is for */}
-      <section className="section bg-[var(--color-paper)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-14 items-start">
             <FadeUp>
               <div>
-                <p className="eyebrow mb-4">Audience</p>
+                <p className="eyebrow mb-4">What we look at</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-5">
-                  Who the audit is for
+                  A practical look at where your clinic is losing enquiries
                 </h2>
-                <p className="text-body text-[var(--color-muted)] mb-5">
-                  This free clinic audit is suitable for private MSK clinic owners
-                  who want clearer answers before making decisions about their
-                  website, SEO, Google Ads or patient reactivation.
+                <p className="text-body text-[var(--color-muted)] mb-8">
+                  Most clinics do not have one single problem. They have a few small
+                  gaps that compound: a website that does not explain services
+                  clearly, weak rankings for the treatments patients search for,
+                  hidden booking buttons, or past patients with no follow-up. The
+                  audit looks at the full journey, not just rankings.
                 </p>
-                <p className="text-body text-[var(--color-muted)] font-semibold mb-3">
-                  It is especially useful if you are:
-                </p>
-                <ul className="flex flex-col gap-2 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                   {[
-                    "An osteopath who wants more local visibility and better service pages",
-                    "A physiotherapy clinic trying to generate more private patient enquiries",
-                    "A chiropractor who wants to rely less on referrals and more on search visibility",
-                    "A clinic owner with a website that looks acceptable but does not generate enough enquiries",
-                    "A private practice considering SEO, Google Ads or a new website",
-                    "A clinic with past patients who could be re-engaged more effectively",
+                    { title: "Website clarity", desc: "Whether your site clearly explains who you help, what you treat and why to book." },
+                    { title: "SEO visibility", desc: "How visible you are for treatment, condition, practitioner and local searches." },
+                    { title: "Local & Google presence", desc: "How clearly Google understands your location, services and service area." },
+                    { title: "Patient journey", desc: "How easily a new patient moves from landing to choosing a service and booking." },
+                    { title: "Conversion points", desc: "Calls to action, booking links, forms, phone visibility and friction points." },
+                    { title: "Reactivation & Ads readiness", desc: "Opportunities to re-engage past patients, and whether you are ready for paid search." },
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
+                    <div key={item.title} className="flex items-start gap-3">
                       <svg className="flex-shrink-0 mt-1.5 text-[var(--color-accent)]" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                         <circle cx="6" cy="6" r="4" fill="currentColor" />
                       </svg>
-                      <span className="text-body text-[var(--color-muted)]">{item}</span>
-                    </li>
+                      <div>
+                        <p className="text-body-sm font-semibold text-[var(--color-ink)]">{item.title}</p>
+                        <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
-                <h3 className="text-h3 text-[var(--color-ink)] mb-4">
-                  Core disciplines
+                <p className="eyebrow mb-4">What you receive</p>
+                <h3 className="text-h3 text-[var(--color-ink)] mb-5">
+                  A clear summary, not a 40-page report
                 </h3>
-                <div className="flex flex-col gap-4">
+                <ul className="flex flex-col gap-3 mb-6">
+                  {[
+                    "Website structure and messaging recommendations",
+                    "SEO opportunities and missing page suggestions",
+                    "Local visibility improvements",
+                    "Booking journey and conversion observations",
+                    "Patient reactivation opportunities",
+                    "Priority actions to focus on first",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <svg className="flex-shrink-0 mt-0.5 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="text-body-sm text-[var(--color-muted)]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-body-sm text-[var(--color-muted)] pt-5 border-t border-[var(--color-border)]">
+                  Built for osteopaths, physiotherapists and chiropractors. Explore
+                  marketing by discipline:
+                </p>
+                <div className="flex flex-col gap-3 mt-4">
                   <ArrowLink href="/osteopath-marketing/">Marketing for osteopaths</ArrowLink>
                   <ArrowLink href="/physiotherapy-marketing/">Physiotherapy marketing</ArrowLink>
                   <ArrowLink href="/chiropractic-marketing/">Chiropractic marketing</ArrowLink>
                 </div>
               </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* What you receive & Beyond traffic */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-            <FadeUp>
-              <p className="eyebrow mb-4">Deliverables</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-5">
-                What you will receive
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                After reviewing your clinic&apos;s digital presence, Clinic Evo
-                will share a practical summary of the main opportunities we can
-                identify.
-              </p>
-              <ul className="flex flex-col gap-2 mb-6">
-                {[
-                  "Website structure and messaging recommendations",
-                  "SEO opportunities and missing page suggestions",
-                  "Local visibility improvements",
-                  "Booking journey and conversion observations",
-                  "Google Ads readiness notes",
-                  "Patient reactivation opportunities",
-                  "Priority actions to focus on first",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <svg className="flex-shrink-0 mt-1 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <span className="text-body-sm text-[var(--color-muted)]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-body text-[var(--color-muted)]">
-                This is not intended to be a long technical report. It is
-                designed to help you understand the biggest opportunities clearly
-                and decide the right next step.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.1}>
-              <p className="eyebrow mb-4">Philosophy</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-5">
-                Good clinic marketing is not only about getting more traffic
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Traffic matters, but traffic alone does not grow a clinic. A patient
-                still needs to understand your services, trust your clinical
-                approach, find the right practitioner, see convenient booking
-                options, and feel confident enough to take the next step.
-              </p>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                That is why the Clinic Evo audit looks at the full journey, not just
-                rankings. The goal is to identify where your digital presence can
-                better support enquiries, bookings, follow-ups and long-term
-                patient value.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                For many clinics, the best first move is not always more advertising.
-                It might be a clearer website, better service pages, improved local
-                SEO, stronger calls to action, or a smarter patient recall system.
-              </p>
             </FadeUp>
           </div>
         </div>
@@ -283,9 +174,14 @@ export default function FreeClinicAuditPage() {
               <div className="card-surface p-8">
                 <form
                   action="https://formspree.io/f/xbjnqpyz" // Place real endpoint here
-                  method="POST" 
+                  method="POST"
                   className="flex flex-col gap-5"
                 >
+                  <input type="hidden" name="form_type" value="audit_request" />
+                  <input type="hidden" name="_subject" value="New free audit request — Clinic Evo" />
+                  <input type="hidden" name="_next" value="/free-clinic-audit/thank-you/" />
+
+                  {/* Contact */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="name" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Name</label>
@@ -296,32 +192,67 @@ export default function FreeClinicAuditPage() {
                       <input required type="text" id="clinic_name" name="clinic_name" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="email" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Email Address</label>
                       <input required type="email" id="email" name="email" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Phone Number</label>
+                      <label htmlFor="phone" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Phone <span className="font-normal text-[var(--color-muted)]">(optional)</span></label>
                       <input type="tel" id="phone" name="phone" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
                     </div>
                   </div>
 
-                  <div>
-                    <label htmlFor="website" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Website URL</label>
-                    <input required type="url" id="website" name="website" placeholder="https://" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
+                  {/* Clinic details we need to run the audit */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label htmlFor="website" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Website URL</label>
+                      <input required type="url" id="website" name="website" placeholder="https://" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
+                    </div>
+                    <div>
+                      <label htmlFor="location" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Town / City</label>
+                      <input required type="text" id="location" name="location" placeholder="e.g. Bristol" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label htmlFor="discipline" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Clinic Discipline</label>
+                      <select required id="discipline" name="discipline" defaultValue="" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:border-[var(--color-accent)]">
+                        <option value="" disabled>Select discipline</option>
+                        <option value="osteopathy">Osteopathy</option>
+                        <option value="physiotherapy">Physiotherapy</option>
+                        <option value="chiropractic">Chiropractic</option>
+                        <option value="multi-disciplinary">Multi-disciplinary clinic</option>
+                        <option value="other">Other private healthcare clinic</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="booking_system" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Booking System</label>
+                      <select required id="booking_system" name="booking_system" defaultValue="" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:border-[var(--color-accent)]">
+                        <option value="" disabled>How do patients book?</option>
+                        <option value="cliniko">Cliniko</option>
+                        <option value="pabau">Pabau</option>
+                        <option value="jane">Jane</option>
+                        <option value="other_online">Other online booking</option>
+                        <option value="phone_only">Phone / email only</option>
+                        <option value="not_sure">Not sure</option>
+                      </select>
+                    </div>
                   </div>
 
                   <div>
-                    <label htmlFor="discipline" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Clinic Discipline</label>
-                    <select required id="discipline" name="discipline" defaultValue="" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:border-[var(--color-accent)]">
-                      <option value="" disabled>Select your discipline</option>
-                      <option value="osteopathy">Osteopathy</option>
-                      <option value="physiotherapy">Physiotherapy</option>
-                      <option value="chiropractic">Chiropractic</option>
-                      <option value="multi-disciplinary">Multi-disciplinary clinic</option>
-                      <option value="other">Other private healthcare clinic</option>
+                    <label htmlFor="lead_sources" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Where do most new patients come from now?</label>
+                    <select required id="lead_sources" name="lead_sources" defaultValue="" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:border-[var(--color-accent)]">
+                      <option value="" disabled>Select the main source</option>
+                      <option value="google_search">Google search</option>
+                      <option value="google_ads">Google Ads</option>
+                      <option value="referrals">Word of mouth / referrals</option>
+                      <option value="social">Social media</option>
+                      <option value="directories">Directories / health platforms</option>
+                      <option value="mixed">A real mix</option>
+                      <option value="not_sure">Not sure</option>
                     </select>
                   </div>
 
@@ -339,8 +270,8 @@ export default function FreeClinicAuditPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Short Message (Optional)</label>
-                    <textarea id="message" name="message" rows={3} className="w-full p-4 border border-[var(--color-border)] rounded-lg resize-none focus:outline-none focus:border-[var(--color-accent)]"></textarea>
+                    <label htmlFor="message" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Anything else? <span className="font-normal text-[var(--color-muted)]">(optional)</span></label>
+                    <textarea id="message" name="message" rows={3} placeholder="Biggest frustration, a target you're chasing, anything we should know..." className="w-full p-4 border border-[var(--color-border)] rounded-lg resize-none focus:outline-none focus:border-[var(--color-accent)]"></textarea>
                   </div>
 
                   <button type="submit" className="w-full h-12 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dim)] text-white font-semibold rounded-lg transition-colors mt-2">
