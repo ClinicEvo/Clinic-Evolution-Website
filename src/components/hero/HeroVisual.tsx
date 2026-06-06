@@ -66,7 +66,7 @@ export default function HeroVisual() {
         initial={reduce ? {} : { opacity: 0, y: 28 }}
         animate={inView || reduce ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.15, ease }}
-        className="absolute bottom-12 left-6 right-6 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 shadow-[0_40px_90px_-30px_rgba(12,26,36,0.5)] sm:bottom-16 sm:left-10 sm:right-auto sm:w-[320px] lg:-left-16"
+        className="absolute bottom-5 left-6 right-6 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 shadow-[0_40px_90px_-30px_rgba(12,26,36,0.5)] sm:bottom-16 sm:left-10 sm:right-auto sm:w-[320px] lg:-left-16"
       >
         <div className="mb-5 flex items-center justify-between">
           <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">Patient Pulse</p>

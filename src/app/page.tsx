@@ -131,7 +131,7 @@ function OperatingSystemBand() {
         <div className="flex flex-col justify-center divide-y divide-white/10 border-t border-white/10 lg:border-t-0">
           {systemStats.map((stat) => (
             <div key={stat.label} className="flex items-baseline gap-5 py-5 first:pt-0 lg:first:pt-5">
-              <span className="font-display text-4xl font-semibold leading-none text-[var(--color-accent)] md:text-5xl">
+              <span className="whitespace-nowrap font-display text-4xl font-semibold leading-none text-[var(--color-accent)] md:text-5xl">
                 {stat.value}
               </span>
               <span className="text-sm leading-snug text-white/70">{stat.label}</span>
