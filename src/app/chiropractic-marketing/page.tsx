@@ -280,31 +280,31 @@ export default function ChiropracticMarketingPage() {
                 title: "SEO for chiropractors",
                 desc: "Improve your organic visibility for local searches, chiropractic services, condition-led searches and high-intent patient queries.",
                 href: "/seo-for-clinics/",
-                cta: "Explore SEO for clinics",
+                cta: "Explore SEO for Clinics",
               },
               {
                 title: "Chiropractic website design",
                 desc: "Create a clearer, faster and more trustworthy website that explains your approach and helps patients book with confidence.",
                 href: "/website-design-for-clinics/",
-                cta: "Explore clinic website design",
+                cta: "Explore Clinic Website Design",
               },
               {
                 title: "Chiropractic Google Ads",
                 desc: "Reach people actively searching for chiropractic care and build campaigns around enquiries, bookings and measurable patient acquisition.",
                 href: "/google-ads-for-clinics/",
-                cta: "Explore Google Ads for clinics",
+                cta: "Explore Google Ads for Clinics",
               },
               {
                 title: "Chiropractic social media marketing",
                 desc: "Use clearer messaging, educational content and targeted campaigns to support awareness, trust and conversion for your clinic.",
                 href: "/free-clinic-audit/",
-                cta: "Get a free clinic audit",
+                cta: "Get a Free Clinic Audit",
               },
               {
                 title: "AI patient reactivation",
                 desc: "Reconnect with suitable past patients using smarter recall and follow-up systems that support long-term clinic growth.",
                 href: "/ai-integration/",
-                cta: "Explore AI patient reactivation",
+                cta: "Explore AI Patient Reactivation",
               },
             ].map((s, i) => (
               <FadeUp key={s.title} delay={i * 0.07}>

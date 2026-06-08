@@ -125,19 +125,19 @@ export default function WebsiteDesignForClinicsPage() {
                 title: "Physiotherapy clinics",
                 desc: "Private physiotherapy clinics need websites that clearly explain treatment pathways, conditions, practitioner expertise and booking options.",
                 href: "/physiotherapy-marketing/",
-                cta: "Physiotherapy marketing",
+                cta: "Physiotherapy Marketing",
               },
               {
                 title: "Osteopathy clinics",
                 desc: "Osteopath websites need to explain the value of osteopathic care, build trust quickly and show how treatment can support common pain and mobility concerns.",
                 href: "/osteopath-marketing/",
-                cta: "Marketing for osteopaths",
+                cta: "Marketing for Osteopaths",
               },
               {
                 title: "Chiropractic clinics",
                 desc: "Chiropractic websites need clear messaging, strong trust signals and careful positioning around symptoms, treatment expectations and patient confidence.",
                 href: "/chiropractic-marketing/",
-                cta: "Chiropractic marketing",
+                cta: "Chiropractic Marketing",
               },
             ].map((item, i) => (
               <FadeUp key={item.href} delay={i * 0.07}>

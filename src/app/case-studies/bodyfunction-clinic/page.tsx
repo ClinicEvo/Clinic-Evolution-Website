@@ -346,8 +346,8 @@ export default function BodyfunctionCaseStudyPage() {
                   Related services
                 </h3>
                 <div className="flex flex-col gap-4">
-                  <ArrowLink href="/seo-for-clinics/">SEO for clinics</ArrowLink>
-                  <ArrowLink href="/website-design-for-clinics/">Clinic website design</ArrowLink>
+                  <ArrowLink href="/seo-for-clinics/">SEO for Clinics</ArrowLink>
+                  <ArrowLink href="/website-design-for-clinics/">Clinic Website Design</ArrowLink>
                 </div>
               </div>
             </FadeUp>

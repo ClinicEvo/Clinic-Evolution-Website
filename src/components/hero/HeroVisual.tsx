@@ -69,7 +69,7 @@ export default function HeroVisual() {
         className="absolute bottom-5 left-6 right-6 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 shadow-[0_40px_90px_-30px_rgba(12,26,36,0.5)] sm:bottom-16 sm:left-10 sm:right-auto sm:w-[320px] lg:-left-16"
       >
         <div className="mb-5 flex items-center justify-between">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">Patient Pulse</p>
+          <Image src="/images/patientpulse_logo.png" alt="Patient Pulse" width={100} height={20} className="h-4 w-auto" />
           <span className="flex items-center gap-2 text-[12px] font-medium text-[var(--color-muted)]">
             <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--color-accent)" }} />
             Live

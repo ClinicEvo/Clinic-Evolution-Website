@@ -322,7 +322,7 @@ export default function AiIntegrationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <ArrowLink href="/patient-pulse/">Patient Pulse</ArrowLink>
-              <ArrowLink href="/seo-for-clinics/">SEO for clinics</ArrowLink>
+              <ArrowLink href="/seo-for-clinics/">SEO for Clinics</ArrowLink>
             </div>
           </FadeUp>
         </div>

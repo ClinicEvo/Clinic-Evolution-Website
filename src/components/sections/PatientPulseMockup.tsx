@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -82,7 +83,7 @@ export default function PatientPulseMockup() {
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-3.5 border-b border-[var(--color-border)]">
         <div className="flex items-center gap-2.5">
-          <span className="text-xs font-bold text-[var(--color-ink)] tracking-wide">Patient Pulse</span>
+          <Image src="/images/patientpulse_logo.png" alt="Patient Pulse" width={100} height={20} className="h-4 w-auto" />
           <span className="text-[0.6rem] font-semibold text-[var(--color-muted)] bg-[var(--color-surface)] px-2 py-0.5 rounded-full">
             by Clinic Evo
           </span>

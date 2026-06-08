@@ -246,9 +246,9 @@ export default function PatientPulsePage() {
               so a missed call becomes a logged, followed-up lead instead of a lost one.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
-              <ArrowLink href="/osteopath-marketing/">marketing for osteopaths</ArrowLink>
-              <ArrowLink href="/physiotherapy-marketing/">physiotherapy marketing</ArrowLink>
-              <ArrowLink href="/chiropractic-marketing/">chiropractic marketing</ArrowLink>
+              <ArrowLink href="/osteopath-marketing/">Marketing for Osteopaths</ArrowLink>
+              <ArrowLink href="/physiotherapy-marketing/">Physiotherapy Marketing</ArrowLink>
+              <ArrowLink href="/chiropractic-marketing/">Chiropractic Marketing</ArrowLink>
             </div>
           </FadeUp>
         </div>

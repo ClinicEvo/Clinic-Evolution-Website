@@ -20,33 +20,34 @@ type AnyIcon = Icon | React.ComponentType<{ size?: number }>;
 
 const OsteopathIcon = ({ size = 17 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <circle cx="12" cy="5" r="2" />
-    <path d="M12 7v5" />
-    <path d="M9 12c0 0-2 1-2 4s2 4 2 4" />
-    <path d="M15 12c0 0 2 1 2 4s-2 4-2 4" />
-    <path d="M10 20h4" />
-    <circle cx="12" cy="12" r="1" />
+    <rect x="8" y="2" width="8" height="4" rx="1.5" />
+    <path d="M9 6 Q12 7.5 15 6" />
+    <rect x="7" y="8" width="10" height="4" rx="1.5" />
+    <path d="M8 12 Q12 13.5 16 12" />
+    <rect x="8" y="14" width="8" height="4" rx="1.5" />
+    <path d="M10 18 Q12 21 14 18" />
   </svg>
 );
 
 const PhysioIcon = ({ size = 17 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <circle cx="12" cy="4" r="2" />
-    <path d="M6 8l3 2 1 4-3 7" />
-    <path d="M18 8l-3 2-1 4 3 7" />
-    <path d="M9 10h6" />
+    <rect x="2" y="10" width="3" height="4" rx="1" />
+    <rect x="5" y="8" width="2" height="8" rx="1" />
+    <line x1="7" y1="12" x2="17" y2="12" />
+    <rect x="17" y="8" width="2" height="8" rx="1" />
+    <rect x="19" y="10" width="3" height="4" rx="1" />
   </svg>
 );
 
 const ChiroIcon = ({ size = 17 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M12 3c-1 0-2 .5-2 1.5S11 6 12 6s2-.5 2-1.5S13 3 12 3z" />
-    <path d="M12 6c-1 0-2 .5-2 1.5S11 9 12 9s2-.5 2-1.5S13 6 12 6z" />
-    <path d="M12 9c-1 0-2 .5-2 1.5S11 12 12 12s2-.5 2-1.5S13 9 12 9z" />
-    <path d="M12 12c-1 0-2 .5-2 1.5S11 15 12 15s2-.5 2-1.5S13 12 12 12z" />
-    <path d="M12 15c-1 0-2 .5-2 1.5S11 18 12 18s2-.5 2-1.5S13 15 12 15z" />
-    <path d="M10 4.5 Q8 8 8 12 Q8 16 10 19.5" />
-    <path d="M14 4.5 Q16 8 16 12 Q16 16 14 19.5" />
+    <path d="M12 2 L12 7" />
+    <rect x="9" y="7" width="6" height="10" rx="1.5" />
+    <path d="M12 17 L12 22" />
+    <path d="M2 12 L7 12" />
+    <path d="M4.5 9.5 L7.5 12 L4.5 14.5" />
+    <path d="M22 12 L17 12" />
+    <path d="M19.5 9.5 L16.5 12 L19.5 14.5" />
   </svg>
 );
 

@@ -245,37 +245,37 @@ export default function HealthcareMarketingConsultantPage() {
                 title: "SEO for clinics",
                 desc: "Improve the pages, keywords, local signals and content structure that help patients find your clinic through Google.",
                 href: "/seo-for-clinics/",
-                cta: "SEO for clinics",
+                cta: "SEO for Clinics",
               },
               {
                 title: "Clinic website design",
                 desc: "Create or improve a website that explains your services clearly and makes it easier for patients to book.",
                 href: "/website-design-for-clinics/",
-                cta: "Clinic website design",
+                cta: "Clinic Website Design",
               },
               {
                 title: "Google Ads for clinics",
                 desc: "Build paid search campaigns around high-intent enquiries, with landing pages designed to convert.",
                 href: "/google-ads-for-clinics/",
-                cta: "Google Ads for clinics",
+                cta: "Google Ads for Clinics",
               },
               {
                 title: "AI patient reactivation",
                 desc: "Use smarter systems to reconnect with past patients and support recall, follow-up and retention.",
                 href: "/ai-integration/",
-                cta: "AI patient reactivation",
+                cta: "AI Patient Reactivation",
               },
               {
                 title: "Marketing for osteopaths",
                 desc: "Build growth plans for osteopaths based on the way patients search and book osteopathic care.",
                 href: "/osteopath-marketing/",
-                cta: "Marketing for osteopaths",
+                cta: "Marketing for Osteopaths",
               },
               {
                 title: "Physiotherapy marketing",
                 desc: "Growth plans for physiotherapy clinics based on private patient search and booking behaviour.",
                 href: "/physiotherapy-marketing/",
-                cta: "Physiotherapy marketing",
+                cta: "Physiotherapy Marketing",
               },
             ].map((s, i) => (
               <FadeUp key={s.href} delay={i * 0.07}>

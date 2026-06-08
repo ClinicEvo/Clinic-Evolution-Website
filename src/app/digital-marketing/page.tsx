@@ -29,21 +29,21 @@ const channels = [
     title: "Search engine optimisation",
     desc: "Ranking for the terms your patients use, 'physio near me', 'osteopath [town]', 'back pain specialist', so new patients find you before they find a competitor.",
     href: "/seo-for-clinics/",
-    cta: "SEO for clinics",
+    cta: "SEO for Clinics",
     icon: <><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></>,
   },
   {
     title: "Google Ads",
     desc: "Paid search targeting high-intent MSK patients in your area. Campaigns built around patient decision-making, not broad healthcare keywords.",
     href: "/google-ads-for-clinics/",
-    cta: "Google Ads for clinics",
+    cta: "Google Ads for Clinics",
     icon: <><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3" /></>,
   },
   {
     title: "Clinic website design",
     desc: "Websites built for MSK patients, condition pages, local trust signals, and booking paths that convert visitors into enquiries.",
     href: "/website-design-for-clinics/",
-    cta: "clinic website design",
+    cta: "Clinic Website Design",
     icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M7 6.5h.01M10 6.5h.01" /></>,
   },
   {
@@ -57,14 +57,14 @@ const channels = [
     title: "Call handling & booking",
     desc: "Every patient call answered, every lead from your ads called back, and patients booked straight into your diary. No voicemail. No lead left waiting.",
     href: "/call-centre/",
-    cta: "call handling & booking",
+    cta: "Call Handling & Booking",
     icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />,
   },
   {
     title: "AI patient reactivation",
     desc: "Lapsed patients contacted automatically at 3, 6 and 12 months. Review requests timed to positive sessions.",
     href: "/ai-integration/",
-    cta: "AI patient reactivation",
+    cta: "AI Patient Reactivation",
     icon: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
   },
 ];
@@ -255,9 +255,9 @@ export default function DigitalMarketingPage() {
               generic healthcare template applied to every clinic.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
-              <ArrowLink href="/osteopath-marketing/">marketing for osteopaths</ArrowLink>
-              <ArrowLink href="/physiotherapy-marketing/">physiotherapy marketing</ArrowLink>
-              <ArrowLink href="/chiropractic-marketing/">chiropractic marketing</ArrowLink>
+              <ArrowLink href="/osteopath-marketing/">Marketing for Osteopaths</ArrowLink>
+              <ArrowLink href="/physiotherapy-marketing/">Physiotherapy Marketing</ArrowLink>
+              <ArrowLink href="/chiropractic-marketing/">Chiropractic Marketing</ArrowLink>
             </div>
           </FadeUp>
         </div>

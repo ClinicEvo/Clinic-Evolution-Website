@@ -214,19 +214,19 @@ export default function GoogleAdsForClinicsPage() {
                 title: "Physiotherapy clinics",
                 desc: "Google Ads can help promote high-value services, fill practitioner diaries, support new locations, and reach people looking for private care.",
                 href: "/physiotherapy-marketing/",
-                cta: "Physiotherapy marketing",
+                cta: "Physiotherapy Marketing",
               },
               {
                 title: "Osteopathy clinics",
                 desc: "Paid search can support local visibility, promote specific treatment pages, and capture people looking for help with pain, mobility and recurring issues.",
                 href: "/osteopath-marketing/",
-                cta: "Marketing for osteopaths",
+                cta: "Marketing for Osteopaths",
               },
               {
                 title: "Chiropractic clinics",
                 desc: "Google Ads can help reduce reliance on referrals and reach patients searching for treatment options in their area.",
                 href: "/chiropractic-marketing/",
-                cta: "Chiropractic marketing",
+                cta: "Chiropractic Marketing",
               },
             ].map((item, i) => (
               <FadeUp key={item.href} delay={i * 0.07}>

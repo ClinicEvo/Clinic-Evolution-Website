@@ -16,8 +16,8 @@ const FooterLogo = () => (
   <Image
     src="/images/cevo_newlogo_dark.png"
     alt="Clinic Evo"
-    width={160}
-    height={46}
+    width={190}
+    height={55}
     style={{ objectFit: "contain" }}
   />
 );
@@ -30,11 +30,11 @@ export default function Footer() {
       className="relative overflow-hidden text-white"
       style={{ background: "#0d1b2a", borderTop: "1px solid rgba(255,255,255,0.08)" }}
     >
-      <div className="cx-main pt-16 pb-10">
+      <div className="cx-main pt-12 pb-8">
 
         {/* ── CTA strip ──────────────────────────────────────────────────── */}
         <div
-          className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-14 mb-14"
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-10 mb-10"
           style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
         >
           <div>
@@ -65,7 +65,7 @@ export default function Footer() {
             <Link href="/" aria-label="Clinic Evo home" className="inline-block">
               <FooterLogo />
             </Link>
-            <p className="mt-5 text-sm max-w-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
+            <p className="mt-5 text-sm max-w-xs leading-relaxed text-white">
               Patient acquisition and retention systems for UK MSK clinics.
             </p>
             <div className="mt-7 flex items-center gap-4">
@@ -93,14 +93,14 @@ export default function Footer() {
 
           {/* Who We Help */}
           <div>
-            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] text-white mb-5">Who We Help</h3>
-            <ul className="flex flex-col gap-3.5" role="list">
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] mb-3" style={{ color: ACCENT }}>Who We Help</h3>
+            <ul className="flex flex-col gap-2" role="list">
               {footerNav.whoWeHelp.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[13px] transition-colors hover:text-white"
-                    style={{ color: "rgba(255,255,255,0.5)" }}
+                    className="text-[13px] transition-colors hover:opacity-70"
+                    style={{ color: "rgba(255,255,255,1)" }}
                   >
                     {item.label}
                   </Link>
@@ -111,14 +111,14 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] text-white mb-5">Services</h3>
-            <ul className="flex flex-col gap-3.5" role="list">
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] mb-3" style={{ color: ACCENT }}>Services</h3>
+            <ul className="flex flex-col gap-2" role="list">
               {footerNav.services.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[13px] transition-colors hover:text-white"
-                    style={{ color: "rgba(255,255,255,0.5)" }}
+                    className="text-[13px] transition-colors hover:opacity-70"
+                    style={{ color: "rgba(255,255,255,1)" }}
                   >
                     {item.label}
                   </Link>
@@ -129,8 +129,8 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] text-white mb-5">Company</h3>
-            <ul className="flex flex-col gap-3.5" role="list">
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] mb-3" style={{ color: ACCENT }}>Company</h3>
+            <ul className="flex flex-col gap-2" role="list">
               {footerNav.company.map((item) => {
                 const isAudit = item.href.includes("audit");
                 return (
@@ -139,7 +139,7 @@ export default function Footer() {
                       href={item.href}
                       className="text-[13px] transition-colors hover:text-white"
                       style={{
-                        color: isAudit ? ACCENT : "rgba(255,255,255,0.5)",
+                        color: isAudit ? ACCENT : "rgba(255,255,255,1)",
                         fontWeight: isAudit ? 600 : 400,
                       }}
                     >

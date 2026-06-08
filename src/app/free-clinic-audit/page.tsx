@@ -133,9 +133,9 @@ export default function FreeClinicAuditPage() {
                   marketing by discipline:
                 </p>
                 <div className="flex flex-col gap-3 mt-4">
-                  <ArrowLink href="/osteopath-marketing/">Marketing for osteopaths</ArrowLink>
-                  <ArrowLink href="/physiotherapy-marketing/">Physiotherapy marketing</ArrowLink>
-                  <ArrowLink href="/chiropractic-marketing/">Chiropractic marketing</ArrowLink>
+                  <ArrowLink href="/osteopath-marketing/">Marketing for Osteopaths</ArrowLink>
+                  <ArrowLink href="/physiotherapy-marketing/">Physiotherapy Marketing</ArrowLink>
+                  <ArrowLink href="/chiropractic-marketing/">Chiropractic Marketing</ArrowLink>
                 </div>
               </div>
             </FadeUp>

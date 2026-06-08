@@ -203,19 +203,19 @@ export default function SeoForClinicsPage() {
                 title: "Osteopaths",
                 desc: "An osteopathy clinic may need stronger visibility for back pain, neck pain and local treatment searches.",
                 href: "/osteopath-marketing/",
-                cta: "SEO and marketing for osteopaths",
+                cta: "SEO and Marketing for Osteopaths",
               },
               {
                 title: "Physiotherapists",
                 desc: "A physiotherapy clinic may need clearer pathways around sports injuries, rehabilitation, post-operative support and private treatment.",
                 href: "/physiotherapy-marketing/",
-                cta: "Physiotherapy marketing",
+                cta: "Physiotherapy Marketing",
               },
               {
                 title: "Chiropractors",
                 desc: "A chiropractic clinic may need to communicate trust, outcomes and differentiation in a competitive local market.",
                 href: "/chiropractic-marketing/",
-                cta: "Chiropractic marketing",
+                cta: "Chiropractic Marketing",
               },
             ].map((item, i) => (
               <FadeUp key={item.href} delay={i * 0.07}>
