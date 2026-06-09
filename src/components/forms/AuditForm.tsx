@@ -11,7 +11,7 @@ const DISCIPLINES = ["Osteopath", "Physiotherapist", "Chiropractor", "Other"];
 export default function AuditForm() {
   const router = useRouter();
   const { state, errorMsg, handleSubmit } = useFormSubmit({
-    subject: (p) => `Free Clinic Audit Request – ${p.clinic_name}`,
+    formType: "audit",
     onSuccess: () => {
       events.freeAuditSubmit();
       router.push("/free-clinic-audit/thank-you/");

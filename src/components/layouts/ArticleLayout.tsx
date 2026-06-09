@@ -6,6 +6,7 @@ import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
+import ArticleSchema from "@/components/schema/ArticleSchema";
 import Button from "@/components/ui/Button";
 
 interface ArticleSection {
@@ -28,6 +29,9 @@ interface ArticleLayoutProps {
   relatedLinks?: { label: string; href: string }[];
   children?: React.ReactNode;
   heroImage?: string;
+  datePublished?: string;
+  dateModified?: string;
+  schemaDescription?: string;
 }
 
 function slugify(str: string) {
@@ -54,12 +58,23 @@ export default function ArticleLayout({
   relatedLinks,
   children,
   heroImage,
+  datePublished,
+  dateModified,
+  schemaDescription,
 }: ArticleLayoutProps) {
   const readTime = estimateReadTime(sections);
 
   return (
     <>
       <BreadcrumbSchema items={breadcrumbs} />
+      <ArticleSchema
+        title={title}
+        description={schemaDescription ?? title}
+        url={breadcrumbs[breadcrumbs.length - 1].href}
+        datePublished={datePublished}
+        dateModified={dateModified}
+        ogImage={heroImage}
+      />
       {faqs && faqs.length > 0 && <FAQSchema items={faqs} />}
 
       {/* Hero */}
