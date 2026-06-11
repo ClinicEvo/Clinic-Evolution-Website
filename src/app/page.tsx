@@ -559,64 +559,49 @@ export default function HomePage() {
             </h2>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex flex-col gap-5">
             {disciplineCards.map((card, i) => (
               <FadeUp key={card.title} delay={i * 0.09}>
-                <div className="card-surface group relative flex h-full flex-col overflow-hidden p-7 md:p-8">
-                  {/* Profession watermark */}
-                  <div
-                    className="pointer-events-none absolute inset-0 select-none"
-                    style={{
-                      backgroundImage: `url(${card.watermarkImg})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                      opacity: 0.05,
-                      filter: "grayscale(100%)",
-                    }}
-                    aria-hidden="true"
-                  />
-                  <div
-                    className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)]"
-                    style={{
-                      background: "var(--color-accent-light)",
-                      color: "var(--color-accent)",
-                    }}
-                  >
-                    {card.icon}
+                <Link
+                  href={card.href}
+                  className="group flex flex-col sm:flex-row overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-[2px]"
+                  style={{ background: "var(--color-paper)" }}
+                >
+                  {/* Image — left */}
+                  <div className="relative h-52 w-full flex-shrink-0 overflow-hidden sm:h-auto sm:w-64 lg:w-72">
+                    <Image
+                      src={card.watermarkImg}
+                      alt={card.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, 288px"
+                    />
+                    <div className="absolute inset-0 bg-[var(--color-ink)]/10" />
                   </div>
-                  <p
-                    className="eyebrow mb-3"
-                  >
-                    {card.title}
-                  </p>
-                  <h3
-                    className="text-h4 text-[var(--color-ink)] mb-4"
-                  >
-                    {card.headline}
-                  </h3>
-                  <p
-                    className="text-body-sm text-[var(--color-charcoal)] flex-1 mb-6"
-                  >
-                    {card.body}
-                  </p>
-                  <Link
-                    href={card.href}
-                    className="inline-flex items-center gap-2 transition-all group-hover:gap-3 group-hover:text-[var(--color-accent)]"
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: 500,
-                      color: "var(--color-ink)",
-                      textDecoration: "underline",
-                      textUnderlineOffset: "4px",
-                    }}
-                  >
-                    {card.anchor}
-                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                      <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Link>
-                </div>
+                  {/* Content — right */}
+                  <div className="flex flex-1 flex-col justify-center p-7 md:p-9 lg:p-10">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div
+                        className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)]"
+                        style={{ background: "var(--color-accent-light)", color: "var(--color-accent)" }}
+                      >
+                        {card.icon}
+                      </div>
+                      <p className="eyebrow">{card.title}</p>
+                    </div>
+                    <h3 className="text-h3 text-[var(--color-ink)] mb-3">{card.headline}</h3>
+                    <p className="text-body-sm text-[var(--color-muted)] mb-6">{card.body}</p>
+                    <span
+                      className="inline-flex items-center gap-2 transition-all group-hover:gap-3 group-hover:text-[var(--color-accent)]"
+                      style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-ink)", textDecoration: "underline", textUnderlineOffset: "4px" }}
+                    >
+                      {card.anchor}
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
               </FadeUp>
             ))}
           </div>
@@ -630,14 +615,16 @@ export default function HomePage() {
       >
         <div className="cx-main">
           <div
-            className="mx-auto max-w-5xl py-16 px-8 md:px-16"
+            className="relative mx-auto max-w-5xl overflow-hidden py-16 px-8 md:px-16"
             style={{
               border: "1px solid var(--color-border)",
               borderRadius: "var(--radius-panel)",
-              background: "linear-gradient(180deg, #fff 0%, var(--color-accent-light) 100%)",
+              background: "#fff",
               boxShadow: "var(--shadow-card)",
             }}
           >
+            <div className="aurora-cta pointer-events-none absolute -inset-[10px] opacity-55" aria-hidden="true" />
+            <div className="relative z-10">
             <FadeUp>
               <p
                 className="eyebrow mb-4"
@@ -686,6 +673,7 @@ export default function HomePage() {
                 Specialist support for UK osteopaths, physiotherapists, chiropractors and MSK clinics.
               </p>
             </FadeUp>
+            </div>
           </div>
         </div>
       </section>

@@ -56,25 +56,25 @@ export default function CookieBanner() {
       className="cookie-in fixed z-50 inset-x-0 bottom-0 p-4 sm:inset-x-auto sm:bottom-6 sm:left-6 sm:p-0"
       style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
     >
-      <div className="mx-auto w-full max-w-sm bg-[var(--color-ink)] text-white rounded-2xl p-5 shadow-[0_12px_40px_-8px_rgba(13,27,42,0.45)]">
-        <p className="text-sm leading-relaxed text-[var(--color-muted-light)]">
+      <div className="mx-auto w-full max-w-sm bg-[var(--color-paper)] text-[var(--color-ink)] rounded-2xl p-5 shadow-[0_12px_40px_-8px_rgba(13,27,42,0.18)] border border-[var(--color-border)]">
+        <p className="text-sm leading-relaxed text-[var(--color-muted)]">
           We use cookies to analyse site traffic and improve your experience. See
           our{" "}
           <Link
             href="/cookie-policy/"
-            className="text-white underline underline-offset-2 hover:text-[var(--color-accent-light)]"
+            className="text-[var(--color-ink)] underline underline-offset-2 hover:text-[var(--color-accent)]"
           >
             Cookie Policy
           </Link>
           .
         </p>
         <div className="mt-4 flex items-center gap-3">
-          <Button size="sm" onClick={accept} className="flex-1 sm:flex-initial">
+          <Button size="sm" variant="secondary" onClick={accept} className="flex-1 sm:flex-initial">
             Accept cookies
           </Button>
           <button
             onClick={decline}
-            className="flex-1 sm:flex-initial rounded-[4px] px-5 py-2.5 text-xs uppercase tracking-widest font-[var(--font-weight-semibold)] text-[var(--color-muted-light)] hover:text-white transition-colors"
+            className="flex-1 sm:flex-initial rounded-[4px] px-5 py-2.5 text-xs uppercase tracking-widest font-[var(--font-weight-semibold)] text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors"
           >
             Decline
           </button>
