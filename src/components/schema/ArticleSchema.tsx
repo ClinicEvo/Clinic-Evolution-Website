@@ -4,12 +4,9 @@ interface ArticleSchemaProps {
   title: string;
   description: string;
   url: string;
-  datePublished?: string;
+  datePublished: string;
   dateModified?: string;
   ogImage?: string;
-  authorName?: string;
-  authorJobTitle?: string;
-  authorUrl?: string;
 }
 
 export default function ArticleSchema({
@@ -19,9 +16,6 @@ export default function ArticleSchema({
   datePublished,
   dateModified,
   ogImage,
-  authorName = "Danny Morgan",
-  authorJobTitle = "Co-founder & Osteopath",
-  authorUrl = `${siteConfig.url}/about/`,
 }: ArticleSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
@@ -29,27 +23,20 @@ export default function ArticleSchema({
     headline: title,
     description,
     url: `${siteConfig.url}${url}`,
-    ...(datePublished && {
-      datePublished,
-      dateModified: dateModified ?? datePublished,
-    }),
+    datePublished,
+    dateModified: dateModified ?? datePublished,
     image: ogImage
       ? `${siteConfig.url}${ogImage}`
       : `${siteConfig.url}/og-default.jpg`,
     author: {
-      "@type": "Person",
-      name: authorName,
-      jobTitle: authorJobTitle,
-      url: authorUrl,
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
     },
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
-      logo: {
-        "@type": "ImageObject",
-        url: `${siteConfig.url}/images/cevo_newlogo.png`,
-      },
     },
   };
 

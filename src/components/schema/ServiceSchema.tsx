@@ -26,10 +26,6 @@ export default function ServiceSchema({
       url: siteConfig.url,
     },
     areaServed: siteConfig.areaServed,
-    audience: {
-      "@type": "Audience",
-      audienceType: "MSK Healthcare Providers",
-    },
   };
 
   return (

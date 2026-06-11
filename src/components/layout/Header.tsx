@@ -67,7 +67,6 @@ const iconMap: Record<string, AnyIcon> = {
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -186,7 +185,7 @@ export default function Header() {
 
                         {/* Mega-menu (grouped) — aligned with logo + CTA */}
                         {item.groups && openDropdown === item.label && (
-                          <div className="absolute top-full left-0 right-0 mt-2 z-10">
+                          <div className="absolute top-full left-10 right-10 mt-2 z-10">
                             <div className="mega-in bg-[var(--color-paper)] border border-[var(--color-border)] shadow-[var(--shadow-md)] rounded-[var(--radius-card)] overflow-hidden">
                               <div className="flex">
                                   <div className="grid grid-cols-3 gap-x-8 gap-y-6 p-8 flex-1">
@@ -323,7 +322,7 @@ export default function Header() {
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-menu"
-                onClick={() => { setMobileOpen(!mobileOpen); if (mobileOpen) setMobileExpanded(null); }}
+                onClick={() => setMobileOpen(!mobileOpen)}
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   {mobileOpen ? (
@@ -339,103 +338,101 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div id="mobile-menu" className="lg:hidden fixed inset-0 top-[73px] bg-white z-40 overflow-y-auto flex flex-col">
-            {/* Nav rows */}
-            <ul role="list" className="flex-1 border-t border-[var(--color-border)]">
-              {mainNav.map((item) => {
-                const hasMenu = Boolean(item.groups || item.children);
-                const isExpanded = mobileExpanded === item.label;
-                const flatItems = item.groups
-                  ? item.groups.flatMap((g) => g.items)
-                  : item.children ?? [];
-                return (
-                  <li key={item.label} className="border-b border-[var(--color-border)]">
-                    {hasMenu ? (
-                      <>
-                        <button
-                          className="flex w-full items-center justify-between px-6 py-4 text-left"
-                          onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
-                          aria-expanded={isExpanded}
-                        >
-                          <span className="text-[15px] font-semibold text-[var(--color-ink)]">{item.label}</span>
-                          <svg
-                            width="16" height="16" viewBox="0 0 16 16" fill="none"
-                            className={`text-[var(--color-muted)] transition-transform duration-200 ${isExpanded ? "rotate-90" : ""}`}
-                            aria-hidden="true"
-                          >
-                            <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </button>
-                        {isExpanded && (
-                          <ul className="border-t border-[var(--color-border)]" role="list">
-                            {flatItems.map((child) => {
-                              const IconCmp = child.icon ? iconMap[child.icon] : null;
-                              return (
-                                <li key={child.href} className="border-b border-[var(--color-border)] last:border-b-0">
-                                  <Link
-                                    href={child.href}
-                                    className="flex items-center px-6 py-3.5 gap-3 group"
-                                    onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
-                                  >
-                                    {IconCmp && (
-                                      <span className="shrink-0 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
-                                        <IconCmp size={16} />
-                                      </span>
-                                    )}
-                                    <span className="text-[14px] font-medium text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+          <div id="mobile-menu" className="lg:hidden fixed inset-0 top-[73px] bg-white z-40 p-6 overflow-y-auto">
+            <ul className="flex flex-col gap-6">
+              {mainNav.map((item) => (
+                <li key={item.label}>
+                  {item.groups ? (
+                    <>
+                      <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-muted)] mb-4">
+                        {item.label}
+                      </p>
+                      <div className="flex flex-col gap-5 pl-4 border-l-2 border-[var(--color-surface)]">
+                        {item.groups.map((group) => (
+                          <div key={group.label}>
+                            <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-muted)] mb-2">
+                              {group.label}
+                            </p>
+                            <ul className="flex flex-col gap-3">
+                              {group.items.map((child) => {
+                                const IconCmp = child.icon ? iconMap[child.icon] : null;
+                                return (
+                                  <li key={child.href}>
+                                    <Link
+                                      href={child.href}
+                                      className="flex items-center gap-2.5 text-base font-semibold text-[var(--color-ink)] hover:text-[var(--color-accent)] transition-colors"
+                                      onClick={() => setMobileOpen(false)}
+                                    >
+                                      {IconCmp && (
+                                        <IconCmp size={18} weight="regular" className="shrink-0 text-[var(--color-muted)]" />
+                                      )}
                                       {child.label}
-                                    </span>
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        )}
-                      </>
-                    ) : (
-                      <Link
-                        href={item.href!}
-                        className="flex items-center px-6 py-4 group"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        <span className="text-[15px] font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
-                          {item.label}
-                        </span>
-                      </Link>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-
-            {/* Callout card + CTA — pinned to bottom */}
-            <div className="p-6 flex flex-col gap-4 border-t border-[var(--color-border)]">
-              {mainNav.filter((item) => item.callout).map((item) => (
-                <Link
-                  key={item.callout!.href}
-                  href={item.callout!.href}
-                  onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
-                  className="flex flex-col gap-1 p-5 rounded-[var(--radius-card)] border border-[var(--color-border)]"
-                  style={{ background: "linear-gradient(180deg, #fff 0%, var(--color-accent-light) 100%)" }}
-                >
-                  <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-accent-dim)]">
-                    {item.callout!.eyebrow}
-                  </span>
-                  <span className="text-[15px] font-semibold leading-snug text-[var(--color-ink)]">
-                    {item.callout!.title}
-                  </span>
-                  <span className="mt-1 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[var(--color-accent-dim)]">
-                    {item.callout!.ctaLabel}
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <path d="M3 6h6M6 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </Link>
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                      {item.callout && (
+                        <Link
+                          href={item.callout.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="mt-5 flex flex-col gap-1 p-5 rounded-md border border-[var(--color-border)]"
+                          style={{ background: "linear-gradient(180deg, #fff 0%, var(--color-accent-light) 100%)" }}
+                        >
+                          <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-accent-dim)]">
+                            {item.callout.eyebrow}
+                          </span>
+                          <span className="text-[15px] font-semibold leading-snug text-[var(--color-ink)]">
+                            {item.callout.title}
+                          </span>
+                          <span className="mt-1 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[var(--color-accent-dim)]">
+                            {item.callout.ctaLabel}
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                              <path d="M3 6h6M6 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                        </Link>
+                      )}
+                    </>
+                  ) : item.children ? (
+                    <>
+                      <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-muted)] mb-3">
+                        {item.label}
+                      </p>
+                      <ul className="flex flex-col gap-3 pl-4 border-l-2 border-[var(--color-surface)]">
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              className="text-base font-semibold text-[var(--color-ink)] hover:text-[var(--color-accent)] transition-colors"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-lg font-bold text-[var(--color-ink)] hover:text-[var(--color-accent)] transition-colors"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
               ))}
-              <Button href={ctaNav.href} size="lg" className="w-full">
-                {ctaNav.label}
-              </Button>
-            </div>
+              <li className="pt-6 border-t border-[var(--color-surface)]">
+                <Button href={ctaNav.href} size="lg" className="w-full">
+                  {ctaNav.label}
+                </Button>
+              </li>
+            </ul>
           </div>
         )}
       </header>

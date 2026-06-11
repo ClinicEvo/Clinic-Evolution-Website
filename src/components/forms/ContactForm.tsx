@@ -7,7 +7,7 @@ import { Field, Input, Textarea, Honeypot } from "./Field";
 
 export default function ContactForm() {
   const { state, errorMsg, handleSubmit } = useFormSubmit({
-    formType: "contact",
+    subject: (p) => `Website enquiry from ${p.name}`,
     onSuccess: (_p, form) => {
       events.contactFormSubmit();
       form.reset();

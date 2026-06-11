@@ -14,12 +14,6 @@ export default function OrganizationSchema() {
     }),
     description: siteConfig.description,
     areaServed: siteConfig.areaServed,
-    logo: {
-      "@type": "ImageObject",
-      url: `${siteConfig.url}/images/cevo_newlogo.png`,
-      width: 190,
-      height: 55,
-    },
     address: siteConfig.address.streetAddress
       ? {
           "@type": "PostalAddress",

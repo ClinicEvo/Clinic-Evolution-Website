@@ -107,24 +107,6 @@ const nextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
-          {
-            key: "Content-Security-Policy",
-            // unsafe-inline required for Tailwind v4 + Framer Motion inline styles.
-            // Web3Forms requests now go through /api/submit-form (server-side), so
-            // api.web3forms.com is NOT needed in connect-src.
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
-              "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: https://bodyfunction.co.uk https://images.unsplash.com",
-              "font-src 'self'",
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
-              "frame-src 'none'",
-              "object-src 'none'",
-              "base-uri 'self'",
-              "form-action 'self'",
-            ].join("; "),
-          },
         ],
       },
     ];

@@ -7,7 +7,6 @@ import PageTransition from "@/components/layout/PageTransition";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import CookieBanner from "@/components/layout/CookieBanner";
 import OrganizationSchema from "@/components/schema/OrganizationSchema";
-import WebSiteSchema from "@/components/schema/WebSiteSchema";
 import { siteConfig } from "@/lib/metadata";
 
 const dmSans = localFont({
@@ -72,7 +71,6 @@ export default function RootLayout({
     <html lang="en-GB" className={`${dmSans.variable} ${brume.variable} ${plusJakartaSemiBold.variable}`} suppressHydrationWarning>
       <head>
         <OrganizationSchema />
-        <WebSiteSchema />
         {process.env.NEXT_PUBLIC_GA4_ID && (
           <>
             <script
