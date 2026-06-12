@@ -92,6 +92,11 @@ const nextConfig = {
   },
 
   async headers() {
+    const isProd = process.env.NODE_ENV === "production";
+    const cspScriptSrc = isProd
+      ? "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com"
+      : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com";
+
     return [
       {
         source: "/(.*)",
@@ -109,12 +114,9 @@ const nextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            // unsafe-inline required for Tailwind v4 + Framer Motion inline styles.
-            // Web3Forms requests now go through /api/submit-form (server-side), so
-            // api.web3forms.com is NOT needed in connect-src.
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
+              cspScriptSrc,
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https://bodyfunction.co.uk https://images.unsplash.com",
               "font-src 'self'",

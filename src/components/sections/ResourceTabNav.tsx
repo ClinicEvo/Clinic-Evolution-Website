@@ -14,37 +14,23 @@ export default function ResourceTabNav() {
   const [active, setActive] = useState<string>(tabs[0].id);
 
   useEffect(() => {
-    // Track which sections are currently intersecting, then pick the topmost one
-    const visible = new Set<string>();
+    const OFFSET = 160; // px from viewport top — clears the sticky nav
 
-    const update = () => {
-      const first = tabs.find(({ id }) => visible.has(id));
-      if (first) setActive(first.id);
+    const getActive = () => {
+      let current = tabs[0].id;
+      for (const { id } of tabs) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= OFFSET) {
+          current = id;
+        }
+      }
+      return current;
     };
 
-    const observers: IntersectionObserver[] = [];
-
-    tabs.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            visible.add(id);
-          } else {
-            visible.delete(id);
-          }
-          update();
-        },
-        { rootMargin: "-10% 0px -60% 0px", threshold: 0 }
-      );
-
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
+    const onScroll = () => setActive(getActive());
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (

@@ -343,7 +343,7 @@ export default function ResourcesHubPage() {
       desc: "How clinic website, SEO and patient journey improvements supported a stronger digital growth system for a London MSK practice.",
       href: "/case-studies/bodyfunction-clinic/",
       readTime: "8 min read",
-      image: "/images/resources/bodyfunction-case-study.jpg",
+      image: "https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-clinic-team-at-reception-01.png",
     },
     {
       icon: svgs.article,
