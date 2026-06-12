@@ -51,9 +51,9 @@ const team = [
   },
   {
     name: "James Monty",
-    title: "Lorem ipsum dolor sit amet",
+    title: "Osteopath & Clinical Business Consultant",
     subtitle: "Lorem ipsum consectetur",
-    image: null,
+    image: "/images/james-monty.png",
     linkedin: "#",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.",
   },
