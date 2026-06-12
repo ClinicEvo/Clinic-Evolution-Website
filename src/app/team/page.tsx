@@ -42,6 +42,14 @@ const team = [
     bio: "Simon co-founded Clinic Evo after founding Neometa, a web design, SEO and digital marketing agency. A qualified osteopath, Simon brings clinical understanding to every digital decision — from how service pages are structured to how SEO, paid search, AI automation and conversion systems work together to grow a clinic sustainably.",
   },
   {
+    name: "Joana Rita Vieira",
+    title: "Creative Director",
+    subtitle: "Lorem ipsum consectetur",
+    image: "/images/Joana-Rita-Vieira.jpg",
+    linkedin: "#",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+  },
+  {
     name: "James Monty",
     title: "Lorem ipsum dolor sit amet",
     subtitle: "Lorem ipsum consectetur",
@@ -87,7 +95,7 @@ export default function TeamPage() {
             </div>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, i) => (
               <FadeUp key={member.name} delay={i * 0.08}>
                 <div className="card-surface overflow-hidden flex flex-col h-full">
