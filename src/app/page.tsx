@@ -160,7 +160,7 @@ export default function HomePage() {
 
           {/* Left, copy, aligned to the container edge */}
           <div
-            className="flex flex-col justify-center py-16 sm:py-20 lg:py-24"
+            className="flex flex-col justify-center pt-10 sm:pt-12 lg:pt-14 pb-10 sm:pb-12 lg:pb-8"
             style={{
               paddingLeft: "max(1.5rem, calc((100vw - 75rem) / 2))",
               paddingRight: "2.5rem",
@@ -168,7 +168,7 @@ export default function HomePage() {
           >
             <div className="max-w-[34rem]">
               <FadeUp>
-                <span className="eyebrow mb-7">
+                <span className="eyebrow mb-5">
                   For UK osteopaths, physios &amp; chiropractors
                 </span>
               </FadeUp>
@@ -177,7 +177,7 @@ export default function HomePage() {
 
               <FadeUp delay={0.18}>
                 <p
-                  className="mt-7"
+                  className="mt-5"
                   style={{
                     fontFamily: "var(--font-sans)",
                     fontSize: "18px",
@@ -191,7 +191,7 @@ export default function HomePage() {
               </FadeUp>
 
               <FadeUp delay={0.24}>
-                <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+                <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                   <Link
                     href="/free-clinic-audit/"
                     className="inline-flex items-center font-semibold text-white transition-all hover:bg-[var(--color-accent-dim)] active:translate-y-px"
@@ -219,7 +219,7 @@ export default function HomePage() {
               </FadeUp>
 
               <FadeUp delay={0.3}>
-                <ul className="mt-12 flex flex-wrap gap-x-7 gap-y-3 border-t border-[var(--color-border)] pt-7">
+                <ul className="mt-7 flex flex-wrap gap-x-7 gap-y-3 border-t border-[var(--color-border)] pt-4">
                   {[
                     "Built by clinicians",
                     "UK MSK specialists",

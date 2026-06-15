@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
@@ -509,9 +509,9 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <section className="section bg-[var(--color-paper)] !pb-10">
         <div className="cx-main">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
                 <p className="eyebrow mb-5">FAQ</p>
@@ -520,7 +520,9 @@ export default function AboutPage() {
                 </h2>
               </div>
             </FadeUp>
-            <FAQAccordion items={faqs} />
+            <div className="bg-[var(--color-paper)] border border-[var(--color-border)] rounded-[var(--radius-card)] shadow-[var(--shadow-card)] px-6 sm:px-10 py-2">
+              <FAQAccordion items={faqs} />
+            </div>
           </div>
         </div>
       </section>

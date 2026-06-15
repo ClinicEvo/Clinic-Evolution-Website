@@ -78,7 +78,7 @@ export default function ArticleLayout({
       {faqs && faqs.length > 0 && <FAQSchema items={faqs} />}
 
       {/* Hero */}
-      <section className="bg-[var(--color-paper)] pt-20 pb-16 lg:pt-28 lg:pb-24 relative overflow-hidden">
+      <section className="bg-[var(--color-paper)] pt-10 sm:pt-12 lg:pt-14 pb-20 sm:pb-24 lg:pb-28 relative overflow-hidden">
         {!heroImage && (
           <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--color-surface)] -z-10 skew-x-[-12deg] translate-x-20 hidden lg:block" />
         )}
@@ -230,9 +230,9 @@ export default function ArticleLayout({
 
       {/* FAQ */}
       {faqs && faqs.length > 0 && (
-        <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <section className="section bg-[var(--color-paper)] !pb-10">
           <div className="cx-main">
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-3xl mx-auto">
               <FadeUp>
                 <div className="text-center mb-10">
                   <p className="eyebrow mb-4">FAQ</p>
@@ -241,7 +241,9 @@ export default function ArticleLayout({
                   </h2>
                 </div>
               </FadeUp>
-              <FAQAccordion items={faqs} />
+              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] rounded-[var(--radius-card)] shadow-[var(--shadow-card)] px-6 sm:px-10 py-2">
+                <FAQAccordion items={faqs} />
+              </div>
             </div>
           </div>
         </section>

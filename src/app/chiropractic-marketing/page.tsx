@@ -1,4 +1,4 @@
-import { buildMetadata } from "@/lib/metadata";
+﻿import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -10,6 +10,7 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
 import StatBand from "@/components/sections/StatBand";
+import Image from "next/image";
 
 export const metadata = buildMetadata({
   title: "SEO for Chiropractors UK | Chiropractic Marketing",
@@ -52,24 +53,28 @@ const steps = [
     title: "Free clinic audit",
     description:
       "We review your website, SEO, local search presence, patient journey, competitors and main growth opportunities. You come away with practical, prioritised recommendations.",
+    note: "Many clinic owners tell us the audit gave them a clearer picture of their online presence than anything they'd had before.",
   },
   {
     number: 2,
     title: "Custom growth strategy",
     description:
       "You receive a clear plan covering which channels to focus on, what content to create, and how to convert more website visitors into booked chiropractic appointments.",
+    note: "You'll see exactly which channels make sense for your clinic and why \u2014 no pressure to proceed.",
   },
   {
     number: 3,
     title: "Implementation & management",
     description:
       "We handle everything: technical SEO, content, Google Ads management, website improvements and reporting. You stay focused on patient care while we drive growth.",
+    note: "We manage all the work. You keep your focus on patient care while we drive enquiries.",
   },
   {
     number: 4,
     title: "Monthly reporting & refinement",
     description:
-      "Every month you receive a plain-English report covering rankings, traffic, enquiries and ad performance. We continuously refine based on what\u2019s working.",
+      "Every month you receive a plain-English report covering rankings, traffic, enquiries and ad performance. We continuously refine based on what's working.",
+    note: "No dense reports or vanity metrics \u2014 just honest numbers tied to enquiries and bookings.",
   },
 ];
 
@@ -117,32 +122,32 @@ export default function ChiropracticMarketingPage() {
       {/* Problem and positioning */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 lg:gap-24 items-center">
             <FadeUp>
               <div>
                 <p className="eyebrow mb-5">The challenge</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Chiropractic marketing built around trust, visibility and patient acquisition
                 </h2>
-                <p className="text-body text-[var(--color-muted)] mb-5">
+                <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
                   Chiropractic clinics face a particular challenge online. Many
                   potential patients are searching because they are in pain,
                   frustrated by recurring symptoms, or unsure which type of
                   practitioner they should see.
                 </p>
-                <p className="text-body text-[var(--color-muted)] mb-5">
+                <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
                   They may compare chiropractors with osteopaths, physiotherapists,
                   massage therapists, NHS pathways and private pain clinics. They
                   may also have questions about safety, treatment approach, reviews,
                   qualifications and whether chiropractic care is right for their
                   problem.
                 </p>
-                <p className="text-body text-[var(--color-muted)] mb-5">
+                <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
                   That means your marketing needs to do more than drive traffic. It
                   needs to build trust quickly, explain your clinical value clearly
                   and make the next step feel easy.
                 </p>
-                <p className="text-body text-[var(--color-muted)]">
+                <p className="text-body text-[var(--color-muted)] max-w-xl">
                   Clinic Evo helps chiropractic clinics create a clearer digital
                   presence that supports search visibility, patient confidence and
                   enquiry growth.
@@ -151,24 +156,26 @@ export default function ChiropracticMarketingPage() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
-                <p className="eyebrow mb-5">Why referrals alone aren&apos;t enough</p>
-                <p className="text-body text-[var(--color-muted)] mb-4">
-                  Referrals are valuable, but they are not a complete growth system.
-                  A clinic that relies too heavily on word of mouth can become
-                  vulnerable when demand fluctuates, local competition increases or
-                  existing referral sources slow down.
-                </p>
-                <p className="text-body text-[var(--color-muted)] mb-4">
-                  Modern patients often start their decision online, even when they
-                  have been recommended by someone else. They search your clinic
-                  name, check your website, read reviews and decide whether they
-                  feel confident enough to book.
-                </p>
-                <p className="text-body text-[var(--color-muted)]">
-                  Good chiropractic marketing supports both new patient acquisition
-                  and referral conversion. It helps more people find you, understand
-                  you and take action.
-                </p>
+                <h3 className="text-h3 text-[var(--color-ink)] mb-6">
+                  Why referrals alone aren&apos;t enough
+                </h3>
+                <div className="flex flex-col gap-5">
+                  {[
+                    { icon: <><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></>, label: "Referrals have a ceiling", desc: "Word of mouth is valuable but not a complete growth system — vulnerable when competition rises or referral sources slow down." },
+                    { icon: <><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L20 20"/></>, label: "Patients still search first", desc: "Even referred patients check your website, read reviews and decide whether they feel confident enough to book." },
+                    { icon: <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></>, label: "Marketing that works on both", desc: "Good chiropractic marketing supports new patient acquisition and referral conversion — helping more people find you, trust you and take action." },
+                  ].map((item) => (
+                    <div key={item.label} className="flex items-start gap-4">
+                      <div className="flex-shrink-0 h-9 w-9 rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)] flex items-center justify-center">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-[var(--color-ink)] text-sm mb-1">{item.label}</p>
+                        <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </FadeUp>
           </div>
@@ -399,20 +406,36 @@ export default function ChiropracticMarketingPage() {
                   the digital foundation, strengthen service pages, make the
                   patient journey clearer and build smarter systems for growth.
                 </p>
-                <p className="text-body text-[var(--color-muted)] mb-6">
+                <p className="text-body text-[var(--color-muted)] mb-5">
                   The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> shows
                   how focused website, SEO and patient journey improvements can
                   support a stronger private clinic growth strategy.
                 </p>
+                <blockquote className="border-l-2 border-[var(--color-accent)] pl-4 mb-6">
+                  <p className="text-body-lg text-[var(--color-ink)] italic mb-2">
+                    &ldquo;We&apos;d tried two agencies before. This was the first time someone actually understood how our patients think.&rdquo;
+                  </p>
+                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Sarah, Bodyfunction Clinic</cite>
+                </blockquote>
                 <ArrowLink href="/case-studies/bodyfunction-clinic/">
-                  Read the Bodyfunction Clinic case study
+                  Read the full clinic story
                 </ArrowLink>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="card-surface p-10 text-center">
-                <p className="text-display text-[var(--color-accent)] font-bold mb-2">3×</p>
-                <p className="text-body text-[var(--color-muted)]">new patient enquiries</p>
+              <div className="relative overflow-hidden rounded-[var(--radius-card)] shadow-[var(--shadow-card)]" style={{ aspectRatio: "4/3" }}>
+                <Image
+                  src="/images/bodyfunction-clinic-team-at-reception-01.png"
+                  alt="Bodyfunction Clinic — London MSK clinic"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 via-[var(--color-ink)]/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="font-display font-bold text-4xl text-white mb-1">3×</p>
+                  <p className="text-sm text-white/90 font-medium">new patient enquiries in 6 months</p>
+                </div>
               </div>
             </FadeUp>
           </div>
@@ -432,11 +455,17 @@ export default function ChiropracticMarketingPage() {
                 Get a clear view of where your clinic is currently losing
                 visibility, enquiries or rebooking opportunities.
               </p>
-              <p className="text-body text-[var(--color-muted)]">
+              <p className="text-body text-[var(--color-muted)] mb-4">
                 Your audit will review your website, SEO, local search presence,
                 patient journey, competitors and main growth opportunities. You
                 will come away with practical recommendations for improving your
                 clinic&apos;s digital performance.
+              </p>
+              <p className="text-body-sm text-[var(--color-muted)]">
+                Not ready to start?{" "}
+                <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline font-medium">
+                  See how it worked for a real clinic first.
+                </a>
               </p>
             </FadeUp>
             <div>
@@ -447,9 +476,9 @@ export default function ChiropracticMarketingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <section className="section bg-[var(--color-paper)] !pb-10">
         <div className="cx-main">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
                 <p className="eyebrow mb-5">FAQ</p>
@@ -458,14 +487,18 @@ export default function ChiropracticMarketingPage() {
                 </h2>
               </div>
             </FadeUp>
-            <FAQAccordion items={faqs} />
+            <div className="bg-[var(--color-paper)] border border-[var(--color-border)] rounded-[var(--radius-card)] shadow-[var(--shadow-card)] px-6 sm:px-10 py-2">
+              <FAQAccordion items={faqs} />
+            </div>
           </div>
         </div>
       </section>
 
       <CTASection
         heading="Ready to grow your chiropractic clinic?"
-        subheading="Book a free clinic audit and see exactly what's holding your clinic back online."
+        subheading="Get a clear picture of your current visibility, website performance and missed enquiries — delivered within 2 business days."
+        primaryLabel="See what's holding your clinic back"
+        primaryHref="/free-clinic-audit/"
       />
     </>
   );

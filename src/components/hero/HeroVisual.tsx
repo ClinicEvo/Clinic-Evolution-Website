@@ -49,7 +49,7 @@ export default function HeroVisual() {
   });
 
   return (
-    <div ref={ref} className="relative h-full min-h-[58vh] w-full lg:min-h-[82vh]">
+    <div ref={ref} className="relative h-full min-h-[58vh] w-full lg:min-h-[72vh]">
       {/* Clinical photograph, full-bleed, the product is the patient experience */}
       <Image
         src="/images/hero_clinic_spine_consult.jpg"
@@ -66,7 +66,7 @@ export default function HeroVisual() {
         initial={reduce ? {} : { opacity: 0, y: 28 }}
         animate={inView || reduce ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.15, ease }}
-        className="absolute bottom-5 left-6 right-6 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 shadow-[0_40px_90px_-30px_rgba(12,26,36,0.5)] sm:bottom-16 sm:left-10 sm:right-auto sm:w-[320px] lg:-left-16"
+        className="absolute bottom-5 left-6 right-6 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 shadow-[0_40px_90px_-30px_rgba(12,26,36,0.5)] sm:bottom-[calc(var(--spacing)*17)] sm:left-10 sm:right-auto sm:w-[320px] lg:-left-16"
       >
         <div className="mb-5 flex items-center justify-between">
           <Image src="/images/patientpulse_logo.png" alt="Patient Pulse" width={100} height={20} className="h-4 w-auto" />

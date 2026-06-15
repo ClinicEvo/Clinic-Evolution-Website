@@ -28,7 +28,7 @@ export default function PageHero({
   compactBottom,
 }: PageHeroProps) {
   return (
-    <section className={`grain bg-[var(--color-paper)] pt-20 lg:pt-28 ${compactBottom ? "pb-6 lg:pb-8" : "pb-16 lg:pb-24"}`}>
+    <section className={`grain bg-[var(--color-paper)] pt-10 sm:pt-12 lg:pt-14 ${compactBottom ? "pb-6 lg:pb-8" : "pb-20 sm:pb-24 lg:pb-28"}`}>
       <div className="cx-main">
         {breadcrumbs && (
           <FadeUp>
@@ -36,7 +36,7 @@ export default function PageHero({
           </FadeUp>
         )}
 
-        <div className={`grid gap-12 lg:gap-16 items-center mt-6 ${rightPanel ? "lg:grid-cols-[1fr_380px]" : ""}`}>
+        <div className={`grid gap-12 lg:gap-16 items-center ${breadcrumbs ? "mt-6" : ""} ${rightPanel ? "lg:grid-cols-[1fr_380px]" : ""}`}>
           {/* Left, copy */}
           <div>
             <FadeUp delay={0.03}>

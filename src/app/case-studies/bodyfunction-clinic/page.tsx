@@ -1,4 +1,4 @@
-import { buildMetadata } from "@/lib/metadata";
+﻿import { buildMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
@@ -59,7 +59,7 @@ export default function BodyfunctionCaseStudyPage() {
       <FAQSchema items={faqs} />
 
       {/* Hero */}
-      <section className="bg-[var(--color-paper)] pt-20 pb-20 lg:pt-28 lg:pb-32 overflow-hidden relative">
+      <section className="bg-[var(--color-paper)] pt-10 sm:pt-12 lg:pt-14 pb-20 sm:pb-24 lg:pb-28 overflow-hidden relative">
         {/* Subtle decorative background element */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--color-surface)] -z-10 skew-x-[-12deg] translate-x-20 hidden lg:block" />
         
@@ -107,7 +107,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.2}>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-white/20">
                   <Image
-                    src="https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-clinic-team-at-reception-01.png"
+                    src="/images/bodyfunction-clinic-team-at-reception-01.png"
                     alt="Bodyfunction Clinic team at reception"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
@@ -200,7 +200,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.1}>
                 <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-border)]">
                   <Image
-                    src="https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-clinic-neck-treatment-session-close.png"
+                    src="/images/bodyfunction-clinic-neck-treatment-session-close.png"
                     alt="Neck treatment session at Bodyfunction Clinic"
                     fill
                     className="object-cover"
@@ -389,7 +389,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.1}>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-[var(--color-border)]">
                   <Image
-                    src="https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-physiotherapy-strength-conditioning-floor-exercise-02.png"
+                    src="/images/bodyfunction-physiotherapy-strength-conditioning-floor-exercise-02.png"
                     alt="Physiotherapy strength and conditioning floor exercise"
                     fill
                     className="object-cover"
@@ -479,9 +479,9 @@ export default function BodyfunctionCaseStudyPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <section className="section bg-[var(--color-paper)] !pb-10">
         <div className="cx-main">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
                 <p className="eyebrow mb-5">FAQ</p>
@@ -490,7 +490,9 @@ export default function BodyfunctionCaseStudyPage() {
                 </h2>
               </div>
             </FadeUp>
-            <FAQAccordion items={faqs} />
+            <div className="bg-[var(--color-paper)] border border-[var(--color-border)] rounded-[var(--radius-card)] shadow-[var(--shadow-card)] px-6 sm:px-10 py-2">
+              <FAQAccordion items={faqs} />
+            </div>
           </div>
         </div>
       </section>

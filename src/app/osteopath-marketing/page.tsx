@@ -1,4 +1,4 @@
-import { buildMetadata } from "@/lib/metadata";
+﻿import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -10,6 +10,7 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
 import StatBand from "@/components/sections/StatBand";
+import Image from "next/image";
 
 export const metadata = buildMetadata({
   title: "Osteopath Marketing UK | Grow Your Osteopathy Practice",
@@ -52,24 +53,28 @@ const steps = [
     title: "Free clinic audit",
     description:
       "We assess your current online presence, website, Google rankings, and any paid campaigns, and identify the biggest growth opportunities specific to your practice.",
+    note: "Most clinic owners tell us the audit alone gave them useful clarity, even before we start any work together.",
   },
   {
     number: 2,
     title: "Custom growth strategy",
     description:
       "You receive a clear, prioritised plan covering which channels to focus on, what content to create, and how to convert more website visitors into booked appointments.",
+    note: "You'll see exactly what we'd focus on and why — no obligation to proceed.",
   },
   {
     number: 3,
     title: "Implementation & management",
     description:
       "We handle everything: technical SEO, content, Google Ads management, and reporting. You stay focused on patient care while we handle the marketing.",
+    note: "You focus on treating patients. We handle every technical and content detail.",
   },
   {
     number: 4,
     title: "Monthly reporting & refinement",
     description:
       "Every month you receive a plain-English report covering rankings, traffic, enquiries and ad performance. We continuously refine based on what's working.",
+    note: "No jargon, no vanity metrics — just numbers tied to enquiries and booked appointments.",
   },
 ];
 
@@ -117,36 +122,36 @@ export default function OsteopathMarketingPage() {
       {/* Why Clinic Evo for osteopaths */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 lg:gap-24 items-center">
             <FadeUp>
               <div>
                 <p className="eyebrow mb-5">Why Clinic Evo</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
                   Marketing that understands osteopathy
                 </h2>
-                <p className="text-body text-[var(--color-muted)] mb-5">
+                <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
                   Generic marketing agencies don&apos;t understand the nuances of
                   osteopathic care, the patient journey from acute pain to long-term
                   wellness, the role of word-of-mouth and referrals, or how patients
                   search when they&apos;re in discomfort.
                 </p>
-                <p className="text-body text-[var(--color-muted)] mb-8">
+                <p className="text-body text-[var(--color-muted)] mb-8 max-w-xl">
                   We work exclusively with musculoskeletal clinics. That means every
                   strategy, every piece of content, and every ad campaign is built
                   around what actually works for osteopaths in the UK.
                 </p>
-                <div className="flex flex-col gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
                   {[
-                    "Rank for 'osteopath near me' and condition-specific searches",
-                    "Google Ads targeting back pain, neck pain, and sports injury keywords",
-                    "Websites designed to convert visitors into booked appointments",
-                    "AI patient reactivation to bring lapsed patients back",
-                  ].map((point) => (
-                    <div key={point} className="flex items-start gap-3">
-                      <svg className="flex-shrink-0 mt-1 text-[var(--color-accent)]" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      <span className="text-body text-[var(--color-muted)]">{point}</span>
+                    { text: "Rank for 'osteopath near me' and condition-specific searches", icon: <><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L20 20"/></> },
+                    { text: "Google Ads targeting back pain, neck pain, and sports injury keywords", icon: <><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v4l3 2"/></> },
+                    { text: "Websites designed to convert visitors into booked appointments", icon: <><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></> },
+                    { text: "AI patient reactivation to bring lapsed patients back", icon: <><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0115-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 01-15 6.7L3 16"/></> },
+                  ].map((item) => (
+                    <div key={item.text} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 h-9 w-9 rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)] flex items-center justify-center">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
+                      </div>
+                      <span className="text-sm font-medium text-[var(--color-ink)] leading-snug pt-1">{item.text}</span>
                     </div>
                   ))}
                 </div>
@@ -159,13 +164,18 @@ export default function OsteopathMarketingPage() {
                 </h3>
                 <div className="flex flex-col gap-5">
                   {[
-                    { label: "Acute pain searches", desc: "Reaching people searching in discomfort who want to book quickly and locally." },
-                    { label: "Trust before booking", desc: "Explaining your approach, practitioners and treatment clearly so patients feel confident." },
-                    { label: "Long-term care plans", desc: "Supporting rebooking and maintenance visits, not just the first appointment." },
+                    { icon: <path d="M13 10V3L4 14h7v7l9-11h-7z"/>, label: "Acute pain searches", desc: "Reaching people searching in discomfort who want to book quickly and locally." },
+                    { icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>, label: "Trust before booking", desc: "Explaining your approach, practitioners and treatment clearly so patients feel confident." },
+                    { icon: <><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></>, label: "Long-term care plans", desc: "Supporting rebooking and maintenance visits, not just the first appointment." },
                   ].map((item) => (
-                    <div key={item.label}>
-                      <p className="font-semibold text-[var(--color-ink)] text-sm mb-1">{item.label}</p>
-                      <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
+                    <div key={item.label} className="flex items-start gap-4">
+                      <div className="flex-shrink-0 h-9 w-9 rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)] flex items-center justify-center">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-[var(--color-ink)] text-sm mb-1">{item.label}</p>
+                        <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -360,20 +370,36 @@ export default function OsteopathMarketingPage() {
                   enquiries threefold within 6 months through targeted local SEO and
                   a rebuilt, conversion-focused website.
                 </p>
-                <p className="text-body text-[var(--color-muted)] mb-6">
+                <p className="text-body text-[var(--color-muted)] mb-5">
                   The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> shows
                   how focused website, SEO and patient journey improvements support a
                   stronger private clinic growth strategy.
                 </p>
+                <blockquote className="border-l-2 border-[var(--color-accent)] pl-4 mb-6">
+                  <p className="text-body-lg text-[var(--color-ink)] italic mb-2">
+                    &ldquo;We&apos;d tried two agencies before. This was the first time someone actually understood how our patients think.&rdquo;
+                  </p>
+                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Sarah, Bodyfunction Clinic</cite>
+                </blockquote>
                 <ArrowLink href="/case-studies/bodyfunction-clinic/">
-                  Read the full case study
+                  Read the full clinic story
                 </ArrowLink>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="card-surface p-10 text-center">
-                <p className="text-display text-[var(--color-accent)] font-bold mb-2">3×</p>
-                <p className="text-body text-[var(--color-muted)]">new patient enquiries</p>
+              <div className="relative overflow-hidden rounded-[var(--radius-card)] shadow-[var(--shadow-card)]" style={{ aspectRatio: "4/3" }}>
+                <Image
+                  src="/images/bodyfunction-clinic-team-at-reception-01.png"
+                  alt="Bodyfunction Clinic — London osteopathy practice"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 via-[var(--color-ink)]/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="font-display font-bold text-4xl text-white mb-1">3×</p>
+                  <p className="text-sm text-white/90 font-medium">new patient enquiries in 6 months</p>
+                </div>
               </div>
             </FadeUp>
           </div>
@@ -389,9 +415,15 @@ export default function OsteopathMarketingPage() {
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 From audit to growing practice
               </h2>
-              <p className="text-body text-[var(--color-muted)]">
+              <p className="text-body text-[var(--color-muted)] mb-4">
                 A clear, transparent process with no jargon and no long lock-in
                 contracts.
+              </p>
+              <p className="text-body-sm text-[var(--color-muted)]">
+                Not ready to start?{" "}
+                <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline font-medium">
+                  See how it worked for a real clinic first.
+                </a>
               </p>
             </FadeUp>
             <div>
@@ -402,9 +434,9 @@ export default function OsteopathMarketingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <section className="section bg-[var(--color-paper)] !pb-10">
         <div className="cx-main">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <FadeUp>
               <div className="text-center mb-10">
                 <p className="eyebrow mb-5">FAQ</p>
@@ -413,14 +445,18 @@ export default function OsteopathMarketingPage() {
                 </h2>
               </div>
             </FadeUp>
-            <FAQAccordion items={faqs} />
+            <div className="bg-[var(--color-paper)] border border-[var(--color-border)] rounded-[var(--radius-card)] shadow-[var(--shadow-card)] px-6 sm:px-10 py-2">
+              <FAQAccordion items={faqs} />
+            </div>
           </div>
         </div>
       </section>
 
       <CTASection
         heading="Ready to grow your osteopathy practice?"
-        subheading="Book a free clinic audit and discover exactly what's holding your clinic back online."
+        subheading="Get a clear picture of your current visibility, website performance and missed enquiries — delivered within 2 business days."
+        primaryLabel="See what's holding your clinic back"
+        primaryHref="/free-clinic-audit/"
       />
     </>
   );

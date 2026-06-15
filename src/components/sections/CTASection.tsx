@@ -17,7 +17,7 @@ export default function CTASection({
   primaryHref = ctaNav.href,
 }: CTASectionProps) {
   return (
-    <section className="section grain bg-[var(--color-paper)] text-center">
+    <section className="section grain bg-[var(--color-paper)] text-center !pt-10">
       <div className="cx-main">
         <div
           className="mx-auto max-w-5xl px-8 py-16 md:px-16"
@@ -55,12 +55,15 @@ export default function CTASection({
                 {primaryLabel}
               </Link>
               {siteConfig.email && (
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="text-sm font-semibold text-[var(--color-muted)] transition-colors hover:text-[var(--color-ink)]"
-                >
-                  or email {siteConfig.email}
-                </a>
+                <span className="text-sm font-semibold text-[var(--color-muted)]">
+                  or email{" "}
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="transition-colors hover:text-[var(--color-ink)] underline underline-offset-2"
+                  >
+                    {siteConfig.email}
+                  </a>
+                </span>
               )}
             </div>
           </FadeUp>

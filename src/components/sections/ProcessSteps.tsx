@@ -4,6 +4,7 @@ interface Step {
   number: number;
   title: string;
   description: string;
+  note?: string;
 }
 
 interface ProcessStepsProps {
@@ -29,6 +30,9 @@ export default function ProcessSteps({ steps }: ProcessStepsProps) {
             <div className="pt-2 pb-2">
               <h3 className="text-h3 text-[var(--color-ink)] mb-1.5">{step.title}</h3>
               <p className="text-body text-[var(--color-muted)]">{step.description}</p>
+              {step.note && (
+                <p className="text-body-sm text-[var(--color-accent)] mt-2 italic">{step.note}</p>
+              )}
             </div>
           </li>
         </FadeUp>

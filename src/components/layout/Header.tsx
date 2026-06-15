@@ -186,7 +186,7 @@ export default function Header() {
 
                         {/* Mega-menu (grouped) — aligned with logo + CTA */}
                         {item.groups && openDropdown === item.label && (
-                          <div className="absolute top-full left-0 right-0 mt-2 z-10">
+                          <div className="absolute top-full left-6 right-6 mt-2 z-10">
                             <div className="mega-in bg-[var(--color-paper)] border border-[var(--color-border)] shadow-[var(--shadow-md)] rounded-[var(--radius-card)] overflow-hidden">
                               <div className="flex">
                                   <div className="grid grid-cols-3 gap-x-8 gap-y-6 p-8 flex-1">
@@ -262,7 +262,7 @@ export default function Header() {
 
                         {/* Simple dropdown (flat children) */}
                         {item.children && openDropdown === item.label && (
-                          <div className="absolute top-full left-0 mt-2 z-10">
+                          <div className="absolute top-full left-0 mt-3 z-10">
                             <ul className="mega-in w-72 bg-[var(--color-paper)] border border-[var(--color-border)] shadow-[var(--shadow-md)] rounded-[var(--radius-card)] overflow-hidden divide-y divide-[var(--color-border)]">
                               {item.children.map((child) => {
                                 const IconCmp = child.icon ? iconMap[child.icon] : null;
