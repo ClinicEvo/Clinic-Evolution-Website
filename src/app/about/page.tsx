@@ -1,4 +1,5 @@
 ﻿import Image from "next/image";
+import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
@@ -366,11 +367,16 @@ export default function AboutPage() {
               },
             ].map((s, i) => (
               <FadeUp key={s.href} delay={i * 0.05}>
-                <div className="card-surface p-6 h-full flex flex-col group">
+                <Link href={s.href} className="card-surface p-6 h-full flex flex-col group">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
-                  <ArrowLink href={s.href}>Learn more</ArrowLink>
-                </div>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                    Learn more
+                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
+                      <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </Link>
               </FadeUp>
             ))}
           </div>
@@ -418,7 +424,7 @@ export default function AboutPage() {
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="card-surface p-8">
+              <Link href="/case-studies/bodyfunction-clinic/" className="card-surface group block p-8">
                 <p className="text-label text-[var(--color-accent)] mb-5">Case study</p>
                 <h3 className="text-h3 text-[var(--color-ink)] mb-4">
                   Bodyfunction Clinic
@@ -428,10 +434,13 @@ export default function AboutPage() {
                   stronger patient journeys improved enquiries for a multi-discipline
                   clinic in London.
                 </p>
-                <ArrowLink href="/case-studies/bodyfunction-clinic/">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                   Read the Bodyfunction Clinic case study
-                </ArrowLink>
-              </div>
+                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
+                    <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </Link>
             </FadeUp>
           </div>
         </div>

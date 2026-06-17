@@ -1,4 +1,5 @@
-﻿import { buildMetadata } from "@/lib/metadata";
+﻿import Link from "next/link";
+import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -8,7 +9,7 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
-import HeroStatCard from "@/components/sections/HeroStatCard";
+import HeroImagePlaceholder from "@/components/sections/HeroImagePlaceholder";
 import StatBand from "@/components/sections/StatBand";
 import Image from "next/image";
 
@@ -107,16 +108,7 @@ export default function ChiropracticMarketingPage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See how it works", href: "#what-we-improve" }}
         breadcrumbs={crumbs}
-        rightPanel={
-          <HeroStatCard
-            title="Chiropractic results"
-            stats={[
-              { label: "Enquiry increase", value: "2.8×", note: "in the first 90 days" },
-              { label: "Local keyword rankings", value: "31", note: "top 3 positions" },
-              { label: "Avg patient LTV", value: "£2,800+", note: "long-term chiro patient" },
-            ]}
-          />
-        }
+        rightPanel={<HeroImagePlaceholder />}
       />
 
       {/* Problem and positioning */}
@@ -315,11 +307,16 @@ export default function ChiropracticMarketingPage() {
               },
             ].map((s, i) => (
               <FadeUp key={s.title} delay={i * 0.07}>
-                <div className="card-surface flex h-full flex-col p-7 md:p-8">
+                <Link href={s.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
-                  <ArrowLink href={s.href}>{s.cta}</ArrowLink>
-                </div>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                    {s.cta}
+                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
+                      <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </Link>
               </FadeUp>
             ))}
           </div>

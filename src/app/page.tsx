@@ -687,7 +687,7 @@ export default function HomePage() {
                 <p
                   className="eyebrow mb-4"
                 >
-                  Resources
+                  Learning Hub
                 </p>
                 <h2
                   className="font-display font-bold text-[var(--color-ink)]"
@@ -712,7 +712,7 @@ export default function HomePage() {
                 fontSize: "14px",
               }}
             >
-              View all resources
+              Visit the Learning Hub
             </Link>
           </div>
 

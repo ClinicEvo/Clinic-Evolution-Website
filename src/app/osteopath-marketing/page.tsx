@@ -1,4 +1,5 @@
-﻿import { buildMetadata } from "@/lib/metadata";
+﻿import Link from "next/link";
+import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
@@ -277,14 +278,19 @@ export default function OsteopathMarketingPage() {
               { title: "Free clinic audit", desc: "A clear, prioritised review of where your clinic is losing visibility, enquiries and rebookings.", href: "/free-clinic-audit/", cta: "Get a Free Clinic Audit", icon: <><path d="M5 12h14M13 6l6 6-6 6" /></> },
             ].map((s, i) => (
               <FadeUp key={s.title} delay={i * 0.07}>
-                <div className="card-surface flex h-full flex-col p-7 md:p-8">
+                <Link href={s.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
                   <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{s.icon}</svg>
                   </div>
                   <h3 className="text-h4 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
-                  <ArrowLink href={s.href}>{s.cta}</ArrowLink>
-                </div>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                    {s.cta}
+                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
+                      <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </Link>
               </FadeUp>
             ))}
           </div>

@@ -1,4 +1,5 @@
-﻿import { buildMetadata } from "@/lib/metadata";
+﻿import Link from "next/link";
+import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
@@ -186,14 +187,19 @@ export default function DigitalMarketingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {channels.map((c, i) => (
               <FadeUp key={c.title} delay={i * 0.07}>
-                <div className="card-surface group flex h-full flex-col p-7 md:p-8">
+                <Link href={c.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
                   <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{c.icon}</svg>
                   </div>
                   <h3 className="text-h4 text-[var(--color-ink)] mb-2">{c.title}</h3>
                   <p className="text-body text-[var(--color-muted)] flex-1 mb-5">{c.desc}</p>
-                  <ArrowLink href={c.href}>{c.cta}</ArrowLink>
-                </div>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                    {c.cta}
+                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
+                      <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </Link>
               </FadeUp>
             ))}
           </div>

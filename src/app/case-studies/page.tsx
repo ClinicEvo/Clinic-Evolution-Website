@@ -1,10 +1,10 @@
 import { buildMetadata } from "@/lib/metadata";
 import Image from "next/image";
+import Link from "next/link";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import Breadcrumb from "@/components/sections/Breadcrumb";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
-import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 
 
@@ -38,7 +38,7 @@ export default function CaseStudiesPage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <FadeUp>
-              <div className="card-surface overflow-hidden h-full flex flex-col group">
+              <Link href="/case-studies/bodyfunction-clinic/" className="card-surface overflow-hidden h-full flex flex-col group">
                 <div className="relative border-b border-[var(--color-border)] p-8 flex items-center justify-center min-h-[240px] overflow-hidden">
                   <Image
                     src="https://bodyfunction.co.uk/wp-content/uploads/2026/01/bodyfunction-clinic-team-at-reception-01.png"
@@ -62,11 +62,14 @@ export default function CaseStudiesPage() {
                     local competition. Through targeted SEO and a rebuilt website,
                     we built a stronger digital foundation for long-term growth.
                   </p>
-                  <ArrowLink href="/case-studies/bodyfunction-clinic/">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                     Read the case study
-                  </ArrowLink>
+                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
+                      <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
                 </div>
-              </div>
+              </Link>
             </FadeUp>
             
             {/* Placeholder for future case studies */}

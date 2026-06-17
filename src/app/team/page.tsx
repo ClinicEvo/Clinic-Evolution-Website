@@ -28,33 +28,29 @@ const team = [
   {
     name: "Danny Morgan",
     title: "Co-founder & Osteopath",
-    subtitle: "Founder of Bodyfunction Clinic",
     image: "/images/danny-morgan-angel-clinic.png",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/danny-morgan-a0137b39/",
     bio: "Danny founded Bodyfunction Clinic in London, where he still practises as an osteopath. Through building and running a successful MSK clinic, he developed first-hand understanding of what actually drives growth in private healthcare — local visibility, patient trust, enquiry handling, follow-up and the systems behind the patient journey. That direct clinical and business experience shapes every part of how Clinic Evo approaches clinic marketing.",
   },
   {
     name: "Simon Smith",
     title: "Co-founder & Digital Marketing Specialist",
-    subtitle: "Founder of Neometa",
     image: "/images/Simon-Smith.png",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/simon-smith-neometa/",
     bio: "Simon co-founded Clinic Evo after founding Neometa, a web design, SEO and digital marketing agency. A qualified osteopath, Simon brings clinical understanding to every digital decision — from how service pages are structured to how SEO, paid search, AI automation and conversion systems work together to grow a clinic sustainably.",
   },
   {
     name: "Joana Rita Vieira",
     title: "Creative Director",
-    subtitle: "Lorem ipsum consectetur",
     image: "/images/Joana-Rita-Vieira.jpg",
-    linkedin: "#",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+    linkedin: "https://www.linkedin.com/in/joana-rita-vieira/",
+    bio: "Joana leads creative direction at Clinic Evo, running her own design studio alongside the team. She shapes how every clinic's brand looks and feels online — from visual identity to the page-by-page design of each website — making sure the digital experience builds the same trust a patient would feel walking into the clinic itself.",
   },
   {
     name: "James Monty",
-    title: "Osteopath & Clinical Business Consultant",
-    subtitle: "Lorem ipsum consectetur",
-    image: "/images/james-monty.png",
-    linkedin: "#",
+    title: "Clinical Business Consultant & Osteopath",
+    image: "/images/james-monty.jpg",
+    linkedin: "https://www.linkedin.com/in/james-monty/",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.",
   },
 ];
@@ -125,11 +121,8 @@ export default function TeamPage() {
                     <h3 className="text-h3 text-[var(--color-ink)] leading-tight mb-1">
                       {member.name}
                     </h3>
-                    <p className="text-sm font-semibold text-[var(--color-accent)] mb-0.5">
+                    <p className="text-sm font-semibold text-[var(--color-accent)] mb-4">
                       {member.title}
-                    </p>
-                    <p className="text-xs text-[var(--color-muted)] mb-4">
-                      {member.subtitle}
                     </p>
 
                     {/* LinkedIn */}
