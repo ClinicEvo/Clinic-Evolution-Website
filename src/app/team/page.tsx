@@ -44,7 +44,7 @@ const team = [
     title: "Creative Director",
     image: "/images/Joana-Rita-Vieira.jpg",
     linkedin: "https://www.linkedin.com/in/joana-rita-vieira/",
-    bio: "Joana leads creative direction at Clinic Evo, running her own design studio alongside the team. She shapes how every clinic's brand looks and feels online — from visual identity to the page-by-page design of each website — making sure the digital experience builds the same trust a patient would feel walking into the clinic itself.",
+    bio: "Joana leads the visual and design direction at Clinic Evo, overseeing everything from brand identity to the page-by-page design of each clinic's website. Her focus is making sure the digital experience feels as trustworthy and considered as stepping into the clinic in person.",
   },
   {
     name: "James Monty",
