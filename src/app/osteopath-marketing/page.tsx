@@ -9,7 +9,7 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
-import HeroStatCard from "@/components/sections/HeroStatCard";
+import HeroImagePlaceholder from "@/components/sections/HeroImagePlaceholder";
 import StatBand from "@/components/sections/StatBand";
 import Image from "next/image";
 
@@ -108,16 +108,7 @@ export default function OsteopathMarketingPage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See how it works", href: "#what-we-improve" }}
         breadcrumbs={crumbs}
-        rightPanel={
-          <HeroStatCard
-            title="Osteopath clinic results"
-            stats={[
-              { label: "New patient enquiries", value: "2.4×", note: "6-month average" },
-              { label: "Avg cost per new patient", value: "£68", note: "osteo clinic average" },
-              { label: "Patient course value", value: "£900+", note: "typical care plan" },
-            ]}
-          />
-        }
+        rightPanel={<HeroImagePlaceholder />}
       />
 
       {/* Why Clinic Evo for osteopaths */}

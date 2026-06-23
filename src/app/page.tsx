@@ -6,6 +6,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ScenarioCards from "@/components/sections/ScenarioCards";
 import HeroVisual from "@/components/hero/HeroVisual";
 import HeroHeadline from "@/components/hero/HeroHeadline";
+import CTASection from "@/components/sections/CTASection";
 
 const ACCENT = "#ff5b4a";
 
@@ -609,74 +610,13 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section
+      <CTASection
         id="book-audit"
-        className="grain text-center section bg-[var(--color-paper)]"
-      >
-        <div className="cx-main">
-          <div
-            className="relative mx-auto max-w-5xl overflow-hidden py-16 px-8 md:px-16"
-            style={{
-              border: "1px solid var(--color-border)",
-              borderRadius: "var(--radius-panel)",
-              background: "#fff",
-              boxShadow: "var(--shadow-card)",
-            }}
-          >
-            <div className="aurora-cta pointer-events-none absolute -inset-[10px] opacity-55" aria-hidden="true" />
-            <div className="relative z-10">
-            <FadeUp>
-              <p
-                className="eyebrow mb-4"
-              >
-                Get started
-              </p>
-              <h2
-                className="text-h2 text-[var(--color-ink)] mx-auto mb-6 max-w-[680px]"
-              >
-                Find out where your clinic is losing patients.
-              </h2>
-              <p
-                className="mx-auto mb-10"
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: "17px",
-                  color: "var(--color-muted)",
-                  lineHeight: 1.7,
-                  maxWidth: "540px",
-                }}
-              >
-                Book a free clinic audit. We review your search visibility, website, enquiry handling and follow-up systems, then tell you honestly where patients are falling through the gaps. Back to you within two business days. No commitment. No agency jargon.
-              </p>
-              <Link
-                href="/free-clinic-audit/"
-                className="inline-flex items-center font-semibold text-white transition-all hover:bg-[var(--color-accent-dim)]"
-                style={{
-                  background: ACCENT,
-                  color: "white",
-                  padding: "15px 30px",
-                  borderRadius: "var(--radius-btn)",
-                  fontSize: "15px",
-                  fontFamily: "var(--font-display)",
-                }}
-              >
-                Book a free clinic audit
-              </Link>
-              <p
-                className="mt-5"
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: "13px",
-                  color: "var(--color-muted)",
-                }}
-              >
-                Specialist support for UK osteopaths, physiotherapists, chiropractors and MSK clinics.
-              </p>
-            </FadeUp>
-            </div>
-          </div>
-        </div>
-      </section>
+        heading="Find out where your clinic is losing patients."
+        subheading="Book a free clinic audit. We review your search visibility, website, enquiry handling and follow-up systems, then tell you honestly where patients are falling through the gaps. Back to you within two business days. No commitment. No agency jargon."
+        primaryLabel="Book a free clinic audit"
+        primaryHref="/free-clinic-audit/"
+      />
 
       {/* ── Resources ─────────────────────────────────────────────────────── */}
       <section className="section bg-[var(--color-paper)] border-t border-[var(--color-border)]">

@@ -8,6 +8,7 @@ interface CTASectionProps {
   subheading?: string;
   primaryLabel?: string;
   primaryHref?: string;
+  id?: string;
 }
 
 export default function CTASection({
@@ -15,9 +16,10 @@ export default function CTASection({
   subheading = "Book a free clinic audit. We review your diary, your search visibility, your enquiry handling and your follow-up systems, and tell you honestly where patients are falling through the gaps. Within two business days.",
   primaryLabel = ctaNav.label,
   primaryHref = ctaNav.href,
+  id,
 }: CTASectionProps) {
   return (
-    <section className="section grain bg-[var(--color-paper)] text-center !pt-10">
+    <section id={id} className="section grain bg-[var(--color-paper)] text-center !pt-10">
       <div className="cx-main">
         <div
           className="mx-auto max-w-5xl px-8 py-16 md:px-16"
