@@ -108,7 +108,7 @@ export default function PhysiotherapyMarketingPage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See how it works", href: "#what-we-improve" }}
         breadcrumbs={crumbs}
-        rightPanel={<HeroImagePlaceholder />}
+        rightPanel={<HeroImagePlaceholder src="/images/hero/physiotherapy-hero.jpg" alt="Physiotherapist treating a patient" />}
       />
 
       {/* Why Clinic Evo */}

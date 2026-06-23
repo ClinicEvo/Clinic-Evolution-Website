@@ -108,7 +108,7 @@ export default function ChiropracticMarketingPage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See how it works", href: "#what-we-improve" }}
         breadcrumbs={crumbs}
-        rightPanel={<HeroImagePlaceholder />}
+        rightPanel={<HeroImagePlaceholder src="/images/hero/chiropractor-hero.jpg" alt="Chiropractor treating a patient" />}
       />
 
       {/* Problem and positioning */}
