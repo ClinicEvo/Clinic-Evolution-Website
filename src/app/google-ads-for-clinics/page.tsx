@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
@@ -208,37 +209,88 @@ export default function GoogleAdsForClinicsPage() {
               </p>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="flex flex-col gap-5">
             {[
               {
                 title: "Physiotherapy clinics",
                 desc: "Google Ads can help promote high-value services, fill practitioner diaries, support new locations, and reach people looking for private care.",
                 href: "/physiotherapy-marketing/",
                 cta: "Physiotherapy Marketing",
+                watermarkImg: "/images/watermark-physio.jpg",
+                accentColor: "#0F766E",
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="2" y="10" width="3" height="4" rx="1" />
+                    <rect x="5" y="8" width="2" height="8" rx="1" />
+                    <line x1="7" y1="12" x2="17" y2="12" />
+                    <rect x="17" y="8" width="2" height="8" rx="1" />
+                    <rect x="19" y="10" width="3" height="4" rx="1" />
+                  </svg>
+                ),
               },
               {
                 title: "Osteopathy clinics",
                 desc: "Paid search can support local visibility, promote specific treatment pages, and capture people looking for help with pain, mobility and recurring issues.",
                 href: "/osteopath-marketing/",
                 cta: "Marketing for Osteopaths",
+                watermarkImg: "/images/watermark-osteopath.jpg",
+                accentColor: "#ff5b4a",
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="8" y="2" width="8" height="4" rx="1.5" />
+                    <path d="M9 6 Q12 7.5 15 6" />
+                    <rect x="7" y="8" width="10" height="4" rx="1.5" />
+                    <path d="M8 12 Q12 13.5 16 12" />
+                    <rect x="8" y="14" width="8" height="4" rx="1.5" />
+                    <path d="M10 18 Q12 21 14 18" />
+                  </svg>
+                ),
               },
               {
                 title: "Chiropractic clinics",
                 desc: "Google Ads can help reduce reliance on referrals and reach patients searching for treatment options in their area.",
                 href: "/chiropractic-marketing/",
                 cta: "Chiropractic Marketing",
+                watermarkImg: "/images/watermark-chiro.jpg",
+                accentColor: "#1E3A5F",
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 2 L12 7" />
+                    <rect x="9" y="7" width="6" height="10" rx="1.5" />
+                    <path d="M12 17 L12 22" />
+                    <path d="M2 12 L7 12" />
+                    <path d="M4.5 9.5 L7.5 12 L4.5 14.5" />
+                    <path d="M22 12 L17 12" />
+                    <path d="M19.5 9.5 L16.5 12 L19.5 14.5" />
+                  </svg>
+                ),
               },
             ].map((item, i) => (
-              <FadeUp key={item.href} delay={i * 0.07}>
-                <Link href={item.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
-                  <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{item.desc}</p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
-                    {item.cta}
-                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
-                      <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
+              <FadeUp key={item.href} delay={i * 0.09}>
+                <Link
+                  href={item.href}
+                  className="group flex flex-col sm:flex-row overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-[2px]"
+                  style={{ background: "var(--color-paper)" }}
+                >
+                  <div className="relative h-52 w-full flex-shrink-0 overflow-hidden sm:h-auto sm:w-64 lg:w-72">
+                    <Image src={item.watermarkImg} alt={item.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, 288px" />
+                    <div className="absolute inset-0 bg-[var(--color-ink)]/10" />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-center p-7 md:p-9 lg:p-10">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)]" style={{ background: "var(--color-accent-light)", color: "var(--color-accent)" }}>
+                        {item.icon}
+                      </div>
+                      <p className="eyebrow">{item.title}</p>
+                    </div>
+                    <p className="text-body-sm text-[var(--color-muted)] mb-6">{item.desc}</p>
+                    <span className="inline-flex items-center gap-2 transition-all group-hover:gap-3 group-hover:text-[var(--color-accent)]" style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-ink)", textDecoration: "underline", textUnderlineOffset: "4px" }}>
+                      {item.cta}
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </div>
                 </Link>
               </FadeUp>
             ))}

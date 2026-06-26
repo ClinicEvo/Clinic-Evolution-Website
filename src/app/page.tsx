@@ -112,7 +112,7 @@ const disciplineCards = [
 
 const systemStats = [
   { value: "2 min", label: "Typical first reply to a new enquiry" },
-  { value: "52", label: "Booked leads in a typical month" },
+  { value: "52", label: "Booked leads in a typical month — per treatment room" },
   { value: "1", label: "Connected system, not five disconnected tools" },
 ];
 
@@ -386,7 +386,7 @@ export default function HomePage() {
                       color: ACCENT,
                     }}
                   >
-                    342
+                    572
                   </p>
                   <p
                     style={{
