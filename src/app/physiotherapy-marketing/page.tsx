@@ -183,7 +183,7 @@ export default function PhysiotherapyMarketingPage() {
         heading="Specialist marketing that fills specialist diaries."
         body="From sports rehab to post-surgical care, we tie every channel back to booked appointments and patients who keep coming back."
         stats={[
-          { value: "+19", label: "Average increase in new patients per month" },
+          { value: "70%", label: "Average increase in new patients per month" },
           { value: "2.9×", label: "Average organic traffic growth over six months" },
           { value: "Top 3", label: "Google Maps ranking for local physio searches" },
         ]}
@@ -377,7 +377,7 @@ export default function PhysiotherapyMarketingPage() {
                   <p className="text-body-lg text-[var(--color-ink)] italic mb-2">
                     &ldquo;We&apos;d tried two agencies before. This was the first time someone actually understood how our patients think.&rdquo;
                   </p>
-                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Sarah, Bodyfunction Clinic</cite>
+                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Danny, Bodyfunction Clinic</cite>
                 </blockquote>
                 <ArrowLink href="/case-studies/bodyfunction-clinic/">
                   Read the full clinic story

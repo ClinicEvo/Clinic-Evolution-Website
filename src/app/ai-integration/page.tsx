@@ -249,14 +249,14 @@ export default function AiIntegrationPage() {
         stats={[
           { value: "£250", label: "Lost revenue per patient who drops out of a five-session course" },
           { value: "30 days", label: "Typical window to first return bookings once the system is live" },
-          { value: "3, 6, 12", label: "Month intervals at which lapsed patients are contacted" },
+          { value: "3, 6, 9, 12", label: "Month intervals at which lapsed patients are contacted" },
         ]}
       />
 
       {/* Proof band */}
       <ProofBand
         eyebrow="What reactivation returns"
-        quote="The follow-up system alone recovered 34 lapsed patients in the first month, from a database we thought was dead."
+        quote="The fully AI automated follow-up system alone recovered 34 lapsed patients in the first month, from a database we thought was dead."
       />
 
       {/* Responsible AI */}

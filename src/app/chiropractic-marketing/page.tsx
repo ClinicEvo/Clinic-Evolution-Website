@@ -180,7 +180,7 @@ export default function ChiropracticMarketingPage() {
         heading="Less reliance on referrals. More patients who find you first."
         body="We build the digital foundation that turns searches into enquiries and one-off visits into long-term chiropractic patients."
         stats={[
-          { value: "2.8×", label: "Average enquiry increase in the first 90 days" },
+          { value: "70%", label: "Average increase in new patients per month" },
           { value: "31", label: "Local keywords ranking in the top three positions" },
           { value: "£2,800+", label: "Average lifetime value of a long-term chiro patient" },
         ]}
@@ -412,7 +412,7 @@ export default function ChiropracticMarketingPage() {
                   <p className="text-body-lg text-[var(--color-ink)] italic mb-2">
                     &ldquo;We&apos;d tried two agencies before. This was the first time someone actually understood how our patients think.&rdquo;
                   </p>
-                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Sarah, Bodyfunction Clinic</cite>
+                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Danny, Bodyfunction Clinic</cite>
                 </blockquote>
                 <ArrowLink href="/case-studies/bodyfunction-clinic/">
                   Read the full clinic story

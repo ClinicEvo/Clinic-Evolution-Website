@@ -268,7 +268,7 @@ export default function WebsiteDesignForClinicsPage() {
       {/* SEO and conversion */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
-          <div className="max-w-3xl">
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-20 items-center">
             <FadeUp>
               <p className="eyebrow mb-5">SEO-first design</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
@@ -287,6 +287,17 @@ export default function WebsiteDesignForClinicsPage() {
                 <a href="/ai-integration/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
                 once the website foundation is clear.
               </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="rounded-[var(--radius-card)] overflow-hidden border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                <Image
+                  src="/images/seo-first-design.png"
+                  alt="Google Analytics chart showing organic search as the dominant source of new clinic patients"
+                  width={526}
+                  height={338}
+                  className="w-full h-auto"
+                />
+              </div>
             </FadeUp>
           </div>
         </div>

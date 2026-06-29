@@ -11,6 +11,7 @@ import ProofBand from "@/components/sections/ProofBand";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import CallCostCalculator from "@/components/sections/CallCostCalculator";
+import Image from "next/image";
 
 export const metadata = buildMetadata({
   title: "Call Handling & Booking for MSK Clinics, Inbound & Outbound",
@@ -114,6 +115,17 @@ export default function CallCentrePage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "How it works", href: "#how-it-works" }}
         breadcrumbs={crumbs}
+        rightPanel={
+          <div className="overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+            <Image
+              src="/images/aircall.png"
+              alt="Aircall call handling interface used by Clinic Evo"
+              width={800}
+              height={600}
+              className="w-full h-auto"
+            />
+          </div>
+        }
       />
 
       {/* The cost of a missed call */}

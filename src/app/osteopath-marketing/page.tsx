@@ -183,7 +183,7 @@ export default function OsteopathMarketingPage() {
         heading="Growth measured in booked patients, not rankings alone."
         body="Every channel we run is tied back to new enquiries and filled diaries, the numbers that actually move an osteopathy practice forward."
         stats={[
-          { value: "+23", label: "Average increase in new patients per month" },
+          { value: "70%", label: "Average increase in new patients per month" },
           { value: "3.1×", label: "Average organic traffic growth over six months" },
           { value: "Top 3", label: "Google Maps ranking for local osteopath searches" },
         ]}
@@ -376,7 +376,7 @@ export default function OsteopathMarketingPage() {
                   <p className="text-body-lg text-[var(--color-ink)] italic mb-2">
                     &ldquo;We&apos;d tried two agencies before. This was the first time someone actually understood how our patients think.&rdquo;
                   </p>
-                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Sarah, Bodyfunction Clinic</cite>
+                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Danny, Bodyfunction Clinic</cite>
                 </blockquote>
                 <ArrowLink href="/case-studies/bodyfunction-clinic/">
                   Read the full clinic story

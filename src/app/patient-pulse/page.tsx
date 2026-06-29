@@ -209,9 +209,9 @@ export default function PatientPulsePage() {
         heading="The clinic that replies first books the patient."
         body="Patient Pulse closes the gap between enquiry and response, then keeps every lead and lapsed patient in contact automatically."
         stats={[
-          { value: "<5 min", label: "Automatic first response to every new enquiry, day or night" },
+          { value: "15 min", label: "Automatic first response to every new enquiry, day or night" },
           { value: "12 mo", label: "Nurture sequences that keep not-yet-ready leads warm" },
-          { value: "3, 6, 12", label: "Month intervals at which lapsed patients are reactivated" },
+          { value: "3, 6, 9, 12", label: "Month intervals at which lapsed patients are reactivated" },
         ]}
       />
 

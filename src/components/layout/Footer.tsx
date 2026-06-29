@@ -92,7 +92,7 @@ export default function Footer() {
           </div>
 
           {/* Who We Help */}
-          <div>
+          <div className="lg:pl-12">
             <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] mb-3" style={{ color: ACCENT }}>Who We Help</h3>
             <ul className="flex flex-col gap-2" role="list">
               {footerNav.whoWeHelp.map((item) => (

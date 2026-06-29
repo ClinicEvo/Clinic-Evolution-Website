@@ -1,7 +1,8 @@
+import React from "react";
 import FadeUp from "@/components/ui/FadeUp";
 
 interface Stat {
-  value: string;
+  value: React.ReactNode;
   label: string;
 }
 
@@ -39,7 +40,7 @@ function Band({ eyebrow, heading, body, stats }: Omit<StatBandProps, "bare">) {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex items-baseline gap-5 py-5 first:pt-0 lg:first:pt-5"
+              className="flex items-center gap-5 py-5 first:pt-0 lg:first:pt-5"
             >
               <span className="shrink-0 whitespace-nowrap font-display text-4xl font-semibold leading-none text-[var(--color-accent)] md:text-5xl">
                 {stat.value}

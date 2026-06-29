@@ -36,7 +36,7 @@ export default function PageHero({
           </FadeUp>
         )}
 
-        <div className={`grid gap-12 lg:gap-16 items-center ${breadcrumbs ? "mt-6" : ""} ${rightPanel ? "lg:grid-cols-[1fr_380px]" : ""}`}>
+        <div className={`grid gap-12 lg:gap-16 items-center ${breadcrumbs ? "mt-6" : ""} ${rightPanel ? "lg:grid-cols-[1fr_480px]" : ""}`}>
           {/* Left, copy */}
           <div>
             <FadeUp delay={0.03}>
