@@ -10,7 +10,6 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
 import ProofBand from "@/components/sections/ProofBand";
-import AdsMockup from "@/components/sections/mockups/AdsMockup";
 
 export const metadata = buildMetadata({
   title: "Google Ads for Physios & Clinics",
@@ -109,13 +108,25 @@ export default function GoogleAdsForClinicsPage() {
         primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See how it works", href: "#what-we-manage" }}
         breadcrumbs={crumbs}
-        rightPanel={<AdsMockup />}
+        rightPanelWidth="1.2fr"
+        rightPanel={
+          <div className="relative aspect-[997/340] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+            <Image
+              src="/images/google-ads/ads-graph.png"
+              alt="Google Ads performance report showing 929 clicks, £3.78k cost, 89 conversions and £42.50 cost per conversion"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 1024px) 100vw, 55vw"
+            />
+          </div>
+        }
       />
 
       {/* Patient search intent */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="max-w-3xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
               <p className="eyebrow mb-5">Patient intent</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
@@ -138,6 +149,23 @@ export default function GoogleAdsForClinicsPage() {
                 broad traffic.
               </p>
             </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="card-surface p-5 md:p-6 max-w-md mx-auto lg:ml-auto lg:mr-0">
+                <div className="relative aspect-[483/368] overflow-hidden rounded-[var(--radius-sm)]">
+                  <Image
+                    src="/images/google-ads/google-ad.png"
+                    alt="Live Google Ad for an osteopathy clinic, with 2,646 impressions, 206 clicks and a 7.79% click-through rate"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 100vw, 440px"
+                  />
+                </div>
+                <p className="mt-4 text-body-sm text-[var(--color-muted)]">
+                  A real clinic ad, matched to a specific search, a specific
+                  location and a specific service, not a generic healthcare message.
+                </p>
+              </div>
+            </FadeUp>
           </div>
         </div>
       </section>
@@ -145,19 +173,38 @@ export default function GoogleAdsForClinicsPage() {
       {/* Why campaigns waste money */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
-          <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">Common mistakes</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                Why clinic PPC campaigns often waste money
-              </h2>
-              <p className="text-body-lg text-[var(--color-charcoal)]">
-                Many clinics try Google Ads and decide it does not work. In
-                reality, the problem is often the campaign structure, the landing
-                page, or the tracking.
-              </p>
-            </div>
-          </FadeUp>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start mb-12">
+            <FadeUp>
+              <div className="max-w-2xl">
+                <p className="eyebrow mb-4">Common mistakes</p>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-4">
+                  Why clinic PPC campaigns often waste money
+                </h2>
+                <p className="text-body-lg text-[var(--color-charcoal)]">
+                  Many clinics try Google Ads and decide it does not work. In
+                  reality, the problem is often the campaign structure, the landing
+                  page, or the tracking.
+                </p>
+              </div>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="card-surface p-5 md:p-6 max-w-md mx-auto lg:ml-auto lg:mr-0" style={{ background: "var(--color-paper)" }}>
+                <div className="relative aspect-[494/356] overflow-hidden rounded-[var(--radius-sm)]">
+                  <Image
+                    src="/images/google-ads/google-ppc.png"
+                    alt="Google Ads auction insights showing the clinic at 70% impression share, far ahead of competing clinics under 10%"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 100vw, 440px"
+                  />
+                </div>
+                <p className="mt-4 text-body-sm text-[var(--color-muted)]">
+                  A well-structured account can dominate the auction. Here the
+                  clinic holds 70% impression share, against competitors under 10%.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               {

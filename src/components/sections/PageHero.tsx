@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
 import Breadcrumb from "@/components/sections/Breadcrumb";
@@ -14,6 +14,7 @@ interface PageHeroProps {
   rightPanel?: ReactNode;
   breadcrumbs?: Array<{ label: string; href: string }>;
   compactBottom?: boolean;
+  rightPanelWidth?: string;
 }
 
 export default function PageHero({
@@ -26,6 +27,7 @@ export default function PageHero({
   rightPanel,
   breadcrumbs,
   compactBottom,
+  rightPanelWidth = "480px",
 }: PageHeroProps) {
   return (
     <section className={`grain bg-[var(--color-paper)] pt-10 sm:pt-12 lg:pt-14 ${compactBottom ? "pb-6 lg:pb-8" : "pb-20 sm:pb-24 lg:pb-28"}`}>
@@ -36,7 +38,10 @@ export default function PageHero({
           </FadeUp>
         )}
 
-        <div className={`grid gap-12 lg:gap-16 items-center ${breadcrumbs ? "mt-6" : ""} ${rightPanel ? "lg:grid-cols-[1fr_480px]" : ""}`}>
+        <div
+          className={`grid gap-12 lg:gap-16 items-center ${breadcrumbs ? "mt-6" : ""} ${rightPanel ? "lg:grid-cols-[var(--hero-right-w)]" : ""}`}
+          style={rightPanel ? ({ "--hero-right-w": `1fr ${rightPanelWidth}` } as CSSProperties) : undefined}
+        >
           {/* Left, copy */}
           <div>
             <FadeUp delay={0.03}>

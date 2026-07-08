@@ -10,7 +10,6 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
 import ProofBand from "@/components/sections/ProofBand";
-import SerpMockup from "@/components/sections/mockups/SerpMockup";
 
 export const metadata = buildMetadata({
   title: "SEO for Medical Clinics | Specialist Clinic SEO",
@@ -103,13 +102,25 @@ export default function SeoForClinicsPage() {
         primaryCta={{ label: "Get a free clinic SEO audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See how clinic SEO works", href: "#what-we-improve" }}
         breadcrumbs={crumbs}
-        rightPanel={<SerpMockup />}
+        rightPanelWidth="1.15fr"
+        rightPanel={
+          <div className="relative aspect-[2028/774] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+            <Image
+              src="/images/seo-for-clinics/seo-graph.png"
+              alt="Google Search Console performance report showing clicks and impressions climbing over three months"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 1024px) 100vw, 55vw"
+            />
+          </div>
+        }
       />
 
       {/* Positioning */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="max-w-3xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
               <p className="eyebrow mb-5">Why clinic SEO is different</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
@@ -131,6 +142,23 @@ export default function SeoForClinicsPage() {
               <p className="text-body text-[var(--color-muted)]">
                 Clinic Evo builds SEO around that patient journey.
               </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="card-surface p-5 md:p-6 max-w-md mx-auto lg:ml-auto lg:mr-0">
+                <div className="relative aspect-[660/446] overflow-hidden rounded-[var(--radius-sm)]">
+                  <Image
+                    src="/images/seo-for-clinics/seo-organic-search.png"
+                    alt="SEO tool report showing 1.2K organic keywords and 3.4K organic traffic, against zero paid keywords and paid traffic"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 100vw, 440px"
+                  />
+                </div>
+                <p className="mt-4 text-body-sm text-[var(--color-muted)]">
+                  Real organic growth, not paid clicks. Rankings and traffic Clinic Evo
+                  clients earn through search, with zero paid spend behind them.
+                </p>
+              </div>
             </FadeUp>
           </div>
         </div>
@@ -382,7 +410,7 @@ export default function SeoForClinicsPage() {
       {/* Patient acquisition */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
-          <div className="max-w-3xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <FadeUp>
               <p className="eyebrow mb-5">Growth</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
@@ -403,6 +431,23 @@ export default function SeoForClinicsPage() {
                 <a href="/ai-integration/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
                 for people already in your database.
               </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="card-surface p-5 md:p-6 max-w-md mx-auto lg:ml-auto lg:mr-0" style={{ background: "var(--color-paper)" }}>
+                <div className="relative aspect-[539/400] overflow-hidden rounded-[var(--radius-sm)]">
+                  <Image
+                    src="/images/seo-for-clinics/seo-new-users.png"
+                    alt="Analytics report showing organic search generating far more new users than direct, paid search, social or referral channels combined"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 100vw, 440px"
+                  />
+                </div>
+                <p className="mt-4 text-body-sm text-[var(--color-muted)]">
+                  Organic search is consistently the largest source of new patients,
+                  ahead of direct, paid, social and referral traffic combined.
+                </p>
+              </div>
             </FadeUp>
           </div>
 

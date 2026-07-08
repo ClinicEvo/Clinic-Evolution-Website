@@ -1,4 +1,5 @@
 ﻿import { ReactNode } from "react";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
@@ -10,7 +11,6 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import StatBand from "@/components/sections/StatBand";
 import ProofBand from "@/components/sections/ProofBand";
 import FAQAccordion from "@/components/sections/FAQAccordion";
-import PatientPulseMockup from "@/components/sections/PatientPulseMockup";
 
 export const metadata = buildMetadata({
   title: "Patient Pulse, Lead Management & Follow-Up for MSK Clinics",
@@ -69,12 +69,14 @@ const features: Feature[] = [
     icon: <path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17l-6.9 3.5 1.6-6.8L1.4 9.1l7-.6z" />,
   },
   {
-    title: "Lapsed patient reactivation",
-    desc: "Patients who haven't been seen in 3, 6 or 12 months are contacted automatically, before they find a different clinic.",
+    title: "Social media, all in one place",
+    desc: "Instagram and Facebook messages land in the same inbox as SMS, WhatsApp and email, with AI able to draft or send the first reply and follow up automatically until the patient books.",
     icon: (
       <>
-        <path d="M21 12a9 9 0 11-3-6.7L21 8" />
-        <path d="M21 3v5h-5" />
+        <circle cx="18" cy="5" r="2.5" />
+        <circle cx="6" cy="12" r="2.5" />
+        <circle cx="18" cy="19" r="2.5" />
+        <path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4" />
       </>
     ),
   },
@@ -138,34 +140,59 @@ export default function PatientPulsePage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See all features", href: "#features" }}
         breadcrumbs={crumbs}
-        rightPanel={<PatientPulseMockup />}
+        rightPanelWidth="1.15fr"
+        rightPanel={
+          <div className="relative aspect-[1826/876] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+            <Image
+              src="/images/patient-pulse/pp-opportunities.png"
+              alt="Patient Pulse opportunities pipeline with thousands of leads staged from first call to booked appointment, each with a value attached"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 1024px) 100vw, 55vw"
+            />
+          </div>
+        }
       />
 
       {/* The problem */}
       <section className="section bg-[var(--color-paper)]">
-        <div className="cx-main max-w-3xl">
-          <FadeUp>
-            <p className="eyebrow mb-5">Why follow-up matters</p>
-            <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-              The clinic that responds first gets the booking
-            </h2>
-            <p className="text-body text-[var(--color-muted)] mb-5">
-              Every new enquiry, whether it arrives through Google at 2pm or a Facebook
-              ad at 11pm, needs a response within minutes. Not the next morning.
-              The first clinic to respond wins the appointment, regardless of which clinic
-              is better.
-            </p>
-            <p className="text-body text-[var(--color-muted)] mb-5">
-              Most clinics respond manually, during business hours, when they remember.
-              Patient Pulse removes that dependency entirely. The system responds automatically,
-              immediately, every time, whether the practitioner is in a treatment room,
-              at lunch, or completely offline.
-            </p>
-            <p className="text-body text-[var(--color-muted)]">
-              The result is a consistent, professional first impression that immediately
-              separates your clinic from every competitor who replies hours later.
-            </p>
-          </FadeUp>
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+            <FadeUp>
+              <p className="eyebrow mb-5">Why follow-up matters</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                The clinic that responds first gets the booking
+              </h2>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                Every new enquiry, whether it arrives through Google at 2pm or a Facebook
+                ad at 11pm, needs a response within minutes. Not the next morning.
+                The first clinic to respond wins the appointment, regardless of which clinic
+                is better.
+              </p>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                Most clinics respond manually, during business hours, when they remember.
+                Patient Pulse removes that dependency entirely. The system responds automatically,
+                immediately, every time, whether the practitioner is in a treatment room,
+                at lunch, or completely offline.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                The result is a consistent, professional first impression that immediately
+                separates your clinic from every competitor who replies hours later.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="relative aspect-[1917/918] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                <Image
+                  src="/images/patient-pulse/pp-conversations.png"
+                  alt="Patient Pulse team inbox showing an automatic reply, a patient confirming with 'Yes', and the opportunity moving straight to a booked appointment"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
@@ -200,6 +227,42 @@ export default function PatientPulsePage() {
               </FadeUp>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Nurture automation */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+            <FadeUp>
+              <p className="eyebrow mb-5">Nurture, automated</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                Not every lead is ready to book today
+              </h2>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                Leads that don&apos;t convert immediately are entered into a
+                structured nurture workflow, tagged, timed and staged automatically,
+                so they keep hearing from your clinic without anyone having to
+                remember to follow up.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                This is a real 52-week nurture sequence built inside Patient Pulse,
+                running quietly in the background for every lead that isn&apos;t
+                ready yet.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="relative aspect-[1913/903] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                <Image
+                  src="/images/patient-pulse/pp-workflow.png"
+                  alt="Patient Pulse automation builder showing a 52-week nurture workflow with tag triggers, wait steps and scheduled emails"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </FadeUp>
+          </div>
         </div>
       </section>
 

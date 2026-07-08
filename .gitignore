@@ -30,6 +30,9 @@ yarn-error.log*
 # Vercel
 .vercel
 
+# Oversized video, pending compression (>100MB GitHub limit)
+/public/videos/social-ads-arthritis-55plus.mp4
+
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts

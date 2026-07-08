@@ -18,10 +18,7 @@ const crumbs = [
 ];
 
 const LinkedInIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
+  <img src="/images/linkedin.svg" alt="" aria-hidden="true" width={18} height={18} />
 );
 
 const team = [
@@ -35,7 +32,7 @@ const team = [
   {
     name: "Simon Smith",
     title: "Co-founder & Digital Marketing Specialist",
-    image: "/images/Simon-Smith.png",
+    image: "/images/simon-smith.jpg",
     linkedin: "https://www.linkedin.com/in/simon-smith-neometa/",
     bio: "Simon co-founded Clinic Evo after founding Neometa, a web design, SEO and digital marketing agency. A qualified osteopath, Simon brings clinical understanding to every digital decision — from how service pages are structured to how SEO, paid search, AI automation and conversion systems work together to grow a clinic sustainably.",
   },
@@ -51,7 +48,7 @@ const team = [
     title: "Clinical Business Consultant & Osteopath",
     image: "/images/james-monty.jpg",
     linkedin: "https://www.linkedin.com/in/james-monty/",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.",
+    bio: "James is a practising osteopath who helped grow a London clinic from one room to over £10k a month. After Crohn's disease took him away from hands-on practice, he retrained in AI, automation and digital marketing. Still registered, he helps clinics turn websites, reviews and follow-up into fuller diaries.",
   },
 ];
 

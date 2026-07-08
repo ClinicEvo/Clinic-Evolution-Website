@@ -7,11 +7,10 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import PageHero from "@/components/sections/PageHero";
 import StatBand from "@/components/sections/StatBand";
-import HeroStatCard from "@/components/sections/HeroStatCard";
-import ProofBand from "@/components/sections/ProofBand";
 import PatientFunnel from "@/components/sections/PatientFunnel";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import FAQSchema from "@/components/schema/FAQSchema";
+import PhoneVideoMockup from "@/components/sections/PhoneVideoMockup";
 
 export const metadata = buildMetadata({
   title: "Digital Marketing for MSK Clinics, Coordinated Growth",
@@ -62,11 +61,11 @@ const channels = [
     icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />,
   },
   {
-    title: "AI patient reactivation",
-    desc: "Lapsed patients contacted automatically at 3, 6 and 12 months. Review requests timed to positive sessions.",
-    href: "/ai-integration/",
-    cta: "AI Patient Reactivation",
-    icon: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
+    title: "Social media paid ads",
+    desc: "Facebook and Instagram campaigns targeting local MSK patients by condition, age and location, built to fill specific treatment slots rather than chase generic brand awareness.",
+    href: "/google-ads-for-clinics/",
+    cta: "Paid Ads for Clinics",
+    icon: <><rect x="3" y="3" width="18" height="18" rx="4" /><circle cx="12" cy="12" r="4" /><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" /></>,
   },
 ];
 
@@ -128,15 +127,18 @@ export default function DigitalMarketingPage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See all services", href: "#services" }}
         breadcrumbs={crumbs}
+        rightPanelWidth="1.1fr"
         rightPanel={
-          <HeroStatCard
-            title="One connected system"
-            stats={[
-              { label: "Growth channels", value: "6", note: "coordinated under one plan" },
-              { label: "Visitor to booking", value: "2.1×", note: "vs single-channel setups" },
-              { label: "Built for", value: "MSK", note: "clinics only, never generic" },
-            ]}
-          />
+          <div className="relative aspect-[1258/591] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+            <Image
+              src="/images/digital-marketing/digital-marketing-hero.png"
+              alt="Meta Ads Manager dashboard showing coordinated campaign results across a clinic's growth channels"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 1024px) 100vw, 55vw"
+            />
+          </div>
         }
       />
 
@@ -206,6 +208,39 @@ export default function DigitalMarketingPage() {
         </div>
       </section>
 
+      {/* Paid social media */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
+            <FadeUp>
+              <p className="eyebrow mb-5">Facebook, Instagram, TikTok, Meta</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                Paid social media built around real patient conditions
+              </h2>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                Search captures people already looking for treatment. Paid social
+                reaches people who haven&apos;t started searching yet, but who
+                match your ideal patient: the right age, the right condition, the
+                right location.
+              </p>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                Clinic Evo builds Meta campaigns across Facebook, Instagram and
+                TikTok around specific conditions and audiences, rather than
+                generic clinic awareness, so the message actually speaks to the
+                person watching it.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                This is a real clinic ad, targeting patients aged 55 and over
+                about arthritis, exactly how it appears in a patient&apos;s feed.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <PhoneVideoMockup src="/videos/social-ads-arthritis-55plus.mp4" />
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
       {/* Proof band */}
       <StatBand
         eyebrow="One connected system"
@@ -240,11 +275,48 @@ export default function DigitalMarketingPage() {
         </div>
       </section>
 
-      {/* Proof band */}
-      <ProofBand
-        eyebrow="What a connected system looks like"
-        quote="We went from page 4 to position 1 in 11 weeks, and the follow-up system recovered 34 lapsed patients in the first month. It finally works as one thing."
-      />
+      {/* Real ad proof */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+            <FadeUp>
+              <p className="eyebrow mb-5">Real campaign, real clinic</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                A closer look at our paid social in practice
+              </h2>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                This is a live Facebook and Instagram ad currently running for
+                Bodyfunction Clinic in Islington. Rather than stock photography, it
+                features the practitioners patients actually meet, paired with the
+                trust signal that tends to matter most locally: real recommendations
+                from people nearby.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                Every social ad Clinic Evo builds is connected to the same system.
+                The click leads to a page designed to convert, the enquiry receives
+                an automatic reply within minutes, and the outcome is tracked
+                through to a booked appointment, not just a like or a click.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="card-surface p-5 md:p-6 max-w-md mx-auto lg:ml-auto lg:mr-0">
+                <div className="relative aspect-[940/788] overflow-hidden rounded-[var(--radius-sm)]">
+                  <Image
+                    src="/images/digital-marketing/ad-example.png"
+                    alt="Live Facebook and Instagram ad for Bodyfunction Clinic in Islington, featuring the real clinic team and the message: the treatment more Islington locals are recommending to friends"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 440px"
+                  />
+                </div>
+                <p className="mt-4 text-body-sm text-[var(--color-muted)]">
+                  An actual, currently running ad for Bodyfunction Clinic.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
 
       {/* Who we help */}
       <section className="section bg-[var(--color-paper)]">
