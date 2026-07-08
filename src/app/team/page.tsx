@@ -6,7 +6,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import PageHero from "@/components/sections/PageHero";
 
 export const metadata = buildMetadata({
-  title: "Meet the Team | Clinic Evo",
+  title: "Meet the Team",
   description:
     "The people behind Clinic Evo — osteopaths and digital specialists who understand private healthcare from the inside.",
   path: "/team/",

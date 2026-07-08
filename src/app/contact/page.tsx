@@ -5,7 +5,7 @@ import PageHero from "@/components/sections/PageHero";
 
 
 export const metadata = buildMetadata({
-  title: "Contact Clinic Evo | Clinic Marketing Support",
+  title: "Contact Us | Clinic Marketing Support",
   description:
     "Contact Clinic Evo to discuss SEO, website design, Google Ads, patient reactivation or digital growth support for your osteopathy, physiotherapy or chiropractic clinic.",
   path: "/contact/",

@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Clinic Evo",
   legalName: "Clinic Evolution Ltd",
   tagline: "Clinic Marketing Agency UK",
-  url: "https://clinicevolution.com",
+  url: "https://www.clinicevolution.com",
   email: "hello@clinicevolution.com",
   // TODO: Add phone number when confirmed
   phone: "",

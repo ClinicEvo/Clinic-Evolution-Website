@@ -8,7 +8,7 @@ import PageHero from "@/components/sections/PageHero";
 
 
 export const metadata = buildMetadata({
-  title: "Free Clinic Marketing Audit | Clinic Evo",
+  title: "Free Clinic Marketing Audit",
   description:
     "Request a free Clinic Evo audit for your clinic website, SEO, local visibility, patient journey and missed enquiry opportunities. Built for UK osteopaths, physios and chiropractors.",
   path: "/free-clinic-audit/",

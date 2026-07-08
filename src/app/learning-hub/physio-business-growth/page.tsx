@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Physio Business Growth: The Complete Guide | Clinic Evo",
+  title: "Physio Business Growth: The Complete Guide",
   description:
     "A guide for physiotherapy clinic owners who want to improve patient acquisition, local visibility and diary flow.",
   path: "/learning-hub/physio-business-growth/",

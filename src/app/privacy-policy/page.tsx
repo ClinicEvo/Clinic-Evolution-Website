@@ -4,7 +4,7 @@ import FadeUp from "@/components/ui/FadeUp";
 import Link from "next/link";
 
 export const metadata = buildMetadata({
-  title: "Privacy Policy | Clinic Evo",
+  title: "Privacy Policy",
   description:
     "Read the Clinic Evo privacy policy to understand how we collect, use, store and protect personal data when you use our website or contact us.",
   path: "/privacy-policy/",
@@ -96,7 +96,7 @@ export default function PrivacyPolicyPage() {
                   <div className="article-prose">
                     <p>Clinic Evo provides digital growth, website, SEO, Google Ads and patient reactivation support for private clinics, including osteopaths, physiotherapists and chiropractors.</p>
                     <p>For the purposes of this privacy policy, the data controller is Clinic Evolution Ltd, trading as Clinic Evo.</p>
-                    <p>Website: <a href="https://clinicevolution.com">clinicevolution.com</a><br />Email: <a href="mailto:hello@clinicevolution.com">hello@clinicevolution.com</a></p>
+                    <p>Website: <a href="https://www.clinicevolution.com">www.clinicevolution.com</a><br />Email: <a href="mailto:hello@clinicevolution.com">hello@clinicevolution.com</a></p>
                     <p>If you have any questions about this privacy policy or how we use your personal data, contact us at <a href="mailto:hello@clinicevolution.com">hello@clinicevolution.com</a>.</p>
                   </div>
                 </article>

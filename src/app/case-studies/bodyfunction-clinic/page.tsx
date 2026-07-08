@@ -12,7 +12,7 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import { ClinicGrowthStats, SEOVisibilityMetrics, PatientConversionFunnel } from "@/components/case-studies/CaseStudyCharts";
 
 export const metadata = buildMetadata({
-  title: "Physio Marketing Case Study | Bodyfunction Clinic | Clinic Evo",
+  title: "Physio Marketing Case Study | Bodyfunction Clinic",
   description:
     "See how Clinic Evo improved the digital growth foundations for Bodyfunction Clinic through clearer website structure, SEO-led service pages, stronger patient journeys and clinic marketing strategy.",
   path: "/case-studies/bodyfunction-clinic/",

@@ -4,7 +4,7 @@ import FadeUp from "@/components/ui/FadeUp";
 import Link from "next/link";
 
 export const metadata = buildMetadata({
-  title: "Terms | Clinic Evo",
+  title: "Terms",
   description:
     "Read the terms for using the Clinic Evo website and enquiring about our clinic marketing, SEO, website design, Google Ads and patient reactivation services.",
   path: "/terms/",

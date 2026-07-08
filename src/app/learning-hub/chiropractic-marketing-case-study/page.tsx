@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Chiropractic Marketing Case Study | Clinic Evo",
+  title: "Chiropractic Marketing Case Study",
   description:
     "An overview of the digital marketing approach Clinic Evo applies to chiropractic clinics, covering website structure, SEO, patient journey and enquiry growth.",
   path: "/learning-hub/chiropractic-marketing-case-study/",

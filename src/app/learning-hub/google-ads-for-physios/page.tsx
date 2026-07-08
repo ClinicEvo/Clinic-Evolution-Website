@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Google Ads for Physios | Clinic Evo",
+  title: "Google Ads for Physios",
   description:
     "A guide to how physiotherapy clinics can use Google Ads to generate relevant patient enquiries and avoid common campaign mistakes.",
   path: "/learning-hub/google-ads-for-physios/",

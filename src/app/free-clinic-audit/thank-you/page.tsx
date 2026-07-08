@@ -4,7 +4,7 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import FadeUp from "@/components/ui/FadeUp";
 
 export const metadata = buildMetadata({
-  title: "Audit Request Received | Clinic Evo",
+  title: "Audit Request Received",
   description: "Your free clinic audit request has been received. Clinic Evo will review your clinic's digital presence and be in touch within 2 business days.",
   path: "/free-clinic-audit/thank-you/",
   noIndex: true,

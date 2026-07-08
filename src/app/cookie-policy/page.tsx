@@ -4,7 +4,7 @@ import FadeUp from "@/components/ui/FadeUp";
 import Link from "next/link";
 
 export const metadata = buildMetadata({
-  title: "Cookie Policy | Clinic Evo",
+  title: "Cookie Policy",
   description:
     "Read the Clinic Evo Cookie Policy to understand how we use cookies and similar technologies on our website.",
   path: "/cookie-policy/",

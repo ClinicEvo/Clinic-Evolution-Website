@@ -9,7 +9,7 @@ import PageHero from "@/components/sections/PageHero";
 
 
 export const metadata = buildMetadata({
-  title: "Clinic Marketing Case Studies | Clinic Evo",
+  title: "Clinic Marketing Case Studies",
   description:
     "See how Clinic Evo helps UK osteopaths, physiotherapists and chiropractors improve their digital presence, SEO and patient enquiries.",
   path: "/case-studies/",

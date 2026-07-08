@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Local SEO for Physio Clinics | Clinic Evo",
+  title: "Local SEO for Physio Clinics",
   description:
     "A practical guide to improving local visibility for physiotherapy clinics, covering service pages, Google Business Profile, reviews and location signals.",
   path: "/learning-hub/local-seo-for-physio-clinics/",

@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Local SEO for Healthcare Clinics | Clinic Evo",
+  title: "Local SEO for Healthcare Clinics",
   description:
     "A guide to local SEO for healthcare clinics that want to appear more consistently for relevant local patient searches.",
   path: "/learning-hub/local-seo-for-healthcare-clinics/",

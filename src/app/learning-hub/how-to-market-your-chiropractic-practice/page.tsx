@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "How to Market Your Chiropractic Practice | Clinic Evo",
+  title: "How to Market Your Chiropractic Practice",
   description:
     "A chiropractic-specific guide covering visibility, trust, patient education and ways to reduce reliance on referral-only growth.",
   path: "/learning-hub/how-to-market-your-chiropractic-practice/",

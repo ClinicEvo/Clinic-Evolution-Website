@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "How to Market a Private Practice Online | Clinic Evo",
+  title: "How to Market a Private Practice Online",
   description:
     "A guide for clinic owners who want to understand the foundations of online marketing for private healthcare services.",
   path: "/learning-hub/how-to-market-a-private-practice-online/",

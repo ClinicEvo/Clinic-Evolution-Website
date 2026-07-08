@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Google Ads for Chiropractors | Clinic Evo",
+  title: "Google Ads for Chiropractors",
   description:
     "A chiropractic-specific guide to using Google Ads for high-intent patient searches, new patient acquisition and campaign management.",
   path: "/learning-hub/google-ads-for-chiropractors/",

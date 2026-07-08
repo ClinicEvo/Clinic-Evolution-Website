@@ -15,7 +15,7 @@ import StatBand from "@/components/sections/StatBand";
 
 
 export const metadata = buildMetadata({
-  title: "About Clinic Evo | Clinic Marketing Agency for MSK Clinics",
+  title: "About | Clinic Marketing Agency for MSK Clinics",
   description:
     "Learn why Clinic Evo helps UK osteopaths, physiotherapists and chiropractors grow with specialist clinic marketing, SEO, websites, Google Ads and patient reactivation.",
   path: "/about/",

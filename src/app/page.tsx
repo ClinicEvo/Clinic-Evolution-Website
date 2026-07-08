@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import FadeUp from "@/components/animations/FadeUp";
@@ -7,6 +8,28 @@ import ScenarioCards from "@/components/sections/ScenarioCards";
 import HeroVisual from "@/components/hero/HeroVisual";
 import HeroHeadline from "@/components/hero/HeroHeadline";
 import CTASection from "@/components/sections/CTASection";
+import { siteConfig } from "@/lib/metadata";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: siteConfig.url,
+    languages: { "en-GB": siteConfig.url },
+  },
+  openGraph: {
+    url: siteConfig.url,
+    images: [
+      {
+        url: "/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} | ${siteConfig.tagline}`,
+      },
+    ],
+  },
+  twitter: {
+    images: ["/og-default.jpg"],
+  },
+};
 
 const ACCENT = "#ff5b4a";
 
