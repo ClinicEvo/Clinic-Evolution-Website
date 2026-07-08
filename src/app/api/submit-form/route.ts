@@ -17,7 +17,7 @@ const VALID_DISCIPLINES = ["Osteopath", "Physiotherapist", "Chiropractor", "Othe
 // Vercel KV, Upstash Redis, or Cloudflare rate-limit rules.
 const ipLog = new Map<string, number[]>();
 const WINDOW_MS = 60 * 60 * 1000; // 1 hour
-const MAX_PER_WINDOW = 5;
+const MAX_PER_WINDOW = 10;
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
