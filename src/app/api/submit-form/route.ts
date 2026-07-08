@@ -45,6 +45,13 @@ function isValidEmail(v: string): boolean {
   return v.length > 0 && v.length <= LIMITS.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 }
 
+// Users routinely type a bare domain ("myclinic.co.uk") with no protocol.
+// Treat that as https:// rather than rejecting it.
+function normalizeUrl(v: string): string {
+  if (!v || /^https?:\/\//i.test(v)) return v;
+  return `https://${v}`;
+}
+
 function isValidHttpUrl(v: string): boolean {
   if (!v) return true; // optional
   try {
@@ -111,7 +118,7 @@ export async function POST(req: NextRequest) {
     const email          = clean(body.email,          LIMITS.email);
     const phone          = clean(body.phone,          50);
     const clinic_name    = clean(body.clinic_name,    LIMITS.short);
-    const clinic_website = clean(body.clinic_website, LIMITS.url);
+    const clinic_website = normalizeUrl(clean(body.clinic_website, LIMITS.url));
     const location       = clean(body.location,       LIMITS.short);
     const discipline     = clean(body.discipline,     50);
     const booking_system = clean(body.booking_system, LIMITS.short);
