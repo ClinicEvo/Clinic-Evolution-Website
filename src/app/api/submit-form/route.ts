@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { upsertGhlContact } from "@/lib/gohighlevel";
+import { upsertGhlContact, logInboundConversationMessage } from "@/lib/gohighlevel";
 
 // ─── Field constraints ────────────────────────────────────────────────────────
 const LIMITS = {
@@ -98,7 +98,7 @@ export async function POST(req: NextRequest) {
     if (!isValidEmail(email))         return err("A valid email address is required.");
     if (message.length < 10)          return err("Message must be at least 10 characters.");
 
-    const ok = await upsertGhlContact({
+    const result = await upsertGhlContact({
       name,
       email,
       phone: phone || undefined,
@@ -106,7 +106,20 @@ export async function POST(req: NextRequest) {
       source: "Website – Contact form",
       tags: ["website-contact-form"],
     });
-    if (!ok) return err("Submission failed. Please try again.", 502);
+    if (!result.ok) return err("Submission failed. Please try again.", 502);
+
+    // Best-effort: also log the message into the Conversations tab so staff
+    // can see and reply to it directly. The message is already safely on
+    // the contact record above, so a failure here doesn't fail the request.
+    if (result.contactId) {
+      await logInboundConversationMessage({
+        contactId: result.contactId,
+        fromEmail: email,
+        fromName: name,
+        subject: "New website contact form message",
+        message,
+      });
+    }
 
     return NextResponse.json({ ok: true });
   }
@@ -143,7 +156,7 @@ export async function POST(req: NextRequest) {
     ].filter(Boolean);
     const fullMessage = [message, detailLines.join(" | ")].filter(Boolean).join("\n\n");
 
-    const ok = await upsertGhlContact({
+    const result = await upsertGhlContact({
       firstName: first_name,
       lastName: last_name,
       email,
@@ -155,7 +168,7 @@ export async function POST(req: NextRequest) {
       source: "Website – Free clinic audit",
       tags: ["website-audit-form", discipline.toLowerCase()],
     });
-    if (!ok) return err("Submission failed. Please try again.", 502);
+    if (!result.ok) return err("Submission failed. Please try again.", 502);
 
     return NextResponse.json({ ok: true });
   }
