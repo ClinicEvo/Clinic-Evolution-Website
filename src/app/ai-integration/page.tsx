@@ -15,7 +15,7 @@ import ProcessSteps from "@/components/sections/ProcessSteps";
 export const metadata = buildMetadata({
   title: "AI Integration & Patient Reactivation for MSK Clinics",
   description:
-    "Automated patient reactivation and recall systems for UK osteopaths, physiotherapists and chiropractors. Lapsed patients contacted at 3, 6 and 12 months, without manual effort.",
+    "Automated patient reactivation and recall systems for UK osteopaths, physiotherapists and chiropractors, contacting lapsed patients without manual effort.",
   path: "/ai-integration/",
 });
 

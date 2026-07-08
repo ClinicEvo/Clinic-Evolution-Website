@@ -84,6 +84,7 @@ export async function POST(req: NextRequest) {
   if (formType === "contact") {
     const name    = clean(body.name,    LIMITS.name);
     const email   = clean(body.email,   LIMITS.email);
+    const phone   = clean(body.phone,   50);
     const message = clean(body.message, LIMITS.message);
 
     if (!name)                        return err("Name is required.");
@@ -93,6 +94,7 @@ export async function POST(req: NextRequest) {
     const ok = await upsertGhlContact({
       name,
       email,
+      phone: phone || undefined,
       message,
       source: "Website – Contact form",
       tags: ["website-contact-form"],
@@ -107,9 +109,14 @@ export async function POST(req: NextRequest) {
     const first_name     = clean(body.first_name,     LIMITS.name);
     const last_name      = clean(body.last_name,      LIMITS.name);
     const email          = clean(body.email,          LIMITS.email);
+    const phone          = clean(body.phone,          50);
     const clinic_name    = clean(body.clinic_name,    LIMITS.short);
     const clinic_website = clean(body.clinic_website, LIMITS.url);
+    const location       = clean(body.location,       LIMITS.short);
     const discipline     = clean(body.discipline,     50);
+    const booking_system = clean(body.booking_system, LIMITS.short);
+    const lead_sources   = clean(body.lead_sources,   LIMITS.short);
+    const goal           = clean(body.goal,           LIMITS.short);
     const message        = clean(body.message,        LIMITS.message);
 
     if (!first_name)                                  return err("First name is required.");
@@ -121,13 +128,22 @@ export async function POST(req: NextRequest) {
       return err("Please select a valid discipline.");
     }
 
+    const detailLines = [
+      location && `Location: ${location}`,
+      booking_system && `Booking system: ${booking_system}`,
+      lead_sources && `Main lead source: ${lead_sources}`,
+      goal && `Main goal: ${goal}`,
+    ].filter(Boolean);
+    const fullMessage = [message, detailLines.join(" | ")].filter(Boolean).join("\n\n");
+
     const ok = await upsertGhlContact({
       firstName: first_name,
       lastName: last_name,
       email,
+      phone: phone || undefined,
       companyName: clinic_name,
       website: clinic_website || undefined,
-      message: message || undefined,
+      message: fullMessage || undefined,
       discipline,
       source: "Website – Free clinic audit",
       tags: ["website-audit-form", discipline.toLowerCase()],

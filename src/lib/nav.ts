@@ -139,7 +139,6 @@ export const footerNav = {
     { label: "Call Handling & Booking", href: "/call-centre/" },
     { label: "AI Integration", href: "/ai-integration/" },
     { label: "Digital Marketing", href: "/digital-marketing/" },
-    { label: "SEO Maintenance", href: "/seo-maintenance/" },
   ],
   company: [
     { label: "About", href: "/about/" },

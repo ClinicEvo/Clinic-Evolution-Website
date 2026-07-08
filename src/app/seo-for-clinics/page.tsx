@@ -454,9 +454,9 @@ export default function SeoForClinicsPage() {
           <FadeUp delay={0.1}>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {[
-                { title: "Local SEO for physio clinics", href: "/resources/local-seo-for-physio-clinics/" },
-                { title: "Local SEO for medical clinics", href: "/resources/local-seo-for-medical-clinics/" },
-                { title: "Local SEO for healthcare clinics", href: "/resources/local-seo-for-healthcare-clinics/" },
+                { title: "Local SEO for physio clinics", href: "/learning-hub/local-seo-for-physio-clinics/" },
+                { title: "Local SEO for medical clinics", href: "/learning-hub/local-seo-for-medical-clinics/" },
+                { title: "Local SEO for healthcare clinics", href: "/learning-hub/local-seo-for-healthcare-clinics/" },
               ].map((r) => (
                 <a
                   key={r.href}

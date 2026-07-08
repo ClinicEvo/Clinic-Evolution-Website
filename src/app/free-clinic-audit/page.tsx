@@ -5,12 +5,13 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
+import AuditForm from "@/components/forms/AuditForm";
 
 
 export const metadata = buildMetadata({
   title: "Free Clinic Marketing Audit",
   description:
-    "Request a free Clinic Evo audit for your clinic website, SEO, local visibility, patient journey and missed enquiry opportunities. Built for UK osteopaths, physios and chiropractors.",
+    "A free Clinic Evo audit reviews your website, SEO, local visibility, patient journey and missed enquiries. Built for UK osteopaths, physios and chiropractors.",
   path: "/free-clinic-audit/",
 });
 
@@ -172,115 +173,7 @@ export default function FreeClinicAuditPage() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
-                <form
-                  action="https://formspree.io/f/xbjnqpyz" // Place real endpoint here
-                  method="POST"
-                  className="flex flex-col gap-5"
-                >
-                  <input type="hidden" name="form_type" value="audit_request" />
-                  <input type="hidden" name="_subject" value="New free audit request — Clinic Evo" />
-                  <input type="hidden" name="_next" value="/free-clinic-audit/thank-you/" />
-
-                  {/* Contact */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Name</label>
-                      <input required type="text" id="name" name="name" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
-                    </div>
-                    <div>
-                      <label htmlFor="clinic_name" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Clinic Name</label>
-                      <input required type="text" id="clinic_name" name="clinic_name" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Email Address</label>
-                      <input required type="email" id="email" name="email" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Phone <span className="font-normal text-[var(--color-muted)]">(optional)</span></label>
-                      <input type="tel" id="phone" name="phone" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
-                    </div>
-                  </div>
-
-                  {/* Clinic details we need to run the audit */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="website" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Website URL</label>
-                      <input required type="url" id="website" name="website" placeholder="https://" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
-                    </div>
-                    <div>
-                      <label htmlFor="location" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Town / City</label>
-                      <input required type="text" id="location" name="location" placeholder="e.g. Bristol" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="discipline" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Clinic Discipline</label>
-                      <select required id="discipline" name="discipline" defaultValue="" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:border-[var(--color-accent)]">
-                        <option value="" disabled>Select discipline</option>
-                        <option value="osteopathy">Osteopathy</option>
-                        <option value="physiotherapy">Physiotherapy</option>
-                        <option value="chiropractic">Chiropractic</option>
-                        <option value="multi-disciplinary">Multi-disciplinary clinic</option>
-                        <option value="other">Other private healthcare clinic</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label htmlFor="booking_system" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Booking System</label>
-                      <select required id="booking_system" name="booking_system" defaultValue="" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:border-[var(--color-accent)]">
-                        <option value="" disabled>How do patients book?</option>
-                        <option value="cliniko">Cliniko</option>
-                        <option value="pabau">Pabau</option>
-                        <option value="jane">Jane</option>
-                        <option value="other_online">Other online booking</option>
-                        <option value="phone_only">Phone / email only</option>
-                        <option value="not_sure">Not sure</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="lead_sources" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Where do most new patients come from now?</label>
-                    <select required id="lead_sources" name="lead_sources" defaultValue="" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:border-[var(--color-accent)]">
-                      <option value="" disabled>Select the main source</option>
-                      <option value="google_search">Google search</option>
-                      <option value="google_ads">Google Ads</option>
-                      <option value="referrals">Word of mouth / referrals</option>
-                      <option value="social">Social media</option>
-                      <option value="directories">Directories / health platforms</option>
-                      <option value="mixed">A real mix</option>
-                      <option value="not_sure">Not sure</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="goal" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Main Goal</label>
-                    <select required id="goal" name="goal" defaultValue="" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:border-[var(--color-accent)]">
-                      <option value="" disabled>What is your main focus?</option>
-                      <option value="enquiries">More enquiries</option>
-                      <option value="seo">Better SEO visibility</option>
-                      <option value="website">Improved website</option>
-                      <option value="google_ads">Google Ads</option>
-                      <option value="reactivation">Patient reactivation</option>
-                      <option value="not_sure">Not sure yet</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Anything else? <span className="font-normal text-[var(--color-muted)]">(optional)</span></label>
-                    <textarea id="message" name="message" rows={3} placeholder="Biggest frustration, a target you're chasing, anything we should know..." className="w-full p-4 border border-[var(--color-border)] rounded-lg resize-none focus:outline-none focus:border-[var(--color-accent)]"></textarea>
-                  </div>
-
-                  <button type="submit" className="w-full h-12 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dim)] text-white font-semibold rounded-lg transition-colors mt-2">
-                    Request my free audit
-                  </button>
-                  <p className="text-xs text-[var(--color-muted)] text-center mt-2">
-                    We will only use your details to respond to your audit request. No spam or automated sales sequence.
-                  </p>
-                </form>
+                <AuditForm />
               </div>
             </FadeUp>
           </div>

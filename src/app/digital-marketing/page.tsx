@@ -15,7 +15,7 @@ import PhoneVideoMockup from "@/components/sections/PhoneVideoMockup";
 export const metadata = buildMetadata({
   title: "Digital Marketing for MSK Clinics, Coordinated Growth",
   description:
-    "Clinic Evo builds coordinated digital marketing systems for UK osteopaths, physiotherapists and chiropractors, SEO, Google Ads, follow-up and patient retention working together.",
+    "Clinic Evo builds coordinated digital marketing for UK osteopaths, physiotherapists and chiropractors: SEO, Google Ads, follow-up and retention together.",
   path: "/digital-marketing/",
 });
 

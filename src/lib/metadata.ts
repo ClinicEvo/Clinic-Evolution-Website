@@ -23,7 +23,7 @@ export const siteConfig = {
   },
   areaServed: "United Kingdom",
   description:
-    "Clinic Evo helps UK osteopaths, physiotherapists and chiropractors attract more patients with specialist clinic marketing, SEO, Google Ads, websites and AI patient reactivation.",
+    "Clinic Evo helps UK osteopaths, physiotherapists and chiropractors attract more patients with SEO, Google Ads, websites and AI patient reactivation.",
 };
 
 export function buildMetadata({

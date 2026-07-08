@@ -14,7 +14,7 @@ import ProofBand from "@/components/sections/ProofBand";
 export const metadata = buildMetadata({
   title: "Google Ads for Physios & Clinics",
   description:
-    "Clinic Evo builds Google Ads campaigns for UK physiotherapists, osteopaths and chiropractors, helping clinics attract high-intent patients and reduce wasted ad spend.",
+    "Clinic Evo builds Google Ads campaigns for UK physiotherapists, osteopaths and chiropractors, attracting high-intent patients and cutting wasted ad spend.",
   path: "/google-ads-for-clinics/",
 });
 

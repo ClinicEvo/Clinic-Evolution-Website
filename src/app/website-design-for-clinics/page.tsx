@@ -12,9 +12,9 @@ import ProofBand from "@/components/sections/ProofBand";
 import ClinicSiteMockup from "@/components/sections/mockups/ClinicSiteMockup";
 
 export const metadata = buildMetadata({
-  title: "Clinic Website Design for Physios, Osteopaths & Chiropractors",
+  title: "Clinic Website Design for MSK Practices",
   description:
-    "Clinic Evo designs clear, fast and booking-focused websites for UK physiotherapists, osteopaths and chiropractors, built around trust, SEO and patient enquiries.",
+    "Clinic Evo designs clear, fast, booking-focused websites for UK physiotherapists, osteopaths and chiropractors, built around trust, SEO and patient enquiries.",
   path: "/website-design-for-clinics/",
 });
 

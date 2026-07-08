@@ -14,7 +14,7 @@ import { ClinicGrowthStats, SEOVisibilityMetrics, PatientConversionFunnel } from
 export const metadata = buildMetadata({
   title: "Physio Marketing Case Study | Bodyfunction Clinic",
   description:
-    "See how Clinic Evo improved the digital growth foundations for Bodyfunction Clinic through clearer website structure, SEO-led service pages, stronger patient journeys and clinic marketing strategy.",
+    "See how Clinic Evo improved Bodyfunction Clinic's digital growth through clearer website structure, SEO-led service pages and stronger patient journeys.",
   path: "/case-studies/bodyfunction-clinic/",
 });
 
@@ -107,7 +107,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.2}>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-white/20">
                   <Image
-                    src="/images/bodyfunction-clinic-team-at-reception-01.png"
+                    src="/images/bodyfunction-clinic-team-at-reception-01.jpg"
                     alt="Bodyfunction Clinic team at reception"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
@@ -200,7 +200,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.1}>
                 <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-border)]">
                   <Image
-                    src="/images/bodyfunction-clinic-neck-treatment-session-close.png"
+                    src="/images/bodyfunction-clinic-neck-treatment-session-close.jpg"
                     alt="Neck treatment session at Bodyfunction Clinic"
                     fill
                     className="object-cover"
@@ -389,7 +389,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.1}>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-[var(--color-border)]">
                   <Image
-                    src="/images/bodyfunction-physiotherapy-strength-conditioning-floor-exercise-02.png"
+                    src="/images/bodyfunction-physiotherapy-strength-conditioning-floor-exercise-02.jpg"
                     alt="Physiotherapy strength and conditioning floor exercise"
                     fill
                     className="object-cover"

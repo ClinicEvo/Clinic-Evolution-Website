@@ -14,9 +14,9 @@ import CallCostCalculator from "@/components/sections/CallCostCalculator";
 import Image from "next/image";
 
 export const metadata = buildMetadata({
-  title: "Call Handling & Booking for MSK Clinics, Inbound & Outbound",
+  title: "Call Handling & Booking for MSK Clinics",
   description:
-    "Clinic Evo answers every patient call to your UK osteopathy, physiotherapy or chiropractic clinic, calls back the leads your marketing generates, and books patients straight into your diary. No voicemail. No lead left waiting.",
+    "Clinic Evo answers every patient call, calls back your marketing leads, and books patients straight into your diary. No voicemail. No lead left waiting.",
   path: "/call-centre/",
 });
 

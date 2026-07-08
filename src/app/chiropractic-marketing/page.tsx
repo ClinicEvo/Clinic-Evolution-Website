@@ -422,7 +422,7 @@ export default function ChiropracticMarketingPage() {
             <FadeUp delay={0.1}>
               <div className="relative overflow-hidden rounded-[var(--radius-card)] shadow-[var(--shadow-card)]" style={{ aspectRatio: "4/3" }}>
                 <Image
-                  src="/images/bodyfunction-clinic-team-at-reception-01.png"
+                  src="/images/bodyfunction-clinic-team-at-reception-01.jpg"
                   alt="Bodyfunction Clinic — London MSK clinic"
                   fill
                   className="object-cover"

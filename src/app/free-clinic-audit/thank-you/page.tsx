@@ -89,13 +89,13 @@ export default function AuditThankYouPage() {
             <div className="border-t border-[var(--color-border)] pt-10">
               <p className="text-label text-[var(--color-muted)] mb-5">While you wait</p>
               <div className="flex flex-col gap-4">
-                <ArrowLink href="/resources/how-to-get-more-patients-to-your-clinic/">
+                <ArrowLink href="/learning-hub/how-to-get-more-patients-to-your-clinic/">
                   How to get more patients to your clinic
                 </ArrowLink>
-                <ArrowLink href="/resources/local-seo-for-healthcare-clinics/">
+                <ArrowLink href="/learning-hub/local-seo-for-healthcare-clinics/">
                   Local SEO for healthcare clinics
                 </ArrowLink>
-                <ArrowLink href="/resources/patient-recall-system/">
+                <ArrowLink href="/learning-hub/patient-recall-system/">
                   Building a patient recall system
                 </ArrowLink>
               </div>

@@ -17,7 +17,7 @@ import StatBand from "@/components/sections/StatBand";
 export const metadata = buildMetadata({
   title: "About | Clinic Marketing Agency for MSK Clinics",
   description:
-    "Learn why Clinic Evo helps UK osteopaths, physiotherapists and chiropractors grow with specialist clinic marketing, SEO, websites, Google Ads and patient reactivation.",
+    "Learn why Clinic Evo helps UK osteopaths, physiotherapists and chiropractors grow with specialist marketing, SEO, websites and patient reactivation.",
   path: "/about/",
 });
 
@@ -67,7 +67,7 @@ export default function AboutPage() {
         jobTitle="Co-founder & Digital Marketing Specialist"
         description="Co-founder of Clinic Evo and founder of Neometa. Qualified osteopath with expertise in web design, SEO, digital marketing and AI automation for healthcare businesses."
         url={`${siteConfig.url}/about/`}
-        image="/images/Simon-Smith.png"
+        image="/images/Simon-Smith-About.jpg"
         knowsAbout={["Osteopathy", "Web Design", "SEO", "Digital Marketing", "AI Automation", "Clinic Growth"]}
       />
 
@@ -178,7 +178,7 @@ export default function AboutPage() {
                   <div className="flex items-center gap-5 mb-6">
                     <div className="relative w-16 h-16 rounded-full overflow-hidden border border-[var(--color-border)] flex-shrink-0">
                       <Image
-                        src="/images/Simon-Smith.png"
+                        src="/images/Simon-Smith-About.jpg"
                         alt="Simon Smith, co-founder of Clinic Evo and founder of Neometa"
                         fill
                         className="object-cover"

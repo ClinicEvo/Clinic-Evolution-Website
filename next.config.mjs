@@ -88,6 +88,76 @@ const nextConfig = {
         destination: "/learning-hub/chiropractic-marketing-case-study/",
         permanent: true,
       },
+      {
+        source: "/resources/clinic-seo-guide/",
+        destination: "/seo-for-clinics/",
+        permanent: true,
+      },
+      {
+        source: "/resources/google-ads-for-clinics-guide/",
+        destination: "/google-ads-for-clinics/",
+        permanent: true,
+      },
+      {
+        source: "/resources/clinic-website-conversion-guide/",
+        destination: "/website-design-for-clinics/",
+        permanent: true,
+      },
+      {
+        source: "/resources/patient-reactivation-guide/",
+        destination: "/ai-integration/",
+        permanent: true,
+      },
+      {
+        source: "/resources/local-seo-for-osteopaths/",
+        destination: "/osteopath-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/resources/local-seo-for-physiotherapists/",
+        destination: "/learning-hub/local-seo-for-physio-clinics/",
+        permanent: true,
+      },
+      {
+        source: "/resources/local-seo-for-chiropractors/",
+        destination: "/chiropractic-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/resources/how-to-get-more-patients/",
+        destination: "/learning-hub/how-to-get-more-patients-to-your-clinic/",
+        permanent: true,
+      },
+      {
+        source: "/resources/healthcare-marketing-strategy/",
+        destination: "/healthcare-marketing-consultant/",
+        permanent: true,
+      },
+      {
+        source: "/resources/clinic-google-business-profile/",
+        destination: "/seo-for-clinics/",
+        permanent: true,
+      },
+      {
+        source: "/resources/physiotherapy-marketing-ideas/",
+        destination: "/physiotherapy-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/resources/osteopath-marketing-ideas/",
+        destination: "/osteopath-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/resources/chiropractic-marketing-ideas/",
+        destination: "/chiropractic-marketing/",
+        permanent: true,
+      },
+      {
+        source: "/seo-maintenance/",
+        destination: "/digital-marketing/",
+        permanent: true,
+      },
     ];
   },
 

@@ -7,6 +7,9 @@ import { useFormSubmit } from "@/lib/useFormSubmit";
 import { Field, Input, Textarea, Select, Honeypot } from "./Field";
 
 const DISCIPLINES = ["Osteopath", "Physiotherapist", "Chiropractor", "Other"];
+const BOOKING_SYSTEMS = ["Cliniko", "Pabau", "Jane", "Other online booking", "Phone / email only", "Not sure"];
+const LEAD_SOURCES = ["Google search", "Google Ads", "Word of mouth / referrals", "Social media", "Directories / health platforms", "A real mix", "Not sure"];
+const GOALS = ["More enquiries", "Better SEO visibility", "Improved website", "Google Ads", "Patient reactivation", "Not sure yet"];
 
 export default function AuditForm() {
   const router = useRouter();
@@ -31,22 +34,54 @@ export default function AuditForm() {
         </Field>
       </div>
 
-      <Field label="Email address" required>
-        <Input id="email" name="email" type="email" required autoComplete="email" placeholder="jane@myclinic.co.uk" />
-      </Field>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field label="Email address" required>
+          <Input id="email" name="email" type="email" required autoComplete="email" placeholder="jane@myclinic.co.uk" />
+        </Field>
+        <Field label="Phone">
+          <Input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="Optional" />
+        </Field>
+      </div>
 
       <Field label="Clinic name" required>
         <Input id="clinic_name" name="clinic_name" type="text" required placeholder="Peak Physio" />
       </Field>
 
-      <Field label="Clinic website">
-        <Input id="clinic_website" name="clinic_website" type="url" autoComplete="url" placeholder="https://www.myclinic.co.uk" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field label="Clinic website" required>
+          <Input id="clinic_website" name="clinic_website" type="url" required autoComplete="url" placeholder="https://www.myclinic.co.uk" />
+        </Field>
+        <Field label="Town / City" required>
+          <Input id="location" name="location" type="text" required placeholder="e.g. Bristol" />
+        </Field>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field label="Discipline" required>
+          <Select id="discipline" name="discipline" required>
+            <option value="">Select your discipline…</option>
+            {DISCIPLINES.map((d) => <option key={d} value={d}>{d}</option>)}
+          </Select>
+        </Field>
+        <Field label="Booking system" required>
+          <Select id="booking_system" name="booking_system" required>
+            <option value="">How do patients book?</option>
+            {BOOKING_SYSTEMS.map((b) => <option key={b} value={b}>{b}</option>)}
+          </Select>
+        </Field>
+      </div>
+
+      <Field label="Where do most new patients come from now?" required>
+        <Select id="lead_sources" name="lead_sources" required>
+          <option value="">Select the main source…</option>
+          {LEAD_SOURCES.map((s) => <option key={s} value={s}>{s}</option>)}
+        </Select>
       </Field>
 
-      <Field label="Discipline" required>
-        <Select id="discipline" name="discipline" required>
-          <option value="">Select your discipline…</option>
-          {DISCIPLINES.map((d) => <option key={d} value={d}>{d}</option>)}
+      <Field label="Main goal" required>
+        <Select id="goal" name="goal" required>
+          <option value="">What is your main focus?</option>
+          {GOALS.map((g) => <option key={g} value={g}>{g}</option>)}
         </Select>
       </Field>
 

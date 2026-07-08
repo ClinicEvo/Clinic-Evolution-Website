@@ -13,9 +13,9 @@ import ProofBand from "@/components/sections/ProofBand";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "Patient Pulse, Lead Management & Follow-Up for MSK Clinics",
+  title: "Patient Pulse: Lead Management & Follow-Up",
   description:
-    "Patient Pulse is Clinic Evo's managed CRM and communication system for UK osteopaths, physiotherapists and chiropractors. Automatic SMS follow-up, lead pipelines and patient reactivation in one platform.",
+    "Clinic Evo's managed CRM for UK osteopaths, physios and chiropractors: automatic SMS follow-up, lead pipelines and patient reactivation in one platform.",
   path: "/patient-pulse/",
 });
 

@@ -15,7 +15,7 @@ import StatBand from "@/components/sections/StatBand";
 export const metadata = buildMetadata({
   title: "Healthcare Marketing Consultant for Private Clinics",
   description:
-    "Clinic Evo provides healthcare marketing consultancy for UK private clinics, helping osteopaths, physios and chiropractors improve SEO, websites, ads and patient growth systems.",
+    "Clinic Evo provides healthcare marketing consultancy for UK private clinics, helping osteopaths, physios and chiropractors improve SEO, websites and ads.",
   path: "/healthcare-marketing-consultant/",
 });
 

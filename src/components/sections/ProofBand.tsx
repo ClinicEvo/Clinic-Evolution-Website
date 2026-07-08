@@ -31,7 +31,7 @@ function Band({
         {/* Clinic photograph */}
         <div className="relative min-h-[260px] lg:min-h-full">
           <Image
-            src="/images/danny_and_co.png"
+            src="/images/danny_and_co.jpg"
             alt="The Bodyfunction Clinic team in London"
             fill
             className="object-cover"

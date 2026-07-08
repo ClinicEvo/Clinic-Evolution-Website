@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Patient Recall System: What It Is and Why Clinics Need One",
+  title: "Patient Recall System for Clinics",
   description:
     "A guide to patient recall, follow-up and reactivation systems for private clinics that want to reconnect with past patients more effectively.",
   path: "/learning-hub/patient-recall-system/",

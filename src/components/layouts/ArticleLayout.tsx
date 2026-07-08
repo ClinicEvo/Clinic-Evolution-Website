@@ -58,7 +58,7 @@ export default function ArticleLayout({
   relatedLinks,
   children,
   heroImage,
-  datePublished,
+  datePublished = "2026-01-15",
   dateModified,
   schemaDescription,
 }: ArticleLayoutProps) {

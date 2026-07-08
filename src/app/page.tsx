@@ -432,7 +432,7 @@ export default function HomePage() {
                   >
                     <div className="relative mb-6 aspect-square w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
                       <Image
-                        src="/images/danny_and_co.png"
+                        src="/images/danny_and_co.jpg"
                         alt="The Bodyfunction Clinic team in London, Danny Morgan and colleagues"
                         fill
                         className="object-cover"

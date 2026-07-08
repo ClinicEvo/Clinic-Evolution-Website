@@ -2,12 +2,13 @@ import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import PageHero from "@/components/sections/PageHero";
+import ContactForm from "@/components/forms/ContactForm";
 
 
 export const metadata = buildMetadata({
   title: "Contact Us | Clinic Marketing Support",
   description:
-    "Contact Clinic Evo to discuss SEO, website design, Google Ads, patient reactivation or digital growth support for your osteopathy, physiotherapy or chiropractic clinic.",
+    "Contact Clinic Evo to discuss SEO, website design, Google Ads or patient reactivation for your osteopathy, physiotherapy or chiropractic clinic.",
   path: "/contact/",
 });
 
@@ -61,42 +62,10 @@ export default function ContactPage() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
-                <form
-                  action="https://formspree.io/f/xbjnqpyz" // Place real endpoint here
-                  method="POST"
-                  className="flex flex-col gap-5"
-                >
-                  <input type="hidden" name="form_type" value="contact_enquiry" />
-                  <input type="hidden" name="_subject" value="New contact enquiry — Clinic Evo" />
-
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Name</label>
-                    <input required type="text" id="name" name="name" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Email Address</label>
-                      <input required type="email" id="email" name="email" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Phone <span className="font-normal text-[var(--color-muted)]">(optional)</span></label>
-                      <input type="tel" id="phone" name="phone" className="w-full h-11 px-4 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-accent)]" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-[var(--color-ink)] mb-1">Message</label>
-                    <textarea required id="message" name="message" rows={5} placeholder="What would you like to ask us?" className="w-full p-4 border border-[var(--color-border)] rounded-lg resize-none focus:outline-none focus:border-[var(--color-accent)]"></textarea>
-                  </div>
-
-                  <button type="submit" className="w-full h-12 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dim)] text-white font-semibold rounded-lg transition-colors mt-2">
-                    Send message
-                  </button>
-                  <p className="text-xs text-[var(--color-muted)] text-center">
-                    By sending this you agree to us replying to your enquiry, handled in line with our <a href="/privacy-policy/" className="underline hover:text-[var(--color-accent)]">privacy policy</a>.
-                  </p>
-                </form>
+                <ContactForm />
+                <p className="text-xs text-[var(--color-muted)] text-center mt-5">
+                  By sending this you agree to us replying to your enquiry, handled in line with our <a href="/privacy-policy/" className="underline hover:text-[var(--color-accent)]">privacy policy</a>.
+                </p>
               </div>
             </FadeUp>
           </div>

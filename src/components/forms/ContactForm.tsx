@@ -35,9 +35,14 @@ export default function ContactForm() {
         <Input id="contact_name" name="name" type="text" required autoComplete="name" placeholder="Jane Smith" />
       </Field>
 
-      <Field label="Email address" required>
-        <Input id="contact_email" name="email" type="email" required autoComplete="email" placeholder="jane@myclinic.co.uk" />
-      </Field>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field label="Email address" required>
+          <Input id="contact_email" name="email" type="email" required autoComplete="email" placeholder="jane@myclinic.co.uk" />
+        </Field>
+        <Field label="Phone">
+          <Input id="contact_phone" name="phone" type="tel" autoComplete="tel" placeholder="Optional" />
+        </Field>
+      </div>
 
       <Field label="Message" required>
         <Textarea id="contact_message" name="message" rows={5} required placeholder="Tell us about your clinic and what you're hoping to achieve…" />
