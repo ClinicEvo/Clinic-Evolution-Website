@@ -94,8 +94,8 @@ const nextConfig = {
   async headers() {
     const isProd = process.env.NODE_ENV === "production";
     const cspScriptSrc = isProd
-      ? "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com"
-      : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com";
+      ? "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com"
+      : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com";
 
     return [
       {
@@ -120,7 +120,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https://bodyfunction.co.uk https://images.unsplash.com",
               "font-src 'self'",
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://analytics.ahrefs.com",
               "frame-src 'none'",
               "object-src 'none'",
               "base-uri 'self'",

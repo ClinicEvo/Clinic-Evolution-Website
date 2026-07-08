@@ -73,6 +73,11 @@ export default function RootLayout({
       <head>
         <OrganizationSchema />
         <WebSiteSchema />
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="LN1HzD4cMtYBXdWSGELKYw"
+          async
+        />
         {process.env.NEXT_PUBLIC_GA4_ID && (
           <>
             <script
