@@ -170,6 +170,18 @@ export async function POST(req: NextRequest) {
     });
     if (!result.ok) return err("Submission failed. Please try again.", 502);
 
+    // Best-effort: also log the request into the Conversations tab so staff
+    // can see and reply to it directly, same as the contact form.
+    if (result.contactId) {
+      await logInboundConversationMessage({
+        contactId: result.contactId,
+        fromEmail: email,
+        fromName: `${first_name} ${last_name}`.trim(),
+        subject: "New free clinic audit request",
+        message: fullMessage || "No additional message provided.",
+      });
+    }
+
     return NextResponse.json({ ok: true });
   }
 
