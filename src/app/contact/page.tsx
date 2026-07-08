@@ -53,8 +53,8 @@ export default function ContactPage() {
                   <p className="text-body-sm text-[var(--color-muted)] mb-4">
                     You can reach us directly and we will respond as soon as we can.
                   </p>
-                  <a href="mailto:hello@clinicevo.co.uk" className="text-body font-semibold text-[var(--color-accent)] hover:underline">
-                    hello@clinicevo.co.uk
+                  <a href="mailto:hello@clinicevolution.com" className="text-body font-semibold text-[var(--color-accent)] hover:underline">
+                    hello@clinicevolution.com
                   </a>
                 </div>
               </div>

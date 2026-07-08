@@ -96,8 +96,8 @@ export default function PrivacyPolicyPage() {
                   <div className="article-prose">
                     <p>Clinic Evo provides digital growth, website, SEO, Google Ads and patient reactivation support for private clinics, including osteopaths, physiotherapists and chiropractors.</p>
                     <p>For the purposes of this privacy policy, the data controller is Clinic Evolution Ltd, trading as Clinic Evo.</p>
-                    <p>Website: <a href="https://www.clinicevo.co.uk">www.clinicevo.co.uk</a><br />Email: <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a></p>
-                    <p>If you have any questions about this privacy policy or how we use your personal data, contact us at <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>.</p>
+                    <p>Website: <a href="https://clinicevolution.com">clinicevolution.com</a><br />Email: <a href="mailto:hello@clinicevolution.com">hello@clinicevolution.com</a></p>
+                    <p>If you have any questions about this privacy policy or how we use your personal data, contact us at <a href="mailto:hello@clinicevolution.com">hello@clinicevolution.com</a>.</p>
                   </div>
                 </article>
               </FadeUp>
@@ -268,7 +268,7 @@ export default function PrivacyPolicyPage() {
                       <li>request transfer of your personal data in certain circumstances</li>
                       <li>withdraw consent where we rely on consent</li>
                     </ul>
-                    <p>To exercise any of these rights, contact us at <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>. We may need to verify your identity before responding.</p>
+                    <p>To exercise any of these rights, contact us at <a href="mailto:hello@clinicevolution.com">hello@clinicevolution.com</a>. We may need to verify your identity before responding.</p>
                   </div>
                 </article>
               </FadeUp>
@@ -279,7 +279,7 @@ export default function PrivacyPolicyPage() {
                     How to contact us
                   </h2>
                   <div className="article-prose">
-                    <p>If you have any questions about this privacy policy or how we handle your personal data, please contact us via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>.</p>
+                    <p>If you have any questions about this privacy policy or how we handle your personal data, please contact us via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevolution.com">hello@clinicevolution.com</a>.</p>
                   </div>
                 </article>
               </FadeUp>

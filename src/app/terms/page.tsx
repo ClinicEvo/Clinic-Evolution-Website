@@ -224,7 +224,7 @@ export default function TermsPage() {
                     Contact
                   </h2>
                   <div className="article-prose">
-                    <p>If you have any questions about these terms, please contact Clinic Evo via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>.</p>
+                    <p>If you have any questions about these terms, please contact Clinic Evo via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevolution.com">hello@clinicevolution.com</a>.</p>
                     <p>You may also find these pages useful: <Link href="/privacy-policy/">Privacy Policy</Link> and <Link href="/cookie-policy/">Cookie Policy</Link>.</p>
                   </div>
                 </article>

@@ -1,6 +1,6 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
-import { buildMetadata } from "@/lib/metadata";
+import { buildMetadata, siteConfig } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
@@ -58,7 +58,7 @@ export default function AboutPage() {
         name="Danny Morgan"
         jobTitle="Co-founder & Osteopath"
         description="Co-founder of Clinic Evo and founder of Bodyfunction Clinic. Practising osteopath with direct experience building and growing a private MSK clinic in London."
-        url={`https://www.clinicevo.co.uk/about/`}
+        url={`${siteConfig.url}/about/`}
         image="/images/danny-morgan-angel-clinic.png"
         knowsAbout={["Osteopathy", "Clinic Marketing", "Healthcare SEO", "Private Clinic Growth", "Patient Journey Optimisation"]}
       />
@@ -66,7 +66,7 @@ export default function AboutPage() {
         name="Simon Smith"
         jobTitle="Co-founder & Digital Marketing Specialist"
         description="Co-founder of Clinic Evo and founder of Neometa. Qualified osteopath with expertise in web design, SEO, digital marketing and AI automation for healthcare businesses."
-        url={`https://www.clinicevo.co.uk/about/`}
+        url={`${siteConfig.url}/about/`}
         image="/images/Simon-Smith.png"
         knowsAbout={["Osteopathy", "Web Design", "SEO", "Digital Marketing", "AI Automation", "Clinic Growth"]}
       />

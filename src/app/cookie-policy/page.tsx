@@ -170,7 +170,7 @@ export default function CookiePolicyPage() {
                     Contact us
                   </h2>
                   <div className="article-prose">
-                    <p>If you have any questions about this Cookie Policy or how Clinic Evo uses cookies, please contact us via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevo.co.uk">hello@clinicevo.co.uk</a>.</p>
+                    <p>If you have any questions about this Cookie Policy or how Clinic Evo uses cookies, please contact us via the <Link href="/contact/">contact page</Link> or email <a href="mailto:hello@clinicevolution.com">hello@clinicevolution.com</a>.</p>
                     <p>You may also find the following pages useful: <Link href="/privacy-policy/">Privacy Policy</Link> and <Link href="/terms/">Terms</Link>.</p>
                   </div>
                 </article>

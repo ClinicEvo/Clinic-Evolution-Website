@@ -4,8 +4,8 @@ export const siteConfig = {
   name: "Clinic Evo",
   legalName: "Clinic Evolution Ltd",
   tagline: "Clinic Marketing Agency UK",
-  url: "https://www.clinicevo.co.uk",
-  email: "hello@clinicevo.co.uk",
+  url: "https://clinicevolution.com",
+  email: "hello@clinicevolution.com",
   // TODO: Add phone number when confirmed
   phone: "",
   // TODO: Add WhatsApp number in 44XXXXXXXXXX format when confirmed

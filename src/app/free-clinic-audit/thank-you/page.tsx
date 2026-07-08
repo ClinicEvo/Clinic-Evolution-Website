@@ -77,10 +77,10 @@ export default function AuditThankYouPage() {
                 Back to home
               </Button>
               <a
-                href="mailto:hello@clinicevo.co.uk"
+                href="mailto:hello@clinicevolution.com"
                 className="text-sm font-bold text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors self-center"
               >
-                or email hello@clinicevo.co.uk
+                or email hello@clinicevolution.com
               </a>
             </div>
           </FadeUp>

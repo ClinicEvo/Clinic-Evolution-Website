@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { upsertGhlContact } from "@/lib/gohighlevel";
 
 // ─── Field constraints ────────────────────────────────────────────────────────
 const LIMITS = {
@@ -58,21 +59,6 @@ function err(msg: string, status = 400) {
   return NextResponse.json({ error: msg }, { status });
 }
 
-// ─── Forward to Web3Forms (server-side, key never exposed to browser) ─────────
-async function sendToWeb3Forms(payload: Record<string, string>) {
-  const key = process.env.WEB3FORMS_KEY;
-  if (!key) return err("Form service not configured.", 503);
-
-  const res = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ access_key: key, ...payload }),
-  });
-
-  if (!res.ok) return err("Submission failed. Please try again.", 502);
-  return NextResponse.json({ ok: true });
-}
-
 // ─── Route handler ────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   // Rate limiting
@@ -104,12 +90,16 @@ export async function POST(req: NextRequest) {
     if (!isValidEmail(email))         return err("A valid email address is required.");
     if (message.length < 10)          return err("Message must be at least 10 characters.");
 
-    return sendToWeb3Forms({
-      subject: `Website enquiry from ${name}`,
+    const ok = await upsertGhlContact({
       name,
       email,
       message,
+      source: "Website – Contact form",
+      tags: ["website-contact-form"],
     });
+    if (!ok) return err("Submission failed. Please try again.", 502);
+
+    return NextResponse.json({ ok: true });
   }
 
   // ── Audit form ───────────────────────────────────────────────────────────
@@ -131,16 +121,20 @@ export async function POST(req: NextRequest) {
       return err("Please select a valid discipline.");
     }
 
-    return sendToWeb3Forms({
-      subject:         `Free Clinic Audit Request – ${clinic_name}`,
-      first_name,
-      last_name,
+    const ok = await upsertGhlContact({
+      firstName: first_name,
+      lastName: last_name,
       email,
-      clinic_name,
-      clinic_website,
+      companyName: clinic_name,
+      website: clinic_website || undefined,
+      message: message || undefined,
       discipline,
-      message,
+      source: "Website – Free clinic audit",
+      tags: ["website-audit-form", discipline.toLowerCase()],
     });
+    if (!ok) return err("Submission failed. Please try again.", 502);
+
+    return NextResponse.json({ ok: true });
   }
 
   return err("Unknown form type.", 400);
