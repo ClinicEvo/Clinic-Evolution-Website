@@ -38,17 +38,17 @@ const team = [
   },
   {
     name: "Joana Rita Vieira",
-    title: "Creative Director",
+    title: "Creative Operations Manager",
     image: "/images/Joana-Rita-Vieira.jpg",
     linkedin: "https://www.linkedin.com/in/joana-rita-vieira/",
-    bio: "Joana leads the visual and design direction at Clinic Evo, overseeing everything from brand identity to the page-by-page design of each clinic's website. Her focus is making sure the digital experience feels as trustworthy and considered as stepping into the clinic in person.",
+    bio: "Joana oversees creative operations at Clinic Evo, from brand identity to the page-by-page design of each clinic's website, while keeping every project moving smoothly from concept to delivery. Her focus is making sure the digital experience feels as trustworthy and considered as stepping into the clinic in person.",
   },
   {
     name: "James Monty",
     title: "Clinical Business Consultant & Osteopath",
     image: "/images/james-monty.jpg",
     linkedin: "https://www.linkedin.com/in/james-monty/",
-    bio: "James is a practising osteopath who helped grow a London clinic from one room to over £10k a month. After Crohn's disease took him away from hands-on practice, he retrained in AI, automation and digital marketing. Still registered, he helps clinics turn websites, reviews and follow-up into fuller diaries.",
+    bio: "James is a practising Osteopath who understands both the clinical and business side of running a successful clinic. After helping grow a London practice to over £10k+ monthly revenue, he retrained in AI, automation and digital marketing. He now helps healthcare practices improve their websites, patient communication and long-term growth.",
   },
 ];
 
@@ -115,12 +115,14 @@ export default function TeamPage() {
 
                   {/* Content */}
                   <div className="p-7 flex flex-col flex-1 text-center">
-                    <h3 className="text-h3 text-[var(--color-ink)] leading-tight mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm font-semibold text-[var(--color-accent)] mb-4">
-                      {member.title}
-                    </p>
+                    <div className="min-h-[7.5rem] flex flex-col items-center justify-center mb-4">
+                      <h3 className="text-h3 text-[var(--color-ink)] leading-tight mb-1">
+                        {member.name}
+                      </h3>
+                      <p className="text-sm font-semibold text-[var(--color-accent)]">
+                        {member.title}
+                      </p>
+                    </div>
 
                     {/* LinkedIn */}
                     <div className="flex justify-center mb-5">
