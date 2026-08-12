@@ -42,8 +42,12 @@ export default function PageHero({
           className={`grid gap-12 lg:gap-16 items-center ${breadcrumbs ? "mt-6" : ""} ${rightPanel ? "lg:grid-cols-[var(--hero-right-w)]" : ""}`}
           style={rightPanel ? ({ "--hero-right-w": `1fr ${rightPanelWidth}` } as CSSProperties) : undefined}
         >
-          {/* Left, copy */}
-          <div>
+          {/* Left, copy.
+              min-w-0 matters: a grid item defaults to min-width:auto, so a wide
+              right-hand panel (PulsePipelineBoard carries min-w-[34rem]) stretches
+              the single mobile track past the viewport and drags the h1 with it,
+              clipping hero copy on every phone. */}
+          <div className="min-w-0">
             <FadeUp delay={0.03}>
               <p className="eyebrow mb-6">{badge}</p>
             </FadeUp>
@@ -91,8 +95,8 @@ export default function PageHero({
 
           {/* Right, optional panel */}
           {rightPanel && (
-            <FadeUp delay={0.22}>
-              <div>{rightPanel}</div>
+            <FadeUp delay={0.22} className="min-w-0">
+              <div className="min-w-0">{rightPanel}</div>
             </FadeUp>
           )}
         </div>
