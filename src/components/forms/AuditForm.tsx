@@ -5,25 +5,44 @@ import Button from "@/components/ui/Button";
 import { events } from "@/lib/analytics";
 import { useFormSubmit } from "@/lib/useFormSubmit";
 import { Field, Input, Textarea, Select, Honeypot } from "./Field";
+import TrackingFields from "./TrackingFields";
 
 const DISCIPLINES = ["Osteopath", "Physiotherapist", "Chiropractor", "Other"];
 const BOOKING_SYSTEMS = ["Cliniko", "Pabau", "Jane", "Other online booking", "Phone / email only", "Not sure"];
 const LEAD_SOURCES = ["Google search", "Google Ads", "Word of mouth / referrals", "Social media", "Directories / health platforms", "A real mix", "Not sure"];
 const GOALS = ["More enquiries", "Better SEO visibility", "Improved website", "Google Ads", "Patient reactivation", "Not sure yet"];
 
-export default function AuditForm() {
+interface AuditFormProps {
+  /**
+   * Set on the PPC landing pages so paid leads are tagged separately in the CRM
+   * from organic audit requests. Validated against a server-side allowlist.
+   */
+  lpVariant?: string;
+  /** Pre-selects the discipline when the traffic source already implies it. */
+  defaultDiscipline?: string;
+  /** Confirmation page to land on after a successful submission. */
+  redirectTo?: string;
+}
+
+export default function AuditForm({
+  lpVariant,
+  defaultDiscipline,
+  redirectTo = "/free-clinic-audit/thank-you/",
+}: AuditFormProps = {}) {
   const router = useRouter();
   const { state, errorMsg, handleSubmit } = useFormSubmit({
     formType: "audit",
     onSuccess: () => {
       events.freeAuditSubmit();
-      router.push("/free-clinic-audit/thank-you/");
+      router.push(redirectTo);
     },
   });
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
       <Honeypot />
+      <TrackingFields />
+      {lpVariant ? <input type="hidden" name="lp_variant" value={lpVariant} readOnly /> : null}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Field label="First name" required>
@@ -58,7 +77,7 @@ export default function AuditForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Field label="Discipline" required>
-          <Select id="discipline" name="discipline" required>
+          <Select id="discipline" name="discipline" required defaultValue={defaultDiscipline ?? ""}>
             <option value="">Select your discipline…</option>
             {DISCIPLINES.map((d) => <option key={d} value={d}>{d}</option>)}
           </Select>

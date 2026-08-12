@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { upsertGhlContact, logInboundConversationMessage } from "@/lib/gohighlevel";
+import { isLpVariantSlug } from "@/lib/lp";
 
 // ─── Field constraints ────────────────────────────────────────────────────────
 const LIMITS = {
@@ -139,6 +140,16 @@ export async function POST(req: NextRequest) {
     const goal           = clean(body.goal,           LIMITS.short);
     const message        = clean(body.message,        LIMITS.message);
 
+    // Attribution. lp_variant is only trusted against the allowlist of real
+    // landing pages, so a forged value cannot invent a source in the CRM.
+    const lp_variant   = clean(body.lp_variant,   60);
+    const isPaidLead   = isLpVariantSlug(lp_variant);
+    const gclid        = clean(body.gclid,        LIMITS.short);
+    const utm_source   = clean(body.utm_source,   LIMITS.short);
+    const utm_medium   = clean(body.utm_medium,   LIMITS.short);
+    const utm_campaign = clean(body.utm_campaign, LIMITS.short);
+    const utm_term     = clean(body.utm_term,     LIMITS.short);
+
     if (!first_name)                                  return err("First name is required.");
     if (!last_name)                                   return err("Last name is required.");
     if (!isValidEmail(email))                         return err("A valid email address is required.");
@@ -154,7 +165,20 @@ export async function POST(req: NextRequest) {
       lead_sources && `Main lead source: ${lead_sources}`,
       goal && `Main goal: ${goal}`,
     ].filter(Boolean);
-    const fullMessage = [message, detailLines.join(" | ")].filter(Boolean).join("\n\n");
+
+    const attributionLines = [
+      isPaidLead && `Landing page: /lp/${lp_variant}/`,
+      gclid && `GCLID: ${gclid}`,
+      utm_campaign && `Campaign: ${utm_campaign}`,
+      utm_term && `Search term / keyword: ${utm_term}`,
+      (utm_source || utm_medium) && `Source / medium: ${utm_source || "?"} / ${utm_medium || "?"}`,
+    ].filter(Boolean);
+
+    const fullMessage = [
+      message,
+      detailLines.join(" | "),
+      attributionLines.join(" | "),
+    ].filter(Boolean).join("\n\n");
 
     const result = await upsertGhlContact({
       firstName: first_name,
@@ -165,8 +189,14 @@ export async function POST(req: NextRequest) {
       website: clinic_website || undefined,
       message: fullMessage || undefined,
       discipline,
-      source: "Website – Free clinic audit",
-      tags: ["website-audit-form", discipline.toLowerCase()],
+      source: isPaidLead
+        ? `Google Ads – ${lp_variant} landing page`
+        : "Website – Free clinic audit",
+      tags: [
+        "website-audit-form",
+        discipline.toLowerCase(),
+        ...(isPaidLead ? ["google-ads-lead", `lp-${lp_variant}`] : []),
+      ],
     });
     if (!result.ok) return err("Submission failed. Please try again.", 502);
 
@@ -177,7 +207,9 @@ export async function POST(req: NextRequest) {
         contactId: result.contactId,
         fromEmail: email,
         fromName: `${first_name} ${last_name}`.trim(),
-        subject: "New free clinic audit request",
+        subject: isPaidLead
+          ? "New audit request from a Google Ads landing page"
+          : "New free clinic audit request",
         message: fullMessage || "No additional message provided.",
       });
     }

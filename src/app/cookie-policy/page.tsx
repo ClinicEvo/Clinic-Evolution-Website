@@ -62,7 +62,7 @@ export default function CookiePolicyPage() {
               <h1 className="font-display font-bold text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.1] tracking-[-0.025em] text-[var(--color-ink)] mb-5">
                 Cookie Policy
               </h1>
-              <p className="text-body text-[var(--color-muted)]">Last updated: 30 April 2026</p>
+              <p className="text-body text-[var(--color-muted)]">Last updated: 12 August 2026</p>
             </FadeUp>
           </div>
         </div>
@@ -127,6 +127,7 @@ export default function CookiePolicyPage() {
 
                     <h3>Marketing cookies</h3>
                     <p>Marketing cookies may be used to measure the effectiveness of advertising campaigns or help show relevant advertising on other platforms. These cookies may be set by third-party platforms such as Google or Meta, depending on which services are active on the website. Marketing cookies are only used where the visitor has given consent.</p>
+                    <p>Where you accept cookies, these allow Google to connect an enquiry or booking back to the advertisement or search that brought you to the website, so we can measure which campaigns are working. This may involve Google receiving advertising identifiers associated with your visit. If you decline, only essential cookies are used and no advertising or analytics cookies are set.</p>
 
                     <h3>Third-party cookies</h3>
                     <p>Some cookies may be set by third-party services used on the Clinic Evo website. Examples may include:</p>
@@ -147,7 +148,8 @@ export default function CookiePolicyPage() {
                     Managing your cookie preferences
                   </h2>
                   <div className="article-prose">
-                    <p>When you first visit the Clinic Evo website, you will be shown a cookie banner that allows you to accept or decline non-essential cookies.</p>
+                    <p>When you first visit the Clinic Evo website, you will be shown a cookie banner that allows you to accept or decline non-essential cookies. Accepting covers both analytics and advertising cookies. Declining leaves only the essential cookies the website needs to work, and your choice is remembered so you are not asked again.</p>
+                    <p>If you change your mind, you can withdraw consent at any time by clearing this website&apos;s cookies and site data in your browser, which will present the banner again on your next visit.</p>
                     <p>You can also control cookies through your browser settings. Most browsers allow you to block cookies, delete existing cookies or receive a warning before cookies are stored. Please note that blocking some cookies may affect how the website works.</p>
                   </div>
                 </article>

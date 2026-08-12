@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import CookieBanner from "@/components/layout/CookieBanner";
+import SiteChromeGate from "@/components/layout/SiteChromeGate";
 import OrganizationSchema from "@/components/schema/OrganizationSchema";
 import WebSiteSchema from "@/components/schema/WebSiteSchema";
 import { siteConfig } from "@/lib/metadata";
@@ -89,7 +90,18 @@ export default function RootLayout({
                 __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
-                  gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied'});
+                  // Consent Mode v2: all four signals must be declared here,
+                  // denied, before config. CookieBanner grants them together
+                  // once the visitor accepts. wait_for_update holds tags briefly
+                  // so a returning visitor's stored consent is applied before
+                  // anything fires.
+                  gtag('consent','default',{
+                    analytics_storage:'denied',
+                    ad_storage:'denied',
+                    ad_user_data:'denied',
+                    ad_personalization:'denied',
+                    wait_for_update:500
+                  });
                   gtag('js', new Date());
                   gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');
                 `,
@@ -105,12 +117,16 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <Header />
+        <SiteChromeGate>
+          <Header />
+        </SiteChromeGate>
         <main id="main-content">
           <PageTransition>{children}</PageTransition>
         </main>
-        <Footer />
-        <WhatsAppButton />
+        <SiteChromeGate>
+          <Footer />
+          <WhatsAppButton />
+        </SiteChromeGate>
         <CookieBanner />
       </body>
     </html>

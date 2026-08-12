@@ -12,6 +12,9 @@ function url(path: string): { url: string; lastModified: string; changeFrequency
   };
 }
 
+// Note: the /lp/ PPC landing pages are deliberately absent. They are noindex
+// ad destinations — listing them here would be a contradictory signal and would
+// put them in competition with the organic service pages above.
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { ...url("/"), changeFrequency: "weekly", priority: 1.0 },

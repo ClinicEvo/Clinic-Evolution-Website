@@ -13,13 +13,26 @@ declare global {
   }
 }
 
-function enableAnalytics() {
+/**
+ * Push the visitor's choice into Google Consent Mode v2. All four signals are
+ * sent together: ad_user_data and ad_personalization are required alongside
+ * ad_storage for Google Ads conversion measurement in the UK/EEA, and omitting
+ * any of them leaves that signal at its denied default.
+ *
+ * ad_storage is what lets a Google Ads conversion be tied back to the click
+ * that caused it. Without it, conversions from paid campaigns are modelled
+ * estimates rather than counted events.
+ */
+function updateConsent(granted: boolean) {
   if (typeof window === "undefined") return;
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
   if (!ga4Id || typeof window.gtag !== "function") return;
+  const value = granted ? "granted" : "denied";
   window.gtag("consent", "update", {
-    analytics_storage: "granted",
-    ad_storage: "denied",
+    analytics_storage: value,
+    ad_storage: value,
+    ad_user_data: value,
+    ad_personalization: value,
   });
 }
 
@@ -31,18 +44,21 @@ export default function CookieBanner() {
     if (!saved) {
       setVisible(true);
     } else if (saved === "accepted") {
-      enableAnalytics();
+      updateConsent(true);
     }
   }, []);
 
   const accept = () => {
     localStorage.setItem(STORAGE_KEY, "accepted");
-    enableAnalytics();
+    updateConsent(true);
     setVisible(false);
   };
 
   const decline = () => {
     localStorage.setItem(STORAGE_KEY, "declined");
+    // Denied is already the default, but send it explicitly so the choice is
+    // recorded rather than merely assumed.
+    updateConsent(false);
     setVisible(false);
   };
 
@@ -58,8 +74,9 @@ export default function CookieBanner() {
     >
       <div className="mx-auto w-full max-w-sm bg-[var(--color-paper)] text-[var(--color-ink)] rounded-2xl p-5 shadow-[0_12px_40px_-8px_rgba(13,27,42,0.18)] border border-[var(--color-border)]">
         <p className="text-sm leading-relaxed text-[var(--color-muted)]">
-          We use cookies to analyse site traffic and improve your experience. See
-          our{" "}
+          We use cookies to analyse site traffic, improve your experience and
+          measure our advertising. Accepting also allows advertising cookies from
+          Google. See our{" "}
           <Link
             href="/cookie-policy/"
             className="text-[var(--color-ink)] underline underline-offset-2 hover:text-[var(--color-accent)]"
