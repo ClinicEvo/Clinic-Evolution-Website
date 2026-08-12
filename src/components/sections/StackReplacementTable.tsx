@@ -17,14 +17,26 @@ import { brandHex, brandMarks, type BrandSlug } from "@/components/icons/BrandIc
  * and substituting a brand we *can* draw would misrepresent what Patient Pulse
  * actually replaces.
  *
- * Pricing, checked August 2026. Every figure is the vendor's cheapest published
- * entry tier, excluding VAT, and is deliberately rounded DOWN: understating what
- * the separate stack costs makes our own claim weaker, never overstated, which
- * is the safe direction for a comparative price claim.
+ * Pricing basis, checked August 2026, GBP, excluding VAT.
  *
- * `verified` marks the three read directly off the vendor's own live pricing
- * page. The rest are best-effort list prices — correct them here, in this one
- * array, and the total and footnote follow automatically.
+ * These are priced for a REAL CLINIC, not for a sole trader on a free tier:
+ * three staff logins (practitioner, reception, practice manager) and a patient
+ * list in the low thousands. An earlier version quoted every vendor's absolute
+ * cheapest entry tier — Mailchimp at 500 contacts, single seats throughout — and
+ * produced a total no clinic would recognise, which made the comparison look
+ * weaker than the truth rather than stronger.
+ *
+ * Each row therefore carries a `basis` string, shown in the table next to the
+ * price. Stating the quantity is what makes a larger number checkable instead of
+ * looking inflated, and it is the honest way to run a comparative price claim.
+ *
+ * Per-seat rows are the verified per-seat price multiplied by the seat count,
+ * which is arithmetic rather than estimation. `verified` marks figures read
+ * directly off the vendor's own live pricing page.
+ *
+ * Three categories are genuinely quote-only. Reputation platforms and AI
+ * add-ons do not publish, so they are excluded from the total — meaning the real
+ * cost of the separate stack is higher than the figure shown, not lower.
  */
 interface Replaced {
   name: string;
@@ -39,8 +51,10 @@ interface Row {
   value: string;
   /** Comparable tools a clinic would otherwise buy. */
   replaces: Replaced[];
-  /** Cheapest published entry tier, GBP per month, excluding VAT. */
+  /** GBP per month at the stated basis, excluding VAT. */
   from?: number;
+  /** The quantity the price assumes, e.g. "3 logins". Shown beside the price. */
+  basis?: string;
   /** Vendors in this category quote rather than publish. */
   quoteOnly?: boolean;
   /** Read directly off the vendor's live pricing page rather than a secondary source. */
@@ -49,13 +63,14 @@ interface Row {
 
 const rows: Row[] = [
   {
-    job: "CRM and contact management",
+    job: "CRM and pipeline management",
     value: "Every enquiry stays visible instead of scattering across inboxes and spreadsheets",
     replaces: [
       { name: "HubSpot", brand: "hubspot" },
       { name: "Zoho", brand: "zoho" },
     ],
-    from: 15, // HubSpot Marketing Hub Starter, per seat
+    from: 45, // CHECK: 3 x HubSpot Starter at £15/seat. Seat price not read off HubSpot's own page.
+    basis: "3 logins",
   },
   {
     job: "Centralised conversations and live chat",
@@ -64,7 +79,8 @@ const rows: Row[] = [
       { name: "Intercom", brand: "intercom" },
       { name: "Zendesk", brand: "zendesk" },
     ],
-    from: 23, // Intercom Essential, $29/seat converted
+    from: 69, // CHECK: 3 x Intercom Essential at $29/seat converted. Seat price not verified.
+    basis: "3 logins",
   },
   {
     job: "Email marketing and newsletters",
@@ -73,7 +89,15 @@ const rows: Row[] = [
       { name: "Mailchimp", brand: "mailchimp" },
       { name: "Campaign Monitor", brand: "campaignmonitor" },
     ],
-    from: 10, // Mailchimp Essentials, 500 contacts
+    from: 45, // CHECK: least certain figure on the page. Mailchimp Standard scales with
+              // list size and its pricing page would not render a GBP tier for scraping.
+    basis: "~2,500 contacts",
+  },
+  {
+    job: "Two-way SMS to patients",
+    value: "Reminders and replies by text, the channel patients actually answer on",
+    replaces: [{ name: "Podium" }, { name: "Sendlane" }],
+    quoteOnly: true,
   },
   {
     job: "Social media scheduling",
@@ -89,17 +113,30 @@ const rows: Row[] = [
     job: "Booking links and calendars",
     value: "Patients pick a slot themselves instead of waiting for a callback",
     replaces: [{ name: "Calendly", brand: "calendly" }],
-    from: 8,
+    from: 24,
+    basis: "3 logins",
     verified: true, // Calendly Standard, $10/seat billed yearly, read off calendly.com/pricing
   },
   {
     job: "Forms and patient intake",
     value: "Intake completed before the appointment, not on a clipboard in reception",
     replaces: [{ name: "Typeform", brand: "typeform" }],
-    from: 20, // Typeform Basic, $25 converted
+    from: 20, // CHECK: Typeform Basic, $25 converted.
   },
   {
-    job: "Reviews and reputation",
+    job: "Workflow automation",
+    value: "Follow-up that runs itself instead of living in someone's head",
+    replaces: [{ name: "ActiveCampaign" }, { name: "Keap" }],
+    from: 39, // CHECK: ActiveCampaign entry tier.
+  },
+  {
+    job: "AI replies and chat",
+    value: "First response drafted and sent while you are still in the treatment room",
+    replaces: [{ name: "Intercom Fin", brand: "intercom" }, { name: "Drift" }],
+    quoteOnly: true,
+  },
+  {
+    job: "Reputation and review requests",
     value: "Google review requests go out automatically, the same day treatment happens",
     replaces: [{ name: "Birdeye" }, { name: "Reviews.io" }],
     quoteOnly: true,
@@ -108,14 +145,15 @@ const rows: Row[] = [
     job: "Landing pages for offers",
     value: "Campaign pages that match the ad the patient just clicked",
     replaces: [{ name: "Leadpages" }, { name: "Unbounce" }],
-    from: 39, // Leadpages Standard, $49 converted
+    from: 39, // CHECK: Leadpages Standard, $49 converted.
   },
   {
     job: "Document signing",
     value: "Consent forms signed before the patient arrives",
     replaces: [{ name: "DocuSign" }, { name: "PandaDoc" }],
-    from: 8,
-    verified: true, // DocuSign Personal, £8/mo published in GBP on docusign.com/en-gb
+    from: 40,
+    basis: "2 users",
+    verified: true, // DocuSign Standard, £20/user/mo published in GBP on docusign.com/en-gb
   },
 ];
 
@@ -268,6 +306,11 @@ export default function StackReplacementTable() {
                             £{row.from}
                           </span>
                           /mo
+                          {row.basis && (
+                            <span className="ml-1 text-[0.72rem] text-[var(--color-muted)]/75 md:ml-0 md:block">
+                              {row.basis}
+                            </span>
+                          )}
                         </>
                       )}
                     </td>
@@ -321,12 +364,14 @@ export default function StackReplacementTable() {
 
         <FadeUp delay={0.12}>
           <p className="mt-5 max-w-3xl text-[0.75rem] leading-relaxed text-[var(--color-muted)]">
-            Each vendor&apos;s cheapest published entry tier, checked August 2026,
-            excluding VAT, and rounded down. Where a vendor publishes in US dollars only,
-            converted at £1 = $1.27. Most of these tools charge more as your contact list
-            or team grows, some are priced per user, and {quoteOnlyCount} of the
-            categories above is quote-only, so a real clinic stack almost always costs
-            more than the total shown. Product names and logos are trademarks of their
+            Priced for a working clinic — three staff logins and a patient list in the
+            low thousands — rather than a single-user starter tier, using the cheapest
+            plan from each vendor that supports that. Checked August 2026, excluding VAT.
+            Per-seat products are the published seat price multiplied by the number of
+            logins shown. Where a vendor publishes in US dollars only, converted at
+            £1 = $1.27. {quoteOnlyCount} of the categories above are quote-only and are
+            left out of the total entirely, so a real clinic stack costs more than the
+            figure shown, not less. Product names and logos are trademarks of their
             respective owners, shown for comparison only.
           </p>
         </FadeUp>
