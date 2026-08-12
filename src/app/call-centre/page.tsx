@@ -11,6 +11,7 @@ import ProofBand from "@/components/sections/ProofBand";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import CallCostCalculator from "@/components/sections/CallCostCalculator";
+import ScenarioCards from "@/components/sections/ScenarioCards";
 import Image from "next/image";
 
 export const metadata = buildMetadata({
@@ -165,8 +166,37 @@ export default function CallCentrePage() {
         </div>
       </section>
 
+      {/* Where patients leak away — moved here from the homepage, per the
+          10 Aug review: the homepage should lead with how we bring patients in,
+          and this detail belongs with call handling and booking. */}
+      <section id="where-patients-leak" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <div className="cx-main">
+          <FadeUp>
+            <p className="eyebrow mb-4">Where patients leak away</p>
+            <h2 className="text-h2 text-balance text-[var(--color-ink)] max-w-[680px] mb-6">
+              Most MSK clinics are leaking patients long before treatment begins.
+            </h2>
+            <p className="text-body-lg text-[var(--color-charcoal)] max-w-[620px] mb-14">
+              Four quiet leaks. None of them show up in the accounts, so most clinics
+              never see them, they just feel the empty diary.
+            </p>
+          </FadeUp>
+
+          <ScenarioCards />
+
+          <FadeUp>
+            <p className="text-h3 mt-16 max-w-3xl text-balance font-medium text-[var(--color-ink)]">
+              Every one of these is an enquiry you already paid to create.{" "}
+              <span className="text-[var(--color-accent)]">
+                Answering the phone and calling leads back closes all four.
+              </span>
+            </p>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* How it works */}
-      <section id="how-it-works" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      <section id="how-it-works" className="section grain bg-[var(--color-paper)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <FadeUp>

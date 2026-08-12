@@ -85,7 +85,7 @@ function MissedCallIllustration() {
       </div>
       <div className="flex items-center justify-between border-t border-[var(--color-border)] pt-2.5">
         <span className="text-[0.68rem] font-semibold text-[var(--color-accent)]">Missed, no answer</span>
-        <span className="text-[0.68rem] font-bold text-[var(--color-ink)]">~£400 lost</span>
+        <span className="text-[0.68rem] font-bold text-[var(--color-ink)]">No callback</span>
       </div>
     </div>
   );
@@ -176,10 +176,10 @@ function LapsedPatientIllustration() {
         <span className="text-[0.68rem] text-[var(--color-ink)]">Follow-up sent</span>
         <span className="text-[0.68rem] font-bold text-[var(--color-accent)]">None</span>
       </div>
-      {/* Revenue row */}
+      {/* Outcome row */}
       <div className="flex items-center justify-between rounded-[4px] border border-[var(--color-border)] px-3 py-2 bg-transparent text-[var(--color-accent)]">
-        <span className="text-[0.68rem] text-[var(--color-ink)]">Unrealised revenue</span>
-        <span className="text-[0.68rem] font-bold">£250</span>
+        <span className="text-[0.68rem] text-[var(--color-ink)]">Reactivation sent</span>
+        <span className="text-[0.68rem] font-bold">Never</span>
       </div>
     </div>
   );
@@ -191,7 +191,7 @@ const cards = [
   {
     icon: <PhoneOffIcon />,
     heading: "The phone rings out.",
-    body: "A prospective patient calls while you are mid-treatment. That call was worth £300–500 in treatment revenue. It cost nothing to generate. It's gone.",
+    body: "A prospective patient calls while you are mid-treatment. They had already decided they needed treatment, and they were choosing which clinic to attend. Nobody calls them back, so they call the next clinic on the list.",
     illustration: <MissedCallIllustration />,
   },
   {
@@ -209,7 +209,7 @@ const cards = [
   {
     icon: <UserXIcon />,
     heading: "Nobody contacts them.",
-    body: "A patient attends twice, makes a good recovery, and says they will book again when they need you. A clinic rebooking at 60% loses four out of every ten patients after a single session. That is £250 in lost revenue per patient who doesn't return.",
+    body: "A patient attends twice, makes a good recovery, and says they will book again when they need you. Months later the pain returns, but nobody has been in touch, so they search again and find whoever comes up first.",
     illustration: <LapsedPatientIllustration />,
   },
 ];

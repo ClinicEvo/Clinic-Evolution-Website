@@ -1,10 +1,15 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  GoogleLogo,
+  FacebookLogo,
+  InstagramLogo,
+  TiktokLogo,
+} from "@/components/brand/PlatformLogos";
 import FadeUp from "@/components/animations/FadeUp";
 import ResourceCard from "@/components/sections/ResourceCard";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
-import ScenarioCards from "@/components/sections/ScenarioCards";
 import HeroVisual from "@/components/hero/HeroVisual";
 import HeroHeadline from "@/components/hero/HeroHeadline";
 import CTASection from "@/components/sections/CTASection";
@@ -33,41 +38,126 @@ export const metadata: Metadata = {
 
 const ACCENT = "#ff5b4a";
 
-const systemStages = [
+// The four acquisition channels. Patient Pulse is rendered separately, as the
+// layer that connects them, rather than as a fifth sibling.
+//
+// `platforms` makes the service concrete at a glance, using Phosphor's brand
+// logos (already a dependency) in each platform's brand colour.
+const channels = [
   {
     num: "01",
-    label: "Get Found",
-    body: "Local SEO and Google Ads built around how MSK patients actually search.",
-    href: "/seo-for-clinics/",
-    anchor: "SEO for Clinics",
+    label: "Clinic Websites",
+    body: "Built after the search and competitor research, not before it. The right patients find you, understand why you are relevant to them, and can book without friction.",
+    href: "/website-design-for-clinics/",
+    anchor: "Clinic Websites",
+    platforms: [],
   },
   {
     num: "02",
-    label: "Convert",
-    body: "Websites and enquiry handling designed to turn visits into bookings.",
-    href: "/website-design-for-clinics/",
-    anchor: "Clinic Website Design",
+    label: "SEO for Clinics",
+    body: "Visibility for the local treatment and symptom searches people are already making, across map results, organic listings and AI answers.",
+    href: "/seo-for-clinics/",
+    anchor: "SEO for Clinics",
+    platforms: [{ name: "Google", icon: GoogleLogo }],
   },
   {
     num: "03",
-    label: "Follow Up",
-    body: "Automatic responses within minutes, so the enquiry never goes cold.",
-    href: "/patient-pulse/",
-    anchor: "Patient Pulse",
+    label: "Google Ads",
+    body: "Paid search that reaches people actively looking for treatment right now, on the terms worth paying for rather than broad ones that drain the budget.",
+    href: "/google-ads-for-clinics/",
+    anchor: "Google Ads for Clinics",
+    platforms: [{ name: "Google Ads", icon: GoogleLogo }],
   },
   {
     num: "04",
-    label: "Book",
-    body: "Calls answered and ad leads called back, then booked straight into your diary, with no enquiry left sitting unanswered.",
-    href: "/call-centre/",
-    anchor: "Call Handling",
+    label: "Paid Social",
+    body: "Campaigns that create demand among people who were not searching yet. Each platform needs its own creative, offer and audience — they are not interchangeable.",
+    href: "/digital-marketing/",
+    anchor: "Digital Marketing",
+    // Facebook, Instagram and TikTok — exactly the three Danny named in the
+    // review: "I would on this page include logos for Tik Tok, Facebook, and
+    // Instagram". Meta is not listed because he did not ask for it.
+    platforms: [
+      { name: "Facebook", icon: FacebookLogo },
+      { name: "Instagram", icon: InstagramLogo },
+      { name: "TikTok", icon: TiktokLogo },
+    ],
+  },
+];
+
+// What Patient Pulse actually does. Every item here comes from the capability
+// list Danny gave in the 10 Aug review — nothing is inferred or invented.
+const pulseBenefits = [
+  {
+    title: "Every enquiry in one place",
+    body: "Prospective and existing patients stored and organised, so nothing disappears into an inbox or a spreadsheet.",
   },
   {
-    num: "05",
-    label: "Retain",
-    body: "Recall systems that bring recovered patients back when they need you again.",
+    title: "One inbox, not five apps",
+    body: "Website, Facebook, Instagram and TikTok conversations arrive in the same place instead of five open tabs.",
+  },
+  {
+    title: "Google reviews chased automatically",
+    body: "Review follow-up runs on its own, so your reputation is not dependent on someone remembering to ask.",
+  },
+  {
+    title: "Social posts and newsletters from one place",
+    body: "Plan and schedule content and patient email in advance, which removes the need for a separate mailing tool.",
+  },
+  {
+    title: "Lead pipelines your team can see",
+    body: "Staff can see which enquiries need attention and which have progressed to a booking, and reception can work in it too.",
+  },
+  {
+    title: "Follow-up that runs without chasing",
+    body: "Automated journeys keep in touch with leads who are not ready yet, and bring lapsed patients back.",
+  },
+];
+
+// Clinics we work with. Danny named exactly these two in the 10 Aug review:
+// "we've got body restore, we've got 1% club". Bodyfunction is deliberately NOT
+// here — it is the origin story, not a client, and listing it alongside clients
+// recreates the confusion Danny asked us to fix. Its logo appears in the origin
+// section instead.
+//
+// `logoHeight` is tuned per mark rather than shared, because these have very
+// different aspect ratios and a single height makes the near-square 1% Club
+// mark read as tiny next to the two wordmarks.
+const clientLogos: Array<{
+  name: string;
+  src: string;
+  width: number;
+  height: number;
+  logoHeight: number;
+}> = [
+  {
+    name: "Body Restore Clinic",
+    src: "/images/clients/body-restore.png",
+    width: 1714,
+    height: 564,
+    logoHeight: 40,
+  },
+  {
+    name: "1 Percent Club",
+    src: "/images/clients/one-percent-club.png",
+    width: 500,
+    height: 461,
+    logoHeight: 58,
+  },
+];
+
+// The two capabilities that operate after an enquiry arrives, so they sit
+// inside the Patient Pulse layer rather than alongside the channels.
+const pulseCapabilities = [
+  {
+    label: "Call Handling & Booking",
+    body: "Every call answered and every ad lead called back, then booked into your diary.",
+    href: "/call-centre/",
+  },
+  {
+    label: "AI Integration",
+    body: "Reactivation sequences that reach lapsed patients before a competitor does.",
     href: "/ai-integration/",
-    anchor: "AI Patient Reactivation",
   },
 ];
 
@@ -133,10 +223,14 @@ const disciplineCards = [
   },
 ];
 
-const systemStats = [
-  { value: "2 min", label: "Typical first reply to a new enquiry" },
-  { value: "52", label: "Booked leads in a typical month — per treatment room" },
-  { value: "1", label: "Connected system, not five disconnected tools" },
+// The connected journey, stated as stages rather than figures. The previous
+// version of this band used invented performance numbers, which are out.
+const journeyStages = [
+  { stage: "Get found", body: "A technically strong website and sustained search visibility." },
+  { stage: "Create demand", body: "Google Ads and paid social reaching the right patients." },
+  { stage: "Get chosen", body: "Journeys that make it easy to pick your clinic and book." },
+  { stage: "Follow up", body: "Every enquiry answered, tracked and chased in Patient Pulse." },
+  { stage: "Come back", body: "Lapsed patients contacted before a competitor reaches them." },
 ];
 
 function OperatingSystemBand() {
@@ -145,7 +239,7 @@ function OperatingSystemBand() {
       className="relative my-16 overflow-hidden bg-[var(--color-ink)] text-white"
       style={{ borderRadius: "var(--radius-panel)" }}
     >
-      <div className="grid gap-10 p-9 md:p-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:p-14">
+      <div className="grid gap-10 p-9 md:p-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:p-14">
         <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
             The Clinic Evo operating system
@@ -154,20 +248,28 @@ function OperatingSystemBand() {
             One connected patient journey, not five disconnected marketing tasks.
           </h3>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/65">
-            Search visibility, conversion, instant follow-up and patient recall run in one growth loop, so you can see where demand is created, where enquiries slow down, and what happens next.
+            Most clinics buy these pieces separately and hope they add up. We build
+            them as one system, so you can see where demand is created, where
+            enquiries slow down, and what happens next.
           </p>
         </div>
 
-        <div className="flex flex-col justify-center divide-y divide-white/10 border-t border-white/10 lg:border-t-0">
-          {systemStats.map((stat) => (
-            <div key={stat.label} className="flex items-baseline gap-5 py-5 first:pt-0 lg:first:pt-5">
-              <span className="whitespace-nowrap font-display text-4xl font-semibold leading-none text-[var(--color-accent)] md:text-5xl">
-                {stat.value}
+        <ol className="flex flex-col justify-center divide-y divide-white/10 border-t border-white/10 lg:border-t-0">
+          {journeyStages.map((s, i) => (
+            <li key={s.stage} className="flex items-baseline gap-5 py-4 first:pt-0 lg:first:pt-4">
+              <span
+                className="w-6 flex-shrink-0 font-display text-sm font-semibold leading-none text-[var(--color-accent)]"
+                aria-hidden
+              >
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="text-sm leading-snug text-white/70">{stat.label}</span>
-            </div>
+              <span className="w-32 flex-shrink-0 font-display text-[15px] font-semibold leading-snug text-white">
+                {s.stage}
+              </span>
+              <span className="text-sm leading-snug text-white/60">{s.body}</span>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </div>
   );
@@ -210,7 +312,7 @@ export default function HomePage() {
                     maxWidth: "452px",
                   }}
                 >
-                  Clinic Evo is the marketing and patient follow-up system for MSK clinics, it gets you found on Google, turns enquiries into bookings, and brings lapsed patients back. All in one place.
+                  Clinic Evo builds the website, search visibility and campaigns that bring the right patients to your clinic. Then Patient Pulse connects every enquiry, conversation and follow-up, so none of them go cold.
                 </p>
               </FadeUp>
 
@@ -275,34 +377,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Problem ───────────────────────────────────────────────────────── */}
-      <section id="problem-section" className="section bg-[var(--color-paper)] border-t border-[var(--color-border)]">
-        <div className="cx-main">
-          <FadeUp>
-            <p
-              className="eyebrow mb-4"
-            >
-              Why most clinic marketing underperforms
-            </p>
-            <h2
-              className="text-h2 text-balance text-[var(--color-ink)] max-w-[680px] mb-14"
-            >
-              Most MSK clinics are leaking patients long before treatment begins.
-            </h2>
-          </FadeUp>
-
-          <ScenarioCards />
-
-          <FadeUp>
-            <p
-              className="text-h3 mx-auto mt-16 max-w-3xl text-balance text-center font-medium text-[var(--color-ink)]"
-            >
-              Four quiet leaks. Most clinics never see them in the accounts, they just feel the empty diary.{" "}
-              <span className="text-[var(--color-accent)]">A connected system closes all four.</span>
-            </p>
-          </FadeUp>
-        </div>
-      </section>
+      {/* ── Client logos ──────────────────────────────────────────────────── */}
+      {/* Social proof sits high on the page, per the 10 Aug review. A rotating
+          carousel is on hold until there are enough clinics to justify one. */}
+      {clientLogos.length > 0 && (
+        <section className="border-b border-[var(--color-border)] bg-[var(--color-paper)] py-9">
+          <div className="cx-main">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-12">
+              <p className="flex-shrink-0 whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-muted)]">
+                Clinics we work with
+              </p>
+              <span
+                aria-hidden
+                className="hidden h-8 w-px flex-shrink-0 sm:block"
+                style={{ background: "var(--color-border)" }}
+              />
+              <ul className="flex flex-wrap items-center gap-x-14 gap-y-6">
+                {clientLogos.map((logo) => (
+                  <li key={logo.name} className="flex items-center">
+                    <Image
+                      src={logo.src}
+                      alt={logo.name}
+                      width={logo.width}
+                      height={logo.height}
+                      style={{ height: logo.logoHeight, width: "auto" }}
+                      className="opacity-85 transition-opacity hover:opacity-100"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── System ────────────────────────────────────────────────────────── */}
       <section id="system-section" className="section bg-[var(--color-surface)] border-y border-[var(--color-border)] grain">
@@ -316,40 +423,52 @@ export default function HomePage() {
             <h2
               className="text-h2 text-[var(--color-ink)] mb-4"
             >
-              Marketing, follow-up and patient communication built to work together.
+              Four ways patients find your clinic. One system that makes sure you keep them.
             </h2>
             <p
               className="text-body-lg text-[var(--color-charcoal)] max-w-[580px]"
             >
-              Most agencies generate leads and leave the rest to you. We build the website, SEO, Google Ads and follow-up that work as one system, every part designed to turn more enquiries into long-term patients, including Patient Pulse, our automated follow-up and recall engine.
+              Most agencies generate leads and leave the rest to you. We build the website,
+              search visibility and campaigns that bring the right patients to your door,
+              then connect what happens next through Patient Pulse, so the enquiry becomes
+              a booking and the patient comes back.
             </p>
           </FadeUp>
 
           <OperatingSystemBand />
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 mb-12 relative">
-            {systemStages.map((stage, i) => (
-              <FadeUp key={stage.num} delay={i * 0.09}>
-                <div className="group relative flex h-full flex-col border-t-2 border-[var(--color-border)] pt-6 transition-colors hover:border-[var(--color-accent)]">
+          {/* Step 1, the four acquisition channels that bring patients in. */}
+          <p className="text-label mb-6">Bringing the right patients in</p>
+
+          <div className="mb-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-7">
+            {channels.map((channel, i) => (
+              <FadeUp key={channel.num} delay={i * 0.08}>
+                <Link
+                  href={channel.href}
+                  className="group flex h-full flex-col border-t-2 border-[var(--color-border)] pt-6 transition-colors hover:border-[var(--color-accent)]"
+                >
                   <span
                     className="mb-3 block font-display font-light leading-none text-[var(--color-muted-light)] transition-colors group-hover:text-[var(--color-accent)]"
                     style={{ fontSize: "36px" }}
+                    aria-hidden
                   >
-                    {stage.num}
+                    {channel.num}
                   </span>
-                  <h3
-                    className="text-h4 text-[var(--color-ink)] mb-3"
-                  >
-                    {stage.label}
-                  </h3>
-                  <p
-                    className="text-body-sm text-[var(--color-muted)] flex-1 mb-4"
-                  >
-                    {stage.body}
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-3">{channel.label}</h3>
+                  <p className="text-body-sm text-[var(--color-muted)] flex-1 mb-4">
+                    {channel.body}
                   </p>
-                  <Link
-                    href={stage.href}
-                    className="inline-flex items-center gap-1.5 transition-opacity hover:opacity-75"
+                  {channel.platforms.length > 0 && (
+                    <ul className="mb-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+                      {channel.platforms.map((p) => (
+                        <li key={p.name} className="flex items-center">
+                          <p.icon size={30} />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <span
+                    className="inline-flex items-center gap-1.5 transition-all group-hover:gap-2.5 group-hover:text-[var(--color-accent)]"
                     style={{
                       fontSize: "12px",
                       fontWeight: 500,
@@ -358,30 +477,99 @@ export default function HomePage() {
                       textUnderlineOffset: "3px",
                     }}
                   >
-                    {stage.anchor}
-                    <svg width="10" height="10" viewBox="0 0 14 14" fill="none">
+                    {channel.anchor}
+                    <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                       <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                  </Link>
-                </div>
+                  </span>
+                </Link>
               </FadeUp>
             ))}
           </div>
 
-          <FadeUp delay={0.5}>
-            <Link
-              href="/patient-pulse/"
-              className="inline-flex items-center gap-2 font-semibold transition-all hover:border-[var(--color-ink)] hover:bg-[var(--color-surface)]"
-              style={{
-                border: `1px solid var(--color-border)`,
-                color: "var(--color-ink)",
-                padding: "13px 26px",
-                borderRadius: "var(--radius-btn)",
-                fontSize: "15px",
-              }}
+          {/* The connector, so Patient Pulse reads as the layer beneath the four
+              channels rather than a fifth service sitting next to them. */}
+          <div aria-hidden className="flex flex-col items-center pt-2">
+            <span className="h-10 w-px" style={{ background: "var(--color-border)" }} />
+            <svg width="14" height="9" viewBox="0 0 14 9" fill="none" className="-mt-px">
+              <path d="M1 1l6 6 6-6" stroke="var(--color-muted-light)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+
+          {/* Step 2, Patient Pulse as the connecting layer. */}
+          <FadeUp delay={0.12}>
+            <div
+              className="mt-4 overflow-hidden border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]"
+              style={{ borderRadius: "var(--radius-panel)" }}
             >
-              See how the follow-up system works →
-            </Link>
+              <div className="p-8 md:p-11">
+                {/* Copy left, product wordmark right — the right-hand space was empty,
+                    and the logo does useful brand work there. flex-col-reverse puts the
+                    wordmark above the copy on narrow screens rather than orphaning it. */}
+                <div className="flex flex-col-reverse gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-14">
+                  <div className="max-w-2xl">
+                    <p className="eyebrow mb-4">Step 05, the glue</p>
+                    <h3 className="text-h3 text-[var(--color-ink)] mb-4">
+                      Patient Pulse connects every enquiry those four channels create.
+                    </h3>
+                    <p className="text-body text-[var(--color-muted)]">
+                      Getting found is half the job. Patient Pulse is the one place your
+                      clinic manages what happens between a marketing enquiry and a booked
+                      patient, and it replaces several separate subscriptions while it does it.
+                    </p>
+                  </div>
+
+                  <Image
+                    src="/images/patientpulse_logo.png"
+                    alt="Patient Pulse"
+                    width={3116}
+                    height={440}
+                    className="h-7 w-auto flex-shrink-0 self-start lg:h-9 lg:mt-1"
+                  />
+                </div>
+
+                {/* What it actually does. Danny's note in the review was that the
+                    homepage named Patient Pulse without ever saying what it delivers. */}
+                <ul className="mt-9 grid gap-x-12 gap-y-7 border-t border-[var(--color-border)] pt-9 sm:grid-cols-2">
+                  {pulseBenefits.map((b) => (
+                    <li key={b.title}>
+                      <h4 className="mb-1.5 font-display text-[15px] font-semibold text-[var(--color-ink)]">
+                        {b.title}
+                      </h4>
+                      <p className="text-body-sm text-[var(--color-muted)]">{b.body}</p>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-10 flex flex-col items-start gap-6 border-t border-[var(--color-border)] pt-8 sm:flex-row sm:items-center sm:justify-between">
+                  <Link
+                    href="/patient-pulse/"
+                    className="inline-flex items-center gap-2 font-semibold text-white transition-all hover:bg-[var(--color-accent-dim)] active:translate-y-px"
+                    style={{
+                      background: ACCENT,
+                      padding: "13px 26px",
+                      borderRadius: "var(--radius-btn)",
+                      fontSize: "15px",
+                      fontFamily: "var(--font-display)",
+                    }}
+                  >
+                    See everything Patient Pulse does
+                  </Link>
+                  <ul className="flex flex-wrap gap-x-7 gap-y-2">
+                    {pulseCapabilities.map((cap) => (
+                      <li key={cap.label}>
+                        <Link
+                          href={cap.href}
+                          className="text-[13px] font-medium text-[var(--color-ink)] underline decoration-[var(--color-border)] underline-offset-4 transition-colors hover:text-[var(--color-accent)]"
+                        >
+                          {cap.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </FadeUp>
         </div>
       </section>
@@ -391,111 +579,53 @@ export default function HomePage() {
         <div className="cx-main">
           <div className="grid grid-cols-1 md:grid-cols-[0.92fr_1.08fr] gap-12 lg:gap-20 items-center">
 
-            {/* Left, stat card with testimonial (light version) */}
+            {/* Left, the origin clinic. The previous version led with "572 new
+                patient enquiries in 30 days" and a testimonial quoting a page-4
+                to position-1 move and 34 recovered patients. All three figures
+                were unverifiable, so they are out until real numbers exist. */}
             <FadeUp>
-              <div className="bg-transparent py-4">
-                <div>
-                  <p
-                    className="eyebrow mb-4"
-                  >
-                    Founding partner results
-                  </p>
-                  <p
-                    className="font-display font-extrabold"
-                    style={{
-                      fontSize: "clamp(4rem, 9vw, 7rem)",
-                      lineHeight: 1,
-                      letterSpacing: "0",
-                      color: ACCENT,
-                    }}
-                  >
-                    572
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "16px",
-                      color: "var(--color-muted)",
-                      marginTop: "8px",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    new patient enquiries in 30 days
-                  </p>
-
-                  <div
-                    style={{
-                      marginTop: "32px",
-                      paddingTop: "28px",
-                      borderTop: "1px solid var(--color-border)",
-                    }}
-                  >
-                    <div className="relative mb-6 aspect-square w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
+              <figure className="m-0">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
+                  <Image
+                    src="/images/danny_and_co.jpg"
+                    alt="The Bodyfunction Clinic team in London, Danny Morgan and colleagues"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 560px"
+                  />
+                </div>
+                <figcaption className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-4">
+                  <span className="flex items-center gap-3.5">
+                    <span className="relative block h-11 w-11 flex-shrink-0 overflow-hidden rounded-full border border-[var(--color-border)]">
                       <Image
-                        src="/images/danny_and_co.jpg"
-                        alt="The Bodyfunction Clinic team in London, Danny Morgan and colleagues"
+                        src="/images/danny-morgan-angel-clinic.png"
+                        alt=""
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 560px"
+                        sizes="44px"
                       />
-                    </div>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontStyle: "italic",
-                        fontSize: "20px",
-                        color: "var(--color-ink)",
-                        lineHeight: 1.6,
-                        marginBottom: "24px",
-                      }}
-                    >
-                      &ldquo;We went from page 4 to position 1 in 11 weeks. The follow-up system alone recovered 34 lapsed patients in the first month.&rdquo;
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <div
-                        style={{
-                          width: 42,
-                          height: 42,
-                          borderRadius: "50%",
-                          overflow: "hidden",
-                          position: "relative",
-                          border: "1px solid var(--color-border)",
-                          flexShrink: 0,
-                        }}
-                      >
-                        <Image
-                          src="/images/danny-morgan-angel-clinic.png"
-                          alt="Danny Morgan"
-                          fill
-                          className="object-cover"
-                          sizes="42px"
-                        />
-                      </div>
-                      <div>
-                        <p
-                          style={{
-                            fontFamily: "var(--font-display)",
-                            fontSize: "13px",
-                            fontWeight: 600,
-                            color: "var(--color-ink)",
-                          }}
-                        >
-                          Danny Morgan
-                        </p>
-                        <p
-                          style={{
-                            fontFamily: "var(--font-sans)",
-                            fontSize: "12px",
-                            color: "var(--color-muted)",
-                          }}
-                        >
-                          Bodyfunction Clinic, London, Founding partner
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </span>
+                    <span className="block">
+                      <span className="block font-display text-[13px] font-semibold text-[var(--color-ink)]">
+                        Danny Morgan
+                      </span>
+                      <span className="block text-[12px] text-[var(--color-muted)]">
+                        Founder, Bodyfunction Clinic &middot; Co-founder, Clinic Evo
+                      </span>
+                    </span>
+                  </span>
+                  {/* Bodyfunction's mark belongs here, with the origin story, rather
+                      than in the client-logo strip above. */}
+                  <Image
+                    src="/images/clients/bodyfunction.png"
+                    alt="Bodyfunction Clinic"
+                    width={2000}
+                    height={600}
+                    style={{ height: 26, width: "auto" }}
+                    className="ml-auto opacity-70"
+                  />
+                </figcaption>
+              </figure>
             </FadeUp>
 
             {/* Right, copy */}
@@ -507,59 +637,48 @@ export default function HomePage() {
                 >
                   Built in a real clinic. Proven in practice.
                 </h2>
+                {/* Danny's own framing from the 10 Aug review: "Clinic evolution was
+                    built out of the learnings of body function clinic". Not "our own
+                    clinic" — Bodyfunction is Danny's practice, a separate business. */}
                 <p className="text-body-lg text-[var(--color-ink)] mb-8 leading-relaxed max-w-xl">
-                  We built Clinic Evo because we know what missed calls, empty diary gaps and weak follow-up cost a clinic. Danny&apos;s clinic was the first to run the full system, so everything we build has been tested against the operational reality of a working MSK practice, not designed in a marketing agency.
+                  Clinic Evo was built out of the learnings of Bodyfunction Clinic in
+                  London. Danny founded Bodyfunction and still practises there, and he
+                  co-founded Clinic Evo to bring what he worked out running it, combined
+                  with Simon&apos;s digital expertise, to other healthcare businesses.
                 </p>
               </FadeUp>
 
+              {/* Icons removed deliberately. Danny's note in the review was that a
+                  box with a word and a generic icon "screams preset website". */}
               <FadeUp delay={0.1}>
-                <div className="flex flex-col gap-7 pt-8 border-t border-[var(--color-border)]">
+                <dl className="m-0 flex flex-col">
                   {[
                     {
                       title: "Founded by two registered osteopaths",
                       desc: "Simon and Danny are both GOsC-registered osteopaths. Clinic Evo was built from inside the profession, not by a marketing agency looking in.",
-                      icon: (
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M12 3l7 3v5c0 4.5-2.8 7.6-7 9-4.2-1.4-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" />
-                        </svg>
-                      ),
                     },
                     {
                       title: "Owned and run by a practising clinician",
-                      desc: "Danny owns and practises at Bodyfunction Clinic in London, the first practice to run the full Clinic Evo system.",
-                      icon: (
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M5 21V8.5l7-4 7 4V21" /><path d="M3.5 21h17" /><path d="M12 11v3.4M10.3 12.7h3.4" />
-                        </svg>
-                      ),
+                      desc: "Danny owns and still treats patients at Bodyfunction Clinic in London, so the operational realities of running a clinic are not theoretical to us.",
                     },
                     {
-                      title: "Tested inside a live MSK clinic",
-                      desc: "Every tool was built and refined in a real clinical environment, not a boardroom. It has to work in practice, not just in a demo.",
-                      icon: (
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M2 12.5h4.5l2-6 3 11 2.5-5H22" />
-                        </svg>
-                      ),
+                      title: "Worked out in a live MSK clinic",
+                      desc: "The approach came from running a real practice, not from a boardroom. It has to work with a full diary and a busy reception, not just in a demo.",
                     },
                   ].map((item) => (
-                    <div key={item.title} className="flex items-start gap-4">
-                      <div
-                        className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-lg"
-                        style={{
-                          background: "var(--color-surface)",
-                          color: "var(--color-ink)",
-                        }}
-                      >
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-bold text-[var(--color-ink)] mb-1">{item.title}</h3>
-                        <p className="text-sm text-[var(--color-muted)] leading-relaxed">{item.desc}</p>
-                      </div>
+                    <div
+                      key={item.title}
+                      className="border-t border-[var(--color-border)] py-5 last:border-b"
+                    >
+                      <dt className="mb-1 font-display text-[15px] font-semibold text-[var(--color-ink)]">
+                        {item.title}
+                      </dt>
+                      <dd className="m-0 text-sm leading-relaxed text-[var(--color-muted)]">
+                        {item.desc}
+                      </dd>
                     </div>
                   ))}
-                </div>
+                </dl>
               </FadeUp>
             </div>
 

@@ -11,6 +11,8 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import StatBand from "@/components/sections/StatBand";
 import ProofBand from "@/components/sections/ProofBand";
 import FAQAccordion from "@/components/sections/FAQAccordion";
+import PulsePipelineBoard from "@/components/sections/PulsePipelineBoard";
+import PatientPulseMockup from "@/components/sections/PatientPulseMockup";
 
 export const metadata = buildMetadata({
   title: "Patient Pulse: Lead Management & Follow-Up",
@@ -141,18 +143,7 @@ export default function PatientPulsePage() {
         secondaryCta={{ label: "See all features", href: "#features" }}
         breadcrumbs={crumbs}
         rightPanelWidth="1.15fr"
-        rightPanel={
-          <div className="relative aspect-[1826/876] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
-            <Image
-              src="/images/patient-pulse/pp-opportunities.png"
-              alt="Patient Pulse opportunities pipeline with thousands of leads staged from first call to booked appointment, each with a value attached"
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 1024px) 100vw, 55vw"
-            />
-          </div>
-        }
+        rightPanel={<PulsePipelineBoard />}
       />
 
       {/* The problem */}
@@ -182,15 +173,7 @@ export default function PatientPulsePage() {
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="relative aspect-[1917/918] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
-                <Image
-                  src="/images/patient-pulse/pp-conversations.png"
-                  alt="Patient Pulse team inbox showing an automatic reply, a patient confirming with 'Yes', and the opportunity moving straight to a booked appointment"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
+              <PatientPulseMockup />
             </FadeUp>
           </div>
         </div>

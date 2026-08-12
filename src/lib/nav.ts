@@ -23,7 +23,7 @@ export interface NavCallout {
 
 export const mainNav: NavItem[] = [
   {
-    label: "Solutions",
+    label: "What We Do",
     href: "/#system-section",
     groups: [
       {

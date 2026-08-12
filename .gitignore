@@ -27,6 +27,10 @@ yarn-error.log*
 .env*.local
 .env
 
+# Unredacted product screenshots containing real patient names, message content
+# and presenting conditions. Kept locally for redaction work only — NEVER commit.
+/private-assets/
+
 # Vercel
 .vercel
 
