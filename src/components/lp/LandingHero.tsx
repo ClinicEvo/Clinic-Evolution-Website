@@ -49,35 +49,6 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
 
             <FadeUp delay={0.14}>
               <LpCtaButton placement="hero" />
-
-              <ul
-                role="list"
-                className="mt-8 flex flex-col gap-x-7 gap-y-2.5 sm:flex-row sm:flex-wrap"
-              >
-                {TRUST_POINTS.map((point) => (
-                  <li key={point} className="flex items-center gap-2.5">
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      aria-hidden="true"
-                      className="flex-shrink-0 text-[var(--color-accent)]"
-                    >
-                      <path
-                        d="M3 8l3.5 3.5L13 4"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span className="text-body-sm font-medium text-[var(--color-charcoal)]">
-                      {point}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </FadeUp>
           </div>
 
@@ -111,6 +82,42 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
             </figure>
           </FadeUp>
         </div>
+
+        {/* Trust strip as one full-width row beneath the grid, the same pattern
+            PageHero uses on the site pages. Inside the copy column these three
+            wrap to a stack, because that column is only ~530px at 1440. */}
+        <FadeUp delay={0.2}>
+          <div className="mt-10 border-t border-[var(--color-border)] pt-7">
+            <ul
+              role="list"
+              className="flex flex-col flex-wrap gap-x-10 gap-y-2.5 sm:flex-row"
+            >
+              {TRUST_POINTS.map((point) => (
+                <li key={point} className="flex items-center gap-2">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    aria-hidden="true"
+                    className="flex-shrink-0 text-[var(--color-accent)]"
+                  >
+                    <path
+                      d="M2.5 7l3 3 6-6"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span className="text-sm font-medium text-[var(--color-charcoal)]">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </FadeUp>
       </div>
     </section>
   );

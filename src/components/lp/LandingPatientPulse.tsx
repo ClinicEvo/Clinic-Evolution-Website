@@ -1,57 +1,110 @@
 import Image from "next/image";
-import { ChatCircleDotsIcon } from "@phosphor-icons/react/dist/ssr/ChatCircleDots";
-import { KanbanIcon } from "@phosphor-icons/react/dist/ssr/Kanban";
-import { TrayIcon } from "@phosphor-icons/react/dist/ssr/Tray";
-import { ClockCountdownIcon } from "@phosphor-icons/react/dist/ssr/ClockCountdown";
-import { StarIcon } from "@phosphor-icons/react/dist/ssr/Star";
-import { ArrowsClockwiseIcon } from "@phosphor-icons/react/dist/ssr/ArrowsClockwise";
+import AppWindow from "@/components/sections/mockups/AppWindow";
 import FadeUp from "@/components/ui/FadeUp";
+import { brandHex, brandMarks, type BrandSlug } from "@/components/icons/BrandIcons";
 import LpCtaButton from "./LpCtaButton";
 
-const CAPABILITIES = [
+/**
+ * Framed to match /patient-pulse/, which was rebuilt around four stages of the
+ * patient journey. The old six-card icon grid is gone for the reason the 10 Aug
+ * review gave: a box with a generic glyph "just screams preset website".
+ *
+ * The only marks here are real brand logos in their official colours, which is
+ * the entire point of the channel row — recognition. They sit on white pills
+ * rather than directly on the navy, because two of the official colours (TikTok,
+ * Google's blue) disappear against a dark background.
+ *
+ * Every capability listed was confirmed live in a Patient Pulse sub-account.
+ * Nothing aspirational belongs in this file.
+ */
+
+interface Channel {
+  brand?: BrandSlug;
+  label: string;
+  wordmark?: boolean;
+}
+
+const CHANNELS: Channel[] = [
+  { brand: "google", label: "Google Business Profile" },
+  { brand: "facebook", label: "Facebook" },
+  { brand: "messenger", label: "Messenger" },
+  { brand: "instagram", label: "Instagram" },
+  { brand: "tiktok", label: "TikTok" },
+  { brand: "whatsapp", label: "WhatsApp" },
+  { label: "Cliniko", wordmark: true },
+];
+
+const STAGES = [
   {
-    icon: ChatCircleDotsIcon,
-    title: "Automatic SMS within minutes",
-    body: "Every enquiry gets a reply within minutes, day or night — from Google, Facebook, your website or any other source.",
+    stage: "Capture",
+    heading: "Every enquiry lands in one place",
+    points: [
+      "Website forms, social messages, WhatsApp and SMS in a single inbox",
+      "Missed-call text-back, so an unanswered phone does not lose the patient",
+      "Every conversation attached to a patient record, not a personal phone",
+    ],
     span: "lg:col-span-4",
   },
   {
-    icon: KanbanIcon,
-    title: "Structured lead pipelines",
-    body: "Every enquiry tracked from first contact through to booked appointment.",
+    stage: "Convert",
+    heading: "Nothing waits for someone to remember",
+    points: [
+      "Automatic first reply within minutes, day or night",
+      "Pipelines that show what needs a call today",
+      "Patients book straight into Cliniko from the conversation",
+    ],
     span: "lg:col-span-2",
   },
   {
-    icon: TrayIcon,
-    title: "One inbox",
-    body: "WhatsApp, SMS, email, Instagram and Facebook in a single place. No more switching between apps.",
-    span: "lg:col-span-2",
-  },
-  {
-    icon: ClockCountdownIcon,
-    title: "12-month nurture sequences",
-    body: "Automated follow-up for the leads who are not ready to book yet, so they hear from you when they are.",
-    span: "lg:col-span-4",
-  },
-  {
-    icon: StarIcon,
-    title: "Same-day review requests",
-    body: "Timed for the moment patients are most likely to actually respond.",
+    stage: "Retain",
+    heading: "Stay in front of the patients you have",
+    points: [
+      "Google review requests the same day treatment happens",
+      "12-month nurture for leads who are not ready yet",
+      "Reporting on which source produced booked patients",
+    ],
     span: "lg:col-span-3",
   },
   {
-    icon: ArrowsClockwiseIcon,
-    title: "Lapsed patient reactivation",
-    body: "At 3, 6 and 12 months — so past patients hear from you before they choose someone else.",
+    stage: "Reactivate",
+    heading: "Bring back the patients who drifted",
+    points: [
+      "Recall at 3, 6 and 12 months, before they choose someone else",
+      "Offers written for people who already trust your clinic",
+      "Replies land back in the same team inbox",
+    ],
     span: "lg:col-span-3",
   },
 ];
+
+function ChannelPill({ item }: { item: Channel }) {
+  const Mark = item.brand ? brandMarks[item.brand] : null;
+
+  return (
+    <li className="flex flex-shrink-0 items-center gap-2.5 rounded-[var(--radius-btn)] bg-[var(--color-paper)] px-4 py-2.5 shadow-[var(--shadow-sm)]">
+      {Mark && item.brand ? (
+        <Mark
+          className="h-4 w-4 flex-shrink-0"
+          // The brand's own hex, not a design-system token, so inline.
+          style={{ color: brandHex[item.brand] }}
+        />
+      ) : null}
+      <span
+        className={`whitespace-nowrap font-display text-[0.8rem] font-semibold text-[var(--color-charcoal)] ${
+          item.wordmark ? "tracking-wide" : ""
+        }`}
+      >
+        {item.label}
+      </span>
+    </li>
+  );
+}
 
 export default function LandingPatientPulse() {
   return (
     <section className="grain bg-[var(--color-ink)] py-24 sm:py-28 lg:py-32">
       <div className="cx-main">
-        <div className="mb-14 grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:gap-16">
+        <div className="mb-12 grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:gap-16">
           <FadeUp>
             <div>
               <Image
@@ -74,33 +127,84 @@ export default function LandingPatientPulse() {
 
           <FadeUp delay={0.08}>
             <p className="text-body-lg max-w-[52ch] text-white/70">
-              Every enquiry, missed call and conversation flows into Patient Pulse,
-              Clinic Evo&apos;s built-in lead management system — so nothing sits
-              unanswered in a personal phone, and nothing falls through the gap
-              between appointments.
+              Marketing brings people to your door. Patient Pulse is what happens
+              next — from the first message to the patient who comes back a year
+              later. It is included and managed as part of the system, not another
+              subscription to run yourself.
             </p>
           </FadeUp>
         </div>
 
+        {/* Channel recognition. Real marks, official colours. */}
+        <FadeUp delay={0.1}>
+          <div className="mb-14 rounded-[var(--radius-card)] border border-white/10 bg-white/[0.04] p-6 sm:p-7">
+            <p className="text-label mb-5 text-white/45">
+              The channels your patients already use, in one inbox
+            </p>
+            <ul role="list" className="flex flex-wrap gap-2.5">
+              {CHANNELS.map((item) => (
+                <ChannelPill key={item.label} item={item} />
+              ))}
+            </ul>
+          </div>
+        </FadeUp>
+
+        {/* Real product, not an illustration. */}
+        <div className="mb-14 grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
+          <FadeUp delay={0.06}>
+            <AppWindow
+              view="Conversations"
+              src="/images/patient-pulse/pp-conversations.png"
+              alt="The Patient Pulse team inbox, showing enquiries from website forms and social channels alongside an automated SMS reply and a Cliniko booking link"
+              ratio="1917/918"
+              footnote="A real Patient Pulse account. Patient names have been replaced and contact details removed."
+            />
+          </FadeUp>
+
+          <FadeUp delay={0.12}>
+            <div>
+              <h3 className="text-h3 mb-4 text-white">
+                One screen your reception team actually works from
+              </h3>
+              <p className="text-body text-white/60">
+                Every enquiry, missed call and conversation flows into the same
+                inbox, so nothing sits unanswered in a personal phone and nothing
+                falls through the gap between appointments. Your pipelines,
+                sequences and patient data belong to your clinic — not to us — and
+                it is built specifically for MSK clinics rather than adapted from a
+                generic sales CRM.
+              </p>
+            </div>
+          </FadeUp>
+        </div>
+
+        {/* Four stages of the patient journey, as on the product page. */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
-          {CAPABILITIES.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <FadeUp
-                key={item.title}
-                delay={index * 0.05}
-                className={`${item.span} flex`}
-              >
-                <div className="flex w-full flex-col rounded-[var(--radius-card)] border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-white/20">
-                  <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent)]/15 text-[var(--color-accent)]">
-                    <Icon size={20} />
-                  </span>
-                  <h3 className="text-h4 mb-2 text-white">{item.title}</h3>
-                  <p className="text-body-sm text-white/60">{item.body}</p>
-                </div>
-              </FadeUp>
-            );
-          })}
+          {STAGES.map((item, index) => (
+            <FadeUp
+              key={item.stage}
+              delay={index * 0.05}
+              className={`${item.span} flex`}
+            >
+              <div className="flex w-full flex-col rounded-[var(--radius-card)] border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-white/20">
+                <p className="text-label mb-3 text-[var(--color-accent)]">
+                  {item.stage}
+                </p>
+                <h3 className="text-h4 mb-4 text-white">{item.heading}</h3>
+                <ul role="list" className="flex flex-col gap-2.5">
+                  {item.points.map((point) => (
+                    <li key={point} className="flex gap-2.5">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-[var(--color-accent)]"
+                      />
+                      <span className="text-body-sm text-white/60">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeUp>
+          ))}
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
@@ -122,9 +226,8 @@ export default function LandingPatientPulse() {
           <FadeUp delay={0.14}>
             <div className="rounded-[var(--radius-card)] border border-white/10 bg-white/[0.04] p-7">
               <p className="text-body mb-6 text-white/70">
-                Your pipelines, sequences and patient data belong to your clinic —
-                not to us. Built specifically for MSK clinics, not adapted from a
-                generic sales CRM.
+                See where enquiries are currently going cold in your clinic, and
+                what it would take to fix it.
               </p>
               <LpCtaButton placement="mid-patient-pulse" className="w-full sm:w-auto" />
             </div>
