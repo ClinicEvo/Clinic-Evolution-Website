@@ -87,7 +87,10 @@ export default function PatientPulsePage() {
         heading={
           <>
             Patient Pulse: clinic CRM, patient messaging and{" "}
-            <em className="not-italic text-[var(--color-accent)]">follow-up in one system</em>
+            <em className="not-italic text-[var(--color-accent)]">
+              {/* nowrap so the line never breaks at the hyphen in "follow-up" */}
+              <span className="whitespace-nowrap">follow-up</span> in one system
+            </em>
           </>
         }
         subtext="One place to manage everything that happens between your marketing and a booked patient. Every enquiry, conversation, review request and lapsed patient, in one system built for MSK clinics."
@@ -99,7 +102,7 @@ export default function PatientPulsePage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See what it does", href: "#features" }}
         breadcrumbs={crumbs}
-        rightPanelWidth="1.15fr"
+        rightPanelWidth="0.8fr"
         bulletsBelow
         rightPanel={
           <LaptopFrame label="Illustrative view of the Patient Pulse lead pipeline. Patient details are never shown.">
@@ -121,7 +124,7 @@ export default function PatientPulsePage() {
       <IntegrationStrip />
 
       {/* Why speed is one of the reasons it works — no longer the whole page. */}
-      <section className="section bg-[var(--color-paper)]">
+      <section className="py-20 lg:py-24 bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
             <div className="max-w-3xl">
@@ -152,25 +155,35 @@ export default function PatientPulsePage() {
         </div>
       </section>
 
-      <StatBand
-        eyebrow="What the system does on its own"
-        heading="The clinic that replies first books the patient."
-        body="Patient Pulse closes the gap between enquiry and response, then keeps every lead and lapsed patient in contact automatically."
-        stats={[
-          { value: "Minutes", label: "Automatic first response to every new enquiry, day or night" },
-          { value: "12 mo", label: "Nurture sequences that keep not-yet-ready leads warm" },
-          { value: "3, 6, 12", label: "Month intervals at which lapsed patients are reactivated" },
-        ]}
-      />
+      <section className="py-20 lg:py-24 grain bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <StatBand
+            bare
+            eyebrow="What the system does on its own"
+            heading="The clinic that replies first books the patient."
+            body="Patient Pulse closes the gap between enquiry and response, then keeps every lead and lapsed patient in contact automatically."
+            stats={[
+              { value: "Minutes", label: "Automatic first response to every new enquiry, day or night" },
+              { value: "12 mo", label: "Nurture sequences that keep not-yet-ready leads warm" },
+              { value: "3, 6, 12", label: "Month intervals at which lapsed patients are reactivated" },
+            ]}
+          />
+        </div>
+      </section>
 
       {/* Approved testimonial. */}
-      <ProofBand
-        eyebrow="Patient Pulse in a working clinic"
-        quote="The follow-up system alone recovered 34 lapsed patients in the first month. Enquiries that used to sit in a personal phone now get answered in minutes."
-      />
+      <section className="py-20 lg:py-24 grain bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <ProofBand
+            bare
+            eyebrow="Patient Pulse in a working clinic"
+            quote="The follow-up system alone recovered 34 lapsed patients in the first month. Enquiries that used to sit in a personal phone now get answered in minutes."
+          />
+        </div>
+      </section>
 
       {/* Why it's different — kept, but tightened from five paragraphs to three. */}
-      <section className="section bg-[var(--color-paper)]">
+      <section className="py-20 lg:py-24 bg-[var(--color-paper)]">
         <div className="cx-main max-w-3xl">
           <FadeUp>
             <p className="eyebrow mb-5">Built for MSK clinics</p>
@@ -199,7 +212,7 @@ export default function PatientPulsePage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-paper)] !pb-10">
+      <section className="py-20 lg:py-24 bg-[var(--color-paper)] !pb-10">
         <div className="cx-main">
           <div className="mx-auto max-w-3xl">
             <FadeUp>

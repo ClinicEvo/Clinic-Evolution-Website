@@ -1,5 +1,5 @@
 import FadeUp from "@/components/ui/FadeUp";
-import { brandMarks, type BrandSlug } from "@/components/icons/BrandIcons";
+import { brandHex, brandMarks, type BrandSlug } from "@/components/icons/BrandIcons";
 
 /**
  * "One system, not a stack of subscriptions."
@@ -8,9 +8,8 @@ import { brandMarks, type BrandSlug } from "@/components/icons/BrandIcons";
  * already paying for — and switching between — a stack of separate tools, and
  * Patient Pulse covers the same ground in one place.
  *
- * Marks render monochrome here, unlike the integration strip. Nine rows of
- * competitor brand colours reads as a logo salad and pulls the eye away from the
- * "Included" column, which is the point of the table.
+ * Marks render in their official brand colours, matching every other logo on the
+ * page, so a clinic owner recognises their own stack on sight.
  *
  * Comparables are chosen for honesty first, logo availability second. The
  * reviews, landing-page and e-signature rows carry wordmarks rather than marks
@@ -128,7 +127,14 @@ function BrandPill({ item }: { item: Replaced }) {
 
   return (
     <span className="inline-flex items-center gap-1.5 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-paper)] px-2.5 py-1 text-[0.72rem] font-semibold text-[var(--color-muted)]">
-      {Mark && <Mark className="h-3.5 w-3.5 flex-shrink-0 opacity-60" />}
+      {Mark && item.brand && (
+        <Mark
+          className="h-3.5 w-3.5 flex-shrink-0"
+          // Inline style rather than a class: the value is the brand's own hex,
+          // not a design-system token.
+          style={{ color: brandHex[item.brand] }}
+        />
+      )}
       {item.name}
     </span>
   );
@@ -153,7 +159,7 @@ function IncludedMark() {
 
 export default function StackReplacementTable() {
   return (
-    <section className="section bg-[var(--color-paper)]">
+    <section className="py-20 lg:py-24 bg-[var(--color-paper)]">
       <div className="cx-main">
         <FadeUp>
           <div className="mb-12 max-w-2xl">

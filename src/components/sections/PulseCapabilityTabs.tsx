@@ -157,7 +157,7 @@ export default function PulseCapabilityTabs() {
   return (
     <section
       id="features"
-      className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]"
+      className="py-20 lg:py-24 grain border-y border-[var(--color-border)] bg-[var(--color-surface)]"
     >
       <div className="cx-main">
         <div className="mb-10 max-w-2xl">

@@ -19,30 +19,36 @@ const columns = [
     stage: "New enquiry",
     count: 6,
     cards: [
-      { source: "Google Ads", interest: "Lower back pain", age: "2 min" },
+      { source: "Google Ads", interest: "Back pain", age: "2 min" },
       { source: "Website form", interest: "Sports injury", age: "18 min" },
+      { source: "Google Business", interest: "Sciatica", age: "41 min" },
     ],
   },
   {
     stage: "Contacted",
     count: 9,
     cards: [
-      { source: "Paid social", interest: "Neck & shoulder", age: "1 hr" },
-      { source: "Missed call", interest: "Callback queued", age: "3 hr" },
+      { source: "Paid social", interest: "Neck pain", age: "1 hr" },
+      { source: "Missed call", interest: "Callback due", age: "3 hr" },
+      { source: "Instagram", interest: "Post-op rehab", age: "5 hr" },
     ],
   },
   {
     stage: "Nurture",
     count: 14,
-    cards: [{ source: "Paid social", interest: "Not ready yet", age: "6 days" }],
+    cards: [
+      { source: "Paid social", interest: "Not ready yet", age: "6 days" },
+      { source: "Website form", interest: "Price enquiry", age: "9 days" },
+    ],
   },
   {
     stage: "Booked",
     count: 11,
     booked: true,
     cards: [
-      { source: "Google Ads", interest: "Initial consultation", age: "Today" },
-      { source: "Recall", interest: "Returning patient", age: "Today" },
+      { source: "Google Ads", interest: "First visit", age: "Today" },
+      { source: "Recall", interest: "Returning", age: "Today" },
+      { source: "WhatsApp", interest: "Follow-up", age: "Today" },
     ],
   },
 ];
@@ -95,7 +101,7 @@ export default function PulsePipelineBoard({ bare = false }: { bare?: boolean })
 
       {/* Board — scrolls horizontally on narrow screens rather than squashing */}
       <div className="overflow-x-auto">
-        <div className="flex min-w-[34rem] gap-3 bg-[var(--color-surface)]/40 p-4">
+        <div className="flex min-w-[28rem] gap-3 bg-[var(--color-surface)]/40 p-4">
           {columns.map((col, ci) => (
             <motion.div
               key={col.stage}

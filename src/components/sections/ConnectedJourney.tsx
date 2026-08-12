@@ -71,7 +71,7 @@ const outcomes = [
 
 export default function ConnectedJourney() {
   return (
-    <section className="section bg-[var(--color-paper)]">
+    <section className="py-20 lg:py-24 bg-[var(--color-paper)]">
       <div className="cx-main">
         <FadeUp>
           <div className="mb-14 max-w-2xl">
