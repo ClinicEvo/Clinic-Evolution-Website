@@ -10,6 +10,7 @@ import StatBand from "@/components/sections/StatBand";
 import ProofBand from "@/components/sections/ProofBand";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import PulsePipelineBoard from "@/components/sections/PulsePipelineBoard";
+import LaptopFrame from "@/components/sections/mockups/LaptopFrame";
 import ConnectedJourney from "@/components/sections/ConnectedJourney";
 import StackReplacementTable from "@/components/sections/StackReplacementTable";
 import PulseCapabilityTabs from "@/components/sections/PulseCapabilityTabs";
@@ -99,7 +100,12 @@ export default function PatientPulsePage() {
         secondaryCta={{ label: "See what it does", href: "#features" }}
         breadcrumbs={crumbs}
         rightPanelWidth="1.15fr"
-        rightPanel={<PulsePipelineBoard />}
+        bulletsBelow
+        rightPanel={
+          <LaptopFrame label="Illustrative view of the Patient Pulse lead pipeline. Patient details are never shown.">
+            <PulsePipelineBoard bare />
+          </LaptopFrame>
+        }
       />
 
       {/* Where it sits: four channels in, two outcomes out. */}

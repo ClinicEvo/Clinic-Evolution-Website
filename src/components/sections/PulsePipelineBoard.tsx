@@ -47,7 +47,7 @@ const columns = [
   },
 ];
 
-export default function PulsePipelineBoard() {
+export default function PulsePipelineBoard({ bare = false }: { bare?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
   const reduce = useReducedMotion();
@@ -58,7 +58,13 @@ export default function PulsePipelineBoard() {
       initial={reduce ? {} : { opacity: 0, y: 24 }}
       animate={inView || reduce ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.15, ease }}
-      className="overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)]"
+      // `bare` drops the panel chrome so the board can sit flush inside a device
+      // frame, which supplies its own edge.
+      className={
+        bare
+          ? "bg-white"
+          : "overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)]"
+      }
     >
       {/* Chrome */}
       <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] px-5 py-3.5">
@@ -135,10 +141,14 @@ export default function PulsePipelineBoard() {
         </div>
       </div>
 
-      {/* Footer note — keeps the visual honest */}
-      <p className="border-t border-[var(--color-border)] px-5 py-2.5 text-[0.6rem] leading-snug text-[var(--color-muted)]">
-        Illustrative view of the Patient Pulse pipeline. Patient details are never shown.
-      </p>
+      {/* Footer note — keeps the visual honest. Suppressed when bare: inside a
+          device frame the disclosure belongs under the device as a caption, not
+          printed on the screen as if the app rendered it. */}
+      {!bare && (
+        <p className="border-t border-[var(--color-border)] px-5 py-2.5 text-[0.6rem] leading-snug text-[var(--color-muted)]">
+          Illustrative view of the Patient Pulse pipeline. Patient details are never shown.
+        </p>
+      )}
     </motion.div>
   );
 }

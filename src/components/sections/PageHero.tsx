@@ -15,6 +15,10 @@ interface PageHeroProps {
   breadcrumbs?: Array<{ label: string; href: string }>;
   compactBottom?: boolean;
   rightPanelWidth?: string;
+  /** Render the bullets as one full-width row beneath the grid instead of inside
+   *  the copy column. The copy column is only ~530px at 1440, so three bullets of
+   *  any real length wrap to a stack there; full width they sit across. */
+  bulletsBelow?: boolean;
 }
 
 export default function PageHero({
@@ -28,7 +32,37 @@ export default function PageHero({
   breadcrumbs,
   compactBottom,
   rightPanelWidth = "480px",
+  bulletsBelow = false,
 }: PageHeroProps) {
+  const bulletRow =
+    bullets && bullets.length > 0 ? (
+      <FadeUp delay={0.2}>
+        <div className="flex flex-col flex-wrap gap-x-10 gap-y-2.5 sm:flex-row">
+          {bullets.map((b) => (
+            <div key={b} className="flex items-center gap-2">
+              <svg
+                className="flex-shrink-0 text-[var(--color-accent)]"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.5 7l3 3 6-6"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="text-sm font-medium text-[var(--color-charcoal)]">{b}</span>
+            </div>
+          ))}
+        </div>
+      </FadeUp>
+    ) : null;
+
   return (
     <section className={`grain bg-[var(--color-paper)] pt-10 sm:pt-12 lg:pt-14 ${compactBottom ? "pb-6 lg:pb-8" : "pb-20 sm:pb-24 lg:pb-28"}`}>
       <div className="cx-main">
@@ -77,20 +111,7 @@ export default function PageHero({
                 )}
               </div>
             </FadeUp>
-            {bullets && bullets.length > 0 && (
-              <FadeUp delay={0.2}>
-                <div className="flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-2.5">
-                  {bullets.map((b) => (
-                    <div key={b} className="flex items-center gap-2">
-                      <svg className="flex-shrink-0 text-[var(--color-accent)]" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                        <path d="M2.5 7l3 3 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      <span className="text-sm font-medium text-[var(--color-charcoal)]">{b}</span>
-                    </div>
-                  ))}
-                </div>
-              </FadeUp>
-            )}
+            {bulletRow && !bulletsBelow && bulletRow}
           </div>
 
           {/* Right, optional panel */}
@@ -100,6 +121,12 @@ export default function PageHero({
             </FadeUp>
           )}
         </div>
+
+        {bulletRow && bulletsBelow && (
+          <div className="mt-12 border-t border-[var(--color-border)] pt-8">
+            {bulletRow}
+          </div>
+        )}
       </div>
     </section>
   );
