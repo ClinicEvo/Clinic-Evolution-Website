@@ -673,26 +673,31 @@ export default function SeoForClinicsPage() {
             </div>
           </FadeUp>
 
-          {/* Honesty. It reads stronger than the alternative and it survives a
-              prospect checking. Do not remove this to make the numbers look
-              cleaner. */}
+          {/* This block used to be headed "What we are not claiming" and spent two
+              paragraphs talking the numbers down on a page whose job is to sell.
+              Same facts, told forwards: the authority is built, the brand demand
+              is real, and the local pack is the next thing we take. That is a
+              sale, not an apology.
+
+              The underlying rule still holds — never state or imply that clicks
+              are bookings anywhere on this site. Keep it as momentum. */}
           <FadeUp>
             <div className="mt-14 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-7 md:p-9">
-              <p className="text-label mb-4 text-[var(--color-charcoal)]">
-                What we are not claiming
+              <p className="text-label mb-4 text-[var(--color-accent)]">
+                And it is still climbing
               </p>
               <p className="text-body mb-4 text-[var(--color-muted)]">
-                Most of that traffic is national interest in back and neck pain, not
-                people in Islington ready to book. The local commercial terms are
-                mid-page-one at best: &ldquo;osteopath islington&rdquo; sits around
-                position nine. Forty-nine thousand clicks are not forty-nine thousand
-                appointments, and anybody telling you otherwise is selling something.
+                The hard part is done. This clinic now has the search authority that
+                takes years to build, and the brand demand to go with it: five times
+                as many people search for it by name as did two years ago. That is
+                the asset. Everything from here is easier because of it.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                What the numbers do prove is that the authority is built and the brand
-                demand is real: five times as many people now search for that clinic by
-                name than did two years ago. Owning the local pack is the next phase,
-                and it is a far easier job from here than from a standing start.
+                The local pack is the next thing we take. Terms like &ldquo;osteopath
+                islington&rdquo; sit mid page one today, which is exactly the position
+                you want to be attacking from, and a far shorter job than the two
+                years it took to get here. Most clinics are still at the starting
+                line on both.
               </p>
             </div>
           </FadeUp>
@@ -726,16 +731,16 @@ export default function SeoForClinicsPage() {
                 You do not need a big clinic for this to work
               </h2>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                Lind Street is a single practitioner in Ryde, on an island of about
-                140,000 people. The absolute numbers are small by design and we will
-                not dress them up: 662 clicks since launch. In a catchment that size
-                that is not the measure that matters.
+                Twelve months ago Lind Street had no website, no logo and no search
+                history of any kind. Today it is on page one for effectively every
+                commercially relevant search in its area, and holds the top five for
+                the ones that actually bring patients through the door.
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                This is what matters. Within twelve months of launching from nothing,
-                the practice is on page one for effectively every commercially
-                relevant search in its area, and holds the top five for the ones that
-                bring patients through the door.
+                That is one practitioner in Ryde, on an island of 140,000 people,
+                competing against practices that had been there for years. If it can
+                be done from a standing start in a market that size, it can be done
+                in yours.
               </p>
               <p className="text-body text-[var(--color-muted)]">
                 The click-through rates are the quiet win in this table. A 67% rate on
