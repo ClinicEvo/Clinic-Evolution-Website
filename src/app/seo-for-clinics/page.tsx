@@ -98,6 +98,21 @@ const faqs = [
       "Blog posts can help, but clinics should usually fix core service pages first. The most important SEO pages are often the treatment, condition, location and practitioner pages that support patient decisions and booking intent. Where content does earn its place, it compounds: one Bodyfunction condition article now ranks for around 250 separate search terms on its own.",
   },
   {
+    question: "How much does SEO cost for a clinic?",
+    answer:
+      "It depends on the size of your website, how competitive your area is and how much of the work is already done. A single-practitioner clinic in a small town and a multi-site practice in a city are different jobs, and quoting a single number for both would be guesswork. The free audit is what makes the price real: we look at your site, your rankings and your local competition, then tell you what the work involves and what it costs. There is no charge for that and no obligation afterwards.",
+  },
+  {
+    question: "What happens after the free clinic SEO audit?",
+    answer:
+      "We come back to you within two business days with what we found: what you already rank for, which searches in your area are going to competitors, what is holding the site back technically, and where a patient drops out on the way to booking. You get those findings whether or not you work with us. If you do want to go ahead, that audit becomes the plan and we agree scope and price from it.",
+  },
+  {
+    question: "We have been burnt by a marketing agency before. How is this different?",
+    answer:
+      "Two things. Clinic Evo is run by healthcare professionals rather than marketers who took on a clinic as a client, so the work is built around how patients actually choose a practitioner. And the results are reported in your own Google Search Console and Ahrefs, which you can log into and check yourself, rather than in a monthly PDF only we can produce. The figures on this page come from those tools and name their source for exactly that reason.",
+  },
+  {
     question: "Can Clinic Evo help with SEO for an existing clinic website?",
     answer:
       "Yes. Clinic Evo can audit an existing clinic website, identify SEO weaknesses, improve service pages, strengthen internal linking, refine local SEO and create a clearer plan for increasing patient enquiries.",
@@ -275,18 +290,26 @@ const whatWeImprove = [
   },
 ];
 
+/* Written as things we do, not things we suggest.
+   Every one of these used to end in "recommendations", "plan" or "checks",
+   which read as a document handed over for the clinic owner to action. That is
+   the opposite of what we sell — Danny's line on the call was "we're offering
+   to do all the dirty work" — and the process section on this same page already
+   says we make the changes. This list now matches it.
+   The honest qualifier lives in one line under the list rather than being
+   sprinkled through eleven bullets, where it weakened all of them. */
 const included = [
-  "SEO audit of your current website",
-  "Keyword mapping by service, condition and location",
-  "Metadata and heading recommendations",
-  "Service page copy and content improvement",
-  "Local SEO and Google Business Profile recommendations",
-  "Technical SEO checks",
-  "Schema recommendations",
-  "Internal linking plan",
-  "Content roadmap for patient education and organic growth",
-  "Conversion recommendations for enquiries and bookings",
-  "Monthly visibility and enquiry tracking where appropriate",
+  "A full audit of your site, your rankings and your local visibility",
+  "Keyword mapping across every service, condition and location you cover",
+  "Metadata and headings rewritten across the site",
+  "Service and condition pages written for patients and for search",
+  "Your Google Business Profile brought into line with the site",
+  "Technical SEO issues fixed, not just flagged",
+  "Schema markup implemented",
+  "Internal linking built out so your best pages carry the rest",
+  "A content roadmap aimed at the searches your patients actually make",
+  "The route from search result to enquiry tightened up",
+  "Monthly reporting on visibility, traffic and enquiries",
 ];
 
 const commonIssues = [
@@ -699,6 +722,15 @@ export default function SeoForClinicsPage() {
                 years it took to get here. Most clinics are still at the starting
                 line on both.
               </p>
+              {/* This page carried the biggest block of Bodyfunction evidence on the
+                  site and never once linked to the case study. A dead end for
+                  anybody who wanted more proof, and an internal link Google should
+                  have had from here. */}
+              <div className="mt-7 border-t border-[var(--color-border)] pt-6">
+                <ArrowLink href="/case-studies/bodyfunction-clinic/">
+                  Read the full Bodyfunction Clinic case study
+                </ArrowLink>
+              </div>
             </div>
           </FadeUp>
         </div>
@@ -897,6 +929,10 @@ export default function SeoForClinicsPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-body-sm mt-7 border-t border-[var(--color-border)] pt-6 text-[var(--color-muted)]">
+                The audit tells us which of these will move your clinic first, so the
+                order and the weight change from clinic to clinic. The work does not.
+              </p>
             </div>
           </FadeUp>
         </div>
@@ -1184,9 +1220,12 @@ export default function SeoForClinicsPage() {
         </div>
       </section>
 
+      {/* The close carries the risk reversal the page had been asking people to
+          take on trust: free, yours to keep, no obligation, and a named
+          turnaround. Every one of those is already true elsewhere on the site. */}
       <CTASection
         heading="Start with a free clinic SEO audit"
-        subheading="We will show you what you already rank for, what your local competitors are taking that you are not, and the shortest route to more enquiries from search."
+        subheading="We will show you what you already rank for, which searches in your area are going to competitors, and the shortest route to more enquiries. Back with you within two business days. It is free, the findings are yours to keep, and there is nothing to cancel if you decide not to go ahead."
       />
     </>
   );
