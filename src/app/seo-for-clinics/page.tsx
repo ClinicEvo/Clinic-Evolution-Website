@@ -3,6 +3,7 @@ import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import ArrowLink from "@/components/ui/ArrowLink";
+import Button from "@/components/ui/Button";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import ProcessSteps from "@/components/sections/ProcessSteps";
@@ -151,6 +152,19 @@ const pillars = [
     title: "MSK and private healthcare only",
     body: "Every clinic we have grown is an osteopathy, physiotherapy or chiropractic practice. We are not a general agency with a healthcare page.",
   },
+];
+
+/* Written to the clinic owner, not about the service. The last one is the
+   quiet killer: on the 10 Aug call Danny described this reader as somebody
+   whose "head is all over the place with all the different features, and they
+   just don't know what to do". Naming that is what earns the next scroll. */
+const painPoints = [
+  "Quiet weeks you cannot explain, and no lever to pull when one arrives.",
+  "A clinic you know you are better than, sitting above you in Google.",
+  "A website that looks perfectly nice and has never brought anybody in.",
+  "Money already spent with an agency that sent reports instead of patients.",
+  "No real idea which of your marketing works, or whether any of it does.",
+  "The nagging feeling that you ought to have worked this out by now.",
 ];
 
 /* Logos. Bodyfunction is deliberately absent: it is the clinic Clinic Evo grew
@@ -334,6 +348,7 @@ export default function SeoForClinicsPage() {
         </div>
       </section>
 
+
       {/* Social proof high on the page, as the review asked, rather than two
           thirds of the way down it. */}
       <section className="border-y border-[var(--color-border)] bg-[var(--color-surface)] py-9">
@@ -355,6 +370,114 @@ export default function SeoForClinicsPage() {
                 />
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The moment of recognition, before any explaining.
+          Danny's core objection to the old page was that it never spoke to the
+          person reading it: "someone who searches osteopath marketing is probably
+          stressed and desperate for a solution... our clients are going to care
+          what the pain point is and what you're going to do to help." Nothing on
+          the page said "this is you" before it started teaching. This does, and
+          it sits above the explanation on purpose. */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <FadeUp>
+              <p className="eyebrow mb-5">If this sounds familiar</p>
+              <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
+                The patients are out there. They are just finding somebody else
+              </h2>
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                Somebody two streets from your clinic typed their symptom into Google
+                this morning and had an appointment booked by lunchtime. Not with you,
+                and not because they weighed you up and chose the other clinic. Because
+                yours never came up.
+              </p>
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                That is the part that stings. The demand is already there, in your
+                catchment, today. You are not trying to create patients out of nothing.
+                You are losing people who are actively looking for exactly what you do.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                All of it is fixable, and none of it requires you to become a marketer.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 md:p-3">
+                <p className="text-label px-5 pb-4 pt-5 text-[var(--color-accent)]">
+                  What this usually feels like
+                </p>
+                <ul role="list" className="overflow-hidden rounded-[var(--radius-sm)] bg-[var(--color-paper)]">
+                  {painPoints.map((point) => (
+                    <li
+                      key={point}
+                      className="border-b border-[var(--color-border)] px-5 py-4 last:border-b-0"
+                    >
+                      <span className="text-[15px] font-medium leading-snug text-[var(--color-ink)]">
+                        {point}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* Why most clinic websites struggle to rank.
+          This H2 is an AEO/GEO snippet target — keep the exact wording. */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-2">
+            <FadeUp>
+              <p className="eyebrow mb-5">Common problems</p>
+              <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
+                Why most clinic websites struggle to rank
+              </h2>
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                Most clinic websites are built to look presentable rather than to
+                perform in search. The homepage is doing too much. The service pages
+                are too thin to rank for anything. The condition pages that patients
+                actually search for were never written.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                The biggest gains usually come from fixing the structure first: making
+                it obvious what you treat, who you help, where you are, why anyone
+                should trust you, and which single page should own each search.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="card-surface p-7 md:p-8">
+                <p className="text-label mb-5 text-[var(--color-accent)]">
+                  What we usually find in an audit
+                </p>
+                <div className="flex flex-col gap-3">
+                  {commonIssues.map((issue) => (
+                    <div key={issue} className="flex items-start gap-3">
+                      <svg
+                        className="mt-1 flex-shrink-0 text-[var(--color-error)]"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M3.5 3.5l7 7M10.5 3.5l-7 7"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <span className="text-body-sm text-[var(--color-muted)]">{issue}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeUp>
           </div>
         </div>
       </section>
@@ -670,6 +793,110 @@ export default function SeoForClinicsPage() {
         </div>
       </section>
 
+      {/* Mid-page CTA, at the point of peak persuasion — straight after the proof.
+          The brief asks for one dominant call to action in each major conversion
+          area, and before this the page ran fifteen thousand pixels between the
+          hero button and the closing one. Dark and full-bleed so it reads as a
+          break in the page rather than a rehearsal of the footer panel. */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)] !py-12 sm:!py-14">
+        <div className="cx-main">
+          <FadeUp>
+            <div
+              className="overflow-hidden bg-[var(--color-ink)] px-8 py-11 md:px-14 md:py-14"
+              style={{ borderRadius: "var(--radius-panel)" }}
+            >
+              <div className="grid items-center gap-9 lg:grid-cols-[1.15fr_auto] lg:gap-14">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
+                    Where does your clinic stand?
+                  </p>
+                  <h2 className="text-h3 mt-4 max-w-xl text-white">
+                    Find out what you already rank for, and what your competitors are
+                    taking
+                  </h2>
+                  <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/60">
+                    The free audit is the same first step we took on both clinics
+                    above. You get your current visibility, the searches you are
+                    missing, and the shortest route to more enquiries. No obligation,
+                    and the findings are yours either way.
+                  </p>
+                </div>
+                <Button href="/free-clinic-audit/" size="lg">
+                  Get a free clinic SEO audit
+                </Button>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* What we improve, and what is included. One section, two jobs — this was
+          two near-identical stacks before. The icon cards are gone. */}
+      <section id="what-we-improve" className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">What we do</p>
+              <h2 className="text-h2 mb-4 text-[var(--color-ink)]">
+                What Clinic Evo improves, and what you get
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                This is a growth package rather than a maintenance plan. Maintenance
+                keeps a website working; this is ongoing work to increase how many
+                people find your clinic and how many of them get in touch.
+              </p>
+            </div>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 gap-x-16 md:grid-cols-2">
+            {whatWeImprove.map((item, i) => (
+              <FadeUp key={item.title} delay={i * 0.05}>
+                <div className="flex gap-5 border-t border-[var(--color-border)] py-6">
+                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted-light)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="text-h4 mb-1.5 text-[var(--color-ink)]">{item.title}</h3>
+                    <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
+                  </div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+
+          <FadeUp delay={0.1}>
+            <div className="mt-14 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 md:p-9">
+              <p className="text-label mb-6 text-[var(--color-accent)]">
+                Included in a clinic SEO engagement
+              </p>
+              <div className="grid grid-cols-1 gap-x-12 gap-y-3 sm:grid-cols-2">
+                {included.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <svg
+                      className="mt-1 flex-shrink-0 text-[var(--color-accent)]"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 8l3.5 3.5L13 4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span className="text-body-sm text-[var(--color-muted)]">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* Why healthcare SEO is a different job */}
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
@@ -739,128 +966,6 @@ export default function SeoForClinicsPage() {
                 and consistent local data. We build for how people search now, not for
                 a version of Google that stopped existing.
               </p>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* Why most clinic websites struggle to rank.
-          This H2 is an AEO/GEO snippet target — keep the exact wording. */}
-      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-2">
-            <FadeUp>
-              <p className="eyebrow mb-5">Common problems</p>
-              <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                Why most clinic websites struggle to rank
-              </h2>
-              <p className="text-body mb-5 text-[var(--color-muted)]">
-                Most clinic websites are built to look presentable rather than to
-                perform in search. The homepage is doing too much. The service pages
-                are too thin to rank for anything. The condition pages that patients
-                actually search for were never written.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                The biggest gains usually come from fixing the structure first: making
-                it obvious what you treat, who you help, where you are, why anyone
-                should trust you, and which single page should own each search.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.1}>
-              <div className="card-surface p-7 md:p-8">
-                <p className="text-label mb-5 text-[var(--color-accent)]">
-                  What we usually find in an audit
-                </p>
-                <div className="flex flex-col gap-3">
-                  {commonIssues.map((issue) => (
-                    <div key={issue} className="flex items-start gap-3">
-                      <svg
-                        className="mt-1 flex-shrink-0 text-[var(--color-error)]"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M3.5 3.5l7 7M10.5 3.5l-7 7"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                      <span className="text-body-sm text-[var(--color-muted)]">{issue}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* What we improve, and what is included. One section, two jobs — this was
-          two near-identical stacks before. The icon cards are gone. */}
-      <section id="what-we-improve" className="section bg-[var(--color-paper)]">
-        <div className="cx-main">
-          <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">What we do</p>
-              <h2 className="text-h2 mb-4 text-[var(--color-ink)]">
-                What Clinic Evo improves, and what you get
-              </h2>
-              <p className="text-body-lg text-[var(--color-charcoal)]">
-                This is a growth package rather than a maintenance plan. Maintenance
-                keeps a website working; this is ongoing work to increase how many
-                people find your clinic and how many of them get in touch.
-              </p>
-            </div>
-          </FadeUp>
-
-          <div className="grid grid-cols-1 gap-x-16 md:grid-cols-2">
-            {whatWeImprove.map((item, i) => (
-              <FadeUp key={item.title} delay={i * 0.05}>
-                <div className="flex gap-5 border-t border-[var(--color-border)] py-6">
-                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted-light)]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="text-h4 mb-1.5 text-[var(--color-ink)]">{item.title}</h3>
-                    <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
-                  </div>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-
-          <FadeUp delay={0.1}>
-            <div className="mt-14 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 md:p-9">
-              <p className="text-label mb-6 text-[var(--color-accent)]">
-                Included in a clinic SEO engagement
-              </p>
-              <div className="grid grid-cols-1 gap-x-12 gap-y-3 sm:grid-cols-2">
-                {included.map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <svg
-                      className="mt-1 flex-shrink-0 text-[var(--color-accent)]"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M3 8l3.5 3.5L13 4"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span className="text-body-sm text-[var(--color-muted)]">{item}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </FadeUp>
         </div>
