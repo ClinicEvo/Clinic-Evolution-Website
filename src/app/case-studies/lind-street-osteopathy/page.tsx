@@ -10,6 +10,7 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import { StatTiles } from "@/components/case-studies/CaseStudyCharts";
+import LaptopFrame from "@/components/sections/mockups/LaptopFrame";
 
 /*
  * Lind Street Osteopathy — the standing-start story, written for a clinic owner.
@@ -169,7 +170,10 @@ export default function LindStreetCaseStudyPage() {
 
             <div className="relative lg:col-span-6">
               <FadeUp delay={0.2}>
-                <div className="relative overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)]">
+                {/* In a device shell rather than a bare screenshot — the site is
+                    the deliverable on this page, and a laptop says "this is a
+                    real website" before anyone reads a word. */}
+                <LaptopFrame>
                   <Image
                     src="/images/lind-street/homepage-banner.png"
                     alt="The Lind Street Osteopathy website, brand and site built by Clinic Evo"
@@ -178,7 +182,7 @@ export default function LindStreetCaseStudyPage() {
                     className="w-full"
                     priority
                   />
-                </div>
+                </LaptopFrame>
                 <div className="absolute -bottom-6 -left-6 -z-10 h-32 w-32 rounded-2xl bg-[var(--color-accent)]/10 blur-2xl" />
               </FadeUp>
             </div>
