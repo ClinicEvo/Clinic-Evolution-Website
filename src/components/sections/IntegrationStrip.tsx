@@ -1,3 +1,4 @@
+import Image from "next/image";
 import FadeUp from "@/components/ui/FadeUp";
 import { brandHex, brandMarks, type BrandSlug } from "@/components/icons/BrandIcons";
 
@@ -22,9 +23,11 @@ interface Channel {
   /** Label shown beside the mark. Overrides the brand's own title where the
    *  product name differs from the mark (the Google G stands in for GBP). */
   label: string;
-  /** Brands with no mark in simple-icons render as a wordmark, which is
-   *  authentic for products whose logo *is* their name. */
-  wordmark?: boolean;
+  /** Bitmap mark for brands simple-icons does not carry. The file has an opaque
+   *  white background, which is seamless because the pill it sits on is always
+   *  --color-paper (#FFFFFF). Check that still holds before reusing it on a
+   *  darker surface. */
+  imageSrc?: string;
 }
 
 const channels: Channel[] = [
@@ -34,7 +37,7 @@ const channels: Channel[] = [
   { brand: "instagram", label: "Instagram" },
   { brand: "tiktok", label: "TikTok" },
   { brand: "whatsapp", label: "WhatsApp" },
-  { label: "Cliniko", wordmark: true },
+  { label: "Cliniko", imageSrc: "/images/cliniko.png" },
 ];
 
 function Pill({ item, duplicate }: { item: Channel; duplicate?: boolean }) {
@@ -53,11 +56,21 @@ function Pill({ item, duplicate }: { item: Channel; duplicate?: boolean }) {
           style={{ color: brandHex[item.brand] }}
         />
       )}
-      <span
-        className={`whitespace-nowrap font-display text-[0.9rem] font-semibold text-[var(--color-charcoal)] ${
-          item.wordmark ? "tracking-wide" : ""
-        }`}
-      >
+      {item.imageSrc && (
+        <Image
+          src={item.imageSrc}
+          // Decorative: the label beside it already names the brand, exactly as
+          // the SVG marks are aria-hidden.
+          alt=""
+          width={243}
+          height={208}
+          sizes="24px"
+          // Height matched to the SVG marks, width left to the mark's own
+          // aspect ratio so it is never squashed into a square.
+          className="h-5 w-auto flex-shrink-0"
+        />
+      )}
+      <span className="whitespace-nowrap font-display text-[0.9rem] font-semibold text-[var(--color-charcoal)]">
         {item.label}
       </span>
     </li>

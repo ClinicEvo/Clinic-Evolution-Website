@@ -21,7 +21,9 @@ import LpCtaButton from "./LpCtaButton";
 interface Channel {
   brand?: BrandSlug;
   label: string;
-  wordmark?: boolean;
+  /** Bitmap mark for brands simple-icons does not carry. Its opaque white
+   *  background is seamless on the --color-paper pill, not on the navy behind. */
+  imageSrc?: string;
 }
 
 const CHANNELS: Channel[] = [
@@ -31,7 +33,7 @@ const CHANNELS: Channel[] = [
   { brand: "instagram", label: "Instagram" },
   { brand: "tiktok", label: "TikTok" },
   { brand: "whatsapp", label: "WhatsApp" },
-  { label: "Cliniko", wordmark: true },
+  { label: "Cliniko", imageSrc: "/images/cliniko.png" },
 ];
 
 const STAGES = [
@@ -89,11 +91,19 @@ function ChannelPill({ item }: { item: Channel }) {
           style={{ color: brandHex[item.brand] }}
         />
       ) : null}
-      <span
-        className={`whitespace-nowrap font-display text-[0.8rem] font-semibold text-[var(--color-charcoal)] ${
-          item.wordmark ? "tracking-wide" : ""
-        }`}
-      >
+      {item.imageSrc ? (
+        <Image
+          src={item.imageSrc}
+          // Decorative: the label beside it already names the brand.
+          alt=""
+          width={243}
+          height={208}
+          sizes="20px"
+          // Height matched to the SVG marks, width left to its own aspect ratio.
+          className="h-4 w-auto flex-shrink-0"
+        />
+      ) : null}
+      <span className="whitespace-nowrap font-display text-[0.8rem] font-semibold text-[var(--color-charcoal)]">
         {item.label}
       </span>
     </li>
