@@ -1,7 +1,8 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
+import ArrowLink from "@/components/ui/ArrowLink";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
@@ -9,12 +10,39 @@ import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
 import ProofBand from "@/components/sections/ProofBand";
-import ClinicSiteMockup from "@/components/sections/mockups/ClinicSiteMockup";
+import ProcessSteps from "@/components/sections/ProcessSteps";
+import ResearchPagePlan from "@/components/sections/ResearchPagePlan";
+import RealClinicSites from "@/components/sections/mockups/RealClinicSites";
+
+/*
+ * Clinic website design — rebuilt around the research, 13 Aug 2026.
+ *
+ * The page used to argue "we build good clinic websites, and we also do SEO",
+ * which put it in competition with /seo-for-clinics/ and left the actual
+ * difference unsaid. The difference is the order of the work: we research the
+ * market, the competitors and the searches first, so the site's architecture is
+ * an answer to real demand rather than a guess. That is now the spine of the
+ * page, and ResearchPagePlan shows the working with real Lind Street figures.
+ *
+ * Three changes came straight out of Danny's 10 Aug review:
+ *   - The invented "yourclinic.co.uk" mock-up is gone. The hero carries two real
+ *     sites we built (RealClinicSites), which is also what the brief asked for.
+ *   - Three near-identical icon-card grids are down to one plain typographic
+ *     list. The icon-in-a-box look was his "screams preset website" complaint.
+ *   - Social proof sits directly under the hero rather than two thirds down.
+ *
+ * Also corrected: the old Bodyfunction card implied an arm's-length client. Danny
+ * founded Bodyfunction and co-founded Clinic Evo, and the site says so.
+ *
+ * H1 note: the previous H1 carried no target phrase at all. The new one leads
+ * with "Clinic website design", so this is a keyword gain, not a conversational
+ * rewrite of a working title.
+ */
 
 export const metadata = buildMetadata({
   title: "Clinic Website Design for MSK Practices",
   description:
-    "Clinic Evo designs clear, fast, booking-focused websites for UK physiotherapists, osteopaths and chiropractors, built around trust, SEO and patient enquiries.",
+    "Clinic Evo designs clear, fast, booking-focused websites for UK physiotherapists, osteopaths and chiropractors, planned from search and competitor research before any design work starts.",
   path: "/website-design-for-clinics/",
 });
 
@@ -23,6 +51,11 @@ const faqs = [
     question: "What makes clinic website design different from normal web design?",
     answer:
       "Clinic website design needs to account for patient trust, clinical services, location searches, booking behaviour, practitioner credibility and healthcare-related decision making. A clinic website should not just look good. It should help patients understand their options and feel confident enough to book.",
+  },
+  {
+    question: "How do you decide what pages my clinic website needs?",
+    answer:
+      "From research, before any design work starts. We look at what patients in your area actually search for, how much of that demand exists, which competitors currently hold those results and what Google is already rewarding for each one. That produces a page plan. Every page on the site exists because somebody is searching for it, which is why a site built this way keeps earning enquiries long after launch.",
   },
   {
     question: "Do you design websites for physiotherapy clinics?",
@@ -52,12 +85,115 @@ const crumbs = [
   { label: "Clinic Website Design", href: "/website-design-for-clinics/" },
 ];
 
+/* The five things that lose a patient who was already interested. Straight from
+   the page brief — kept as a plain list rather than cards on purpose. */
+const frictionPoints = [
+  {
+    label: "Grainy or borrowed photography",
+    body: "Stock images of models in a studio tell a patient nothing about your clinic, and they can tell.",
+  },
+  {
+    label: "Navigation that hides the treatment",
+    body: "If somebody cannot find the page about their problem in a few seconds, they go back to the results and open the next clinic.",
+  },
+  {
+    label: "Branding that could belong to anyone",
+    body: "A template site makes you interchangeable with the other three clinics in your town.",
+  },
+  {
+    label: "Slow pages and awkward mobile layouts",
+    body: "Most patients are searching on a phone, often in pain and rarely patient about it.",
+  },
+  {
+    label: "A booking journey with friction in it",
+    body: "Every extra click, form field or dead end between deciding and booking costs you appointments.",
+  },
+];
+
+/* The six-step build from the page brief. Research is step one because it
+   genuinely is — everything after it is a consequence of what it finds. */
+const buildSteps = [
+  {
+    number: 1,
+    title: "Understand the market",
+    description:
+      "Search demand in your catchment, a teardown of the clinics currently taking it, and a look at what Google is actually rewarding for each search. Nothing gets designed until this is done.",
+  },
+  {
+    number: 2,
+    title: "Turn the research into a page plan",
+    description:
+      "Which pages need to exist, what each one has to answer, how they link together and where the booking route sits. The site structure comes out of the research, not out of a template.",
+  },
+  {
+    number: 3,
+    title: "Build it properly",
+    description:
+      "Fast, technically clean, genuinely responsive, and written for the patient the page was planned for. Built to the highest spec we can hit on performance and technical health.",
+  },
+  {
+    number: 4,
+    title: "Connect the booking journey",
+    description:
+      "Your booking system integrated where it makes sense, with the friction taken out of the route from reading to booked. As much work as possible taken off the practice owner.",
+  },
+  {
+    number: 5,
+    title: "Install the measurement",
+    description:
+      "Analytics and conversion tracking from day one, so what happens next is a matter of evidence rather than opinion. We are not going on blind faith.",
+  },
+  {
+    number: 6,
+    title: "Improve with the data",
+    description:
+      "Real behaviour shows which pages earn enquiries and which need work. The site gets stronger over time instead of ageing quietly.",
+  },
+];
+
+/* Client logos. Bodyfunction is deliberately absent — it is the origin story,
+   not a client, and listing it here recreates the confusion the 10 Aug review
+   asked us to fix. It appears in the hero and the origin section, both labelled.
+   Heights are tuned per mark because the aspect ratios differ wildly. */
+const clientLogos = [
+  { name: "Body Restore Clinic", src: "/images/clients/body-restore.png", w: 1714, h: 564, height: 34, dim: true },
+  { name: "1 Percent Club", src: "/images/clients/one-percent-club.png", w: 500, h: 461, height: 48, dim: true },
+  { name: "Lind Street Osteopathy", src: "/images/clients/lind-street.png", w: 1500, h: 500, height: 42 },
+];
+
+const buildScope = [
+  {
+    title: "New clinic websites",
+    desc: "A complete website for a new or growing clinic, including homepage, service pages, practitioner pages, contact page and booking journey.",
+  },
+  {
+    title: "Website redesigns",
+    desc: "A clearer, stronger version of your current website, built around better structure, messaging, SEO and conversion.",
+  },
+  {
+    title: "Service and condition pages",
+    desc: "Pages built from the research, so patients find the thing that is wrong with them and Google understands your clinical relevance.",
+  },
+  {
+    title: "Booking journey improvements",
+    desc: "Cleaner calls to action, stronger contact flows and better integration with booking tools where appropriate.",
+  },
+  {
+    title: "Local search foundations",
+    desc: "Metadata, headings, internal links, schema and location signals built into the site structure from the start rather than bolted on later.",
+  },
+  {
+    title: "Ongoing optimisation",
+    desc: "Support after launch to improve content, track visibility and strengthen the pages most likely to generate enquiries.",
+  },
+];
+
 export default function WebsiteDesignForClinicsPage() {
   return (
     <>
       <ServiceSchema
         name="Clinic Website Design"
-        description="Specialist clinic website design for UK osteopaths, physiotherapists, chiropractors and private MSK clinics."
+        description="Specialist clinic website design for UK osteopaths, physiotherapists, chiropractors and private MSK clinics, planned from search and competitor research."
         url="/website-design-for-clinics/"
       />
       <BreadcrumbSchema items={crumbs} />
@@ -65,58 +201,313 @@ export default function WebsiteDesignForClinicsPage() {
 
       <PageHero
         badge="Clinic website design for MSK practices"
-        heading={<>Websites built around <em className="not-italic text-[var(--color-accent)]">real patient bookings</em>, not just aesthetics</>}
-        subtext="Clinic Evo designs clear, fast and SEO-ready websites for UK physiotherapists, osteopaths and chiropractors, every page built around the way patients search, compare and decide whether to book."
+        heading={
+          <>
+            Clinic website design that starts with{" "}
+            <em className="not-italic text-[var(--color-accent)]">research</em>, not a template
+          </>
+        }
+        subtext="Clinic Evo designs websites for UK physiotherapists, osteopaths and chiropractors. We find out what patients in your area are searching for and which clinics are taking it, then build the site around the answer, so it keeps bringing you enquiries long after launch."
         bullets={[
-          "Designed around SEO, trust and bookings",
-          "Built for private MSK clinics specifically",
-          "Faster load times and better conversion",
+          "Researched before it is designed",
+          "Built for the searches your patients actually make",
+          "Booking never more than one click away",
         ]}
         primaryCta={{ label: "Get a free website audit", href: "/free-clinic-audit/" }}
-        secondaryCta={{ label: "See how we build", href: "#what-we-build" }}
         breadcrumbs={crumbs}
-        rightPanel={<ClinicSiteMockup />}
+        rightPanel={<RealClinicSites />}
+        rightPanelWidth="520px"
+        bulletsBelow
       />
 
-      {/* Problem */}
+      {/* Proof, high up — Danny asked for social proof near the top of every page,
+          not two thirds of the way down it. */}
+      <section className="border-y border-[var(--color-border)] bg-[var(--color-surface)] py-9">
+        <div className="cx-main">
+          <div className="flex flex-col items-center gap-7 sm:flex-row sm:justify-between sm:gap-10">
+            <p className="text-label flex-shrink-0 text-[var(--color-muted)]">
+              Clinics we build and grow
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+              {clientLogos.map((logo) => (
+                <Image
+                  key={logo.name}
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logo.w}
+                  height={logo.h}
+                  style={{ height: logo.height, width: "auto" }}
+                  className={logo.dim ? "opacity-[0.85]" : undefined}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The real patient decision */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="max-w-3xl">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <FadeUp>
-              <p className="eyebrow mb-5">The problem</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                A clinic website has to do more than look professional
+              <p className="eyebrow mb-5">The real decision</p>
+              <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
+                You are almost never the only clinic they are looking at
               </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                A good-looking website is not enough for a private clinic. Patients
-                want to know whether you treat their problem, whether they can
-                trust you, how quickly they can book, what the appointment involves
-                and whether your clinic feels credible.
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                A patient in pain opens three or four tabs. Yours is one of them. They are not
+                comparing your clinical skill, because they have no way to judge it yet. They are
+                comparing what they can see in about five seconds: whether you treat the thing
+                that is wrong with them, whether you look like somebody who does this properly,
+                and how quickly they can get an appointment.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                For physiotherapy, osteopathy and chiropractic clinics, the website
-                needs to work much harder than a brochure. It has to support SEO,
-                explain services clearly, answer patient concerns and guide people
-                towards booking. That is why Clinic Evo designs clinic websites
-                around patient behaviour, not generic templates.
+                That is a decision your website makes on your behalf, several times a day, whether
+                or not it was built to. A good-looking site that does not answer those three
+                questions loses to a plainer one that does.
               </p>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <p className="text-label mb-6 text-[var(--color-charcoal)]">
+                What loses a patient who was already interested
+              </p>
+              <ul role="list" className="border-t border-[var(--color-border)]">
+                {frictionPoints.map((point) => (
+                  <li key={point.label} className="border-b border-[var(--color-border)] py-5">
+                    <p className="text-[15px] font-semibold text-[var(--color-ink)]">{point.label}</p>
+                    <p className="text-body-sm mt-1.5 text-[var(--color-muted)]">{point.body}</p>
+                  </li>
+                ))}
+              </ul>
             </FadeUp>
           </div>
         </div>
       </section>
 
-      {/* Who this is for */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+      {/* The research — the spine of the page */}
+      <section
+        id="the-research"
+        className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]"
+      >
+        <div className="cx-main">
+          <div className="mb-14 grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <FadeUp>
+              <p className="eyebrow mb-5">Before we design anything</p>
+              <h2 className="text-h2 leading-tight text-[var(--color-ink)]">
+                We do not build until we know what needs building
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.08}>
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                Most clinic websites are designed first and marketed afterwards, which is why so
+                many of them end up as a brochure the owner has to send people to. We work the
+                other way round. Before anything is designed we map the search demand in your
+                catchment, pull apart the clinics currently holding those results, and look at what
+                Google is already rewarding for each one.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                That research is the design brief. It decides which pages exist, what each one has
+                to answer and how somebody gets from reading it to booked. Build it that way and
+                every page is aimed at somebody who is already looking for exactly that, which is
+                why the enquiries compound instead of stopping when the ad budget does.
+              </p>
+            </FadeUp>
+          </div>
+
+          <ResearchPagePlan />
+
+          {/* What the foundation turns into. The chart is the payoff for the table
+              above: pages aimed at real demand make organic the channel that
+              feeds the clinic, and it keeps running when nothing is being spent. */}
+          <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+            <FadeUp>
+              <h3 className="text-h3 mb-5 text-[var(--color-ink)]">
+                Why this is worth doing in the right order
+              </h3>
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                A site built on research earns its patients from search, and search does not stop
+                when you stop paying. Every page you add on a term somebody is genuinely typing
+                compounds on the last one, so the site gets more valuable the longer it runs.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                Ads are still worth running, and we run them — they fill the diary while search
+                matures. But paid traffic is rented and organic is owned, which is why we would
+                rather spend the first fortnight on research than on a homepage carousel.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <figure>
+                <div className="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)]">
+                  <Image
+                    src="/images/website-design/seo-first-design.png"
+                    alt="Google Analytics chart showing organic search as by far the largest source of new patients for a Clinic Evo clinic website"
+                    width={526}
+                    height={338}
+                    className="h-auto w-full"
+                    sizes="(max-width: 1024px) 100vw, 440px"
+                  />
+                </div>
+                <figcaption className="text-body-sm mt-4 text-[var(--color-muted)]">
+                  New patients by the channel that first brought them in, on a clinic site we
+                  built. Google Analytics 4.
+                </figcaption>
+              </figure>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* The six-step build */}
+      <section id="what-we-build" className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+            <div>
+              <FadeUp>
+                <p className="eyebrow mb-5">How we build</p>
+                <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
+                  Six steps, in this order, every time
+                </h2>
+                <p className="text-body text-[var(--color-muted)]">
+                  The order matters more than any single step. Research before design, measurement
+                  before opinion, and improvement as a habit rather than a rescue job two years
+                  later.
+                </p>
+              </FadeUp>
+              <FadeUp delay={0.1}>
+                <div className="mt-9 border-t border-[var(--color-border)] pt-7">
+                  <p className="text-body-sm text-[var(--color-muted)]">
+                    Once the foundation is right, the same research feeds{" "}
+                    <Link href="/seo-for-clinics/" className="text-[var(--color-accent)] hover:underline">
+                      ongoing SEO
+                    </Link>
+                    ,{" "}
+                    <Link
+                      href="/google-ads-for-clinics/"
+                      className="text-[var(--color-accent)] hover:underline"
+                    >
+                      Google Ads
+                    </Link>
+                    ,{" "}
+                    <Link href="/digital-marketing/" className="text-[var(--color-accent)] hover:underline">
+                      paid social
+                    </Link>{" "}
+                    and{" "}
+                    <Link href="/ai-integration/" className="text-[var(--color-accent)] hover:underline">
+                      patient reactivation
+                    </Link>
+                    . One piece of work, not four.
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+            <ProcessSteps steps={buildSteps} />
+          </div>
+        </div>
+      </section>
+
+      {/* Proof band — the Lind Street standing start. Image is the clinic sign
+          rather than the homepage, which the hero already shows. */}
+      <ProofBand
+        eyebrow="A site built from nothing"
+        stat={{ value: "0 → page one", label: "Every core local search term, twelve months from launch" }}
+        body="Lind Street Osteopathy launched with no logo, no website and no search history of any kind. A year on it holds position one for its own name at a 67% click-through rate, and page one across its whole catchment."
+        source="Google Search Console, lindstreetosteopathy.co.uk, to Jul 2026"
+        image="/images/lind-street/clinic-sign.png"
+        imageAlt="The Lind Street Osteopathy clinic sign in Ryde, Isle of Wight"
+        ctaLabel="Read the Lind Street case study"
+        ctaHref="/case-studies/lind-street-osteopathy/"
+      />
+
+      {/* What the clinical side actually changes */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+            <FadeUp>
+              <p className="eyebrow mb-5">Why healthcare people build better clinic sites</p>
+              <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
+                Patients search for what is wrong with them, not for your treatment list
+              </h2>
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                This is the single most useful thing we know, and it changes the whole structure of
+                a clinic website. Nobody wakes up wanting osteopathy. They wake up unable to turn
+                their head, and they type that. A site organised around the services you sell will
+                always lose to one organised around the problems people arrive with.
+              </p>
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                At Lind Street the condition pages outperform the general osteopathy and sports
+                massage pages by a distance — the fibromyalgia, hypermobility and TMJ pages are
+                doing the heavy lifting. That is not a design opinion, it is what the data showed
+                once the pages were live.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                We know it because we are healthcare professionals too, and because we have sat on
+                both sides of this: running the clinic and building the thing that fills it. It
+                shapes the practitioner pages, the way treatment gets explained, what goes above
+                the fold, and which questions a page has to answer before somebody will book.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <div className="overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                <Image
+                  src="/images/bodyfunction-clinic-team-at-reception-01.jpg"
+                  alt="The Bodyfunction Clinic team at reception in their Islington practice"
+                  width={1200}
+                  height={900}
+                  className="h-auto w-full"
+                  sizes="(max-width: 1024px) 100vw, 480px"
+                />
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* What we can build — one plain list, where three card grids used to be */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Scope</p>
+              <h2 className="text-h2 mb-4 text-[var(--color-ink)]">
+                What we can build or improve for your clinic
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Depending on where you are starting from, this is either a new website or a
+                stronger version of the one you have.
+              </p>
+            </div>
+          </FadeUp>
+          <div className="grid grid-cols-1 gap-x-16 md:grid-cols-2">
+            {buildScope.map((item, i) => (
+              <FadeUp key={item.title} delay={i * 0.05}>
+                <div className="flex gap-5 border-t border-[var(--color-border)] py-6">
+                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted-light)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="text-h4 mb-1.5 text-[var(--color-ink)]">{item.title}</h3>
+                    <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
+                  </div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who we help */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
           <FadeUp>
             <div className="mb-12 max-w-2xl">
               <p className="eyebrow mb-4">Who we help</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
+              <h2 className="text-h2 mb-4 text-[var(--color-ink)]">
                 Website design for physios, osteopaths and chiropractors
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
-                Clinic Evo focuses on MSK clinics where trust, education and local
-                visibility directly affect patient enquiries.
+                Every discipline is searched for differently, so every one gets its own research.
               </p>
             </div>
           </FadeUp>
@@ -128,16 +519,6 @@ export default function WebsiteDesignForClinicsPage() {
                 href: "/physiotherapy-marketing/",
                 cta: "Physiotherapy Marketing",
                 watermarkImg: "/images/watermark-physio.jpg",
-                accentColor: "#0F766E",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="2" y="10" width="3" height="4" rx="1" />
-                    <rect x="5" y="8" width="2" height="8" rx="1" />
-                    <line x1="7" y1="12" x2="17" y2="12" />
-                    <rect x="17" y="8" width="2" height="8" rx="1" />
-                    <rect x="19" y="10" width="3" height="4" rx="1" />
-                  </svg>
-                ),
               },
               {
                 title: "Osteopathy clinics",
@@ -145,17 +526,6 @@ export default function WebsiteDesignForClinicsPage() {
                 href: "/osteopath-marketing/",
                 cta: "Marketing for Osteopaths",
                 watermarkImg: "/images/watermark-osteopath.jpg",
-                accentColor: "#ff5b4a",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="8" y="2" width="8" height="4" rx="1.5" />
-                    <path d="M9 6 Q12 7.5 15 6" />
-                    <rect x="7" y="8" width="10" height="4" rx="1.5" />
-                    <path d="M8 12 Q12 13.5 16 12" />
-                    <rect x="8" y="14" width="8" height="4" rx="1.5" />
-                    <path d="M10 18 Q12 21 14 18" />
-                  </svg>
-                ),
               },
               {
                 title: "Chiropractic clinics",
@@ -163,24 +533,12 @@ export default function WebsiteDesignForClinicsPage() {
                 href: "/chiropractic-marketing/",
                 cta: "Chiropractic Marketing",
                 watermarkImg: "/images/watermark-chiro.jpg",
-                accentColor: "#1E3A5F",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M12 2 L12 7" />
-                    <rect x="9" y="7" width="6" height="10" rx="1.5" />
-                    <path d="M12 17 L12 22" />
-                    <path d="M2 12 L7 12" />
-                    <path d="M4.5 9.5 L7.5 12 L4.5 14.5" />
-                    <path d="M22 12 L17 12" />
-                    <path d="M19.5 9.5 L16.5 12 L19.5 14.5" />
-                  </svg>
-                ),
               },
             ].map((item, i) => (
               <FadeUp key={item.href} delay={i * 0.09}>
                 <Link
                   href={item.href}
-                  className="group flex flex-col sm:flex-row overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-[2px]"
+                  className="group flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[var(--shadow-card-hover)] sm:flex-row"
                   style={{ background: "var(--color-paper)" }}
                 >
                   <div className="relative h-52 w-full flex-shrink-0 overflow-hidden sm:h-auto sm:w-64 lg:w-72">
@@ -194,23 +552,27 @@ export default function WebsiteDesignForClinicsPage() {
                     <div className="absolute inset-0 bg-[var(--color-ink)]/10" />
                   </div>
                   <div className="flex flex-1 flex-col justify-center p-7 md:p-9 lg:p-10">
-                    <div className="mb-4 flex items-center gap-3">
-                      <div
-                        className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)]"
-                        style={{ background: "var(--color-accent-light)", color: "var(--color-accent)" }}
-                      >
-                        {item.icon}
-                      </div>
-                      <p className="eyebrow">{item.title}</p>
-                    </div>
-                    <p className="text-body-sm text-[var(--color-muted)] mb-6">{item.desc}</p>
+                    <p className="eyebrow mb-4">{item.title}</p>
+                    <p className="text-body-sm mb-6 text-[var(--color-muted)]">{item.desc}</p>
                     <span
                       className="inline-flex items-center gap-2 transition-all group-hover:gap-3 group-hover:text-[var(--color-accent)]"
-                      style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-ink)", textDecoration: "underline", textUnderlineOffset: "4px" }}
+                      style={{
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        color: "var(--color-ink)",
+                        textDecoration: "underline",
+                        textUnderlineOffset: "4px",
+                      }}
                     >
                       {item.cta}
                       <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                        <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path
+                          d="M3 7h8M7 3l4 4-4 4"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </span>
                   </div>
@@ -221,196 +583,67 @@ export default function WebsiteDesignForClinicsPage() {
         </div>
       </section>
 
-      {/* What a clinic website needs */}
+      {/* Where this came from */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">Essentials</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                What your clinic website needs to get right
-              </h2>
-              <p className="text-body-lg text-[var(--color-charcoal)]">
-                A clinic website should make the patient journey easier from
-                the first search to the first booking.
-              </p>
-            </div>
-          </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { title: "Clear service pages", desc: "Each treatment or service should have a page that explains who it is for, what it can help with, what to expect and how to book.", icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 9h10M7 13h6" /></> },
-              { title: "Local SEO structure", desc: "Your website should help Google understand your services, location, clinical focus and relevance to local patient searches.", icon: <><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></> },
-              { title: "Practitioner credibility", desc: "Patients want to know who they are booking with. Practitioner profiles, qualifications and clinical interests all matter.", icon: <><circle cx="12" cy="8" r="4" /><path d="M5 21v-1a7 7 0 0114 0v1" /></> },
-              { title: "Booking-focused journey", desc: "Your calls to action, booking buttons, forms and contact options should be visible, simple and consistent across the site.", icon: <><rect x="4" y="5" width="16" height="16" rx="2" /><path d="M8 3v4M16 3v4M4 11h16M9 16l2 2 4-4" /></> },
-              { title: "Trust signals", desc: "Reviews, case studies, professional memberships, clinic photos and clear explanations reduce uncertainty and improve conversion.", icon: <><path d="M12 3l7 3v5c0 4.5-2.8 7.6-7 9-4.2-1.4-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" /></> },
-              { title: "Fast, mobile-first performance", desc: "Many patients search on mobile. Your website needs to load quickly, read clearly and make booking easy on smaller screens.", icon: <><rect x="7" y="3" width="10" height="18" rx="2" /><path d="M11 18h2" /></> },
-            ].map((item, i) => (
-              <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="card-surface group flex h-full flex-col p-7 md:p-8">
-                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
-                  </div>
-                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{item.title}</h3>
-                  <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proof band */}
-      <ProofBand
-        eyebrow="A site built from nothing"
-        stat={{ value: "0 → page one", label: "Every core local search term, twelve months from launch" }}
-        body="Lind Street Osteopathy launched with no logo, no website and no search history of any kind. A year on it holds position one for its own name at a 67% click-through rate, and page one across its whole catchment."
-        source="Google Search Console, lindstreetosteopathy.co.uk, to Jul 2026"
-        image="/images/lind-street/homepage-banner.png"
-        imageAlt="The Lind Street Osteopathy website built by Clinic Evo"
-        imagePosition="left"
-        ctaLabel="Read the Lind Street case study"
-        ctaHref="/case-studies/lind-street-osteopathy/"
-      />
-
-      {/* SEO and conversion */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-20 items-center">
+          <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+            {/* A face rather than a fourth screenshot: this section is about a
+                person's decision, and the Bodyfunction site is already in the
+                hero. */}
             <FadeUp>
-              <p className="eyebrow mb-5">SEO-first design</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                Built with SEO, trust and conversion in mind
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Clinic website design should not be separated from SEO. The
-                structure of your pages, headings, internal links, service
-                descriptions, location signals, image optimisation and metadata
-                all influence whether your clinic can rank for relevant searches.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                For clinics that already have a website, we can also support with{" "}
-                <a href="/seo-for-clinics/" className="text-[var(--color-accent)] hover:underline">SEO for clinics</a>,{" "}
-                <a href="/google-ads-for-clinics/" className="text-[var(--color-accent)] hover:underline">Google Ads for clinics</a> and{" "}
-                <a href="/ai-integration/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
-                once the website foundation is clear.
-              </p>
+              <figure className="max-w-[400px]">
+                <div className="overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                  <Image
+                    src="/images/danny-morgan-angel-clinic.png"
+                    alt="Danny Morgan, osteopath, founder of Bodyfunction Clinic and co-founder of Clinic Evo"
+                    width={1500}
+                    height={1500}
+                    className="h-auto w-full"
+                    sizes="(max-width: 1024px) 100vw, 420px"
+                  />
+                </div>
+                <figcaption className="text-body-sm mt-4 text-[var(--color-muted)]">
+                  <span className="font-semibold text-[var(--color-charcoal)]">Danny Morgan</span> —
+                  osteopath, founder of Bodyfunction Clinic, co-founder of Clinic Evo
+                </figcaption>
+              </figure>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="rounded-[var(--radius-card)] overflow-hidden border border-[var(--color-border)] shadow-[var(--shadow-card)]">
-                <Image
-                  src="/images/seo-first-design.png"
-                  alt="Google Analytics chart showing organic search as the dominant source of new clinic patients"
-                  width={526}
-                  height={338}
-                  className="w-full h-auto"
-                />
-              </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* What we build */}
-      <section id="what-we-build" className="section bg-[var(--color-paper)]">
-        <div className="cx-main">
-          <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">What we build</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                What we can improve or build for your clinic
+              <p className="eyebrow mb-5">Where this came from</p>
+              <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
+                This method was worked out on our own clinic first
               </h2>
-              <p className="text-body-lg text-[var(--color-charcoal)]">
-                Depending on your current website, Clinic Evo can either improve
-                what already exists or design a new clinic website from the ground
-                up.
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                Danny Morgan founded Bodyfunction Clinic in Islington and co-founded Clinic Evo. It
+                is not a client, and we would rather say so plainly. Clinic Evo exists because
+                building Bodyfunction&apos;s website and search presence from scratch taught us
+                which parts actually move the needle on a clinic — and which parts agencies charge
+                for and nobody notices.
               </p>
-            </div>
-          </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { title: "New clinic websites", desc: "A complete website for a new or growing clinic, including homepage, service pages, practitioner pages, contact page and booking journey." },
-              { title: "Website redesigns", desc: "A clearer, stronger version of your current website, built around better structure, messaging, SEO and conversion." },
-              { title: "Service and condition pages", desc: "SEO-led pages that help patients understand what you treat and help Google understand your clinical relevance." },
-              { title: "Booking journey improvements", desc: "Cleaner calls to action, stronger contact flows and better integration with booking tools where appropriate." },
-              { title: "Local SEO foundations", desc: "Metadata, headings, internal links, schema and location signals built into the site structure from the start." },
-              { title: "Ongoing optimisation", desc: "Support after launch to improve content, track visibility and strengthen the pages most likely to generate enquiries." },
-            ].map((item, i) => (
-              <FadeUp key={item.title} delay={i * 0.07}>
-                <div className="card-surface flex h-full flex-col p-7 md:p-8">
-                  <span className="mb-4 font-display text-2xl font-light leading-none text-[var(--color-muted-light)]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{item.title}</h3>
-                  <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Clinic Evo */}
-      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <FadeUp>
-              <div>
-                <p className="eyebrow mb-5">Why Clinic Evo</p>
-                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Why Clinic Evo is different
-                </h2>
-                <p className="text-body text-[var(--color-muted)] mb-5">
-                  Clinic Evo is built specifically for private MSK clinics. That
-                  means the website copy, page structure and design decisions are
-                  shaped by real patient journeys rather than generic marketing
-                  assumptions.
-                </p>
-                <p className="text-body text-[var(--color-muted)]">
-                  We understand that patients often arrive with pain, uncertainty
-                  and a need for reassurance. A clinic website has to respect that.
-                  It should be clear, credible and commercially effective without
-                  feeling pushy or over-designed.
-                </p>
-              </div>
-            </FadeUp>
-            <FadeUp delay={0.1}>
-              <Link href="/case-studies/bodyfunction-clinic/" className="card-surface group block p-8">
-                <p className="text-label text-[var(--color-accent)] mb-5">Case study</p>
-                <h3 className="text-h3 text-[var(--color-ink)] mb-4">
-                  Designed around real clinic growth work
-                </h3>
-                <p className="text-body text-[var(--color-muted)] mb-6">
-                  Clinic Evo&apos;s approach is shaped by real work with private
-                  clinics, including Bodyfunction Clinic. The focus is on
-                  improving the foundations that affect patient enquiries: service
-                  page clarity, search visibility, booking confidence and the
-                  overall path from website visit to appointment.
-                </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
-                  Read the Bodyfunction Clinic case study
-                  <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
-                    <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </Link>
+              <p className="text-body mb-8 text-[var(--color-muted)]">
+                Eight people a month finding the clinic through Google became nearly four thousand.
+                Everything on this page is the method that got it there, written down so other
+                clinic owners do not have to work it out the hard way.
+              </p>
+              <ArrowLink href="/case-studies/bodyfunction-clinic/">
+                Read the Bodyfunction Clinic case study
+              </ArrowLink>
             </FadeUp>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[var(--color-paper)] !pb-10">
+      <section className="section grain border-t border-[var(--color-border)] bg-[var(--color-surface)] !pb-10">
         <div className="cx-main">
-          <div className="max-w-3xl mx-auto">
+          <div className="mx-auto max-w-3xl">
             <FadeUp>
-              <div className="text-center mb-10">
+              <div className="mb-10 text-center">
                 <p className="eyebrow mb-5">FAQ</p>
-                <h2 className="text-h2 text-[var(--color-ink)]">
-                  Clinic website design FAQs
-                </h2>
+                <h2 className="text-h2 text-[var(--color-ink)]">Clinic website design FAQs</h2>
               </div>
             </FadeUp>
-            <div className="bg-[var(--color-paper)] border border-[var(--color-border)] rounded-[var(--radius-card)] shadow-[var(--shadow-card)] px-6 sm:px-10 py-2">
+            <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] px-6 py-2 shadow-[var(--shadow-card)] sm:px-10">
               <FAQAccordion items={faqs} />
             </div>
           </div>
@@ -419,7 +652,7 @@ export default function WebsiteDesignForClinicsPage() {
 
       <CTASection
         heading="Start with a free clinic website audit"
-        subheading="Your free audit will review your current website structure, SEO, service pages, user journey, trust signals and booking flow."
+        subheading="We will show you what your site is already ranking for, what your local competitors are taking that you are not, and what a patient hits when they try to book with you."
       />
     </>
   );
