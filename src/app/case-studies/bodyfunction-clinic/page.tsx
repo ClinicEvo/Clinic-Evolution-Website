@@ -130,8 +130,12 @@ export default function BodyfunctionCaseStudyPage() {
                 <p className="eyebrow mb-5 mt-6">Where Clinic Evo came from</p>
               </FadeUp>
               <FadeUp delay={0.05}>
+                {/* H1 keeps the page's target keyword. The brief is explicit
+                    that it must not be rewritten to be more conversational, and
+                    Simon made the same point on the call — the story hook lives
+                    in the paragraphs below, not in the H1. */}
                 <h1 className="text-h1 mb-6 tracking-tight text-[var(--color-ink)]">
-                  The osteopathy clinic we built Clinic Evo out of
+                  Bodyfunction Clinic marketing case study
                 </h1>
               </FadeUp>
               <FadeUp delay={0.1}>
@@ -228,6 +232,27 @@ export default function BodyfunctionCaseStudyPage() {
                 </div>
               </FadeUp>
             </div>
+          </div>
+
+          {/* The Project Overview section was removed per the brief, but Danny
+              asked to keep the summary boxes that sat beneath it — "that's
+              enough strain on the eyes for that section". */}
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { label: "Clinic type", value: "Osteopathy and MSK clinic, Angel, London" },
+              { label: "What we worked on", value: "Website structure, local visibility, condition content, patient follow-up" },
+              { label: "Timeframe", value: "Two years, August 2024 to August 2026" },
+              { label: "Relationship", value: "Clinic Evo's founding clinic, not an outside client" },
+            ].map((card, i) => (
+              <FadeUp key={card.label} delay={i * 0.07}>
+                <div className="card-surface h-full p-8">
+                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                    {card.label}
+                  </p>
+                  <p className="text-body font-medium text-[var(--color-ink)]">{card.value}</p>
+                </div>
+              </FadeUp>
+            ))}
           </div>
         </div>
       </section>
@@ -599,15 +624,73 @@ export default function BodyfunctionCaseStudyPage() {
         </div>
       </section>
 
-      {/* ── Takeaway ─────────────────────────────────────────────────────── */}
+      {/* ── Patient journey and conversion ───────────────────────────────
+          Retained per the brief and the call. Presented visually and tied to
+          real click-through evidence rather than left as generic copy. */}
       <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
+            <div className="order-2 max-w-xl lg:order-1">
+              <FadeUp>
+                <p className="eyebrow mb-5">Patient journey</p>
+                <h2 className="text-h2 mb-8 leading-tight text-[var(--color-ink)]">
+                  Getting found is only half of it
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-body leading-relaxed text-[var(--color-muted)]">
+                    Patients do not choose a clinic the way they choose a plumber.
+                    They are in pain, often worried, and frequently they have already
+                    been let down by somebody who did not help. They need to feel
+                    understood before they will book.
+                  </p>
+                  <p className="text-body leading-relaxed text-[var(--color-muted)]">
+                    So a page has to do more than list what you offer. It has to show
+                    you understand their specific problem, explain what will actually
+                    happen in the room, and make booking feel like a small step rather
+                    than a commitment.
+                  </p>
+                  <p className="text-body leading-relaxed text-[var(--color-muted)]">
+                    You can see it working in the click-through rates. Nearly 12% of
+                    people who see the clinic listed for &ldquo;osteopathic medicine vs
+                    homeopathic medicine&rdquo; click it, and a third of those who see
+                    it for &ldquo;body function clinic angel&rdquo; do. Those are well
+                    above what those positions would normally earn, and that gap is the
+                    wording doing its job.
+                  </p>
+                  <p className="border-l-2 border-[var(--color-accent)] py-2 pl-6 text-body italic leading-relaxed text-[var(--color-muted)]">
+                    All the visibility in the world is wasted on a page that does not
+                    convince somebody you can help them.
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+
+            <div className="relative order-1 lg:order-2">
+              <FadeUp delay={0.1}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-2xl">
+                  <Image
+                    src="/images/bodyfunction-physiotherapy-strength-conditioning-floor-exercise-02.jpg"
+                    alt="Strength and conditioning session at Bodyfunction Clinic"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute -right-6 -top-6 -z-10 h-24 w-24 rounded-full bg-[var(--color-accent)]/5 blur-xl" />
+              </FadeUp>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Takeaway ─────────────────────────────────────────────────────── */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-7">
               <FadeUp>
-                <p className="eyebrow mb-5">What this means for your clinic</p>
+                <p className="eyebrow mb-5">Takeaway</p>
                 <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                  Three things worth taking from this
+                  What other clinics can learn from this
                 </h2>
                 <div className="space-y-6">
                   <p className="text-body leading-relaxed text-[var(--color-muted)]">
@@ -664,7 +747,7 @@ export default function BodyfunctionCaseStudyPage() {
       </section>
 
       {/* ── How Clinic Evo can help ──────────────────────────────────────── */}
-      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+      <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
             <div className="mb-12 max-w-2xl">
