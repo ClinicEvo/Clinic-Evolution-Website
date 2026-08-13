@@ -179,13 +179,13 @@ export default function OsteopathMarketingPage() {
 
       {/* Proof band */}
       <StatBand
-        eyebrow="What osteopath clinics see"
-        heading="Growth measured in booked patients, not rankings alone."
-        body="Every channel we run is tied back to new enquiries and filled diaries, the numbers that actually move an osteopathy practice forward."
+        eyebrow="What we can evidence"
+        heading="Two osteopathy clinics, two very different starting points."
+        body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so we do not publish a booking figure."
         stats={[
-          { value: "70%", label: "Average increase in new patients per month" },
-          { value: "3.1×", label: "Average organic traffic growth over six months" },
-          { value: "Top 3", label: "Google Maps ranking for local osteopath searches" },
+          { value: "8 → 3,822", label: "Monthly organic visitors at a London osteopathy clinic, over two years" },
+          { value: "383", label: "Keywords now ranking in Google's top three, from none in 2024" },
+          { value: "0 → page one", label: "Every core local term for a new Isle of Wight clinic, within twelve months" },
         ]}
       />
 
@@ -360,24 +360,25 @@ export default function OsteopathMarketingPage() {
               <div>
                 <p className="eyebrow mb-5">Proof</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  3× new patient enquiries for a London osteopathy practice
+                  425% more Google clicks for a London osteopathy practice
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  A London osteopathy practice increased their monthly new patient
-                  enquiries threefold within 6 months through targeted local SEO and
-                  a rebuilt, conversion-focused website.
+                  Bodyfunction Clinic in Angel went from 8 organic visitors a month
+                  to 3,822 over two years, and from no top-three rankings at all to
+                  383 of them. Google clicks rose 425% year on year.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> shows
-                  how focused website, SEO and patient journey improvements support a
-                  stronger private clinic growth strategy.
+                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> sets
+                  out every figure, where it came from, and the local rankings that
+                  are still being worked on.
                 </p>
-                <blockquote className="border-l-2 border-[var(--color-accent)] pl-4 mb-6">
-                  <p className="text-body-lg text-[var(--color-ink)] italic mb-2">
-                    &ldquo;We&apos;d tried two agencies before. This was the first time someone actually understood how our patients think.&rdquo;
+                <div className="border-l-2 border-[var(--color-accent)] pl-4 mb-6">
+                  <p className="text-body text-[var(--color-charcoal)]">
+                    Bodyfunction is our own clinic. Danny Morgan founded it and
+                    co-founded Clinic Evo, so this is the practice the method was
+                    built and tested in before we offered it to anyone else.
                   </p>
-                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Danny, Bodyfunction Clinic</cite>
-                </blockquote>
+                </div>
                 <ArrowLink href="/case-studies/bodyfunction-clinic/">
                   Read the full clinic story
                 </ArrowLink>
@@ -394,8 +395,8 @@ export default function OsteopathMarketingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 via-[var(--color-ink)]/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="font-display font-bold text-4xl text-white mb-1">3×</p>
-                  <p className="text-sm text-white/90 font-medium">new patient enquiries in 6 months</p>
+                  <p className="font-display font-bold text-4xl text-white mb-1">8 → 3,822</p>
+                  <p className="text-sm text-white/90 font-medium">monthly organic visitors in two years</p>
                 </div>
               </div>
             </FadeUp>

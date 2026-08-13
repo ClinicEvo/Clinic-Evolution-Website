@@ -261,8 +261,15 @@ export default function WebsiteDesignForClinicsPage() {
 
       {/* Proof band */}
       <ProofBand
-        eyebrow="Built in a real clinic"
-        quote="We went from page 4 to position 1 in 11 weeks. The follow-up system alone recovered 34 lapsed patients in the first month."
+        eyebrow="A site built from nothing"
+        stat={{ value: "0 → page one", label: "Every core local search term, twelve months from launch" }}
+        body="Lind Street Osteopathy launched with no logo, no website and no search history of any kind. A year on it holds position one for its own name at a 67% click-through rate, and page one across its whole catchment."
+        source="Google Search Console, lindstreetosteopathy.co.uk, to Jul 2026"
+        image="/images/lind-street/homepage-banner.png"
+        imageAlt="The Lind Street Osteopathy website built by Clinic Evo"
+        imagePosition="left"
+        ctaLabel="Read the Lind Street case study"
+        ctaHref="/case-studies/lind-street-osteopathy/"
       />
 
       {/* SEO and conversion */}

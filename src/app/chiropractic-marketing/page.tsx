@@ -174,15 +174,17 @@ export default function ChiropracticMarketingPage() {
         </div>
       </section>
 
-      {/* Proof band */}
+      {/* Proof band.
+          The figures below are from osteopathy and MSK clinics and are labelled
+          as such. Do not relabel them as chiropractic results. */}
       <StatBand
-        eyebrow="What chiropractic clinics see"
-        heading="Less reliance on referrals. More patients who find you first."
-        body="We build the digital foundation that turns searches into enquiries and one-off visits into long-term chiropractic patients."
+        eyebrow="What we can evidence"
+        heading="The same foundations, proven in MSK practice."
+        body="These figures come from osteopathy and MSK clinics, measured in Google Search Console and Ahrefs. The work behind them — local search, condition pages, follow-up — is the same for a chiropractic clinic."
         stats={[
-          { value: "70%", label: "Average increase in new patients per month" },
-          { value: "31", label: "Local keywords ranking in the top three positions" },
-          { value: "£2,800+", label: "Average lifetime value of a long-term chiro patient" },
+          { value: "8 → 3,822", label: "Monthly organic visitors at a London MSK clinic, over two years" },
+          { value: "383", label: "Keywords now ranking in Google's top three, from none in 2024" },
+          { value: "0 → page one", label: "Every core local term for a new clinic, within twelve months of launch" },
         ]}
       />
 
@@ -399,21 +401,22 @@ export default function ChiropracticMarketingPage() {
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   Clinic Evo&apos;s approach is shaped by real work with private
-                  clinics, including Bodyfunction Clinic. The focus was to improve
-                  the digital foundation, strengthen service pages, make the
-                  patient journey clearer and build smarter systems for growth.
+                  clinics. Bodyfunction Clinic in Angel went from 8 organic visitors
+                  a month to 3,822 over two years, and from no top-three rankings at
+                  all to 383 of them.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> shows
-                  how focused website, SEO and patient journey improvements can
-                  support a stronger private clinic growth strategy.
+                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> sets
+                  out every figure, where it came from, and the local rankings that
+                  are still being worked on.
                 </p>
-                <blockquote className="border-l-2 border-[var(--color-accent)] pl-4 mb-6">
-                  <p className="text-body-lg text-[var(--color-ink)] italic mb-2">
-                    &ldquo;We&apos;d tried two agencies before. This was the first time someone actually understood how our patients think.&rdquo;
+                <div className="border-l-2 border-[var(--color-accent)] pl-4 mb-6">
+                  <p className="text-body text-[var(--color-charcoal)]">
+                    Bodyfunction is our own clinic. Danny Morgan founded it and
+                    co-founded Clinic Evo, so this is the practice the method was
+                    built and tested in before we offered it to anyone else.
                   </p>
-                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Danny, Bodyfunction Clinic</cite>
-                </blockquote>
+                </div>
                 <ArrowLink href="/case-studies/bodyfunction-clinic/">
                   Read the full clinic story
                 </ArrowLink>
@@ -430,8 +433,8 @@ export default function ChiropracticMarketingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 via-[var(--color-ink)]/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="font-display font-bold text-4xl text-white mb-1">3×</p>
-                  <p className="text-sm text-white/90 font-medium">new patient enquiries in 6 months</p>
+                  <p className="font-display font-bold text-4xl text-white mb-1">8 → 3,822</p>
+                  <p className="text-sm text-white/90 font-medium">monthly organic visitors in two years</p>
                 </div>
               </div>
             </FadeUp>

@@ -345,10 +345,27 @@ export default function GoogleAdsForClinicsPage() {
         </div>
       </section>
 
-      {/* Proof band */}
+      {/* Proof band.
+          This replaced a quote reading "page 4 to position 1 in 11 weeks" — an
+          organic ranking claim on a paid search page, and one Danny asked us to
+          remove on the 10 Aug call because they were not his words.
+
+          What is here now is Danny's own statement about Clinic Evo's track
+          record, made on that call and confirmed by Simon on 13 Aug 2026. He is
+          bylined as a Clinic Evo co-founder rather than as a clinic client,
+          because that is the capacity he is speaking in. We still hold no paid
+          search performance data for any clinic, so there is no campaign
+          outcome claimed here — only the experience behind the work.
+      */}
       <ProofBand
-        eyebrow="What good clinic paid search looks like"
-        quote="We went from page 4 to position 1 in 11 weeks. The follow-up system alone recovered 34 lapsed patients in the first month."
+        eyebrow="The experience behind the campaigns"
+        quote="We've been doing this for years. We've invested over £70,000 into paid ads specifically in healthcare, and we know exactly which ones work and which ones don't, so we take the guesswork out of it."
+        authorName="Danny Morgan"
+        authorRole="Co-founder, Clinic Evo — and a practising osteopath"
+        image="/images/danny-morgan-angel-clinic.png"
+        imageAlt="Danny Morgan, co-founder of Clinic Evo"
+        ctaLabel="Get a free clinic audit"
+        ctaHref="/free-clinic-audit/"
       />
 
       {/* What we manage */}

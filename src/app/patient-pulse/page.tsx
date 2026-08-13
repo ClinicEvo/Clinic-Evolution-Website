@@ -7,7 +7,6 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
 import StatBand from "@/components/sections/StatBand";
-import ProofBand from "@/components/sections/ProofBand";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import PulsePipelineBoard from "@/components/sections/PulsePipelineBoard";
 import LaptopFrame from "@/components/sections/mockups/LaptopFrame";
@@ -171,16 +170,14 @@ export default function PatientPulsePage() {
         </div>
       </section>
 
-      {/* Approved testimonial. */}
-      <section className="py-20 lg:py-24 grain bg-[var(--color-paper)]">
-        <div className="cx-main">
-          <ProofBand
-            bare
-            eyebrow="Patient Pulse in a working clinic"
-            quote="The follow-up system alone recovered 34 lapsed patients in the first month. Enquiries that used to sit in a personal phone now get answered in minutes."
-          />
-        </div>
-      </section>
+      {/* A proof band sat here carrying a quote about recovering 34 lapsed
+          patients in the first month. It was not a real client quote and the
+          figure is not evidenced in Search Console, Ahrefs or anywhere else —
+          neither tool can see bookings or reactivations. Removed rather than
+          swapped for an unrelated SEO number, which would be the same problem
+          wearing a different hat. Restore a band here once Patient Pulse has
+          reactivation figures from a live clinic that will let us publish them.
+      */}
 
       {/* Why it's different — kept, but tightened from five paragraphs to three. */}
       <section className="py-20 lg:py-24 bg-[var(--color-paper)]">

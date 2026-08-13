@@ -77,11 +77,14 @@ export default function HealthcareMarketingConsultantPage() {
         secondaryCta={{ label: "Explore services", href: "#strategy-areas" }}
         breadcrumbs={crumbs}
         rightPanel={
+          /* "Avg implementation ROI 3.4×" was here and is not a figure we can
+             evidence for any clinic. Replaced with what the consultancy
+             actually delivers, all of which is checkable against this page. */
           <HeroStatCard
-            title="Consultancy outcomes"
+            title="What the consultancy covers"
             stats={[
               { label: "Strategy delivery", value: "5 days", note: "from first session" },
-              { label: "Avg implementation ROI", value: "3.4×", note: "12-month return" },
+              { label: "Areas reviewed", value: "6", note: "positioning, website, SEO, paid, reactivation, measurement" },
               { label: "Growth roadmap", value: "90 day", note: "clear, prioritised plan" },
             ]}
           />
@@ -157,7 +160,7 @@ export default function HealthcareMarketingConsultantPage() {
         body="The aim is clarity: a clear view of what to fix first, why it matters and what return it is likely to produce before you commit budget."
         stats={[
           { value: "5 days", label: "From first session to a delivered strategy" },
-          { value: "3.4×", label: "Average 12-month return on implemented recommendations" },
+          { value: "6", label: "Areas reviewed, from positioning through to measurement" },
           { value: "90 days", label: "A clear, prioritised growth roadmap to work from" },
         ]}
       />

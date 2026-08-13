@@ -9,7 +9,6 @@ import FAQAccordion from "@/components/sections/FAQAccordion";
 import FAQSchema from "@/components/schema/FAQSchema";
 import StatBand from "@/components/sections/StatBand";
 import HeroStatCard from "@/components/sections/HeroStatCard";
-import ProofBand from "@/components/sections/ProofBand";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 
 export const metadata = buildMetadata({
@@ -149,12 +148,17 @@ export default function AiIntegrationPage() {
         secondaryCta={{ label: "See all automations", href: "#automations" }}
         breadcrumbs={crumbs}
         rightPanel={
+          /* Describes what the system does rather than what it has returned.
+             The previous card claimed a 38% rebook rate, 312+ patients
+             reactivated and 6h/wk saved — none of which we can evidence, since
+             no tool we run sees bookings. Every value below is checkable
+             against this page. */
           <HeroStatCard
-            title="Reactivation results"
+            title="How reactivation runs"
             stats={[
-              { label: "Rebook rate", value: "38%", note: "of contacted past patients" },
-              { label: "Patients reactivated", value: "312+", note: "across clinic databases" },
-              { label: "Admin hours saved", value: "6h/wk", note: "per clinic average" },
+              { label: "Contact intervals", value: "3, 6, 12", note: "months after a patient's last appointment" },
+              { label: "Automations included", value: "6", note: "reactivation, reviews, follow-up, reminders, milestones, nurture" },
+              { label: "Software for you to learn", value: "None", note: "built and managed for you through Patient Pulse" },
             ]}
           />
         }
@@ -253,11 +257,12 @@ export default function AiIntegrationPage() {
         ]}
       />
 
-      {/* Proof band */}
-      <ProofBand
-        eyebrow="What reactivation returns"
-        quote="The fully AI automated follow-up system alone recovered 34 lapsed patients in the first month, from a database we thought was dead."
-      />
+      {/* A proof band sat here quoting 34 lapsed patients recovered in the first
+          month. Not a real client quote, and no tool we use can evidence a
+          reactivation figure — Search Console and Ahrefs see search, not
+          bookings. Removed rather than backfilled with an unrelated SEO stat.
+          Restore once a live clinic will share its recall numbers.
+      */}
 
       {/* Responsible AI */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">

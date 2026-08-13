@@ -179,13 +179,13 @@ export default function PhysiotherapyMarketingPage() {
 
       {/* Proof band */}
       <StatBand
-        eyebrow="What physio clinics see"
-        heading="Specialist marketing that fills specialist diaries."
-        body="From sports rehab to post-surgical care, we tie every channel back to booked appointments and patients who keep coming back."
+        eyebrow="What we can evidence"
+        heading="Measured in a working MSK clinic, not modelled."
+        body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so we do not publish a booking figure."
         stats={[
-          { value: "70%", label: "Average increase in new patients per month" },
-          { value: "2.9×", label: "Average organic traffic growth over six months" },
-          { value: "Top 3", label: "Google Maps ranking for local physio searches" },
+          { value: "8 → 3,822", label: "Monthly organic visitors at a London MSK clinic, over two years" },
+          { value: "+425%", label: "Google clicks year on year across the same period" },
+          { value: "383", label: "Keywords now ranking in Google's top three, from none in 2024" },
         ]}
       />
 
@@ -364,21 +364,22 @@ export default function PhysiotherapyMarketingPage() {
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   Clinic Evo&apos;s approach is shaped by real work with private MSK
-                  clinics, including Bodyfunction Clinic. The focus was to improve the
-                  digital foundation, strengthen service pages, make the patient
-                  journey clearer and build smarter systems for growth.
+                  clinics. Bodyfunction Clinic in Angel went from 8 organic visitors
+                  a month to 3,822 over two years, and from no top-three rankings at
+                  all to 383 of them.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> shows
-                  how focused website, SEO and patient journey improvements support a
-                  stronger private clinic growth strategy.
+                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> sets
+                  out every figure, where it came from, and the local rankings that
+                  are still being worked on.
                 </p>
-                <blockquote className="border-l-2 border-[var(--color-accent)] pl-4 mb-6">
-                  <p className="text-body-lg text-[var(--color-ink)] italic mb-2">
-                    &ldquo;We&apos;d tried two agencies before. This was the first time someone actually understood how our patients think.&rdquo;
+                <div className="border-l-2 border-[var(--color-accent)] pl-4 mb-6">
+                  <p className="text-body text-[var(--color-charcoal)]">
+                    Bodyfunction is our own clinic. Danny Morgan founded it and
+                    co-founded Clinic Evo, so this is the practice the method was
+                    built and tested in before we offered it to anyone else.
                   </p>
-                  <cite className="text-sm font-semibold text-[var(--color-muted)] not-italic">— Danny, Bodyfunction Clinic</cite>
-                </blockquote>
+                </div>
                 <ArrowLink href="/case-studies/bodyfunction-clinic/">
                   Read the full clinic story
                 </ArrowLink>
@@ -395,8 +396,8 @@ export default function PhysiotherapyMarketingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 via-[var(--color-ink)]/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="font-display font-bold text-4xl text-white mb-1">3×</p>
-                  <p className="text-sm text-white/90 font-medium">new patient enquiries in 6 months</p>
+                  <p className="font-display font-bold text-4xl text-white mb-1">8 → 3,822</p>
+                  <p className="text-sm text-white/90 font-medium">monthly organic visitors in two years</p>
                 </div>
               </div>
             </FadeUp>

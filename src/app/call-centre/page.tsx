@@ -7,7 +7,6 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
 import ArrowLink from "@/components/ui/ArrowLink";
 import StatBand from "@/components/sections/StatBand";
-import ProofBand from "@/components/sections/ProofBand";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import CallCostCalculator from "@/components/sections/CallCostCalculator";
@@ -229,11 +228,12 @@ export default function CallCentrePage() {
         ]}
       />
 
-      {/* Testimonial */}
-      <ProofBand
-        eyebrow="What answered calls are worth"
-        quote="Calls that used to ring out while we were treating now get answered and booked. It paid for itself in the first fortnight."
-      />
+      {/* A testimonial sat here praising the results of call handling. It was
+          not a real client quote, and on the 10 Aug call Danny confirmed this
+          service is not one we offer yet — so there is nobody who could have
+          given it. Removed outright. Nothing goes back here until the service
+          is live and a clinic using it will go on record.
+      */}
 
       {/* Part of the system */}
       <section className="section bg-[var(--color-paper)]">
