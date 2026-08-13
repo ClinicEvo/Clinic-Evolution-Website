@@ -34,7 +34,9 @@ const team = [
     title: "Co-founder & Digital Marketing Specialist",
     image: "/images/simon-smith.jpg",
     linkedin: "https://www.linkedin.com/in/simon-smith-neometa/",
-    bio: "Simon co-founded Clinic Evo after founding Neometa, a web design, SEO and digital marketing agency. A qualified osteopath, Simon brings clinical understanding to every digital decision — from how service pages are structured to how SEO, paid search, AI automation and conversion systems work together to grow a clinic sustainably.",
+    // Simon has resigned from the GOsC register: "former registered osteopath",
+    // never "osteopath", "registered" or "practising".
+    bio: "Simon co-founded Clinic Evo after founding Neometa, a web design, SEO and digital marketing agency. A former registered osteopath, Simon brings clinical understanding to every digital decision — from how service pages are structured to how SEO, paid search, AI automation and conversion systems work together to grow a clinic sustainably.",
   },
   {
     name: "Joana Rita Vieira",

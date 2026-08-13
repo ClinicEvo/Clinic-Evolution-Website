@@ -672,8 +672,12 @@ export default function HomePage() {
                 <dl className="m-0 flex flex-col">
                   {[
                     {
-                      title: "Founded by two registered osteopaths",
-                      desc: "Simon and Danny are both GOsC-registered osteopaths. Clinic Evo was built from inside the profession, not by a marketing agency looking in.",
+                      // Simon has resigned from the GOsC register, so the old
+                      // "both GOsC-registered osteopaths" line was untrue as
+                      // well as a regulatory claim we cannot make. Danny is on
+                      // the register and practising, and that is what this says.
+                      title: "Founded from inside the profession",
+                      desc: "Both founders came through the same integrated Master's in Osteopathy, and Danny is a GOsC-registered osteopath still treating patients. Clinic Evo was built from inside the profession, not by a marketing agency looking in.",
                     },
                     {
                       title: "Owned and run by a practising clinician",

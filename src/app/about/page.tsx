@@ -65,7 +65,7 @@ export default function AboutPage() {
       <PersonSchema
         name="Simon Smith"
         jobTitle="Co-founder & Digital Marketing Specialist"
-        description="Co-founder of Clinic Evo and founder of Neometa. Qualified osteopath with expertise in web design, SEO, digital marketing and AI automation for healthcare businesses."
+        description="Co-founder of Clinic Evo and founder of Neometa. Former registered osteopath with expertise in web design, SEO, digital marketing and AI automation for healthcare businesses."
         url={`${siteConfig.url}/about/`}
         image="/images/Simon-Smith-About.jpg"
         knowsAbout={["Osteopathy", "Web Design", "SEO", "Digital Marketing", "AI Automation", "Clinic Growth"]}
@@ -127,9 +127,10 @@ export default function AboutPage() {
                 Founded by clinicians who understand both sides of clinic growth
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
-                Clinic Evo was founded by Danny and Simon, two osteopaths who
-                met while studying for their integrated Master&apos;s in
-                Osteopathy.
+                Clinic Evo was founded by Danny and Simon, who met while
+                studying for their integrated Master&apos;s in Osteopathy. Danny
+                still practises; Simon is a former registered osteopath who went
+                into digital.
               </p>
               <p className="text-body text-[var(--color-muted)]">
                 They lived together during university and built their first
@@ -190,7 +191,7 @@ export default function AboutPage() {
                         Simon Smith
                       </h3>
                       <p className="text-label text-[var(--color-accent)] mt-1">
-                        Co-founder · Osteopath · Founder of Neometa
+                        Co-founder · Former registered osteopath · Founder of Neometa
                       </p>
                     </div>
                   </div>

@@ -161,6 +161,31 @@ const clientLogos = [
   { name: "Lind Street Osteopathy", src: "/images/clients/lind-street.png", w: 1500, h: 500, height: 42 },
 ];
 
+/* Both founders, because the work genuinely splits between them and an earlier
+   version of this page credited the whole method to Danny.
+
+   Simon's line matters: he resigned from the register, so he is a FORMER
+   registered osteopath. Never "osteopath", "registered" or "practising" for him
+   anywhere on the site. Danny does still practise, so his line stands. */
+const founders = [
+  {
+    name: "Danny Morgan",
+    role: "Osteopath, founder of Bodyfunction Clinic",
+    image: "/images/danny-morgan-angel-clinic.png",
+    alt: "Danny Morgan, osteopath, founder of Bodyfunction Clinic and co-founder of Clinic Evo",
+    w: 1500,
+    h: 1500,
+  },
+  {
+    name: "Simon Smith",
+    role: "Former registered osteopath, founder of Neometa",
+    image: "/images/simon-smith.jpg",
+    alt: "Simon Smith, co-founder of Clinic Evo and founder of Neometa",
+    w: 1500,
+    h: 1500,
+  },
+];
+
 const buildScope = [
   {
     title: "New clinic websites",
@@ -441,10 +466,11 @@ export default function WebsiteDesignForClinicsPage() {
                 once the pages were live.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                We know it because we are healthcare professionals too, and because we have sat on
-                both sides of this: running the clinic and building the thing that fills it. It
-                shapes the practitioner pages, the way treatment gets explained, what goes above
-                the fold, and which questions a page has to answer before somebody will book.
+                We know it because this business was built inside a working clinic, and because we
+                have sat on both sides of it: running the practice and building the thing that
+                fills it. It shapes the practitioner pages, the way treatment gets explained, what
+                goes above the fold, and which questions a page has to answer before somebody will
+                book.
               </p>
             </FadeUp>
 
@@ -587,43 +613,59 @@ export default function WebsiteDesignForClinicsPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-            {/* A face rather than a fourth screenshot: this section is about a
-                person's decision, and the Bodyfunction site is already in the
-                hero. */}
+            {/* Both founders, because the work splits between them: Danny runs the
+                clinic, Simon does the web and search side. An earlier version
+                credited the whole method to Danny, which was wrong. */}
             <FadeUp>
-              <figure className="max-w-[400px]">
-                <div className="overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
-                  <Image
-                    src="/images/danny-morgan-angel-clinic.png"
-                    alt="Danny Morgan, osteopath, founder of Bodyfunction Clinic and co-founder of Clinic Evo"
-                    width={1500}
-                    height={1500}
-                    className="h-auto w-full"
-                    sizes="(max-width: 1024px) 100vw, 420px"
-                  />
-                </div>
-                <figcaption className="text-body-sm mt-4 text-[var(--color-muted)]">
-                  <span className="font-semibold text-[var(--color-charcoal)]">Danny Morgan</span> —
-                  osteopath, founder of Bodyfunction Clinic, co-founder of Clinic Evo
-                </figcaption>
-              </figure>
+              <div className="grid max-w-[440px] grid-cols-2 gap-5">
+                {founders.map((person) => (
+                  <figure key={person.name}>
+                    <div className="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                      <Image
+                        src={person.image}
+                        alt={person.alt}
+                        width={person.w}
+                        height={person.h}
+                        className="h-auto w-full"
+                        sizes="(max-width: 1024px) 45vw, 200px"
+                      />
+                    </div>
+                    <figcaption className="mt-3">
+                      <span className="block text-[0.85rem] font-semibold text-[var(--color-ink)]">
+                        {person.name}
+                      </span>
+                      <span className="text-[0.75rem] leading-snug text-[var(--color-muted)]">
+                        {person.role}
+                      </span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
             </FadeUp>
             <FadeUp delay={0.1}>
               <p className="eyebrow mb-5">Where this came from</p>
               <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                This method was worked out on our own clinic first
+                Both halves of this job, under one roof
               </h2>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                Danny Morgan founded Bodyfunction Clinic in Islington and co-founded Clinic Evo. It
-                is not a client, and we would rather say so plainly. Clinic Evo exists because
-                building Bodyfunction&apos;s website and search presence from scratch taught us
-                which parts actually move the needle on a clinic — and which parts agencies charge
-                for and nobody notices.
+                Clinic Evo has two founders and they cover the two sides of the problem. Danny
+                Morgan is an osteopath who founded Bodyfunction Clinic in Islington and still
+                practises there, so he knows exactly what a clinic needs in order to grow. Simon
+                Smith trained in osteopathy on the same course and is a former registered
+                osteopath, then founded Neometa — the web design, SEO and digital marketing agency
+                that built Bodyfunction&apos;s website and search presence.
+              </p>
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                That is where this method came from, and why it is not the usual agency pitch. One
+                side of the table has run the diary, taken the calls and felt a quiet week. The
+                other has spent years getting websites found. Bodyfunction was the first clinic we
+                did it on together, which is also why it is not a client and we would rather say so
+                plainly.
               </p>
               <p className="text-body mb-8 text-[var(--color-muted)]">
-                Eight people a month finding the clinic through Google became nearly four thousand.
-                Everything on this page is the method that got it there, written down so other
-                clinic owners do not have to work it out the hard way.
+                Eight people a month finding that clinic through Google became nearly four
+                thousand. Everything on this page is the method that got it there, written down so
+                other clinic owners do not have to work it out the hard way.
               </p>
               <ArrowLink href="/case-studies/bodyfunction-clinic/">
                 Read the Bodyfunction Clinic case study
