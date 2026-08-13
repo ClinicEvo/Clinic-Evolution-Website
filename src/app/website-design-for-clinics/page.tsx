@@ -474,13 +474,16 @@ export default function WebsiteDesignForClinicsPage() {
               </p>
             </FadeUp>
 
+            {/* Treatment, not a reception shot: the point of the section is what
+                happens in the room, and a square holds the column better than a
+                landscape crop beside three paragraphs. */}
             <FadeUp delay={0.1}>
               <div className="overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
                 <Image
-                  src="/images/bodyfunction-clinic-team-at-reception-01.jpg"
-                  alt="The Bodyfunction Clinic team at reception in their Islington practice"
-                  width={1200}
-                  height={900}
+                  src="/images/bodyfunction-clinic-neck-treatment-session-close.jpg"
+                  alt="An osteopath treating a patient's neck at Bodyfunction Clinic in Islington"
+                  width={1400}
+                  height={1400}
                   className="h-auto w-full"
                   sizes="(max-width: 1024px) 100vw, 480px"
                 />
