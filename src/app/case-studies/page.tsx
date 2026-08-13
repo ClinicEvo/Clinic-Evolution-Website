@@ -9,7 +9,7 @@ import PageHero from "@/components/sections/PageHero";
 export const metadata = buildMetadata({
   title: "Clinic Marketing Case Studies",
   description:
-    "Measured results from UK osteopathy clinics: an established London practice grown to 3,822 monthly organic visitors, and a new Isle of Wight clinic taken to page one from zero.",
+    "Measured results from UK osteopathy clinics: an established London practice grown to 3,900 monthly organic visitors, and a new Isle of Wight clinic taken to page one from zero.",
   path: "/case-studies/",
 });
 
@@ -44,7 +44,7 @@ const caseStudies = [
     href: "/case-studies/bodyfunction-clinic/",
     eyebrow: "Osteopathy & MSK · London",
     title: "Bodyfunction Clinic",
-    stat: "8 → 3,822",
+    stat: "8 → 3,900",
     statLabel: "monthly organic visitors",
     image: "/images/bodyfunction-clinic-team-at-reception-01.jpg",
     imageAlt: "The Bodyfunction Clinic team at reception in Angel, London",

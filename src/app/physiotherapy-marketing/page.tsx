@@ -183,9 +183,9 @@ export default function PhysiotherapyMarketingPage() {
         heading="Measured in a working MSK clinic, not modelled."
         body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so we do not publish a booking figure."
         stats={[
-          { value: "8 → 3,822", label: "Monthly organic visitors at a London MSK clinic, over two years" },
+          { value: "8 → 3,900", label: "Monthly organic visitors at a London MSK clinic, over two years" },
           { value: "+425%", label: "Google clicks year on year across the same period" },
-          { value: "383", label: "Keywords now ranking in Google's top three, from none in 2024" },
+          { value: "332", label: "Keywords now ranking in Google's top three, from none in 2024" },
         ]}
       />
 
@@ -365,8 +365,8 @@ export default function PhysiotherapyMarketingPage() {
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   Clinic Evo&apos;s approach is shaped by real work with private MSK
                   clinics. Bodyfunction Clinic in Angel went from 8 organic visitors
-                  a month to 3,822 over two years, and from no top-three rankings at
-                  all to 383 of them.
+                  a month to 3,900 over two years, and from no top-three rankings at
+                  all to 332 of them.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> sets
@@ -396,7 +396,7 @@ export default function PhysiotherapyMarketingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 via-[var(--color-ink)]/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="font-display font-bold text-4xl text-white mb-1">8 → 3,822</p>
+                  <p className="font-display font-bold text-4xl text-white mb-1">8 → 3,900</p>
                   <p className="text-sm text-white/90 font-medium">monthly organic visitors in two years</p>
                 </div>
               </div>

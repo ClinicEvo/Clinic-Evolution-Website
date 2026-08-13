@@ -9,7 +9,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
-import { StatTiles, RankingTable } from "@/components/case-studies/CaseStudyCharts";
+import { StatTiles } from "@/components/case-studies/CaseStudyCharts";
 
 /*
  * Lind Street Osteopathy — the standing-start story, written for a clinic owner.
@@ -18,12 +18,18 @@ import { StatTiles, RankingTable } from "@/components/case-studies/CaseStudyChar
  * who thinks proper marketing is only for big multi-practitioner clinics with
  * budgets to match, and its job is to show them otherwise.
  *
- * Figures are from Google Search Console. Ahrefs has effectively no index
- * coverage for a domain this new and small, so no Ahrefs figure appears here and
- * none should be added later. The July 2026 click dip is deliberately not
- * charted — it is mostly new impressions on broader terms dragging the average
- * position, but it has not been explained well enough to put in front of a
- * prospect.
+ * Two sources, kept in separate lanes on purpose. Ahrefs supplies every ranking
+ * position, via the tracked-keyword screenshot Danny asked for. Google Search
+ * Console supplies clicks and click-through rate, which Ahrefs cannot see.
+ *
+ * Do not mix them on a single claim. Ahrefs reports a position in a specified
+ * location; GSC reports an average across every impression, device and place,
+ * so GSC always reads worse for the same term — "osteopath ryde" is position 1
+ * in Ahrefs and 4.9 in GSC. Quoting both invites an obvious contradiction.
+ *
+ * The July 2026 click dip is deliberately not charted — it is mostly new
+ * impressions on broader terms dragging the average position, but it has not
+ * been explained well enough to put in front of a prospect.
  */
 
 export const metadata = buildMetadata({
@@ -62,18 +68,6 @@ const crumbs = [
   { label: "Lind Street Osteopathy", href: "/case-studies/lind-street-osteopathy/" },
 ];
 
-/* GSC, lindstreetosteopathy.co.uk, 12 months to Jul 2026. */
-const localTerms = [
-  { query: "lind street osteopathy", position: 1.0, clicks: 113, ctr: "67.0%" },
-  { query: "ryde osteopath", position: 4.0, clicks: 22, ctr: "15.2%" },
-  { query: "osteopath ryde", position: 4.9, clicks: 45, ctr: "19.4%" },
-  { query: "sports massage ryde", position: 5.2, clicks: 6, ctr: "20.0%" },
-  { query: "osteopath near me", position: 5.4, clicks: 3, ctr: "5.1%" },
-  { query: "ryde osteopathic practice", position: 5.9, clicks: 6, ctr: "4.5%" },
-  { query: "osteopath", position: 6.5, clicks: 13, ctr: "8.9%" },
-  { query: "osteopath isle of wight", position: 7.4, clicks: 67, ctr: "7.5%" },
-];
-
 const headlineStats = [
   {
     display: "Page one",
@@ -88,9 +82,9 @@ const headlineStats = [
     source: "GSC — 86 clicks rising to 576",
   },
   {
-    display: "4.9",
-    label: "Average Google position for “osteopath ryde”",
-    source: "GSC — the search that brings in local patients",
+    display: "No. 1",
+    label: "For six of her local searches, including “osteopath ryde”",
+    source: "Ahrefs — all ten tracked terms sit in the top four",
   },
   {
     value: 67,
@@ -297,29 +291,42 @@ export default function LindStreetCaseStudyPage() {
                 <div className="space-y-5">
                   <p className="text-body text-[var(--color-muted)]">
                     These are the exact things somebody on the Isle of Wight types when
-                    their back has gone and they want it seen this week. Twelve months
-                    after opening, she is on page one for all of them.
+                    their back has gone and they want it seen this week. Every one of
+                    them now sits in the top four, and six of them are at number one.
                   </p>
                   <p className="text-body text-[var(--color-muted)]">
-                    Look at the click-through rates, though. At 19.4%,
-                    &ldquo;osteopath ryde&rdquo; is winning far more patients than a
-                    position of 4.9 would normally earn. That is what happens when the
-                    words in the listing are written properly.
+                    Notice the pattern in the change column. Almost every term moved
+                    from second to first in the last period. That is what it looks like
+                    when a clinic stops competing for its own area and starts owning
+                    it.
                   </p>
                   <p className="border-l-4 border-[var(--color-accent)] py-1 pl-6 text-body font-semibold text-[var(--color-muted)]">
-                    Ranking gets you listed. The words get you the patient.
+                    Two thirds of her local searches now return her clinic first.
                   </p>
                 </div>
               </FadeUp>
             </div>
             <div className="lg:col-span-7">
               <FadeUp delay={0.1}>
-                <RankingTable
-                  title="Where she ranks locally"
-                  source="Google Search Console, 12 months to Jul 2026"
-                  rows={localTerms}
-                  metric="clicks"
-                />
+                <figure className="m-0 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
+                  <figcaption className="border-b border-[var(--color-border)] px-6 py-4">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                      Tracked keyword positions
+                    </span>
+                    <p className="mt-1 text-body-sm text-[var(--color-muted)]">
+                      Ahrefs, lindstreetosteopathy.co.uk
+                    </p>
+                  </figcaption>
+                  {/* Cropped to the columns that carry meaning — the original
+                      export trails six columns of N/A. */}
+                  <Image
+                    src="/images/case-studies/lind-street-ahrefs-keywords.png"
+                    alt="Ahrefs keyword report for Lind Street Osteopathy showing position 1 for back pain osteopath ryde, osteopath ryde, women's health osteopath ryde, neck pain osteopath ryde, registered osteopath ryde and shoulder pain osteopath ryde"
+                    width={1075}
+                    height={1022}
+                    className="w-full"
+                  />
+                </figure>
               </FadeUp>
             </div>
           </div>

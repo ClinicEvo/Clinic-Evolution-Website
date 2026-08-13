@@ -207,8 +207,8 @@ export default function SeoForClinicsPage() {
       {/* Proof band */}
       <ProofBand
         eyebrow="What good clinic SEO looks like"
-        stat={{ value: "8 → 3,822", label: "Monthly organic visitors, Bodyfunction Clinic, over two years" }}
-        body="Flat at 8 to 15 visits a month for a full year, then a clean inflection once the content and structure work landed. Organic keywords went from 104 to 1,112, and from no top-three rankings at all to 383 of them."
+        stat={{ value: "8 → 3,900", label: "Monthly organic visitors, Bodyfunction Clinic, over two years" }}
+        body="Flat at 8 to 15 visits a month for a full year, then a clean inflection once the content and structure work landed. Organic keywords went from 104 to 1,100, and from no top-three rankings at all to 332 of them."
         source="Ahrefs, bodyfunction.co.uk, Aug 2024 – Aug 2026"
       />
 

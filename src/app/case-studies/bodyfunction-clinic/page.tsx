@@ -68,7 +68,7 @@ const crumbs = [
 /* GSC and Ahrefs, bodyfunction.co.uk. Aug 2024 – Jul 2025 against Aug 2025 – Jul 2026. */
 const headlineStats = [
   {
-    display: "8 → 3,822",
+    display: "8 → 3,900",
     label: "People finding the clinic through Google each month",
     source: "Ahrefs — Aug 2024 against Aug 2026",
   },
@@ -99,12 +99,6 @@ const positionJumps = [
   { query: "lower back pain and groin pain (female)", before: 18.8, after: 6.0, note: "6 → 34 clicks" },
   { query: "can neck pain cause nausea", before: 14.9, after: 6.5, note: "4 → 32 clicks" },
   { query: "is back pain a sign of pregnancy", before: 19.4, after: 7.3, note: "1 → 26 clicks" },
-];
-
-/* The local commercial terms. Both sit on page one — positions 9.0 and 9.2. */
-const localWins = [
-  { query: "osteopath islington", position: "9.0", note: "The search somebody local makes when they need a clinic in the area" },
-  { query: "osteopath near me", position: "9.2", note: "The highest-intent search there is: ready to book, looking for the nearest option" },
 ];
 
 export default function BodyfunctionCaseStudyPage() {
@@ -411,9 +405,42 @@ export default function BodyfunctionCaseStudyPage() {
             </div>
           </FadeUp>
 
-          <FadeUp delay={0.05}>
-            <StatTiles items={headlineStats} />
-          </FadeUp>
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-8">
+              <FadeUp delay={0.05}>
+                <StatTiles items={headlineStats} />
+              </FadeUp>
+            </div>
+            <div className="lg:col-span-4">
+              <FadeUp delay={0.12}>
+                <figure className="m-0 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
+                  <figcaption className="border-b border-[var(--color-border)] px-6 py-4">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                      Straight from Ahrefs
+                    </span>
+                    <p className="mt-1 text-body-sm text-[var(--color-muted)]">
+                      bodyfunction.co.uk, today
+                    </p>
+                  </figcaption>
+                  <div className="p-5">
+                    <Image
+                      src="/images/case-studies/bodyfunction-ahrefs-summary.png"
+                      alt="Ahrefs summary for bodyfunction.co.uk showing 1.1K organic keywords, 332 in the top three, 3.9K monthly organic traffic and $980 monthly traffic value"
+                      width={598}
+                      height={210}
+                      className="w-full"
+                    />
+                  </div>
+                  <div className="border-t border-[var(--color-border)] px-6 py-4">
+                    <p className="text-body-sm leading-relaxed text-[var(--color-muted)]">
+                      The green figures are the change since the last check. Still
+                      climbing.
+                    </p>
+                  </div>
+                </figure>
+              </FadeUp>
+            </div>
+          </div>
 
           <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
@@ -464,14 +491,15 @@ export default function BodyfunctionCaseStudyPage() {
                   <p className="text-body text-[var(--color-muted)]">
                     Article traffic is satisfying, but it is not what fills Tuesday
                     afternoon. What fills Tuesday afternoon is somebody in your
-                    postcode typing &ldquo;osteopath near me&rdquo; because their back
-                    has gone and they want it seen this week.
+                    postcode typing &ldquo;back pain treatment islington&rdquo;
+                    because their back has gone and they want it seen this week.
                   </p>
                   <p className="text-body text-[var(--color-muted)]">
                     Those are the hardest searches to win, because every clinic in the
                     area wants them. Bodyfunction reached page one for them within six
-                    months of the work starting, in one of the most competitive
-                    boroughs in the country.
+                    months, in one of the most competitive boroughs in the country, and
+                    now holds the top three for treatment searches across joints,
+                    muscles, posture and hips.
                   </p>
                   <p className="border-l-4 border-[var(--color-accent)] py-1 pl-6 text-body font-semibold text-[var(--color-muted)]">
                     Page one is where patients look. Page two may as well not exist.
@@ -480,37 +508,27 @@ export default function BodyfunctionCaseStudyPage() {
               </FadeUp>
             </div>
             <div className="lg:col-span-6">
-              <div className="space-y-5">
-                {localWins.map((w, i) => (
-                  <FadeUp key={w.query} delay={0.1 + i * 0.08}>
-                    <div className="rounded-2xl border border-[var(--color-border)] bg-white p-7 shadow-sm">
-                      <div className="flex items-start justify-between gap-5">
-                        <div>
-                          <p className="font-display text-h3 text-[var(--color-ink)]">
-                            &ldquo;{w.query}&rdquo;
-                          </p>
-                          <p className="mt-2 text-body-sm text-[var(--color-muted)]">
-                            {w.note}
-                          </p>
-                        </div>
-                        <div className="flex-shrink-0 rounded-full bg-[var(--color-accent-light)] px-4 py-2 text-center">
-                          <p className="font-display text-sm font-bold text-[var(--color-accent)]">
-                            Page one
-                          </p>
-                          <p className="text-[11px] text-[var(--color-muted)]">
-                            position {w.position}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeUp>
-                ))}
-                <FadeUp delay={0.3}>
-                  <p className="text-body-sm text-[var(--color-muted)]">
-                    Google Search Console, bodyfunction.co.uk, 12 months to Jul 2026.
-                  </p>
-                </FadeUp>
-              </div>
+              <FadeUp delay={0.1}>
+                <figure className="m-0 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
+                  <figcaption className="border-b border-[var(--color-border)] px-6 py-4">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                      Local Islington search positions
+                    </span>
+                    <p className="mt-1 text-body-sm text-[var(--color-muted)]">
+                      Ahrefs, bodyfunction.co.uk
+                    </p>
+                  </figcaption>
+                  {/* Cropped to the columns that carry meaning — the original
+                      export trails six columns of N/A. */}
+                  <Image
+                    src="/images/case-studies/bodyfunction-ahrefs-keywords.png"
+                    alt="Ahrefs keyword report for Bodyfunction Clinic showing position 1 for improve postural issues islington, position 2 for joint and muscle pain treatment islington, position 3 for hip pain treatment islington and page one positions across other local treatment searches"
+                    width={1110}
+                    height={1238}
+                    className="w-full"
+                  />
+                </figure>
+              </FadeUp>
             </div>
           </div>
         </div>

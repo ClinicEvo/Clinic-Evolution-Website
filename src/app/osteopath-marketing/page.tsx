@@ -183,8 +183,8 @@ export default function OsteopathMarketingPage() {
         heading="Two osteopathy clinics, two very different starting points."
         body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so we do not publish a booking figure."
         stats={[
-          { value: "8 → 3,822", label: "Monthly organic visitors at a London osteopathy clinic, over two years" },
-          { value: "383", label: "Keywords now ranking in Google's top three, from none in 2024" },
+          { value: "8 → 3,900", label: "Monthly organic visitors at a London osteopathy clinic, over two years" },
+          { value: "332", label: "Keywords now ranking in Google's top three, from none in 2024" },
           { value: "0 → page one", label: "Every core local term for a new Isle of Wight clinic, within twelve months" },
         ]}
       />
@@ -364,8 +364,8 @@ export default function OsteopathMarketingPage() {
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   Bodyfunction Clinic in Angel went from 8 organic visitors a month
-                  to 3,822 over two years, and from no top-three rankings at all to
-                  383 of them. Google clicks rose 425% year on year.
+                  to 3,900 over two years, and from no top-three rankings at all to
+                  332 of them. Google clicks rose 425% year on year.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> sets
@@ -395,7 +395,7 @@ export default function OsteopathMarketingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 via-[var(--color-ink)]/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="font-display font-bold text-4xl text-white mb-1">8 → 3,822</p>
+                  <p className="font-display font-bold text-4xl text-white mb-1">8 → 3,900</p>
                   <p className="text-sm text-white/90 font-medium">monthly organic visitors in two years</p>
                 </div>
               </div>
