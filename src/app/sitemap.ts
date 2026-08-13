@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { ...url("/healthcare-marketing-consultant/"), priority: 0.9 },
     { ...url("/case-studies/"), priority: 0.8 },
     { ...url("/case-studies/bodyfunction-clinic/"), priority: 0.8 },
+    { ...url("/case-studies/lind-street-osteopathy/"), priority: 0.8 },
     { ...url("/free-clinic-audit/"), priority: 0.95 },
     { ...url("/about/"), priority: 0.7 },
     { ...url("/contact/"), priority: 0.8 },

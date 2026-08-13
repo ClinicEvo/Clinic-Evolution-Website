@@ -114,21 +114,28 @@ const pulseBenefits = [
   },
 ];
 
-// Clinics we work with. Danny named exactly these two in the 10 Aug review:
-// "we've got body restore, we've got 1% club". Bodyfunction is deliberately NOT
-// here — it is the origin story, not a client, and listing it alongside clients
-// recreates the confusion Danny asked us to fix. Its logo appears in the origin
-// section instead.
+// Clinics we work with. Danny named Body Restore and 1% Club in the 10 Aug
+// review and pointed at Lind Street as the next one to add ("you might be able
+// to get a couple of your mob on board near the Lind Street practice").
+// Bodyfunction is deliberately NOT here — it is the origin story, not a client,
+// and listing it alongside clients recreates the confusion Danny asked us to
+// fix. Its logo appears in the origin section instead.
 //
 // `logoHeight` is tuned per mark rather than shared, because these have very
 // different aspect ratios and a single height makes the near-square 1% Club
-// mark read as tiny next to the two wordmarks.
+// mark read as tiny next to the wordmarks.
+//
+// `dim` is opt-out for the same reason. The 85% wash reads as a tasteful
+// unification on the two dark navy marks, but Lind Street's brand is pale sage
+// and cream — dimming an already low-contrast mark on a white strip makes it
+// look broken rather than understated.
 const clientLogos: Array<{
   name: string;
   src: string;
   width: number;
   height: number;
   logoHeight: number;
+  dim?: boolean;
 }> = [
   {
     name: "Body Restore Clinic",
@@ -136,6 +143,7 @@ const clientLogos: Array<{
     width: 1714,
     height: 564,
     logoHeight: 40,
+    dim: true,
   },
   {
     name: "1 Percent Club",
@@ -143,6 +151,14 @@ const clientLogos: Array<{
     width: 500,
     height: 461,
     logoHeight: 58,
+    dim: true,
+  },
+  {
+    name: "Lind Street Osteopathy",
+    src: "/images/clients/lind-street.png",
+    width: 1500,
+    height: 500,
+    logoHeight: 50,
   },
 ];
 
@@ -401,7 +417,9 @@ export default function HomePage() {
                       width={logo.width}
                       height={logo.height}
                       style={{ height: logo.logoHeight, width: "auto" }}
-                      className="opacity-85 transition-opacity hover:opacity-100"
+                      className={`transition-opacity hover:opacity-100 ${
+                        logo.dim ? "opacity-85" : ""
+                      }`}
                     />
                   </li>
                 ))}
