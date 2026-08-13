@@ -215,12 +215,16 @@ export default function BodyfunctionCaseStudyPage() {
             </div>
             <div className="lg:col-span-5">
               <FadeUp delay={0.1}>
+                {/* Danny himself, not the team shot — danny_and_co.jpg is the
+                    same photograph as the hero, just cropped square, and using
+                    both put the identical picture on the page twice. This
+                    section is about him founding both businesses anyway. */}
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-lg">
                   <Image
-                    src="/images/danny_and_co.jpg"
-                    alt="Danny Morgan and the Bodyfunction Clinic team"
+                    src="/images/danny-morgan-angel-clinic.png"
+                    alt="Danny Morgan, osteopath, founder of Bodyfunction Clinic and co-founder of Clinic Evo"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                     sizes="(max-width: 1024px) 100vw, 440px"
                   />
                 </div>
