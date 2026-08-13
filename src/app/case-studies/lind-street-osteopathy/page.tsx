@@ -12,46 +12,47 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import { StatTiles, RankingTable } from "@/components/case-studies/CaseStudyCharts";
 
 /*
- * Lind Street Osteopathy — the "standing start" case study.
+ * Lind Street Osteopathy — the standing-start story, written for a clinic owner.
  *
- * Deliberately the opposite story to Bodyfunction: small absolute numbers, but
- * total local visibility from zero in under a year. Every figure on this page
- * comes from Google Search Console. Ahrefs has effectively no index coverage
- * for this domain — it is too new and too small — so no Ahrefs figure appears
- * here, and none should be added later.
+ * This is a case study, not a search report. It is aimed squarely at the reader
+ * who thinks proper marketing is only for big multi-practitioner clinics with
+ * budgets to match, and its job is to show them otherwise.
  *
- * The July 2026 click dip is deliberately not charted. It is mostly new
- * impressions on broader terms dragging the average position, but it has not
- * been explained well enough to put a downward tick in front of a prospect.
+ * Figures are from Google Search Console. Ahrefs has effectively no index
+ * coverage for a domain this new and small, so no Ahrefs figure appears here and
+ * none should be added later. The July 2026 click dip is deliberately not
+ * charted — it is mostly new impressions on broader terms dragging the average
+ * position, but it has not been explained well enough to put in front of a
+ * prospect.
  */
 
 export const metadata = buildMetadata({
   title: "Osteopath Marketing Case Study | Lind Street Osteopathy",
   description:
-    "How a new single-practitioner osteopathy clinic in Ryde went from no search presence at all to page one for every core local term in under twelve months.",
+    "A brand new single-practitioner osteopathy clinic in Ryde opened with no logo, no website and no search presence. Twelve months later it owns page one across its whole catchment.",
   path: "/case-studies/lind-street-osteopathy/",
 });
 
 const faqs = [
   {
-    question: "How long does SEO take for a new clinic website?",
+    question: "Does this work for a single-practitioner clinic?",
     answer:
-      "Lind Street Osteopathy launched with no search history at all and was ranking on page one for its core local terms within twelve months. Early movement usually shows in the first three to six months on brand and long-tail terms, with competitive local terms following once the site has built some history. A brand new domain will always take longer than an established one.",
+      "This is the case study for exactly that. One osteopath, one treatment room, a brand new business with no reputation online. You are not trying to beat the internet — you are trying to be the obvious choice within about fifteen miles, and that is a fight you can win.",
   },
   {
-    question: "Does SEO work for a single-practitioner clinic?",
+    question: "How long before a new clinic starts getting patients from Google?",
     answer:
-      "Yes, and often better than clinic owners expect. A single-practitioner practice does not need national traffic. It needs to be the obvious choice inside a small catchment. That is a far more achievable target than competing nationally, and it is why a modest number of well-targeted visitors can fill one diary.",
+      "Lind Street was on page one for its core local searches inside twelve months of opening, with movement showing well before that. A brand new website always takes longer than an established one, which is why we run paid social alongside so the diary is not sitting empty while search catches up.",
   },
   {
-    question: "Are separate pages for each condition worth building?",
+    question: "Do I need a page for every condition I treat?",
     answer:
-      "In this project they were the pages that performed best. The niche clinical pages covering fibromyalgia, hypermobility and TMJ outranked the broader service pages. Patients search for their specific problem rather than for a category of treatment, so a page that names the condition tends to match the search more closely than a general treatments page.",
+      "The condition pages were the best performers here by a distance. The pages covering fibromyalgia, hypermobility and TMJ outrank the general osteopathy and sports massage pages. Patients search for the thing that is wrong with them, not for a category of treatment, so a page that names their problem wins.",
   },
   {
-    question: "What does a clinic need in place before SEO is worth doing?",
+    question: "What if I already have a website?",
     answer:
-      "A website that is technically sound, clearly structured around the conditions you treat, and easy to book from. SEO brings people to the page. Whether they book depends on what they find when they get there, which is why the branding, site build and search work were done together here rather than in sequence.",
+      "Then you are ahead of where this clinic started. A free clinic audit will show you what your existing site is already ranking for, what your local competitors are taking that you are not, and whether it is worth rebuilding or refining what you have.",
   },
 ];
 
@@ -73,59 +74,48 @@ const localTerms = [
   { query: "osteopath isle of wight", position: 7.4, clicks: 67, ctr: "7.5%" },
 ];
 
-/* GSC, page-level, 90 days to Jul 2026. */
-const servicePages = [
-  { query: "Neck pain, headaches & TMJ in Ryde", position: 5.1, impressions: 1116 },
-  { query: "Fibromyalgia — why your pain isn't imaginary", position: 6.5, impressions: 193 },
-  { query: "Hypermobility — why flexible bodies still hurt", position: 7.1, impressions: 664 },
-  { query: "About", position: 9.5, impressions: 1533 },
-  { query: "Osteopathy", position: 12.2, impressions: 880 },
-  { query: "Sports massage", position: 12.4, impressions: 815 },
-  { query: "Chronic pain, fibromyalgia & hypermobility in Ryde", position: 18.4, impressions: 753 },
-];
-
 const headlineStats = [
+  {
+    display: "Page one",
+    label: "For every core osteopathy search in her catchment",
+    source: "GSC — from no search presence at all",
+  },
   {
     value: 570,
     prefix: "+",
     suffix: "%",
-    label: "Google clicks, first six months against the second six",
+    label: "Growth in people arriving from Google, half on half",
     source: "GSC — 86 clicks rising to 576",
   },
   {
     display: "4.9",
     label: "Average Google position for “osteopath ryde”",
-    source: "GSC — from no ranking at all",
+    source: "GSC — the search that brings in local patients",
   },
   {
     value: 67,
     suffix: "%",
-    label: "Click-through rate on the clinic's brand search",
+    label: "Of people who see her name in Google click it",
     source: "GSC — 113 clicks, position 1.0",
-  },
-  {
-    value: 501,
-    label: "Distinct search terms the site now appears for",
-    source: "GSC — lifetime to Jul 2026",
   },
 ];
 
 const buildScope = [
   {
-    title: "Brand and logo",
-    body: "The clinic had no visual identity. We built the logo, the palette and the wider brand from scratch, drawn from the Victorian townhouse the practice works out of rather than the clinical stock look most osteopathy clinics default to.",
+    title: "The brand and logo",
+    body: "There was no identity to start from. We built the logo, the palette and the whole look, drawn from the Victorian townhouse the clinic works out of rather than the interchangeable clinical stock look most osteopathy practices end up with.",
   },
   {
     title: "The website",
-    body: "A site structured around conditions patients actually search for, not a treatments list. Every core condition got its own page, with the booking route no more than one click away from any of them.",
+    body: "Built around the conditions patients search for, not a list of treatments. Every core condition got a proper page of its own, with booking never more than one click away from any of them.",
   },
   {
-    title: "Search visibility",
-    body: "Keyword and competitor research for the Isle of Wight catchment first, then page structure, titles and content built to match it. The title and meta work is why the click-through rates are running well above position average.",
+    title: "Getting found",
+    body: "We researched the Isle of Wight market before building anything, then shaped the pages, titles and content around what people there actually type. That research is why her click-through rates run well above what her positions alone would earn.",
   },
   {
-    title: "Meta advertising",
-    body: "Facebook and Instagram campaigns to create demand while the organic visibility was still building, so the diary was not waiting on search results that take months to arrive.",
+    title: "Ads while search caught up",
+    body: "Facebook and Instagram campaigns from day one, so the diary was filling while the search results matured. A new clinic cannot afford to wait six months for Google to catch up.",
   },
 ];
 
@@ -134,7 +124,7 @@ export default function LindStreetCaseStudyPage() {
     <>
       <ServiceSchema
         name="Lind Street Osteopathy Case Study"
-        description="An osteopath marketing case study showing how a new single-practitioner clinic reached page one for every core local search term within twelve months of launch."
+        description="How a new single-practitioner osteopathy clinic in Ryde reached page one for every core local search within twelve months of opening."
         url="/case-studies/lind-street-osteopathy/"
       />
       <BreadcrumbSchema items={crumbs} />
@@ -153,21 +143,21 @@ export default function LindStreetCaseStudyPage() {
               </FadeUp>
               <FadeUp delay={0.05}>
                 <h1 className="text-h1 mb-6 tracking-tight text-[var(--color-ink)]">
-                  Osteopath marketing case study: Lind Street Osteopathy
+                  One osteopath. One room. Page one across her whole island.
                 </h1>
               </FadeUp>
               <FadeUp delay={0.1}>
                 <div className="max-w-xl space-y-6">
                   <p className="text-body-lg leading-relaxed text-[var(--color-muted)]">
-                    Serena Gower-Johnson opened Lind Street Osteopathy in Ryde with
-                    no logo, no website and no search presence of any kind. Google
-                    had never recorded a single impression for the practice.
+                    Serena Gower-Johnson opened Lind Street Osteopathy in Ryde with no
+                    logo, no website and no reputation online. Google had never
+                    recorded a single search for her practice.
                   </p>
                   <p className="text-body-lg leading-relaxed text-[var(--color-muted)]">
-                    Twelve months later the clinic sits on page one for every
-                    commercially relevant osteopathy search in its catchment, and
-                    holds position one for its own name with a 67% click-through
-                    rate.
+                    Twelve months later, if you are on the Isle of Wight and you search
+                    for an osteopath, you find her. Every core local search, page one.
+                    This is how, and it is the same playbook whatever size your clinic
+                    is.
                   </p>
                 </div>
               </FadeUp>
@@ -177,7 +167,7 @@ export default function LindStreetCaseStudyPage() {
                     Get a free clinic audit
                   </Button>
                   <Button href="/seo-for-clinics/" variant="outline" size="lg">
-                    Explore SEO for clinics
+                    See how we do it
                   </Button>
                 </div>
               </FadeUp>
@@ -188,7 +178,7 @@ export default function LindStreetCaseStudyPage() {
                 <div className="relative overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)]">
                   <Image
                     src="/images/lind-street/homepage-banner.png"
-                    alt="The Lind Street Osteopathy homepage, showing the brand and site built by Clinic Evo"
+                    alt="The Lind Street Osteopathy website, brand and site built by Clinic Evo"
                     width={1440}
                     height={810}
                     className="w-full"
@@ -202,27 +192,26 @@ export default function LindStreetCaseStudyPage() {
         </div>
       </section>
 
-      {/* ── Headline numbers ─────────────────────────────────────────────── */}
+      {/* ── If you think this isn't for you ──────────────────────────────── */}
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-5">
               <FadeUp>
-                <p className="eyebrow mb-5">The result</p>
+                <p className="eyebrow mb-5">Why this one is worth reading</p>
                 <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                  A genuine standing start, not a growth curve
+                  Proper marketing is not just for the big clinics
                 </h2>
                 <div className="space-y-5">
                   <p className="text-body-lg text-[var(--color-muted)]">
-                    There is no Google Search Console data of any kind for this
-                    domain before August 2025. Zero clicks, zero impressions, zero
-                    queries. Everything below was built from nothing in twelve
-                    months.
+                    The most common thing we hear from smaller practices is that this
+                    kind of work is for multi-practitioner clinics with budgets to
+                    match. This project is the argument against that.
                   </p>
                   <p className="text-body text-[var(--color-muted)]">
-                    That makes this a different kind of proof to a clinic that was
-                    already ranking and improved. There was no existing visibility
-                    to build on and no history for Google to draw on.
+                    One osteopath, opening cold, with no existing patients finding her
+                    online and nothing for Google to go on. Within a year she was the
+                    clinic that came up when her neighbours needed one.
                   </p>
                 </div>
               </FadeUp>
@@ -242,15 +231,15 @@ export default function LindStreetCaseStudyPage() {
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-5">
               <FadeUp>
-                <p className="eyebrow mb-5">The work</p>
+                <p className="eyebrow mb-5">What we built</p>
                 <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                  Everything the clinic put in front of a patient, built together
+                  Everything a patient sees, built as one thing
                 </h2>
                 <p className="text-body text-[var(--color-muted)]">
-                  Brand, website, search and paid social were built as one piece of
-                  work rather than four separate jobs handed to four suppliers. That
-                  matters more for a new clinic than an established one, because
-                  there is nothing already working to fall back on.
+                  Brand, website, search and paid social were one job, not four
+                  suppliers who never speak. For a new clinic that matters more than
+                  for an established one, because there is nothing already working to
+                  fall back on if a piece is missing.
                 </p>
               </FadeUp>
               <FadeUp delay={0.15}>
@@ -301,25 +290,24 @@ export default function LindStreetCaseStudyPage() {
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <FadeUp>
-                <p className="eyebrow mb-5">Search visibility</p>
+                <p className="eyebrow mb-5">The result</p>
                 <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                  Page one for every term that matters locally
+                  She owns the searches her patients actually make
                 </h2>
                 <div className="space-y-5">
                   <p className="text-body text-[var(--color-muted)]">
-                    These are the searches a person on the Isle of Wight actually
-                    types when they need an osteopath. Twelve months after launch,
-                    the clinic appears on page one for all of them.
+                    These are the exact things somebody on the Isle of Wight types when
+                    their back has gone and they want it seen this week. Twelve months
+                    after opening, she is on page one for all of them.
                   </p>
                   <p className="text-body text-[var(--color-muted)]">
-                    The click-through rates are the part worth noticing. At 19.4%,
-                    &ldquo;osteopath ryde&rdquo; is earning far more clicks than a
-                    position of 4.9 would normally return. That is the title and
-                    description work doing its job, not just the ranking.
+                    Look at the click-through rates, though. At 19.4%,
+                    &ldquo;osteopath ryde&rdquo; is winning far more patients than a
+                    position of 4.9 would normally earn. That is what happens when the
+                    words in the listing are written properly.
                   </p>
                   <p className="border-l-4 border-[var(--color-accent)] py-1 pl-6 text-body font-semibold text-[var(--color-muted)]">
-                    Ranking is what gets you listed. The words in the listing are
-                    what get you the click.
+                    Ranking gets you listed. The words get you the patient.
                   </p>
                 </div>
               </FadeUp>
@@ -327,7 +315,7 @@ export default function LindStreetCaseStudyPage() {
             <div className="lg:col-span-7">
               <FadeUp delay={0.1}>
                 <RankingTable
-                  title="Core local search terms"
+                  title="Where she ranks locally"
                   source="Google Search Console, 12 months to Jul 2026"
                   rows={localTerms}
                   metric="clicks"
@@ -341,163 +329,91 @@ export default function LindStreetCaseStudyPage() {
       {/* ── The finding ──────────────────────────────────────────────────── */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="order-2 lg:order-1 lg:col-span-7">
-              <FadeUp delay={0.1}>
-                <RankingTable
-                  title="How the individual pages rank"
-                  source="Google Search Console, 90 days to Jul 2026"
-                  rows={servicePages}
-                  metric="impressions"
-                />
-              </FadeUp>
-            </div>
-            <div className="order-1 lg:order-2 lg:col-span-5">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-6">
               <FadeUp>
-                <p className="eyebrow mb-5">What we learned</p>
+                <p className="eyebrow mb-5">The lesson worth stealing</p>
                 <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                  The specific pages beat the general ones
+                  Name the condition, not the treatment
                 </h2>
                 <div className="space-y-5">
                   <p className="text-body text-[var(--color-muted)]">
-                    The clinic&apos;s best performing pages are not the ones named
-                    after treatments. They are the ones named after conditions. The
-                    fibromyalgia, hypermobility and TMJ pages all outrank the
-                    general osteopathy and sports massage pages.
+                    Her best performing pages are not the ones named after treatments.
+                    They are the ones named after problems. The fibromyalgia,
+                    hypermobility and TMJ pages all outrank the general osteopathy and
+                    sports massage pages.
                   </p>
                   <p className="text-body text-[var(--color-muted)]">
-                    Patients do not search for a category of treatment. They search
-                    for the thing that is wrong with them, often using the exact
-                    words their GP or a forum used. A page that names the condition
-                    matches that search far more closely than a treatments page
-                    covering everything.
+                    Patients do not search for a category of treatment. They search for
+                    the thing that is wrong with them, often in the exact words their GP
+                    or a forum used. A page that names their condition meets them where
+                    they are. A treatments page covering everything meets nobody.
                   </p>
                   <p className="text-body text-[var(--color-muted)]">
-                    In a catchment this size, that is the whole game. There is not
-                    enough search volume to win on breadth, so the depth of each
-                    page is what earns the visibility.
+                    In a catchment this size that is the whole game. There is not enough
+                    search volume to win on breadth, so the depth of each page is what
+                    earns the visibility. It is also the cheapest advantage available to
+                    a small clinic, because most competitors will not bother.
                   </p>
                 </div>
               </FadeUp>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Honest framing ───────────────────────────────────────────────── */}
-      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
-            <div className="lg:col-span-6">
-              <FadeUp>
-                <p className="eyebrow mb-5">Straight answer</p>
-                <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                  What these numbers do and do not tell you
-                </h2>
-                <div className="space-y-5">
-                  <p className="text-body text-[var(--color-muted)]">
-                    662 clicks in a year is a small number in absolute terms, and we
-                    are not going to dress it up as anything else. This is one
-                    osteopath on an island of around 140,000 people. The ceiling is
-                    low by design.
-                  </p>
-                  <p className="text-body text-[var(--color-muted)]">
-                    The right way to read it is share of a defined local market
-                    rather than volume of traffic. A single practitioner does not
-                    need thousands of visitors. They need the people in their
-                    catchment who are looking for an osteopath this week to find
-                    them first.
-                  </p>
-                  <p className="text-body text-[var(--color-muted)]">
-                    On that measure the clinic has close to full coverage of its
-                    market, from a standing start, inside a year.
-                  </p>
-                </div>
-              </FadeUp>
-            </div>
-
             <div className="lg:col-span-6">
               <FadeUp delay={0.1}>
-                <div className="rounded-2xl border border-[var(--color-border)] bg-white p-8 shadow-sm">
-                  <p className="mb-6 text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
-                    Where the numbers come from
-                  </p>
-                  <div className="space-y-5">
-                    {[
-                      {
-                        h: "Google Search Console, direct from the API",
-                        b: "Every figure on this page is pulled from the clinic's own Search Console property. Nothing is modelled or estimated.",
-                      },
-                      {
-                        h: "No third-party estimates",
-                        b: "Ahrefs and similar tools have almost no index coverage for a domain this new and this small, so we have not quoted any of their figures here.",
-                      },
-                      {
-                        h: "Search data, not booking data",
-                        b: "Search Console measures clicks to the website. It cannot see appointments. We have not claimed a booking figure because we cannot evidence one.",
-                      },
-                    ].map((item) => (
-                      <div key={item.h} className="flex items-start gap-4">
-                        <svg
-                          className="mt-1 flex-shrink-0 text-[var(--color-accent)]"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M3 8.5l3.5 3.5L13 5"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <div>
-                          <p className="text-body-sm font-semibold text-[var(--color-ink)]">
-                            {item.h}
-                          </p>
-                          <p className="mt-1 text-body-sm text-[var(--color-muted)]">{item.b}</p>
-                        </div>
-                      </div>
-                    ))}
+                <figure className="m-0">
+                  <div className="relative aspect-square overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-lg">
+                    <Image
+                      src="/images/lind-street/clinic-sign.png"
+                      alt="The brass Lind Street Osteopathy clinic sign in Ryde, listing back pain, neck pain, sciatica, arthritis and other conditions treated"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 560px"
+                    />
                   </div>
-                </div>
+                  <figcaption className="mt-4 text-body-sm text-[var(--color-muted)]">
+                    The plaque outside the clinic in Ryde. The conditions on it are the
+                    same ones the website is built around, and the same ones bringing
+                    patients in from Google.
+                  </figcaption>
+                </figure>
               </FadeUp>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Takeaway ─────────────────────────────────────────────────────── */}
-      <section className="section bg-[var(--color-paper)]">
+      {/* ── What it means for the reader ─────────────────────────────────── */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-7">
               <FadeUp>
-                <p className="eyebrow mb-5">Takeaway</p>
+                <p className="eyebrow mb-5">What this means for your clinic</p>
                 <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                  What other clinics can learn from this
+                  You are not competing with the internet. Just your postcode.
                 </h2>
                 <div className="space-y-6">
                   <p className="text-body leading-relaxed text-[var(--color-muted)]">
-                    The most common objection we hear from smaller practices is that
-                    SEO is something only larger clinics with larger budgets can
-                    make work. This project is the counter-argument. A new
-                    single-practitioner clinic with no history took page one across
-                    its whole catchment in twelve months.
+                    A single-practitioner clinic does not need thousands of visitors. It
+                    needs the people within a fifteen-mile radius who are looking for an
+                    osteopath this week to find it first. That is a far smaller and far
+                    more winnable target than most clinic owners assume.
+                  </p>
+                  <p className="text-body leading-relaxed text-[var(--color-muted)]">
+                    Serena now has close to full coverage of her local market from a
+                    standing start, inside a year. In a town the size of Ryde, that is
+                    worth more than a national traffic figure would be.
                   </p>
                   <p className="text-body leading-relaxed text-[var(--color-muted)]">
                     What made it work was doing the research before the build rather
-                    than after it, giving each condition its own properly written
-                    page, and running paid social alongside so the diary was not
-                    sitting empty while the search results matured.
+                    than after, giving each condition a properly written page, and
+                    running paid social alongside so the diary filled while search
+                    matured.
                   </p>
                   <p className="border-l-4 border-[var(--color-accent)] py-1 pl-6 text-body font-semibold text-[var(--color-muted)]">
-                    In a small catchment you are not trying to beat the internet.
-                    You are trying to be the obvious choice within about fifteen
-                    miles. That is a winnable fight.
+                    If a brand new clinic can take page one across its catchment in
+                    twelve months, an established one with existing patients and
+                    reviews is starting from further ahead than she was.
                   </p>
                 </div>
               </FadeUp>
@@ -521,8 +437,8 @@ export default function LindStreetCaseStudyPage() {
                     <ArrowLink href="/digital-marketing/">
                       Social and paid advertising
                     </ArrowLink>
-                    <ArrowLink href="/osteopath-marketing/">
-                      Marketing for osteopaths
+                    <ArrowLink href="/case-studies/bodyfunction-clinic/">
+                      See an established clinic scale up
                     </ArrowLink>
                   </div>
                 </div>
@@ -540,7 +456,7 @@ export default function LindStreetCaseStudyPage() {
               <div className="mb-10 text-center">
                 <p className="eyebrow mb-5 justify-center">FAQ</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
-                  Clinic SEO questions this project answers
+                  What clinic owners ask us about this
                 </h2>
               </div>
             </FadeUp>
@@ -553,7 +469,7 @@ export default function LindStreetCaseStudyPage() {
 
       <CTASection
         heading="Starting from nothing, or starting again?"
-        subheading="A free clinic audit will show where your clinic currently stands in local search, what your competitors are ranking for that you are not, and what it would take to close the gap."
+        subheading="A free clinic audit shows you where your clinic stands in local search right now, what your competitors are ranking for that you are not, and what it would take to be the one patients find first."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />

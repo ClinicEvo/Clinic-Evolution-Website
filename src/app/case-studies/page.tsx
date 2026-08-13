@@ -37,7 +37,7 @@ const caseStudies = [
     statLabel: "on every core local term",
     image: "/images/lind-street/homepage-banner.png",
     imageAlt: "The Lind Street Osteopathy website built by Clinic Evo",
-    body: "A brand new single-practitioner clinic in Ryde with no logo, no website and no search presence at all. Twelve months on it holds page one for every commercially relevant osteopathy search in its catchment.",
+    body: "One osteopath, one treatment room, opening cold with no logo, no website and no reputation online. Twelve months later, if you need an osteopath on the Isle of Wight, she is the one you find.",
     tag: "Client project",
   },
   {
@@ -48,7 +48,7 @@ const caseStudies = [
     statLabel: "monthly organic visitors",
     image: "/images/bodyfunction-clinic-team-at-reception-01.jpg",
     imageAlt: "The Bodyfunction Clinic team at reception in Angel, London",
-    body: "The clinic Clinic Evo was built out of. Two years of content-led SEO in a fiercely competitive London market took it from 104 keywords and no top-three rankings to 1,112 keywords and 383 of them in the top three.",
+    body: "The clinic Clinic Evo was built out of. Eight visitors a month and every patient arriving by word of mouth, in one of the most competitive boroughs in the country. Now page one for local patient searches, and five times as many people searching for it by name.",
     tag: "Our origin story",
   },
 ];
@@ -66,7 +66,7 @@ export default function CaseStudiesPage() {
             <em className="not-italic text-[var(--color-accent)]">real clinic systems</em>
           </>
         }
-        subtext="These are not projections. Every figure on these pages comes from Google Search Console or Ahrefs and can be checked in either tool, including the parts that are still work in progress."
+        subtext="Two clinics at opposite ends of the scale. One established practice in London that nobody could find, and one brand new osteopath opening cold on the Isle of Wight. Here is what changed for both, and what it would mean for you."
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
       />
