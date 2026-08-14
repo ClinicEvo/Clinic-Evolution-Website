@@ -7,6 +7,13 @@
 # Testing
 /coverage
 
+# Screenshot loop working surface — regenerated on demand, never reviewed as a
+# diff. The visual-regression baselines under tests/**-snapshots/ ARE committed,
+# since a baseline nobody can diff against is not a baseline.
+/.shots/
+/test-results/
+/playwright-report/
+
 # Next.js
 /.next/
 /out/
