@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -117,13 +118,15 @@ const pulseBenefits = [
 // Clinics we work with. Danny named Body Restore and 1% Club in the 10 Aug
 // review and pointed at Lind Street as the next one to add ("you might be able
 // to get a couple of your mob on board near the Lind Street practice").
-// Bodyfunction is deliberately NOT here — it is the origin story, not a client,
-// and listing it alongside clients recreates the confusion Danny asked us to
-// fix. Its logo appears in the origin section instead.
+// Neometa is Simon's agency rather than a clinic, which is why the strip label
+// says "brands" and not "clinics". Bodyfunction sits with the clinics; its mark
+// still appears in the origin section below, smaller, alongside Danny.
 //
 // `logoHeight` is tuned per mark rather than shared, because these have very
 // different aspect ratios and a single height makes the near-square 1% Club
-// mark read as tiny next to the wordmarks.
+// mark read as tiny next to the wordmarks. The two single-line wordmarks are
+// set shortest of all — at 6:1 they still run ~170px wide at 28px tall, which is
+// already wider than every stacked lockup here.
 //
 // `dim` is opt-out for the same reason. The 85% wash reads as a tasteful
 // unification on the two dark navy marks, but Lind Street's brand is pale sage
@@ -159,6 +162,20 @@ const clientLogos: Array<{
     width: 1500,
     height: 500,
     logoHeight: 50,
+  },
+  {
+    name: "Bodyfunction Clinic",
+    src: "/images/clients/bodyfunction.png",
+    width: 1850,
+    height: 304,
+    logoHeight: 28,
+  },
+  {
+    name: "Neometa",
+    src: "/images/clients/neometa.png",
+    width: 1403,
+    height: 238,
+    logoHeight: 24,
   },
 ];
 
@@ -401,23 +418,31 @@ export default function HomePage() {
           <div className="cx-main">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-12">
               <p className="flex-shrink-0 whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-muted)]">
-                Clinics we work with
+                Brands we work with
               </p>
               <span
                 aria-hidden
                 className="hidden h-8 w-px flex-shrink-0 sm:block"
                 style={{ background: "var(--color-border)" }}
               />
-              <ul className="flex flex-wrap items-center gap-x-14 gap-y-6">
+              {/* Two-column grid below sm, free-wrapping row above it. Five marks
+                  left to wrap on a 390px screen produce four ragged rows and a
+                  352px-tall strip; the grid holds them to three tidy ones. The
+                  odd mark out spans both columns so it centres instead of sitting
+                  orphaned in the left one — revisit `last:` if the count turns even. */}
+              <ul className="grid grid-cols-2 place-items-center gap-x-8 gap-y-7 sm:flex sm:flex-wrap sm:items-center sm:gap-x-14 sm:gap-y-6">
                 {clientLogos.map((logo) => (
-                  <li key={logo.name} className="flex items-center">
+                  <li
+                    key={logo.name}
+                    className="flex items-center last:col-span-2 sm:last:col-span-1"
+                  >
                     <Image
                       src={logo.src}
                       alt={logo.name}
                       width={logo.width}
                       height={logo.height}
-                      style={{ height: logo.logoHeight, width: "auto" }}
-                      className={`transition-opacity hover:opacity-100 ${
+                      style={{ "--logo-h": `${logo.logoHeight}px` } as CSSProperties}
+                      className={`cx-logo transition-opacity hover:opacity-100 ${
                         logo.dim ? "opacity-85" : ""
                       }`}
                     />
@@ -632,15 +657,21 @@ export default function HomePage() {
                       </span>
                     </span>
                   </span>
-                  {/* Bodyfunction's mark belongs here, with the origin story, rather
-                      than in the client-logo strip above. */}
+                  {/* Also in the strip above, but kept here as the attribution
+                      on Danny's quote. Set small — the source PNG was trimmed of
+                      its canvas padding, so 14px here matches the old 26px.
+                      `ml-auto` only from sm: on a phone the name wraps to two
+                      lines and pushes this onto a row of its own, where pinning
+                      it right leaves it floating unattached to what it labels.
+                      Left-aligned it lines up with the avatar and reads as part
+                      of the caption. */}
                   <Image
                     src="/images/clients/bodyfunction.png"
                     alt="Bodyfunction Clinic"
-                    width={2000}
-                    height={600}
-                    style={{ height: 26, width: "auto" }}
-                    className="ml-auto opacity-70"
+                    width={1850}
+                    height={304}
+                    style={{ height: 14, width: "auto" }}
+                    className="opacity-70 sm:ml-auto"
                   />
                 </figcaption>
               </figure>

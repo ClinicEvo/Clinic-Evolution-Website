@@ -80,6 +80,24 @@ body {
   .section { padding-block: 6rem; }
 }
 
+/* ─── Client logo strip ─────────────────────────────────────────────────────── */
+/* Each mark carries its own tuned height as --logo-h, because the aspect ratios
+   run from 1:1 (1% Club) to 6:1 (the bodyfunction and neometa wordmarks) and a
+   shared height makes the square marks read as tiny.
+   Sizing is max-height rather than height so that max-width can win on narrow
+   screens: the 6:1 wordmarks are wider than a grid column at 320px, and without
+   the cap they push the strip into a horizontal scroll. Both bounds together
+   let the browser scale down on ratio instead. */
+.cx-logo {
+  width: auto;
+  height: auto;
+  max-height: var(--logo-h);
+  max-width: 100%;
+}
+@media (max-width: 640px) {
+  .cx-logo { max-height: calc(var(--logo-h) * 0.8); }
+}
+
 /* ─── Eyebrow / section label ───────────────────────────────────────────────── */
 .eyebrow {
   display: inline-flex;

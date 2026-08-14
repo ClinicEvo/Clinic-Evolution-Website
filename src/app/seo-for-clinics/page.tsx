@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
@@ -182,14 +183,17 @@ const painPoints = [
   "The nagging feeling that you ought to have worked this out by now.",
 ];
 
-/* Logos. Bodyfunction is deliberately absent: it is the clinic Clinic Evo grew
-   out of, not a client, and listing it here recreates exactly the confusion the
-   10 Aug review asked us to fix. It is named as the origin clinic in the
-   evidence section instead. Heights tuned per mark — the ratios differ wildly. */
+/* Logos. Bodyfunction is here as well as in the evidence section below — the
+   strip is the fastest read on the page and leaving the clinic with the biggest
+   numbers off it was costing more than the origin-story nuance was worth.
+   Neometa is Simon's agency rather than a clinic, hence "brands" in the label.
+   Heights tuned per mark — the ratios differ wildly. */
 const clientLogos = [
   { name: "Body Restore Clinic", src: "/images/clients/body-restore.png", w: 1714, h: 564, height: 34, dim: true },
   { name: "1 Percent Club", src: "/images/clients/one-percent-club.png", w: 500, h: 461, height: 48, dim: true },
   { name: "Lind Street Osteopathy", src: "/images/clients/lind-street.png", w: 1500, h: 500, height: 42 },
+  { name: "Bodyfunction Clinic", src: "/images/clients/bodyfunction.png", w: 1850, h: 304, height: 24 },
+  { name: "Neometa", src: "/images/clients/neometa.png", w: 1403, h: 238, height: 20 },
 ];
 
 /* Ahrefs, bodyfunction.co.uk, Aug 2024 vs Aug 2026. Search Console for clicks. */
@@ -378,19 +382,28 @@ export default function SeoForClinicsPage() {
         <div className="cx-main">
           <div className="flex flex-col items-center gap-7 sm:flex-row sm:justify-between sm:gap-10">
             <p className="text-label flex-shrink-0 text-[var(--color-muted)]">
-              Clinics we grow in search
+              Brands we grow in search
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-              {clientLogos.map((logo) => (
-                <Image
+            {/* Grid below sm, free-wrapping row above. Five marks left to wrap on
+                a phone give ragged rows and a lone logo on the last one; the odd
+                mark out spans both columns so it centres. */}
+            <div className="grid w-full grid-cols-2 place-items-center gap-x-8 gap-y-7 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-12 sm:gap-y-6">
+              {clientLogos.map((logo, i) => (
+                <div
                   key={logo.name}
-                  src={logo.src}
-                  alt={logo.name}
-                  width={logo.w}
-                  height={logo.h}
-                  style={{ height: logo.height, width: "auto" }}
-                  className={logo.dim ? "opacity-[0.85]" : undefined}
-                />
+                  className={`flex items-center ${
+                    i === clientLogos.length - 1 ? "col-span-2 sm:col-span-1" : ""
+                  }`}
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    width={logo.w}
+                    height={logo.h}
+                    style={{ "--logo-h": `${logo.height}px` } as CSSProperties}
+                    className={`cx-logo ${logo.dim ? "opacity-[0.85]" : ""}`}
+                  />
+                </div>
               ))}
             </div>
           </div>
