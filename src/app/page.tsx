@@ -37,7 +37,9 @@ export const metadata: Metadata = {
   },
 };
 
-const ACCENT = "#ff5b4a";
+/* Button fills carry white labels at 15px, which AA judges as normal text, so
+   they use the stronger coral rather than the brand coral (3.07:1). */
+const ACCENT = "var(--color-accent-strong)";
 
 // The four acquisition channels. Patient Pulse is rendered separately, as the
 // layer that connects them, rather than as a fifth sibling.

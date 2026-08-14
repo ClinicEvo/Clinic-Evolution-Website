@@ -47,7 +47,7 @@ export default function CTASection({
                 href={primaryHref}
                 className="inline-flex items-center font-semibold text-white transition-all hover:bg-[var(--color-accent-dim)] active:translate-y-px"
                 style={{
-                  background: "var(--color-accent)",
+                  background: "var(--color-accent-strong)",
                   padding: "15px 30px",
                   borderRadius: "var(--radius-btn)",
                   fontSize: "15px",

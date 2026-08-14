@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import PageHero from "@/components/sections/PageHero";
+import HeroChecklistPanel from "@/components/sections/HeroChecklistPanel";
 import ContactForm from "@/components/forms/ContactForm";
 
 
@@ -29,6 +30,29 @@ export default function ContactPage() {
         primaryCta={{ label: "Send a message", href: "#contact-form" }}
         secondaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
+        rightPanel={
+          <HeroChecklistPanel
+            title="What happens after you send it"
+            items={[
+              "A person reads it \u2014 no ticket queue and no chatbot",
+              "You get a straight answer, or the name of the thing to fix first",
+              "If a full review would help more, we say so rather than sell",
+              "No mailing list, and no follow-up sequence you did not ask for",
+            ]}
+            footer={
+              <>
+                Prefer email? Write to{" "}
+                <a
+                  href="mailto:hello@clinicevolution.com"
+                  className="font-semibold text-[var(--color-accent-text)] underline underline-offset-2"
+                >
+                  hello@clinicevolution.com
+                </a>
+                .
+              </>
+            }
+          />
+        }
       />
 
       {/* Form Section */}
@@ -44,7 +68,7 @@ export default function ContactPage() {
                 <p className="text-body text-[var(--color-muted)] mb-8">
                   No long form. Just tell us what is on your mind and we will reply
                   personally. If you are after a full review of your website, SEO and
-                  patient journey, the <a href="/free-clinic-audit/" className="text-[var(--color-accent)] hover:underline">free clinic audit</a> is
+                  patient journey, the <a href="/free-clinic-audit/" className="text-[var(--color-accent-text)] hover:underline">free clinic audit</a> is
                   the quickest way to get that.
                 </p>
                 <div className="card-surface p-7 md:p-8">
@@ -54,7 +78,7 @@ export default function ContactPage() {
                   <p className="text-body-sm text-[var(--color-muted)] mb-4">
                     You can reach us directly and we will respond as soon as we can.
                   </p>
-                  <a href="mailto:hello@clinicevolution.com" className="text-body font-semibold text-[var(--color-accent)] hover:underline">
+                  <a href="mailto:hello@clinicevolution.com" className="text-body font-semibold text-[var(--color-accent-text)] hover:underline">
                     hello@clinicevolution.com
                   </a>
                 </div>

@@ -314,7 +314,7 @@ export default function LindStreetCaseStudyPage() {
               <FadeUp delay={0.1}>
                 <figure className="m-0 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
                   <figcaption className="border-b border-[var(--color-border)] px-6 py-4">
-                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-text)]">
                       Tracked keyword positions
                     </span>
                     <p className="mt-1 text-body-sm text-[var(--color-muted)]">

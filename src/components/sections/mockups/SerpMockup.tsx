@@ -54,7 +54,7 @@ export default function SerpMockup() {
               >
                 <span
                   className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${
-                    c.you ? "bg-[var(--color-accent)] text-white" : "bg-white text-[var(--color-muted)] ring-1 ring-[var(--color-border)]"
+                    c.you ? "bg-[var(--color-accent-strong)] text-white" : "bg-white text-[var(--color-muted)] ring-1 ring-[var(--color-border)]"
                   }`}
                 >
                   {i + 1}

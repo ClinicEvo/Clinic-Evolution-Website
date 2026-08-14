@@ -13,7 +13,8 @@ import {
   ChartLineUp,
   type Icon,
 } from "@phosphor-icons/react";
-import { mainNav, ctaNav } from "@/lib/nav";
+import { usePathname } from "next/navigation";
+import { mainNav, ctaNav, resolveCtaHref } from "@/lib/nav";
 import Button from "@/components/ui/Button";
 
 type AnyIcon = Icon | React.ComponentType<{ size?: number }>;
@@ -70,6 +71,7 @@ export default function Header() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const ctaHref = resolveCtaHref(usePathname());
 
   const clearCloseTimer = () => {
     if (closeTimer.current) {
@@ -313,7 +315,7 @@ export default function Header() {
             {/* CTA */}
             <div className="flex items-center gap-4">
               <div className="hidden lg:block">
-                <Button href={ctaNav.href} size="md" style={{ letterSpacing: "0.03em", background: "#ff5b4a" }}>
+                <Button href={ctaHref} size="md" style={{ letterSpacing: "0.03em" }}>
                   {ctaNav.label}
                 </Button>
               </div>
@@ -432,7 +434,7 @@ export default function Header() {
                   </span>
                 </Link>
               ))}
-              <Button href={ctaNav.href} size="lg" className="w-full">
+              <Button href={ctaHref} size="lg" className="w-full">
                 {ctaNav.label}
               </Button>
             </div>

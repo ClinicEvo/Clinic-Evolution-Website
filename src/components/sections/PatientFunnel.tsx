@@ -100,7 +100,7 @@ export default function PatientFunnel() {
                   <span className="text-[0.62rem] font-semibold text-[var(--color-muted)]/60 line-through decoration-[var(--color-muted)]/40">
                     {transitions[i].avg}
                   </span>
-                  <span className="text-[0.72rem] font-bold text-[var(--color-accent)]">
+                  <span className="text-[0.72rem] font-bold text-[var(--color-accent-text)]">
                     {transitions[i].ours}
                   </span>
                 </div>
@@ -149,7 +149,7 @@ export default function PatientFunnel() {
                 </svg>
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-[0.65rem] font-semibold text-[var(--color-muted)]/60 line-through">{transitions[i].avg}</span>
-                  <span className="text-[0.72rem] font-bold text-[var(--color-accent)]">{transitions[i].ours}</span>
+                  <span className="text-[0.72rem] font-bold text-[var(--color-accent-text)]">{transitions[i].ours}</span>
                   <span className="text-[0.6rem] text-[var(--color-muted)]/60">{transitions[i].label}</span>
                 </div>
               </motion.div>
@@ -171,7 +171,7 @@ export default function PatientFunnel() {
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-4 h-px bg-[var(--color-accent)] inline-block" />
-          <span className="text-[0.6rem] font-bold text-[var(--color-accent)] uppercase tracking-wider">With Clinic Evo</span>
+          <span className="text-[0.6rem] font-bold text-[var(--color-accent-text)] uppercase tracking-wider">With Clinic Evo</span>
         </div>
       </motion.div>
 

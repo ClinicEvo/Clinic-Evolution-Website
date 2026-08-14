@@ -153,7 +153,7 @@ export default function CallCentrePage() {
                 The same is true of a lead your ads worked hard to generate: if
                 nobody rings it back quickly, it goes cold. Clinic Evo's call
                 handling sits alongside{" "}
-                <a href="/patient-pulse/" className="text-[var(--color-accent)] hover:underline">Patient Pulse</a>{" "}
+                <a href="/patient-pulse/" className="text-[var(--color-accent-text)] hover:underline">Patient Pulse</a>{" "}
                 to ensure nothing falls through the gap, whether the enquiry comes by
                 phone, form, or ad, inbound or called back.
               </p>

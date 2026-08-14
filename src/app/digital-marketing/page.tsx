@@ -195,7 +195,7 @@ export default function DigitalMarketingPage() {
                   </div>
                   <h3 className="text-h4 text-[var(--color-ink)] mb-2">{c.title}</h3>
                   <p className="text-body text-[var(--color-muted)] flex-1 mb-5">{c.desc}</p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                     {c.cta}
                     <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
                       <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

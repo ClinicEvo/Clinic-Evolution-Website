@@ -183,7 +183,7 @@ export default function CookiePolicyPage() {
             <aside className="hidden lg:block">
               <div className="sticky top-28">
                 <div className="card-surface p-6">
-                  <p className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-widest mb-4">
+                  <p className="text-xs font-bold text-[var(--color-accent-text)] uppercase tracking-widest mb-4">
                     On this page
                   </p>
                   <nav>

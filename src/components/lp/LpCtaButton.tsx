@@ -33,7 +33,7 @@ export default function LpCtaButton({
       href={LP_FORM_ANCHOR}
       onClick={() => events.auditCtaClick(placement)}
       style={{ fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.03rem" }}
-      className={`inline-flex items-center justify-center gap-2 rounded-[4px] bg-[var(--color-accent)] !text-white transition-all duration-200 hover:bg-[var(--color-accent-dim)] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 whitespace-nowrap ${sizes[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-[4px] bg-[var(--color-accent-strong)] !text-white transition-all duration-200 hover:bg-[var(--color-accent-dim)] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 whitespace-nowrap ${sizes[size]} ${className}`}
     >
       {label}
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

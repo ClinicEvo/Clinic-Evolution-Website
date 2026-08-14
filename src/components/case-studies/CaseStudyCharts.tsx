@@ -179,7 +179,7 @@ export function OrganicGrowthChart() {
   return (
     <figure ref={ref} className="m-0 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
       <figcaption className="border-b border-[var(--color-border)] px-6 py-4">
-        <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+        <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-text)]">
           Estimated monthly organic visitors
         </span>
         <p className="mt-1 text-body-sm text-[var(--color-muted)]">
@@ -369,7 +369,7 @@ export function PositionDumbbell({
   return (
     <figure ref={ref} className="m-0 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
       <figcaption className="border-b border-[var(--color-border)] px-6 py-4">
-        <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+        <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-text)]">
           {title}
         </span>
         <p className="mt-1 text-body-sm text-[var(--color-muted)]">{source}</p>
@@ -392,7 +392,7 @@ export function PositionDumbbell({
                 <span className="mx-1.5" aria-hidden>
                   →
                 </span>
-                <span className="font-bold text-[var(--color-accent)]">
+                <span className="font-bold text-[var(--color-accent-text)]">
                   {row.after.toFixed(1)}
                 </span>
               </span>
@@ -483,7 +483,7 @@ export function RankingTable({
   return (
     <figure ref={ref} className="m-0 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
       <figcaption className="border-b border-[var(--color-border)] px-6 py-4">
-        <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+        <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-text)]">
           {title}
         </span>
         <p className="mt-1 text-body-sm text-[var(--color-muted)]">{source}</p>
@@ -527,7 +527,7 @@ export function RankingTable({
                   <span
                     className={
                       row.position <= 5
-                        ? "font-bold text-[var(--color-accent)]"
+                        ? "font-bold text-[var(--color-accent-text)]"
                         : "text-[var(--color-charcoal)]"
                     }
                   >

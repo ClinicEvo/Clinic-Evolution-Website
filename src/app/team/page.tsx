@@ -4,6 +4,7 @@ import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import PageHero from "@/components/sections/PageHero";
+import HeroFounderPanel from "@/components/sections/HeroFounderPanel";
 
 export const metadata = buildMetadata({
   title: "Meet the Team",
@@ -71,6 +72,7 @@ export default function TeamPage() {
         breadcrumbs={crumbs}
         primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
         compactBottom
+        rightPanel={<HeroFounderPanel />}
       />
 
       {/* Team grid */}
@@ -107,7 +109,7 @@ export default function TeamPage() {
                         />
                       ) : (
                         <div className="w-full h-full bg-[var(--color-accent-light)] flex items-center justify-center">
-                          <span className="text-4xl font-bold text-[var(--color-accent)]">
+                          <span className="text-4xl font-bold text-[var(--color-accent-text)]">
                             {member.name.charAt(0)}
                           </span>
                         </div>
@@ -121,7 +123,7 @@ export default function TeamPage() {
                       <h3 className="text-h3 text-[var(--color-ink)] leading-tight mb-1">
                         {member.name}
                       </h3>
-                      <p className="text-sm font-semibold text-[var(--color-accent)]">
+                      <p className="text-sm font-semibold text-[var(--color-accent-text)]">
                         {member.title}
                       </p>
                     </div>

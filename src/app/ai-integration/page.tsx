@@ -202,7 +202,7 @@ export default function AiIntegrationPage() {
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
                 Every automation is managed through{" "}
-                <a href="/patient-pulse/" className="text-[var(--color-accent)] hover:underline">Patient Pulse</a>.
+                <a href="/patient-pulse/" className="text-[var(--color-accent-text)] hover:underline">Patient Pulse</a>.
                 The clinic does not need to learn new tools or manage sequences manually.
               </p>
             </div>

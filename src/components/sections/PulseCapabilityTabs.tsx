@@ -260,7 +260,7 @@ export default function PulseCapabilityTabs() {
                     {tab.footnote.text}{" "}
                     <Link
                       href={tab.footnote.href}
-                      className="font-semibold text-[var(--color-accent)] hover:underline"
+                      className="font-semibold text-[var(--color-accent-text)] hover:underline"
                     >
                       {tab.footnote.linkLabel}
                     </Link>

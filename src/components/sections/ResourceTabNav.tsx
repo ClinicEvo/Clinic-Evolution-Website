@@ -58,8 +58,8 @@ export default function ResourceTabNav() {
                       "flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-semibold",
                       "border transition-all whitespace-nowrap",
                       isActive
-                        ? "bg-[var(--color-accent)] text-white border-[var(--color-accent)]"
-                        : "bg-white text-[var(--color-ink)] border-[var(--color-border)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]",
+                        ? "bg-[var(--color-accent-strong)] text-white border-[var(--color-accent)]"
+                        : "bg-white text-[var(--color-ink)] border-[var(--color-border)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent-text)]",
                     ].join(" ")}
                   >
                     {label}

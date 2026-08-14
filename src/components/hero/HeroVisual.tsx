@@ -86,7 +86,7 @@ export default function HeroVisual() {
               {step.active ? <LiveDot /> : <CheckDot />}
               <span
                 className="flex-1 text-[17px] font-medium leading-none"
-                style={{ color: step.active ? "var(--color-accent)" : "var(--color-ink)" }}
+                style={{ color: step.active ? "var(--color-accent-text)" : "var(--color-ink)" }}
               >
                 {step.label}
               </span>

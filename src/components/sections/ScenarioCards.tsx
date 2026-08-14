@@ -174,7 +174,7 @@ function LapsedPatientIllustration() {
       {/* Follow-up status */}
       <div className="flex items-center justify-between rounded-[4px] border border-[var(--color-border)] px-3 py-2 bg-transparent">
         <span className="text-[0.68rem] text-[var(--color-ink)]">Follow-up sent</span>
-        <span className="text-[0.68rem] font-bold text-[var(--color-accent)]">None</span>
+        <span className="text-[0.68rem] font-bold text-[var(--color-accent-text)]">None</span>
       </div>
       {/* Outcome row */}
       <div className="flex items-center justify-between rounded-[4px] border border-[var(--color-border)] px-3 py-2 bg-transparent text-[var(--color-accent)]">

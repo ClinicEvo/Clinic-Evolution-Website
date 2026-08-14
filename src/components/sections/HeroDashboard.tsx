@@ -97,7 +97,7 @@ export default function HeroDashboard() {
                 <CountUp target={m.value} currency={m.currency} inView={inView} reduce={reduce} />
               </span>
               <motion.span
-                className="text-[0.7rem] font-bold text-[var(--color-accent)]"
+                className="text-[0.7rem] font-bold text-[var(--color-accent-text)]"
                 initial={reduce ? {} : { opacity: 0 }}
                 animate={inView || reduce ? { opacity: 1 } : {}}
                 transition={{ delay: 0.6 + i * 0.07, duration: 0.4 }}

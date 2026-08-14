@@ -1136,35 +1136,35 @@ export default function SeoForClinicsPage() {
                     Search rarely works alone. The same research feeds your{" "}
                     <Link
                       href="/website-design-for-clinics/"
-                      className="text-[var(--color-accent)] hover:underline"
+                      className="text-[var(--color-accent-text)] hover:underline"
                     >
                       website structure
                     </Link>
                     ,{" "}
                     <Link
                       href="/google-ads-for-clinics/"
-                      className="text-[var(--color-accent)] hover:underline"
+                      className="text-[var(--color-accent-text)] hover:underline"
                     >
                       Google Ads
                     </Link>
                     ,{" "}
                     <Link
                       href="/digital-marketing/"
-                      className="text-[var(--color-accent)] hover:underline"
+                      className="text-[var(--color-accent-text)] hover:underline"
                     >
                       paid social
                     </Link>
                     , the{" "}
                     <Link
                       href="/patient-pulse/"
-                      className="text-[var(--color-accent)] hover:underline"
+                      className="text-[var(--color-accent-text)] hover:underline"
                     >
                       follow-up system
                     </Link>{" "}
                     that catches the enquiries once they arrive, and{" "}
                     <Link
                       href="/ai-integration/"
-                      className="text-[var(--color-accent)] hover:underline"
+                      className="text-[var(--color-accent-text)] hover:underline"
                     >
                       patient reactivation
                     </Link>{" "}

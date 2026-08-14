@@ -161,13 +161,18 @@ export default function ArticleLayout({
               {children}
             </div>
 
-            {/* ── Sidebar ── */}
-            <aside className="hidden lg:block">
-              <div className="sticky top-28 flex flex-col gap-6">
+            {/* ── Sidebar ──
+                self-stretch is load-bearing: the grid is items-start, which
+                sizes this column to its content, and a sticky child cannot
+                travel beyond its own container. Without it the TOC and the
+                audit CTA scrolled away one screen into the article and left a
+                280px column empty for the rest of the page. */}
+            <aside className="hidden lg:block self-stretch">
+              <div className="sticky top-28 flex max-h-[calc(100dvh-8rem)] flex-col gap-6 overflow-y-auto overscroll-contain">
 
                 {/* TOC */}
                 <div className="card-surface p-6">
-                  <p className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-widest mb-4">
+                  <p className="text-xs font-bold text-[var(--color-accent-text)] uppercase tracking-widest mb-4">
                     In this guide
                   </p>
                   <nav>
@@ -176,7 +181,7 @@ export default function ArticleLayout({
                         <li key={s.title}>
                           <a
                             href={`#${slugify(s.title)}`}
-                            className="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors leading-snug block py-0.5"
+                            className="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent-text)] transition-colors leading-snug block py-0.5"
                           >
                             {s.title}
                           </a>
@@ -188,6 +193,8 @@ export default function ArticleLayout({
 
                 {/* CTA card */}
                 <div className="bg-[var(--color-dark)] rounded-2xl p-6 text-white">
+                  {/* On the navy card, so the brand coral is both correct and the accessible
+                      choice — the stronger coral would fall to 3.32:1 here. */}
                   <p className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-widest mb-3">
                     Free clinic audit
                   </p>
@@ -202,7 +209,7 @@ export default function ArticleLayout({
                 {/* Related links */}
                 {relatedLinks && relatedLinks.length > 0 && (
                   <div className="card-surface p-6">
-                    <p className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-widest mb-4">
+                    <p className="text-xs font-bold text-[var(--color-accent-text)] uppercase tracking-widest mb-4">
                       Related reading
                     </p>
                     <ul className="space-y-2">
@@ -210,7 +217,7 @@ export default function ArticleLayout({
                         <li key={link.href}>
                           <a
                             href={link.href}
-                            className="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors flex items-center gap-2 group"
+                            className="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent-text)] transition-colors flex items-center gap-2 group"
                           >
                             <svg className="flex-shrink-0 text-[var(--color-accent)] opacity-60 group-hover:opacity-100 transition-opacity" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                               <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

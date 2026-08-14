@@ -13,9 +13,12 @@ export default function ArrowLink({
   className = "",
   light = false,
 }: ArrowLinkProps) {
+  // 14px semibold is normal text for AA. The `light` variant already covers the
+  // dark sections, so the default branch is only ever on light ground and can
+  // take the stronger coral without risking the navy panels.
   const color = light
     ? "text-white/80 hover:text-white"
-    : "text-[var(--color-accent)] hover:text-[var(--color-accent-dim)]";
+    : "text-[var(--color-accent-text)] hover:text-[var(--color-accent-dim)]";
 
   return (
     <Link

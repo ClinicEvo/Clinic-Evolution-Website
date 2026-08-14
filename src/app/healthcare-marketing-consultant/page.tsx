@@ -285,7 +285,7 @@ export default function HealthcareMarketingConsultantPage() {
                 <Link href={s.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                     {s.cta}
                     <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
                       <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -335,7 +335,7 @@ export default function HealthcareMarketingConsultantPage() {
                   on strengthening the digital foundations that actually influence
                   patient growth.
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                   Read the Bodyfunction Clinic case study
                   <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
                     <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

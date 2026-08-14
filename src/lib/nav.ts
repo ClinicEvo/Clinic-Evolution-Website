@@ -125,6 +125,14 @@ export const ctaNav = {
   href: "/free-clinic-audit/",
 };
 
+/** The header and footer CTAs both point at /free-clinic-audit/, which on that
+ *  page is a link to itself — the visitor clicks and nothing appears to happen.
+ *  Resolve it to the form anchor instead, so the CTA still exists everywhere
+ *  but does something useful once the visitor is already there. */
+export function resolveCtaHref(pathname?: string | null) {
+  return pathname?.replace(/\/?$/, "/") === ctaNav.href ? "#audit-form" : ctaNav.href;
+}
+
 export const footerNav = {
   whoWeHelp: [
     { label: "Osteopaths", href: "/osteopath-marketing/" },

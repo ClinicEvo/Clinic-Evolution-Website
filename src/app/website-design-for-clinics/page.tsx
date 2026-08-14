@@ -416,22 +416,22 @@ export default function WebsiteDesignForClinicsPage() {
                 <div className="mt-9 border-t border-[var(--color-border)] pt-7">
                   <p className="text-body-sm text-[var(--color-muted)]">
                     Once the foundation is right, the same research feeds{" "}
-                    <Link href="/seo-for-clinics/" className="text-[var(--color-accent)] hover:underline">
+                    <Link href="/seo-for-clinics/" className="text-[var(--color-accent-text)] hover:underline">
                       ongoing SEO
                     </Link>
                     ,{" "}
                     <Link
                       href="/google-ads-for-clinics/"
-                      className="text-[var(--color-accent)] hover:underline"
+                      className="text-[var(--color-accent-text)] hover:underline"
                     >
                       Google Ads
                     </Link>
                     ,{" "}
-                    <Link href="/digital-marketing/" className="text-[var(--color-accent)] hover:underline">
+                    <Link href="/digital-marketing/" className="text-[var(--color-accent-text)] hover:underline">
                       paid social
                     </Link>{" "}
                     and{" "}
-                    <Link href="/ai-integration/" className="text-[var(--color-accent)] hover:underline">
+                    <Link href="/ai-integration/" className="text-[var(--color-accent-text)] hover:underline">
                       patient reactivation
                     </Link>
                     . One piece of work, not four.

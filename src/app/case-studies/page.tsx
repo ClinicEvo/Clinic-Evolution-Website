@@ -5,6 +5,7 @@ import FadeUp from "@/components/ui/FadeUp";
 import CTASection from "@/components/sections/CTASection";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import PageHero from "@/components/sections/PageHero";
+import HeroStatCard from "@/components/sections/HeroStatCard";
 
 export const metadata = buildMetadata({
   title: "Clinic Marketing Case Studies",
@@ -69,6 +70,23 @@ export default function CaseStudiesPage() {
         subtext="Two clinics at opposite ends of the scale. One established practice in London that nobody could find, and one brand new osteopath opening cold on the Isle of Wight. Here is what changed for both, and what it would mean for you."
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
+        rightPanel={
+          <HeroStatCard
+            title="The two clinics below"
+            stats={[
+              {
+                label: "Bodyfunction Clinic, London",
+                value: "8 \u2192 3,900",
+                note: "Monthly organic visitors, Aug 2024 \u2013 Aug 2026",
+              },
+              {
+                label: "Lind Street Osteopathy, Isle of Wight",
+                value: "0 \u2192 page one",
+                note: "Every core local search term, twelve months from launch",
+              },
+            ]}
+          />
+        }
       />
 
       <section className="section grain min-h-[50vh] border-y border-[var(--color-border)] bg-[var(--color-surface)]">
@@ -87,7 +105,16 @@ export default function CaseStudiesPage() {
                     />
                     <div className="absolute inset-0 bg-white/80" />
                     <div className="relative text-center">
-                      <p className="text-display font-bold text-[var(--color-accent)]">{cs.stat}</p>
+                      {/* text-display bottoms out at 48px, which is marginally
+                          too wide for "0 → page one" inside a card at 390px and
+                          broke the figure across two lines, orphaning the arrow.
+                          Same ramp, lower floor, so the stat stays one line. */}
+                      <p
+                        className="text-display font-bold text-[var(--color-accent-text)]"
+                        style={{ fontSize: "clamp(2rem, 7vw, 4.5rem)" }}
+                      >
+                        {cs.stat}
+                      </p>
                       <p className="text-body font-medium text-[var(--color-muted)]">
                         {cs.statLabel}
                       </p>
@@ -100,7 +127,7 @@ export default function CaseStudiesPage() {
                     <p className="eyebrow mb-4">{cs.eyebrow}</p>
                     <h2 className="text-h3 mb-4 text-[var(--color-ink)]">{cs.title}</h2>
                     <p className="text-body mb-6 flex-1 text-[var(--color-muted)]">{cs.body}</p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                       Read the case study
                       <svg
                         aria-hidden="true"

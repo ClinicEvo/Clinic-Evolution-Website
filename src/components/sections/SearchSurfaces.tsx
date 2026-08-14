@@ -66,7 +66,7 @@ export default function SearchSurfaces() {
 
           {/* AI answer */}
           <div className="rounded-lg border border-[var(--color-accent)]/25 bg-[var(--color-accent-light)] p-3">
-            <p className="mb-2 text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[var(--color-accent)]">
+            <p className="mb-2 text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[var(--color-accent-text)]">
               AI answer
             </p>
             <div className="space-y-1.5">

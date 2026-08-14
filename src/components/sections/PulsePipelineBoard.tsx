@@ -117,7 +117,7 @@ export default function PulsePipelineBoard({ bare = false }: { bare?: boolean })
                 </span>
                 <span
                   className="font-display text-[0.8rem] font-bold leading-none tabular-nums"
-                  style={{ color: col.booked ? "var(--color-accent)" : "var(--color-ink)" }}
+                  style={{ color: col.booked ? "var(--color-accent-text)" : "var(--color-ink)" }}
                 >
                   {col.count}
                 </span>

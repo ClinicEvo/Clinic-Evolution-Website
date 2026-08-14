@@ -425,9 +425,9 @@ export default function GoogleAdsForClinicsPage() {
                 That is why Clinic Evo looks at the full journey: search term, ad,
                 landing page, trust signals, call to action, booking route and
                 follow-up. We also connect paid search with{" "}
-                <a href="/website-design-for-clinics/" className="text-[var(--color-accent)] hover:underline">clinic website design</a>,{" "}
-                <a href="/seo-for-clinics/" className="text-[var(--color-accent)] hover:underline">SEO for clinics</a> and{" "}
-                <a href="/ai-integration/" className="text-[var(--color-accent)] hover:underline">AI patient reactivation</a>{" "}
+                <a href="/website-design-for-clinics/" className="text-[var(--color-accent-text)] hover:underline">clinic website design</a>,{" "}
+                <a href="/seo-for-clinics/" className="text-[var(--color-accent-text)] hover:underline">SEO for clinics</a> and{" "}
+                <a href="/ai-integration/" className="text-[var(--color-accent-text)] hover:underline">AI patient reactivation</a>{" "}
                 where it makes sense.
               </p>
             </FadeUp>

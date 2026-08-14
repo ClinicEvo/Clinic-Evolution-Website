@@ -11,6 +11,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import PersonSchema from "@/components/schema/PersonSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
+import HeroFounderPanel from "@/components/sections/HeroFounderPanel";
 import StatBand from "@/components/sections/StatBand";
 
 
@@ -83,6 +84,7 @@ export default function AboutPage() {
         primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "Explore our services", href: "/#services" }}
         breadcrumbs={crumbs}
+        rightPanel={<HeroFounderPanel />}
       />
 
       {/* Why Clinic Evo exists */}
@@ -371,7 +373,7 @@ export default function AboutPage() {
                 <Link href={s.href} className="card-surface p-6 h-full flex flex-col group">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                     Learn more
                     <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
                       <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -435,7 +437,7 @@ export default function AboutPage() {
                   stronger patient journeys improved enquiries for a multi-discipline
                   clinic in London.
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                   Read the Bodyfunction Clinic case study
                   <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
                     <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -460,7 +462,7 @@ export default function AboutPage() {
                 Clinic Evo is designed for clinic owners who want a practical
                 growth partner rather than vague marketing advice. Or if you need
                 strategic oversight before committing to a larger build, the{" "}
-                <a href="/healthcare-marketing-consultant/" className="text-[var(--color-accent)] hover:underline">healthcare marketing consultant</a>{" "}
+                <a href="/healthcare-marketing-consultant/" className="text-[var(--color-accent-text)] hover:underline">healthcare marketing consultant</a>{" "}
                 route offers direct guidance.
               </p>
               <p className="text-body text-[var(--color-muted)] mb-5">
@@ -500,7 +502,7 @@ export default function AboutPage() {
                     },
                   ].map((p, i) => (
                     <div key={p.title} className="flex gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-surface)] flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-surface)] flex items-center justify-center text-[var(--color-accent-text)] font-bold text-sm">
                         {i + 1}
                       </div>
                       <div>

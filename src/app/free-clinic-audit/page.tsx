@@ -5,6 +5,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
+import HeroChecklistPanel from "@/components/sections/HeroChecklistPanel";
 import AuditForm from "@/components/forms/AuditForm";
 
 
@@ -65,6 +66,27 @@ export default function FreeClinicAuditPage() {
         ]}
         primaryCta={{ label: "Request your free audit", href: "#audit-form" }}
         breadcrumbs={crumbs}
+        rightPanel={
+          /* Deliberately the process, not the deliverables: the "What you
+             receive" card further down this page already lists those, and
+             repeating them here would say the same thing twice. */
+          <HeroChecklistPanel
+            numbered
+            title="How the audit works"
+            items={[
+              "Send the short form with your clinic website",
+              "We review the site, search visibility and booking journey by hand",
+              "You get the findings and the priority actions, yours to keep",
+            ]}
+            footer={
+              <>
+                Human review, not an automated report. Back with you within{" "}
+                <strong className="font-semibold text-[var(--color-ink)]">2 business days</strong>,
+                with no obligation.
+              </>
+            }
+          />
+        }
       />
 
       {/* What the audit covers + what you receive */}
@@ -147,9 +169,19 @@ export default function FreeClinicAuditPage() {
       {/* Form Section */}
       <section id="audit-form" className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <FadeUp>
-              <div>
+          {/* items-start, not items-center: the form runs to ~1130px and this
+              copy column to ~500px, so centring the short column left dead
+              space above it and a full empty viewport below. Aligned to the top
+              and made sticky, the reassurance points stay beside the fields
+              while the visitor works down the form. */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+            {/* The stretched grid item and the sticky element are plain divs,
+                with FadeUp inside them: framer-motion leaves a transform on its
+                wrapper, and a transformed ancestor becomes the containing block
+                for a sticky descendant, which stops it travelling. */}
+            <div className="lg:self-stretch">
+              <div className="lg:sticky lg:top-28">
+                <FadeUp>
                 <p className="eyebrow mb-4">Request</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-5">
                   Request your free clinic audit
@@ -169,8 +201,9 @@ export default function FreeClinicAuditPage() {
                     <p className="text-body-sm text-[var(--color-muted)]">Human review of your website</p>
                   </div>
                 </div>
+                </FadeUp>
               </div>
-            </FadeUp>
+            </div>
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
                 <AuditForm />

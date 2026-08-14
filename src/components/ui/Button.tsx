@@ -21,15 +21,21 @@ const variantStyles: Record<Variant, React.CSSProperties> = {
   outline:   {},
 };
 
+/* Every size below is under AA's large-text threshold (18.66px bold / 24px), so
+   button labels are judged as normal text at 4.5:1. White on the brand coral is
+   3.07:1 and fails, hence --color-accent-strong for the fill (4.65:1 with white)
+   and --color-accent-text for coral labels on light ground, which has to clear
+   the tinted surfaces too. The outline border keeps the brand coral: a 2px
+   border is a non-text element and only needs 3:1. */
 const variants: Record<Variant, string> = {
   primary:
-    "bg-[var(--color-accent)] !text-white hover:bg-[var(--color-accent-dim)]",
+    "bg-[var(--color-accent-strong)] !text-white hover:bg-[var(--color-accent-dim)]",
   secondary:
     "bg-[var(--color-ink)] !text-white hover:bg-[#222222]",
   ghost:
-    "text-[var(--color-accent)] hover:bg-[var(--color-accent)]/5",
+    "text-[var(--color-accent-text)] hover:bg-[var(--color-accent)]/5",
   outline:
-    "border-2 border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:!text-white",
+    "border-2 border-[var(--color-accent)] text-[var(--color-accent-text)] hover:bg-[var(--color-accent-strong)] hover:!text-white",
 };
 
 const sizes: Record<Size, string> = {

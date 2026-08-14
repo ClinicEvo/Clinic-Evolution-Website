@@ -9,15 +9,20 @@ interface FieldProps {
   children: ReactNode;
 }
 
+/** The label wraps the control rather than sitting beside it. A sibling
+ *  <label> with no htmlFor is not associated with anything, which left every
+ *  control on the audit and contact forms unlabelled to screen readers and
+ *  voice input. Wrapping gives implicit association without threading an id
+ *  through each call site. */
 export function Field({ label, required, children }: FieldProps) {
   return (
-    <div>
-      <label className="block text-sm font-medium text-[var(--color-ink)] mb-1.5">
+    <label className="block">
+      <span className="block text-sm font-medium text-[var(--color-ink)] mb-1.5">
         {label}{" "}
         {required && <span aria-hidden="true" className="text-[var(--color-error)]">*</span>}
-      </label>
+      </span>
       {children}
-    </div>
+    </label>
   );
 }
 

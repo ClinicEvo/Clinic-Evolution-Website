@@ -23,7 +23,7 @@ export default function ServiceCard({
       </div>
       <h3 className="text-h3 text-[var(--color-ink)] mb-2 font-semibold">{title}</h3>
       <p className="text-body text-[var(--color-muted)] flex-1 mb-5 leading-relaxed font-light">{description}</p>
-      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
         Learn more
         <svg
           aria-hidden="true"

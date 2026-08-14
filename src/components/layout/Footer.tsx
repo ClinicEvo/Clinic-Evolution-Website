@@ -2,8 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { footerNav } from "@/lib/nav";
 import { siteConfig } from "@/lib/metadata";
+import FooterCta from "@/components/layout/FooterCta";
 
-const ACCENT = "#ff5b4a";
+/* Coral on the navy footer clears AA at 5.67:1, so the footer keeps the full
+   brightness accent rather than the darker text variant used on light ground. */
+const ACCENT = "var(--color-accent)";
 
 const LinkedInIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -28,34 +31,12 @@ export default function Footer() {
   return (
     <footer
       className="relative overflow-hidden text-white"
-      style={{ background: "#0d1b2a", borderTop: "1px solid rgba(255,255,255,0.08)" }}
+      style={{ background: "var(--color-ink)", borderTop: "1px solid rgba(255,255,255,0.08)" }}
     >
       <div className="cx-main pt-12 pb-8">
 
         {/* ── CTA strip ──────────────────────────────────────────────────── */}
-        <div
-          className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-10 mb-10"
-          style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
-        >
-          <div>
-            <p className="font-display font-bold text-[1.35rem] leading-snug text-white mb-1">
-              Find out where your clinic is losing patients.
-            </p>
-            <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
-              Free audit, honest assessment within 2 business days. No jargon. No commitment.
-            </p>
-          </div>
-          <Link
-            href="/free-clinic-audit/"
-            className="flex-shrink-0 inline-flex items-center gap-2 text-white text-sm font-bold px-5 py-3 rounded-[4px] transition-opacity hover:opacity-90 whitespace-nowrap"
-            style={{ background: ACCENT }}
-          >
-            Book a free clinic audit
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
-        </div>
+        <FooterCta />
 
         {/* ── Nav grid ───────────────────────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">

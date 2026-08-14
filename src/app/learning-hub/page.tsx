@@ -163,7 +163,7 @@ function ResourceCardEl({ card, delay }: { card: ResourceCard; delay: number }) 
           <p className="text-body-sm text-[var(--color-muted)] mb-5 flex-1 leading-relaxed">
             {card.desc}
           </p>
-          <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] mt-auto">
+          <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] mt-auto">
             Read the guide
             <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
               <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -423,7 +423,7 @@ export default function ResourcesHubPage() {
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl">
                 Guides to help clinic owners understand how local SEO, service pages and search
                 visibility work in practice — supporting the{" "}
-                <a href="/seo-for-clinics/" className="text-[var(--color-accent)] hover:underline">SEO for Clinics</a> service.
+                <a href="/seo-for-clinics/" className="text-[var(--color-accent-text)] hover:underline">SEO for Clinics</a> service.
               </p>
             </div>
           </FadeUp>

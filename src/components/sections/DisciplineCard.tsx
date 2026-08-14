@@ -28,7 +28,7 @@ export default function DisciplineCard({
           </li>
         ))}
       </ul>
-      <span className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+      <span className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
         {title} marketing systems
         <svg
           aria-hidden="true"

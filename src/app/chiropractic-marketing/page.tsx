@@ -312,7 +312,7 @@ export default function ChiropracticMarketingPage() {
                 <Link href={s.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
                   <h3 className="text-h3 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                     {s.cta}
                     <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
                       <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -406,7 +406,7 @@ export default function ChiropracticMarketingPage() {
                   all to 332 of them.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-5">
-                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline">Bodyfunction Clinic case study</a> sets
+                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent-text)] hover:underline">Bodyfunction Clinic case study</a> sets
                   out every figure, where it came from, and the local rankings that
                   are still being worked on.
                 </p>
@@ -463,7 +463,7 @@ export default function ChiropracticMarketingPage() {
               </p>
               <p className="text-body-sm text-[var(--color-muted)]">
                 Not ready to start?{" "}
-                <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent)] hover:underline font-medium">
+                <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent-text)] hover:underline font-medium">
                   See how it worked for a real clinic first.
                 </a>
               </p>

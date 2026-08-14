@@ -19,7 +19,7 @@ export default function ProcessSteps({ steps }: ProcessStepsProps) {
           <li className="flex gap-6 pb-10 last:pb-0">
             {/* Line + number */}
             <div className="flex flex-col items-center flex-shrink-0">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-[var(--color-accent-strong)] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
                 {step.number}
               </div>
               {index < steps.length - 1 && (

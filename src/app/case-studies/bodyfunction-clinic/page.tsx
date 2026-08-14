@@ -244,7 +244,7 @@ export default function BodyfunctionCaseStudyPage() {
             ].map((card, i) => (
               <FadeUp key={card.label} delay={i * 0.07}>
                 <div className="card-surface h-full p-8">
-                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-accent-text)]">
                     {card.label}
                   </p>
                   <p className="text-body font-medium text-[var(--color-ink)]">{card.value}</p>
@@ -419,7 +419,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.12}>
                 <figure className="m-0 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
                   <figcaption className="border-b border-[var(--color-border)] px-6 py-4">
-                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-text)]">
                       Straight from Ahrefs
                     </span>
                     <p className="mt-1 text-body-sm text-[var(--color-muted)]">
@@ -515,7 +515,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.1}>
                 <figure className="m-0 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
                   <figcaption className="border-b border-[var(--color-border)] px-6 py-4">
-                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-text)]">
                       Local Islington search positions
                     </span>
                     <p className="mt-1 text-body-sm text-[var(--color-muted)]">
@@ -611,7 +611,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.1}>
                 <div className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm">
                   <div className="border-b border-[var(--color-border)] px-6 py-4">
-                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent-text)]">
                       People searching for the clinic by name
                     </span>
                     <p className="mt-1 text-body-sm text-[var(--color-muted)]">
@@ -634,7 +634,7 @@ export default function BodyfunctionCaseStudyPage() {
                           <span className="mx-1.5" aria-hidden>
                             →
                           </span>
-                          <span className="font-bold text-[var(--color-accent)]">{row.to}</span>
+                          <span className="font-bold text-[var(--color-accent-text)]">{row.to}</span>
                         </p>
                       </div>
                     ))}

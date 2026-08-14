@@ -47,7 +47,7 @@ export default function ResourceCard({
       {/* Card body */}
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-center gap-3 mb-4">
-          <span className="text-[10px] font-bold tracking-wider uppercase text-[var(--color-accent)]">
+          <span className="text-[10px] font-bold tracking-wider uppercase text-[var(--color-accent-text)]">
             {category}
           </span>
           {readTime && (
