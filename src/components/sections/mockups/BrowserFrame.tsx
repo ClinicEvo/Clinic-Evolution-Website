@@ -22,6 +22,9 @@ export default function BrowserFrame({
   label,
   caption,
   flush = false,
+  scrollOnMobile = false,
+  scrollMinWidth = "42rem",
+  scrollLabel = "Screenshot, scroll sideways to read",
 }: {
   children: ReactNode;
   /** What is on screen, shown in the address pill. A tool name, not a made-up
@@ -31,6 +34,21 @@ export default function BrowserFrame({
   caption?: ReactNode;
   /** Drop the outer border, radius and shadow, for use inside a device shell. */
   flush?: boolean;
+  /** Hold the screenshot at a legible width on small screens and let it scroll
+   *  sideways inside the frame, instead of shrinking it to nothing.
+   *
+   *  A dense tool export — an Ahrefs keyword table, say — scaled to a 340px
+   *  column renders its type at about five pixels. It is not small, it is
+   *  unreadable, which makes it decoration rather than evidence and defeats the
+   *  point of showing it. Above `sm` the image goes back to filling its column,
+   *  where there is room for it. RankingTable in CaseStudyCharts already uses
+   *  overflow-x-auto for the same reason. */
+  scrollOnMobile?: boolean;
+  /** Width to hold the content at while scrolling. Wide enough that the type
+   *  survives; past that the reader is scrolling further than it is worth. */
+  scrollMinWidth?: string;
+  /** Accessible name for the scroll region. */
+  scrollLabel?: string;
 }) {
   return (
     <figure
@@ -66,11 +84,34 @@ export default function BrowserFrame({
         </span>
       </div>
 
-      <div className="bg-white">{children}</div>
+      {scrollOnMobile ? (
+        /* tabIndex makes a scroll container reachable without a pointer, which
+           a keyboard user otherwise cannot pan. The `sm:` resets hand the image
+           back to the column once there is width for it. */
+        <div
+          className="bg-white overflow-x-auto sm:overflow-x-visible"
+          tabIndex={0}
+          role="group"
+          aria-label={scrollLabel}
+        >
+          <div className="sm:!min-w-0" style={{ minWidth: scrollMinWidth }}>
+            {children}
+          </div>
+        </div>
+      ) : (
+        <div className="bg-white">{children}</div>
+      )}
 
-      {caption && (
+      {(caption || scrollOnMobile) && (
         <figcaption className="border-t border-[var(--color-border)] px-4 py-3 text-[0.7rem] leading-snug text-[var(--color-muted)]">
           {caption}
+          {/* --color-muted, not --color-muted-light: this is an instruction, and
+              the light grey is only about 1.6:1 on white. */}
+          {scrollOnMobile && (
+            <span className="mt-1 block font-medium text-[var(--color-muted)] sm:hidden">
+              Scroll sideways to read the full table.
+            </span>
+          )}
         </figcaption>
       )}
     </figure>

@@ -41,9 +41,13 @@ function Line({ w, dim = false }: { w: string; dim?: boolean }) {
   );
 }
 
+/* Spans the container rather than stopping at max-w-4xl. Inside a full-width
+   .cx-main the old cap left roughly 300px of nothing down the right at 1440,
+   which read as an unfinished row rather than as breathing room. The mock keeps
+   its fixed width; the zone list takes the recovered space. */
 export default function SearchSurfaces() {
   return (
-    <div className="grid max-w-4xl gap-8 sm:grid-cols-[minmax(0,290px)_minmax(0,1fr)] sm:items-start sm:gap-12">
+    <div className="grid gap-8 sm:grid-cols-[minmax(0,290px)_minmax(0,1fr)] sm:items-start sm:gap-14 lg:gap-20">
       <BrowserFrame label="google.co.uk — one search">
         <div className="space-y-3 p-3.5">
           {/* Query */}

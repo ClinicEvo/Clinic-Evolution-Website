@@ -250,18 +250,10 @@ export default function ResourcesHubPage() {
     {
       icon: svgs.heartbeat,
       title: "Local SEO for healthcare clinics",
-      desc: "A broader guide to local SEO for healthcare clinics that want to appear more consistently for relevant local searches.",
+      desc: "A broader guide to local SEO for healthcare and private medical clinics that want to appear more consistently for relevant local searches.",
       href: "/learning-hub/local-seo-for-healthcare-clinics/",
-      readTime: "5 min read",
+      readTime: "7 min read",
       image: "/images/resources/local-seo-healthcare.jpg",
-    },
-    {
-      icon: svgs.crosshair,
-      title: "Local SEO for medical clinics",
-      desc: "A guide to the core SEO foundations medical and private healthcare clinics need to strengthen local discovery.",
-      href: "/learning-hub/local-seo-for-medical-clinics/",
-      readTime: "5 min read",
-      image: "/images/resources/local-seo-medical.jpg",
     },
   ];
 
@@ -287,7 +279,7 @@ export default function ResourcesHubPage() {
   const categories = [
     { label: "Patient Acquisition", count: 3, href: "#patient-acquisition", icon: svgs.patients },
     { label: "Growth Strategy",     count: 4, href: "#growth-strategy",     icon: svgs.megaphone },
-    { label: "SEO for Clinics",     count: 3, href: "#clinic-seo",          icon: svgs.globe     },
+    { label: "SEO for Clinics",     count: 2, href: "#clinic-seo",          icon: svgs.globe     },
     { label: "Google Ads",          count: 2, href: "#google-ads",          icon: svgs.target    },
     { label: "Case Studies",        count: 2, href: "#case-studies",        icon: svgs.buildings },
   ];
@@ -298,7 +290,7 @@ export default function ResourcesHubPage() {
       <div className="px-5 py-4 border-b border-[var(--color-border)] bg-[var(--color-surface)]">
         <p className="text-[0.65rem] font-bold tracking-widest uppercase text-[var(--color-muted)] mb-1">Resource library</p>
         <p className="font-display font-semibold text-[var(--color-ink)] text-lg leading-snug">
-          14 guides across 5 topics
+          13 guides across 5 topics
         </p>
       </div>
 

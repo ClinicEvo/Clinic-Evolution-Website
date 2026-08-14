@@ -14,7 +14,12 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => events.whatsappClick()}
-      className="fixed bottom-6 right-6 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-md hover:bg-[#1aad52] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
+      /* --sticky-cta-h is published by StickyMobileCta on the pages that carry
+         one. Both are fixed to this corner at z-40, so without the offset the
+         bar lands on top of the bubble. Unset everywhere else, hence the 0px
+         fallback. Transition the transform, not `bottom`. */
+      style={{ transform: "translateY(calc(-1 * var(--sticky-cta-h, 0px)))" }}
+      className="fixed bottom-6 right-6 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-md hover:bg-[#1aad52] transition-[background-color,transform] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
       aria-label="Chat with us on WhatsApp"
     >
       <svg

@@ -50,7 +50,7 @@ export default function SearchConsolePanel() {
             8 <span className="text-[var(--color-muted-light)]">&rarr;</span> 3,822
           </p>
           <p className="mt-2 text-[0.72rem] font-medium leading-snug text-[var(--color-charcoal)]">
-            Monthly visitors from Google
+            Estimated monthly visitors from Google
           </p>
           <p className="mt-1.5 text-[0.65rem] leading-snug text-[var(--color-muted)]">
             Ahrefs, Aug 2024 &ndash; Aug 2026

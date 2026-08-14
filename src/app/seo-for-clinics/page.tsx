@@ -5,6 +5,7 @@ import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Button from "@/components/ui/Button";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 import CTASection from "@/components/sections/CTASection";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import ProcessSteps from "@/components/sections/ProcessSteps";
@@ -60,8 +61,12 @@ import {
  * source with it. Do not round up, and do not imply clicks are bookings.
  */
 
+/* Title carries the head term once, then spends the rest of the space on the
+   three disciplines rather than repeating itself — the previous version said
+   "SEO" three times and "clinic" three times once the site suffix landed. The
+   H1 below is deliberately unchanged; that one was defended on the 10 Aug call. */
 export const metadata = buildMetadata({
-  title: "SEO for Medical Clinics | Specialist Clinic SEO",
+  title: "SEO for Medical Clinics | Osteopaths, Physios, Chiropractors",
   description:
     "Specialist SEO for medical clinics, osteopaths, physiotherapists and chiropractors. Improve local visibility, service pages, enquiries and patient bookings.",
   path: "/seo-for-clinics/",
@@ -205,7 +210,10 @@ const bodyfunctionStats = [
   },
   {
     display: "8 → 3,822",
-    label: "Monthly visitors from search",
+    /* "Estimated" is not hedging — Ahrefs models organic traffic, it does not
+       measure it, and the chart beside this tile already says so. The evidence
+       rule at the top of this file requires the label to match the source. */
+    label: "Estimated monthly visitors from search",
     source: "Ahrefs, Aug 2024 → Aug 2026",
   },
   {
@@ -231,13 +239,19 @@ const bodyfunctionMoves = [
 ];
 
 /* Lind Street, Search Console, twelve months from launch. Every term below is a
-   commercial local search — the ones that put somebody on a treatment table. */
+   commercial local search — the ones that put somebody on a treatment table.
+
+   "osteopath near me" used to sit in this list at position 5.4 on 3 clicks and a
+   5.1% CTR. It was the one row that argued against the table: a near-zero number
+   next to a claim that this is what winning looks like, inviting the reader to
+   total the column and conclude the whole thing came to nothing. It is a
+   national term that resolves locally, so a small catchment barely registers on
+   it, and it earned less than any other line here. Dropped rather than defended. */
 const lindStreetRankings = [
   { query: "lind street osteopathy", position: 1.0, clicks: 113, ctr: "67%" },
   { query: "ryde osteopath", position: 4.0, clicks: 22, ctr: "15.2%" },
   { query: "osteopath ryde", position: 4.9, clicks: 45, ctr: "19.4%" },
   { query: "sports massage ryde", position: 5.2, clicks: 6, ctr: "20.0%" },
-  { query: "osteopath near me", position: 5.4, clicks: 3, ctr: "5.1%" },
   { query: "osteopath isle of wight", position: 7.4, clicks: 67, ctr: "7.5%" },
 ];
 
@@ -365,7 +379,13 @@ export default function SeoForClinicsPage() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h2 className="text-h4 mb-1.5 text-[var(--color-ink)]">{p.title}</h2>
+                    {/* Styled as a heading, not marked up as one. These three are
+                        a feature strip, not sections of the document, and as
+                        <h2> they were the first three headings after the H1 —
+                        the most valuable slots on the page spent on labels that
+                        say nothing about clinic SEO. Out of the outline, the H1
+                        now runs straight into the real H2s. */}
+                    <p className="text-h4 mb-1.5 text-[var(--color-ink)]">{p.title}</p>
                     <p className="text-body-sm text-[var(--color-muted)]">{p.body}</p>
                   </div>
                 </div>
@@ -518,6 +538,37 @@ export default function SeoForClinicsPage() {
         </div>
       </section>
 
+      {/* A place to act, in the middle of the longest stretch without one.
+          The reader has just been handed a list of nine faults; "which of these
+          are true of mine" is the question they are already asking, so the ask
+          costs nothing to make here.
+
+          Light card rather than a second dark panel — the dark one further down
+          is the page's one big break, and running two of them makes the first a
+          rehearsal. Pattern borrowed from the "step one is free" card on
+          /google-ads-for-clinics/. */}
+      <section className="bg-[var(--color-paper)] pt-14 sm:pt-16">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="flex flex-col gap-6 rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+              <div>
+                <p className="text-h4 mb-1.5 text-[var(--color-ink)]">
+                  Which of those are true of your site?
+                </p>
+                <p className="text-body-sm max-w-xl text-[var(--color-muted)]">
+                  The audit goes through this list on your clinic specifically, and
+                  tells you which ones are actually costing you patients. Free, and
+                  yours to keep either way.
+                </p>
+              </div>
+              <Button href="/free-clinic-audit/" size="md" className="flex-shrink-0">
+                Get a free clinic SEO audit
+              </Button>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* Plain English, before any jargon. */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
@@ -667,13 +718,26 @@ export default function SeoForClinicsPage() {
           <div className="mt-16 grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <FadeUp>
               <PositionDumbbell
-                title="Where individual patient questions moved to"
+                title="Where individual condition questions moved to"
                 source="Search Console, bodyfunction.co.uk, 12 months year on year"
                 rows={bodyfunctionMoves}
               />
+              {/* Say what these five are, rather than leaving a reader to work it
+                  out and feel they have caught us. They are symptom questions —
+                  national, informational, and not the same thing as somebody in
+                  Islington looking for an appointment. The local terms are the
+                  next section's argument, and they are named there. */}
+              <p className="text-body-sm mt-5 text-[var(--color-muted)]">
+                These are condition questions: people describing a symptom, from
+                anywhere. They are how a clinic earns the authority that local
+                terms then trade on, and they are not the same thing as somebody
+                two streets away searching for an appointment. Both matter, and
+                they are won in that order.
+              </p>
             </FadeUp>
             <FadeUp delay={0.1}>
               <BrowserFrame
+                scrollOnMobile
                 label="app.ahrefs.com — organic keywords, bodyfunction.co.uk"
                 caption="The tracked keyword list as it stands today. Green is movement since the last check."
               >
@@ -787,11 +851,25 @@ export default function SeoForClinicsPage() {
                 be done from a standing start in a market that size, it can be done
                 in yours.
               </p>
-              <p className="text-body text-[var(--color-muted)]">
+              <p className="text-body mb-5 text-[var(--color-muted)]">
                 The click-through rates are the quiet win in this table. A 67% rate on
                 the brand term and 19.4% on &ldquo;osteopath ryde&rdquo; mean people
                 are not just seeing the listing, they are choosing it over the ones
                 around it.
+              </p>
+              {/* The honest bridge. A reader who totals the clicks column gets a
+                  number in the hundreds and wonders whether that was worth it.
+                  Better to answer it than to hope they do not do the sum: in a
+                  catchment this size the ceiling is low, and the thing being
+                  measured is share, not volume. Careful not to imply a booking
+                  anywhere in this — the standing rule. */}
+              <p className="text-body text-[var(--color-muted)]">
+                The absolute numbers are small, and in a catchment this size they
+                should be — only so many people search for an osteopath in one
+                seaside town in a year. The number that matters is not how many
+                searches there were, it is what share of them arrive at this clinic
+                rather than a competitor. On the terms describing what it treats,
+                that share is now most of them.
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
@@ -806,6 +884,7 @@ export default function SeoForClinicsPage() {
           <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <FadeUp>
               <BrowserFrame
+                scrollOnMobile
                 label="app.ahrefs.com — tracked positions, lindstreetosteopathy.co.uk"
                 caption="Position one for back pain, neck pain, women's health and shoulder pain in Ryde. Each one is a page built for that search on purpose."
               >
@@ -884,12 +963,17 @@ export default function SeoForClinicsPage() {
           two near-identical stacks before. The icon cards are gone. */}
       <section id="what-we-improve" className="section bg-[var(--color-paper)]">
         <div className="cx-main">
+          {/* Two columns rather than a 2xl block with an empty right half. The
+              heading and the qualifier were stacked in one narrow column, which
+              left roughly half the row doing nothing at 1440. */}
           <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">What we do</p>
-              <h2 className="text-h2 mb-4 text-[var(--color-ink)]">
-                What Clinic Evo improves, and what you get
-              </h2>
+            <div className="mb-12 grid grid-cols-1 items-end gap-8 lg:grid-cols-[1fr_1fr] lg:gap-20">
+              <div>
+                <p className="eyebrow mb-4">What we do</p>
+                <h2 className="text-h2 text-[var(--color-ink)]">
+                  What Clinic Evo improves, and what you get
+                </h2>
+              </div>
               <p className="text-body-lg text-[var(--color-charcoal)]">
                 This is a growth package rather than a maintenance plan. Maintenance
                 keeps a website working; this is ongoing work to increase how many
@@ -1177,11 +1261,15 @@ export default function SeoForClinicsPage() {
             <ProcessSteps steps={steps} />
           </div>
 
+          {/* Two guides, not three. The medical one was a near-duplicate of the
+              healthcare one and has been merged into it, so this row was sending
+              equal internal weight to two pages competing for the same intent.
+              Two columns also retires the equal-thirds card grid the house style
+              rules out. */}
           <FadeUp delay={0.1}>
-            <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
+            <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
               {[
                 { title: "Local SEO for physio clinics", href: "/learning-hub/local-seo-for-physio-clinics/" },
-                { title: "Local SEO for medical clinics", href: "/learning-hub/local-seo-for-medical-clinics/" },
                 { title: "Local SEO for healthcare clinics", href: "/learning-hub/local-seo-for-healthcare-clinics/" },
               ].map((r) => (
                 <Link
@@ -1237,9 +1325,16 @@ export default function SeoForClinicsPage() {
           take on trust: free, yours to keep, no obligation, and a named
           turnaround. Every one of those is already true elsewhere on the site. */}
       <CTASection
+        id="closing-cta"
         heading="Start with a free clinic SEO audit"
         subheading="We will show you what you already rank for, which searches in your area are going to competitors, and the shortest route to more enquiries. Back with you within two business days. It is free, the findings are yours to keep, and there is nothing to cancel if you decide not to go ahead."
       />
+
+      {/* This page is ~29,000px on a phone. The header CTA is desktop-only, so
+          below 1024px a reader had 15,000px between the hero button and the next
+          chance to act — measured, not estimated. The bar retracts over the
+          closing CTA above so the same ask is never made twice at once. */}
+      <StickyMobileCta hideNearId="closing-cta" label="Get a free clinic SEO audit" />
     </>
   );
 }

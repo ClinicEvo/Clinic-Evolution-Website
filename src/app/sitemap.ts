@@ -43,7 +43,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { ...url("/learning-hub/physio-business-growth/") },
     { ...url("/learning-hub/local-seo-for-physio-clinics/") },
     { ...url("/learning-hub/local-seo-for-healthcare-clinics/") },
-    { ...url("/learning-hub/local-seo-for-medical-clinics/") },
     { ...url("/learning-hub/google-ads-for-physios/") },
     { ...url("/learning-hub/google-ads-for-chiropractors/") },
     { ...url("/learning-hub/chiropractic-marketing-case-study/") },

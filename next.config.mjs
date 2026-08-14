@@ -68,9 +68,19 @@ const nextConfig = {
         destination: "/learning-hub/local-seo-for-healthcare-clinics/",
         permanent: true,
       },
+      // The medical guide was merged into the healthcare one — same article with
+      // one noun swapped, and the two were competing for a single query intent.
+      // This legacy /resources/ source points straight at the survivor rather
+      // than at the merged URL, so it stays a single hop rather than becoming a
+      // redirect chain.
       {
         source: "/resources/local-seo-for-medical-clinics/",
-        destination: "/learning-hub/local-seo-for-medical-clinics/",
+        destination: "/learning-hub/local-seo-for-healthcare-clinics/",
+        permanent: true,
+      },
+      {
+        source: "/learning-hub/local-seo-for-medical-clinics/",
+        destination: "/learning-hub/local-seo-for-healthcare-clinics/",
         permanent: true,
       },
       {
