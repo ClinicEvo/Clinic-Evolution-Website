@@ -5,63 +5,6 @@ import { useRef } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-// ── Icons ─────────────────────────────────────────────────────────────────
-
-// 28px line icons, 1.6 stroke, sized to read as deliberate, not decorative chips.
-const iconProps = {
-  width: 28,
-  height: 28,
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 1.6,
-  strokeLinecap: "round" as const,
-  strokeLinejoin: "round" as const,
-};
-
-// Missed call, handset with a clear cross
-function PhoneOffIcon() {
-  return (
-    <svg {...iconProps}>
-      <path d="M5 3.5h3l1.5 4.2-2 1.4a12.5 12.5 0 005.4 5.4l1.4-2 4.2 1.5v3a1.8 1.8 0 01-2 1.8A16.5 16.5 0 014 5.5a1.8 1.8 0 011-2Z" />
-      <path d="M16.5 3.5l4 4M20.5 3.5l-4 4" />
-    </svg>
-  );
-}
-
-// Slow reply, clock with an alert tick
-function ClockIcon() {
-  return (
-    <svg {...iconProps}>
-      <circle cx="12" cy="12.5" r="8.5" />
-      <path d="M12 8v4.5l3 1.8" />
-      <path d="M12 2.5v1.5" />
-    </svg>
-  );
-}
-
-// Dropped enquiry, chat bubble with a broken/slash line
-function MessageIcon() {
-  return (
-    <svg {...iconProps}>
-      <path d="M20 14.5a2 2 0 01-2 2H8l-4 3.5v-13a2 2 0 012-2h12a2 2 0 012 2Z" />
-      <path d="M9 9.5h6M9 12.5h3" />
-    </svg>
-  );
-}
-
-// Lapsed patient, a person and a clock: time passing with no recall
-function UserXIcon() {
-  return (
-    <svg {...iconProps}>
-      <circle cx="9" cy="7.5" r="3.3" />
-      <path d="M3.5 19.5v-1a4 4 0 014-4h3" />
-      <circle cx="16.5" cy="16" r="4.5" />
-      <path d="M16.5 13.8v2.2l1.5 1" />
-    </svg>
-  );
-}
-
 // ── Illustrations ──────────────────────────────────────────────────────────
 
 function MissedCallIllustration() {
@@ -189,25 +132,21 @@ function LapsedPatientIllustration() {
 
 const cards = [
   {
-    icon: <PhoneOffIcon />,
     heading: "The phone rings out.",
     body: "A prospective patient calls while you are mid-treatment. They had already decided they needed treatment, and they were choosing which clinic to attend. Nobody calls them back, so they call the next clinic on the list.",
     illustration: <MissedCallIllustration />,
   },
   {
-    icon: <ClockIcon />,
     heading: "Your reply goes out at 9am.",
     body: "A form is submitted at 9pm. Nobody replies until the following morning. The clinic that responds first gets the booking. Not the best clinic. The fastest.",
     illustration: <LateResponseIllustration />,
   },
   {
-    icon: <MessageIcon />,
     heading: "No system. No follow-up. No booking.",
     body: "A lead you paid to generate arrives through Facebook and disappears into a WhatsApp thread nobody revisits. No one calls it back.",
     illustration: <LostEnquiryIllustration />,
   },
   {
-    icon: <UserXIcon />,
     heading: "Nobody contacts them.",
     body: "A patient attends twice, makes a good recovery, and says they will book again when they need you. Months later the pain returns, but nobody has been in touch, so they search again and find whoever comes up first.",
     illustration: <LapsedPatientIllustration />,
@@ -232,9 +171,12 @@ export default function ScenarioCards() {
           whileHover={reduce ? {} : { y: -4 }}
           className="card-surface group/card flex flex-col overflow-hidden p-7 md:p-8"
         >
-          {/* Header: leak-point number + icon */}
-          <div className="mb-6 flex items-start justify-between">
-            <span className="text-[var(--color-accent)]">{card.icon}</span>
+          {/* Header: the leak-point number alone.
+              A line icon sat opposite it until the 10 Aug review — "a box with
+              some words with some generic icon on it screams preset website".
+              The numeral is the only marker a leak in a numbered sequence needs,
+              and each card already carries an illustration doing real work. */}
+          <div className="mb-6">
             <span
               className="font-display text-[34px] font-light leading-none text-[var(--color-muted-light)] transition-colors group-hover/card:text-[var(--color-accent)]"
               aria-hidden

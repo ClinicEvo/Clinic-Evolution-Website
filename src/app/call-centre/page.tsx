@@ -5,12 +5,14 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
-import ArrowLink from "@/components/ui/ArrowLink";
-import StatBand from "@/components/sections/StatBand";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import CallCostCalculator from "@/components/sections/CallCostCalculator";
 import ScenarioCards from "@/components/sections/ScenarioCards";
+import CallHandlingChain from "@/components/sections/CallHandlingChain";
+import CallDeskPanel from "@/components/sections/mockups/CallDeskPanel";
+import LaptopFrame from "@/components/sections/mockups/LaptopFrame";
+import ProofBand from "@/components/sections/ProofBand";
 import Image from "next/image";
 
 export const metadata = buildMetadata({
@@ -49,6 +51,28 @@ const steps = [
     title: "Everything is logged into Patient Pulse",
     description:
       "Every call, callback and new lead is captured in one place. Bookings are confirmed, and anyone not yet booked enters the same fast follow-up as your online enquiries, including out-of-hours.",
+  },
+];
+
+// What a clinic gets here that a switchboard cannot give them. Each row is a
+// thing the service does, set against what happens without it — the
+// differentiation the 10 Aug review asked for on every service page.
+const comparisons = [
+  {
+    theirs: "Reads a script that could belong to any business",
+    ours: "Briefed on your services, your practitioners and your prices",
+  },
+  {
+    theirs: "Takes a message for someone at the clinic to action later",
+    ours: "Books the patient into your live diary while they are on the phone",
+  },
+  {
+    theirs: "Leaves the leads your ads generated for you to chase",
+    ours: "Rings those leads back the same day, while their intent is high",
+  },
+  {
+    theirs: "Emails you a note that joins the pile",
+    ours: "Logs every call in Patient Pulse alongside your online enquiries",
   },
 ];
 
@@ -100,9 +124,9 @@ export default function CallCentrePage() {
         badge="Inbound & outbound"
         heading={
           <>
-            Every call answered.{" "}
+            Call handling for clinics.{" "}
             <em className="not-italic text-[var(--color-accent)]">
-              Every lead booked.
+              Booked, not just answered.
             </em>
           </>
         }
@@ -113,18 +137,13 @@ export default function CallCentrePage() {
           "Patients booked straight into your diary, not left as a message",
         ]}
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
-        secondaryCta={{ label: "How it works", href: "#how-it-works" }}
         breadcrumbs={crumbs}
+        rightPanelWidth="0.85fr"
+        bulletsBelow
         rightPanel={
-          <div className="overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
-            <Image
-              src="/images/aircall.png"
-              alt="Aircall call handling interface used by Clinic Evo"
-              width={800}
-              height={600}
-              className="w-full h-auto"
-            />
-          </div>
+          <LaptopFrame label="Illustrative view of a clinic's call desk. Patient details are never shown.">
+            <CallDeskPanel bare />
+          </LaptopFrame>
         }
       />
 
@@ -194,20 +213,58 @@ export default function CallCentrePage() {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* Proof, high on the page — Danny asked for an element of social proof
+          near the top of every service page, not buried at the bottom.
+          There is no client quote to use: nobody is live on call handling yet.
+          What is genuine is the founder's own words, so this is Danny from the
+          10 Aug call, tidied for punctuation only, and framed as why the service
+          exists rather than as an endorsement of it. Replace it the moment he
+          gives us a line about the phone specifically. */}
+      <ProofBand
+        eyebrow="Why we built this"
+        quote="Ads are one part of the process. It has to be an integrated system: what happens after that person provides their details, the follow-up process, and going into your marketing ecosystem. That is just as important."
+        authorName="Danny Morgan"
+        authorRole="Co-founder, Clinic Evo — and a practising osteopath"
+        image="/images/danny-morgan-angel-clinic.png"
+        imageAlt="Danny Morgan, co-founder of Clinic Evo"
+        ctaLabel="Get a free clinic audit"
+        ctaHref="/free-clinic-audit/"
+      />
+
+      {/* How it works.
+          The left column used to hold a heading and one paragraph restating the
+          steps beside it — the content-left/content-right shape Danny objected
+          to on the 10 Aug call ("that's not making me want to read any of it").
+          The heading now runs full width and the column holds the photograph
+          instead, so the section shows the person taking the call rather than
+          describing them twice. */}
       <section id="how-it-works" className="section grain bg-[var(--color-paper)] border-y border-[var(--color-border)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
-            <FadeUp>
+          <FadeUp>
+            <div className="mb-14 max-w-2xl">
               <p className="eyebrow mb-4">How it works</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
+              <h2 className="text-h2 text-[var(--color-ink)] mb-5 leading-tight">
                 A handler who knows your clinic
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
-                This is not a generic answering service. Every call follows the same
-                path, from the moment a patient dials to the moment they are booked
-                and followed up.
+                Every call follows the same path, from the moment a patient dials to
+                the moment they are booked and followed up.
               </p>
+            </div>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            <FadeUp>
+              {/* Sticky so the face stays with the steps on a long scroll. */}
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)] lg:sticky lg:top-28 lg:aspect-[2/3]">
+                <Image
+                  src="/images/call-handler-headset.jpg"
+                  alt="A call handler taking a patient call on a headset"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                />
+              </div>
             </FadeUp>
             <div>
               <ProcessSteps steps={steps} />
@@ -216,17 +273,77 @@ export default function CallCentrePage() {
         </div>
       </section>
 
-      {/* Proof band */}
-      <StatBand
-        eyebrow="The cost of an unworked enquiry"
-        heading="A missed call, or a lead nobody rings back, is a patient who books the next clinic instead."
-        body="A caller who reaches voicemail rarely calls back, and a lead left waiting goes cold. Answered calls and fast callbacks turn both into booked appointments."
-        stats={[
-          { value: "£300–500", label: "Immediate treatment revenue in a single missed patient" },
-          { value: "£1,500+", label: "Lifetime value across a full course and return visits" },
-          { value: "0", label: "Leads left waiting: every call answered, every lead called back" },
-        ]}
-      />
+      {/* What separates this from an answering service.
+          A StatBand sat here restating the £300–500 and £1,500+ figures that the
+          hero, the section above and the FAQ all already carry. The 10 Aug review
+          asked for the differentiation instead of another wall of numbers, so the
+          dark band now does the job the page actually needs: what a clinic gets
+          here that a switchboard cannot give them. */}
+      <section className="section grain bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div
+              className="overflow-hidden bg-[var(--color-ink)] text-white"
+              style={{ borderRadius: "var(--radius-panel)" }}
+            >
+              <div className="p-9 md:p-12 lg:p-14">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
+                  Not an answering service
+                </p>
+                <h2 className="text-h2 mt-4 max-w-2xl text-white">
+                  Anyone can take a message. The point is to book the patient.
+                </h2>
+
+                {/* Column labels earn their place at md+, where the two halves
+                    sit side by side. On a phone the rows stack and the struck
+                    grey line against the ticked white one says it on its own. */}
+                <div className="mt-11 hidden gap-10 md:grid md:grid-cols-2">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/35">
+                    A generic answering service
+                  </p>
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[var(--color-accent)]">
+                    A Clinic Evo handler
+                  </p>
+                </div>
+
+                <ul className="mt-5 divide-y divide-white/10 border-t border-white/10 max-md:mt-11">
+                  {comparisons.map((row) => (
+                    <li
+                      key={row.ours}
+                      className="grid gap-2 py-5 md:grid-cols-2 md:gap-10"
+                    >
+                      {/* white/55 is the floor here: below it the struck line
+                          drops under 4.5:1 on the ink ground. */}
+                      <span className="text-[0.95rem] leading-snug text-white/55 line-through decoration-white/30">
+                        {row.theirs}
+                      </span>
+                      <span className="flex items-start gap-3 text-[0.95rem] leading-snug text-white">
+                        <svg
+                          className="mt-[3px] flex-shrink-0 text-[var(--color-accent)]"
+                          width="15"
+                          height="15"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M2.5 7.5l3 3 6-6.5"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span>{row.ours}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
 
       {/* A testimonial sat here praising the results of call handling. It was
           not a real client quote, and on the 10 Aug call Danny confirmed this
@@ -235,22 +352,26 @@ export default function CallCentrePage() {
           is live and a clinic using it will go on record.
       */}
 
-      {/* Part of the system */}
-      <section className="section bg-[var(--color-paper)]">
-        <div className="cx-main max-w-3xl">
+      {/* Part of the system.
+          This was three sentences in a narrow column ending in one text link.
+          The 10 Aug review asked repeatedly for the services to be shown working
+          as one thing rather than described one at a time, so the chain is drawn
+          with the step this page sells marked as one link in it. */}
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <div className="cx-main">
           <FadeUp>
             <p className="eyebrow mb-5">Part of the whole chain</p>
-            <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-              Call handling works best as part of the system
+            <h2 className="text-h2 text-balance text-[var(--color-ink)] max-w-[640px] mb-6 leading-tight">
+              Answering the phone is one link. We build the rest of the chain too.
             </h2>
-            <p className="text-body text-[var(--color-muted)] mb-8">
-              Call handling solves the phone problem. But a complete clinic needs more
-              than answered calls, it needs a fast SMS follow-up for online enquiries,
-              a booking system that converts callers, and a reactivation system that
-              brings lapsed patients back. Clinic Evo connects all of these.
+            <p className="text-body-lg text-[var(--color-charcoal)] max-w-[620px] mb-14">
+              A call is only worth answering if something brought the patient to
+              your number, and only worth taking if the booking sticks and the
+              follow-up happens. Every step below is something Clinic Evo runs.
             </p>
-            <ArrowLink href="/patient-pulse/">Patient Pulse, the lead management system</ArrowLink>
           </FadeUp>
+
+          <CallHandlingChain />
         </div>
       </section>
 

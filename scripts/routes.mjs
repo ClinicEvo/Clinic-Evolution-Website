@@ -7,6 +7,8 @@ export const ROUTES = [
   { path: "/patient-pulse/",                              name: "patient-pulse" },
   { path: "/seo-for-clinics/",                            name: "seo-for-clinics" },
   { path: "/website-design-for-clinics/",                 name: "website-design" },
+  { path: "/call-centre/",                                name: "call-centre" },
+  { path: "/digital-marketing/",                          name: "digital-marketing" },
   { path: "/case-studies/",                               name: "case-studies-index" },
   { path: "/case-studies/bodyfunction-clinic/",           name: "case-study" },
   { path: "/learning-hub/",                               name: "learning-hub-index" },
