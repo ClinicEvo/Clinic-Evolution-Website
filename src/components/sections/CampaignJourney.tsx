@@ -132,13 +132,16 @@ export default function CampaignJourney() {
             {/* The product mark stands in for the stage name rather than sitting
                 above a repeat of it, the same way AdsToBookingChain uses it. */}
             {stage.pulse ? (
+              /* self-start matters: this card is a flex column, so a bare image
+                 stretches to the card's full width while the fixed height holds,
+                 which squashes the wordmark. */
               <Image
                 src="/images/patientpulse_darklogo.png"
                 alt="Patient Pulse"
                 width={3116}
                 height={440}
                 sizes="150px"
-                className="h-[1.05rem] w-auto"
+                className="h-[1.05rem] w-auto self-start"
               />
             ) : (
               <p className="font-display text-[0.95rem] font-semibold leading-snug text-[var(--color-ink)]">

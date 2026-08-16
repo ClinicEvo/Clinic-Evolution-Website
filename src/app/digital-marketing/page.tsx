@@ -12,6 +12,7 @@ import FAQAccordion from "@/components/sections/FAQAccordion";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PhoneVideoMockup from "@/components/sections/PhoneVideoMockup";
 import BrowserFrame from "@/components/sections/mockups/BrowserFrame";
+import LaptopFrame from "@/components/sections/mockups/LaptopFrame";
 import {
   FacebookLogo,
   InstagramLogo,
@@ -130,9 +131,9 @@ export default function DigitalMarketingPage() {
         badge="Facebook, Instagram & TikTok"
         heading={
           <>
-            Digital marketing that works{" "}
+            Digital marketing that works as a{" "}
             <em className="not-italic text-[var(--color-accent)]">
-              as a connected system
+              connected system
             </em>
           </>
         }
@@ -147,23 +148,34 @@ export default function DigitalMarketingPage() {
         rightPanelWidth="1.1fr"
         bulletsBelow
         rightPanel={
-          <BrowserFrame
-            label="Meta Ads Manager — Clinic Evo"
-            caption="Clinic Evo's own Meta ad account: eight campaigns, £68,539 spent, 9.3 million impressions."
-            scrollOnMobile
-            scrollMinWidth="46rem"
-            scrollLabel="Meta Ads Manager screenshot, scroll sideways to read"
-          >
-            <Image
-              src="/images/digital-marketing/digital-marketing-hero.png"
-              alt="Clinic Evo's Meta Ads Manager account showing eight campaigns with their spend, leads, cost per lead and impressions"
-              width={1258}
-              height={591}
-              className="h-auto w-full"
-              priority
-              sizes="(max-width: 1024px) 46rem, 55vw"
-            />
-          </BrowserFrame>
+          <LaptopFrame label="Clinic Evo's own Meta ad account: eight campaigns, £68,539 spent, 9.3 million impressions.">
+            <BrowserFrame
+              label="Meta Ads Manager — Clinic Evo"
+              flush
+              scrollOnMobile
+              scrollMinWidth="44rem"
+              scrollLabel="Meta Ads Manager screenshot, scroll sideways to read"
+            >
+              {/* The top 62px of the capture is Ads Manager's own toolbar — tabs,
+                  Create, Duplicate, A/B test. None of it is the evidence, and at
+                  this size it competes with the numbers that are. Cropped here
+                  rather than in the file so the original capture stays intact:
+                  a percentage margin resolves against width, so -4.93% of 1258px
+                  is exactly those 62 rows at any rendered scale. */}
+              <div className="overflow-hidden" style={{ aspectRatio: "1258 / 529" }}>
+                <Image
+                  src="/images/digital-marketing/digital-marketing-hero.png"
+                  alt="Clinic Evo's Meta Ads Manager account showing eight campaigns with their spend, leads, cost per lead and impressions"
+                  width={1258}
+                  height={591}
+                  className="h-auto w-full"
+                  style={{ marginTop: "-4.93%" }}
+                  priority
+                  sizes="(max-width: 1024px) 44rem, 55vw"
+                />
+              </div>
+            </BrowserFrame>
+          </LaptopFrame>
         }
       />
 
@@ -173,51 +185,57 @@ export default function DigitalMarketingPage() {
           This is the pain point the brief asks for: the owner who knows this
           works for other clinics and does not want to fund another experiment. */}
       <section className="section bg-[var(--color-paper)]">
+        {/* Two columns rather than a heading block with the right half empty.
+            The list is the argument the heading makes — "it is eight decisions"
+            — so running them alongside each other lets the reader see the length
+            of the list while reading the claim, and fills the row. */}
         <div className="cx-main">
-          <FadeUp>
-            <div className="mb-14 max-w-2xl">
-              <p className="eyebrow mb-5">Why paid social goes wrong</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                You have probably tried this before, and it cost you.
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Almost every clinic owner has run a boosted post or a month of
-                Facebook ads, watched the money leave and the diary stay the same,
-                and quietly decided it does not work for clinics. It does. It just
-                rarely works the way it is usually attempted.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                A campaign is not one decision. It is eight, and they all have to
-                be right at the same time. Get seven right and the eighth still
-                spends your budget on the wrong people.
-              </p>
-            </div>
-          </FadeUp>
+          <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <FadeUp>
+              <div className="lg:sticky lg:top-28">
+                <p className="eyebrow mb-5">Why paid social goes wrong</p>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                  You have probably tried this before, and it cost you.
+                </h2>
+                <p className="text-body text-[var(--color-muted)] mb-5">
+                  Almost every clinic owner has run a boosted post or a month of
+                  Facebook ads, watched the money leave and the diary stay the
+                  same, and quietly decided it does not work for clinics. It does.
+                  It just rarely works the way it is usually attempted.
+                </p>
+                <p className="text-body text-[var(--color-muted)]">
+                  A campaign is not one decision. It is eight, and they all have
+                  to be right at the same time. Get seven right and the eighth
+                  still spends your budget on the wrong people.
+                </p>
+              </div>
+            </FadeUp>
 
-          <ol className="grid gap-x-14 gap-y-0 sm:grid-cols-2">
-            {factors.map((f, i) => (
-              <li
-                key={f.title}
-                className="border-t border-[var(--color-border)] py-5"
-              >
-                <FadeUp delay={(i % 2) * 0.05}>
-                  <div className="flex gap-4">
-                    <span className="font-display text-[0.72rem] font-semibold tabular-nums text-[var(--color-accent-text)] pt-[3px]">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="min-w-0">
-                      <p className="font-display text-[0.95rem] font-semibold leading-snug text-[var(--color-ink)]">
-                        {f.title}
-                      </p>
-                      <p className="mt-1.5 text-[0.85rem] leading-relaxed text-[var(--color-muted)]">
-                        {f.detail}
-                      </p>
+            <ol className="grid gap-x-12 gap-y-0 sm:grid-cols-2">
+              {factors.map((f, i) => (
+                <li
+                  key={f.title}
+                  className="border-t border-[var(--color-border)] py-5"
+                >
+                  <FadeUp delay={(i % 2) * 0.05}>
+                    <div className="flex gap-4">
+                      <span className="font-display text-[0.72rem] font-semibold tabular-nums text-[var(--color-accent-text)] pt-[3px]">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="min-w-0">
+                        <p className="font-display text-[0.95rem] font-semibold leading-snug text-[var(--color-ink)]">
+                          {f.title}
+                        </p>
+                        <p className="mt-1.5 text-[0.85rem] leading-relaxed text-[var(--color-muted)]">
+                          {f.detail}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </FadeUp>
-              </li>
-            ))}
-          </ol>
+                  </FadeUp>
+                </li>
+              ))}
+            </ol>
+          </div>
 
           <FadeUp>
             <p className="text-h3 mt-14 max-w-3xl text-balance font-medium text-[var(--color-ink)]">
@@ -236,19 +254,31 @@ export default function DigitalMarketingPage() {
           applies double when the real platform logos exist and say it better. */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
-          <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">Not interchangeable</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-5 leading-tight">
-                Facebook, Instagram and TikTok are not the same channel
-              </h2>
-              <p className="text-body-lg text-[var(--color-charcoal)]">
-                Different audiences, different formats, different algorithms and
-                different offers. The same campaign copied across all three is the
-                fastest way to waste a budget on two of them.
-              </p>
-            </div>
-          </FadeUp>
+          {/* The marks sit beside the heading rather than leaving the right half
+              blank — and at this size they say what the section is about before
+              a word of it is read. */}
+          <div className="mb-12 grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+            <FadeUp>
+              <div>
+                <p className="eyebrow mb-4">Not interchangeable</p>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-5 leading-tight">
+                  Facebook, Instagram and TikTok are not the same channel
+                </h2>
+                <p className="text-body-lg text-[var(--color-charcoal)]">
+                  Different audiences, different formats, different algorithms and
+                  different offers. The same campaign copied across all three is
+                  the fastest way to waste a budget on two of them.
+                </p>
+              </div>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="flex items-center justify-start gap-7 lg:justify-end lg:gap-9">
+                <FacebookLogo size={58} />
+                <InstagramLogo size={58} />
+                <TiktokLogo size={58} />
+              </div>
+            </FadeUp>
+          </div>
 
           <ul className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
             {platforms.map((p, i) => (
@@ -282,60 +312,73 @@ export default function DigitalMarketingPage() {
           two separate sections each pairing one asset with a column of prose. */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-5">Real campaigns, running now</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                Built around a condition, not a clinic
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Search captures people already looking for treatment. Paid social
-                reaches the ones who have not started looking yet but match your
-                patient exactly: the right age, the right condition, the right few
-                miles of road.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                Both of these are live ads for Bodyfunction Clinic in Islington.
-                Neither uses stock photography, because the practitioners a patient
-                will actually meet, and a recommendation from someone nearby, carry
-                more weight locally than anything bought from a library.
-              </p>
-            </div>
-          </FadeUp>
-
-          <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          {/* Copy beside the phone rather than stacked above it with the right
+              half of the row empty, and the two ad formats no longer sit side by
+              side at wildly different scales. */}
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <FadeUp>
               <div>
-                <PhoneVideoMockup src="/videos/social-ads-arthritis-55plus.mp4" />
-                <p className="mt-5 text-center text-body-sm text-[var(--color-muted)]">
-                  A video campaign targeting patients aged 55 and over about
-                  arthritis, exactly as it appears in the feed.
+                <p className="eyebrow mb-5">Real campaigns, running now</p>
+                <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                  Built around a condition, not a clinic
+                </h2>
+                <p className="text-body text-[var(--color-muted)] mb-5">
+                  Search captures people already looking for treatment. Paid social
+                  reaches the ones who have not started looking yet but match your
+                  patient exactly: the right age, the right condition, the right
+                  few miles of road.
+                </p>
+                <p className="text-body text-[var(--color-muted)]">
+                  Both of the ads here are live for Bodyfunction Clinic in
+                  Islington. Neither uses stock photography, because the
+                  practitioners a patient will actually meet, and a recommendation
+                  from someone nearby, carry more weight locally than anything
+                  bought from a library.
                 </p>
               </div>
             </FadeUp>
 
             <FadeUp delay={0.1}>
               <div>
-                <div className="card-surface p-5 md:p-6">
-                  <div className="relative aspect-[940/788] overflow-hidden rounded-[var(--radius-sm)]">
-                    <Image
-                      src="/images/digital-marketing/ad-example.png"
-                      alt="Live Facebook and Instagram ad for Bodyfunction Clinic in Islington, featuring the real clinic team and the message: the treatment more Islington locals are recommending to friends"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 560px"
-                    />
-                  </div>
-                  <p className="mt-4 text-body-sm text-[var(--color-muted)]">
-                    A currently running Facebook and Instagram ad for Bodyfunction
-                    Clinic.
-                  </p>
+                <PhoneVideoMockup src="/videos/social-ads-arthritis-55plus.mp4" />
+                <p className="mx-auto mt-5 max-w-[300px] text-center text-body-sm text-[var(--color-muted)]">
+                  A video campaign for patients aged 55 and over about arthritis,
+                  exactly as it appears in the feed.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
+
+          <div className="mt-16 grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+            <FadeUp>
+              <figure className="m-0 overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                <div className="relative aspect-[940/788]">
+                  <Image
+                    src="/images/digital-marketing/ad-example.png"
+                    alt="Live Facebook and Instagram ad for Bodyfunction Clinic in Islington, featuring the real clinic team and the message: the treatment more Islington locals are recommending to friends"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 520px"
+                  />
                 </div>
-                <p className="text-body text-[var(--color-muted)] mt-7">
+                <figcaption className="border-t border-[var(--color-border)] bg-[var(--color-paper)] px-5 py-3.5 text-body-sm text-[var(--color-muted)]">
+                  A currently running Facebook and Instagram ad for Bodyfunction
+                  Clinic.
+                </figcaption>
+              </figure>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div>
+                <h3 className="text-h3 text-[var(--color-ink)] mb-4 leading-tight">
+                  The ad is the easy half
+                </h3>
+                <p className="text-body text-[var(--color-muted)]">
                   Every social ad Clinic Evo builds is connected to the same
                   system. The click lands on a page designed to convert, the
                   enquiry gets an automatic reply within minutes, and the outcome
                   is tracked through to a booked appointment rather than a like.
+                  An agency that hands you the creative and stops has done the
+                  part that was never the problem.
                 </p>
               </div>
             </FadeUp>
@@ -367,12 +410,16 @@ export default function DigitalMarketingPage() {
           asks this page to show. Replaces the invented funnel figures. */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
+          {/* Headline and its supporting paragraph across the row, so the
+              section does not open on half a screen of nothing. */}
           <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">Where the lead goes</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-5 leading-tight">
-                The advert is the first five seconds of the job
-              </h2>
+            <div className="mb-12 grid items-end gap-6 lg:grid-cols-[1fr_1fr] lg:gap-16">
+              <div>
+                <p className="eyebrow mb-4">Where the lead goes</p>
+                <h2 className="text-h2 text-[var(--color-ink)] leading-tight">
+                  The advert is the first five seconds of the job
+                </h2>
+              </div>
               <p className="text-body-lg text-[var(--color-charcoal)]">
                 Buying advertising on its own hands you a lead and leaves you the
                 rest. This is the part that decides whether it becomes a patient,
@@ -398,11 +445,13 @@ export default function DigitalMarketingPage() {
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-5">Discipline-specific</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                Digital marketing built for your discipline
-              </h2>
+            <div className="mb-12 grid items-end gap-6 lg:grid-cols-[1fr_1fr] lg:gap-16">
+              <div>
+                <p className="eyebrow mb-5">Discipline-specific</p>
+                <h2 className="text-h2 text-[var(--color-ink)] leading-tight">
+                  Digital marketing built for your discipline
+                </h2>
+              </div>
               <p className="text-body text-[var(--color-muted)]">
                 Each MSK discipline has different patient decision-making patterns,
                 different search behaviour, different regulatory requirements and different
@@ -418,18 +467,24 @@ export default function DigitalMarketingPage() {
                 href: "/osteopath-marketing/",
                 cta: "Marketing for Osteopaths",
                 watermarkImg: "/images/watermark-osteopath.jpg",
+                blurb:
+                  "Half your market still is not sure what an osteopath treats, so the campaign has to answer the condition before it sells the clinic. GOsC advertising rules shape what the copy can claim.",
               },
               {
                 title: "Physiotherapists",
                 href: "/physiotherapy-marketing/",
                 cta: "Physiotherapy Marketing",
                 watermarkImg: "/images/watermark-physio.jpg",
+                blurb:
+                  "You are competing with an NHS waiting list rather than only with the clinic down the road, so the offer has to make paying privately the obvious next step this week.",
               },
               {
                 title: "Chiropractors",
                 href: "/chiropractic-marketing/",
                 cta: "Chiropractic Marketing",
                 watermarkImg: "/images/watermark-chiro.jpg",
+                blurb:
+                  "More scepticism to overcome than either of the others, which means reviews, named practitioners and clear pricing do more work in the ad than clinical language ever will.",
               },
             ].map((item, i) => (
               <FadeUp key={item.href} delay={i * 0.09}>
@@ -442,11 +497,16 @@ export default function DigitalMarketingPage() {
                     <Image src={item.watermarkImg} alt={item.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, 288px" />
                     <div className="absolute inset-0 bg-[var(--color-ink)]/10" />
                   </div>
-                  {/* The discipline icon that sat beside this label was a drawn
-                      spine/dumbbell glyph doing no work the heading did not. */}
+                  {/* The drawn spine/dumbbell glyph that sat beside this label is
+                      gone, and a line saying why the discipline is different has
+                      taken its place. Removing the icon on its own left a card
+                      1,200px wide holding two words and a link. */}
                   <div className="flex flex-1 flex-col justify-center p-7 md:p-9 lg:p-10">
-                    <p className="eyebrow mb-6">{item.title}</p>
-                    <span className="inline-flex items-center gap-2 transition-all group-hover:gap-3 group-hover:text-[var(--color-accent)]" style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-ink)", textDecoration: "underline", textUnderlineOffset: "4px" }}>
+                    <p className="eyebrow mb-4">{item.title}</p>
+                    <p className="text-body text-[var(--color-muted)] mb-6 max-w-[52ch]">
+                      {item.blurb}
+                    </p>
+                    <span className="inline-flex w-fit items-center gap-2 transition-all group-hover:gap-3 group-hover:text-[var(--color-accent)]" style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-ink)", textDecoration: "underline", textUnderlineOffset: "4px" }}>
                       {item.cta}
                       <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                         <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
