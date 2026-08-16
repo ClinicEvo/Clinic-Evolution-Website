@@ -24,27 +24,27 @@ const faqs = [
   {
     question: "How do you help physiotherapy clinics compete with the NHS?",
     answer:
-      "We focus on the things that differentiate private physio: speed of access, specialist expertise, and personalised care. Our SEO strategies target patients actively seeking private treatment, and our ad campaigns highlight your unique advantages.",
+      "Most people who go private have already tried the NHS route and hit a waiting list, so the searches worth owning are the ones carrying that intent: 'private physio [town]', 'physio near me', condition terms with 'private' attached. Your service pages then have to answer what those patients check first — how soon you can see them, what it costs, and whether you treat their condition. That is the first thing we look at in an audit.",
   },
   {
     question: "Which physiotherapy keywords do you target?",
     answer:
-      "We research and target the full spectrum, from broad terms like 'physiotherapist near me' and 'private physio [city]' to condition-specific queries like 'sports injury physio' and 'post-operative rehabilitation'. Keyword strategy is tailored to your specialisms.",
+      "Broad local terms like 'physiotherapist near me' and 'private physio [city]', plus condition-specific queries like 'sports injury physio' and 'post-operative rehabilitation'. The condition terms get searched less often but convert better, because someone typing their diagnosis has already decided they need treatment. Which ones we chase depends on what you actually treat.",
   },
   {
     question: "Can you help with sports physiotherapy marketing specifically?",
     answer:
-      "Yes. Sports physio marketing requires different messaging and targeting than general physiotherapy. We create campaigns and content that speak directly to athletes, gym-goers and active people seeking specialist sports rehabilitation.",
+      "Yes, and it works better kept separate from your general physio pages. Someone searching 'sports injury physio' wants to know you treat their sport and how quickly they will be back training, which a general rehab overview does not answer. In practice that means its own service page, its own ad group and its own keyword set.",
   },
   {
     question: "How much do physiotherapy Google Ads cost?",
     answer:
-      "Ad spend varies by location and competition. In London, expect £800–£1,500/month in ad spend to generate meaningful appointment volumes. Outside major cities, £400–£800/month is often sufficient. We provide detailed projections in your free audit.",
+      "Ad spend varies by location and competition. In London, expect £800–£1,500/month before the numbers settle enough to plan around. Outside major cities, £400–£800/month is often sufficient. We put projections for your area in the free audit.",
   },
   {
     question: "Do you sign long contracts?",
     answer:
-      "No. We work on rolling monthly arrangements with 30 days' notice. We believe in earning your business every month through results, not locking you in.",
+      "No. Rolling monthly, 30 days' notice. Long contracts mainly protect agencies whose results arrive late — SEO that is working shows movement in Search Console inside a quarter, and you should be able to leave if it does not.",
   },
 ];
 
@@ -53,29 +53,29 @@ const steps = [
     number: 1,
     title: "Free clinic audit",
     description:
-      "We review your website, Google Business Profile, local search rankings, and existing ad performance to identify your biggest opportunities.",
-    note: "Most physio practice owners find the audit answers questions they didn't know they had.",
+      "We go through your website, Google Business Profile, local rankings and any existing ad account, then come back with what is currently losing you enquiries.",
+    note: "Back to you within two business days.",
   },
   {
     number: 2,
-    title: "Tailored growth plan",
+    title: "What we would do first",
     description:
-      "You receive a clear, jargon-free strategy covering the right channels for your practice, content opportunities, and how we'll convert more visitors into bookings.",
-    note: "You'll see exactly what we'd prioritise for your specialism — no obligation to go further.",
+      "Which channels are worth your budget, which pages need writing or rewriting, and what to fix before you spend anything on ads.",
+    note: "No obligation to go further.",
   },
   {
     number: 3,
     title: "Campaign launch",
     description:
-      "We build and launch your SEO foundations, Google Ads campaigns, or website, depending on your plan. You'll see new patient enquiries flowing within weeks of your ads going live.",
-    note: "We handle the technical work; you stay focused on your patients and your practice.",
+      "We build the SEO foundations, the Google Ads campaigns or the website, depending on what the plan called for. Ads can produce enquiries in the first few weeks. SEO is slower — expect a quarter before rankings move.",
+    note: "Conversion tracking goes in before anything goes live, so the numbers mean something later.",
   },
   {
     number: 4,
     title: "Ongoing management & reporting",
     description:
-      "Monthly reporting in plain English. We continuously optimise what's working and give you the data you need to make good decisions about your marketing budget.",
-    note: "Plain-English reporting that shows what changed and what it meant for your diary.",
+      "A monthly report in plain English: what moved, what did not, and what we changed because of it.",
+    note: "Every figure traces back to Search Console or your ad account, so you can check it yourself.",
   },
 ];
 
@@ -128,9 +128,9 @@ export default function PhysiotherapyMarketingPage() {
                   same. We don&apos;t.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-8 max-w-xl">
-                  We tailor your marketing to your specific specialisms, your local
-                  competitive landscape, and the types of patients you most want to
-                  attract.
+                  A sports rehab clinic and a neuro rehab clinic need different
+                  pages, different ad copy and different search terms. We start
+                  from what you actually treat and who is searching for it near you.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
                   {[
@@ -183,7 +183,7 @@ export default function PhysiotherapyMarketingPage() {
         heading="Measured in a working MSK clinic, not modelled."
         body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so we do not publish a booking figure."
         stats={[
-          { value: "8 → 3,900", label: "Monthly organic visitors at a London MSK clinic, over two years" },
+          { value: "8 → 3,822", label: "Monthly organic visitors at a London MSK clinic, over two years" },
           { value: "+425%", label: "Google clicks year on year across the same period" },
           { value: "332", label: "Keywords now ranking in Google's top three, from none in 2024" },
         ]}
@@ -202,7 +202,7 @@ export default function PhysiotherapyMarketingPage() {
                 Physiotherapy marketing works best when every part of your digital
                 presence supports the next. Your SEO brings in relevant search
                 traffic, your website turns that traffic into enquiries, your ads
-                accelerate demand and your follow-up brings discharged patients back.
+                bring demand forward and your follow-up brings discharged patients back.
               </p>
             </div>
           </FadeUp>
@@ -253,9 +253,8 @@ export default function PhysiotherapyMarketingPage() {
                 Marketing services for physiotherapists
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
-                Focused digital support across the areas most likely to improve
-                visibility, enquiries, bookings and patient retention for your physio
-                clinic.
+                Six areas, and most clinics do not need all of them at once. The
+                audit says which two or three are worth starting with.
               </p>
             </div>
           </FadeUp>
@@ -336,8 +335,8 @@ export default function PhysiotherapyMarketingPage() {
                       desc: "Pages are planned around search demand, specialism relevance, patient questions and conversion intent.",
                     },
                     {
-                      label: "Clear, commercially useful recommendations",
-                      desc: "The goal is not marketing noise. It is the work most likely to improve patient acquisition and clinic growth.",
+                      label: "Recommendations you can act on",
+                      desc: "The audit comes back as a short list in priority order, not a document cataloguing everything that could theoretically be improved.",
                     },
                   ].map((item) => (
                     <div key={item.label}>
@@ -365,7 +364,7 @@ export default function PhysiotherapyMarketingPage() {
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   Clinic Evo&apos;s approach is shaped by real work with private MSK
                   clinics. Bodyfunction Clinic in Angel went from 8 organic visitors
-                  a month to 3,900 over two years, and from no top-three rankings at
+                  a month to 3,822 over two years, and from no top-three rankings at
                   all to 332 of them.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-5">
@@ -396,7 +395,7 @@ export default function PhysiotherapyMarketingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/80 via-[var(--color-ink)]/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="font-display font-bold text-4xl text-white mb-1">8 → 3,900</p>
+                  <p className="font-display font-bold text-4xl text-white mb-1">8 → 3,822</p>
                   <p className="text-sm text-white/90 font-medium">monthly organic visitors in two years</p>
                 </div>
               </div>

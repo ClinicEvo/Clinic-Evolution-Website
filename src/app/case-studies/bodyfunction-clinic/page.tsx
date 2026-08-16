@@ -68,7 +68,7 @@ const crumbs = [
 /* GSC and Ahrefs, bodyfunction.co.uk. Aug 2024 – Jul 2025 against Aug 2025 – Jul 2026. */
 const headlineStats = [
   {
-    display: "8 → 3,900",
+    display: "8 → 3,822",
     label: "People finding the clinic through Google each month",
     source: "Ahrefs — Aug 2024 against Aug 2026",
   },
