@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import FadeUp from "@/components/ui/FadeUp";
@@ -6,16 +6,22 @@ import CTASection from "@/components/sections/CTASection";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import PageHero from "@/components/sections/PageHero";
-import StatBand from "@/components/sections/StatBand";
-import PatientFunnel from "@/components/sections/PatientFunnel";
+import ProofBand from "@/components/sections/ProofBand";
+import CampaignJourney from "@/components/sections/CampaignJourney";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PhoneVideoMockup from "@/components/sections/PhoneVideoMockup";
+import BrowserFrame from "@/components/sections/mockups/BrowserFrame";
+import {
+  FacebookLogo,
+  InstagramLogo,
+  TiktokLogo,
+} from "@/components/brand/PlatformLogos";
 
 export const metadata = buildMetadata({
   title: "Digital Marketing for MSK Clinics, Coordinated Growth",
   description:
-    "Clinic Evo builds coordinated digital marketing for UK osteopaths, physiotherapists and chiropractors: SEO, Google Ads, follow-up and retention together.",
+    "Paid social for UK osteopaths, physiotherapists and chiropractors. Clinic Evo builds Facebook, Instagram and TikTok campaigns and the follow-up system that turns the leads into booked patients.",
   path: "/digital-marketing/",
 });
 
@@ -24,56 +30,64 @@ const crumbs = [
   { label: "Digital Marketing", href: "/digital-marketing/" },
 ];
 
-const channels = [
+// The eight decisions behind a campaign that works, from the revision brief.
+// Deliberately a plain list rather than eight icon cards: the point is how many
+// there are, and an icon on each would only make that harder to take in.
+const factors = [
+  { title: "The objective", detail: "Leads, messages or bookings. Choose wrong and the platform optimises for the wrong people." },
+  { title: "The offer", detail: "What the patient actually gets for clicking. A clinic name is not an offer." },
+  { title: "The audience", detail: "Condition, age, radius. Broad targeting spends your budget on people who will never attend." },
+  { title: "The platform", detail: "Where your patients already are, which is rarely all three at once." },
+  { title: "The creative", detail: "Video or stills, and whether it looks like the platform or like an advert." },
+  { title: "The messaging", detail: "The words that make someone in pain stop scrolling and believe you can help." },
+  { title: "The landing experience", detail: "Where the click goes, and how much work it takes to book from there." },
+  { title: "What happens next", detail: "Who replies to the lead, how fast, and how many times before they give up." },
+];
+
+const platforms = [
   {
-    title: "Search engine optimisation",
-    desc: "Ranking for the terms your patients use, 'physio near me', 'osteopath [town]', 'back pain specialist', so new patients find you before they find a competitor.",
-    href: "/seo-for-clinics/",
-    cta: "SEO for Clinics",
-    icon: <><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></>,
+    name: "Facebook",
+    Logo: FacebookLogo,
+    audience: "Where most local patients over 40 still spend their time",
+    approach:
+      "The strongest platform for tight local radius targeting and in-feed lead forms. Longer copy works here, and a specific offer beats brand awareness every time.",
   },
   {
-    title: "Google Ads",
-    desc: "Paid search targeting high-intent MSK patients in your area. Campaigns built around patient decision-making, not broad healthcare keywords.",
-    href: "/google-ads-for-clinics/",
-    cta: "Google Ads for Clinics",
-    icon: <><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3" /></>,
+    name: "Instagram",
+    Logo: InstagramLogo,
+    audience: "A younger, more visual audience who judge on what they see",
+    approach:
+      "Treatment, team and results carry the message. Reels and stories reach further than static posts, and the clinic that looks like somewhere you would go wins the click.",
   },
   {
-    title: "Clinic website design",
-    desc: "Websites built for MSK patients, condition pages, local trust signals, and booking paths that convert visitors into enquiries.",
-    href: "/website-design-for-clinics/",
-    cta: "Clinic Website Design",
-    icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M7 6.5h.01M10 6.5h.01" /></>,
-  },
-  {
-    title: "Patient Pulse follow-up",
-    desc: "Automatic SMS follow-up for every enquiry, structured lead pipelines, and two-way messaging from one inbox.",
-    href: "/patient-pulse/",
-    cta: "Patient Pulse",
-    icon: <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />,
-  },
-  {
-    title: "Call handling & booking",
-    desc: "Every patient call answered, every lead from your ads called back, and patients booked straight into your diary. No voicemail. No lead left waiting.",
-    href: "/call-centre/",
-    cta: "Call Handling & Booking",
-    icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />,
-  },
-  {
-    title: "Social media paid ads",
-    desc: "Facebook and Instagram campaigns targeting local MSK patients by condition, age and location, built to fill specific treatment slots rather than chase generic brand awareness.",
-    href: "/google-ads-for-clinics/",
-    cta: "Paid Ads for Clinics",
-    icon: <><rect x="3" y="3" width="18" height="18" rx="4" /><circle cx="12" cy="12" r="4" /><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" /></>,
+    name: "TikTok",
+    Logo: TiktokLogo,
+    audience: "The youngest audience, and the one least tolerant of advertising",
+    approach:
+      "The ad has to look like content or it is scrolled past in half a second. It rewards volume of creative rather than one polished film, which changes how the whole campaign is built.",
   },
 ];
 
 const faqs = [
   {
+    question: "I have tried Facebook ads before and wasted money. What is different here?",
+    answer:
+      "Usually one part of the campaign was wrong, and there is no way to tell which from inside your own account. A campaign depends on the objective, the offer, the audience, the platform, the creative, the messaging, the landing page and what happens after the lead arrives. Clinic Evo has already spent years and a substantial budget finding out which combinations work for clinics, so your budget is not the one paying for that education. Just as importantly, the follow-up is part of the service, so leads are worked rather than left to go cold.",
+  },
+  {
+    question: "Which platform should my clinic advertise on?",
+    answer:
+      "It depends on who you treat. Facebook still reaches most local patients over 40 and has the strongest local targeting. Instagram suits clinics whose treatment, team or results are visual. TikTok reaches the youngest audience and needs native-looking video rather than polished adverts. Most clinics start on one platform, prove it, then extend. Running all three from day one usually just spreads the budget too thin to learn anything.",
+  },
+  {
+    question: "How much should a clinic spend on paid social?",
+    answer:
+      "Enough for the platform to gather data on who responds, which means a consistent daily budget over several weeks rather than a large one-off push. The right number depends on your treatment prices, your capacity and how competitive your area is. We set it with you during the audit rather than quoting a figure that suits every clinic, because it does not.",
+  },
+  {
     question: "What does digital marketing for a clinic include?",
     answer:
-      "For an MSK clinic it usually combines SEO, Google Ads, website design, immediate enquiry follow-up, inbound and outbound call handling that books patients into the diary, and patient reactivation. Clinic Evo coordinates these as one system rather than treating them as separate, disconnected services.",
+      "For an MSK clinic it usually combines SEO, Google Ads, paid social, website design, immediate enquiry follow-up, inbound and outbound call handling that books patients into the diary, and patient reactivation. Clinic Evo coordinates these as one system rather than treating them as separate, disconnected services.",
   },
   {
     question: "Why coordinate channels instead of buying them separately?",
@@ -102,14 +116,18 @@ export default function DigitalMarketingPage() {
     <>
       <ServiceSchema
         name="Digital Marketing for MSK Clinics"
-        description="Coordinated digital marketing for UK osteopaths, physiotherapists and chiropractors. SEO, Google Ads, follow-up and retention working together."
+        description="Paid social and coordinated digital marketing for UK osteopaths, physiotherapists and chiropractors. Facebook, Instagram and TikTok campaigns connected to follow-up and booking."
         url="/digital-marketing/"
       />
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
+      {/* H1 kept verbatim: it carries the page's target keyword and the revision
+          brief is explicit that it stays until keyword research says otherwise.
+          The secondary "See all services" action is gone and the tick points
+          have moved below the fold line, both per the same brief. */}
       <PageHero
-        badge="Coordinated clinic growth"
+        badge="Facebook, Instagram & TikTok"
         heading={
           <>
             Digital marketing that works{" "}
@@ -118,203 +136,261 @@ export default function DigitalMarketingPage() {
             </em>
           </>
         }
-        subtext="Most agencies handle one part of the chain, the traffic, the website, or the follow-up, and leave everything else disconnected. Clinic Evo coordinates every channel so nothing falls through the gaps."
+        subtext="Paid social campaigns built for MSK clinics, and the follow-up that turns the leads into booked patients. Most clinics buy the advertising and end up owning the gap that comes after it."
         bullets={[
-          "SEO, Google Ads, web design and follow-up connected",
-          "Built exclusively for MSK clinics",
-          "Every metric tied back to booked appointments",
+          "Campaigns built around one condition and one audience at a time",
+          "Offer, targeting and creative handled for you",
+          "Every lead followed up and tracked through to a booking",
         ]}
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
-        secondaryCta={{ label: "See all services", href: "#services" }}
         breadcrumbs={crumbs}
         rightPanelWidth="1.1fr"
+        bulletsBelow
         rightPanel={
-          <div className="relative aspect-[1258/591] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+          <BrowserFrame
+            label="Meta Ads Manager — Clinic Evo"
+            caption="Clinic Evo's own Meta ad account: eight campaigns, £68,539 spent, 9.3 million impressions."
+            scrollOnMobile
+            scrollMinWidth="46rem"
+            scrollLabel="Meta Ads Manager screenshot, scroll sideways to read"
+          >
             <Image
               src="/images/digital-marketing/digital-marketing-hero.png"
-              alt="Meta Ads Manager dashboard showing coordinated campaign results across a clinic's growth channels"
-              fill
-              className="object-cover"
+              alt="Clinic Evo's Meta Ads Manager account showing eight campaigns with their spend, leads, cost per lead and impressions"
+              width={1258}
+              height={591}
+              className="h-auto w-full"
               priority
-              sizes="(max-width: 1024px) 100vw, 55vw"
+              sizes="(max-width: 1024px) 46rem, 55vw"
             />
-          </div>
+          </BrowserFrame>
         }
       />
 
-      {/* The disconnected agency problem */}
+      {/* Why paid social goes wrong.
+          Replaces "the problem with single-channel agencies", which argued the
+          homepage's argument on a page that is supposed to sell paid social.
+          This is the pain point the brief asks for: the owner who knows this
+          works for other clinics and does not want to fund another experiment. */}
       <section className="section bg-[var(--color-paper)]">
-        <div className="cx-main max-w-3xl">
-          <FadeUp>
-            <p className="eyebrow mb-5">The problem with single-channel agencies</p>
-            <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-              Every gap in your diary has a cause. Most agencies only fix one part of it.
-            </h2>
-            <p className="text-body text-[var(--color-muted)] mb-5">
-              An SEO agency gets you found. A web designer builds your site. A CRM
-              vendor sells you a platform. Nobody makes sure the enquiry that arrives
-              at 8pm on a Tuesday gets a reply before your competitor does.
-            </p>
-            <p className="text-body text-[var(--color-muted)] mb-5">
-              The result is a clinic that is visible in search, has a decent website,
-              and still loses patients, because the handoff between traffic, enquiry,
-              follow-up and booking has never been connected.
-            </p>
-            <p className="text-body text-[var(--color-muted)]">
-              Clinic Evo connects the entire chain. Each component is built to hand off
-              to the next. Remove one and the chain breaks. Run them together and
-              growth becomes measurable, consistent and self-reinforcing.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section id="services" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
-            <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">All services</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                Every part of the growth chain
+            <div className="mb-14 max-w-2xl">
+              <p className="eyebrow mb-5">Why paid social goes wrong</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                You have probably tried this before, and it cost you.
               </h2>
-              <p className="text-body-lg text-[var(--color-charcoal)]">
-                Clinic Evo works exclusively with MSK clinics, osteopaths,
-                physiotherapists and chiropractors. Not gyms. Not dentists.
-                Not generic private healthcare.
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                Almost every clinic owner has run a boosted post or a month of
+                Facebook ads, watched the money leave and the diary stay the same,
+                and quietly decided it does not work for clinics. It does. It just
+                rarely works the way it is usually attempted.
+              </p>
+              <p className="text-body text-[var(--color-muted)]">
+                A campaign is not one decision. It is eight, and they all have to
+                be right at the same time. Get seven right and the eighth still
+                spends your budget on the wrong people.
               </p>
             </div>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {channels.map((c, i) => (
-              <FadeUp key={c.title} delay={i * 0.07}>
-                <Link href={c.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
-                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{c.icon}</svg>
+          <ol className="grid gap-x-14 gap-y-0 sm:grid-cols-2">
+            {factors.map((f, i) => (
+              <li
+                key={f.title}
+                className="border-t border-[var(--color-border)] py-5"
+              >
+                <FadeUp delay={(i % 2) * 0.05}>
+                  <div className="flex gap-4">
+                    <span className="font-display text-[0.72rem] font-semibold tabular-nums text-[var(--color-accent-text)] pt-[3px]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="font-display text-[0.95rem] font-semibold leading-snug text-[var(--color-ink)]">
+                        {f.title}
+                      </p>
+                      <p className="mt-1.5 text-[0.85rem] leading-relaxed text-[var(--color-muted)]">
+                        {f.detail}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{c.title}</h3>
-                  <p className="text-body text-[var(--color-muted)] flex-1 mb-5">{c.desc}</p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
-                    {c.cta}
-                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-150 group-hover:translate-x-0.5">
-                      <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </Link>
-              </FadeUp>
+                </FadeUp>
+              </li>
             ))}
-          </div>
+          </ol>
+
+          <FadeUp>
+            <p className="text-h3 mt-14 max-w-3xl text-balance font-medium text-[var(--color-ink)]">
+              We run with the platform&apos;s algorithm rather than against it.{" "}
+              <span className="text-[var(--color-accent)]">
+                Nothing here is worked out on your budget.
+              </span>
+            </p>
+          </FadeUp>
         </div>
       </section>
 
-      {/* Paid social media */}
-      <section className="section bg-[var(--color-paper)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
-            <FadeUp>
-              <p className="eyebrow mb-5">Facebook, Instagram, TikTok, Meta</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                Paid social media built around real patient conditions
-              </h2>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Search captures people already looking for treatment. Paid social
-                reaches people who haven&apos;t started searching yet, but who
-                match your ideal patient: the right age, the right condition, the
-                right location.
-              </p>
-              <p className="text-body text-[var(--color-muted)] mb-5">
-                Clinic Evo builds Meta campaigns across Facebook, Instagram and
-                TikTok around specific conditions and audiences, rather than
-                generic clinic awareness, so the message actually speaks to the
-                person watching it.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                This is a real clinic ad, targeting patients aged 55 and over
-                about arthritis, exactly how it appears in a patient&apos;s feed.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.1}>
-              <PhoneVideoMockup src="/videos/social-ads-arthritis-55plus.mp4" />
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* Proof band */}
-      <StatBand
-        eyebrow="One connected system"
-        heading="Six channels, five stages, one team accountable for the whole chain."
-        body="Most clinics buy each piece from a different supplier and own the gaps between them. Clinic Evo runs the whole chain so every handoff is covered."
-        stats={[
-          { value: "6", label: "Growth channels coordinated under a single plan" },
-          { value: "5", label: "Connected stages from first search to rebooking" },
-          { value: "1", label: "Team accountable end to end, instead of scattered vendors" },
-        ]}
-      />
-
-      {/* The connected chain */}
+      {/* Platform differences.
+          Stacked rows rather than three cards side by side: the house rules ban
+          the equal three-column grid, and Danny's point about generic icon boxes
+          applies double when the real platform logos exist and say it better. */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
             <div className="mb-12 max-w-2xl">
-              <p className="eyebrow mb-4">The chain in numbers</p>
-              <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                Where patients are won and lost, stage by stage
+              <p className="eyebrow mb-4">Not interchangeable</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-5 leading-tight">
+                Facebook, Instagram and TikTok are not the same channel
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
-                Each stage hands off to the next. A weak link anywhere drags down
-                everything downstream, which is why coordinating the chain beats
-                optimising any single channel in isolation.
+                Different audiences, different formats, different algorithms and
+                different offers. The same campaign copied across all three is the
+                fastest way to waste a budget on two of them.
               </p>
             </div>
           </FadeUp>
-          <FadeUp delay={0.1}>
-            <PatientFunnel />
-          </FadeUp>
+
+          <ul className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+            {platforms.map((p, i) => (
+              <li key={p.name}>
+                <FadeUp delay={i * 0.07}>
+                  <div className="grid gap-4 py-8 md:grid-cols-[13rem_1fr] md:gap-10">
+                    <div className="flex items-center gap-3">
+                      <p.Logo size={26} />
+                      <span className="font-display text-[1.05rem] font-semibold text-[var(--color-ink)]">
+                        {p.name}
+                      </span>
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[0.95rem] font-semibold leading-snug text-[var(--color-ink)]">
+                        {p.audience}
+                      </p>
+                      <p className="mt-2 text-body text-[var(--color-muted)]">
+                        {p.approach}
+                      </p>
+                    </div>
+                  </div>
+                </FadeUp>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* Real ad proof */}
+      {/* Real campaigns. Two genuine assets side by side — a live video ad in the
+          phone it is watched on, and a currently running static ad — rather than
+          two separate sections each pairing one asset with a column of prose. */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-            <FadeUp>
-              <p className="eyebrow mb-5">Real campaign, real clinic</p>
+          <FadeUp>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-5">Real campaigns, running now</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                A closer look at our paid social in practice
+                Built around a condition, not a clinic
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
-                This is a live Facebook and Instagram ad currently running for
-                Bodyfunction Clinic in Islington. Rather than stock photography, it
-                features the practitioners patients actually meet, paired with the
-                trust signal that tends to matter most locally: real recommendations
-                from people nearby.
+                Search captures people already looking for treatment. Paid social
+                reaches the ones who have not started looking yet but match your
+                patient exactly: the right age, the right condition, the right few
+                miles of road.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                Every social ad Clinic Evo builds is connected to the same system.
-                The click leads to a page designed to convert, the enquiry receives
-                an automatic reply within minutes, and the outcome is tracked
-                through to a booked appointment, not just a like or a click.
+                Both of these are live ads for Bodyfunction Clinic in Islington.
+                Neither uses stock photography, because the practitioners a patient
+                will actually meet, and a recommendation from someone nearby, carry
+                more weight locally than anything bought from a library.
               </p>
+            </div>
+          </FadeUp>
+
+          <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <FadeUp>
+              <div>
+                <PhoneVideoMockup src="/videos/social-ads-arthritis-55plus.mp4" />
+                <p className="mt-5 text-center text-body-sm text-[var(--color-muted)]">
+                  A video campaign targeting patients aged 55 and over about
+                  arthritis, exactly as it appears in the feed.
+                </p>
+              </div>
             </FadeUp>
+
             <FadeUp delay={0.1}>
-              <div className="card-surface p-5 md:p-6 max-w-md mx-auto lg:ml-auto lg:mr-0">
-                <div className="relative aspect-[940/788] overflow-hidden rounded-[var(--radius-sm)]">
-                  <Image
-                    src="/images/digital-marketing/ad-example.png"
-                    alt="Live Facebook and Instagram ad for Bodyfunction Clinic in Islington, featuring the real clinic team and the message: the treatment more Islington locals are recommending to friends"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 440px"
-                  />
+              <div>
+                <div className="card-surface p-5 md:p-6">
+                  <div className="relative aspect-[940/788] overflow-hidden rounded-[var(--radius-sm)]">
+                    <Image
+                      src="/images/digital-marketing/ad-example.png"
+                      alt="Live Facebook and Instagram ad for Bodyfunction Clinic in Islington, featuring the real clinic team and the message: the treatment more Islington locals are recommending to friends"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 560px"
+                    />
+                  </div>
+                  <p className="mt-4 text-body-sm text-[var(--color-muted)]">
+                    A currently running Facebook and Instagram ad for Bodyfunction
+                    Clinic.
+                  </p>
                 </div>
-                <p className="mt-4 text-body-sm text-[var(--color-muted)]">
-                  An actual, currently running ad for Bodyfunction Clinic.
+                <p className="text-body text-[var(--color-muted)] mt-7">
+                  Every social ad Clinic Evo builds is connected to the same
+                  system. The click lands on a page designed to convert, the
+                  enquiry gets an automatic reply within minutes, and the outcome
+                  is tracked through to a booked appointment rather than a like.
                 </p>
               </div>
             </FadeUp>
           </div>
+        </div>
+      </section>
+
+      {/* Evidence.
+          This slot held a StatBand reading "6 growth channels, 5 stages, 1 team"
+          — a count of our own service menu presented as proof. The figures below
+          are the account totals visible in the hero screenshot, with the source
+          named, which is what the brief means by verifying a spend claim before
+          publishing it. */}
+      <ProofBand
+        eyebrow="The spend behind the strategy"
+        stat={{
+          value: "£68,539",
+          label: "spent through Clinic Evo's own Meta ad account, across eight campaigns",
+        }}
+        body="9.3 million impressions and more than sixteen thousand leads, at a cost per lead running from £3.31 on the campaigns that worked to £14.03 on the ones that needed rebuilding. Learning which ads work costs real money. It has already been spent, and not by a clinic."
+        source="Clinic Evo Meta Ads Manager, account totals"
+        image="/images/bodyfunction-physiotherapy-strength-conditioning-floor-exercise-02.jpg"
+        imageAlt="A physiotherapy strength and conditioning session at Bodyfunction Clinic"
+        ctaLabel="Get a free clinic audit"
+        ctaHref="/free-clinic-audit/"
+      />
+
+      {/* Ad → Lead → Patient Pulse → Follow-up → Booking, the journey the brief
+          asks this page to show. Replaces the invented funnel figures. */}
+      <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Where the lead goes</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-5 leading-tight">
+                The advert is the first five seconds of the job
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Buying advertising on its own hands you a lead and leaves you the
+                rest. This is the part that decides whether it becomes a patient,
+                and it is the reason clinics come to us rather than to an agency
+                that stops at the click.
+              </p>
+            </div>
+          </FadeUp>
+          <CampaignJourney />
+          <FadeUp>
+            <p className="mt-10 text-body text-[var(--color-muted)]">
+              The middle of that chain is{" "}
+              <Link href="/patient-pulse/" className="text-[var(--color-accent-text)] hover:underline">
+                Patient Pulse
+              </Link>
+              , and it is the part almost nobody else includes.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
@@ -342,51 +418,18 @@ export default function DigitalMarketingPage() {
                 href: "/osteopath-marketing/",
                 cta: "Marketing for Osteopaths",
                 watermarkImg: "/images/watermark-osteopath.jpg",
-                accentColor: "#ff5b4a",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="8" y="2" width="8" height="4" rx="1.5" />
-                    <path d="M9 6 Q12 7.5 15 6" />
-                    <rect x="7" y="8" width="10" height="4" rx="1.5" />
-                    <path d="M8 12 Q12 13.5 16 12" />
-                    <rect x="8" y="14" width="8" height="4" rx="1.5" />
-                    <path d="M10 18 Q12 21 14 18" />
-                  </svg>
-                ),
               },
               {
                 title: "Physiotherapists",
                 href: "/physiotherapy-marketing/",
                 cta: "Physiotherapy Marketing",
                 watermarkImg: "/images/watermark-physio.jpg",
-                accentColor: "#0F766E",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="2" y="10" width="3" height="4" rx="1" />
-                    <rect x="5" y="8" width="2" height="8" rx="1" />
-                    <line x1="7" y1="12" x2="17" y2="12" />
-                    <rect x="17" y="8" width="2" height="8" rx="1" />
-                    <rect x="19" y="10" width="3" height="4" rx="1" />
-                  </svg>
-                ),
               },
               {
                 title: "Chiropractors",
                 href: "/chiropractic-marketing/",
                 cta: "Chiropractic Marketing",
                 watermarkImg: "/images/watermark-chiro.jpg",
-                accentColor: "#1E3A5F",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M12 2 L12 7" />
-                    <rect x="9" y="7" width="6" height="10" rx="1.5" />
-                    <path d="M12 17 L12 22" />
-                    <path d="M2 12 L7 12" />
-                    <path d="M4.5 9.5 L7.5 12 L4.5 14.5" />
-                    <path d="M22 12 L17 12" />
-                    <path d="M19.5 9.5 L16.5 12 L19.5 14.5" />
-                  </svg>
-                ),
               },
             ].map((item, i) => (
               <FadeUp key={item.href} delay={i * 0.09}>
@@ -399,13 +442,10 @@ export default function DigitalMarketingPage() {
                     <Image src={item.watermarkImg} alt={item.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, 288px" />
                     <div className="absolute inset-0 bg-[var(--color-ink)]/10" />
                   </div>
+                  {/* The discipline icon that sat beside this label was a drawn
+                      spine/dumbbell glyph doing no work the heading did not. */}
                   <div className="flex flex-1 flex-col justify-center p-7 md:p-9 lg:p-10">
-                    <div className="mb-6 flex items-center gap-3">
-                      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)]" style={{ background: "var(--color-accent-light)", color: "var(--color-accent)" }}>
-                        {item.icon}
-                      </div>
-                      <p className="eyebrow">{item.title}</p>
-                    </div>
+                    <p className="eyebrow mb-6">{item.title}</p>
                     <span className="inline-flex items-center gap-2 transition-all group-hover:gap-3 group-hover:text-[var(--color-accent)]" style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-ink)", textDecoration: "underline", textUnderlineOffset: "4px" }}>
                       {item.cta}
                       <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
