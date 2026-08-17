@@ -86,7 +86,7 @@ const faqs = [
   {
     question: "Does call handling cover out-of-hours calls?",
     answer:
-      "Yes. Patients often call at inconvenient times, evenings, weekends and during busy clinic hours. Out-of-hours coverage means enquiries that arrive outside your core hours are captured and followed up rather than lost to voicemail.",
+      "Yes. Patients often call at inconvenient times, evenings, weekends and during busy clinic hours. Out-of-hours coverage means an enquiry that arrives at 9pm is captured and followed up, not left sitting in voicemail until somebody thinks to check it.",
   },
   {
     question: "How does call handling connect to the rest of my system?",
@@ -96,12 +96,12 @@ const faqs = [
   {
     question: "Do you call back the leads my marketing generates?",
     answer:
-      "Yes. As well as answering inbound calls, handlers make outbound calls to the new enquiries your ads and website forms generate, reaching them quickly while their intent is high, rather than leaving them waiting for someone at the clinic to find a spare moment.",
+      "Yes. As well as answering inbound calls, handlers make outbound calls to the new enquiries your ads and website forms generate, reaching them while their intent is still high, which is rarely the moment a busy reception can spare.",
   },
   {
     question: "Will handlers be able to book patients in?",
     answer:
-      "Yes. Handlers are briefed on your booking process and work from your live availability, so they book patients straight into your diary, synced to avoid double-bookings, rather than simply taking a message for someone else to action later.",
+      "Yes. They work from your live availability, so the appointment is made while the patient is still on the phone and the slot is held there and then. If nothing in the diary suits, the patient goes into the same follow-up as your online enquiries, so the enquiry is still not lost.",
   },
   {
     question: "What does a missed call actually cost my clinic?",

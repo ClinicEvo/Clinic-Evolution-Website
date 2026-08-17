@@ -40,7 +40,7 @@ export default function ArticlePage() {
         Private clinic marketing does not have to be complicated. But it does need to be joined up.
       </p>
       <p>
-        This guide covers how to think about marketing your clinic in a way that focuses on outcomes rather than activity, and helps you prioritise the changes that are most likely to make a difference.
+        This guide covers how to think about marketing your clinic in terms of outcomes, and helps you prioritise the changes that are most likely to make a difference.
       </p>
     </>
   );

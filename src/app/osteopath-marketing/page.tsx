@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "How long does osteopath SEO take to show results?",
     answer:
-      "Most clients see measurable improvements in local rankings within 3–4 months. For competitive city locations it may take 6 months to reach top positions, but the results compound over time unlike paid ads.",
+      "Slower than paid ads, and the early months are the hardest to sit through. Bodyfunction Clinic in Angel had close to a year of work with almost nothing to show before the line turned, then reached 3,822 monthly organic visitors over two years. Lind Street Osteopathy, opening cold in Ryde, was on page one for its core local searches inside twelve months. What your clinic should expect depends on your catchment and what is already in place, which is what the audit works out.",
   },
   {
     question: "Do you only work with osteopaths?",
@@ -42,7 +42,7 @@ const faqs = [
   {
     question: "Can you help a new osteopathy practice with no online presence?",
     answer:
-      "Yes. We frequently work with practices launching from scratch. We'll build the right foundations, website, Google Business Profile, and initial SEO, to get you visible quickly.",
+      "Yes. Lind Street Osteopathy came to us as a brand new single-practitioner clinic in Ryde with no logo, no website and no search presence, and held page one across its catchment twelve months after opening. The foundations go in first, brand, website and Google Business Profile, with paid social running alongside so the diary is not empty while search catches up.",
   },
   {
     question: "Do you manage Google Ads for osteopaths?",
@@ -57,7 +57,7 @@ const steps = [
     title: "Free clinic audit",
     description:
       "We assess your current online presence, website, Google rankings, and any paid campaigns, and identify the biggest growth opportunities specific to your practice.",
-    note: "Most clinic owners tell us the audit alone gave them useful clarity, even before we start any work together.",
+    note: "A written report with prioritised recommendations, back to you within two business days.",
   },
   {
     number: 2,
@@ -106,7 +106,7 @@ export default function OsteopathMarketingPage() {
         bullets={[
           "SEO, ads and web design for osteopathy clinics",
           "Local and national search visibility",
-          "Results tracked to enquiries, not just rankings",
+          "Results tracked to enquiries and booked appointments",
         ]}
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
@@ -243,7 +243,7 @@ export default function OsteopathMarketingPage() {
               },
               {
                 title: "They compare you with two or three others",
-                desc: "Google Ads and social campaigns bring that decision forward, but only when they are connected to clear landing pages and proper conversion tracking, not just clicks.",
+                desc: "Google Ads and social campaigns bring that decision forward, but only when they are connected to clear landing pages and conversion tracking that follows the enquiry through to a booking.",
               },
               {
                 title: "They stop coming back long before they say so",
@@ -334,9 +334,11 @@ export default function OsteopathMarketingPage() {
                   whether the clinic feels credible.
                 </p>
                 <p className="text-body text-[var(--color-muted)]">
-                  Your website and marketing need to answer those questions clearly,
-                  without overpromising, using language that respects both patient
-                  concerns and professional standards.
+                  Those questions have to be settled on the page before the booking
+                  button will do anything: what an osteopathic appointment actually
+                  involves, where osteopathy differs from the physio down the road,
+                  and how many sessions is realistic. Plain answers beat confident
+                  ones.
                 </p>
               </div>
             </FadeUp>

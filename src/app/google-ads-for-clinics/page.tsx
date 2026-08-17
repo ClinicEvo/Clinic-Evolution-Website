@@ -35,7 +35,7 @@ const faqs = [
   {
     question: "How much should a clinic spend on Google Ads?",
     answer:
-      "The right budget depends on the clinic location, services, competition, conversion rate and growth goals. Many clinics should start with a controlled test budget rather than a large campaign. The priority is to prove enquiry quality before scaling spend.",
+      "The right budget depends on the clinic location, services, competition, conversion rate and growth goals. A controlled test budget is usually the right way in. The priority is to prove enquiry quality before scaling spend.",
   },
   {
     question: "Should my clinic use SEO or Google Ads?",
@@ -77,7 +77,7 @@ const steps = [
     number: 4,
     title: "Measure",
     description:
-      "We track calls, forms, bookings and enquiry quality so decisions are based on evidence rather than guesswork.",
+      "We track calls, forms, bookings and enquiry quality so every decision comes from what actually converted.",
   },
   {
     number: 5,
@@ -132,7 +132,7 @@ const managed = [
   },
   {
     title: "Conversion tracking",
-    desc: "We help track calls, forms, bookings and enquiry routes so the campaign is judged on patient acquisition, not just clicks.",
+    desc: "We help track calls, forms, bookings and enquiry routes so the campaign is judged on patient acquisition all the way to the booked appointment.",
   },
   {
     title: "Reporting & optimisation",
@@ -191,7 +191,7 @@ export default function GoogleAdsForClinicsPage() {
       <PageHero
         badge="Paid search for private MSK clinics"
         heading={<>Google Ads for clinics that want <em className="not-italic text-[var(--color-accent)]">bookings, not clicks</em></>}
-        subtext="Clinic Evo builds Google Ads campaigns for UK physiotherapists, osteopaths and chiropractors, focused on high-intent searches, relevant landing pages and enquiry quality, not just impressions."
+        subtext="Clinic Evo builds Google Ads campaigns for UK physiotherapists, osteopaths and chiropractors, focused on high-intent searches, relevant landing pages and enquiry quality measured against booked patients."
         bullets={[
           "Campaigns focused on bookings, not vanity clicks",
           "Landing page and tracking support included",

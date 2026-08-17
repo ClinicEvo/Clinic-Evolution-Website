@@ -104,8 +104,21 @@ export default function FreeClinicAuditPage() {
                   gaps that compound: a website that does not explain services
                   clearly, weak rankings for the treatments patients search for,
                   hidden booking buttons, or past patients with no follow-up. The
-                  audit looks at the full journey, not just rankings.
+                  audit looks at the full journey, from search result to booked
+                  appointment.
                 </p>
+                <p className="text-body text-[var(--color-muted)] mb-8">
+                  The same review sits behind the work at Bodyfunction Clinic in
+                  Angel, which went from 8 monthly organic visitors to 3,822 over
+                  two years, and at Lind Street Osteopathy in Ryde, which opened
+                  cold and held page one across its catchment inside twelve
+                  months.
+                </p>
+                <div className="mb-8">
+                  <ArrowLink href="/case-studies/">
+                    Read both case studies in full
+                  </ArrowLink>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                   {[
                     { title: "Website clarity", desc: "Whether your site clearly explains who you help, what you treat and why to book." },

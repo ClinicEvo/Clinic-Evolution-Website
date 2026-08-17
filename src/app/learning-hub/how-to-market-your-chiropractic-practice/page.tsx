@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "How do chiropractic practices get more referrals?",
-    answer: "GP and healthcare referrals are harder to rely on than they once were. Building a strong online presence, good reviews, clear service pages, local visibility, means patients can find you directly rather than waiting for a referral.",
+    answer: "GP and healthcare referrals are harder to rely on than they once were. Building a strong online presence, good reviews, clear service pages, local visibility, means patients can find you directly, without waiting on a referral.",
   },
 ];
 

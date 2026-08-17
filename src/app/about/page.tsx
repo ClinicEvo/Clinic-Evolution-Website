@@ -417,8 +417,8 @@ export default function AboutPage() {
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   That means the advice is grounded in practical clinic realities:
                   what patients need to see, what Google needs to understand, what
-                  clinic owners can realistically maintain, and what makes someone
-                  more likely to enquire.
+                  you can realistically maintain with a full diary, and what makes
+                  someone more likely to enquire.
                 </p>
                 <p className="text-body text-[var(--color-muted)]">
                   The goal is not to make a clinic look busy online. The goal is

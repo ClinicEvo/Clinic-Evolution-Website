@@ -66,7 +66,7 @@ const platforms = [
     Logo: TiktokLogo,
     audience: "The youngest audience, and the one least tolerant of advertising",
     approach:
-      "The ad has to look like content or it is scrolled past in half a second. It rewards volume of creative rather than one polished film, which changes how the whole campaign is built.",
+      "The ad has to look like content or it is scrolled past in half a second. Ten rough cuts will out-perform one polished film, which changes how the whole campaign is built.",
   },
 ];
 
@@ -74,22 +74,22 @@ const faqs = [
   {
     question: "I have tried Facebook ads before and wasted money. What is different here?",
     answer:
-      "Usually one part of the campaign was wrong, and there is no way to tell which from inside your own account. A campaign depends on the objective, the offer, the audience, the platform, the creative, the messaging, the landing page and what happens after the lead arrives. Clinic Evo has already spent years and a substantial budget finding out which combinations work for clinics, so your budget is not the one paying for that education. Just as importantly, the follow-up is part of the service, so leads are worked rather than left to go cold.",
+      "Usually one part of the campaign was wrong, and there is no way to tell which from inside your own account. A campaign depends on the objective, the offer, the audience, the platform, the creative, the messaging, the landing page and what happens after the lead arrives. Clinic Evo has already spent years and a substantial budget finding out which combinations work for clinics, so your budget is not the one paying for that education. Just as importantly, the follow-up is part of the service, so somebody is chasing every lead while it is still warm.",
   },
   {
     question: "Which platform should my clinic advertise on?",
     answer:
-      "It depends on who you treat. Facebook still reaches most local patients over 40 and has the strongest local targeting. Instagram suits clinics whose treatment, team or results are visual. TikTok reaches the youngest audience and needs native-looking video rather than polished adverts. Most clinics start on one platform, prove it, then extend. Running all three from day one usually just spreads the budget too thin to learn anything.",
+      "It depends on who you treat. Facebook still reaches most local patients over 40 and has the strongest local targeting. Instagram suits clinics whose treatment, team or results are visual. TikTok reaches the youngest audience and needs native-looking video; polished adverts get skipped. Most clinics start on one platform, prove it, then extend. Running all three from day one usually just spreads the budget too thin to learn anything.",
   },
   {
     question: "How much should a clinic spend on paid social?",
     answer:
-      "Enough for the platform to gather data on who responds, which means a consistent daily budget over several weeks rather than a large one-off push. The right number depends on your treatment prices, your capacity and how competitive your area is. We set it with you during the audit rather than quoting a figure that suits every clinic, because it does not.",
+      "Enough for the platform to gather data on who responds, which means a consistent daily budget held steady over several weeks. A large one-off push teaches it nothing. The right number depends on your treatment prices, your capacity and how competitive your area is, so we set it with you during the audit. A figure that suits every clinic does not exist.",
   },
   {
     question: "What does digital marketing for a clinic include?",
     answer:
-      "For an MSK clinic it usually combines SEO, Google Ads, paid social, website design, immediate enquiry follow-up, inbound and outbound call handling that books patients into the diary, and patient reactivation. Clinic Evo coordinates these as one system rather than treating them as separate, disconnected services.",
+      "For an MSK clinic it usually combines SEO, Google Ads, paid social, website design, immediate enquiry follow-up, inbound and outbound call handling that books patients into the diary, and patient reactivation. Clinic Evo coordinates these as one system, so the handoffs between them are somebody's job.",
   },
   {
     question: "Why coordinate channels instead of buying them separately?",
@@ -104,7 +104,7 @@ const faqs = [
   {
     question: "Is this suitable for osteopaths, physios and chiropractors?",
     answer:
-      "Yes. Clinic Evo works exclusively with MSK clinics. Each discipline has different patient decision-making, search behaviour and competition, so the marketing is built for those differences rather than a generic healthcare template.",
+      "Yes. Clinic Evo works exclusively with MSK clinics. Each discipline has different patient decision-making, search behaviour and competition, so the marketing is built for those differences. A generic healthcare template misses all three.",
   },
   {
     question: "How do you measure whether it is working?",
@@ -138,7 +138,7 @@ export default function DigitalMarketingPage() {
             </em>
           </>
         }
-        subtext="Paid social campaigns built for MSK clinics, and the follow-up that turns the leads into booked patients. Most clinics buy the advertising and end up owning the gap that comes after it."
+        subtext="Paid social campaigns built for MSK clinics, and the follow-up that turns the leads into booked patients. Buy the advertising on its own and you own the gap that comes after it."
         bullets={[
           "Campaigns built around one condition and one audience at a time",
           "Offer, targeting and creative handled for you",
@@ -240,7 +240,7 @@ export default function DigitalMarketingPage() {
 
           <FadeUp>
             <p className="text-h3 mt-14 max-w-3xl text-balance font-medium text-[var(--color-ink)]">
-              We run with the platform&apos;s algorithm rather than against it.{" "}
+              Every platform&apos;s algorithm rewards something specific. We build for that.{" "}
               <span className="text-[var(--color-accent)]">
                 Nothing here is worked out on your budget.
               </span>
@@ -377,9 +377,9 @@ export default function DigitalMarketingPage() {
                   Every social ad Clinic Evo builds is connected to the same
                   system. The click lands on a page designed to convert, the
                   enquiry gets an automatic reply within minutes, and the outcome
-                  is tracked through to a booked appointment rather than a like.
-                  An agency that hands you the creative and stops has done the
-                  part that was never the problem.
+                  is tracked through to a booked appointment. An agency that hands
+                  you the creative and stops has done the part that was never the
+                  problem.
                 </p>
               </div>
             </FadeUp>
@@ -423,9 +423,9 @@ export default function DigitalMarketingPage() {
               </div>
               <p className="text-body-lg text-[var(--color-charcoal)]">
                 Buying advertising on its own hands you a lead and leaves you the
-                rest. This is the part that decides whether it becomes a patient,
-                and it is the reason clinics come to us rather than to an agency
-                that stops at the click.
+                rest. This is the part that decides whether it becomes a patient.
+                It is also the part you are left holding when the invoice says
+                &ldquo;campaign management&rdquo;.
               </p>
             </div>
           </FadeUp>

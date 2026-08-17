@@ -278,11 +278,11 @@ export default function PhysiotherapyMarketingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "SEO for Physiotherapists", desc: "Rank for local searches and specialty-specific queries that bring in the patients you want.", href: "/seo-for-clinics/", cta: "Explore SEO for Clinics" },
-              { title: "Google Ads for Physio Clinics", desc: "Targeted PPC campaigns that drive booked appointments, not just clicks.", href: "/google-ads-for-clinics/", cta: "Explore Google Ads for Clinics" },
+              { title: "Google Ads for Physio Clinics", desc: "Targeted PPC campaigns judged on booked appointments.", href: "/google-ads-for-clinics/", cta: "Explore Google Ads for Clinics" },
               { title: "Physiotherapy Website Design", desc: "Professional, fast websites that convert visitors into new patients.", href: "/website-design-for-clinics/", cta: "Explore Clinic Website Design" },
               { title: "Patient Reactivation", desc: "Re-engage discharged and lapsed patients automatically with personalised AI messages.", href: "/ai-integration/", cta: "Explore AI Patient Reactivation" },
               { title: "Local SEO", desc: "Strengthen the local signals and Google Business Profile that help you win 'near me' searches.", href: "/seo-for-clinics/", cta: "Explore Local SEO" },
-              { title: "Social media paid ads", desc: "Facebook, Instagram and TikTok campaigns targeting local physiotherapy patients by condition, age and location, built to fill specific treatment slots rather than chase generic brand awareness.", href: "/digital-marketing/", cta: "Paid Social for Clinics" },
+              { title: "Social media paid ads", desc: "Facebook, Instagram and TikTok campaigns aimed at local physiotherapy patients by condition, age and location, built to fill named treatment slots: sports rehab, post-op, chronic pain.", href: "/digital-marketing/", cta: "Paid Social for Clinics" },
             ].map((s, i) => (
               <FadeUp key={s.title} delay={i * 0.07}>
                 <Link href={s.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
@@ -332,9 +332,10 @@ export default function PhysiotherapyMarketingPage() {
                   need different messaging.
                 </p>
                 <p className="text-body text-[var(--color-muted)]">
-                  Your website and marketing need to answer those questions clearly,
-                  without overpromising, using language that respects both patient
-                  concerns and professional standards.
+                  That is why the condition pages carry the work here. A runner with
+                  an Achilles problem and somebody six weeks post-knee-replacement
+                  should each find their own situation described, not a general
+                  physiotherapy service list.
                 </p>
               </div>
             </FadeUp>

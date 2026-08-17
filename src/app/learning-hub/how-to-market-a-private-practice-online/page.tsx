@@ -123,7 +123,7 @@ export default function ArticlePage() {
             <li>Targeting searches that indicate genuine intent to book, not just general health queries</li>
             <li>Sending traffic to a page that is specifically relevant to what the patient searched for</li>
             <li>Having a clear, fast booking or enquiry process on the landing page</li>
-            <li>Tracking which ads result in actual enquiries, not just clicks</li>
+            <li>Tracking which ads produce actual enquiries, down to the search term</li>
           </ul>
           <p>Advertising amplifies your website. If the website is weak, advertising makes the problem more expensive. Fix the foundation first.</p>
         </>

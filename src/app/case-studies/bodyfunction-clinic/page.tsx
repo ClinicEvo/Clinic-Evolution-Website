@@ -364,7 +364,7 @@ export default function BodyfunctionCaseStudyPage() {
               },
               {
                 title: "Went deep instead of wide",
-                desc: "One thorough page beats twenty thin ones. We wrote properly about the conditions the clinic genuinely knew, rather than publishing a shallow page for every service and hoping.",
+                desc: "One thorough page beats twenty thin ones. We wrote properly about the conditions the clinic genuinely knew. The alternative is a shallow page for every service and a hope that one of them lands.",
               },
               {
                 title: "Made the local searches winnable",
@@ -669,8 +669,8 @@ export default function BodyfunctionCaseStudyPage() {
                   <p className="text-body leading-relaxed text-[var(--color-muted)]">
                     So a page has to do more than list what you offer. It has to show
                     you understand their specific problem, explain what will actually
-                    happen in the room, and make booking feel like a small step rather
-                    than a commitment.
+                    happen in the room, and make booking feel like the smallest
+                    possible step.
                   </p>
                   <p className="text-body leading-relaxed text-[var(--color-muted)]">
                     You can see it working in the click-through rates. Nearly 12% of

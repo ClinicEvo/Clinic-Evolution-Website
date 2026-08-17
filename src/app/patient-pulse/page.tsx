@@ -137,19 +137,28 @@ export default function PatientPulsePage() {
                 ad at 11pm, needs a response within minutes. The first clinic to respond
                 wins the appointment, regardless of which clinic is better. That is the
                 single least fair rule in private healthcare marketing, and it is the one
-                most clinics lose on.
+                a busy clinic loses by default.
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                Most clinics respond manually, during business hours, when they remember.
+                Replies happen manually, during business hours, when somebody remembers.
                 Patient Pulse removes that dependency entirely. The system responds
-                automatically, immediately, every time, whether the practitioner is in a
-                treatment room, at lunch, or completely offline.
+                automatically, immediately, every time, whether you are in a treatment
+                room, at lunch, or completely offline.
               </p>
-              <p className="text-body text-[var(--color-muted)]">
-                The result is a consistent, professional first impression that separates
-                your clinic from every competitor who replies hours later, and a database
-                that keeps working long after the ad spend stops.
+              <p className="text-body mb-5 text-[var(--color-muted)]">
+                What you get out of it is a consistent first impression ahead of every
+                competitor who replies hours later, and a database that keeps working
+                long after the ad spend stops.
               </p>
+              <p className="text-body mb-6 text-[var(--color-muted)]">
+                Danny Morgan, who co-founded Clinic Evo, is a practising osteopath and
+                founded Bodyfunction Clinic in Angel. That is the practice Clinic
+                Evo&apos;s method was built and tested in before it was offered to
+                anyone else.
+              </p>
+              <ArrowLink href="/case-studies/bodyfunction-clinic/">
+                See what the clinic&apos;s numbers did
+              </ArrowLink>
             </div>
           </FadeUp>
         </div>

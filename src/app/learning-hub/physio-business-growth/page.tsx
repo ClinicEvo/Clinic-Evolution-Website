@@ -50,7 +50,7 @@ export default function ArticlePage() {
       title: "What holds physio clinics back from growing",
       content: (
         <>
-          <p>Most physiotherapy clinic owners are skilled clinicians. The barriers to growth are rarely about clinical quality, they are about the systems and presence that support patient acquisition and retention.</p>
+          <p>If you run a physiotherapy clinic, the barrier to growth is rarely your clinical work. It is the systems and the visibility around it that decide whether patients find you and come back.</p>
           <p>The most common growth blockers for physio clinics include:</p>
           <ul>
             <li>A website that is not structured around patient search behaviour</li>

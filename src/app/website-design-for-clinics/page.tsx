@@ -57,7 +57,7 @@ const faqs = [
   {
     question: "How do you decide what pages my clinic website needs?",
     answer:
-      "From research, before any design work starts. We look at what patients in your area actually search for, how much of that demand exists, which competitors currently hold those results and what Google is already rewarding for each one. That produces a page plan. Every page on the site exists because somebody is searching for it, which is why a site built this way keeps earning enquiries long after launch.",
+      "From research, before any design work starts. We look at what patients in your area actually search for, how much of that demand exists, which competitors currently hold those results and what Google is already rewarding for each one. That produces a page plan. Every page on the site exists because somebody is searching for it, so the site keeps earning enquiries long after launch.",
   },
   {
     question: "Do you design websites for physiotherapy clinics?",
@@ -143,7 +143,7 @@ const buildSteps = [
     number: 5,
     title: "Install the measurement",
     description:
-      "Analytics and conversion tracking from day one, so what happens next is a matter of evidence rather than opinion. We are not going on blind faith.",
+      "Analytics and conversion tracking from day one, so what happens next is a matter of record. We are not going on blind faith.",
   },
   {
     number: 6,
@@ -296,7 +296,7 @@ export default function WebsiteDesignForClinicsPage() {
             </FadeUp>
             <FadeUp delay={0.08}>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                Most clinic websites are designed first and marketed afterwards, which is why so
+                A clinic website is usually designed first and marketed afterwards, which is why so
                 many of them end up as a brochure the owner has to send people to. We work the
                 other way round. Before anything is designed we map the search demand in your
                 catchment, pull apart the clinics currently holding those results, and look at what
@@ -328,8 +328,8 @@ export default function WebsiteDesignForClinicsPage() {
               </p>
               <p className="text-body text-[var(--color-muted)]">
                 Ads are still worth running, and we run them — they fill the diary while search
-                matures. But paid traffic is rented and organic is owned, which is why we would
-                rather spend the first fortnight on research than on a homepage carousel.
+                matures. But paid traffic is rented and organic is owned, so the first fortnight
+                goes on research and not on a homepage carousel.
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
@@ -366,8 +366,8 @@ export default function WebsiteDesignForClinicsPage() {
                 </h2>
                 <p className="text-body text-[var(--color-muted)]">
                   The order matters more than any single step. Research before design, measurement
-                  before opinion, and improvement as a habit rather than a rescue job two years
-                  later.
+                  before opinion, and improvement as a habit, so there is no rescue job two
+                  years later.
                 </p>
               </FadeUp>
               <FadeUp delay={0.1}>

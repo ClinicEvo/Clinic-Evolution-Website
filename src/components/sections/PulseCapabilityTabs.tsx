@@ -104,7 +104,7 @@ const tabs: Tab[] = [
       { label: "Email newsletters and campaigns", detail: "Sent to the same database that holds your enquiries" },
       { label: "Segmented patient lists", detail: "Message the right group instead of emailing everyone the same thing" },
       { label: "12-month nurture sequences", detail: "Leads not ready today keep hearing from you, with no manual effort" },
-      { label: "Reporting across every channel", detail: "Which source produced booked patients, not just clicks" },
+      { label: "Reporting across every channel", detail: "Which source produced booked patients, by channel and campaign" },
     ],
     media: {
       kind: "image",

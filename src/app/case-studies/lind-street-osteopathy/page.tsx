@@ -417,8 +417,8 @@ export default function LindStreetCaseStudyPage() {
                     worth more than a national traffic figure would be.
                   </p>
                   <p className="text-body leading-relaxed text-[var(--color-muted)]">
-                    What made it work was doing the research before the build rather
-                    than after, giving each condition a properly written page, and
+                    What made it work was doing the research before the build,
+                    giving each condition a properly written page, and
                     running paid social alongside so the diary filled while search
                     matured.
                   </p>
@@ -438,8 +438,8 @@ export default function LindStreetCaseStudyPage() {
                     The same approach, applied to your clinic
                   </h3>
                   <p className="text-body mb-6 text-[var(--color-muted)]">
-                    Brand, website, search visibility and paid social, built as one
-                    system rather than four separate jobs.
+                    Brand, website, search visibility and paid social, all one job
+                    with one team.
                   </p>
                   <div className="flex flex-col gap-4">
                     <ArrowLink href="/seo-for-clinics/">SEO for clinics</ArrowLink>

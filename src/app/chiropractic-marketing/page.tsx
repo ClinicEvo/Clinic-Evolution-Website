@@ -57,7 +57,7 @@ const steps = [
     title: "Free clinic audit",
     description:
       "We review your website, SEO, local search presence, patient journey, competitors and main growth opportunities. You come away with practical, prioritised recommendations.",
-    note: "Many clinic owners tell us the audit gave them a clearer picture of their online presence than anything they'd had before.",
+    note: "A written report with prioritised recommendations, back to you within two business days.",
   },
   {
     number: 2,
@@ -357,9 +357,10 @@ export default function ChiropracticMarketingPage() {
                   sessions they might need or whether the clinic feels credible.
                 </p>
                 <p className="text-body text-[var(--color-muted)]">
-                  Your website and marketing need to answer those questions clearly
-                  without overpromising, using language that respects both patient
-                  concerns and professional standards.
+                  Those questions have to be answered on the page in plain terms:
+                  what an adjustment involves, who it suits, how many sessions is
+                  realistic and what the practitioner&apos;s training actually is.
+                  Overclaiming costs more trust than it buys.
                 </p>
               </div>
             </FadeUp>
