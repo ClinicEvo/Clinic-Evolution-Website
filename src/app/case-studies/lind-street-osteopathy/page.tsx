@@ -140,7 +140,13 @@ export default function LindStreetCaseStudyPage() {
               </FadeUp>
               <FadeUp delay={0.05}>
                 <h1 className="text-h1 mb-6 tracking-tight text-[var(--color-ink)]">
-                  One osteopath. One room. Page one across her whole island.
+                  One osteopath. One room.{" "}
+                  {/* nowrap: the accent is only two short words, and split over a
+                      line break the coral stops reading as one phrase. */}
+                  <em className="not-italic whitespace-nowrap text-[var(--color-accent)]">
+                    Page one
+                  </em>{" "}
+                  across her whole island.
                 </h1>
               </FadeUp>
               <FadeUp delay={0.1}>

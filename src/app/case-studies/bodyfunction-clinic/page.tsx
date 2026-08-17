@@ -131,7 +131,10 @@ export default function BodyfunctionCaseStudyPage() {
                     Simon made the same point on the call — the story hook lives
                     in the paragraphs below, not in the H1. */}
                 <h1 className="text-h1 mb-6 tracking-tight text-[var(--color-ink)]">
-                  Bodyfunction Clinic marketing case study
+                  Bodyfunction Clinic{" "}
+                  <em className="not-italic text-[var(--color-accent)]">
+                    marketing case study
+                  </em>
                 </h1>
               </FadeUp>
               <FadeUp delay={0.1}>

@@ -57,7 +57,11 @@ export default function LandingThankYouPage() {
               Audit request received
             </p>
             <h1 className="text-h1 mb-6 text-[var(--color-ink)]">
-              That is with us. You will hear back {LP_TURNAROUND}.
+              That is with us. You will hear back{" "}
+              <em className="not-italic text-[var(--color-accent)]">
+                {LP_TURNAROUND}
+              </em>
+              .
             </h1>
           </FadeUp>
 

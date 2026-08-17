@@ -22,8 +22,16 @@ import { motion } from "framer-motion";
    by hand it orphans "that fills" on a line of its own. `text-wrap: balance`
    lets the browser even the lines at every width instead, which is also why the
    reveal is now one motion element rather than a stagger — there are no longer
-   fixed lines to stagger. */
-const HEADLINE = "Clinic marketing that fills your diary and keeps it full";
+   fixed lines to stagger.
+
+   Split in two so the payoff carries the coral, the way every other hero on the
+   site marks its H1. The category term stays in ink — it is what the page ranks
+   for and it reads first — and the accent lands on the promise a clinic owner
+   is actually scanning for. Only that phrase: "and keeps it full" stays ink so
+   the coral marks one thing rather than half the headline. */
+const HEADLINE_LEAD = "Clinic marketing that ";
+const HEADLINE_ACCENT = "fills your diary";
+const HEADLINE_TAIL = " and keeps it full";
 
 export default function HeroHeadline() {
   return (
@@ -39,7 +47,9 @@ export default function HeroHeadline() {
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ delay: 0.06, type: "spring", stiffness: 68, damping: 18 }}
     >
-      {HEADLINE}
+      {HEADLINE_LEAD}
+      <em className="not-italic text-[var(--color-accent)]">{HEADLINE_ACCENT}</em>
+      {HEADLINE_TAIL}
     </motion.h1>
   );
 }

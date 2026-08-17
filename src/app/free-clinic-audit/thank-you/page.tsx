@@ -40,7 +40,10 @@ export default function AuditThankYouPage() {
           <FadeUp delay={0.06}>
             <p className="text-label text-[var(--color-accent)] mb-4">Audit request received</p>
             <h1 className="font-display font-bold text-[clamp(2rem,4.5vw,3rem)] leading-[1.1] tracking-[-0.025em] text-[var(--color-ink)] mb-6">
-              We have your request.<br />We will be in touch shortly.
+              We have your request.<br />
+              <em className="not-italic text-[var(--color-accent)]">
+                We will be in touch shortly.
+              </em>
             </h1>
           </FadeUp>
 
