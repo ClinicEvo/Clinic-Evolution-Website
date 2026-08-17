@@ -111,8 +111,9 @@ export default function PatientPulsePage() {
         }
       />
 
-      {/* Where it sits: four channels in, two outcomes out. */}
-      <ConnectedJourney />
+      {/* Where it sits: four channels in, two outcomes out. No product link —
+          this is the product page. */}
+      <ConnectedJourney showPulseLink={false} />
 
       {/* The stack it replaces — the single most persuasive argument on the page. */}
       <StackReplacementTable />

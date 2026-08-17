@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import FadeUp from "@/components/ui/FadeUp";
+import ArrowLink from "@/components/ui/ArrowLink";
 import { brandHex, brandMarks, type BrandSlug } from "@/components/icons/BrandIcons";
 import { colorMarks, type ColorMarkSlug } from "@/components/icons/BrandColorMarks";
 
@@ -70,21 +72,65 @@ const outcomes = [
   },
 ];
 
-export default function ConnectedJourney() {
+/**
+ * On the three service pages this section is the first mention of Patient Pulse,
+ * and the eyebrow names it before anything has shown what it is. The mark plus a
+ * one-line identity fixes that, and gives those pages the route to the product
+ * page they were missing entirely.
+ *
+ * `showPulseLink` exists for /patient-pulse/, where the link would point at the
+ * page the reader is already on.
+ */
+export default function ConnectedJourney({
+  showPulseLink = true,
+}: {
+  showPulseLink?: boolean;
+}) {
   return (
     <section className="py-20 lg:py-24 bg-[var(--color-paper)]">
       <div className="cx-main">
         <FadeUp>
-          <div className="mb-14 max-w-2xl">
-            <p className="eyebrow mb-4">Where Patient Pulse sits</p>
-            <h2 className="text-h2 mb-5 leading-tight text-[var(--color-ink)]">
-              Every enquiry your marketing creates ends up here
-            </h2>
-            <p className="text-body-lg text-[var(--color-charcoal)]">
-              Websites, SEO and ads all do the same job: they get someone to make contact.
-              What happens in the twenty minutes after that decides whether they become
-              your patient or someone else&apos;s.
-            </p>
+          <div className="mb-14 grid gap-9 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+            <div className="max-w-2xl">
+              <p className="eyebrow mb-4">Where Patient Pulse sits</p>
+              <h2 className="text-h2 mb-5 leading-tight text-[var(--color-ink)]">
+                Every enquiry your marketing creates ends up here
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Websites, SEO and ads all do the same job: they get someone to make contact.
+                What happens in the twenty minutes after that decides whether they become
+                your patient or someone else&apos;s.
+              </p>
+            </div>
+
+            {/* A rule rather than a card: a bordered box here would compete with
+                the four channel cards immediately below it. Border flips from top
+                on a phone, where the lockup sits under the prose, to left on
+                desktop, where it sits beside it.
+
+                The grid item is left to stretch so the rule runs the full height
+                of the headline block — a rule that stopped at the lockup would
+                leave the space beside the headline unstructured — and the lockup
+                is centred against it. */}
+            <div className="flex flex-col justify-center border-t border-[var(--color-border)] pt-7 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+              <Image
+                src="/images/patientpulse_logo.png"
+                alt="Patient Pulse"
+                width={3116}
+                height={440}
+                sizes="240px"
+                className="h-auto w-[190px] lg:w-[225px]"
+              />
+              <p className="mt-5 text-[0.9rem] leading-relaxed text-[var(--color-muted)]">
+                Our own clinic CRM, patient messaging and follow-up system, built for UK
+                osteopaths, physiotherapists and chiropractors.
+              </p>
+              {showPulseLink && (
+                <ArrowLink href="/patient-pulse/" className="mt-5">
+                  See what Patient Pulse does
+                </ArrowLink>
+              )}
+            </div>
           </div>
         </FadeUp>
 
