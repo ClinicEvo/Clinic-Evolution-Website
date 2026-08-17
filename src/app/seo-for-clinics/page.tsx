@@ -338,6 +338,23 @@ const included = [
   "Monthly reporting on visibility, traffic and enquiries",
 ];
 
+/* The three reasons, which used to be buried inside a grey paragraph. They are
+   the actual argument of this section, so they get to be the structure. */
+const rankingFailures = [
+  {
+    title: "The homepage is trying to be every service at once",
+    body: "So it ranks clearly for none of them. One page cannot own osteopathy, sports massage and back pain in your town simultaneously.",
+  },
+  {
+    title: "The service pages are too thin to compete",
+    body: "A couple of paragraphs and a booking button is not an answer, and Google has plenty of fuller answers to choose from.",
+  },
+  {
+    title: "The condition pages were never written",
+    body: "Patients search for the symptom, in their words. If nothing on the site names what is wrong with them, nothing on the site can match what they typed.",
+  },
+];
+
 const commonIssues = [
   "Thin or generic service pages",
   "No clear keyword ownership between pages",
@@ -492,57 +509,75 @@ export default function SeoForClinicsPage() {
       </section>
 
       {/* Why most clinic websites struggle to rank.
-          This H2 is an AEO/GEO snippet target — keep the exact wording. */}
+          This H2 is an AEO/GEO snippet target — keep the exact wording.
+
+          Full width and list-driven on purpose. This used to be the second of
+          two consecutive text-left / panel-right sections, so at a glance it
+          read as the pain-point section repeating itself and got skimmed. The
+          content was never the duplicate — that list is causes where the one
+          above is symptoms — but the silhouette was, which is what a skimmer
+          actually judges. The three reasons were also buried inside a grey
+          paragraph while nine secondary audit findings had the whole panel. */}
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-2">
-            <FadeUp>
-              <p className="eyebrow mb-5">Common problems</p>
-              <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
+          <FadeUp>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Common problems</p>
+              <h2 className="text-h2 mb-5 leading-tight text-[var(--color-ink)]">
                 Why most clinic websites struggle to rank
               </h2>
-              <p className="text-body mb-5 text-[var(--color-muted)]">
-                Three reasons, usually. The homepage is trying to cover every service
-                at once, so it ranks clearly for none of them. The service pages are
-                too thin to compete with anything. And the condition pages patients
-                actually search for, the ones naming a symptom, were never written.
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Three reasons, usually. None of them is about how the site looks, and
+                the biggest gains come from fixing the structure before anything else.
               </p>
-              <p className="text-body text-[var(--color-muted)]">
-                The biggest gains usually come from fixing the structure first: what
-                you treat, where you are, why anyone should trust you, and which
-                single page owns each search.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.1}>
-              <div className="card-surface p-7 md:p-8">
-                <p className="text-label mb-5 text-[var(--color-accent)]">
-                  What we usually find in an audit
-                </p>
-                <div className="flex flex-col gap-3">
-                  {commonIssues.map((issue) => (
-                    <div key={issue} className="flex items-start gap-3">
-                      <svg
-                        className="mt-1 flex-shrink-0 text-[var(--color-error)]"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M3.5 3.5l7 7M10.5 3.5l-7 7"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                      <span className="text-body-sm text-[var(--color-muted)]">{issue}</span>
-                    </div>
-                  ))}
+            </div>
+          </FadeUp>
+
+          <div className="border-t border-[var(--color-border)]">
+            {rankingFailures.map((item, i) => (
+              <FadeUp key={item.title} delay={i * 0.07}>
+                <div className="grid grid-cols-1 gap-2 border-b border-[var(--color-border)] py-6 md:grid-cols-[auto_1fr_1.1fr] md:items-baseline md:gap-8 lg:gap-12">
+                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted-light)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-h4 text-[var(--color-ink)]">{item.title}</h3>
+                  <p className="text-body-sm text-[var(--color-muted)]">{item.body}</p>
                 </div>
-              </div>
-            </FadeUp>
+              </FadeUp>
+            ))}
           </div>
+
+          {/* Demoted to a secondary strip. Nine findings is reference material,
+              not the argument, and it was outweighing the argument. */}
+          <FadeUp delay={0.15}>
+            <div className="mt-12 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-7 md:p-8">
+              <p className="text-label mb-6 text-[var(--color-accent)]">
+                What we usually find in an audit
+              </p>
+              <div className="grid grid-cols-1 gap-x-12 gap-y-3 sm:grid-cols-2">
+                {commonIssues.map((issue) => (
+                  <div key={issue} className="flex items-start gap-3">
+                    <svg
+                      className="mt-1 flex-shrink-0 text-[var(--color-error)]"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3.5 3.5l7 7M10.5 3.5l-7 7"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                    <span className="text-body-sm text-[var(--color-muted)]">{issue}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -576,36 +611,34 @@ export default function SeoForClinicsPage() {
         </div>
       </section>
 
-      {/* Plain English, before any jargon. */}
+      {/* Was "In plain English": two full rows and 264 words explaining what SEO
+          is to somebody who had just typed "SEO for clinics" into Google. They
+          know. What they do not know is why this agency puts search ahead of
+          ads, and the two screenshots answer that on their own — so the lesson
+          is gone and the evidence stays. Roughly 500px of desktop and 900px of
+          mobile came out of this without losing a proof point.
+
+          The heading now sells the argument rather than teaching a definition,
+          which also gives the cold read a line that means something. */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
-            <FadeUp>
-              <p className="eyebrow mb-5">In plain English</p>
-              <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                Having a website does not mean Google shows it to anybody
+          <FadeUp>
+            <div className="mb-12 max-w-2xl">
+              <p className="eyebrow mb-4">Search versus ads</p>
+              <h2 className="text-h2 mb-4 leading-tight text-[var(--color-ink)]">
+                Ads stop the day you stop paying. Rankings do not
               </h2>
-              <p className="text-body mb-5 text-[var(--color-muted)]">
-                Nobody tells clinic owners this. Your website going live does not put
-                you in front of the person typing &ldquo;osteopath near me&rdquo; at
-                nine on a Sunday night. Google chooses who to show, every time, out of
-                every clinic in your catchment. SEO is the work that makes it choose
-                you.
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Turn Google Ads off and the enquiries stop the same afternoon. A page
+                that ranks carries on working while you build the next one, which is
+                why we do search before anything else and then use the same keyword
+                research to point the paid campaigns.
               </p>
-              <p className="text-body mb-5 text-[var(--color-muted)]">
-                It is not advertising. You are not renting the position, so it does
-                not disappear the day you stop paying. Turn Google Ads off and the
-                enquiries stop the same afternoon. A page that ranks carries on
-                working while you build the next one, which is why we do search
-                before anything else.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                The demand is already there. Right now it is going to whichever
-                clinic Google decided to put in front of it.
-              </p>
-            </FadeUp>
+            </div>
+          </FadeUp>
 
-            <FadeUp delay={0.1}>
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14">
+            <FadeUp>
               <BrowserFrame
                 label="Ahrefs — organic vs paid, a Clinic Evo clinic"
                 caption="Left column is what the clinic earns through search. Right column is what it pays for. Nothing in this account is bought."
@@ -622,12 +655,7 @@ export default function SeoForClinicsPage() {
                 </div>
               </BrowserFrame>
             </FadeUp>
-          </div>
-
-          {/* Second row, reversed, so the page alternates instead of stacking two
-              screenshots down one edge. */}
-          <div className="mt-16 grid grid-cols-1 items-center gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-            <FadeUp>
+            <FadeUp delay={0.1}>
               <BrowserFrame
                 label="Google Analytics — new users by channel"
                 caption="First visit source for new users on a clinic site we run."
@@ -644,22 +672,16 @@ export default function SeoForClinicsPage() {
                 </div>
               </BrowserFrame>
             </FadeUp>
-            <FadeUp delay={0.1}>
-              <h3 className="text-h3 mb-5 text-[var(--color-ink)]">
-                Where the first-time visitors come from
-              </h3>
-              <p className="text-body mb-5 text-[var(--color-muted)]">
-                On the clinic in that report, organic search brought more first-time
-                visitors to the site than direct, paid search, social and referral put
-                together. The screenshot is the full channel breakdown, uncropped.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                Paid social and Google Ads stop the moment the budget does. Search
-                keeps returning people after the work is finished, so we do it first
-                and then use the same keyword research to point the paid campaigns.
-              </p>
-            </FadeUp>
           </div>
+
+          <FadeUp delay={0.15}>
+            <p className="text-body mt-10 max-w-3xl text-[var(--color-muted)]">
+              On the clinic in that second report, organic search brought more
+              first-time visitors to the site than direct, paid search, social and
+              referral put together. The screenshot is the full channel breakdown,
+              uncropped.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
@@ -671,27 +693,33 @@ export default function SeoForClinicsPage() {
         className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]"
       >
         <div className="cx-main">
-          <div className="mb-14 grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+          {/* Magazine opener rather than another 50/50 split. The headline is
+              the biggest claim on the page and was previously boxed into half a
+              row with a wall of grey text staring back at it from the other
+              half — text left, text right, no visual break at all. */}
+          <div className="mb-14">
             <FadeUp>
               <p className="eyebrow mb-5">What this looks like when it works</p>
-              <h2 className="text-h2 leading-tight text-[var(--color-ink)]">
+              <h2 className="text-h1 mb-7 max-w-3xl leading-[1.08] text-[var(--color-ink)]">
                 Eight people a month found this clinic. Now it is nearly four thousand
               </h2>
             </FadeUp>
             <FadeUp delay={0.08}>
-              <p className="text-body mb-5 text-[var(--color-muted)]">
-                Bodyfunction Clinic is an osteopathy practice in Angel, London. It is
-                also where Clinic Evo came from: Danny Morgan founded the clinic and
-                co-founded this company. It is our own diary, not a client&rsquo;s,
-                which is why we can open the whole account instead of showing you one
-                flattering screenshot.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                For a full year the site sat flat at eight to fifteen visits a month.
-                Nothing was wrong with the clinic; the website simply was not being
-                found. Everything below is what changed after the structure and content
-                work landed, pulled from Search Console and Ahrefs.
-              </p>
+              <div className="grid grid-cols-1 gap-x-16 gap-y-5 border-t border-[var(--color-border)] pt-8 md:grid-cols-2 lg:gap-x-20">
+                <p className="text-body text-[var(--color-muted)]">
+                  Bodyfunction Clinic is an osteopathy practice in Angel, London. It is
+                  also where Clinic Evo came from: Danny Morgan founded the clinic and
+                  co-founded this company. It is our own diary, not a client&rsquo;s,
+                  which is why we can open the whole account instead of showing you one
+                  flattering screenshot.
+                </p>
+                <p className="text-body text-[var(--color-muted)]">
+                  For a full year the site sat flat at eight to fifteen visits a month.
+                  Nothing was wrong with the clinic; the website simply was not being
+                  found. Everything below is what changed after the structure and content
+                  work landed, pulled from Search Console and Ahrefs.
+                </p>
+              </div>
             </FadeUp>
           </div>
 
@@ -791,18 +819,18 @@ export default function SeoForClinicsPage() {
               <p className="text-label mb-4 text-[var(--color-accent)]">
                 And it is still climbing
               </p>
-              <p className="text-body mb-4 text-[var(--color-muted)]">
-                This clinic now has the search authority that takes years to build,
-                and the brand demand alongside it: five times as many people search
-                for it by name as did two years ago. Both make everything from here
-                cheaper and quicker.
-              </p>
+              {/* Was two paragraphs restating a case the stats, the chart, the
+                  dumbbell and the pull quote above have already won four times
+                  over. Kept as one, because the forward-looking beat — the map
+                  pack is next, and it is the short part — is a sale rather than
+                  a summary, and the case-study link below it is the only route
+                  from this page to the full write-up. */}
               <p className="text-body text-[var(--color-muted)]">
-                The map pack is the next job. Terms like &ldquo;osteopath
-                islington&rdquo; sit mid page one today, which is a far shorter
-                distance to close than the two years it took to reach this point.
-                Very few clinic sites have either the authority or the brand demand
-                yet.
+                This clinic now has the search authority that takes years to build,
+                and five times as many people search for it by name as did two years
+                ago. The map pack is the next job: terms like &ldquo;osteopath
+                islington&rdquo; sit mid page one today, a far shorter distance to
+                close than the two years it took to reach this point.
               </p>
               {/* This page carried the biggest block of Bodyfunction evidence on the
                   site and never once linked to the case study. A dead end for
@@ -835,7 +863,15 @@ export default function SeoForClinicsPage() {
 
       {/* ── The evidence: Lind Street ──────────────────────────────────────
           The counterweight to Bodyfunction. Small numbers, total local
-          visibility — the case for a clinic that thinks SEO is for big budgets. */}
+          visibility — the case for a clinic that thinks SEO is for big budgets.
+
+          Halved. The ProofBand directly above already lands "0 → page one" and
+          already links to the case study, so this section was making the same
+          case a second time and then linking to it twice more. Two paragraphs
+          were also spent pre-empting an objection about absolute click volume;
+          the share argument now carries that in one, still without implying a
+          booking anywhere — the standing rule. Both keyword tables survive,
+          which is the part that actually proves it. */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
@@ -846,33 +882,19 @@ export default function SeoForClinicsPage() {
               </h2>
               <p className="text-body mb-5 text-[var(--color-muted)]">
                 The table on the right is all of it: every commercially relevant
-                search in Ryde, twelve months after launch. Three of the five sit
-                inside the top five positions and the other two are on page one.
+                search in Ryde, twelve months after launch. Lind Street is one
+                practitioner, on an island of 140,000 people, competing against
+                practices that had been there for years.
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                Lind Street is one practitioner, on an island of 140,000 people,
-                competing against practices that had been there for years. If it can
-                be done from a standing start in a market that size, it can be done
-                in yours.
+                The click-through rates are the column worth reading twice. At 19.4%
+                on &ldquo;osteopath ryde&rdquo;, roughly one searcher in five clicks
+                this clinic rather than one of the practices listed above or below it.
               </p>
-              <p className="text-body mb-5 text-[var(--color-muted)]">
-                The click-through rates are the column worth reading twice. 67% on the
-                brand term and 19.4% on &ldquo;osteopath ryde&rdquo; mean people are
-                seeing the listing and then choosing it over the ones beside it.
-              </p>
-              {/* The honest bridge. A reader who totals the clicks column gets a
-                  number in the hundreds and wonders whether that was worth it.
-                  Better to answer it than to hope they do not do the sum: in a
-                  catchment this size the ceiling is low, and the thing being
-                  measured is share, not volume. Careful not to imply a booking
-                  anywhere in this — the standing rule. */}
               <p className="text-body text-[var(--color-muted)]">
                 The absolute numbers are small, and in a catchment this size they
-                should be — only so many people search for an osteopath in one
-                seaside town in a year. What the table measures is share: at 19.4% on
-                &ldquo;osteopath ryde&rdquo;, roughly one searcher in five clicks
-                this clinic rather than one of the practices listed above or below
-                it.
+                should be — only so many people search for an osteopath in one seaside
+                town in a year. What the table measures is share, not volume.
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
@@ -1040,41 +1062,56 @@ export default function SeoForClinicsPage() {
         </div>
       </section>
 
-      {/* Why healthcare SEO is a different job */}
+      {/* Why healthcare SEO is a different job.
+
+          Mirrored: the list leads and the argument sits to its right. This was
+          the sixth text-left / panel-right section on the page, and by the time
+          a reader reaches it they have stopped expecting the right-hand column
+          to say anything new. Flipping it costs nothing and resets the eye. */}
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
             <FadeUp>
-              <p className="eyebrow mb-5">Why clinic SEO is different</p>
-              <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                Google holds clinic sites to a higher standard
-              </h2>
-              <p className="text-body mb-5 text-[var(--color-muted)]">
-                Most local SEO advice is written for any small business. Healthcare
-                does not behave that way, and a generalist agency will work that out
-                slowly, on your budget.
-              </p>
-              <p className="text-body mb-5 text-[var(--color-muted)]">
-                Patients arrive in pain and worried, comparing three or four clinics
-                at once for a reason to trust one of them. Google&rsquo;s own search
-                quality guidelines put health content in the category it scrutinises
-                hardest. Those two facts change the strategy.
-              </p>
-              <p className="text-body text-[var(--color-muted)]">
-                Danny founded Bodyfunction Clinic and still treats patients there;
-                Simon has spent years getting clinic websites found. The list on the
-                right is what that changes about the work.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.1}>
-              <ul role="list" className="border-t border-[var(--color-border)]">
-                {healthcareDifferences.map((d) => (
-                  <li key={d.label} className="border-b border-[var(--color-border)] py-5">
-                    <p className="text-[15px] font-semibold text-[var(--color-ink)]">{d.label}</p>
-                    <p className="text-body-sm mt-1.5 text-[var(--color-muted)]">{d.body}</p>
+              <ol role="list" className="border-t border-[var(--color-border)]">
+                {healthcareDifferences.map((d, i) => (
+                  <li
+                    key={d.label}
+                    className="flex gap-5 border-b border-[var(--color-border)] py-5"
+                  >
+                    <span className="font-display text-base font-light leading-tight text-[var(--color-muted-light)]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <p className="text-[15px] font-semibold text-[var(--color-ink)]">{d.label}</p>
+                      <p className="text-body-sm mt-1.5 text-[var(--color-muted)]">{d.body}</p>
+                    </div>
                   </li>
                 ))}
-              </ul>
+              </ol>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <div className="lg:sticky lg:top-28">
+                <p className="eyebrow mb-5">Why clinic SEO is different</p>
+                <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
+                  Google holds clinic sites to a higher standard
+                </h2>
+                <p className="text-body mb-5 text-[var(--color-muted)]">
+                  Most local SEO advice is written for any small business. Healthcare
+                  does not behave that way, and a generalist agency will work that out
+                  slowly, on your budget.
+                </p>
+                <p className="text-body mb-5 text-[var(--color-muted)]">
+                  Patients arrive in pain and worried, comparing three or four clinics
+                  at once for a reason to trust one of them. Google&rsquo;s own search
+                  quality guidelines put health content in the category it scrutinises
+                  hardest. Those two facts change the strategy.
+                </p>
+                <p className="text-body text-[var(--color-muted)]">
+                  Danny founded Bodyfunction Clinic and still treats patients there;
+                  Simon has spent years getting clinic websites found. The list beside
+                  this is what that changes about the work.
+                </p>
+              </div>
             </FadeUp>
           </div>
         </div>
