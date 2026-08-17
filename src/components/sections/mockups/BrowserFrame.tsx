@@ -25,6 +25,7 @@ export default function BrowserFrame({
   scrollOnMobile = false,
   scrollMinWidth = "42rem",
   scrollLabel = "Screenshot, scroll sideways to read",
+  fill = false,
 }: {
   children: ReactNode;
   /** What is on screen, shown in the address pill. A tool name, not a made-up
@@ -49,16 +50,29 @@ export default function BrowserFrame({
   scrollMinWidth?: string;
   /** Accessible name for the scroll region. */
   scrollLabel?: string;
+  /** Fill the height of the parent, with the screenshot area taking whatever the
+   *  chrome bar does not.
+   *
+   *  For a frame sitting beside an unframed image of the same height — the two
+   *  cards on the case studies index — the chrome bar is otherwise 41px the
+   *  neighbour does not spend, so the two media blocks end at different heights
+   *  and the card titles below them stop aligning. Rather than subtract a magic
+   *  41px from the screenshot's own height, the parent sets one height and the
+   *  screenshot area flexes into the remainder. */
+  fill?: boolean;
 }) {
   return (
     <figure
-      className={
+      className={[
         flush
           ? "m-0 bg-white"
-          : "m-0 overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)]"
-      }
+          : "m-0 overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)]",
+        fill ? "flex h-full flex-col" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
-      <div className="flex items-center gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface)] px-3.5 py-2.5">
+      <div className="flex flex-shrink-0 items-center gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface)] px-3.5 py-2.5">
         <span className="flex flex-shrink-0 gap-1.5" aria-hidden="true">
           <span className="h-2 w-2 rounded-full bg-[var(--color-muted-light)]" />
           <span className="h-2 w-2 rounded-full bg-[var(--color-muted-light)]" />
@@ -99,7 +113,7 @@ export default function BrowserFrame({
           </div>
         </div>
       ) : (
-        <div className="bg-white">{children}</div>
+        <div className={fill ? "min-h-0 flex-1 bg-white" : "bg-white"}>{children}</div>
       )}
 
       {(caption || scrollOnMobile) && (

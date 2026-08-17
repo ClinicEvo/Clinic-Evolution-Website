@@ -30,9 +30,14 @@ const crumbs = [
  * Morgan founded it and co-founded Clinic Evo, and the 10 Aug review was
  * explicit that implying otherwise is the thing to fix.
  *
- * Bodyfunction leads, and leads at the wider column. Two identical cards told
- * the reader nothing about where to start, and the hero sentence introduces
- * London first — the order now matches it.
+ * Equal columns, and equal media heights. A 7/5 split was tried to give the
+ * reader somewhere to start, and it backfired twice: the narrower card read as
+ * crammed rather than secondary, and the card it shrank was Lind Street — the
+ * actual client project, next to the founder's own clinic. Sizing the client
+ * work as the lesser of the two is the wrong signal on a page selling client
+ * work. Ordering still follows the hero sentence, which introduces London
+ * first, and the framing paragraph above the grid does the "where to start" job
+ * that the size difference was supposed to.
  *
  * `media` differs per card on purpose. The Bodyfunction asset is a photograph
  * of the clinic team, which is the credibility claim this whole site rests on,
@@ -58,8 +63,6 @@ const caseStudies = [
       src: "/images/bodyfunction-clinic-team-at-reception-01.jpg",
       alt: "The Bodyfunction Clinic team at reception in Angel, London",
     },
-    span: "lg:col-span-7",
-    aspect: "aspect-[16/10]",
   },
   {
     href: "/case-studies/lind-street-osteopathy/",
@@ -76,10 +79,12 @@ const caseStudies = [
       alt: "The Lind Street Osteopathy website built by Clinic Evo",
       label: "lindstreetosteopathy.co.uk",
     },
-    span: "lg:col-span-5",
-    aspect: "aspect-[16/11]",
   },
 ];
+
+/* One height for both media blocks, so the chrome bar on the framed card comes
+   out of the screenshot rather than out of the card below it. */
+const MEDIA_HEIGHT = "h-[240px] sm:h-[300px] lg:h-[340px]";
 
 /* What both engagements covered. Taken from the Lind Street build scope rather
    than written fresh — a prospect reading the index should be able to see the
@@ -201,41 +206,41 @@ export default function CaseStudiesPage() {
             </p>
           </FadeUp>
 
-          {/* Stretch, not items-start. The lead card carries a taller image, so
-              aligning to the top left the second card ending 200px short with a
+          {/* Stretch, not items-start: the two bodies differ in length, and
+              aligning to the top leaves the shorter card ending early with a
               visible hole under it. Stretched, both bottoms line up and the
               flex-1 body copy absorbs the difference. */}
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {caseStudies.map((cs, i) => (
-              <FadeUp key={cs.href} delay={i * 0.1} className={cs.span}>
+              <FadeUp key={cs.href} delay={i * 0.1}>
                 <Link
                   href={cs.href}
                   className="card-surface group flex h-full flex-col overflow-hidden"
                 >
                   {cs.media.kind === "photo" ? (
-                    <div
-                      className={`relative ${cs.aspect} w-full overflow-hidden`}
-                    >
+                    <div className={`relative ${MEDIA_HEIGHT} w-full overflow-hidden`}>
                       <Image
                         src={cs.media.src}
                         alt={cs.media.alt}
                         fill
                         className="object-cover transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out-quart)] group-hover:scale-[1.03]"
-                        sizes="(max-width: 1024px) 100vw, 640px"
+                        sizes="(max-width: 1024px) 100vw, 580px"
                       />
                     </div>
                   ) : (
-                    <BrowserFrame label={cs.media.label} flush>
-                      <div className={`relative ${cs.aspect} w-full overflow-hidden`}>
-                        <Image
-                          src={cs.media.src}
-                          alt={cs.media.alt}
-                          fill
-                          className="object-cover object-top transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out-quart)] group-hover:scale-[1.03]"
-                          sizes="(max-width: 1024px) 100vw, 460px"
-                        />
-                      </div>
-                    </BrowserFrame>
+                    <div className={`${MEDIA_HEIGHT} w-full`}>
+                      <BrowserFrame label={cs.media.label} flush fill>
+                        <div className="relative h-full w-full overflow-hidden">
+                          <Image
+                            src={cs.media.src}
+                            alt={cs.media.alt}
+                            fill
+                            className="object-cover object-top transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out-quart)] group-hover:scale-[1.03]"
+                            sizes="(max-width: 1024px) 100vw, 580px"
+                          />
+                        </div>
+                      </BrowserFrame>
+                    </div>
                   )}
 
                   <div className="flex flex-1 flex-col border-t border-[var(--color-border)] p-7 md:p-8">
