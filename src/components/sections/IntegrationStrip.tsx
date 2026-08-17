@@ -1,6 +1,7 @@
 import Image from "next/image";
 import FadeUp from "@/components/ui/FadeUp";
 import { brandHex, brandMarks, type BrandSlug } from "@/components/icons/BrandIcons";
+import { colorMarks, type ColorMarkSlug } from "@/components/icons/BrandColorMarks";
 
 /**
  * "The tools your clinic already uses, connected in one place."
@@ -41,6 +42,11 @@ const channels: Channel[] = [
 ];
 
 function Pill({ item, duplicate }: { item: Channel; duplicate?: boolean }) {
+  // Full-colour mark where the brand's real logo needs more than one colour
+  // (Google's four-colour G, Instagram's gradient, TikTok's offset note).
+  // Everything else is correct as its monochrome path in the brand's own hex —
+  // Facebook, Messenger and WhatsApp marks are already the real logos.
+  const ColorMark = item.brand ? colorMarks[item.brand as ColorMarkSlug] : null;
   const Mark = item.brand ? brandMarks[item.brand] : null;
 
   return (
@@ -48,13 +54,18 @@ function Pill({ item, duplicate }: { item: Channel; duplicate?: boolean }) {
       aria-hidden={duplicate || undefined}
       className="flex flex-shrink-0 items-center gap-3 rounded-[var(--radius-btn)] border border-[var(--color-border)] bg-[var(--color-paper)] px-6 py-3.5 shadow-[var(--shadow-sm)]"
     >
-      {Mark && item.brand && (
-        <Mark
-          className="h-5 w-5 flex-shrink-0"
-          // Inline style rather than a class: the value is the brand's own hex,
-          // not a design-system token.
-          style={{ color: brandHex[item.brand] }}
-        />
+      {ColorMark ? (
+        <ColorMark className="h-5 w-5 flex-shrink-0" />
+      ) : (
+        Mark &&
+        item.brand && (
+          <Mark
+            className="h-5 w-5 flex-shrink-0"
+            // Inline style rather than a class: the value is the brand's own hex,
+            // not a design-system token.
+            style={{ color: brandHex[item.brand] }}
+          />
+        )
       )}
       {item.imageSrc && (
         <Image

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FadeUp from "@/components/ui/FadeUp";
 import { brandHex, brandMarks, type BrandSlug } from "@/components/icons/BrandIcons";
+import { colorMarks, type ColorMarkSlug } from "@/components/icons/BrandColorMarks";
 
 /**
  * Where Patient Pulse sits: after the acquisition channels, before the booking.
@@ -100,7 +101,21 @@ export default function ConnectedJourney() {
                       four labels sit on the same baseline. */}
                   <span className="mb-3 flex h-[1.15rem] items-center gap-1.5">
                     {c.brands?.map((slug) => {
-                        const Mark = brandMarks[slug];
+                      // Full-colour mark where the brand's real logo needs more
+                      // than one colour (Google's four-colour G, Instagram's
+                      // gradient, TikTok's offset note); otherwise the
+                      // monochrome path in the brand's own hex, which for
+                      // Facebook is already the real logo.
+                      const ColorMark = colorMarks[slug as ColorMarkSlug];
+                      if (ColorMark) {
+                        return (
+                          <ColorMark
+                            key={slug}
+                            className="h-[1.15rem] w-[1.15rem] flex-shrink-0"
+                          />
+                        );
+                      }
+                      const Mark = brandMarks[slug];
                       return (
                         <Mark
                           key={slug}
