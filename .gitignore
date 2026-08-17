@@ -38,6 +38,11 @@ yarn-error.log*
 # and presenting conditions. Kept locally for redaction work only — NEVER commit.
 /private-assets/
 
+# Internal implementation briefs from the 10 Aug 2026 review. They critique this
+# site frankly, and this repo is public — that critique is not for prospects or
+# competitors to read. Working documents, not deliverables.
+/clinic_evo_revision_pack/
+
 # Vercel
 .vercel
 
