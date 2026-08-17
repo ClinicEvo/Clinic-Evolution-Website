@@ -18,6 +18,7 @@ import {
   InstagramLogo,
   TiktokLogo,
 } from "@/components/brand/PlatformLogos";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "Digital Marketing for MSK Clinics, Coordinated Growth",
@@ -260,7 +261,7 @@ export default function DigitalMarketingPage() {
           <div className="mb-12 grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
             <FadeUp>
               <div>
-                <p className="eyebrow mb-4">Not interchangeable</p>
+                <p className="eyebrow mb-4">Three different platforms</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-5 leading-tight">
                   Facebook, Instagram and TikTok are not the same channel
                 </h2>
@@ -320,7 +321,7 @@ export default function DigitalMarketingPage() {
               <div>
                 <p className="eyebrow mb-5">Real campaigns, running now</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Built around a condition, not a clinic
+                  One campaign per condition
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   Search captures people already looking for treatment. Paid social
@@ -370,7 +371,7 @@ export default function DigitalMarketingPage() {
             <FadeUp delay={0.1}>
               <div>
                 <h3 className="text-h3 text-[var(--color-ink)] mb-4 leading-tight">
-                  The ad is the easy half
+                  What happens after the click
                 </h3>
                 <p className="text-body text-[var(--color-muted)]">
                   Every social ad Clinic Evo builds is connected to the same
@@ -449,7 +450,7 @@ export default function DigitalMarketingPage() {
               <div>
                 <p className="eyebrow mb-5">Discipline-specific</p>
                 <h2 className="text-h2 text-[var(--color-ink)] leading-tight">
-                  Digital marketing built for your discipline
+                  For osteopaths, physios and chiropractors
                 </h2>
               </div>
               <p className="text-body text-[var(--color-muted)]">
@@ -540,9 +541,12 @@ export default function DigitalMarketingPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="See the whole system working for your clinic"
         subheading="Book a free clinic audit. We review every part of your current digital presence and show you honestly where growth is being lost, and what a connected system would do differently."
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

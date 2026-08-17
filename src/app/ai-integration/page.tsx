@@ -10,6 +10,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import StatBand from "@/components/sections/StatBand";
 import HeroStatCard from "@/components/sections/HeroStatCard";
 import ProcessSteps from "@/components/sections/ProcessSteps";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "AI Integration & Patient Reactivation for MSK Clinics",
@@ -183,9 +184,10 @@ export default function AiIntegrationPage() {
               sitting in a patient database that nobody has contacted.
             </p>
             <p className="text-body text-[var(--color-muted)]">
-              Automated reactivation is not a replacement for new patient acquisition.
-              It is a parallel system that extracts consistent value from existing
-              relationships, without adding any manual effort to the clinic.
+              Reactivation does not replace new patient acquisition; it runs alongside it.
+              Past patients already know your clinic, so a sensible recall system keeps
+              in touch and makes sure they know where to come back if they need
+              treatment again.
             </p>
           </FadeUp>
         </div>
@@ -198,7 +200,7 @@ export default function AiIntegrationPage() {
             <div className="mb-12 max-w-2xl">
               <p className="eyebrow mb-4">What&apos;s included</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                Retention automations built for MSK clinics
+                What the recall system does
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
                 Every automation is managed through{" "}
@@ -317,7 +319,7 @@ export default function AiIntegrationPage() {
           <FadeUp>
             <p className="eyebrow mb-5">Part of the whole chain</p>
             <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-              Retention is the fifth stage. All five need to work.
+              Recall is part of the chain
             </h2>
             <p className="text-body text-[var(--color-muted)] mb-8">
               Automated reactivation solves the retention problem. But clinics also
@@ -353,9 +355,12 @@ export default function AiIntegrationPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Find out how many lapsed patients your clinic has"
         subheading="Book a free clinic audit. We'll review your patient database, your current reactivation rate, and show you what an automated system would do differently."
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

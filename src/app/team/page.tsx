@@ -5,6 +5,7 @@ import CTASection from "@/components/sections/CTASection";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import PageHero from "@/components/sections/PageHero";
 import HeroFounderPanel from "@/components/sections/HeroFounderPanel";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "Meet the Team",
@@ -156,11 +157,14 @@ export default function TeamPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Want to work with the team?"
         subheading="Book a free clinic audit and speak directly with the people who will work on your clinic's growth."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

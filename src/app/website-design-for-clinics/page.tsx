@@ -14,6 +14,7 @@ import ProofBand from "@/components/sections/ProofBand";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 import ResearchPagePlan from "@/components/sections/ResearchPagePlan";
 import RealClinicSites from "@/components/sections/mockups/RealClinicSites";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 /*
  * Clinic website design — rebuilt around the research, 13 Aug 2026.
@@ -709,9 +710,12 @@ export default function WebsiteDesignForClinicsPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Start with a free clinic website audit"
         subheading="We will show you what your site is already ranking for, what your local competitors are taking that you are not, and what a patient hits when they try to book with you."
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

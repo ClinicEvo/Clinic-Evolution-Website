@@ -11,6 +11,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import { StatTiles } from "@/components/case-studies/CaseStudyCharts";
 import LaptopFrame from "@/components/sections/mockups/LaptopFrame";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 /*
  * Lind Street Osteopathy — the standing-start story, written for a clinic owner.
@@ -345,7 +346,7 @@ export default function LindStreetCaseStudyPage() {
               <FadeUp>
                 <p className="eyebrow mb-5">The lesson worth stealing</p>
                 <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                  Name the condition, not the treatment
+                  Patients search for the problem
                 </h2>
                 <div className="space-y-5">
                   <p className="text-body text-[var(--color-muted)]">
@@ -479,11 +480,14 @@ export default function LindStreetCaseStudyPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Starting from nothing, or starting again?"
         subheading="A free clinic audit shows you where your clinic stands in local search right now, what your competitors are ranking for that you are not, and what it would take to be the one patients find first."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

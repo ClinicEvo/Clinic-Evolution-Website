@@ -12,6 +12,7 @@ import PageHero from "@/components/sections/PageHero";
 import HeroImagePlaceholder from "@/components/sections/HeroImagePlaceholder";
 import StatBand from "@/components/sections/StatBand";
 import Image from "next/image";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "SEO for Chiropractors UK | Chiropractic Marketing",
@@ -119,7 +120,7 @@ export default function ChiropracticMarketingPage() {
               <div>
                 <p className="eyebrow mb-5">The challenge</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Chiropractic marketing built around trust, visibility and patient acquisition
+                  What brings chiropractic patients through the door
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
                   Chiropractic clinics face a particular challenge online. Many
@@ -195,7 +196,7 @@ export default function ChiropracticMarketingPage() {
             <div className="mb-12 max-w-2xl">
               <p className="eyebrow mb-4">Growth system</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                A stronger website, clearer SEO and smarter patient follow-up
+                Chiropractic patients want to know what the first visit involves
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
                 Chiropractic marketing works best when the main parts of your
@@ -333,7 +334,7 @@ export default function ChiropracticMarketingPage() {
               <div>
                 <p className="eyebrow mb-5">Specialist focus</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Why generic marketing does not work well for chiropractic clinics
+                  What a general agency gets wrong about chiropractic
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   A generic marketing agency may understand websites, traffic or
@@ -356,7 +357,7 @@ export default function ChiropracticMarketingPage() {
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
                 <h3 className="text-h3 text-[var(--color-ink)] mb-6">
-                  Built for clinic owners who want practical growth
+                  For chiropractors on a busy high street
                 </h3>
                 <div className="flex flex-col gap-5">
                   {[
@@ -495,11 +496,14 @@ export default function ChiropracticMarketingPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Ready to grow your chiropractic clinic?"
         subheading="Get a clear picture of your current visibility, website performance and missed enquiries — delivered within 2 business days."
         primaryLabel="See what's holding your clinic back"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

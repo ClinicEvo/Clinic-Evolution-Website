@@ -8,6 +8,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArticleSchema from "@/components/schema/ArticleSchema";
 import Button from "@/components/ui/Button";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 interface ArticleSection {
   title: string;
@@ -257,11 +258,14 @@ export default function ArticleLayout({
       )}
 
       <CTASection
+        id="closing-cta"
         heading="Get a clearer view of your clinic's marketing opportunities"
         subheading="Clinic Evo can review your website, search visibility, local SEO, patient journey and missed conversion opportunities, then show you where your budget is likely to have the strongest impact."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

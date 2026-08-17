@@ -11,6 +11,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
 import HeroStatCard from "@/components/sections/HeroStatCard";
 import StatBand from "@/components/sections/StatBand";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "Healthcare Marketing Consultant for Private Clinics",
@@ -156,7 +157,7 @@ export default function HealthcareMarketingConsultantPage() {
       {/* Proof band */}
       <StatBand
         eyebrow="What consultancy delivers"
-        heading="A prioritised plan, not a longer to-do list."
+        heading="A plan in priority order."
         body="The aim is clarity: a clear view of what to fix first, why it matters and what return it is likely to produce before you commit budget."
         stats={[
           { value: "5 days", label: "From first session to a delivered strategy" },
@@ -213,7 +214,7 @@ export default function HealthcareMarketingConsultantPage() {
             <FadeUp>
               <p className="eyebrow mb-5">Why Clinic Evo</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                Healthcare marketing consultancy grounded in clinic reality
+                Advice from people who run a clinic
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
                 Many marketing consultants understand campaigns. Fewer understand
@@ -327,7 +328,7 @@ export default function HealthcareMarketingConsultantPage() {
               <Link href="/case-studies/bodyfunction-clinic/" className="card-surface group block p-8">
                 <p className="text-label text-[var(--color-accent)] mb-4">Proof</p>
                 <h3 className="text-h3 text-[var(--color-ink)] mb-4">
-                  Built from real clinic growth work
+                  Where the advice comes from
                 </h3>
                 <p className="text-body text-[var(--color-muted)] mb-6">
                   Clinic Evo&apos;s approach is shaped by hands-on work with
@@ -367,9 +368,12 @@ export default function HealthcareMarketingConsultantPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Start with a free clinic marketing audit"
         subheading="Your free clinic audit will review your website, search visibility, patient journey and obvious growth gaps. You will come away with practical recommendations."
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

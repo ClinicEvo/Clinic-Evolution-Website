@@ -201,7 +201,7 @@ export default function StackReplacementTable() {
       <div className="cx-main">
         <FadeUp>
           <div className="mb-12 max-w-2xl">
-            <p className="eyebrow mb-4">One system, not a stack of subscriptions</p>
+            <p className="eyebrow mb-4">What it replaces</p>
             <h2 className="text-h2 mb-5 leading-tight text-[var(--color-ink)]">
               You are probably already paying for most of this
             </h2>

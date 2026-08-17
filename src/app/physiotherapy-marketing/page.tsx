@@ -12,6 +12,7 @@ import PageHero from "@/components/sections/PageHero";
 import HeroImagePlaceholder from "@/components/sections/HeroImagePlaceholder";
 import StatBand from "@/components/sections/StatBand";
 import Image from "next/image";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "Physiotherapy Marketing UK | Grow Your Physio Practice",
@@ -180,7 +181,7 @@ export default function PhysiotherapyMarketingPage() {
       {/* Proof band */}
       <StatBand
         eyebrow="What we can evidence"
-        heading="Measured in a working MSK clinic, not modelled."
+        heading="Measured in a working MSK clinic."
         body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so we do not publish a booking figure."
         stats={[
           { value: "8 → 3,822", label: "Monthly organic visitors at a London MSK clinic, over two years" },
@@ -196,7 +197,7 @@ export default function PhysiotherapyMarketingPage() {
             <div className="mb-12 max-w-2xl">
               <p className="eyebrow mb-4">Growth system</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
-                A stronger website, clearer SEO and smarter patient follow-up
+                Physio clinics sell several services to several audiences
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
                 Physiotherapy marketing works best when every part of your digital
@@ -295,7 +296,7 @@ export default function PhysiotherapyMarketingPage() {
               <div>
                 <p className="eyebrow mb-5">Specialist focus</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Why generic marketing does not work well for physio clinics
+                  What a general agency gets wrong about physiotherapy
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   A generic agency may understand websites, traffic or paid ads. That
@@ -318,7 +319,7 @@ export default function PhysiotherapyMarketingPage() {
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
                 <h3 className="text-h3 text-[var(--color-ink)] mb-6">
-                  Built for clinic owners who want practical growth
+                  For clinics with more than one practitioner
                 </h3>
                 <div className="flex flex-col gap-5">
                   {[
@@ -451,11 +452,14 @@ export default function PhysiotherapyMarketingPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Ready to grow your physiotherapy practice?"
         subheading="Get a clear picture of your current visibility, website performance and missed enquiries — delivered within 2 business days."
         primaryLabel="See what's holding your clinic back"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

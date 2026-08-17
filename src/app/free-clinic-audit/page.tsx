@@ -132,7 +132,7 @@ export default function FreeClinicAuditPage() {
               <div className="card-surface p-8">
                 <p className="eyebrow mb-4">What you receive</p>
                 <h3 className="text-h3 text-[var(--color-ink)] mb-5">
-                  A clear summary, not a 40-page report
+                  A short summary you can act on
                 </h3>
                 <ul className="flex flex-col gap-3 mb-6">
                   {[

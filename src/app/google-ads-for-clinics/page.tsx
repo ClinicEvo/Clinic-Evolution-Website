@@ -17,6 +17,7 @@ import GoogleAdsPanel from "@/components/sections/mockups/GoogleAdsPanel";
 import AdsToBookingChain from "@/components/sections/AdsToBookingChain";
 import { GoogleAdsLockup } from "@/components/icons/GoogleColorMark";
 import { AD_CLINIC, CONVERSION_CAVEAT, FIGURES } from "@/lib/google-ads-evidence";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "Google Ads for Physios & Clinics",
@@ -210,7 +211,7 @@ export default function GoogleAdsForClinicsPage() {
             <FadeUp>
               <p className="eyebrow mb-5">Patient intent</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                Google Ads built around real patient searches
+                The searches worth paying for
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
                 When someone searches for a private physiotherapist, osteopath or
@@ -336,7 +337,7 @@ export default function GoogleAdsForClinicsPage() {
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
               <FadeUp>
-                <p className="eyebrow mb-4">Evidence, not adjectives</p>
+                <p className="eyebrow mb-4">Real campaign data</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                   What a well-run clinic Google Ads account looks like
                 </h2>
@@ -632,9 +633,12 @@ export default function GoogleAdsForClinicsPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Find out whether Google Ads is right for your clinic"
         subheading="A free clinic audit will highlight where your current digital presence is helping, where it may be losing enquiries, and whether paid search should be part of your growth plan."
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

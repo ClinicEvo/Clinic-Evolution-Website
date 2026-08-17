@@ -83,7 +83,7 @@ export default function IntegrationStrip() {
       <div className="cx-main">
         <FadeUp>
           <div className="mb-10 max-w-2xl">
-            <p className="eyebrow mb-4">Connected, not another silo</p>
+            <p className="eyebrow mb-4">Works with what you already use</p>
             <h2 className="text-h3 mb-4 leading-tight text-[var(--color-ink)]">
               The channels your patients already use, feeding one system
             </h2>

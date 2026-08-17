@@ -6,6 +6,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import PageHero from "@/components/sections/PageHero";
 import ResourceTabNav from "@/components/sections/ResourceTabNav";
 import { ReactNode } from "react";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "Learning Hub: Clinic Marketing Guides for Private Clinics",
@@ -470,11 +471,14 @@ export default function ResourcesHubPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Need a clearer plan for your clinic?"
         subheading="A free Clinic Evo audit reviews your website, search visibility, enquiry handling and patient follow-up — and shows you where the strongest opportunities are."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

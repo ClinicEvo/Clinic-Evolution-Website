@@ -14,6 +14,7 @@ import CallDeskPanel from "@/components/sections/mockups/CallDeskPanel";
 import LaptopFrame from "@/components/sections/mockups/LaptopFrame";
 import ProofBand from "@/components/sections/ProofBand";
 import Image from "next/image";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "Call Handling & Booking for MSK Clinics",
@@ -291,7 +292,7 @@ export default function CallCentrePage() {
                   Not an answering service
                 </p>
                 <h2 className="text-h2 mt-4 max-w-2xl text-white">
-                  Anyone can take a message. The point is to book the patient.
+                  Your handler books the appointment
                 </h2>
 
                 {/* Column labels earn their place at md+, where the two halves
@@ -362,7 +363,7 @@ export default function CallCentrePage() {
           <FadeUp>
             <p className="eyebrow mb-5">Part of the whole chain</p>
             <h2 className="text-h2 text-balance text-[var(--color-ink)] max-w-[640px] mb-6 leading-tight">
-              Answering the phone is one link. We build the rest of the chain too.
+              We handle what happens after the call too
             </h2>
             <p className="text-body-lg text-[var(--color-charcoal)] max-w-[620px] mb-14">
               A call is only worth answering if something brought the patient to
@@ -395,9 +396,12 @@ export default function CallCentrePage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Stop losing patients to unanswered calls"
         subheading="Book a free clinic audit. We'll identify exactly how many enquiries your clinic is likely losing to unanswered calls, and what a full system would do about it."
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

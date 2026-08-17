@@ -163,7 +163,7 @@ export default function PulseCapabilityTabs() {
         <div className="mb-10 max-w-2xl">
           <p className="eyebrow mb-4">What Patient Pulse actually does</p>
           <h2 className="text-h2 mb-5 leading-tight text-[var(--color-ink)]">
-            Four stages of the patient journey, in one system
+            What Patient Pulse does at each stage
           </h2>
           <p className="text-body-lg text-[var(--color-charcoal)]">
             Marketing brings people to your door. Patient Pulse is what happens next,

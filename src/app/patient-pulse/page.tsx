@@ -14,6 +14,7 @@ import ConnectedJourney from "@/components/sections/ConnectedJourney";
 import StackReplacementTable from "@/components/sections/StackReplacementTable";
 import PulseCapabilityTabs from "@/components/sections/PulseCapabilityTabs";
 import IntegrationStrip from "@/components/sections/IntegrationStrip";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "Patient Pulse: Clinic CRM, Messaging & Follow-Up",
@@ -183,9 +184,9 @@ export default function PatientPulsePage() {
       <section className="py-20 lg:py-24 bg-[var(--color-paper)]">
         <div className="cx-main max-w-3xl">
           <FadeUp>
-            <p className="eyebrow mb-5">Built for MSK clinics</p>
+            <p className="eyebrow mb-5">Who it is for</p>
             <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-              Not a generic CRM. Built inside a working clinic.
+              Why it works the way a clinic works
             </h2>
             <p className="text-body mb-5 text-[var(--color-muted)]">
               Most CRM platforms are built for sales teams. Patient Pulse is built for
@@ -226,9 +227,12 @@ export default function PatientPulsePage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="See Patient Pulse working for your clinic"
         subheading="Book a free clinic audit. We'll walk you through Patient Pulse live on the call and show you exactly where your current follow-up system is losing bookings."
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

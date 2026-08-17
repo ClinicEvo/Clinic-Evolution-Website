@@ -13,6 +13,7 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroFounderPanel from "@/components/sections/HeroFounderPanel";
 import StatBand from "@/components/sections/StatBand";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 
 export const metadata = buildMetadata({
@@ -230,7 +231,7 @@ export default function AboutPage() {
               <div>
                 <p className="eyebrow mb-5">Focus</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Built for osteopaths, physiotherapists and chiropractors
+                  The three professions we know
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   Clinic Evo focuses on MSK and private healthcare clinics,
@@ -389,7 +390,7 @@ export default function AboutPage() {
       {/* Proof band */}
       <StatBand
         eyebrow="One connected system"
-        heading="Not scattered tactics. A single system built for clinic growth."
+        heading="The parts work together."
         body="Visibility, website, enquiries, calls and follow-up are designed to work as one, so each stage strengthens the next instead of competing for attention."
         stats={[
           { value: "5", label: "Connected growth stages, from first search to rebooking" },
@@ -406,7 +407,7 @@ export default function AboutPage() {
               <div>
                 <p className="eyebrow mb-5">Evidence</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Proof matters more than promises
+                  What we can show you
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5">
                   Clinic Evo&apos;s approach is shaped by real clinic growth work,
@@ -456,7 +457,7 @@ export default function AboutPage() {
             <FadeUp>
               <p className="eyebrow mb-5">Approach</p>
               <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                Clear strategy, practical delivery, no generic playbook
+                How we work
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-5">
                 Clinic Evo is designed for clinic owners who want a practical
@@ -540,11 +541,14 @@ export default function AboutPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Start with a free clinic audit"
         subheading="The easiest way to see where Clinic Evo can help is to start with a free clinic marketing audit. We will review your website, SEO, local visibility, patient journey and conversion points, then highlight the opportunities most likely to improve enquiries and bookings."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

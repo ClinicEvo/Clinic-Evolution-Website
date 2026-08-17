@@ -14,6 +14,7 @@ import {
   OrganicGrowthChart,
   PositionDumbbell,
 } from "@/components/case-studies/CaseStudyCharts";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 /*
  * Bodyfunction Clinic — the origin story, written for a clinic owner.
@@ -347,7 +348,7 @@ export default function BodyfunctionCaseStudyPage() {
             <div className="mb-12 max-w-2xl">
               <p className="eyebrow mb-4">What we did</p>
               <h2 className="text-h2 mb-4 text-[var(--color-ink)]">
-                Six changes that did the work
+                What we changed
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
                 None of these are clever. They are the things most clinic websites
@@ -656,7 +657,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp>
                 <p className="eyebrow mb-5">Patient journey</p>
                 <h2 className="text-h2 mb-8 leading-tight text-[var(--color-ink)]">
-                  Getting found is only half of it
+                  After they find you
                 </h2>
                 <div className="space-y-6">
                   <p className="text-body leading-relaxed text-[var(--color-muted)]">
@@ -838,11 +839,14 @@ export default function BodyfunctionCaseStudyPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Where does your clinic actually rank right now?"
         subheading="A free clinic audit shows you where you appear for the searches your patients are making, which competitors are taking that work, and what it would take to be the one they find first."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

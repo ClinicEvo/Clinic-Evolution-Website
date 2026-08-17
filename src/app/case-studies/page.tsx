@@ -7,6 +7,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import PageHero from "@/components/sections/PageHero";
 import HeroCliniciansPanel from "@/components/sections/HeroCliniciansPanel";
 import BrowserFrame from "@/components/sections/mockups/BrowserFrame";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
   title: "Clinic Marketing Case Studies",
@@ -315,7 +316,7 @@ export default function CaseStudiesPage() {
                     What both had in common
                   </p>
                   <h2 className="text-h2 mt-4 mb-6 leading-tight text-white">
-                    The same four pieces, at two different scales
+                    What both clinics had in common
                   </h2>
                   <p className="text-body leading-relaxed text-white/65">
                     Neither clinic bought a website from one supplier and search
@@ -348,11 +349,14 @@ export default function CaseStudiesPage() {
       </section>
 
       <CTASection
+        id="closing-cta"
         heading="Want to see what your clinic is missing?"
         subheading="A free clinic audit will show where your current website, SEO, patient journey and conversion points could be improved."
         primaryLabel="Get a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="closing-cta" />
     </>
   );
 }

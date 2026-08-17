@@ -15,6 +15,7 @@ import HeroVisual from "@/components/hero/HeroVisual";
 import HeroHeadline from "@/components/hero/HeroHeadline";
 import CTASection from "@/components/sections/CTASection";
 import { siteConfig } from "@/lib/metadata";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata: Metadata = {
   alternates: {
@@ -181,6 +182,36 @@ const clientLogos: Array<{
   },
 ];
 
+// Homepage proof. Every figure is lifted verbatim from a page that already
+// carries it with its source — /case-studies/bodyfunction-clinic/ for the first
+// two, the Lind Street study for the third — so there is one set of numbers on
+// this site, not a homepage set and a case-study set that can drift apart.
+//
+// Numerals are ink rather than coral, matching StatTiles on the case studies.
+// Coral on this site marks the action; a wall of coral numerals directly above
+// the first CTA would compete with it.
+//
+// The caveat line is not hedging. These tools measure search, not appointments,
+// and saying so is what stops a reader treating "3,822" as bookings — which
+// would be the one misreading that could actually cost trust.
+const proofStats = [
+  {
+    value: "8 → 3,822",
+    label: "People finding a London osteopathy clinic through Google each month",
+    source: "Ahrefs · Aug 2024 against Aug 2026",
+  },
+  {
+    value: "+425%",
+    label: "More clicks through to that clinic's website, year on year",
+    source: "Search Console · 9,345 rising to 49,065",
+  },
+  {
+    value: "0 → page one",
+    label: "Every core local search for a new Isle of Wight clinic",
+    source: "Search Console · within twelve months",
+  },
+];
+
 // The two capabilities that operate after an enquiry arrives, so they sit
 // inside the Patient Pulse layer rather than alongside the channels.
 const pulseCapabilities = [
@@ -277,10 +308,10 @@ function OperatingSystemBand() {
       <div className="grid gap-10 p-9 md:p-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:p-14">
         <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
-            The Clinic Evo operating system
+            The five things we run
           </p>
           <h3 className="mt-4 max-w-md font-display text-3xl font-semibold leading-[1.15] text-white md:text-[2.4rem]">
-            One connected patient journey, not five disconnected marketing tasks.
+            Your website, your search results and your follow-up, run by the same team
           </h3>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/65">
             Most clinics buy these pieces separately and hope they add up. We build
@@ -456,6 +487,53 @@ export default function HomePage() {
         </section>
       )}
 
+      {/* ── Proof ─────────────────────────────────────────────────────────── */}
+      {/* Sits with the logo strip on purpose: the logos say who, this says what
+          happened. Separated by hairlines rather than built as three cards —
+          it should read as one rail, and the house rule is no equal card grid. */}
+      <section className="border-b border-[var(--color-border)] bg-[var(--color-paper)] py-11">
+        <div className="cx-main">
+          <div className="flex flex-col gap-7 lg:flex-row lg:gap-12">
+            <p className="flex-shrink-0 whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--color-muted)] lg:pt-1">
+              What we can evidence
+            </p>
+
+            <ul className="flex flex-1 flex-col divide-y divide-[var(--color-border)] sm:flex-row sm:divide-x sm:divide-y-0">
+              {proofStats.map((stat, i) => (
+                <li
+                  key={stat.label}
+                  className={`flex-1 py-5 first:pt-0 last:pb-0 sm:py-0 ${
+                    i === 0 ? "sm:pr-8" : "sm:px-8"
+                  } sm:last:pr-0`}
+                >
+                  <p className="mb-2 font-display text-[1.75rem] font-bold leading-none tabular-nums text-[var(--color-ink)] lg:text-3xl">
+                    {stat.value}
+                  </p>
+                  <p className="text-body-sm leading-snug text-[var(--color-charcoal)]">
+                    {stat.label}
+                  </p>
+                  <p className="mt-2 text-[11px] leading-snug text-[var(--color-muted)]">
+                    {stat.source}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="mt-8 text-[12px] leading-snug text-[var(--color-muted)] lg:mt-7">
+            Both tools measure search, not appointments, so we do not publish a booking
+            figure.{" "}
+            <Link
+              href="/case-studies/"
+              className="font-semibold text-[var(--color-accent-text)] hover:underline"
+            >
+              See both case studies
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
       {/* ── System ────────────────────────────────────────────────────────── */}
       <section id="system-section" className="section bg-[var(--color-surface)] border-y border-[var(--color-border)] grain">
         <div className="cx-main">
@@ -468,7 +546,7 @@ export default function HomePage() {
             <h2
               className="text-h2 text-[var(--color-ink)] mb-4"
             >
-              Four ways patients find your clinic. One system that makes sure you keep them.
+              How patients find your clinic, and what happens after they do
             </h2>
             <p
               className="text-body-lg text-[var(--color-charcoal)] max-w-[580px]"
@@ -553,9 +631,13 @@ export default function HomePage() {
                     wordmark above the copy on narrow screens rather than orphaning it. */}
                 <div className="flex flex-col-reverse gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-14">
                   <div className="max-w-2xl">
-                    <p className="eyebrow mb-4">Step 05, the glue</p>
+                    {/* An eyebrow is the second thing a skimmer reads after the
+                        heading, and "Step 05" only means something to someone
+                        who counted the four cards above it. This says the same
+                        thing to a cold reader. */}
+                    <p className="eyebrow mb-4">Once the enquiry arrives</p>
                     <h3 className="text-h3 text-[var(--color-ink)] mb-4">
-                      Patient Pulse connects every enquiry those four channels create.
+                      Patient Pulse picks up every enquiry your marketing brings in.
                     </h3>
                     <p className="text-body text-[var(--color-muted)]">
                       Getting found is half the job. Patient Pulse is the one place your
@@ -682,11 +764,11 @@ export default function HomePage() {
             {/* Right, copy */}
             <div>
               <FadeUp>
-                <p className="text-label mb-5">Built in practice, not theory</p>
+                <p className="text-label mb-5">Where Clinic Evo came from</p>
                 <h2
                   className="text-h2 text-[var(--color-ink)] mb-5"
                 >
-                  Built in a real clinic. Proven in practice.
+                  Danny runs a London clinic. We built this there first.
                 </h2>
                 {/* Danny's own framing from the 10 Aug review: "Clinic evolution was
                     built out of the learnings of body function clinic". Not "our own
@@ -748,12 +830,12 @@ export default function HomePage() {
             <p
               className="eyebrow mb-4"
             >
-              Our specialisms
+              Who we work with
             </p>
             <h2
               className="text-h2 text-[var(--color-ink)] mb-12"
             >
-              Built for MSK clinics.
+              Osteopaths, physiotherapists and chiropractors
             </h2>
           </FadeUp>
 
@@ -814,6 +896,8 @@ export default function HomePage() {
         primaryLabel="Book a free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
+
+      <StickyMobileCta hideNearId="book-audit" />
 
       {/* ── Resources ─────────────────────────────────────────────────────── */}
       <section className="section bg-[var(--color-paper)] border-t border-[var(--color-border)]">
