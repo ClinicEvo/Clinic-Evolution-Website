@@ -162,6 +162,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A practical overview of how private clinics can approach digital marketing without wasting time on disconnected tactics."}
       heroImage="/images/resources/market-your-clinic.jpg"
       eyebrow="Clinic marketing guide"
       title="How to market your clinic"

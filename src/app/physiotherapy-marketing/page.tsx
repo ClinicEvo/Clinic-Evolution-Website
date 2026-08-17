@@ -17,7 +17,9 @@ import Image from "next/image";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
-  title: "Physiotherapy Marketing UK | Grow Your Physio Practice",
+  // "physiotherapy marketing agency" (150/mo) sits alongside "physiotherapy
+  // marketing" (150) — adding the one word captures both head terms.
+  title: "Physiotherapy Marketing Agency UK",
   description:
     "Specialist marketing for UK physiotherapists. SEO, Google Ads and website design that attracts more patients to your physio clinic. Book a free clinic audit.",
   path: "/physiotherapy-marketing/",
@@ -38,6 +40,21 @@ const faqs = [
     question: "Can you help with sports physiotherapy marketing specifically?",
     answer:
       "Yes, and it works better kept separate from your general physio pages. Someone searching 'sports injury physio' wants to know you treat their sport and how quickly they will be back training, which a general rehab overview does not answer. In practice that means its own service page, its own ad group and its own keyword set.",
+  },
+  {
+    question: "What physio clinic marketing ideas actually work?",
+    answer:
+      "The ones that compound rather than the ones that spike. A service page for each treatment you want to be found for, a Google Business Profile kept current with real reviews, a fast reply to every enquiry, and a system for contacting past patients are worth more over a year than any single campaign. Ideas that depend on posting constantly tend to stop working the week you get busy.",
+  },
+  {
+    question: "How do you build a physiotherapy marketing strategy?",
+    answer:
+      "Start from the diary rather than the channel. Work out how many new patients you need, where the current ones actually come from, and which step is losing people — visibility, the website, the enquiry response, or follow-up. Only then decide which channels to use. A strategy that starts with 'we should do more social' usually fixes the step that was not broken.",
+  },
+  {
+    question: "How much should physio marketing spend be?",
+    answer:
+      "It depends on how many new patients you need and what one is worth to you over a full course of treatment, not on a percentage rule borrowed from another industry. Work backwards from the cost of acquiring a patient and the lifetime value of that patient, and the budget question usually answers itself. We cover the method in our guide on how much a clinic should spend on marketing.",
   },
   {
     question: "How much do physiotherapy Google Ads cost?",

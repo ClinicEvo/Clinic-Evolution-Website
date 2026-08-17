@@ -17,10 +17,16 @@ import IntegrationStrip from "@/components/sections/IntegrationStrip";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
-  title: "Patient Pulse: Clinic CRM, Messaging & Follow-Up",
+  // Leads with the category rather than the brand — nobody searches "Patient
+  // Pulse". NOTE: "clinic CRM" is NOT in the Ahrefs research, which never
+  // covered this category (it sized practice-management software instead, a
+  // category Patient Pulse integrates with rather than replaces). Volume here
+  // is unvalidated — confirm before building further on it.
+  title: "Clinic CRM & Patient Follow-Up Software | Patient Pulse",
   description:
     "Clinic Evo's managed CRM for UK osteopaths, physios and chiropractors. One system for enquiries, patient messaging, lead pipelines, reviews, newsletters and automatic follow-up.",
   path: "/patient-pulse/",
+  absoluteTitle: true,
 });
 
 const crumbs = [

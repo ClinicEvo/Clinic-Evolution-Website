@@ -27,11 +27,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { ...url("/ai-integration/"), priority: 0.9 },
     { ...url("/digital-marketing/"), priority: 0.9 },
     { ...url("/healthcare-marketing-consultant/"), priority: 0.9 },
+    { ...url("/patient-pulse/"), priority: 0.9 },
+    { ...url("/call-centre/"), priority: 0.9 },
     { ...url("/case-studies/"), priority: 0.8 },
     { ...url("/case-studies/bodyfunction-clinic/"), priority: 0.8 },
     { ...url("/case-studies/lind-street-osteopathy/"), priority: 0.8 },
     { ...url("/free-clinic-audit/"), priority: 0.95 },
     { ...url("/about/"), priority: 0.7 },
+    { ...url("/team/"), priority: 0.6 },
     { ...url("/contact/"), priority: 0.8 },
     { ...url("/learning-hub/"), priority: 0.8 },
     { ...url("/learning-hub/how-much-should-a-clinic-spend-on-marketing/") },
@@ -48,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { ...url("/learning-hub/chiropractic-marketing-case-study/") },
     { ...url("/privacy-policy/"), priority: 0.3 },
     { ...url("/cookie-policy/"), priority: 0.3 },
-    { ...url("/terms/"), priority: 0.3 },
+    // /terms/ is deliberately absent: the page carries a noindex meta tag, so
+    // listing it here asked Google to index a page the page itself forbids.
   ];
 }

@@ -179,6 +179,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A guide for physiotherapy clinic owners who want to improve patient acquisition, local visibility and diary flow."}
       heroImage="/images/resources/physio-growth.jpg"
       eyebrow="Physio business growth guide"
       title="Physio business growth: the complete guide"

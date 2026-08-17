@@ -171,6 +171,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A chiropractic-specific guide covering visibility, trust, patient education and ways to reduce reliance on referral-only growth."}
       heroImage="/images/resources/chiro-practice.jpg"
       eyebrow="Chiropractic marketing guide"
       title="How to market your chiropractic practice"

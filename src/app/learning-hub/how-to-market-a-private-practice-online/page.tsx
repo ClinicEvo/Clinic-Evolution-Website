@@ -161,6 +161,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A guide for clinic owners who want to understand the foundations of online marketing for private healthcare services."}
       heroImage="/images/resources/market-private-practice.jpg"
       eyebrow="Private practice marketing guide"
       title="How to market a private practice online"

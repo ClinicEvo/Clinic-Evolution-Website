@@ -152,6 +152,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A chiropractic-specific guide to using Google Ads for high-intent patient searches, new patient acquisition and campaign management."}
       heroImage="/images/resources/google-ads-chiro.jpg"
       eyebrow="Google Ads guide for chiropractors"
       title="Google Ads for chiropractors"

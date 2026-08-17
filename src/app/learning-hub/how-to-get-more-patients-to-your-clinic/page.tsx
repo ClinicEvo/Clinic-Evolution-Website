@@ -175,6 +175,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A practical guide to the digital levers that help private clinics attract more patient enquiries, covering local search, service pages, SEO and conversion."}
       heroImage="/images/resources/get-more-patients.jpg"
       eyebrow="Patient acquisition guide"
       title="How to get more patients to your clinic"

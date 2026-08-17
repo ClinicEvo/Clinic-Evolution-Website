@@ -179,6 +179,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A practical guide to improving local visibility for physiotherapy clinics, covering service pages, Google Business Profile, reviews and location signals."}
       heroImage="/images/resources/local-seo-physio.jpg"
       eyebrow="Local SEO guide for physios"
       title="Local SEO for physio clinics"

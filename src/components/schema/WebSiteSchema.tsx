@@ -6,14 +6,11 @@ export default function WebSiteSchema() {
     "@type": "WebSite",
     name: siteConfig.name,
     url: siteConfig.url,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteConfig.url}/learning-hub/?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
+    // No potentialAction/SearchAction here on purpose. It previously declared a
+    // sitelinks searchbox at /learning-hub/?q= — but that page has no search
+    // input and ignores the parameter, so the markup described a feature the
+    // site does not have. Google also retired the sitelinks searchbox in
+    // November 2024. Only reinstate this if real hub search is built.
   };
 
   return (

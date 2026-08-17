@@ -295,6 +295,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A practical guide to clinic marketing budgets for private practice owners, covering SEO, Google Ads, websites, patient acquisition and how to invest sensibly."}
       heroImage="/images/resources/marketing-budget.jpg"
       eyebrow="Clinic marketing budget guide"
       title="How much should a clinic spend on marketing?"

@@ -66,10 +66,13 @@ import {
    "SEO" three times and "clinic" three times once the site suffix landed. The
    H1 below is deliberately unchanged; that one was defended on the 10 Aug call. */
 export const metadata = buildMetadata({
-  title: "SEO for Medical Clinics | Osteopaths, Physios, Chiropractors",
+  // "clinic seo" (150/mo) is the researched head term for this page and was
+  // previously nowhere in the title, H1 or URL. absoluteTitle buys the room.
+  title: "Clinic SEO for Physiotherapy & Chiropractic Practices",
   description:
-    "Specialist SEO for medical clinics, osteopaths, physiotherapists and chiropractors. Improve local visibility, service pages, enquiries and patient bookings.",
+    "Specialist clinic SEO for osteopaths, physiotherapists and chiropractors. Improve local visibility, service pages, enquiries and patient bookings.",
   path: "/seo-for-clinics/",
+  absoluteTitle: true,
 });
 
 const faqs = [
@@ -82,6 +85,11 @@ const faqs = [
     question: "Is local SEO important for private clinics?",
     answer:
       "Yes. A clinic can only treat people who can physically reach it, so the searches worth winning either carry a place name or trigger the map pack. Local SEO is the work that gets a clinic into those results: service and condition pages tied to the areas you cover, consistent name and address data, and a Google Business Profile that matches the site.",
+  },
+  {
+    question: "What are the most useful physiotherapy clinic SEO tips?",
+    answer:
+      "Give every treatment you offer its own page rather than listing them all on one. Put your town in the page title where it is genuinely relevant and nowhere it is not. Keep the Google Business Profile current and ask for reviews consistently rather than in bursts. Make the phone number and booking path visible without scrolling on a phone. Most physiotherapy clinic sites lose more enquiries to a slow, buried booking path than to rankings.",
   },
   {
     question: "How long does clinic SEO take to work?",
@@ -357,7 +365,7 @@ export default function SeoForClinicsPage() {
         badge="Specialist SEO for private healthcare clinics"
         heading={
           <>
-            SEO for clinics that need{" "}
+            Clinic SEO for practices that need{" "}
             <em className="not-italic text-[var(--color-accent)]">more patient enquiries</em>
           </>
         }

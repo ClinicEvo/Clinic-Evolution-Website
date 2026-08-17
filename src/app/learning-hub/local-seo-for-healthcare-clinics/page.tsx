@@ -201,6 +201,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A guide to local SEO for healthcare and private medical clinics that want to appear more consistently for relevant local patient searches."}
       heroImage="/images/resources/local-seo-healthcare.jpg"
       eyebrow="Healthcare local SEO guide"
       title="Local SEO for healthcare clinics"

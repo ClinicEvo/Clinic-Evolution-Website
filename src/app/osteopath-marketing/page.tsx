@@ -17,7 +17,10 @@ import Image from "next/image";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
-  title: "Osteopath Marketing UK | Grow Your Osteopathy Practice",
+  // "osteopathy marketing agency" (70/mo) is the only researched osteopathy
+  // term. "osteopath marketing" — the previous title and the URL — is not in
+  // the keyword set at all, so its volume is unvalidated.
+  title: "Osteopathy Marketing Agency UK",
   description:
     "Specialist marketing for UK osteopaths. SEO, Google Ads and website design that fills your diary with new patients. Book a free clinic audit.",
   path: "/osteopath-marketing/",

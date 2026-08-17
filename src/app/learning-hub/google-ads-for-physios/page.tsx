@@ -149,6 +149,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A guide to how physiotherapy clinics can use Google Ads to generate relevant patient enquiries and avoid common campaign mistakes."}
       heroImage="/images/resources/google-ads-physio.jpg"
       eyebrow="Google Ads guide for physios"
       title="Google Ads for physios"

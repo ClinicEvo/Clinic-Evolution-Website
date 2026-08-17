@@ -17,10 +17,14 @@ import Image from "next/image";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
-  title: "SEO for Chiropractors UK | Chiropractic Marketing",
+  // Carries three researched terms at once: "seo for chiropractors" (200/mo,
+  // KD 2), "chiropractic marketing" (150) and "chiropractic marketing agency"
+  // (150, KD 0). The agency variant was previously untargeted anywhere.
+  title: "SEO for Chiropractors | Chiropractic Marketing Agency",
   description:
     "Clinic Evo helps UK chiropractors attract more patients with specialist chiropractic marketing, SEO, clinic website design, Google Ads and patient reactivation.",
   path: "/chiropractic-marketing/",
+  absoluteTitle: true,
 });
 
 const faqs = [
@@ -33,6 +37,17 @@ const faqs = [
     question: "How can SEO help a chiropractic clinic?",
     answer:
       "SEO helps a chiropractic clinic appear when people search for chiropractors, treatment options, condition support and local clinic information. Strong SEO can reduce reliance on referrals and create a more consistent source of patient enquiries over time.",
+  },
+  {
+    question: "What is local SEO for chiropractors?",
+    answer:
+      "Local SEO is the part of search that decides whether your clinic appears when somebody nearby looks for a chiropractor. It covers your Google Business Profile, the consistency of your name, address and phone number across the web, review volume and recency, and location-relevant content on your own site. For a single-site clinic it is usually the highest-return SEO work available, because the competition is only the other clinics in your catchment rather than the whole internet.",
+  },
+  {
+    question:
+      "What separates the best SEO for chiropractors from generic SEO?",
+    answer:
+      "Generic SEO chases traffic. Chiropractic SEO has to account for a longer consideration cycle, a patient who is often nervous about the first appointment, and regulatory limits on how treatment claims can be worded. That changes which pages are worth building, what the content has to prove, and how success is measured — enquiries and booked patients rather than sessions or impressions.",
   },
   {
     question: "Are Google Ads useful for chiropractors?",

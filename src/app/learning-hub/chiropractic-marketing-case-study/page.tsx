@@ -160,6 +160,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"An overview of the digital marketing approach Clinic Evo applies to chiropractic clinics, covering website structure, SEO, patient journey and enquiry growth."}
       heroImage="/images/resources/chiro-case-study.jpg"
       eyebrow="Chiropractic marketing"
       title="Chiropractic marketing case study"

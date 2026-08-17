@@ -33,6 +33,7 @@ export function buildMetadata({
   ogImage,
   type = "website",
   noIndex = false,
+  absoluteTitle = false,
 }: {
   title: string;
   description: string;
@@ -40,12 +41,18 @@ export function buildMetadata({
   ogImage?: string;
   type?: "website" | "article";
   noIndex?: boolean;
+  /** Suppress the "| Clinic Evo" template from the root layout.
+   *  The template costs 13 characters, which is the difference between a
+   *  keyword-led title fitting the SERP and being truncated. Use it on pages
+   *  whose title has to carry a target keyword phrase; leave it off elsewhere
+   *  so the brand still appears. */
+  absoluteTitle?: boolean;
 }): Metadata {
   const url = `${siteConfig.url}${path}`;
   const image = ogImage ?? "/og-default.jpg";
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     metadataBase: new URL(siteConfig.url),
     alternates: {

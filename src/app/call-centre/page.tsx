@@ -78,6 +78,15 @@ const comparisons = [
 ];
 
 const faqs = [
+  // Carries the "medical answering service" phrasing for people who arrive on
+  // that term — it is the paid-search entry point for this page (Ahrefs: 350/mo,
+  // KD 0, £0.23 CPC), not an organic target. The answer draws the distinction
+  // rather than accepting the label, which is also the page's positioning.
+  {
+    question: "Is this a medical answering service?",
+    answer:
+      "It covers what a medical answering service does, and then keeps going. A traditional answering service takes a message and passes it on, which still leaves someone at the clinic to call the patient back. Handlers here are briefed on your clinic and can book the patient into your diary on the call, and they also ring back the leads your advertising generates rather than waiting for those people to try again.",
+  },
   {
     question: "Who answers the calls?",
     answer:

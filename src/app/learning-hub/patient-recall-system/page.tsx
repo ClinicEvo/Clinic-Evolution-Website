@@ -143,6 +143,7 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
+      schemaDescription={"A guide to patient recall, follow-up and reactivation systems for private clinics that want to reconnect with past patients more effectively."}
       heroImage="/images/resources/patient-recall.jpg"
       eyebrow="Patient reactivation guide"
       title="Patient recall system: what it is and why clinics need one"
