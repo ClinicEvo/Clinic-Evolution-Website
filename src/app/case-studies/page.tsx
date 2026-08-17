@@ -168,6 +168,20 @@ export default function CaseStudiesPage() {
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanel={<HeroCliniciansPanel />}
+        /* The clinicians panel is shorter than the copy column, so items-center
+           split the shortfall into white above and below it and the right half
+           read lighter than the left. bulletsBelow turns the hero's bottom band
+           into a full-width proof rail instead, which fills under both columns.
+           Every line here is checkable inside one of the two studies. */
+        bullets={[
+          "Two years of Search Console history, not a snapshot",
+          "Ten tracked terms in the top four on the Isle of Wight",
+          /* Short on purpose: the three bullets sit on one 1200px row at desktop
+             and a longer third ran flush to the container edge. It also stops
+             repeating the panel footer's line about the screenshots. */
+          "Both clinics named, not anonymised",
+        ]}
+        bulletsBelow
       />
 
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
@@ -271,45 +285,60 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
+      {/* Navy, and a contained panel rather than a full-bleed band, which is how
+          StatBand and ProofBand already carry the ink ground.
+
+          On white this block was the weakest thing on the page: hairline rules
+          and 13px grey under a heading, reading as a footnote grid. It also left
+          the tail of the page a thousand-pixel run of unbroken white from here
+          to the footer. Dark, it earns its own beat and the coral CTA panel
+          below lands against a contrast rather than more white.
+
+          Colour on the ink ground follows the same rules as those two
+          components: --color-accent, not --color-accent-text, since the text
+          token drops below AA here and the fill one is 5.67:1. */}
       <section className="section grain bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <FadeUp>
-                <p className="eyebrow mb-5">What both had in common</p>
-                <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                  The same four pieces, at two different scales
-                </h2>
-                <p className="text-body text-[var(--color-muted)]">
-                  Neither clinic bought a website from one supplier and search
-                  from another. Brand, site, visibility and paid social were one
-                  job in both cases, which is the only reason a two-year London
-                  build and a twelve-month Isle of Wight one produced the same
-                  shape of result.
-                </p>
-              </FadeUp>
-            </div>
+          <FadeUp>
+            <div
+              className="relative overflow-hidden bg-[var(--color-ink)] text-white"
+              style={{ borderRadius: "var(--radius-panel)" }}
+            >
+              <div className="grid grid-cols-1 gap-10 p-9 md:p-12 lg:grid-cols-12 lg:gap-16 lg:p-14">
+                <div className="lg:col-span-5">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
+                    What both had in common
+                  </p>
+                  <h2 className="text-h2 mt-4 mb-6 leading-tight text-white">
+                    The same four pieces, at two different scales
+                  </h2>
+                  <p className="text-body leading-relaxed text-white/65">
+                    Neither clinic bought a website from one supplier and search
+                    from another. Brand, site, visibility and paid social were
+                    one job in both cases, which is the only reason a two-year
+                    London build and a twelve-month Isle of Wight one produced
+                    the same shape of result.
+                  </p>
+                </div>
 
-            <div className="lg:col-span-7">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {shared.map((item, i) => (
-                  <FadeUp key={item.title} delay={i * 0.07}>
-                    <div className="flex h-full flex-col border-t border-[var(--color-border)] pt-6">
-                      <span className="mb-3 block font-display text-[0.8rem] font-bold text-[var(--color-accent-text)]">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="text-h4 mb-2.5 text-[var(--color-ink)]">
-                        {item.title}
-                      </h3>
-                      <p className="text-body-sm text-[var(--color-muted)]">
-                        {item.body}
-                      </p>
-                    </div>
-                  </FadeUp>
-                ))}
+                <div className="lg:col-span-7">
+                  <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
+                    {shared.map((item, i) => (
+                      <FadeUp key={item.title} delay={i * 0.07}>
+                        <div className="flex h-full flex-col border-t border-white/15 pt-6">
+                          <span className="mb-3 block font-display text-[1.375rem] font-bold leading-none text-[var(--color-accent)]">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <h3 className="text-h4 mb-2.5 text-white">{item.title}</h3>
+                          <p className="text-body-sm text-white/60">{item.body}</p>
+                        </div>
+                      </FadeUp>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
