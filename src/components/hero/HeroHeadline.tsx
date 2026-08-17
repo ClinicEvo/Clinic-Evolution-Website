@@ -2,31 +2,44 @@
 
 import { motion } from "framer-motion";
 
-// Same copy, deliberate, non-breaking lines so "follow-up" never splits.
-const lines = ["More patients.", "Better follow-up.", "Fuller diaries."];
+/* The H1 carried no target term of any kind. The homepage title tag is
+   "Clinic Evo | Clinic Marketing Agency UK" and the description targets UK
+   osteopaths, physios and chiropractors — none of which appeared here, so the
+   strongest heading on the page we most want to rank was contributing nothing
+   to it. The revision brief protects an H1 only "if it contains the page target
+   keyword"; this one did not, so the protection never applied.
+
+   It is also the page's only comprehension gap: the word "marketing" appeared
+   nowhere above the fold, so what Clinic Evo does had to be inferred from the
+   subtext. Leading with the category fixes the search signal and the scan test
+   in the same line. The professions stay in the eyebrow directly above rather
+   than being repeated here.
+
+   One balanced block rather than hand-set lines. The previous headline was
+   three short phrases pinned with `whitespace-nowrap` so "follow-up" could not
+   split at its hyphen, and at 4rem in a 34rem column that left roughly
+   seventeen characters per line. This headline does not fit those breaks: split
+   by hand it orphans "that fills" on a line of its own. `text-wrap: balance`
+   lets the browser even the lines at every width instead, which is also why the
+   reveal is now one motion element rather than a stagger — there are no longer
+   fixed lines to stagger. */
+const HEADLINE = "Clinic marketing that fills your diary and keeps it full";
 
 export default function HeroHeadline() {
   return (
-    <h1
-      className="font-display text-[var(--color-ink)]"
+    <motion.h1
+      className="font-display text-balance text-[var(--color-ink)]"
       style={{
         fontSize: "clamp(1.75rem, 8vw, 4rem)",
         fontWeight: 600,
-        lineHeight: 1.0,
+        lineHeight: 1.05,
         letterSpacing: "-0.02em",
       }}
+      initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ delay: 0.06, type: "spring", stiffness: 68, damping: 18 }}
     >
-      {lines.map((line, i) => (
-        <motion.span
-          key={line}
-          className="block whitespace-nowrap"
-          initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ delay: 0.06 + i * 0.1, type: "spring", stiffness: 68, damping: 18 }}
-        >
-          {line}
-        </motion.span>
-      ))}
-    </h1>
+      {HEADLINE}
+    </motion.h1>
   );
 }
