@@ -82,9 +82,9 @@ export default function LandingFounder() {
 
             <FadeUp delay={0.2}>
               <p className="text-body-lg mt-10 max-w-[62ch] font-medium text-[var(--color-ink)]">
-                That is why the whole system comes together rather than in parts.
-                Handing a clinic a pile of leads and walking away was the thing
-                that failed us, so it is not what we sell.
+                That is why the whole system comes together. Handing a clinic a
+                pile of leads and walking away was the thing that failed us, so
+                it is not what we sell.
               </p>
             </FadeUp>
           </div>

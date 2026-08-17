@@ -1,9 +1,20 @@
 import FadeUp from "@/components/ui/FadeUp";
 
+/**
+ * Step one deliberately no longer lists what the audit covers. LandingAudit
+ * further down the page lists all five items in full, and a paid visitor reading
+ * the same inventory twice within two screens learns nothing the second time —
+ * it just reads as a longer page. This section's job is the shape of the
+ * engagement; the audit section's job is the audit's contents.
+ *
+ * The old wording ("where patients are dropping out and what is costing you
+ * bookings") also framed the problem as the clinic leaking patients. The
+ * argument this site makes is that the parts are not joined up.
+ */
 const STEPS = [
   {
     label: "Free clinic audit",
-    body: "We go through your website, Google Business Profile, local rankings and any current ad account, then tell you where patients are dropping out and what is costing you bookings.",
+    body: "A person goes through your website, your local search presence and any ad account you are running, and comes back with what they found.",
   },
   {
     label: "Scope and plan",
@@ -26,10 +37,14 @@ export default function LandingProcess() {
         <FadeUp>
           <div className="mb-14 max-w-[42ch]">
             <p className="eyebrow mb-5">How we start</p>
+            {/* Was "...and it is free either way". Scanned cold, "either way"
+                has no antecedent — the reader has not yet been offered a choice
+                to be free of. This says what the four steps below actually are:
+                the audit sets the scope, the system is built to it. */}
             <h2 className="text-h2 text-[var(--color-ink)]">
-              The audit comes first, and it is{" "}
+              The audit comes first, then the system is{" "}
               <em className="not-italic text-[var(--color-accent)]">
-                free either way
+                scoped to your clinic
               </em>
             </h2>
           </div>

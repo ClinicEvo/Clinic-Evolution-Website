@@ -72,7 +72,7 @@ export const LP_SYSTEM_LAYERS = [
     stage: "Get found",
     summary: "A website built to be found, and local search visibility that holds",
     detail:
-      "The site is built after the search and competitor research rather than before it, then ranked for the local and condition searches your patients actually type.",
+      "The search and competitor research comes first, the site gets built around what it finds, then it is ranked for the local and condition searches your patients actually type.",
     platforms: ["google"] as const,
   },
   {
@@ -92,8 +92,15 @@ export const LP_SYSTEM_LAYERS = [
   {
     stage: "Answer and book",
     summary: "Every enquiry and every call picked up, then booked in",
+    // Deliberately does not enumerate the channels or the automations. The
+    // Patient Pulse section immediately below this one lists both in full, and
+    // its "Capture" card repeats the old wording here almost verbatim. This
+    // names the layer and hands off; the section that follows does the detail.
+    // "whatever channel it arrives on" was too close to the Patient Pulse
+    // heading's "whatever time it arrives", two screens apart. Near-identical
+    // constructions at short range are the tell, not the construction.
     detail:
-      "Patient Pulse puts website forms, social messages, WhatsApp and SMS in one inbox with an automatic first reply. Our call handling answers the phone and books people into your diary.",
+      "Patient Pulse replies to every enquiry automatically, on any channel it comes in on, and our call handling answers the phone and books people into your diary.",
     platforms: ["whatsapp", "messenger"] as const,
   },
   {
@@ -143,7 +150,83 @@ export const LP_EVIDENCE = [
  * relabelling an osteopathy clinic as either would be a fabrication.
  */
 export const LP_EVIDENCE_CAVEAT =
-  "Both clinics above are osteopathy practices, and these figures measure search and ad performance rather than appointments booked. Google counts a conversion as a tracked enquiry — a call, a form or a chat — not a booked patient. One account over one period is evidence, not a forecast for your clinic.";
+  "Both clinics above are osteopathy practices, and these figures measure search and ad performance, not appointments booked. Google counts a conversion as a tracked enquiry — a call, a form or a chat — not a booked patient. One account over one period is evidence, not a forecast for your clinic.";
+
+/**
+ * The two clinics behind the figures above, named.
+ *
+ * `LP_EVIDENCE` answers "what happened". A paid visitor's next question is
+ * "to whom", and three unattributed numbers do not answer it — which is why
+ * these sit directly under the figures rather than in their own section. The
+ * page does not get longer; the proof gets a name on it.
+ *
+ * Every field is copied from the case study page that already publishes it with
+ * its source. `work` describes what was built, taken from that page's own scope
+ * list, and is the one line that turns a number into a story.
+ *
+ * `note` on Bodyfunction is not optional and must not be dropped for symmetry:
+ * it is the founding clinic, not an outside client, and the case study says so.
+ * A paid page quoting its own clinic's numbers without saying they are its own
+ * clinic's numbers is the kind of omission a clinic owner is right to distrust.
+ *
+ * The Lind Street `quote` is approved, not invented. It was drafted for her and
+ * she confirmed it verbally via Simon on 17 Aug 2026
+ * [src: client approval, relayed]. Nothing here may be reworded after the fact:
+ * the approval covers these words, so an edit for rhythm or length voids it and
+ * needs re-approving. Same rule if it moves to another page.
+ *
+ * Bodyfunction has no quote and must not be given one. It is the founding
+ * clinic, so a quote from it would be Clinic Evo endorsing itself, and none has
+ * been signed off in any case.
+ */
+export interface LpCaseStudy {
+  clinic: string;
+  where: string;
+  figure: string;
+  figureLabel: string;
+  source: string;
+  work: string;
+  /** Disclosure, where the relationship is not arm's-length. */
+  note?: string;
+  /** Approved practitioner testimonial. Verbatim as approved — see above. */
+  quote?: {
+    text: string;
+    name: string;
+    role: string;
+    portrait: string;
+  };
+  href: string;
+}
+
+export const LP_CASE_STUDIES: LpCaseStudy[] = [
+  {
+    clinic: "Bodyfunction Clinic",
+    where: "Osteopathy and MSK clinic, Angel, London",
+    figure: "8 → 3,822",
+    figureLabel: "People finding the clinic through Google each month",
+    source: "Ahrefs — Aug 2024 against Aug 2026",
+    work:
+      "Website structure, local visibility, condition content and patient follow-up, rebuilt as one system over two years.",
+    note: "Clinic Evo's founding clinic, not an outside client.",
+    href: "/case-studies/bodyfunction-clinic/",
+  },
+  {
+    clinic: "Lind Street Osteopathy",
+    where: "Osteopathy clinic, Ryde, Isle of Wight",
+    figure: "+570%",
+    figureLabel: "Growth in people arriving from Google, half on half",
+    source: "GSC — 86 clicks rising to 576",
+    work:
+      "Brand and logo from scratch. The Isle of Wight market was researched first, then the site was built around the conditions people there actually search for.",
+    quote: {
+      text: "I started with no website and no presence on Google at all. Within a year I was on page one for the searches people on the Island actually use, and patients were finding me without me chasing them.",
+      name: "Serena Gower-Johnson",
+      role: "M.Ost, Founder of Lind Street Osteopathy, Ryde",
+      portrait: "/images/lind-street/serena-portrait.png",
+    },
+    href: "/case-studies/lind-street-osteopathy/",
+  },
+];
 
 export interface LpVariant {
   slug: LpVariantSlug;
@@ -198,13 +281,16 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
   "physiotherapy-marketing": {
     slug: "physiotherapy-marketing",
     adGroup: "Marketing for physiotherapist",
-    metaTitle: "Marketing For Physiotherapy Clinics That Fills The Diary",
+    metaTitle: "Marketing For Physiotherapy Clinics, Built To Fill The Diary",
     metaDescription:
       "One system for UK physiotherapy clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Book a free clinic audit.",
     badge: "Built inside a working MSK clinic",
+    // "clinics that fills" was a genuine agreement fault: the relative clause
+    // sat against the plural noun, so the eye parsed it wrong before recovering.
+    // The head term still leads, so search message match is unchanged.
     headline: {
-      start: "Marketing for physiotherapy clinics ",
-      accent: "that fills the diary",
+      start: "Marketing for physiotherapy clinics, ",
+      accent: "built to fill the diary",
       end: "",
     },
     subhead:
@@ -223,13 +309,13 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
   "chiropractic-marketing": {
     slug: "chiropractic-marketing",
     adGroup: "Marketing for chiropractic",
-    metaTitle: "Marketing For Chiropractic Clinics That Fills The Diary",
+    metaTitle: "Marketing For Chiropractic Clinics, Built To Fill The Diary",
     metaDescription:
       "One system for UK chiropractic clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Book a free clinic audit.",
     badge: "Built inside a working MSK clinic",
     headline: {
-      start: "Marketing for chiropractic clinics ",
-      accent: "that fills the diary",
+      start: "Marketing for chiropractic clinics, ",
+      accent: "built to fill the diary",
       end: "",
     },
     subhead:

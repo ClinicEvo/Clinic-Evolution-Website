@@ -16,8 +16,8 @@ import { LpCallButton } from "./LpCtaButton";
  */
 const AUDIT_CONTENTS = [
   "Where you currently rank for the searches your patients actually type, and who is above you",
-  "What your website does with somebody who is ready to book, and where they give up",
-  "Whether your Google Business Profile is working or quietly costing you the map results",
+  "What your website does with somebody who is ready to book, and how far they get",
+  "Whether your Google Business Profile is earning you the map results or sitting idle",
   "What your ad account is paying per enquiry, if you are running one",
   // Deliberately not "and a figure for what it would cost". Listing a price as
   // an audit deliverable obliges every audit response to carry a costed
@@ -43,10 +43,15 @@ export default function LandingAudit({ variant }: { variant: LpVariant }) {
           <div>
             <FadeUp>
               <p className="eyebrow mb-5">Free clinic audit</p>
+              {/* Was "Find out what is costing your clinic its bookings" — an
+                  awkward possessive, and the framing is that the clinic is
+                  leaking patients. That is not the argument this site makes: the
+                  argument is that the parts are not connected into a system.
+                  This states the offer and who keeps the output. */}
               <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
-                Find out what is costing your {variant.practiceNoun}{" "}
+                A free audit of your {variant.practiceNoun}, and a plan{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  its bookings
+                  that is yours either way
                 </em>
               </h2>
               <p className="text-body-lg mb-8 max-w-[48ch] text-[var(--color-muted)]">

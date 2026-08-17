@@ -131,14 +131,31 @@ export default function LandingPatientPulse() {
                 sizes="200px"
                 className="mb-7 h-auto w-[190px]"
               />
-              {/* The page's one deliberate "not X, Y" construction. It earns its
-                  place here because the contrast is the actual argument. */}
+              {/*
+                Was "Most clinics do not have a lead problem. They have a
+                follow-up problem." Three faults, in order of severity.
+
+                It asserted a fact about the whole clinic market with no source,
+                which is the one thing the project rules forbid outright — and it
+                did it in an h2, the most prominent unsourced claim on the page.
+
+                It is a stock agency construction ("you do not have an X problem,
+                you have a Y problem"), addressed to readers whose stated reason
+                for being here is that agencies have talked at them before.
+
+                And it spent its first clause on a negation the reader has to
+                hold and then discard, to deliver one idea.
+
+                This states a capability instead. Every item in this section was
+                confirmed live in a Patient Pulse sub-account, the automatic
+                first reply included, so the claim is about our own product
+                rather than about somebody else's clinic.
+              */}
               <h2 className="text-h2 text-white">
-                Most clinics do not have a lead problem. They have a{" "}
+                Every enquiry answered in minutes,{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  follow-up problem
+                  whatever time it arrives
                 </em>
-                .
               </h2>
             </div>
           </FadeUp>
@@ -147,8 +164,8 @@ export default function LandingPatientPulse() {
             <p className="text-body-lg max-w-[52ch] text-white/70">
               Marketing brings people to your door. Patient Pulse is what happens
               next, from the first message to the patient who comes back a year
-              later. It is included in the system and run for you, rather than
-              handed over as one more subscription to manage.
+              later. It is included in the system and we run it for you — one
+              less subscription on your desk.
             </p>
           </FadeUp>
         </div>
@@ -184,13 +201,14 @@ export default function LandingPatientPulse() {
               <h3 className="text-h3 mb-4 text-white">
                 One screen your reception team actually works from
               </h3>
+              {/* First two sentences of this paragraph restated the Capture card
+                  directly below it. Cut to the two things that card does not
+                  say: who owns the data, and that this was built for clinics
+                  rather than adapted from a sales CRM. */}
               <p className="text-body text-white/60">
-                Every enquiry, missed call and conversation flows into the same
-                inbox, so nothing sits unanswered in a personal phone and nothing
-                falls through the gap between appointments. Your pipelines,
-                sequences and patient data belong to your clinic — not to us — and
-                it is built specifically for MSK clinics rather than adapted from a
-                generic sales CRM.
+                Your pipelines, sequences and patient data belong to your clinic,
+                not to us, and it was built for MSK clinics from the ground up,
+                not adapted from a sales CRM.
               </p>
             </div>
           </FadeUp>

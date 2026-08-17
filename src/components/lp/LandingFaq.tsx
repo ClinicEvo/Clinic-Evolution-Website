@@ -25,12 +25,12 @@ const SHARED_FAQS = [
   {
     question: "What does it cost?",
     answer:
-      "We do not publish a single price, because the honest answer depends on how competitive your town is, how much of the system you already have working, and what you want to spend on ads. The audit is where that gets answered: we will talk you through what the work involves and what it would realistically cost to run, so you are deciding against a real number rather than a guess. If it is more than you want to spend, you have lost nothing.",
+      "We do not publish a single price, because the honest answer depends on how competitive your town is, how much of the system you already have working, and what you want to spend on ads. The audit is where that gets answered: we will talk you through what the work involves and what it would realistically cost to run, so you have a real number to decide against. If it is more than you want to spend, you have lost nothing.",
   },
   {
     question: "Is this a fixed package, or can it be scoped to my clinic?",
     answer:
-      "It is one system, scoped. Every clinic gets the same five layers connected to each other, because a website that ranks and then leaves its enquiries unanswered produces a quiet diary anyway — that connection is the point. What changes clinic to clinic is the order, the emphasis and the budget: the audit works out which layer needs the most attention first, and the scope is built from that rather than from a tier list.",
+      "It is one system, scoped. Every clinic gets the same five layers connected to each other, because a website that ranks and then leaves its enquiries unanswered produces a quiet diary anyway — that connection is the point. What changes clinic to clinic is the order, the emphasis and the budget. There is no tier list: the audit works out which layer needs the most attention first, and the scope is built from that.",
   },
   {
     question: "How is this different from a normal marketing agency?",
