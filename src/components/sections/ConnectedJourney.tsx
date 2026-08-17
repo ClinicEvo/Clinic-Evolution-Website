@@ -75,14 +75,14 @@ export default function ConnectedJourney() {
       <div className="cx-main">
         <FadeUp>
           <div className="mb-14 max-w-2xl">
-            <p className="eyebrow mb-4">Where it sits</p>
+            <p className="eyebrow mb-4">Where Patient Pulse sits</p>
             <h2 className="text-h2 mb-5 leading-tight text-[var(--color-ink)]">
-              Marketing fills the top. This is what stops the bottom leaking.
+              Every enquiry your marketing creates ends up here
             </h2>
             <p className="text-body-lg text-[var(--color-charcoal)]">
-              Websites, SEO and ads all do the same job: they get a person to raise
-              their hand. What happens in the twenty minutes after that decides whether
-              they become a patient or become someone else&apos;s patient.
+              Websites, SEO and ads all do the same job: they get someone to make contact.
+              What happens in the twenty minutes after that decides whether they become
+              your patient or someone else&apos;s.
             </p>
           </div>
         </FadeUp>
