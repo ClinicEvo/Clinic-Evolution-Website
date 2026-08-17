@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "shots": "node scripts/shots.mjs",
+    "scan": "node scripts/scan.mjs",
     "visual": "playwright test",
     "visual:update": "playwright test --update-snapshots",
     "visual:report": "playwright show-report"

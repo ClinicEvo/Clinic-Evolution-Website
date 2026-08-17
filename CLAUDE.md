@@ -87,6 +87,45 @@ distinct template rather than whatever the nav happens to link.
 Known trap: if a run reports 400s on `/_next/` chunks, the page rendered
 unstyled and every screenshot is worthless — `rm -rf .next` and restart dev.
 
+## The scan test
+
+The standing criticism of this site from the 10 Aug review is that you cannot
+tell what a page is about by scanning it. `npm run scan` makes that measurable
+instead of arguable.
+
+```bash
+npm run scan                             # every curated route
+npm run scan -- --routes patient-pulse   # one route
+npm run scan -- --strict                 # exit 1 on failure, for CI
+```
+
+It renders each route and strips it to the three layers a skimmer actually
+reads — headings, numbers, images — then prints the heading ladder back as a
+COLD READ. Read that block as prose. If it argues the page's case on its own,
+the page passes.
+
+The important consequence: **scannability is a property of the heading layer,
+not of word count.** A page whose cold read works can carry as much body copy
+as the search work needs, which is why this check does not conflict with the
+long-form and FAQ content that earns organic traffic. Do not delete depth to
+"improve scannability" — fix the headings instead.
+
+It fails a page for content hidden behind an interaction, ordinal-only eyebrows
+("Step 05" means nothing to someone who did not count the cards above it),
+generic headings, missing or duplicated `h1`s, heading-level jumps and very
+long unsignposted prose runs. Collapsed FAQ accordions are reported but never
+failed — that is progressive disclosure of secondary content, which is fine;
+tabs hiding primary content are not.
+
+Run it against a production server when images matter, for the reason in Known
+issues below. Two traps are already handled inside the script and worth knowing
+about before you extend it: framer-motion reveals sit at opacity 0 until
+scrolled into view, so the context forces `reducedMotion` — without it every
+page reports as invisible; and an accordion collapsed with `max-h-0
+overflow-hidden` leaves its children at full size while the *parent* clips to
+nothing, so visibility has to be judged by walking ancestors rather than by
+measuring the element.
+
 ## Known issues
 
 - **Next dev's image optimiser hangs.** Three home-page images
