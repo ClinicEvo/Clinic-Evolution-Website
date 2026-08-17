@@ -171,10 +171,10 @@ export default function ScenarioCards() {
           whileHover={reduce ? {} : { y: -4 }}
           className="card-surface group/card flex flex-col overflow-hidden p-7 md:p-8"
         >
-          {/* Header: the leak-point number alone.
+          {/* Header: the drop-out point number alone.
               A line icon sat opposite it until the 10 Aug review — "a box with
               some words with some generic icon on it screams preset website".
-              The numeral is the only marker a leak in a numbered sequence needs,
+              The numeral is the only marker a drop-out point in a numbered sequence needs,
               and each card already carries an illustration doing real work. */}
           <div className="mb-6">
             <span

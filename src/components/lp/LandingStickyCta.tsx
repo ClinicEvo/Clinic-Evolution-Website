@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LP_FORM_ANCHOR } from "@/lib/lp";
-import LpCtaButton from "./LpCtaButton";
+import { LP_FORM_ANCHOR, LP_PHONE } from "@/lib/lp";
+import LpCtaButton, { LpCallButton } from "./LpCtaButton";
 
 const SHOW_AFTER_PX = 520;
 const FORM_ID = LP_FORM_ANCHOR.replace("#", "");
@@ -13,6 +13,12 @@ const COOKIE_BANNER = '[role="dialog"][aria-label="Cookie consent"]';
  * gets out of the way again while the form is on screen so it never covers the
  * submit button, and sits above the cookie banner while that is up — every paid
  * visitor is a first-time visitor, so the two would otherwise always collide.
+ *
+ * Split into two actions where a phone number is configured. A clinic owner
+ * reading this on a phone between patients is at least as likely to call as to
+ * fill in a form, and calling was previously offered nowhere below the header.
+ * The form keeps the wider half: it is still the measurable conversion, and the
+ * call button only needs to fit two words.
  */
 export default function LandingStickyCta() {
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
@@ -66,7 +72,24 @@ export default function LandingStickyCta() {
           : "translateY(100%)",
       }}
     >
-      <LpCtaButton placement="sticky-mobile" className="w-full" />
+      {LP_PHONE.display ? (
+        <div className="flex items-stretch gap-2">
+          <LpCallButton
+            placement="sticky-mobile"
+            size="md"
+            variant="outline"
+            className="flex-shrink-0"
+          />
+          <LpCtaButton
+            placement="sticky-mobile"
+            size="md"
+            label="Book a free audit"
+            className="flex-1"
+          />
+        </div>
+      ) : (
+        <LpCtaButton placement="sticky-mobile" className="w-full" />
+      )}
     </div>
   );
 }

@@ -50,7 +50,7 @@ export default function ArticlePage() {
       title: "Start with the website, not the traffic",
       content: (
         <>
-          <p>Most clinics instinctively look for more traffic when they want more patients. More visitors, more bookings. But if your website is not converting the visitors it already gets, sending more traffic will just make the leaks bigger.</p>
+          <p>Most clinics instinctively look for more traffic when they want more patients. More visitors, more bookings. But if your website is not converting the visitors it already gets, sending more traffic just loses more of them.</p>
           <p>Before spending on ads or chasing more SEO clicks, ask:</p>
           <ul>
             <li>Is it immediately clear what conditions and treatments you offer?</li>

@@ -34,36 +34,33 @@ export default function LandingFounder() {
             <FadeUp delay={0.06}>
               <p className="eyebrow mb-5">Who builds this</p>
               <h2 className="text-h2 mb-7 text-[var(--color-ink)]">
-                We did not start as a marketing agency. We started with the{" "}
+                A practising osteopath built this{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  same empty diary
+                  for his own clinic first
                 </em>
-                .
               </h2>
             </FadeUp>
 
+            {/* Trimmed from three ~90-word paragraphs, each of which ended in a
+                list of three. Stacked that way the rhythm was doing more talking
+                than the content. Same facts, half the words. */}
             <FadeUp delay={0.1}>
               <div className="flex max-w-[62ch] flex-col gap-5">
                 <p className="text-body-lg text-[var(--color-muted)]">
-                  Danny Morgan owns and runs Bodyfunction Clinic in London. Before
-                  Clinic Evo existed, he did what most clinic owners do — went
-                  looking for a marketing agency to fill the diary.
+                  Danny Morgan owns Bodyfunction Clinic in London and still treats
+                  patients there. Before Clinic Evo existed, he went looking for an
+                  agency to fill his diary, and hired two.
                 </p>
                 <p className="text-body-lg text-[var(--color-muted)]">
-                  Two agencies in, the pattern was the same. High retainers, a lot
-                  of talk about clicks and impressions, very little that translated
-                  into booked patients. Neither agency understood how someone
-                  searching for help with back pain, sciatica or a sports injury
-                  actually behaves — what makes them trust a clinic enough to book,
-                  why speed of response matters more than almost anything else, or
-                  how a treatment-based business runs day to day.
+                  Both charged well and reported on clicks. Neither could say why
+                  the treatment slots were still empty, or grasped that a patient
+                  who waits two days for a reply has already booked elsewhere.
                 </p>
                 <p className="text-body-lg text-[var(--color-muted)]">
-                  So Danny built the system himself — website, SEO, paid ads and a
-                  proper follow-up process — inside his own clinic, alongside
-                  co-founder Simon Smith. It was tested on Bodyfunction Clinic&apos;s
-                  own diary, with Danny&apos;s own patients and his own money on the
-                  line, long before it became something other clinics could use.
+                  So Danny built it himself, with co-founder Simon Smith: the
+                  website, the search visibility, the ads and the follow-up, run as
+                  one thing inside his own clinic. It was tested on Bodyfunction&apos;s
+                  own diary and his own money before another clinic could buy it.
                 </p>
               </div>
             </FadeUp>
@@ -85,11 +82,9 @@ export default function LandingFounder() {
 
             <FadeUp delay={0.2}>
               <p className="text-body-lg mt-10 max-w-[62ch] font-medium text-[var(--color-ink)]">
-                That is the difference: we do not just supply leads and disappear.
-                We build and run the entire system — the visibility, the website,
-                the follow-up — because that is what actually moves a clinic&apos;s
-                diary, and it is what we needed ourselves before we built it for
-                anyone else.
+                That is why the whole system comes together rather than in parts.
+                Handing a clinic a pile of leads and walking away was the thing
+                that failed us, so it is not what we sell.
               </p>
             </FadeUp>
           </div>

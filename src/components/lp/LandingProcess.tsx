@@ -3,19 +3,19 @@ import FadeUp from "@/components/ui/FadeUp";
 const STEPS = [
   {
     label: "Free clinic audit",
-    body: "We review your website, Google Business Profile, local rankings and current ad performance to find exactly where you are losing patients.",
+    body: "We go through your website, Google Business Profile, local rankings and any current ad account, then tell you where patients are dropping out and what is costing you bookings.",
   },
   {
-    label: "Tailored growth plan",
-    body: "A clear, jargon-free plan covering the right channels for your clinic and how we will turn more visitors into booked patients.",
+    label: "Scope and plan",
+    body: "A written plan in plain English: which layers of the system your clinic needs first, what each one is meant to change, and what it will cost you to run.",
   },
   {
-    label: "Campaign launch",
-    body: "We build and launch your website, SEO foundations and ad campaigns, connected to Patient Pulse from day one.",
+    label: "Build and launch",
+    body: "Website, search foundations and campaigns go live together, wired into Patient Pulse and call handling from day one so nothing arrives with no one to answer it.",
   },
   {
-    label: "Ongoing management",
-    body: "Plain-English monthly reporting tied to bookings, not vanity metrics — with continuous optimisation.",
+    label: "Run and report",
+    body: "One team runs all of it and reports monthly on enquiries and bookings, with the ad spend and the cost per enquiry shown next to them.",
   },
 ];
 
@@ -25,11 +25,11 @@ export default function LandingProcess() {
       <div className="cx-main">
         <FadeUp>
           <div className="mb-14 max-w-[42ch]">
-            <p className="eyebrow mb-5">How it works</p>
+            <p className="eyebrow mb-5">How we start</p>
             <h2 className="text-h2 text-[var(--color-ink)]">
-              Four steps, starting with a{" "}
+              The audit comes first, and it is{" "}
               <em className="not-italic text-[var(--color-accent)]">
-                free clinic audit
+                free either way
               </em>
             </h2>
           </div>

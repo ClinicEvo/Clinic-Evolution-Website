@@ -28,8 +28,10 @@ export const events = {
     trackEvent({ action: "contact_form_submit", category: "conversion" }),
   whatsappClick: () =>
     trackEvent({ action: "whatsapp_click", category: "engagement" }),
-  phoneClick: () =>
-    trackEvent({ action: "phone_click", category: "engagement" }),
+  // `label` carries the placement on the landing pages, where click-to-call is
+  // offered in three positions and we need to know which one earns the calls.
+  phoneClick: (label?: string) =>
+    trackEvent({ action: "phone_click", category: "engagement", label }),
   emailClick: () =>
     trackEvent({ action: "email_click", category: "engagement" }),
   auditCtaClick: (label?: string) =>

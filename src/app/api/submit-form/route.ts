@@ -63,6 +63,17 @@ function isValidHttpUrl(v: string): boolean {
   }
 }
 
+// "https://www.myclinic.co.uk/about" -> "myclinic.co.uk". Used as a stand-in for
+// a clinic name the short landing-page form does not ask for.
+function hostnameOf(v: string): string {
+  if (!v) return "";
+  try {
+    return new URL(v).hostname.replace(/^www\./i, "");
+  } catch {
+    return "";
+  }
+}
+
 function err(msg: string, status = 400) {
   return NextResponse.json({ error: msg }, { status });
 }
@@ -150,12 +161,25 @@ export async function POST(req: NextRequest) {
     const utm_campaign = clean(body.utm_campaign, LIMITS.short);
     const utm_term     = clean(body.utm_term,     LIMITS.short);
 
-    if (!first_name)                                  return err("First name is required.");
-    if (!last_name)                                   return err("Last name is required.");
+    // The landing-page form asks four questions, not eleven, so last name,
+    // clinic name and discipline can all legitimately arrive empty from a paid
+    // lead. Those three stay required for the organic /free-clinic-audit/ form,
+    // which does ask for them. Everything else is required on both.
+    if (!first_name)                                  return err("Name is required.");
     if (!isValidEmail(email))                         return err("A valid email address is required.");
-    if (!clinic_name)                                 return err("Clinic name is required.");
     if (!isValidHttpUrl(clinic_website))              return err("Clinic website must be a valid http/https URL.");
-    if (!VALID_DISCIPLINES.includes(discipline as typeof VALID_DISCIPLINES[number])) {
+
+    if (!isPaidLead) {
+      if (!last_name)                                 return err("Last name is required.");
+      if (!clinic_name)                               return err("Clinic name is required.");
+    }
+    // An empty discipline is allowed only from the broad healthcare ad group,
+    // where nothing about the click implies one. A non-empty value must still be
+    // on the allowlist, so a forged string cannot reach the CRM.
+    if (discipline && !VALID_DISCIPLINES.includes(discipline as typeof VALID_DISCIPLINES[number])) {
+      return err("Please select a valid discipline.");
+    }
+    if (!discipline && !isPaidLead) {
       return err("Please select a valid discipline.");
     }
 
@@ -180,23 +204,29 @@ export async function POST(req: NextRequest) {
       attributionLines.join(" | "),
     ].filter(Boolean).join("\n\n");
 
+    // The short landing-page form does not ask for the clinic's name. Falling
+    // back to the website's hostname keeps the CRM record identifiable without
+    // inventing anything — it is literally what the visitor typed.
+    const companyName = clinic_name || hostnameOf(clinic_website);
+
     const result = await upsertGhlContact({
       firstName: first_name,
       lastName: last_name,
       email,
       phone: phone || undefined,
-      companyName: clinic_name,
+      companyName: companyName || undefined,
       website: clinic_website || undefined,
       message: fullMessage || undefined,
-      discipline,
+      discipline: discipline || undefined,
       source: isPaidLead
         ? `Google Ads – ${lp_variant} landing page`
         : "Website – Free clinic audit",
+      // An empty discipline would otherwise push an empty-string tag.
       tags: [
         "website-audit-form",
-        discipline.toLowerCase(),
+        discipline && discipline.toLowerCase(),
         ...(isPaidLead ? ["google-ads-lead", `lp-${lp_variant}`] : []),
-      ],
+      ].filter((t): t is string => Boolean(t)),
     });
     if (!result.ok) return err("Submission failed. Please try again.", 502);
 

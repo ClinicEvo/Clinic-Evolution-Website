@@ -117,6 +117,12 @@ export default function LandingPatientPulse() {
         <div className="mb-12 grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:gap-16">
           <FadeUp>
             <div>
+              {/* The eyebrow names this as a layer of the system rather than a
+                  product with its own section, and reuses the stage name from
+                  LandingSystem so a skimmer can place it. Without it, the logo
+                  at the top of a new navy section reads as "and now, a second
+                  thing to buy". */}
+              <p className="eyebrow mb-5">Inside the system — answer and book</p>
               <Image
                 src="/images/patientpulse_darklogo.png"
                 alt="Patient Pulse"
@@ -125,6 +131,8 @@ export default function LandingPatientPulse() {
                 sizes="200px"
                 className="mb-7 h-auto w-[190px]"
               />
+              {/* The page's one deliberate "not X, Y" construction. It earns its
+                  place here because the contrast is the actual argument. */}
               <h2 className="text-h2 text-white">
                 Most clinics do not have a lead problem. They have a{" "}
                 <em className="not-italic text-[var(--color-accent)]">
@@ -138,9 +146,9 @@ export default function LandingPatientPulse() {
           <FadeUp delay={0.08}>
             <p className="text-body-lg max-w-[52ch] text-white/70">
               Marketing brings people to your door. Patient Pulse is what happens
-              next — from the first message to the patient who comes back a year
-              later. It is included and managed as part of the system, not another
-              subscription to run yourself.
+              next, from the first message to the patient who comes back a year
+              later. It is included in the system and run for you, rather than
+              handed over as one more subscription to manage.
             </p>
           </FadeUp>
         </div>

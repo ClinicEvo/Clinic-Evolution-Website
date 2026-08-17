@@ -20,6 +20,13 @@ export const ROUTES = [
   { path: "/free-clinic-audit/",                          name: "audit-form" },
   { path: "/contact/",                                    name: "contact" },
   { path: "/about/",                                      name: "about" },
+  // The PPC ad destinations. These are noindex and off the nav, which is exactly
+  // why they need to be on this list: nothing else would ever crawl to them, and
+  // they had drifted a long way behind the rest of the site before anyone looked.
+  // The three variants share a template and differ only in copy and one FAQ, so
+  // one covers all three here, the same as the who-we-help pages above.
+  { path: "/lp/physiotherapy-marketing/",                 name: "lp-ads" },
+  { path: "/lp/thank-you/",                               name: "lp-thank-you" },
 ];
 
 // 390 is the iPhone 13/14/15 logical width and the narrowest mainstream phone

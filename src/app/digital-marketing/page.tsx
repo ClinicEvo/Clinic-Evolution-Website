@@ -99,7 +99,7 @@ const faqs = [
   {
     question: "Do I have to take every service at once?",
     answer:
-      "No. Clinic Evo can start with the part of the chain that is leaking the most, then connect the others over time. The plan is built around where your clinic is losing patients now, not a fixed package.",
+      "No. Clinic Evo can start with the weakest part of the chain, then connect the others over time. The plan is built around where your clinic is losing patients now, not a fixed package.",
   },
   {
     question: "Is this suitable for osteopaths, physios and chiropractors?",

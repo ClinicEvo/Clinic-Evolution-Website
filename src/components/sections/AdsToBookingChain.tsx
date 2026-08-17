@@ -14,7 +14,7 @@ import { GoogleColorMark } from "@/components/icons/GoogleColorMark";
  * without turning this page into a description of every other service — and it
  * puts the platform marks on the page that Danny kept asking for.
  *
- * The leak notes are the point. Each one is a place a clinic pays for the click
+ * The drop-out notes are the point. Each one is a place a clinic pays for the click
  * and loses the patient anyway, which is why the section exists at all.
  *
  * Built from layout rather than an SVG so it reflows to a phone, and so the
@@ -25,7 +25,7 @@ interface Step {
   title: ReactNode;
   detail: string;
   /** Where a clinic typically loses the patient at this step. */
-  leak?: string;
+  dropOut?: string;
   /** Marker content: a platform mark where one applies, a numeral otherwise. */
   mark?: ReactNode;
   href?: string;
@@ -42,19 +42,19 @@ const steps: Step[] = [
     title: "Your ad answers that exact search",
     detail:
       "The service, the area and the next step, matched to what they typed. Not a general clinic message.",
-    leak: "Broad keywords answer searches you never wanted to pay for.",
+    dropOut: "Broad keywords answer searches you never wanted to pay for.",
   },
   {
     title: "They land on a page built to convert",
     detail:
       "Relevant to the ad they clicked, quick to load, clear on price, location and how to book.",
-    leak: "A homepage or a thin service page is where most of the budget goes.",
+    dropOut: "A homepage or a thin service page is where most of the budget goes.",
     href: "/website-design-for-clinics/",
   },
   {
     title: "The enquiry arrives",
     detail: "A call, a form or a chat message, tracked back to the campaign that produced it.",
-    leak: "Untracked enquiries make the whole campaign impossible to judge.",
+    dropOut: "Untracked enquiries make the whole campaign impossible to judge.",
   },
   {
     title: (
@@ -69,7 +69,7 @@ const steps: Step[] = [
     ),
     detail:
       "Replies within minutes, day or night, and keeps the enquiry on a board until it is booked or closed.",
-    leak: "An enquiry answered tomorrow morning has usually booked somewhere else.",
+    dropOut: "An enquiry answered tomorrow morning has usually booked somewhere else.",
     href: "/patient-pulse/",
   },
   {
@@ -103,7 +103,7 @@ export default function AdsToBookingChain() {
               <p className="mt-1.5 text-[0.82rem] leading-relaxed text-[var(--color-muted)]">
                 {step.detail}
               </p>
-              {step.leak && (
+              {step.dropOut && (
                 <p className="mt-2.5 flex items-start gap-2 text-[0.78rem] leading-snug text-[var(--color-charcoal)]">
                   <svg
                     className="mt-[3px] flex-shrink-0 text-[var(--color-accent)]"
@@ -120,7 +120,7 @@ export default function AdsToBookingChain() {
                       strokeLinecap="round"
                     />
                   </svg>
-                  <span>{step.leak}</span>
+                  <span>{step.dropOut}</span>
                 </p>
               )}
             </>
