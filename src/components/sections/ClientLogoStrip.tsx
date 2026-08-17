@@ -1,5 +1,4 @@
-import Image from "next/image";
-import type { CSSProperties } from "react";
+import ClientLogo from "@/components/sections/ClientLogo";
 
 /*
  * Social proof, immediately under the hero.
@@ -17,6 +16,10 @@ import type { CSSProperties } from "react";
  *
  * Heights are tuned per mark because the aspect ratios differ wildly; a single
  * height makes the wide wordmarks tiny and the square marks enormous.
+ *
+ * Each mark links to the client's own site where we hold a verified URL — see
+ * ClientLogo and src/lib/clients.ts. The link is the point rather than a
+ * courtesy: it passes authority to their domain.
  */
 const clientLogos = [
   { name: "Body Restore Clinic", src: "/images/clients/body-restore.png", w: 1714, h: 564, height: 34, dim: true },
@@ -47,13 +50,13 @@ export default function ClientLogoStrip({
                   i === clientLogos.length - 1 ? "col-span-2 sm:col-span-1" : ""
                 }`}
               >
-                <Image
+                <ClientLogo
+                  name={logo.name}
                   src={logo.src}
-                  alt={logo.name}
                   width={logo.w}
                   height={logo.h}
-                  style={{ "--logo-h": `${logo.height}px` } as CSSProperties}
-                  className={`cx-logo ${logo.dim ? "opacity-[0.85]" : ""}`}
+                  logoHeight={logo.height}
+                  dim={logo.dim}
                 />
               </div>
             ))}

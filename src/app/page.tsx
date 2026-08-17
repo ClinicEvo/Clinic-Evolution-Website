@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -10,6 +9,7 @@ import {
 } from "@/components/brand/PlatformLogos";
 import FadeUp from "@/components/animations/FadeUp";
 import ResourceCard from "@/components/sections/ResourceCard";
+import ClientLogo from "@/components/sections/ClientLogo";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import HeroVisual from "@/components/hero/HeroVisual";
 import HeroHeadline from "@/components/hero/HeroHeadline";
@@ -439,15 +439,13 @@ export default function HomePage() {
                     key={logo.name}
                     className="flex items-center last:col-span-2 sm:last:col-span-1"
                   >
-                    <Image
+                    <ClientLogo
+                      name={logo.name}
                       src={logo.src}
-                      alt={logo.name}
                       width={logo.width}
                       height={logo.height}
-                      style={{ "--logo-h": `${logo.logoHeight}px` } as CSSProperties}
-                      className={`cx-logo transition-opacity hover:opacity-100 ${
-                        logo.dim ? "opacity-85" : ""
-                      }`}
+                      logoHeight={logo.logoHeight}
+                      dim={logo.dim}
                     />
                   </li>
                 ))}

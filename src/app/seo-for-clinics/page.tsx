@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
@@ -13,6 +12,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
+import ClientLogo from "@/components/sections/ClientLogo";
 import ProofBand from "@/components/sections/ProofBand";
 import SearchSurfaces from "@/components/sections/SearchSurfaces";
 import BrowserFrame from "@/components/sections/mockups/BrowserFrame";
@@ -415,13 +415,13 @@ export default function SeoForClinicsPage() {
                     i === clientLogos.length - 1 ? "col-span-2 sm:col-span-1" : ""
                   }`}
                 >
-                  <Image
+                  <ClientLogo
+                    name={logo.name}
                     src={logo.src}
-                    alt={logo.name}
                     width={logo.w}
                     height={logo.h}
-                    style={{ "--logo-h": `${logo.height}px` } as CSSProperties}
-                    className={`cx-logo ${logo.dim ? "opacity-[0.85]" : ""}`}
+                    logoHeight={logo.height}
+                    dim={logo.dim}
                   />
                 </div>
               ))}

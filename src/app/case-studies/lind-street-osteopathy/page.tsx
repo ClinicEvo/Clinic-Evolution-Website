@@ -12,6 +12,7 @@ import ArrowLink from "@/components/ui/ArrowLink";
 import { StatTiles } from "@/components/case-studies/CaseStudyCharts";
 import LaptopFrame from "@/components/sections/mockups/LaptopFrame";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
+import ClientLink from "@/components/ui/ClientLink";
 
 /*
  * Lind Street Osteopathy — the standing-start story, written for a clinic owner.
@@ -145,9 +146,10 @@ export default function LindStreetCaseStudyPage() {
               <FadeUp delay={0.1}>
                 <div className="max-w-xl space-y-6">
                   <p className="text-body-lg leading-relaxed text-[var(--color-muted)]">
-                    Serena Gower-Johnson opened Lind Street Osteopathy in Ryde with no
-                    logo, no website and no reputation online. Google had never
-                    recorded a single search for her practice.
+                    Serena Gower-Johnson opened{" "}
+                    <ClientLink name="Lind Street Osteopathy" /> in Ryde with no logo,
+                    no website and no reputation online. Google had never recorded a
+                    single search for her practice.
                   </p>
                   <p className="text-body-lg leading-relaxed text-[var(--color-muted)]">
                     Twelve months later, if you are on the Isle of Wight and you search

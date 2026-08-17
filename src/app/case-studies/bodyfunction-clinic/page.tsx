@@ -15,6 +15,7 @@ import {
   PositionDumbbell,
 } from "@/components/case-studies/CaseStudyCharts";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
+import ClientLink from "@/components/ui/ClientLink";
 
 /*
  * Bodyfunction Clinic — the origin story, written for a clinic owner.
@@ -136,10 +137,10 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.1}>
                 <div className="max-w-xl space-y-6">
                   <p className="text-body-lg leading-relaxed text-[var(--color-muted)]">
-                    In August 2024, Bodyfunction Clinic in Angel was getting eight
-                    visitors a month from Google. Not eight a day. Eight a month, and
-                    it had been stuck there for a year. The practitioners were good.
-                    Nobody could find them.
+                    In August 2024, <ClientLink name="Bodyfunction Clinic" /> in Angel
+                    was getting eight visitors a month from Google. Not eight a day.
+                    Eight a month, and it had been stuck there for a year. The
+                    practitioners were good. Nobody could find them.
                   </p>
                   <p className="text-body-lg leading-relaxed text-[var(--color-muted)]">
                     Today it is found by nearly 4,000 people a month, sits on page one

@@ -14,6 +14,7 @@ import PageHero from "@/components/sections/PageHero";
 import HeroFounderPanel from "@/components/sections/HeroFounderPanel";
 import StatBand from "@/components/sections/StatBand";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
+import ClientLink from "@/components/ui/ClientLink";
 
 
 export const metadata = buildMetadata({
@@ -199,10 +200,10 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <p className="text-body text-[var(--color-muted)]">
-                    Simon went on to found Neometa, a web design, SEO and digital
-                    marketing agency. He has worked with start-ups and established
-                    companies, supporting them with website strategy, search
-                    visibility, business coaching, AI automation and digital
+                    Simon went on to found <ClientLink name="Neometa" />, a web design,
+                    SEO and digital marketing agency. He has worked with start-ups and
+                    established companies, supporting them with website strategy,
+                    search visibility, business coaching, AI automation and digital
                     growth systems.
                   </p>
                 </div>
