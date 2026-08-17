@@ -81,17 +81,17 @@ const faqs = [
   {
     question: "Is local SEO important for private clinics?",
     answer:
-      "Yes. Most patients search locally when choosing a clinic, especially for osteopathy, physiotherapy and chiropractic care. Local SEO helps improve visibility for searches connected to services, conditions, locations and nearby availability.",
+      "Yes. A clinic can only treat people who can physically reach it, so the searches worth winning either carry a place name or trigger the map pack. Local SEO is the work that gets a clinic into those results: service and condition pages tied to the areas you cover, consistent name and address data, and a Google Business Profile that matches the site.",
   },
   {
     question: "How long does clinic SEO take to work?",
     answer:
-      "Some improvements can appear within weeks, especially when a site has low competition keywords or pages that are already close to ranking. Bigger gains usually take several months because Google needs time to crawl, assess and trust the updated website. On Bodyfunction Clinic the first movement showed within a couple of months and the steep part of the curve came around six months in.",
+      "Some improvements can appear within weeks, especially when a site has low competition keywords or pages that are already close to ranking. Bigger gains usually take several months because Google needs time to crawl, assess and trust the updated website. On Bodyfunction Clinic the first movement showed within a couple of months and the curve turned sharply around six months in.",
   },
   {
     question: "Does SEO still matter now that Google answers questions with AI?",
     answer:
-      "Yes, and arguably more. AI answers are assembled from pages Google already trusts, so the work that earns a top ranking is the same work that gets a clinic quoted in an AI answer: clear structure, genuine clinical expertise on the page, consistent local signals and content that answers the question directly. What changes is that being visible now means appearing across AI answers, the map pack and the standard results, rather than one blue link.",
+      "Yes, and arguably more. AI answers are assembled from pages Google already trusts, so the work that earns a top ranking is the same work that gets a clinic quoted in an AI answer: clear structure, genuine clinical expertise on the page, consistent local signals and content that answers the question directly. What changes is that being visible now means appearing across AI answers, the map pack and the standard results, instead of one blue link.",
   },
   {
     question: "Is clinic SEO a maintenance package?",
@@ -116,7 +116,7 @@ const faqs = [
   {
     question: "We have been burnt by a marketing agency before. How is this different?",
     answer:
-      "Two things. Clinic Evo is run by healthcare professionals rather than marketers who took on a clinic as a client, so the work is built around how patients actually choose a practitioner. And the results are reported in your own Google Search Console and Ahrefs, which you can log into and check yourself, rather than in a monthly PDF only we can produce. The figures on this page come from those tools and name their source for exactly that reason.",
+      "Two things. Clinic Evo is run by healthcare professionals, not by marketers who took on a clinic as a client, so the work is built around how patients actually choose a practitioner. And the results are reported in your own Google Search Console and Ahrefs, which you can log into and check yourself, instead of in a monthly PDF only we can produce. The figures on this page come from those tools and name their source for exactly that reason.",
   },
   {
     question: "Can Clinic Evo help with SEO for an existing clinic website?",
@@ -167,7 +167,7 @@ const pillars = [
   },
   {
     title: "Built around enquiries, not rankings",
-    body: "A ranking that nobody clicks and a click that nobody books are both worth nothing. The work is judged on what reaches your diary.",
+    body: "A top ranking that nobody clicks has done nothing for your diary. We report on the enquiries, calls and booking clicks, in your own accounts.",
   },
   {
     title: "MSK and private healthcare only",
@@ -259,12 +259,12 @@ const lindStreetRankings = [
    the section that has to prove specialism rather than assert it. */
 const healthcareDifferences = [
   {
-    label: "Google treats health pages more carefully than most",
-    body: "Search quality guidelines single out content that can affect somebody's health or money. Pages about treatment need visible clinical authorship, real credentials and accurate claims, or they quietly underperform however well optimised they are.",
+    label: "Clinical authorship has to be visible on the page",
+    body: "Google's search quality guidelines single out content that can affect somebody's health or money. Pages about treatment need a named practitioner, real credentials and accurate claims, or they underperform however well optimised they are.",
   },
   {
     label: "Patients search for the problem, not the treatment",
-    body: "Nobody wakes up wanting osteopathy. They wake up unable to turn their head and type that. A site organised around your service list will lose to one organised around what people arrive with.",
+    body: "Nobody wakes up wanting osteopathy. They wake up unable to turn their head, and type that — which is why the condition pages carry more weight here than the service list.",
   },
   {
     label: "Trust signals are ranking signals here",
@@ -272,11 +272,11 @@ const healthcareDifferences = [
   },
   {
     label: "The map pack is often worth more than position one",
-    body: "For a local clinic, appearing in the three businesses shown beside the map can matter more than any organic ranking. That is a different piece of work with different signals behind it.",
+    body: "For a local clinic, appearing in the three businesses shown beside the map can matter more than any organic ranking. It is a separate piece of work with different signals behind it.",
   },
   {
     label: "Regulated claims constrain the copy",
-    body: "The ASA and the professional registers limit what a clinic can promise. Writing pages that rank without writing cheques the clinic cannot cash takes knowing both sides.",
+    body: "The ASA and the professional registers limit what a clinic can promise. Writing pages that rank without promising an outcome the clinic is not allowed to promise takes knowing both sides.",
   },
 ];
 
@@ -303,8 +303,8 @@ const whatWeImprove = [
     desc: "Connecting services, conditions, locations and resources so Google understands your expertise and patients move through the site more easily.",
   },
   {
-    title: "The booking journey",
-    desc: "How easily somebody gets from a search result to understanding, trust and a booked appointment.",
+    title: "From search result to booked appointment",
+    desc: "What a patient meets between clicking the result and reaching the booking form, and where they currently give up.",
   },
 ];
 
@@ -361,7 +361,7 @@ export default function SeoForClinicsPage() {
             <em className="not-italic text-[var(--color-accent)]">more patient enquiries</em>
           </>
         }
-        subtext="When somebody near you searches for the treatment they need, SEO decides whether your clinic is one of the ones they find. Clinic Evo does that work for UK osteopaths, physiotherapists and chiropractors, and we have the search data from our own clinics to show what it looks like when it works."
+        subtext="When somebody near you searches for the treatment they need, SEO decides whether your clinic appears at all. Clinic Evo does that work for UK osteopaths, physiotherapists and chiropractors. Every figure on this page comes from a named clinic's Search Console or Ahrefs account, with the source and the date beside it."
         primaryCta={{ label: "Get a free clinic SEO audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanelWidth="520px"
@@ -452,9 +452,9 @@ export default function SeoForClinicsPage() {
                 yours never came up.
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                That is the part that stings. The demand is already there, in your
-                catchment, today. You are not trying to create patients out of nothing.
-                You are losing people who are actively looking for exactly what you do.
+                The demand is already in your catchment, today. You are not trying to
+                create patients out of nothing; you are losing people who are already
+                looking for exactly what you do.
               </p>
               <p className="text-body text-[var(--color-muted)]">
                 All of it is fixable, and none of it requires you to become a marketer.
@@ -494,15 +494,15 @@ export default function SeoForClinicsPage() {
                 Why most clinic websites struggle to rank
               </h2>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                Most clinic websites are built to look presentable rather than to
-                perform in search. The homepage is doing too much. The service pages
-                are too thin to rank for anything. The condition pages that patients
-                actually search for were never written.
+                Three reasons, usually. The homepage is trying to cover every service
+                at once, so it ranks clearly for none of them. The service pages are
+                too thin to compete with anything. And the condition pages patients
+                actually search for, the ones naming a symptom, were never written.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                The biggest gains usually come from fixing the structure first: making
-                it obvious what you treat, who you help, where you are, why anyone
-                should trust you, and which single page should own each search.
+                The biggest gains usually come from fixing the structure first: what
+                you treat, where you are, why anyone should trust you, and which
+                single page owns each search.
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
@@ -556,9 +556,8 @@ export default function SeoForClinicsPage() {
                   Which of those are true of your site?
                 </p>
                 <p className="text-body-sm max-w-xl text-[var(--color-muted)]">
-                  The audit goes through this list on your clinic specifically, and
-                  tells you which ones are actually costing you patients. Free, and
-                  yours to keep either way.
+                  The audit works through this list on your clinic and tells you which
+                  of them are actually costing you patients.
                 </p>
               </div>
               <Button href="/free-clinic-audit/" size="md" className="flex-shrink-0">
@@ -579,17 +578,18 @@ export default function SeoForClinicsPage() {
                 Having a website does not mean Google shows it to anybody
               </h2>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                This is the part most clinic owners are never told. Your website
-                going live does not put you in front of the person two streets away
-                typing &ldquo;osteopath near me&rdquo; at nine on a Sunday night.
-                Google chooses who to show, every time, out of every clinic in your
-                catchment. SEO is the work that makes it choose you.
+                Nobody tells clinic owners this. Your website going live does not put
+                you in front of the person typing &ldquo;osteopath near me&rdquo; at
+                nine on a Sunday night. Google chooses who to show, every time, out of
+                every clinic in your catchment. SEO is the work that makes it choose
+                you.
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">
                 It is not advertising. You are not renting the position, so it does
-                not disappear the day you stop paying. That is why search is the
-                keystone: ads fill the diary this month, search fills it for years,
-                and every page you add compounds on the one before it.
+                not disappear the day you stop paying. Turn Google Ads off and the
+                enquiries stop the same afternoon. A page that ranks carries on
+                working while you build the next one, which is why we do search
+                before anything else.
               </p>
               <p className="text-body text-[var(--color-muted)]">
                 The demand is already there. Right now it is going to whichever
@@ -638,18 +638,17 @@ export default function SeoForClinicsPage() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <h3 className="text-h3 mb-5 text-[var(--color-ink)]">
-                Where new patients actually come from
+                Where the first-time visitors come from
               </h3>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                On the clinics we run, organic search brings in more new patients than
-                direct, paid search, social and referrals put together. Not by a
-                little. By more than all of them combined.
+                On the clinic in that report, organic search brought more first-time
+                visitors to the site than direct, paid search, social and referral put
+                together. The screenshot is the full channel breakdown, uncropped.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                That is the argument for doing this properly. Every other channel is a
-                tap you have to keep paying to leave running. Search is the one that
-                keeps delivering after the work is done, which is why we treat it as
-                the foundation everything else sits on rather than an add-on.
+                Paid social and Google Ads stop the moment the budget does. Search
+                keeps returning people after the work is finished, so we do it first
+                and then use the same keyword research to point the paid campaigns.
               </p>
             </FadeUp>
           </div>
@@ -675,15 +674,15 @@ export default function SeoForClinicsPage() {
               <p className="text-body mb-5 text-[var(--color-muted)]">
                 Bodyfunction Clinic is an osteopathy practice in Angel, London. It is
                 also where Clinic Evo came from: Danny Morgan founded the clinic and
-                co-founded this company, so this is our own work on our own diary
-                rather than a client we are quoting. That is exactly why we can show
-                you the whole account instead of one flattering screenshot.
+                co-founded this company. It is our own diary, not a client&rsquo;s,
+                which is why we can open the whole account instead of showing you one
+                flattering screenshot.
               </p>
               <p className="text-body text-[var(--color-muted)]">
                 For a full year the site sat flat at eight to fifteen visits a month.
-                The practitioners were good. Nobody could find them. Everything below
-                is what changed after the structure and content work landed, pulled
-                from Search Console and Ahrefs.
+                Nothing was wrong with the clinic; the website simply was not being
+                found. Everything below is what changed after the structure and content
+                work landed, pulled from Search Console and Ahrefs.
               </p>
             </FadeUp>
           </div>
@@ -698,16 +697,14 @@ export default function SeoForClinicsPage() {
                 The inflection is visible in the data
               </h3>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                This is the shape SEO makes when it is working, and it is worth
-                understanding before you buy any: a long flat stretch where the
-                foundations are going in, then a curve that keeps climbing on its own.
-                Nothing here was bought. There is no paid traffic in this account at
-                all.
+                Worth understanding before you buy any SEO: the line stays flat for
+                months while the pages and the structure go in, then climbs and keeps
+                climbing. There is no paid traffic in this account at all.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                That is also the honest answer to &ldquo;how long does it take&rdquo;.
-                The first movement showed within a couple of months. The steep part
-                arrived around six. The compounding has not stopped since.
+                It also answers &ldquo;how long does it take&rdquo; more honestly than
+                a single number would. First movement showed within a couple of months,
+                the curve turned sharply at around six, and it has not flattened since.
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
@@ -728,11 +725,11 @@ export default function SeoForClinicsPage() {
                   Islington looking for an appointment. The local terms are the
                   next section's argument, and they are named there. */}
               <p className="text-body-sm mt-5 text-[var(--color-muted)]">
-                These are condition questions: people describing a symptom, from
-                anywhere. They are how a clinic earns the authority that local
-                terms then trade on, and they are not the same thing as somebody
-                two streets away searching for an appointment. Both matter, and
-                they are won in that order.
+                These are condition questions: somebody describing a symptom,
+                searching from anywhere in the country. They build the authority a
+                site needs before it can compete for local appointment terms, which
+                is the next section&rsquo;s argument. Authority comes first, and the
+                local searches follow it.
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
@@ -762,13 +759,13 @@ export default function SeoForClinicsPage() {
                 and would cost roughly $200 a month to replace with ads.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                That is what people mean when they say content compounds. It was written
-                once. Three more articles on the same site clear $99 a month each on the
-                same measure. This is the difference between a website that sits there
-                and one that keeps earning.
+                Three more articles on the same site clear $99 a month each on the same
+                measure. Each was written once and has kept earning since, which is what
+                people mean when they say content compounds.
               </p>
               <p className="mt-4 text-[0.8rem] text-[var(--color-muted)]">
-                Ahrefs, traffic value, bodyfunction.co.uk, Aug 2026
+                Ahrefs traffic value, bodyfunction.co.uk, Aug 2026. Ahrefs reports in
+                US dollars.
               </p>
             </div>
           </FadeUp>
@@ -787,17 +784,17 @@ export default function SeoForClinicsPage() {
                 And it is still climbing
               </p>
               <p className="text-body mb-4 text-[var(--color-muted)]">
-                The hard part is done. This clinic now has the search authority that
-                takes years to build, and the brand demand to go with it: five times
-                as many people search for it by name as did two years ago. That is
-                the asset. Everything from here is easier because of it.
+                This clinic now has the search authority that takes years to build,
+                and the brand demand alongside it: five times as many people search
+                for it by name as did two years ago. Both make everything from here
+                cheaper and quicker.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                The local pack is the next thing we take. Terms like &ldquo;osteopath
-                islington&rdquo; sit mid page one today, which is exactly the position
-                you want to be attacking from, and a far shorter job than the two
-                years it took to get here. Most clinics are still at the starting
-                line on both.
+                The map pack is the next job. Terms like &ldquo;osteopath
+                islington&rdquo; sit mid page one today, which is a far shorter
+                distance to close than the two years it took to reach this point.
+                Very few clinic sites have either the authority or the brand demand
+                yet.
               </p>
               {/* This page carried the biggest block of Bodyfunction evidence on the
                   site and never once linked to the case study. A dead end for
@@ -840,22 +837,20 @@ export default function SeoForClinicsPage() {
                 You do not need a big clinic for this to work
               </h2>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                Twelve months ago Lind Street had no website, no logo and no search
-                history of any kind. Today it is on page one for effectively every
-                commercially relevant search in its area, and holds the top five for
-                the ones that actually bring patients through the door.
+                The table on the right is all of it: every commercially relevant
+                search in Ryde, twelve months after launch. Three of the five sit
+                inside the top five positions and the other two are on page one.
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                That is one practitioner in Ryde, on an island of 140,000 people,
+                Lind Street is one practitioner, on an island of 140,000 people,
                 competing against practices that had been there for years. If it can
                 be done from a standing start in a market that size, it can be done
                 in yours.
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                The click-through rates are the quiet win in this table. A 67% rate on
-                the brand term and 19.4% on &ldquo;osteopath ryde&rdquo; mean people
-                are not just seeing the listing, they are choosing it over the ones
-                around it.
+                The click-through rates are the column worth reading twice. 67% on the
+                brand term and 19.4% on &ldquo;osteopath ryde&rdquo; mean people are
+                seeing the listing and then choosing it over the ones beside it.
               </p>
               {/* The honest bridge. A reader who totals the clicks column gets a
                   number in the hundreds and wonders whether that was worth it.
@@ -866,10 +861,10 @@ export default function SeoForClinicsPage() {
               <p className="text-body text-[var(--color-muted)]">
                 The absolute numbers are small, and in a catchment this size they
                 should be — only so many people search for an osteopath in one
-                seaside town in a year. The number that matters is not how many
-                searches there were, it is what share of them arrive at this clinic
-                rather than a competitor. On the terms describing what it treats,
-                that share is now most of them.
+                seaside town in a year. What the table measures is share: at 19.4% on
+                &ldquo;osteopath ryde&rdquo;, roughly one searcher in five clicks
+                this clinic rather than one of the practices listed above or below
+                it.
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
@@ -903,16 +898,17 @@ export default function SeoForClinicsPage() {
                 Name the condition, not the treatment
               </h3>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                The best performing pages on that site are not named after treatments.
-                They are named after problems. The fibromyalgia, hypermobility and TMJ
-                pages all outrank the general osteopathy and sports massage pages.
+                The best performing pages on that site are named after problems, not
+                treatments: the fibromyalgia, hypermobility and TMJ pages all outrank
+                the general osteopathy and sports massage pages.
               </p>
               <p className="text-body mb-6 text-[var(--color-muted)]">
                 Patients search for what is wrong with them, usually in the words their
-                GP or a forum used. A page that names their condition meets them there.
-                A treatments page covering everything meets nobody. In a small
-                catchment that is the whole game, and it is the cheapest advantage
-                available to a small clinic because most competitors will not bother.
+                GP or a forum used. A page titled for that condition matches what they
+                typed. A page listing every treatment matches it only loosely, and
+                loosely does not rank. In a small catchment this is the cheapest
+                advantage available, because competitors rarely build the condition
+                pages at all.
               </p>
               <ArrowLink href="/case-studies/lind-street-osteopathy/">
                 Read the full Lind Street case study
@@ -945,9 +941,9 @@ export default function SeoForClinicsPage() {
                   </h2>
                   <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/60">
                     The free audit is the same first step we took on both clinics
-                    above. You get your current visibility, the searches you are
-                    missing, and the shortest route to more enquiries. No obligation,
-                    and the findings are yours either way.
+                    above: what you rank for now, which searches in your area are
+                    going to competitors, and what it would take to change that. Two
+                    business days, no obligation.
                   </p>
                 </div>
                 <Button href="/free-clinic-audit/" size="lg">
@@ -975,9 +971,10 @@ export default function SeoForClinicsPage() {
                 </h2>
               </div>
               <p className="text-body-lg text-[var(--color-charcoal)]">
-                This is a growth package rather than a maintenance plan. Maintenance
-                keeps a website working; this is ongoing work to increase how many
-                people find your clinic and how many of them get in touch.
+                A maintenance plan keeps a website working. This is a growth
+                engagement: continuous work to widen the set of searches your clinic
+                appears for, and to increase how many of those visits become
+                enquiries.
               </p>
             </div>
           </FadeUp>
@@ -1042,23 +1039,23 @@ export default function SeoForClinicsPage() {
             <FadeUp>
               <p className="eyebrow mb-5">Why clinic SEO is different</p>
               <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
-                A clinic is not a plumber with a treatment table
+                Google holds clinic sites to a higher standard
               </h2>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                Most local SEO advice assumes any small business will do. Healthcare
-                does not behave that way, and a generalist agency will spend your first
-                six months finding that out on your money.
+                Most local SEO advice is written for any small business. Healthcare
+                does not behave that way, and a generalist agency will work that out
+                slowly, on your budget.
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">
-                Patients arrive worried, in pain, uncertain, comparing three or four
-                clinics at once and looking for reasons to trust one of them. Google,
-                for its part, holds health content to a higher standard than almost
-                any other category. Those two facts change the whole strategy.
+                Patients arrive in pain and worried, comparing three or four clinics
+                at once for a reason to trust one of them. Google&rsquo;s own search
+                quality guidelines put health content in the category it scrutinises
+                hardest. Those two facts change the strategy.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                We know it because we run clinics. Danny still practises; Simon spent
-                years getting clinic websites found. The list on the right is what that
-                actually changes about the work.
+                Danny founded Bodyfunction Clinic and still treats patients there;
+                Simon has spent years getting clinic websites found. The list on the
+                right is what that changes about the work.
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
@@ -1098,11 +1095,10 @@ export default function SeoForClinicsPage() {
           <FadeUp delay={0.1}>
             <div className="mt-12 max-w-3xl">
               <p className="text-body text-[var(--color-muted)]">
-                The useful part: the work that earns an AI citation is largely the work
-                that earned a top ranking anyway. Clear structure, questions answered
-                directly, genuine clinical expertise attached to a named practitioner,
-                and consistent local data. We build for how people search now, not for
-                a version of Google that stopped existing.
+                The work that earns an AI citation is largely the work that earned a
+                top ranking anyway: clear structure, questions answered directly,
+                genuine clinical expertise attached to a named practitioner, and
+                consistent local data. All three surfaces come out of the same work.
               </p>
             </div>
           </FadeUp>
