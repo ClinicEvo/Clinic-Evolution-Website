@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
@@ -10,6 +9,7 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import ServiceSchema from "@/components/schema/ServiceSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import PageHero from "@/components/sections/PageHero";
+import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
 import ProofBand from "@/components/sections/ProofBand";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 import ResearchPagePlan from "@/components/sections/ResearchPagePlan";
@@ -153,19 +153,6 @@ const buildSteps = [
   },
 ];
 
-/* Logos. Bodyfunction is in the strip as well as the origin section — the strip
-   is the fastest read on the page and the origin nuance is not worth omitting
-   our strongest name from it. Neometa is Simon's agency rather than a clinic,
-   which is why the label says "brands".
-   Heights are tuned per mark because the aspect ratios differ wildly. */
-const clientLogos = [
-  { name: "Body Restore Clinic", src: "/images/clients/body-restore.png", w: 1714, h: 564, height: 34, dim: true },
-  { name: "1 Percent Club", src: "/images/clients/one-percent-club.png", w: 500, h: 461, height: 48, dim: true },
-  { name: "Lind Street Osteopathy", src: "/images/clients/lind-street.png", w: 1500, h: 500, height: 42 },
-  { name: "Bodyfunction Clinic", src: "/images/clients/bodyfunction.png", w: 1850, h: 304, height: 24 },
-  { name: "Neometa", src: "/images/clients/neometa.png", w: 1403, h: 238, height: 20 },
-];
-
 /* Both founders, because the work genuinely splits between them and an earlier
    version of this page credited the whole method to Danny.
 
@@ -251,38 +238,8 @@ export default function WebsiteDesignForClinicsPage() {
       />
 
       {/* Proof, high up — Danny asked for social proof near the top of every page,
-          not two thirds of the way down it. */}
-      <section className="border-y border-[var(--color-border)] bg-[var(--color-surface)] py-9">
-        <div className="cx-main">
-          <div className="flex flex-col items-center gap-7 sm:flex-row sm:justify-between sm:gap-10">
-            <p className="text-label flex-shrink-0 text-[var(--color-muted)]">
-              Brands we build and grow
-            </p>
-            {/* Grid below sm, free-wrapping row above. Five marks left to wrap on
-                a phone give ragged rows and a lone logo on the last one; the odd
-                mark out spans both columns so it centres. */}
-            <div className="grid w-full grid-cols-2 place-items-center gap-x-8 gap-y-7 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-12 sm:gap-y-6">
-              {clientLogos.map((logo, i) => (
-                <div
-                  key={logo.name}
-                  className={`flex items-center ${
-                    i === clientLogos.length - 1 ? "col-span-2 sm:col-span-1" : ""
-                  }`}
-                >
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    width={logo.w}
-                    height={logo.h}
-                    style={{ "--logo-h": `${logo.height}px` } as CSSProperties}
-                    className={`cx-logo ${logo.dim ? "opacity-[0.85]" : ""}`}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+          not two thirds of the way down it. Shared with the who-we-help pages. */}
+      <ClientLogoStrip />
 
       {/* The real patient decision */}
       <section className="section bg-[var(--color-paper)]">

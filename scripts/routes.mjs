@@ -9,6 +9,10 @@ export const ROUTES = [
   { path: "/website-design-for-clinics/",                 name: "website-design" },
   { path: "/call-centre/",                                name: "call-centre" },
   { path: "/digital-marketing/",                          name: "digital-marketing" },
+  // One of the three who-we-help pages. Osteopathy, chiropractic and
+  // physiotherapy share a template and differ only in copy, so one covers all
+  // three for the scan and screenshot loops.
+  { path: "/osteopath-marketing/",                        name: "who-we-help" },
   { path: "/case-studies/",                               name: "case-studies-index" },
   { path: "/case-studies/bodyfunction-clinic/",           name: "case-study" },
   { path: "/learning-hub/",                               name: "learning-hub-index" },

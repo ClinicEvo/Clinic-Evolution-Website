@@ -10,6 +10,8 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroImagePlaceholder from "@/components/sections/HeroImagePlaceholder";
+import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
+import ConnectedJourney from "@/components/sections/ConnectedJourney";
 import StatBand from "@/components/sections/StatBand";
 import Image from "next/image";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
@@ -107,74 +109,93 @@ export default function OsteopathMarketingPage() {
           "Results tracked to enquiries, not just rankings",
         ]}
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
-        secondaryCta={{ label: "See how it works", href: "#what-we-improve" }}
         breadcrumbs={crumbs}
-        rightPanel={<HeroImagePlaceholder src="/images/hero/osteopathy-hero.jpg" alt="Osteopath treating a patient" />}
+        rightPanel={
+          <HeroImagePlaceholder
+            src="/images/hero/osteopath-manual-treatment.jpg"
+            alt="An osteopath treating a patient on a clinic couch"
+          />
+        }
+        bulletsBelow
       />
 
-      {/* Why Clinic Evo for osteopaths */}
+      <ClientLogoStrip />
+
+      {/* Why Clinic Evo for osteopaths.
+          This used to be prose on the left and a second card of four titled
+          blocks on the right — the exact shape the 10 Aug review objected to
+          ("I don't think we should have double content like that back next to
+          each other"). Prose now sits against a photograph, and the claims run
+          full width underneath as a divided band rather than a third card grid. */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-14 lg:gap-20 items-center">
             <FadeUp>
               <div>
                 <p className="eyebrow mb-5">Why Clinic Evo</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Marketing that understands osteopathy
+                  The people doing your marketing also run an osteopathy clinic
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
-                  Generic marketing agencies don&apos;t understand the nuances of
-                  osteopathic care, the patient journey from acute pain to long-term
-                  wellness, the role of word-of-mouth and referrals, or how patients
-                  search when they&apos;re in discomfort.
+                  Danny Morgan is a practising osteopath. He founded Bodyfunction
+                  Clinic in Angel, spent years working out how to fill its diary,
+                  and co-founded Clinic Evo to do the same job for other clinics.
+                  Every method on this page was tested on his own practice first.
                 </p>
-                <p className="text-body text-[var(--color-muted)] mb-8 max-w-xl">
-                  We work exclusively with musculoskeletal clinics. That means every
-                  strategy, every piece of content, and every ad campaign is built
-                  around what actually works for osteopaths in the UK.
+                <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
+                  That matters because a generic agency has never sat in your
+                  position: a quiet Tuesday, a diary with gaps in it, and an
+                  invoice from someone who promised leads and delivered clicks.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
-                  {[
-                    { text: "Rank for 'osteopath near me' and condition-specific searches", icon: <><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L20 20"/></> },
-                    { text: "Google Ads targeting back pain, neck pain, and sports injury keywords", icon: <><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v4l3 2"/></> },
-                    { text: "Websites designed to convert visitors into booked appointments", icon: <><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></> },
-                    { text: "AI patient reactivation to bring lapsed patients back", icon: <><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0115-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 01-15 6.7L3 16"/></> },
-                  ].map((item) => (
-                    <div key={item.text} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 h-9 w-9 rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)] flex items-center justify-center">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
-                      </div>
-                      <span className="text-sm font-medium text-[var(--color-ink)] leading-snug pt-1">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-body text-[var(--color-muted)] max-w-xl">
+                  We work only with musculoskeletal clinics, so every strategy,
+                  page and campaign starts from how patients in pain actually
+                  search, compare and book.
+                </p>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="card-surface p-8">
-                <h3 className="text-h3 text-[var(--color-ink)] mb-6">
-                  How osteopathy patients choose a clinic
-                </h3>
-                <div className="flex flex-col gap-5">
-                  {[
-                    { icon: <path d="M13 10V3L4 14h7v7l9-11h-7z"/>, label: "Acute pain searches", desc: "Reaching people searching in discomfort who want to book quickly and locally." },
-                    { icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>, label: "Trust before booking", desc: "Explaining your approach, practitioners and treatment clearly so patients feel confident." },
-                    { icon: <><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></>, label: "Long-term care plans", desc: "Supporting rebooking and maintenance visits, not just the first appointment." },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 h-9 w-9 rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)] flex items-center justify-center">
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[var(--color-ink)] text-sm mb-1">{item.label}</p>
-                        <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                <Image
+                  src="/images/osteopath-hip-assessment.jpg"
+                  alt="An osteopath assessing a patient's hip during treatment"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                />
               </div>
             </FadeUp>
           </div>
+
+          <FadeUp delay={0.16}>
+            <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-border)] sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  label: "Found in local search",
+                  desc: "Ranking for 'osteopath near me' and the condition searches your treatments answer.",
+                },
+                {
+                  label: "Paid search that books",
+                  desc: "Google Ads aimed at back pain, neck pain and sports injury intent, not broad traffic.",
+                },
+                {
+                  label: "A site built to convert",
+                  desc: "Pages that answer the patient's question and put booking one click away.",
+                },
+                {
+                  label: "Patients who come back",
+                  desc: "Automated recall and reactivation for maintenance visits, not just first appointments.",
+                },
+              ].map((item) => (
+                <div key={item.label} className="bg-[var(--color-paper)] p-7">
+                  <p className="font-display text-[0.95rem] font-semibold text-[var(--color-ink)]">
+                    {item.label}
+                  </p>
+                  <p className="text-body-sm mt-2 text-[var(--color-muted)]">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -207,34 +228,30 @@ export default function OsteopathMarketingPage() {
               </p>
             </div>
           </FadeUp>
+          {/* No icons in these cards. The 10 Aug review was blunt about it:
+              "when I see a box with some words with some generic icon on it, it
+              to me just screams preset website". */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               {
-                title: "Improve visibility for high-intent searches",
-                desc: "We help your clinic rank for local osteopath searches, condition-led queries and treatment-specific terms that match real patient demand.",
-                icon: <><circle cx="11" cy="11" r="7" /><path d="M16.5 16.5L20 20" /></>,
+                title: "They search in pain, and locally",
+                desc: "People look for an osteopath when something hurts now. We get your clinic ranking for local osteopath searches, condition-led queries and treatment-specific terms, so you are there at the moment they look.",
               },
               {
-                title: "Build patient trust before they enquire",
-                desc: "We improve how your website explains your treatments, practitioners, approach, reviews, location and booking process.",
-                icon: <><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.7 7.1 18.2l.9-5.5-4-3.9 5.5-.8L12 3z" /></>,
+                title: "They check whether you look credible",
+                desc: "Before they call, they read your treatment pages, look at your practitioners, scan your reviews and check how far away you are. We make your website answer all four quickly.",
               },
               {
-                title: "Run campaigns that focus on enquiries",
-                desc: "Google Ads and social campaigns support growth when they are connected to clear landing pages and proper conversion tracking, not just clicks.",
-                icon: <><path d="M4 15l5-5 4 4 6-8" /></>,
+                title: "They compare you with two or three others",
+                desc: "Google Ads and social campaigns bring that decision forward, but only when they are connected to clear landing pages and proper conversion tracking, not just clicks.",
               },
               {
-                title: "Reconnect with lapsed patients",
-                desc: "AI patient reactivation identifies and re-engages people who may need follow-up care, maintenance appointments or support with recurring issues.",
-                icon: <><circle cx="12" cy="12" r="8" /><path d="M12 8v4l3 2" /></>,
+                title: "They stop coming back long before they say so",
+                desc: "Most osteopathy revenue is in maintenance and rebooking. AI patient reactivation re-engages people who need follow-up care or support with a recurring issue, without anyone in the clinic remembering to chase.",
               },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
                 <div className="card-surface group flex h-full flex-col p-7 md:p-8">
-                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
-                  </div>
                   <h3 className="text-h4 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
@@ -262,18 +279,15 @@ export default function OsteopathMarketingPage() {
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { title: "SEO for Osteopaths", desc: "Technical and content SEO that ranks your practice for local and condition-specific searches.", href: "/seo-for-clinics/", cta: "Explore SEO for Clinics", icon: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 9h10M7 13h6" /></> },
-              { title: "Google Ads for Osteopaths", desc: "Patient-ready campaigns targeting people actively searching for osteopathic treatment.", href: "/google-ads-for-clinics/", cta: "Explore Google Ads for Clinics", icon: <><path d="M4 15l5-5 4 4 6-8" /><path d="M19 6v4h-4" /></> },
-              { title: "Osteopath Website Design", desc: "Fast, trust-building websites designed specifically to convert visitors into new patients.", href: "/website-design-for-clinics/", cta: "Explore Clinic Website Design", icon: <><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M3 9h18M8 21h8" /></> },
-              { title: "AI Patient Reactivation", desc: "Re-engage patients who haven't visited in months with personalised automated messages.", href: "/ai-integration/", cta: "Explore AI Patient Reactivation", icon: <><circle cx="12" cy="12" r="8" /><path d="M12 8v4l3 2" /></> },
-              { title: "Local SEO", desc: "Strengthen the local signals and Google Business Profile that help you win 'near me' searches.", href: "/seo-for-clinics/", cta: "Explore Local SEO", icon: <><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></> },
-              { title: "Social media paid ads", desc: "Facebook and Instagram campaigns targeting local osteopathy patients by condition, age and location, built to fill specific treatment slots rather than chase generic brand awareness.", href: "/google-ads-for-clinics/", cta: "Paid Ads for Clinics", icon: <><rect x="3" y="3" width="18" height="18" rx="4" /><circle cx="12" cy="12" r="4" /><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" /></> },
+              { title: "SEO for Osteopaths", desc: "Technical and content SEO that ranks your practice for local and condition-specific searches.", href: "/seo-for-clinics/", cta: "Explore SEO for Clinics" },
+              { title: "Google Ads for Osteopaths", desc: "Patient-ready campaigns targeting people actively searching for osteopathic treatment.", href: "/google-ads-for-clinics/", cta: "Explore Google Ads for Clinics" },
+              { title: "Osteopath Website Design", desc: "Fast, trust-building websites designed specifically to convert visitors into new patients.", href: "/website-design-for-clinics/", cta: "Explore Clinic Website Design" },
+              { title: "AI Patient Reactivation", desc: "Re-engage patients who haven't visited in months with personalised automated messages.", href: "/ai-integration/", cta: "Explore AI Patient Reactivation" },
+              { title: "Local SEO", desc: "Strengthen the local signals and Google Business Profile that help you win 'near me' searches.", href: "/seo-for-clinics/", cta: "Explore Local SEO" },
+              { title: "Social media paid ads", desc: "Facebook, Instagram and TikTok campaigns targeting local osteopathy patients by condition, age and location, built to fill specific treatment slots rather than chase generic brand awareness.", href: "/digital-marketing/", cta: "Paid Social for Clinics" },
             ].map((s, i) => (
               <FadeUp key={s.title} delay={i * 0.07}>
                 <Link href={s.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
-                  <div className="mb-5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{s.icon}</svg>
-                  </div>
                   <h3 className="text-h4 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
@@ -288,6 +302,15 @@ export default function OsteopathMarketingPage() {
           </div>
         </div>
       </section>
+
+      {/* How the services work as one thing.
+          The 10 Aug review asked for exactly this on the who-we-help pages:
+          "explain to the client how all these systems nicely come together...
+          how the Google ads and the Facebook ads and the TikTok and the
+          Instagram ads all come together and how that is glued together with
+          the patient pulse system in the background". It also carries the
+          platform marks Danny asked to see. */}
+      <ConnectedJourney />
 
       {/* Why generic marketing is not enough */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">

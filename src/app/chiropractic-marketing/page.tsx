@@ -10,6 +10,8 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroImagePlaceholder from "@/components/sections/HeroImagePlaceholder";
+import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
+import ConnectedJourney from "@/components/sections/ConnectedJourney";
 import StatBand from "@/components/sections/StatBand";
 import Image from "next/image";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
@@ -107,71 +109,89 @@ export default function ChiropracticMarketingPage() {
           "AI patient reactivation systems",
         ]}
         primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
-        secondaryCta={{ label: "See how it works", href: "#what-we-improve" }}
         breadcrumbs={crumbs}
-        rightPanel={<HeroImagePlaceholder src="/images/hero/chiropractor-hero.jpg" alt="Chiropractor treating a patient" />}
+        rightPanel={
+          <HeroImagePlaceholder
+            src="/images/hero/chiropractor-cervical-adjustment.jpg"
+            alt="A chiropractor adjusting a patient's neck in a treatment room"
+          />
+        }
+        bulletsBelow
       />
 
-      {/* Problem and positioning */}
+      <ClientLogoStrip />
+
+      {/* Problem and positioning.
+          Prose against a photograph rather than prose against a second card of
+          titled blocks — the 10 Aug review objected to that shape by name. The
+          referral argument runs full width underneath as a divided band. */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-14 lg:gap-20 items-center">
             <FadeUp>
               <div>
                 <p className="eyebrow mb-5">The challenge</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  What brings chiropractic patients through the door
+                  Your patient is in pain and does not know if they want a chiropractor
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
-                  Chiropractic clinics face a particular challenge online. Many
-                  potential patients are searching because they are in pain,
-                  frustrated by recurring symptoms, or unsure which type of
-                  practitioner they should see.
+                  They are comparing chiropractors with osteopaths,
+                  physiotherapists, massage therapists, NHS pathways and private
+                  pain clinics. They have questions about safety, about what an
+                  adjustment involves, about whether it is right for their problem
+                  at all.
                 </p>
                 <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
-                  They may compare chiropractors with osteopaths, physiotherapists,
-                  massage therapists, NHS pathways and private pain clinics. They
-                  may also have questions about safety, treatment approach, reviews,
-                  qualifications and whether chiropractic care is right for their
-                  problem.
-                </p>
-                <p className="text-body text-[var(--color-muted)] mb-5 max-w-xl">
-                  That means your marketing needs to do more than drive traffic. It
-                  needs to build trust quickly, explain your clinical value clearly
-                  and make the next step feel easy.
+                  That means your marketing has to do more than drive traffic. It
+                  has to answer those questions before the enquiry, build trust
+                  fast, and make booking feel like the obvious next step.
                 </p>
                 <p className="text-body text-[var(--color-muted)] max-w-xl">
-                  Clinic Evo helps chiropractic clinics create a clearer digital
-                  presence that supports search visibility, patient confidence and
-                  enquiry growth.
+                  We come from the same trade. Danny Morgan is a practising
+                  osteopath who founded and still runs Bodyfunction Clinic, and
+                  every method on this page was tested there before it was offered
+                  to anyone else.
                 </p>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="card-surface p-8">
-                <h3 className="text-h3 text-[var(--color-ink)] mb-6">
-                  Why referrals alone aren&apos;t enough
-                </h3>
-                <div className="flex flex-col gap-5">
-                  {[
-                    { icon: <><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></>, label: "Referrals have a ceiling", desc: "Word of mouth is valuable but not a complete growth system — vulnerable when competition rises or referral sources slow down." },
-                    { icon: <><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L20 20"/></>, label: "Patients still search first", desc: "Even referred patients check your website, read reviews and decide whether they feel confident enough to book." },
-                    { icon: <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></>, label: "Marketing that works on both", desc: "Good chiropractic marketing supports new patient acquisition and referral conversion — helping more people find you, trust you and take action." },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 h-9 w-9 rounded-[var(--radius-sm)] bg-[var(--color-accent-light)] text-[var(--color-accent)] flex items-center justify-center">
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[var(--color-ink)] text-sm mb-1">{item.label}</p>
-                        <p className="text-body-sm text-[var(--color-muted)]">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                <Image
+                  src="/images/chiropractic-shoulder-assessment.jpg"
+                  alt="A clinician assessing a patient's shoulder on a treatment couch"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                />
               </div>
             </FadeUp>
           </div>
+
+          <FadeUp delay={0.16}>
+            <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-border)] sm:grid-cols-3">
+              {[
+                {
+                  label: "Referrals have a ceiling",
+                  desc: "Word of mouth is valuable but it is not a growth system. It stalls when a competitor opens or a referring GP retires.",
+                },
+                {
+                  label: "Referred patients still search",
+                  desc: "Even a warm referral checks your website, reads your reviews and decides whether they feel confident enough to book.",
+                },
+                {
+                  label: "The same work fixes both",
+                  desc: "A clearer site and stronger local presence convert the referrals you already get as well as the strangers you do not.",
+                },
+              ].map((item) => (
+                <div key={item.label} className="bg-[var(--color-paper)] p-7">
+                  <p className="font-display text-[0.95rem] font-semibold text-[var(--color-ink)]">
+                    {item.label}
+                  </p>
+                  <p className="text-body-sm mt-2 text-[var(--color-muted)]">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -207,51 +227,31 @@ export default function ChiropracticMarketingPage() {
               </p>
             </div>
           </FadeUp>
+          {/* No icons in these cards. The 10 Aug review was blunt about it:
+              "when I see a box with some words with some generic icon on it, it
+              to me just screams preset website". */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               {
-                title: "Improve visibility for high-intent searches",
-                desc: "We help your clinic target searches such as local chiropractic care, treatment-related searches and service-led keywords that match real patient demand.",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-                    <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.5" />
-                    <path d="M15.5 15.5L19 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                ),
+                title: "They search when the pain wins",
+                desc: "Nobody books a chiropractor on a good day. We target local chiropractic searches, treatment-related queries and service-led keywords, so you are visible at the moment they give in and look.",
               },
               {
-                title: "Build patient trust before they enquire",
-                desc: "We improve the way your website explains your services, practitioners, approach, reviews, location, pricing and booking process.",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-                    <path d="M11 2l2.5 5 5.5.8-4 3.9.9 5.5L11 14.7 6.1 17.2l.9-5.5-4-3.9 5.5-.8L11 2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                  </svg>
-                ),
+                title: "They want to know what the first visit involves",
+                desc: "Safety, technique, cost, how many sessions. We improve the way your website explains your services, practitioners, approach, reviews, location, pricing and booking process.",
               },
               {
-                title: "Create campaigns that focus on enquiries",
-                desc: "Google Ads and social media ads can support chiropractic growth, but only when they are connected to clear landing pages and proper conversion tracking.",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-                    <path d="M3 14l5-5 4 4 5-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                ),
+                title: "They open three or four tabs before they call",
+                desc: "Google Ads and social ads can bring that decision forward, but only when they are connected to clear landing pages and proper conversion tracking rather than a homepage.",
               },
               {
-                title: "Reconnect with suitable past patients",
-                desc: "Patient reactivation systems help clinics identify and re-engage people who may need follow-up care, maintenance appointments or support with recurring issues.",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-                    <path d="M11 3a8 8 0 100 16A8 8 0 0011 3z" stroke="currentColor" strokeWidth="1.5" />
-                    <path d="M11 7v4l3 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                ),
+                title: "They drift away between courses of care",
+                desc: "Reactivation systems help you identify and re-engage people who may need follow-up care, maintenance appointments or support with a recurring issue, without anyone having to remember.",
               },
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
                 <div className="card-surface flex h-full flex-col p-7 md:p-8">
-                  <div className="text-[var(--color-accent)] mb-4">{item.icon}</div>
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{item.title}</h3>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{item.title}</h3>
                   <p className="text-body text-[var(--color-muted)]">{item.desc}</p>
                 </div>
               </FadeUp>
@@ -298,9 +298,9 @@ export default function ChiropracticMarketingPage() {
               },
               {
                 title: "Chiropractic social media marketing",
-                desc: "Use clearer messaging, educational content and targeted campaigns to support awareness, trust and conversion for your clinic.",
-                href: "/free-clinic-audit/",
-                cta: "Get a Free Clinic Audit",
+                desc: "Facebook, Instagram and TikTok campaigns built around clearer messaging and educational content, to support awareness, trust and conversion for your clinic.",
+                href: "/digital-marketing/",
+                cta: "Paid Social for Clinics",
               },
               {
                 title: "AI patient reactivation",
@@ -311,7 +311,7 @@ export default function ChiropracticMarketingPage() {
             ].map((s, i) => (
               <FadeUp key={s.title} delay={i * 0.07}>
                 <Link href={s.href} className="card-surface group flex h-full flex-col p-7 md:p-8">
-                  <h3 className="text-h3 text-[var(--color-ink)] mb-2">{s.title}</h3>
+                  <h3 className="text-h4 text-[var(--color-ink)] mb-2">{s.title}</h3>
                   <p className="text-body text-[var(--color-muted)] mb-4 flex-1">{s.desc}</p>
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent-text)] transition-colors duration-150 group-hover:text-[var(--color-accent-dim)]">
                     {s.cta}
@@ -325,6 +325,15 @@ export default function ChiropracticMarketingPage() {
           </div>
         </div>
       </section>
+
+      {/* How the services work as one thing.
+          The 10 Aug review asked for exactly this on the who-we-help pages:
+          "explain to the client how all these systems nicely come together...
+          how the Google ads and the Facebook ads and the TikTok and the
+          Instagram ads all come together and how that is glued together with
+          the patient pulse system in the background". It also carries the
+          platform marks Danny asked to see. */}
+      <ConnectedJourney />
 
       {/* Why generic marketing is not enough */}
       <section className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
