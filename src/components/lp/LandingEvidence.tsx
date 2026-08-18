@@ -103,9 +103,11 @@ export default function LandingEvidence() {
                       </span>
                     </h3>
 
-                    <p className="mt-4 max-w-[54ch] text-[13px] leading-relaxed text-[var(--color-muted)]">
-                      {row.source}
-                    </p>
+                    {row.source ? (
+                      <p className="mt-4 max-w-[54ch] text-[13px] leading-relaxed text-[var(--color-muted)]">
+                        {row.source}
+                      </p>
+                    ) : null}
 
                   </div>
 

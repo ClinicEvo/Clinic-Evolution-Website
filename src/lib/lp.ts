@@ -151,8 +151,9 @@ export interface LpProofRow {
   figure: string;
   /** The rest of the h3: what the figure counts, and whose clinic it is. */
   headline: string;
-  /** Where it can be checked. */
-  source: string;
+  /** Where it can be checked. Optional: the ads figure is a client-stated
+   *  number, so it carries the window and nothing else. */
+  source?: string;
   /** What was built, from the case study's own scope list. */
   work?: string;
   clinic: {
@@ -222,16 +223,20 @@ export const LP_PROOF: LpProofRow[] = [
     href: "/case-studies/lind-street-osteopathy/",
   },
   {
-    // Simon confirmed 18 Aug 2026 that this is a cost per converted patient
-    // rather than a cost per tracked enquiry, and that all three Google Ads
-    // shots come from the Bodyfunction account [src: client confirmation].
-    // `source` still quotes the overview in the tool's own words, because that
-    // is what the screen says; the headline says what those conversions are.
+    // £30 per patient, confirmed by Simon on 18 Aug 2026 [src: client
+    // confirmation]. This is a cost per booked patient, not the account's cost
+    // per tracked conversion — the two are different measures and the £42.50
+    // conversion figure on /google-ads-for-clinics/ is still correct for what it
+    // describes there.
+    //
+    // Deliberately no "89 conversions from £3.78k" line here. That arithmetic
+    // yields £42.50, so quoting it under £30 would have the row contradict
+    // itself; and the patient count behind £30 is not recorded anywhere. The
+    // window is attribution, not justification.
     metric: "What one new patient costs",
-    figure: "£42.50",
+    figure: "£30",
     headline: "to bring in one new patient through Google Ads at Bodyfunction Clinic",
-    source:
-      "Google Ads overview, 29 Dec 2025 – 22 Jun 2026. 89 conversions from £3.78k of spend.",
+    source: "Google Ads, 29 Dec 2025 – 22 Jun 2026",
     clinic: BODYFUNCTION,
   },
 ];

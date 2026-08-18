@@ -25,11 +25,16 @@
  * name and logo to the cost-per-enquiry figure instead of leaving one of three
  * proof rows anonymous.
  *
- * CONVERSION_CAVEAT is not optional. Google counts a conversion as a tracked
- * action — a call, a form, a chat — and Danny's £30-per-patient figure was
- * explicitly held back on the call until it can be verified. Cost per
- * conversion is not cost per booked patient, and the page must not let a reader
- * assume it is.
+ * CONVERSION_CAVEAT is not optional ON THIS PAGE. Google counts a conversion as
+ * a tracked action — a call, a form, a chat — so FIGURES' £42.50 is a cost per
+ * conversion and /google-ads-for-clinics/ must keep saying so.
+ *
+ * The £30-per-patient figure is no longer held back: Simon confirmed it on
+ * 18 Aug 2026 [src: client confirmation] and the /lp/ pages state it as a cost
+ * per booked patient. That is a DIFFERENT measure from the £42.50 here, not a
+ * correction of it, which is why both numbers are live on different pages. The
+ * patient count behind £30 is not recorded — if it turns up, it belongs here
+ * beside the figure it produces.
  */
 
 /** The date range visible on the overview chart's x-axis. */
