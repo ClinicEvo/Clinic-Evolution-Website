@@ -13,24 +13,15 @@ import type { LpVariant } from "@/lib/lp";
  * questions Google is told not to index is pointless. The organic service pages
  * carry the schema.
  *
- * The cost answer is the one that matters most on paid traffic and it used to be
- * "it depends". It still cannot quote a price — the site publishes none, and
- * inventing one is out — so it names what drives the number and says the audit
- * conversation is where a real one arrives. Deliberately a conversation rather
- * than a promised written quote: every audit response would otherwise owe the
- * reader a costed proposal, which is a commitment the page should not make on
- * the delivery team's behalf.
+ * Pricing is deliberately absent. These pages need to earn the enquiry before
+ * opening a commercial conversation, and a generic "it depends" answer gives a
+ * skimmer neither a useful number nor a reason to get in touch.
  */
 const SHARED_FAQS = [
   {
-    question: "What does it cost?",
-    answer:
-      "It depends on what your clinic already has, your local market and which parts need work first. The audit is free. If there is a good fit, we explain the recommended work and cost before you decide. There is no long-term contract.",
-  },
-  {
     question: "Is this a fixed package, or is it built around my clinic?",
     answer:
-      "It is one system, built around your clinic. Every clinic gets the same five layers connected to each other, because a website that ranks and then leaves its enquiries unanswered produces a quiet diary anyway — that connection is the point. What changes clinic to clinic is the order, the emphasis and the budget. There is no tier list: the audit works out which layer needs the most attention first, and the plan is built from that.",
+      "It is built around your clinic. The five layers are designed to work together as one system, but they are not an all-or-nothing package. If you only need one part, we can deliver it as a standalone service. The audit shows what needs attention first, and we recommend the work your clinic actually needs.",
   },
   {
     question: "How is this different from a normal marketing agency?",
@@ -50,7 +41,7 @@ const SHARED_FAQS = [
 ];
 
 export default function LandingFaq({ variant }: { variant: LpVariant }) {
-  const faqs = [SHARED_FAQS[0], variant.variantFaq, ...SHARED_FAQS.slice(1)];
+  const faqs = [variant.variantFaq, ...SHARED_FAQS];
 
   return (
     <section className="border-b border-[var(--color-border)] bg-[var(--color-paper)] py-24 sm:py-28 lg:py-32">
@@ -59,14 +50,8 @@ export default function LandingFaq({ variant }: { variant: LpVariant }) {
           <FadeUp>
             <div className="lg:sticky lg:top-28">
               <p className="eyebrow mb-5">Questions</p>
-              {/* Was "Cost, contracts, and how the *scope is decided*" — the
-                  second coral clause in two adjacent sections spent on
-                  "scope", a procurement word, and "how the scope is decided"
-                  describes our internal deliberation rather than answering
-                  anything. These are the three things a clinic owner actually
-                  wants before filling in a form. */}
               <h2 className="text-h2 text-[var(--color-ink)]">
-                What it costs, what you are tied into, and{" "}
+                How it works, what happens next, and{" "}
                 <em className="not-italic text-[var(--color-accent)]">
                   where we would start
                 </em>

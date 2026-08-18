@@ -67,8 +67,11 @@ export default function AuditForm({
       </Field>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <Field label="Clinic website" required>
-          <Input id="clinic_website" name="clinic_website" type="url" required autoComplete="url" placeholder="https://www.myclinic.co.uk" />
+        <Field label="Clinic website (optional)">
+          <Input id="clinic_website" name="clinic_website" type="url" autoComplete="url" placeholder="https://www.myclinic.co.uk" />
+          <span className="mt-1.5 block text-xs leading-relaxed text-[var(--color-muted)]">
+            No website yet? Leave this blank. We also help practitioners launch new clinics.
+          </span>
         </Field>
         <Field label="Town / City" required>
           <Input id="location" name="location" type="text" required placeholder="e.g. Bristol" />

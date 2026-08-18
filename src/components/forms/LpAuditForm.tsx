@@ -14,10 +14,11 @@ import TrackingFields from "./TrackingFields";
  * site and is defensible there. On paid traffic it asks a stranger for their
  * booking system and their main goal before anything has earned the right to.
  *
- * What is left is the minimum needed to actually run an audit: who you are, two
- * ways to reach you, and the website to look at. Everything else is asked on the
- * thank-you page instead, after the lead is already captured, where abandoning it
- * costs nothing — see LpDetailForm.
+ * What is left is the minimum needed to actually respond: who you are and two
+ * ways to reach you. A website is useful when one exists, but deliberately
+ * optional so a practitioner opening a new clinic is not blocked. Everything
+ * else is asked on the thank-you page instead, after the lead is already
+ * captured, where abandoning it costs nothing — see LpDetailForm.
  *
  * `discipline` is a hidden field rather than a dropdown because the ad group
  * already answered it. It is empty on the broad healthcare variant, which the
@@ -115,16 +116,19 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
         />
       </Field>
 
-      <Field label="Clinic website" required>
+      <Field label="Clinic website (optional)">
         <Input
           id="clinic_website"
           name="clinic_website"
           type="text"
-          required
           autoComplete="url"
           inputMode="url"
           placeholder="yourclinic.co.uk"
         />
+        <span className="mt-1.5 block text-xs leading-relaxed text-[var(--color-muted)]">
+          No website yet? Leave this blank. We also help practitioners launch
+          new clinics.
+        </span>
       </Field>
 
       {state === "error" && (
@@ -138,7 +142,7 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
       </Button>
 
       <p className="text-xs leading-relaxed text-[var(--color-muted)]">
-        Four questions, no obligation. A person reads it and comes back{" "}
+        Three details, plus your website if you have one. A person reads it and comes back{" "}
         {LP_TURNAROUND} with what they found.
       </p>
     </form>

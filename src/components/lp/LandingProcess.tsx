@@ -40,7 +40,7 @@ import { LP_TURNAROUND } from "@/lib/lp";
 const STEPS = [
   {
     label: "You answer four questions",
-    body: "Your name, email, phone and your clinic website. No questionnaire, and nothing to dig out beforehand.",
+    body: "Your name, email, phone and, if you have one, your clinic website. Starting from scratch is fine.",
   },
   {
     label: "You get the audit back",
