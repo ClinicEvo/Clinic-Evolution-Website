@@ -162,9 +162,6 @@ export interface LpProofRow {
     /** Rendered height in px. Tuned per mark: the aspect ratios differ wildly. */
     logoHeight: number;
   };
-  /** Disclosure, where the relationship is not arm's-length. Never optional on
-   *  Bodyfunction — see below. */
-  note?: string;
   href?: string;
 }
 
@@ -188,15 +185,11 @@ const LIND_STREET = {
 
 export const LP_PROOF: LpProofRow[] = [
   {
-    metric: "People finding the clinic on Google",
+    metric: "Estimated monthly organic traffic",
     figure: "8 → 3,822",
-    headline: "people a month finding Bodyfunction Clinic on Google",
-    source: "Ahrefs, bodyfunction.co.uk — Aug 2024 against Aug 2026",
+    headline: "at Bodyfunction Clinic",
+    source: "Ahrefs estimate · Aug 2024–Aug 2026",
     clinic: BODYFUNCTION,
-    // Not optional and not droppable for symmetry. A paid page quoting its own
-    // clinic's numbers without saying they are its own clinic's numbers is the
-    // kind of omission a clinic owner is right to distrust.
-    note: "Clinic Evo's founding clinic, not an outside client.",
     href: "/case-studies/bodyfunction-clinic/",
   },
   {

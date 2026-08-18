@@ -49,34 +49,19 @@ export default function LandingEvidence() {
     <>
       <ClientLogoStrip label="Clinics and brands we build and grow" />
 
-      <section className="grain bg-[var(--color-paper)] py-20 sm:py-24 lg:py-28">
+      <section className="grain bg-[var(--color-paper)] py-14 sm:py-16 lg:py-20">
         <div className="cx-main">
-          {/* Intro. Two columns rather than the old sticky rail: the rows below
-              now carry their own right-hand rail, so a sticky heading beside
-              them would collide with it. */}
-          <div className="mb-14 grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:gap-16">
+          <div className="mb-9 max-w-[48rem] sm:mb-10">
             <FadeUp>
               <div>
-                <p className="eyebrow mb-5">What we can evidence</p>
-                {/* Was "What the system has produced, and where you can check
-                    it" — the coral half spent the section's most-read line on
-                    our own auditability, which answers a question the reader has
-                    not formed yet. This says whose numbers these are and that
-                    they belong to clinics that exist. */}
+                <p className="eyebrow mb-4">Results</p>
                 <h2 className="text-h2 text-[var(--color-ink)]">
-                  Three results.{" "}
+                  What changed at{" "}
                   <em className="not-italic text-[var(--color-accent)]">
-                    Two clinics.
+                    two clinics
                   </em>
                 </h2>
               </div>
-            </FadeUp>
-
-            <FadeUp delay={0.08}>
-              <p className="text-body-lg max-w-[52ch] text-[var(--color-muted)]">
-                Search visibility and booked-patient cost, with each source
-                beside the result.
-              </p>
             </FadeUp>
           </div>
 
@@ -85,9 +70,9 @@ export default function LandingEvidence() {
           <ul role="list" className="flex flex-col">
             {LP_PROOF.map((row, index) => (
               <FadeUp key={row.headline} delay={0.06 + index * 0.06}>
-                <li className="grid grid-cols-1 gap-6 border-t border-[var(--color-border)] py-8 last:border-b sm:py-9 lg:grid-cols-[1.3fr_0.7fr] lg:gap-12">
+                <li className="grid grid-cols-1 gap-5 border-t border-[var(--color-border)] py-6 last:border-b sm:py-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
                   <div>
-                    <p className="text-label mb-4 text-[var(--color-muted)]">
+                    <p className="text-label mb-3 text-[var(--color-muted)]">
                       {row.metric}
                     </p>
 
@@ -97,13 +82,13 @@ export default function LandingEvidence() {
                       <span className="block font-display text-5xl font-semibold leading-none tracking-tight text-[var(--color-accent-text)] sm:text-6xl">
                         {row.figure}
                       </span>
-                      <span className="text-h4 mt-4 block max-w-[34ch] font-medium">
+                      <span className="text-h4 mt-3 block max-w-[34ch] font-medium">
                         {row.headline}
                       </span>
                     </h3>
 
                     {row.source ? (
-                      <p className="mt-4 max-w-[54ch] text-[13px] leading-relaxed text-[var(--color-muted)]">
+                      <p className="mt-3 max-w-[54ch] text-[13px] leading-relaxed text-[var(--color-muted)]">
                         {row.source}
                       </p>
                     ) : null}
@@ -112,7 +97,7 @@ export default function LandingEvidence() {
 
                   {/* The owner. The mark does the recognition, so the name is not
                       repeated as text — it is already in the h3 above. */}
-                  <div className="flex flex-col lg:items-start">
+                  <div className="flex flex-col lg:items-start lg:pt-1">
                     <Image
                       src={row.clinic.logo}
                       alt={row.clinic.name}
@@ -125,16 +110,10 @@ export default function LandingEvidence() {
                       {row.clinic.where}
                     </p>
 
-                    {row.note ? (
-                      <p className="mt-2 max-w-[30ch] text-[13px] leading-relaxed text-[var(--color-muted)]">
-                        {row.note}
-                      </p>
-                    ) : null}
-
                     {row.href ? (
                       <Link
                         href={row.href}
-                        className="text-body-sm mt-4 inline-flex items-center gap-2 self-start font-semibold text-[var(--color-ink)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
+                        className="text-body-sm mt-3 inline-flex items-center gap-2 self-start font-semibold text-[var(--color-ink)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
                       >
                         Read the full case study
                         <svg
@@ -163,11 +142,11 @@ export default function LandingEvidence() {
           {/* The only practitioner voice on a page selling to practitioners, so
               it carries display size rather than body size. */}
           <FadeUp delay={0.24}>
-            <blockquote className="mt-14 border-l-2 border-[var(--color-accent)] pl-6 sm:mt-16 sm:pl-8">
+            <blockquote className="mt-10 border-l-2 border-[var(--color-accent)] pl-6 sm:mt-12 sm:pl-8">
               <p className="text-h3 max-w-[46ch] text-[var(--color-ink)]">
                 &ldquo;{LP_TESTIMONIAL.text}&rdquo;
               </p>
-              <footer className="mt-6 flex items-center gap-4">
+              <footer className="mt-5 flex items-center gap-4">
                 <Image
                   src={LP_TESTIMONIAL.portrait}
                   alt={`${LP_TESTIMONIAL.name}, ${LP_TESTIMONIAL.role}`}
@@ -194,7 +173,7 @@ export default function LandingEvidence() {
               and the two actions, so it reads as the next step rather than as an
               interruption. */}
           <FadeUp delay={0.28}>
-            <div className="mt-14 flex flex-col gap-5 border-t border-[var(--color-border)] pt-9 sm:mt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <div className="mt-10 flex flex-col gap-5 border-t border-[var(--color-border)] pt-7 sm:mt-12 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
               <p className="text-body max-w-[52ch] font-medium text-[var(--color-ink)]">
                 The free audit does this first part for your clinic: where you
                 rank now, who is above you, and what to fix first. Yours to keep
