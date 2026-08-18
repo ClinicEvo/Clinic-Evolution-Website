@@ -155,9 +155,6 @@ export interface LpProofRow {
   source: string;
   /** What was built, from the case study's own scope list. */
   work?: string;
-  /** Mandatory where the figure needs a limit stated next to it, not in a
-   *  footnote — currently the ads row, per CONVERSION_CAVEAT. */
-  caveat?: string;
   clinic: {
     name: string;
     where: string;
@@ -225,39 +222,29 @@ export const LP_PROOF: LpProofRow[] = [
     href: "/case-studies/lind-street-osteopathy/",
   },
   {
-    metric: "What one enquiry costs to buy",
+    // Simon confirmed 18 Aug 2026 that this is a cost per converted patient
+    // rather than a cost per tracked enquiry, and that all three Google Ads
+    // shots come from the Bodyfunction account [src: client confirmation].
+    // `source` still quotes the overview in the tool's own words, because that
+    // is what the screen says; the headline says what those conversions are.
+    metric: "What one new patient costs",
     figure: "£42.50",
-    // ACCOUNT in google-ads-evidence.ts was deliberately unnamed until Simon
-    // confirmed on 18 Aug 2026 that all three shots are Bodyfunction's. That
-    // confirmation is what lets this row carry a clinic name and a logo instead
-    // of being the one anonymous figure in the set.
-    headline: "to buy one tracked enquiry in the Bodyfunction Clinic Google Ads account",
+    headline: "to bring in one new patient through Google Ads at Bodyfunction Clinic",
     source:
       "Google Ads overview, 29 Dec 2025 – 22 Jun 2026. 89 conversions from £3.78k of spend.",
-    // Same clinic as row one, so the same disclosure applies. It is not
-    // decoration to fill the rail: a paid page quoting its own clinic's ad
-    // performance owes the reader the same declaration as when it quotes its own
-    // clinic's traffic.
-    note: "Clinic Evo's founding clinic, not an outside client.",
-    // Sits in the row, not in a footnote. Google counts a conversion as a
-    // tracked action and the page must not let a clinic owner read this as a
-    // cost per booked patient.
-    caveat:
-      "Google counts a conversion as a tracked enquiry — a call, a form or a chat — not a booked patient.",
     clinic: BODYFUNCTION,
   },
 ];
 
 /**
- * The honest limit on the proof above, stated on the page rather than left for
- * the reader to work out. Both clinics are osteopathy practices; there is no
- * physiotherapy or chiropractic case study to point a matched visitor at, and
- * relabelling an osteopathy clinic as either would be a fabrication.
- *
- * Load-bearing. Must not be trimmed for balance.
+ * One line, not a paragraph. The only thing that genuinely has to be said is
+ * that both clinics are osteopathy practices — a physio or chiropractor who
+ * arrived on matched ad copy should not have to assume the proof is
+ * discipline-matched when it is not. The rest of what was in this string was
+ * justification nobody asked for.
  */
 export const LP_PROOF_CAVEAT =
-  "Both clinics are osteopathy practices, and these figures measure search and ad performance, not appointments booked. Two clinics over one period is evidence, not a forecast for your clinic.";
+  "Both clinics are osteopathy practices, and two clinics over one period is evidence rather than a forecast for yours.";
 
 /**
  * The one approved practitioner testimonial.

@@ -365,11 +365,11 @@ export default function LandingPatientPulse() {
                 </dl>
               </div>
 
-              <p className="mt-8 max-w-[74ch] border-t border-[var(--color-border)] pt-6 text-[13px] leading-relaxed text-[var(--color-muted)]">
-                {STACK_SUMMARY.basis} {STACK_SUMMARY.quoteOnly} of the{" "}
-                {STACK_SUMMARY.jobs} categories are quote-only and are left out of
-                the total entirely, so a real clinic stack costs more than the
-                figure above, not less.
+              <p className="mt-8 max-w-[70ch] border-t border-[var(--color-border)] pt-6 text-[13px] leading-relaxed text-[var(--color-muted)]">
+                Three staff logins, checked August 2026, excluding VAT.{" "}
+                {STACK_SUMMARY.quoteOnly} of the {STACK_SUMMARY.jobs} categories
+                are quote-only and left out, so a separate stack costs more than
+                this, not less.
               </p>
             </div>
           </FadeUp>

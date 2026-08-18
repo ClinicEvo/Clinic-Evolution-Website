@@ -38,11 +38,9 @@ import { LP_PROOF, LP_PROOF_CAVEAT, LP_TESTIMONIAL } from "@/lib/lp";
  *    18 Aug 2026 that all three Google Ads shots are Bodyfunction's; before
  *    that, `ACCOUNT` in google-ads-evidence.ts was deliberately unnamed.
  *
- * `note` on Bodyfunction is mandatory — it is the founding clinic, not an
- * outside client, and the case study says so. `caveat` on the ads row sits in
- * the row rather than in the footnote, because a cost per tracked enquiry read
- * as a cost per booked patient is the specific misreading that matters.
- * `LP_PROOF_CAVEAT` is load-bearing and must not be trimmed for balance.
+ * `note` on Bodyfunction is the one disclosure kept: it is the founding clinic,
+ * not an outside client. It appears once, on the first row, not on both
+ * Bodyfunction rows — the relationship is declared, not re-declared.
  *
  * The testimonial is verbatim as approved. See LP_TESTIMONIAL before touching a
  * word of it.
@@ -77,10 +75,8 @@ export default function LandingEvidence() {
 
             <FadeUp delay={0.08}>
               <p className="text-body-lg max-w-[52ch] text-[var(--color-muted)]">
-                Both are real clinics with a website you can open and a case
-                study you can read. Every figure below is read off Ahrefs, Google
-                Search Console or a live Google Ads account, and the source sits
-                beside the number.
+                Both are real clinics. Open their websites, read the case
+                studies, and check every figure against the source beside it.
               </p>
             </FadeUp>
           </div>
@@ -111,11 +107,6 @@ export default function LandingEvidence() {
                       {row.source}
                     </p>
 
-                    {row.caveat ? (
-                      <p className="mt-2.5 max-w-[54ch] border-l-2 border-[var(--color-border)] pl-3.5 text-[13px] leading-relaxed text-[var(--color-muted)]">
-                        {row.caveat}
-                      </p>
-                    ) : null}
                   </div>
 
                   {/* The owner. The mark does the recognition, so the name is not
