@@ -41,51 +41,19 @@ export default function LandingFounder() {
               </h2>
             </FadeUp>
 
-            {/* Trimmed from three ~90-word paragraphs, each of which ended in a
-                list of three. Stacked that way the rhythm was doing more talking
-                than the content. Same facts, half the words. */}
             <FadeUp delay={0.1}>
               <div className="flex max-w-[62ch] flex-col gap-5">
                 <p className="text-body-lg text-[var(--color-muted)]">
                   Danny Morgan owns Bodyfunction Clinic in London and still treats
-                  patients there. Before Clinic Evo existed, he went looking for an
-                  agency to fill his diary, and hired two.
+                  patients there. He hired two agencies to grow the clinic. Both
+                  reported on clicks; neither could connect them to booked patients.
                 </p>
                 <p className="text-body-lg text-[var(--color-muted)]">
-                  Both charged well and reported on clicks. Neither could say why
-                  the treatment slots were still empty, or grasped that a patient
-                  who waits two days for a reply has already booked elsewhere.
-                </p>
-                <p className="text-body-lg text-[var(--color-muted)]">
-                  So Danny built it himself, with co-founder Simon Smith: the
-                  website, the search visibility, the ads and the follow-up, run as
-                  one thing inside his own clinic. It was tested on Bodyfunction&apos;s
-                  own diary and his own money before another clinic could buy it.
+                  He built Clinic Evo with Simon Smith around that missing link:
+                  website, search, ads and follow-up run as one job. Bodyfunction
+                  was the first clinic it had to work for.
                 </p>
               </div>
-            </FadeUp>
-
-            <FadeUp delay={0.16}>
-              <blockquote className="mt-10 border-l-2 border-[var(--color-accent)] pl-6 sm:pl-8">
-                <p className="text-h3 mb-4 text-[var(--color-ink)]">
-                  &ldquo;I set up Clinic Evo because I was sick of paying agencies
-                  who could not tell me why my diary was still empty. They
-                  understood clicks. They did not understand clinics — how patients
-                  decide, how fast you need to respond, or what actually gets
-                  someone off the fence and into a treatment room.&rdquo;
-                </p>
-                <footer className="text-body-sm font-semibold text-[var(--color-muted)]">
-                  Danny Morgan, founder of Clinic Evo
-                </footer>
-              </blockquote>
-            </FadeUp>
-
-            <FadeUp delay={0.2}>
-              <p className="text-body-lg mt-10 max-w-[62ch] font-medium text-[var(--color-ink)]">
-                That is why the whole system comes together. Handing a clinic a
-                pile of leads and walking away was the thing that failed us, so
-                it is not what we sell.
-              </p>
             </FadeUp>
           </div>
         </div>

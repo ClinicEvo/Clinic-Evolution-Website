@@ -51,7 +51,7 @@ export default function LandingHeader() {
               its own `inline-flex`. */}
           {hasForm ? (
             <div className="hidden sm:block">
-              <LpCtaButton placement="header" size="md" label="Book a free audit" />
+              <LpCtaButton placement="header" size="md" label="Request a free audit" />
             </div>
           ) : null}
         </div>

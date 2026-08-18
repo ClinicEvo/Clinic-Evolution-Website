@@ -83,7 +83,7 @@ export default function LandingStickyCta() {
           <LpCtaButton
             placement="sticky-mobile"
             size="md"
-            label="Book a free audit"
+            label="Request a free audit"
             className="flex-1"
           />
         </div>

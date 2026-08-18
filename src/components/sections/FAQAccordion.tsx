@@ -48,9 +48,8 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
           </dt>
           <dd
             id={answerId}
-            className={`overflow-hidden transition-all duration-300 ${
-              openIndex === index ? "max-h-[500px] pb-5" : "max-h-0"
-            }`}
+            hidden={openIndex !== index}
+            className="pb-5"
           >
             <p className="text-body text-[var(--color-muted)]">{item.answer}</p>
           </dd>

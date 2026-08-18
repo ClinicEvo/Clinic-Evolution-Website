@@ -41,7 +41,7 @@ export const LP_PHONE = {
   href: "tel:+447460082683",
 };
 
-export const LP_CTA_LABEL = "Book a free clinic audit";
+export const LP_CTA_LABEL = "Request a free clinic audit";
 export const LP_FORM_ANCHOR = "#audit";
 export const LP_THANK_YOU_PATH = "/lp/thank-you/";
 
@@ -122,10 +122,8 @@ export const LP_SYSTEM_LAYERS = [
  * failures a skimmer hit at once:
  *
  *  - Five numbers for three facts. Bodyfunction's "8 → 3,822" appeared in both
- *    lists verbatim, and Lind Street arrived as "0 → page one" in one and
- *    "+570%" in the other — the same achievement in two units, which
- *    google-ads-evidence.ts names in its own header as the way a page stops
- *    being evidence.
+ *    lists verbatim, while Lind Street's search growth was stated twice in two
+ *    different units.
  *  - No owner at the figure. The clinic names sat ~20 rows below the numbers
  *    under the label "The clinics those figures come from", which asked the
  *    reader to hold three unattributed quantities in memory and reconcile them
@@ -154,8 +152,6 @@ export interface LpProofRow {
   /** Where it can be checked. Optional: the ads figure is a client-stated
    *  number, so it carries the window and nothing else. */
   source?: string;
-  /** What was built, from the case study's own scope list. */
-  work?: string;
   clinic: {
     name: string;
     where: string;
@@ -196,8 +192,6 @@ export const LP_PROOF: LpProofRow[] = [
     figure: "8 → 3,822",
     headline: "people a month finding Bodyfunction Clinic on Google",
     source: "Ahrefs, bodyfunction.co.uk — Aug 2024 against Aug 2026",
-    work:
-      "Website structure, local visibility, condition content and patient follow-up, rebuilt as one system over two years.",
     clinic: BODYFUNCTION,
     // Not optional and not droppable for symmetry. A paid page quoting its own
     // clinic's numbers without saying they are its own clinic's numbers is the
@@ -206,19 +200,11 @@ export const LP_PROOF: LpProofRow[] = [
     href: "/case-studies/bodyfunction-clinic/",
   },
   {
-    metric: "Local search visibility, from nothing",
-    figure: "0 → page one",
-    // Both halves sourced: case study line 54, "on page one for its core local
-    // searches inside twelve months of opening".
+    metric: "Local search rankings",
+    figure: "No. 1",
     headline:
-      "for every core local search at Lind Street Osteopathy, inside twelve months of opening",
-    // The +570% figure the old case-study panel carried is the same achievement
-    // in a second unit, so it is stated here as the click counts that produced
-    // it rather than as a separate headline number.
-    source:
-      "Google Search Console — 86 clicks rising to 576, from no search presence at all",
-    work:
-      "Brand and logo from scratch. The Isle of Wight market was researched first, then the site was built around the conditions people there actually search for.",
+      "for six local osteopathy searches, including “osteopath Ryde”, within twelve months of opening",
+    source: "Ahrefs — all ten tracked local searches ranked in the top four",
     clinic: LIND_STREET,
     href: "/case-studies/lind-street-osteopathy/",
   },
@@ -233,23 +219,13 @@ export const LP_PROOF: LpProofRow[] = [
     // yields £42.50, so quoting it under £30 would have the row contradict
     // itself; and the patient count behind £30 is not recorded anywhere. The
     // window is attribution, not justification.
-    metric: "What one new patient costs",
+    metric: "Cost per booked new patient",
     figure: "£30",
-    headline: "to bring in one new patient through Google Ads at Bodyfunction Clinic",
+    headline: "per booked new patient through Google Ads at Bodyfunction Clinic",
     source: "Google Ads, 29 Dec 2025 – 22 Jun 2026",
     clinic: BODYFUNCTION,
   },
 ];
-
-/**
- * One line, not a paragraph. The only thing that genuinely has to be said is
- * that both clinics are osteopathy practices — a physio or chiropractor who
- * arrived on matched ad copy should not have to assume the proof is
- * discipline-matched when it is not. The rest of what was in this string was
- * justification nobody asked for.
- */
-export const LP_PROOF_CAVEAT =
-  "Both clinics are osteopathy practices, and two clinics over one period is evidence rather than a forecast for yours.";
 
 /**
  * The one approved practitioner testimonial.
@@ -302,7 +278,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     adGroup: "Healthcare marketing / healthcare SEO",
     metaTitle: "Healthcare Marketing For UK Clinics, Run By A Clinic Owner",
     metaDescription:
-      "One system for UK healthcare clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Book a free clinic audit.",
+      "One system for UK healthcare clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Request a free clinic audit.",
     badge: "Built inside a working MSK clinic",
     headline: {
       start: "Healthcare marketing for UK clinics, ",
@@ -324,7 +300,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     adGroup: "Marketing for physiotherapist",
     metaTitle: "Marketing For Physiotherapy Clinics, Built To Fill The Diary",
     metaDescription:
-      "One system for UK physiotherapy clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Book a free clinic audit.",
+      "One system for UK physiotherapy clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Request a free clinic audit.",
     badge: "Built inside a working MSK clinic",
     // "clinics that fills" was a genuine agreement fault: the relative clause
     // sat against the plural noun, so the eye parsed it wrong before recovering.
@@ -342,9 +318,9 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       "back pain, sciatica, sports injury and post-operative rehab",
     variantFaq: {
       question:
-        "Physiotherapy is the most competitive discipline in local search. How do you handle that?",
+        "Will this work for a physiotherapy clinic?",
       answer:
-        "By not competing only on the head term. \"Physiotherapist near me\" is crowded and expensive; the specific searches — a named condition, a sport, a post-operative stage, a neighbourhood — are cheaper, convert better and are what your site can realistically own. Google Ads covers the expensive head terms where the intent justifies it, and we track what each one costs you.",
+        "We do not have a published physiotherapy case study yet. The audit looks at your local search market, website, booking path and follow-up, then shows where the system fits your clinic.",
     },
   },
   "chiropractic-marketing": {
@@ -352,7 +328,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     adGroup: "Marketing for chiropractic",
     metaTitle: "Marketing For Chiropractic Clinics, Built To Fill The Diary",
     metaDescription:
-      "One system for UK chiropractic clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Book a free clinic audit.",
+      "One system for UK chiropractic clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Request a free clinic audit.",
     badge: "Built inside a working MSK clinic",
     headline: {
       start: "Marketing for chiropractic clinics, ",
@@ -366,9 +342,9 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     seoConditions: "back pain, sciatica, neck pain and postural problems",
     variantFaq: {
       question:
-        "Chiropractic patients take longer to decide. Does that change the approach?",
+        "Will this work for a chiropractic clinic?",
       answer:
-        "It changes where the effort goes. A first-time chiropractic patient usually has a safety question and a cost question before a clinical one, so the site has to answer both in plain language, and the follow-up has to survive a two-week gap between the enquiry and the decision. That is what the recall sequences are for: a lead who goes quiet has not said no.",
+        "We do not have a published chiropractic case study yet. The audit looks at your local search market, website, booking path and follow-up, then shows where the system fits your clinic.",
     },
   },
 };

@@ -12,7 +12,7 @@ const sizes: Record<Size, string> = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-[4px] transition-all duration-200 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2 rounded-[4px] transition-[background-color,color,border-color,transform] duration-200 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 whitespace-nowrap";
 
 interface LpCtaButtonProps {
   /** Where on the page this button sits — used as the analytics event label. */

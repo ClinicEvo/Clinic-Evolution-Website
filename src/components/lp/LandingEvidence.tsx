@@ -3,7 +3,7 @@ import Link from "next/link";
 import FadeUp from "@/components/ui/FadeUp";
 import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
 import LpCtaButton, { LpCallButton } from "./LpCtaButton";
-import { LP_PROOF, LP_PROOF_CAVEAT, LP_TESTIMONIAL } from "@/lib/lp";
+import { LP_PROOF, LP_TESTIMONIAL } from "@/lib/lp";
 
 /**
  * One proof layer, not two.
@@ -23,8 +23,7 @@ import { LP_PROOF, LP_PROOF_CAVEAT, LP_TESTIMONIAL } from "@/lib/lp";
  *    Bodyfunction Clinic on Google" rather than a bare 48px "3,822". This is
  *    what makes the section legible to `npm run scan`, which reads headings —
  *    the old clinic names were `<p className="text-h4">`, styled as headings and
- *    invisible to both the scan and to screen-reader heading navigation. The
- *    same fault was fixed in LandingProblem for the same reason; see its header.
+ *    invisible to both the scan and to screen-reader heading navigation.
  *
  * 2. THE METRIC NAME COMES FIRST. `metric` sits above the figure in
  *    `.text-label`, so the unit arrives before the quantity. Not coral: the
@@ -65,9 +64,9 @@ export default function LandingEvidence() {
                     not formed yet. This says whose numbers these are and that
                     they belong to clinics that exist. */}
                 <h2 className="text-h2 text-[var(--color-ink)]">
-                  Two clinics you can look up, and{" "}
+                  Three results.{" "}
                   <em className="not-italic text-[var(--color-accent)]">
-                    what changed at each one
+                    Two clinics.
                   </em>
                 </h2>
               </div>
@@ -75,8 +74,8 @@ export default function LandingEvidence() {
 
             <FadeUp delay={0.08}>
               <p className="text-body-lg max-w-[52ch] text-[var(--color-muted)]">
-                Both are real clinics. Open their websites, read the case
-                studies, and check every figure against the source beside it.
+                Search visibility and booked-patient cost, with each source
+                beside the result.
               </p>
             </FadeUp>
           </div>
@@ -132,12 +131,6 @@ export default function LandingEvidence() {
                       </p>
                     ) : null}
 
-                    {row.work ? (
-                      <p className="text-body-sm mt-4 max-w-[34ch] text-[var(--color-charcoal)]">
-                        {row.work}
-                      </p>
-                    ) : null}
-
                     {row.href ? (
                       <Link
                         href={row.href}
@@ -167,15 +160,9 @@ export default function LandingEvidence() {
             ))}
           </ul>
 
-          <FadeUp delay={0.24}>
-            <p className="mt-7 max-w-[62ch] text-[13px] leading-relaxed text-[var(--color-muted)]">
-              {LP_PROOF_CAVEAT}
-            </p>
-          </FadeUp>
-
           {/* The only practitioner voice on a page selling to practitioners, so
               it carries display size rather than body size. */}
-          <FadeUp delay={0.28}>
+          <FadeUp delay={0.24}>
             <blockquote className="mt-14 border-l-2 border-[var(--color-accent)] pl-6 sm:mt-16 sm:pl-8">
               <p className="text-h3 max-w-[46ch] text-[var(--color-ink)]">
                 &ldquo;{LP_TESTIMONIAL.text}&rdquo;
@@ -206,7 +193,7 @@ export default function LandingEvidence() {
               place on this screen that answers it. Not a full CTA band: one line
               and the two actions, so it reads as the next step rather than as an
               interruption. */}
-          <FadeUp delay={0.32}>
+          <FadeUp delay={0.28}>
             <div className="mt-14 flex flex-col gap-5 border-t border-[var(--color-border)] pt-9 sm:mt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
               <p className="text-body max-w-[52ch] font-medium text-[var(--color-ink)]">
                 The free audit does this first part for your clinic: where you

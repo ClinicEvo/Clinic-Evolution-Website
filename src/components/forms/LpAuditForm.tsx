@@ -68,7 +68,7 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="flex flex-col gap-5">
+    <form onSubmit={onSubmit} className="flex flex-col gap-5">
       <Honeypot />
       <TrackingFields />
       <input type="hidden" name="lp_variant" value={variant.slug} readOnly />
@@ -134,7 +134,7 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
       )}
 
       <Button type="submit" size="lg" disabled={state === "submitting"} className="w-full">
-        {state === "submitting" ? "Sending…" : "Book my free clinic audit"}
+        {state === "submitting" ? "Sending…" : "Request my free clinic audit"}
       </Button>
 
       <p className="text-xs leading-relaxed text-[var(--color-muted)]">

@@ -133,7 +133,7 @@ export default function LandingAudit({ variant }: { variant: LpVariant }) {
             <div className="lg:sticky lg:top-28">
               <div className="card-surface p-6 sm:p-8">
                 <p className="text-h4 mb-1.5 text-[var(--color-ink)]">
-                  Book your free audit
+                  Request your free audit
                 </p>
                 <p className="text-body-sm mb-6 text-[var(--color-muted)]">
                   No obligation, and nothing to prepare.

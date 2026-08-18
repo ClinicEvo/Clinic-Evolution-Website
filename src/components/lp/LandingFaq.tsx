@@ -25,7 +25,7 @@ const SHARED_FAQS = [
   {
     question: "What does it cost?",
     answer:
-      "We do not publish a single price, because the honest answer depends on how competitive your town is, how much of the system you already have working, and what you want to spend on ads. The audit is where that gets answered: we will talk you through what the work involves and what it would realistically cost to run, so you have a real number to decide against. If it is more than you want to spend, you have lost nothing.",
+      "It depends on what your clinic already has, your local market and which parts need work first. The audit is free. If there is a good fit, we explain the recommended work and cost before you decide. There is no long-term contract.",
   },
   {
     question: "Is this a fixed package, or is it built around my clinic?",
