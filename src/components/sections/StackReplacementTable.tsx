@@ -160,6 +160,29 @@ const rows: Row[] = [
 const total = rows.reduce((sum, r) => sum + (r.from ?? 0), 0);
 const quoteOnlyCount = rows.filter((r) => r.quoteOnly).length;
 
+/**
+ * The same argument, as figures, for pages that cannot carry the full table.
+ *
+ * Exported and derived rather than restated so the landing page cannot drift
+ * from the table: change a row here and every page quoting the total follows.
+ * The landing pages had none of this argument at all, which is why it is
+ * exported — this file's own header calls it the most persuasive argument on the
+ * product page, and it was absent from the page where a cold, price-sceptical
+ * visitor decides in seconds.
+ */
+export const STACK_SUMMARY = {
+  /** Jobs in the table, priced or not. */
+  jobs: rows.length,
+  /** GBP per month, published prices only, at the basis in the footnote. */
+  total,
+  /** Categories that are quote-only and therefore EXCLUDED from `total`, so the
+   *  real cost of a separate stack is higher than the figure, not lower. */
+  quoteOnly: quoteOnlyCount,
+  /** The honest basis. Must travel with the figure wherever it is quoted. */
+  basis:
+    "Priced for a working clinic — three staff logins and a patient list in the low thousands — not a single-user starter tier. Checked August 2026, excluding VAT.",
+};
+
 function BrandPill({ item }: { item: Replaced }) {
   const Mark = item.brand ? brandMarks[item.brand] : null;
 

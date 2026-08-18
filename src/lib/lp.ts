@@ -113,120 +113,169 @@ export const LP_SYSTEM_LAYERS = [
 ];
 
 /**
- * Sourced evidence for the landing pages.
+ * Sourced proof for the landing pages: one row per figure, each with the clinic
+ * it belongs to attached to it.
  *
- * Every figure is copied from a page that already publishes it with its source:
- * the two case studies and `google-ads-evidence.ts`. Nothing is rounded,
- * reframed or re-described here — the same number described two different ways
- * in two places is how a page stops being evidence.
+ * This replaces the old split between `LP_EVIDENCE` (three anonymous figures)
+ * and `LP_CASE_STUDIES` (two panels that re-stated two of the same figures).
+ * That split was the section's central fault and it produced three separate
+ * failures a skimmer hit at once:
  *
- * `caveat` is not optional on the ads figure. Google counts a conversion as a
- * tracked enquiry, not a booked patient, and the page must not let a clinic
- * owner assume otherwise.
+ *  - Five numbers for three facts. Bodyfunction's "8 → 3,822" appeared in both
+ *    lists verbatim, and Lind Street arrived as "0 → page one" in one and
+ *    "+570%" in the other — the same achievement in two units, which
+ *    google-ads-evidence.ts names in its own header as the way a page stops
+ *    being evidence.
+ *  - No owner at the figure. The clinic names sat ~20 rows below the numbers
+ *    under the label "The clinics those figures come from", which asked the
+ *    reader to hold three unattributed quantities in memory and reconcile them
+ *    later. On a cold scan nobody does that.
+ *  - A false label. That heading was untrue for the £42.50 figure, whose
+ *    account was deliberately unnamed at the time.
+ *
+ * `headline` is the load-bearing field and the reason this shape exists. It
+ * renders as a real `<h3>` with the figure inside it, so the number reaches the
+ * heading ladder carrying its own unit and its own owner: "8 → 3,822 people a
+ * month finding Bodyfunction Clinic on Google" decodes cold, where a 48px
+ * "3,822" above a separate label does not. `scripts/scan.mjs` reads headings,
+ * so a figure outside one is invisible to the project's own scan test — which
+ * is exactly what the clinic names were, as `<p className="text-h4">`.
+ *
+ * Every string is copied from the page that already publishes it with its
+ * source. Nothing is rounded, reframed or re-described.
  */
-export const LP_EVIDENCE = [
-  {
-    value: "8 → 3,822",
-    label: "Monthly visitors from Google at a London osteopathy clinic, over two years",
-    source: "Ahrefs, bodyfunction.co.uk — Aug 2024 against Aug 2026",
-  },
-  {
-    value: "£42.50",
-    label: "Cost per tracked enquiry from Google Ads",
-    source:
-      "Google Ads overview, 29 Dec 2025 – 22 Jun 2026. 89 conversions from £3.78k of spend.",
-  },
-  {
-    value: "0 → page one",
-    label: "Every core local search for a new Isle of Wight clinic, inside twelve months",
-    source: "Google Search Console — from no search presence at all",
-  },
-];
-
-/**
- * The honest limit on the evidence above, stated on the page rather than left
- * for the reader to work out. Both case studies are osteopathy clinics; there is
- * no physiotherapy or chiropractic case study to point a matched visitor at, and
- * relabelling an osteopathy clinic as either would be a fabrication.
- */
-export const LP_EVIDENCE_CAVEAT =
-  "Both clinics above are osteopathy practices, and these figures measure search and ad performance, not appointments booked. Google counts a conversion as a tracked enquiry — a call, a form or a chat — not a booked patient. One account over one period is evidence, not a forecast for your clinic.";
-
-/**
- * The two clinics behind the figures above, named.
- *
- * `LP_EVIDENCE` answers "what happened". A paid visitor's next question is
- * "to whom", and three unattributed numbers do not answer it — which is why
- * these sit directly under the figures rather than in their own section. The
- * page does not get longer; the proof gets a name on it.
- *
- * Every field is copied from the case study page that already publishes it with
- * its source. `work` describes what was built, taken from that page's own scope
- * list, and is the one line that turns a number into a story.
- *
- * `note` on Bodyfunction is not optional and must not be dropped for symmetry:
- * it is the founding clinic, not an outside client, and the case study says so.
- * A paid page quoting its own clinic's numbers without saying they are its own
- * clinic's numbers is the kind of omission a clinic owner is right to distrust.
- *
- * The Lind Street `quote` is approved, not invented. It was drafted for her and
- * she confirmed it verbally via Simon on 17 Aug 2026
- * [src: client approval, relayed]. Nothing here may be reworded after the fact:
- * the approval covers these words, so an edit for rhythm or length voids it and
- * needs re-approving. Same rule if it moves to another page.
- *
- * Bodyfunction has no quote and must not be given one. It is the founding
- * clinic, so a quote from it would be Clinic Evo endorsing itself, and none has
- * been signed off in any case.
- */
-export interface LpCaseStudy {
-  clinic: string;
-  where: string;
+export interface LpProofRow {
+  /** What is being measured. Sits ABOVE the figure so the unit arrives first. */
+  metric: string;
+  /** The figure, coral, at display size. Rendered inside `headline`'s h3. */
   figure: string;
-  figureLabel: string;
+  /** The rest of the h3: what the figure counts, and whose clinic it is. */
+  headline: string;
+  /** Where it can be checked. */
   source: string;
-  work: string;
-  /** Disclosure, where the relationship is not arm's-length. */
-  note?: string;
-  /** Approved practitioner testimonial. Verbatim as approved — see above. */
-  quote?: {
-    text: string;
+  /** What was built, from the case study's own scope list. */
+  work?: string;
+  /** Mandatory where the figure needs a limit stated next to it, not in a
+   *  footnote — currently the ads row, per CONVERSION_CAVEAT. */
+  caveat?: string;
+  clinic: {
     name: string;
-    role: string;
-    portrait: string;
+    where: string;
+    logo: string;
+    /** Intrinsic dimensions, for next/image. */
+    logoW: number;
+    logoH: number;
+    /** Rendered height in px. Tuned per mark: the aspect ratios differ wildly. */
+    logoHeight: number;
   };
-  href: string;
+  /** Disclosure, where the relationship is not arm's-length. Never optional on
+   *  Bodyfunction — see below. */
+  note?: string;
+  href?: string;
 }
 
-export const LP_CASE_STUDIES: LpCaseStudy[] = [
+const BODYFUNCTION = {
+  name: "Bodyfunction Clinic",
+  where: "Osteopathy and MSK clinic, Angel, London",
+  logo: "/images/clients/bodyfunction.png",
+  logoW: 1850,
+  logoH: 304,
+  logoHeight: 22,
+};
+
+const LIND_STREET = {
+  name: "Lind Street Osteopathy",
+  where: "Osteopathy clinic, Ryde, Isle of Wight",
+  logo: "/images/clients/lind-street.png",
+  logoW: 1500,
+  logoH: 500,
+  logoHeight: 38,
+};
+
+export const LP_PROOF: LpProofRow[] = [
   {
-    clinic: "Bodyfunction Clinic",
-    where: "Osteopathy and MSK clinic, Angel, London",
+    metric: "People finding the clinic on Google",
     figure: "8 → 3,822",
-    figureLabel: "People finding the clinic through Google each month",
-    source: "Ahrefs — Aug 2024 against Aug 2026",
+    headline: "people a month finding Bodyfunction Clinic on Google",
+    source: "Ahrefs, bodyfunction.co.uk — Aug 2024 against Aug 2026",
     work:
       "Website structure, local visibility, condition content and patient follow-up, rebuilt as one system over two years.",
+    clinic: BODYFUNCTION,
+    // Not optional and not droppable for symmetry. A paid page quoting its own
+    // clinic's numbers without saying they are its own clinic's numbers is the
+    // kind of omission a clinic owner is right to distrust.
     note: "Clinic Evo's founding clinic, not an outside client.",
     href: "/case-studies/bodyfunction-clinic/",
   },
   {
-    clinic: "Lind Street Osteopathy",
-    where: "Osteopathy clinic, Ryde, Isle of Wight",
-    figure: "+570%",
-    figureLabel: "Growth in people arriving from Google, half on half",
-    source: "GSC — 86 clicks rising to 576",
+    metric: "Local search visibility, from nothing",
+    figure: "0 → page one",
+    // Both halves sourced: case study line 54, "on page one for its core local
+    // searches inside twelve months of opening".
+    headline:
+      "for every core local search at Lind Street Osteopathy, inside twelve months of opening",
+    // The +570% figure the old case-study panel carried is the same achievement
+    // in a second unit, so it is stated here as the click counts that produced
+    // it rather than as a separate headline number.
+    source:
+      "Google Search Console — 86 clicks rising to 576, from no search presence at all",
     work:
       "Brand and logo from scratch. The Isle of Wight market was researched first, then the site was built around the conditions people there actually search for.",
-    quote: {
-      text: "I started with no website and no presence on Google at all. Within a year I was on page one for the searches people on the Island actually use, and patients were finding me without me chasing them.",
-      name: "Serena Gower-Johnson",
-      role: "M.Ost, Founder of Lind Street Osteopathy, Ryde",
-      portrait: "/images/lind-street/serena-portrait.png",
-    },
+    clinic: LIND_STREET,
     href: "/case-studies/lind-street-osteopathy/",
   },
+  {
+    metric: "What one enquiry costs to buy",
+    figure: "£42.50",
+    // ACCOUNT in google-ads-evidence.ts was deliberately unnamed until Simon
+    // confirmed on 18 Aug 2026 that all three shots are Bodyfunction's. That
+    // confirmation is what lets this row carry a clinic name and a logo instead
+    // of being the one anonymous figure in the set.
+    headline: "to buy one tracked enquiry in the Bodyfunction Clinic Google Ads account",
+    source:
+      "Google Ads overview, 29 Dec 2025 – 22 Jun 2026. 89 conversions from £3.78k of spend.",
+    // Same clinic as row one, so the same disclosure applies. It is not
+    // decoration to fill the rail: a paid page quoting its own clinic's ad
+    // performance owes the reader the same declaration as when it quotes its own
+    // clinic's traffic.
+    note: "Clinic Evo's founding clinic, not an outside client.",
+    // Sits in the row, not in a footnote. Google counts a conversion as a
+    // tracked action and the page must not let a clinic owner read this as a
+    // cost per booked patient.
+    caveat:
+      "Google counts a conversion as a tracked enquiry — a call, a form or a chat — not a booked patient.",
+    clinic: BODYFUNCTION,
+  },
 ];
+
+/**
+ * The honest limit on the proof above, stated on the page rather than left for
+ * the reader to work out. Both clinics are osteopathy practices; there is no
+ * physiotherapy or chiropractic case study to point a matched visitor at, and
+ * relabelling an osteopathy clinic as either would be a fabrication.
+ *
+ * Load-bearing. Must not be trimmed for balance.
+ */
+export const LP_PROOF_CAVEAT =
+  "Both clinics are osteopathy practices, and these figures measure search and ad performance, not appointments booked. Two clinics over one period is evidence, not a forecast for your clinic.";
+
+/**
+ * The one approved practitioner testimonial.
+ *
+ * Drafted for Serena and confirmed verbally via Simon on 17 Aug 2026
+ * [src: client approval, relayed]. VERBATIM AS APPROVED: the approval covers
+ * these words, so an edit for rhythm or length voids it and needs re-approving.
+ * Same rule if it moves to another page.
+ *
+ * Bodyfunction has none and must not be given one. It is the founding clinic,
+ * so a quote from it would be Clinic Evo endorsing itself.
+ */
+export const LP_TESTIMONIAL = {
+  text: "I started with no website and no presence on Google at all. Within a year I was on page one for the searches people on the Island actually use, and patients were finding me without me chasing them.",
+  name: "Serena Gower-Johnson",
+  role: "M.Ost, Founder of Lind Street Osteopathy, Ryde",
+  portrait: "/images/lind-street/serena-portrait.png",
+};
 
 export interface LpVariant {
   slug: LpVariantSlug;
@@ -269,7 +318,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       end: "",
     },
     subhead:
-      "One team builds the website, wins the local searches, runs the ads, and picks up every enquiry they produce. It is a single system, scoped to your clinic, rather than five suppliers you have to manage.",
+      "One team builds the website, wins the local searches, runs the ads, and picks up every enquiry they produce. It is one system built around your clinic, rather than five suppliers you have to manage.",
     practiceNoun: "clinic",
     seoConditions: "back pain, sciatica, sports injury and postural problems",
     variantFaq: {

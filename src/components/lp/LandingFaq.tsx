@@ -28,9 +28,9 @@ const SHARED_FAQS = [
       "We do not publish a single price, because the honest answer depends on how competitive your town is, how much of the system you already have working, and what you want to spend on ads. The audit is where that gets answered: we will talk you through what the work involves and what it would realistically cost to run, so you have a real number to decide against. If it is more than you want to spend, you have lost nothing.",
   },
   {
-    question: "Is this a fixed package, or can it be scoped to my clinic?",
+    question: "Is this a fixed package, or is it built around my clinic?",
     answer:
-      "It is one system, scoped. Every clinic gets the same five layers connected to each other, because a website that ranks and then leaves its enquiries unanswered produces a quiet diary anyway — that connection is the point. What changes clinic to clinic is the order, the emphasis and the budget. There is no tier list: the audit works out which layer needs the most attention first, and the scope is built from that.",
+      "It is one system, built around your clinic. Every clinic gets the same five layers connected to each other, because a website that ranks and then leaves its enquiries unanswered produces a quiet diary anyway — that connection is the point. What changes clinic to clinic is the order, the emphasis and the budget. There is no tier list: the audit works out which layer needs the most attention first, and the plan is built from that.",
   },
   {
     question: "How is this different from a normal marketing agency?",
@@ -59,10 +59,16 @@ export default function LandingFaq({ variant }: { variant: LpVariant }) {
           <FadeUp>
             <div className="lg:sticky lg:top-28">
               <p className="eyebrow mb-5">Questions</p>
+              {/* Was "Cost, contracts, and how the *scope is decided*" — the
+                  second coral clause in two adjacent sections spent on
+                  "scope", a procurement word, and "how the scope is decided"
+                  describes our internal deliberation rather than answering
+                  anything. These are the three things a clinic owner actually
+                  wants before filling in a form. */}
               <h2 className="text-h2 text-[var(--color-ink)]">
-                Cost, contracts, and how the{" "}
+                What it costs, what you are tied into, and{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  scope is decided
+                  where we would start
                 </em>
               </h2>
             </div>

@@ -18,11 +18,12 @@
  *   google-ppc.png Auction insights: "You" at 70% impression share, three
  *                  competing advertisers under 10%.
  *
- * ACCOUNT is deliberately unnamed. The ad screenshot proves itself, but nothing
- * in the other two names the advertiser, and inventing an attribution is the
- * exact failure the 10 Aug review was about. If Simon confirms all three come
- * from the Bodyfunction account, change ACCOUNT here to name it — that is a
- * one-line upgrade and the page will read stronger for it.
+ * ACCOUNT is now named. It was deliberately unnamed while nothing outside the ad
+ * screenshot's display URL identified the advertiser; Simon confirmed on
+ * 18 Aug 2026 that all three shots come from the Bodyfunction Clinic account
+ * [src: client confirmation]. That is what lets the landing page attach a clinic
+ * name and logo to the cost-per-enquiry figure instead of leaving one of three
+ * proof rows anonymous.
  *
  * CONVERSION_CAVEAT is not optional. Google counts a conversion as a tracked
  * action — a call, a form, a chat — and Danny's £30-per-patient figure was
@@ -35,7 +36,7 @@
 export const WINDOW = "29 Dec 2025 – 22 Jun 2026";
 
 /** How we describe whose account this is. See the note above before changing. */
-export const ACCOUNT = "a clinic Google Ads account managed by Clinic Evo";
+export const ACCOUNT = "the Bodyfunction Clinic Google Ads account";
 
 /** The clinic the ad screenshot names itself, via its display URL. */
 export const AD_CLINIC = "Bodyfunction Clinic";

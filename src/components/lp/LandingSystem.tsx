@@ -51,7 +51,7 @@ export default function LandingSystem({ variant }: { variant: LpVariant }) {
               <p className="text-body text-[var(--color-muted)]">
                 You do not pick items off this list. The free audit works out
                 which layers your {variant.practiceNoun} needs most and in what
-                order, and the scope is built from that.
+                order, and the plan is built from that.
               </p>
             </div>
           </FadeUp>
