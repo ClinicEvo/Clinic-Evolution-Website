@@ -143,6 +143,9 @@ export const LP_SYSTEM_LAYERS = [
  * source. Nothing is rounded, reframed or re-described.
  */
 export interface LpProofRow {
+  /** The platform where the result happened. Kept separate from the metric so
+   *  a skimmer can identify the channel from its full-colour mark first. */
+  platform: "Google Search" | "Google Ads";
   /** What is being measured. Sits ABOVE the figure so the unit arrives first. */
   metric: string;
   /** The figure, coral, at display size. Rendered inside `headline`'s h3. */
@@ -185,6 +188,7 @@ const LIND_STREET = {
 
 export const LP_PROOF: LpProofRow[] = [
   {
+    platform: "Google Search",
     metric: "Estimated monthly organic traffic",
     figure: "8 → 3,822",
     headline: "at Bodyfunction Clinic",
@@ -193,6 +197,7 @@ export const LP_PROOF: LpProofRow[] = [
     href: "/case-studies/bodyfunction-clinic/",
   },
   {
+    platform: "Google Search",
     metric: "Local search rankings",
     figure: "No. 1",
     headline:
@@ -212,6 +217,7 @@ export const LP_PROOF: LpProofRow[] = [
     // yields £42.50, so quoting it under £30 would have the row contradict
     // itself; and the patient count behind £30 is not recorded anywhere. The
     // window is attribution, not justification.
+    platform: "Google Ads",
     metric: "Cost per booked new patient",
     figure: "£30",
     headline: "per booked new patient through Google Ads at Bodyfunction Clinic",

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "@/components/ui/FadeUp";
 import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
+import { GoogleAdsLockup } from "@/components/icons/GoogleColorMark";
 import LpCtaButton, { LpCallButton } from "./LpCtaButton";
 import { LP_PROOF, LP_TESTIMONIAL } from "@/lib/lp";
 
@@ -25,10 +26,11 @@ import { LP_PROOF, LP_TESTIMONIAL } from "@/lib/lp";
  *    the old clinic names were `<p className="text-h4">`, styled as headings and
  *    invisible to both the scan and to screen-reader heading navigation.
  *
- * 2. THE METRIC NAME COMES FIRST. `metric` sits above the figure in
- *    `.text-label`, so the unit arrives before the quantity. Not coral: the
- *    figure beneath it is already coral, and doubling the accent inside one row
- *    spends it on decoration.
+ * 2. THE PLATFORM AND METRIC COME FIRST. Google's full-colour mark identifies
+ *    the channel before `metric` identifies the measure, so a skimmer can tell
+ *    organic/local search from Google Ads before reaching the quantity. The
+ *    label stays neutral because the figure beneath it already carries the
+ *    accent.
  *
  * 3. EVERY FIGURE HAS AN OWNER, WITH ITS MARK. The clinic's real logo sits in
  *    the row's right rail. Two of the three rows are Bodyfunction and that
@@ -72,9 +74,16 @@ export default function LandingEvidence() {
               <FadeUp key={row.headline} delay={0.06 + index * 0.06}>
                 <li className="grid grid-cols-1 gap-5 border-t border-[var(--color-border)] py-6 last:border-b sm:py-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
                   <div>
-                    <p className="text-label mb-3 text-[var(--color-muted)]">
-                      {row.metric}
-                    </p>
+                    <div className="mb-3 grid grid-cols-[auto_1fr] items-center gap-2.5">
+                      <GoogleAdsLockup
+                        label={row.platform}
+                        markClass="h-[1.1rem] w-[1.1rem]"
+                        className="shrink-0"
+                      />
+                      <p className="border-l border-[var(--color-border)] pl-2.5 text-[0.68rem] font-semibold uppercase leading-[1.35] tracking-[0.12em] text-[var(--color-muted)]">
+                        {row.metric}
+                      </p>
+                    </div>
 
                     {/* Figure and meaning in ONE heading, so the number reaches
                         the heading ladder with its unit and its owner attached. */}
