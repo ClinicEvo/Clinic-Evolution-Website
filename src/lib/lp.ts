@@ -45,6 +45,34 @@ export const LP_PHONE = {
 
 export const LP_CTA_LABEL = "Request a free clinic audit";
 export const LP_FORM_ANCHOR = "#audit";
+
+/**
+ * Section anchors on the landing pages, for Google Ads sitelink extensions.
+ *
+ * A sitelink needs its own final URL, so four of these point at sections of the
+ * same page rather than at four thin pages — the ad occupies more of the results
+ * page without splitting the paid traffic or the message match.
+ *
+ * DO NOT RENAME AN ID HERE WITHOUT CHANGING IT IN GOOGLE ADS. These strings are
+ * live ad destinations. A renamed section id does not 404 — the fragment is
+ * simply ignored and the visitor lands at the top of the page, so the sitelink
+ * keeps working well enough that nobody notices it stopped doing its job.
+ *
+ * Each id is on a <section> carrying `tabIndex={-1}` and `scroll-mt-20`: the
+ * scroll margin clears the sticky header, which would otherwise cover the
+ * heading the visitor clicked for, and tabIndex moves keyboard focus to the
+ * section rather than leaving it at the top of the document.
+ */
+export const LP_SECTION_ANCHORS = {
+  /** LandingEvidence — the two clinics and their figures. */
+  results: "#results",
+  /** LandingFounder — a practising osteopath built this. */
+  founder: "#founder",
+  /** LandingProcess — audit, then plan, then you decide. */
+  howItWorks: "#how-it-works",
+  /** LandingFaq — contracts, cost, what happens next. */
+  faq: "#faq",
+} as const;
 export const LP_THANK_YOU_PATH = "/lp/thank-you/";
 
 /** Turnaround promise. Stated above the fold as well as at the form, because a

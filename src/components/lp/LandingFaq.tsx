@@ -1,6 +1,6 @@
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import FadeUp from "@/components/ui/FadeUp";
-import type { LpVariant } from "@/lib/lp";
+import { LP_SECTION_ANCHORS, type LpVariant } from "@/lib/lp";
 
 /**
  * Shared objections, plus one question written for this ad group specifically.
@@ -44,7 +44,12 @@ export default function LandingFaq({ variant }: { variant: LpVariant }) {
   const faqs = [variant.variantFaq, ...SHARED_FAQS];
 
   return (
-    <section className="border-b border-[var(--color-border)] bg-[var(--color-paper)] py-24 sm:py-28 lg:py-32">
+    // Ad sitelink target — see LP_SECTION_ANCHORS before renaming.
+    <section
+      id={LP_SECTION_ANCHORS.faq.slice(1)}
+      tabIndex={-1}
+      className="scroll-mt-20 focus-visible:outline-none border-b border-[var(--color-border)] bg-[var(--color-paper)] py-24 sm:py-28 lg:py-32"
+    >
       <div className="cx-main">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <FadeUp>

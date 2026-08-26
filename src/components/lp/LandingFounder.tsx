@@ -1,9 +1,15 @@
 import Image from "next/image";
 import FadeUp from "@/components/ui/FadeUp";
+import { LP_SECTION_ANCHORS } from "@/lib/lp";
 
 export default function LandingFounder() {
   return (
-    <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-24 sm:py-28 lg:py-32">
+    // Ad sitelink target — see LP_SECTION_ANCHORS before renaming.
+    <section
+      id={LP_SECTION_ANCHORS.founder.slice(1)}
+      tabIndex={-1}
+      className="scroll-mt-20 focus-visible:outline-none border-b border-[var(--color-border)] bg-[var(--color-surface)] py-24 sm:py-28 lg:py-32"
+    >
       <div className="cx-main">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
           {/* Portrait + credentials */}

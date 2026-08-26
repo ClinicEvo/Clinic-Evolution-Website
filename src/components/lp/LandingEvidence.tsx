@@ -4,7 +4,7 @@ import FadeUp from "@/components/ui/FadeUp";
 import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
 import { GoogleAdsLockup } from "@/components/icons/GoogleColorMark";
 import LpCtaButton from "./LpCtaButton";
-import { LP_PROOF, LP_TESTIMONIAL } from "@/lib/lp";
+import { LP_PROOF, LP_SECTION_ANCHORS, LP_TESTIMONIAL } from "@/lib/lp";
 
 /**
  * One proof layer, not two.
@@ -51,7 +51,12 @@ export default function LandingEvidence() {
     <>
       <ClientLogoStrip label="Clinics and brands we build and grow" />
 
-      <section className="grain bg-[var(--color-paper)] py-14 sm:py-16 lg:py-20">
+      {/* Ad sitelink target — see LP_SECTION_ANCHORS before renaming. */}
+      <section
+        id={LP_SECTION_ANCHORS.results.slice(1)}
+        tabIndex={-1}
+        className="grain scroll-mt-20 focus-visible:outline-none bg-[var(--color-paper)] py-14 sm:py-16 lg:py-20"
+      >
         <div className="cx-main">
           <div className="mb-9 max-w-[48rem] sm:mb-10">
             <FadeUp>

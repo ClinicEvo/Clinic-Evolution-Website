@@ -36,7 +36,7 @@ export default function LandingAudit({ variant }: { variant: LpVariant }) {
     <section
       id={LP_FORM_ANCHOR.replace("#", "")}
       tabIndex={-1}
-      className="scroll-mt-20 bg-[var(--color-surface)] py-24 pb-32 sm:py-28 lg:py-32"
+      className="scroll-mt-20 focus-visible:outline-none bg-[var(--color-surface)] py-24 pb-32 sm:py-28 lg:py-32"
     >
       <div className="cx-main">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
