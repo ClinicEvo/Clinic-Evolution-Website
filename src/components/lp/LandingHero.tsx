@@ -1,11 +1,11 @@
 import Image from "next/image";
 import FadeUp from "@/components/ui/FadeUp";
 import { LP_TURNAROUND, type LpVariant } from "@/lib/lp";
-import LpCtaButton, { LpCallButton } from "./LpCtaButton";
+import LpCtaButton from "./LpCtaButton";
 
 /**
  * Above the fold on a 390px phone this has to fit: eyebrow, headline, one short
- * paragraph, and both actions. The subhead was previously three sentences and
+ * paragraph, and the CTA. The subhead was previously three sentences and
  * ~55 words, which pushed the button off the first screen on a phone — the site
  * hero runs ~40, and this one is now shorter than that again.
  *
@@ -58,11 +58,10 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
             </FadeUp>
 
             <FadeUp delay={0.14}>
-              {/* Two actions, not one. Stacked on a phone so neither is a narrow
-                  tap target; side by side from sm. */}
-              <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3">
+              {/* One action. Full width on a phone so it is not a narrow tap
+                  target, shrink-to-fit from sm. */}
+              <div className="flex flex-col items-stretch sm:flex-row sm:items-center">
                 <LpCtaButton placement="hero" />
-                <LpCallButton placement="hero" />
               </div>
             </FadeUp>
 

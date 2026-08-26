@@ -36,7 +36,7 @@ const SHARED_FAQS = [
   {
     question: "What actually happens after I send the form?",
     answer:
-      "A person reviews your clinic — not an automated report generator — and comes back within two working days with what they found. If you would rather talk it through first, call the number at the top of this page.",
+      "A person reviews your clinic — not an automated report generator — and comes back within two working days with what they found.",
   },
 ];
 

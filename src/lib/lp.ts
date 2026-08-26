@@ -2,9 +2,9 @@
  * Config for the PPC landing pages under /lp/.
  *
  * These are ad destinations, not site pages: no site nav, no footer sitemap,
- * noindex, and one conversion goal (the audit form at #audit) with click-to-call
- * as the co-equal second action. One structure serves three ad groups so message
- * match stays tight per ad group without three separate builds.
+ * noindex, and exactly one conversion goal — the audit form at #audit. One
+ * structure serves three ad groups so message match stays tight per ad group
+ * without three separate builds.
  *
  * Two rules govern the copy in this file.
  *
@@ -19,22 +19,24 @@
  */
 
 /**
- * Phone number shown in the landing page header, the hero and the mobile sticky
- * bar, in two forms. Leave both blank to hide the phone from the landing pages
- * entirely — every call site checks.
+ * Phone number, used ONLY on the post-conversion confirmation page.
  *
- * TODO: swap `display` and `href` for a Google Ads call-forwarding number.
+ * Calling is deliberately not offered anywhere on the three ad landing pages
+ * (Simon, 26 Aug 2026). The paid pages have one conversion goal and it is the
+ * form; a phone number beside every CTA competed with it for the same click.
+ * So the header link, the hero's second action, the mid-evidence button and the
+ * mobile sticky bar's call half are all gone, and `LandingFaq` no longer points
+ * at a number.
  *
- * This is the direct number, so no call from the campaign is attributable to it.
- * That was tolerable when the number was one link in the header. It is now
- * offered in four places — header, hero, audit section and the mobile sticky bar
- * — so calls are expected to be a material share of conversions, and every one
- * of them currently lands in the same untracked pool as organic and referral
- * calls.
+ * `/lp/thank-you/` keeps it. The form is already submitted by the time anyone
+ * reads that page, so a number there diverts nobody from it.
  *
- * Changing the two strings below is the entire fix. Every call site reads from
- * this object and reports its own placement via events.phoneClick(), so the
- * per-position breakdown starts working the moment the number is swapped.
+ * If calling is ever offered on the landing pages again, the reason it was
+ * untracked still applies and has to be fixed first: this is the direct number,
+ * so no call from a campaign is attributable to it. Swap these two strings for
+ * a Google Ads call-forwarding number, and note that every former call site
+ * already reported its own placement via events.phoneClick() — see the git
+ * history of LpCtaButton for the button that did it.
  */
 export const LP_PHONE = {
   display: "07460 082 683",

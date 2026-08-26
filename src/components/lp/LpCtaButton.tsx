@@ -1,8 +1,7 @@
 "use client";
 
-import { PhoneIcon } from "@phosphor-icons/react/dist/icons/Phone";
 import { events } from "@/lib/analytics";
-import { LP_CTA_LABEL, LP_FORM_ANCHOR, LP_PHONE } from "@/lib/lp";
+import { LP_CTA_LABEL, LP_FORM_ANCHOR } from "@/lib/lp";
 
 type Size = "md" | "lg";
 
@@ -23,8 +22,11 @@ interface LpCtaButtonProps {
 }
 
 /**
- * The primary CTA. Every instance points at the audit form and reports its
- * placement, so we can see which position actually converts.
+ * The only CTA on these pages. Every instance points at the audit form and
+ * reports its placement, so we can see which position actually converts.
+ *
+ * There is deliberately no second action beside it — see LP_PHONE for why
+ * click-to-call was removed rather than restyled.
  */
 export default function LpCtaButton({
   placement,
@@ -49,54 +51,6 @@ export default function LpCtaButton({
           strokeLinejoin="round"
         />
       </svg>
-    </a>
-  );
-}
-
-/**
- * The second action, offered wherever the first one is.
- *
- * A clinic owner reading this on a phone between patients is more likely to call
- * than to fill in a form, and the phone number was previously a 15px text link
- * in the header only. `variant` decides how loudly it is drawn: "quiet" beside
- * the hero CTA, "outline" where it has to hold its own half of a split bar.
- *
- * Returns null when LP_PHONE is blanked out, so every call site can render it
- * unconditionally.
- */
-export function LpCallButton({
-  placement,
-  size = "lg",
-  variant = "quiet",
-  className = "",
-}: {
-  placement: string;
-  size?: Size;
-  variant?: "quiet" | "outline";
-  className?: string;
-}) {
-  if (!LP_PHONE.display || !LP_PHONE.href) return null;
-
-  const skin =
-    variant === "outline"
-      ? "border border-[var(--color-border)] bg-[var(--color-paper)] text-[var(--color-ink)] hover:border-[var(--color-ink)] hover:bg-[var(--color-surface)]"
-      : "text-[var(--color-ink)] hover:text-[var(--color-accent-text)]";
-
-  return (
-    <a
-      href={LP_PHONE.href}
-      onClick={() => events.phoneClick(placement)}
-      style={{ fontWeight: "var(--font-weight-semibold)" }}
-      className={`${base} ${skin} ${sizes[size]} ${className}`}
-    >
-      <PhoneIcon
-        size={17}
-        weight="fill"
-        className="flex-shrink-0 text-[var(--color-accent-text)]"
-      />
-      <span>
-        {variant === "outline" ? "Call us" : `Or call ${LP_PHONE.display}`}
-      </span>
     </a>
   );
 }

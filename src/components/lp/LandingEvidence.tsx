@@ -3,7 +3,7 @@ import Link from "next/link";
 import FadeUp from "@/components/ui/FadeUp";
 import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
 import { GoogleAdsLockup } from "@/components/icons/GoogleColorMark";
-import LpCtaButton, { LpCallButton } from "./LpCtaButton";
+import LpCtaButton from "./LpCtaButton";
 import { LP_PROOF, LP_TESTIMONIAL } from "@/lib/lp";
 
 /**
@@ -189,7 +189,7 @@ export default function LandingEvidence() {
           {/* The turn from proof to offer. A visitor convinced by the rows above
               has one question — "what about my clinic" — and this is the only
               place on this screen that answers it. Not a full CTA band: one line
-              and the two actions, so it reads as the next step rather than as an
+              and the one action, so it reads as the next step rather than as an
               interruption. */}
           <FadeUp delay={0.28}>
             <div className="mt-10 flex flex-col gap-5 border-t border-[var(--color-border)] pt-7 sm:mt-12 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
@@ -198,9 +198,8 @@ export default function LandingEvidence() {
                 rank now, who is above you, and what to fix first. Yours to keep
                 either way.
               </p>
-              <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3 lg:flex-shrink-0">
+              <div className="flex flex-col items-stretch sm:flex-row sm:items-center lg:flex-shrink-0">
                 <LpCtaButton placement="mid-evidence" size="md" />
-                <LpCallButton placement="mid-evidence" size="md" variant="outline" />
               </div>
             </div>
           </FadeUp>

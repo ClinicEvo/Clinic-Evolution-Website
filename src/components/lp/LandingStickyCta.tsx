@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LP_FORM_ANCHOR, LP_PHONE } from "@/lib/lp";
-import LpCtaButton, { LpCallButton } from "./LpCtaButton";
+import { LP_FORM_ANCHOR } from "@/lib/lp";
+import LpCtaButton from "./LpCtaButton";
 
 const SHOW_AFTER_PX = 520;
 const FORM_ID = LP_FORM_ANCHOR.replace("#", "");
@@ -14,11 +14,9 @@ const COOKIE_BANNER = '[role="dialog"][aria-label="Cookie consent"]';
  * submit button, and sits above the cookie banner while that is up — every paid
  * visitor is a first-time visitor, so the two would otherwise always collide.
  *
- * Split into two actions where a phone number is configured. A clinic owner
- * reading this on a phone between patients is at least as likely to call as to
- * fill in a form, and calling was previously offered nowhere below the header.
- * The form keeps the wider half: it is still the measurable conversion, and the
- * call button only needs to fit two words.
+ * One full-width action. This was previously split with a "Call us" button
+ * taking the left half; that was removed with the rest of the phone CTAs, since
+ * the form is the only conversion these pages are for. See LP_PHONE.
  */
 export default function LandingStickyCta() {
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
@@ -72,24 +70,7 @@ export default function LandingStickyCta() {
           : "translateY(100%)",
       }}
     >
-      {LP_PHONE.display ? (
-        <div className="flex items-stretch gap-2">
-          <LpCallButton
-            placement="sticky-mobile"
-            size="md"
-            variant="outline"
-            className="flex-shrink-0"
-          />
-          <LpCtaButton
-            placement="sticky-mobile"
-            size="md"
-            label="Request a free audit"
-            className="flex-1"
-          />
-        </div>
-      ) : (
-        <LpCtaButton placement="sticky-mobile" className="w-full" />
-      )}
+      <LpCtaButton placement="sticky-mobile" className="w-full" />
     </div>
   );
 }

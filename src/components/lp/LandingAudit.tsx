@@ -1,8 +1,7 @@
 import LpAuditForm from "@/components/forms/LpAuditForm";
 import FadeUp from "@/components/ui/FadeUp";
 import { siteConfig } from "@/lib/metadata";
-import { LP_FORM_ANCHOR, LP_PHONE, LP_TURNAROUND, type LpVariant } from "@/lib/lp";
-import { LpCallButton } from "./LpCtaButton";
+import { LP_FORM_ANCHOR, LP_TURNAROUND, type LpVariant } from "@/lib/lp";
 
 /**
  * The conversion section.
@@ -11,8 +10,9 @@ import { LpCallButton } from "./LpCtaButton";
  * a paragraph — a visitor who has scrolled this far is deciding whether four
  * questions buys something worth having, and a list answers that faster.
  *
- * Click-to-call sits here too. Someone who reached the bottom of the page and
- * still has not filled in the form may simply prefer to talk.
+ * Email is the only alternative offered. Click-to-call used to sit here for
+ * someone who reached the bottom and still had not filled in the form; it was
+ * removed with the rest of the phone CTAs — see LP_PHONE.
  */
 const AUDIT_CONTENTS = [
   "Where you currently rank for the searches your patients actually type, and who is above you",
@@ -106,14 +106,7 @@ export default function LandingAudit({ variant }: { variant: LpVariant }) {
             </FadeUp>
 
             <FadeUp delay={0.14}>
-              <div className="mt-8 flex flex-col gap-3 border-t border-[var(--color-border)] pt-7 sm:flex-row sm:items-center sm:gap-6">
-                {LP_PHONE.display ? (
-                  <LpCallButton
-                    placement="audit-section"
-                    size="md"
-                    variant="outline"
-                  />
-                ) : null}
+              <div className="mt-8 border-t border-[var(--color-border)] pt-7">
                 <p className="text-body-sm text-[var(--color-muted)]">
                   Rather write? Email{" "}
                   <a
