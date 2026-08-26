@@ -173,9 +173,48 @@ const nextConfig = {
 
   async headers() {
     const isProd = process.env.NODE_ENV === "production";
-    const cspScriptSrc = isProd
-      ? "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com"
-      : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com";
+
+    // Hosts the Google tag talks to. Split out because Google Ads conversion
+    // tracking (AW-…) reaches further than GA4 does, and the difference is
+    // invisible until a conversion fails to arrive: gtag.js loads fine from
+    // googletagmanager.com, so the tag looks installed while every conversion
+    // ping is being dropped by this header.
+    //
+    //   googleadservices / googleads.g.doubleclick — the conversion ping itself
+    //   www.google.com and the local TLD          — 1p-conversion + user-list
+    //   pagead2.googlesyndication / ad.doubleclick — consent-mode collection
+    //   td.doubleclick.net                        — conversion linker
+    //   stats.g.doubleclick.net                   — remarketing
+    //
+    // This list is what the tag was observed to request, not what the docs
+    // imply: the last two were found only by loading the page and reading the
+    // CSP violations, and both were being dropped while everything else worked.
+    // If a conversion ever goes missing, check the console for a refused host
+    // before assuming the Ads side is at fault.
+    //
+    // Keep it to what the tag needs. It is an allowlist, not a wildcard, and
+    // widening it to *.google.com would defeat the point of having one.
+    const googleAds = [
+      "https://googleads.g.doubleclick.net",
+      "https://www.googleadservices.com",
+      "https://pagead2.googlesyndication.com",
+      "https://ad.doubleclick.net",
+      "https://td.doubleclick.net",
+      "https://stats.g.doubleclick.net",
+      "https://www.google.com",
+      "https://www.google.co.uk",
+    ];
+
+    const cspScriptSrc = [
+      "script-src 'self' 'unsafe-inline'",
+      // next dev's HMR client evals; production must not carry this.
+      ...(isProd ? [] : ["'unsafe-eval'"]),
+      "https://www.googletagmanager.com",
+      "https://www.google-analytics.com",
+      "https://analytics.ahrefs.com",
+      "https://googleads.g.doubleclick.net",
+      "https://www.googleadservices.com",
+    ].join(" ");
 
     return [
       {
@@ -204,10 +243,29 @@ const nextConfig = {
               "default-src 'self'",
               cspScriptSrc,
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: https://bodyfunction.co.uk https://images.unsplash.com",
+              [
+                "img-src 'self' data:",
+                "https://bodyfunction.co.uk",
+                "https://images.unsplash.com",
+                // Conversion and remarketing pings are sent as pixels as well
+                // as fetches, depending on the browser.
+                ...googleAds,
+              ].join(" "),
               "font-src 'self'",
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://analytics.ahrefs.com",
-              "frame-src 'none'",
+              [
+                "connect-src 'self'",
+                "https://www.google-analytics.com",
+                "https://analytics.google.com",
+                "https://region1.google-analytics.com",
+                "https://analytics.ahrefs.com",
+                ...googleAds,
+              ].join(" "),
+              // Was 'none'. The conversion linker writes its cross-domain
+              // cookie from a hidden iframe, so a conversion cannot be attributed
+              // to its click without these two. X-Frame-Options still stops this
+              // site being framed by anyone else — frame-src is the other
+              // direction, what this page may embed.
+              "frame-src https://td.doubleclick.net https://www.googletagmanager.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",

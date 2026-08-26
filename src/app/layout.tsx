@@ -10,6 +10,7 @@ import SiteChromeGate from "@/components/layout/SiteChromeGate";
 import OrganizationSchema from "@/components/schema/OrganizationSchema";
 import WebSiteSchema from "@/components/schema/WebSiteSchema";
 import { siteConfig } from "@/lib/metadata";
+import { GOOGLE_TAG_IDS } from "@/lib/analytics";
 
 const dmSans = localFont({
   src: [
@@ -79,11 +80,17 @@ export default function RootLayout({
           data-key="LN1HzD4cMtYBXdWSGELKYw"
           async
         />
-        {process.env.NEXT_PUBLIC_GA4_ID && (
+        {/* One gtag.js, configured once per Google product. The loader URL
+            takes a single id but the library it returns is the same for all of
+            them, so which id is in the URL does not matter — what registers each
+            product is its own `config` line below. Adding a second
+            <script src=".../gtag/js?id=..."> would re-run the bootstrap over the
+            same dataLayer instead. See GOOGLE_TAG_IDS. */}
+        {GOOGLE_TAG_IDS.length > 0 && (
           <>
             <script
               async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_IDS[0]}`}
             />
             <script
               dangerouslySetInnerHTML={{
@@ -95,6 +102,10 @@ export default function RootLayout({
                   // once the visitor accepts. wait_for_update holds tags briefly
                   // so a returning visitor's stored consent is applied before
                   // anything fires.
+                  //
+                  // ad_storage denied until acceptance is why paid conversions
+                  // arrive partly modelled rather than fully counted. That is
+                  // the correct UK/EEA behaviour, not something to loosen.
                   gtag('consent','default',{
                     analytics_storage:'denied',
                     ad_storage:'denied',
@@ -103,7 +114,7 @@ export default function RootLayout({
                     wait_for_update:500
                   });
                   gtag('js', new Date());
-                  gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');
+${GOOGLE_TAG_IDS.map((id) => `                  gtag('config', '${id}');`).join("\n")}
                 `,
               }}
             />

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import { GOOGLE_TAG_IDS } from "@/lib/analytics";
 
 const STORAGE_KEY = "ce-cookie-consent";
 
@@ -25,8 +26,11 @@ declare global {
  */
 function updateConsent(granted: boolean) {
   if (typeof window === "undefined") return;
-  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
-  if (!ga4Id || typeof window.gtag !== "function") return;
+  // Gate on "is any Google tag on the page", not on GA4 specifically. This read
+  // NEXT_PUBLIC_GA4_ID, which meant a site running Google Ads without GA4
+  // configured never granted consent at all — ad_storage stayed denied for
+  // every visitor, and paid conversions stayed permanently modelled.
+  if (GOOGLE_TAG_IDS.length === 0 || typeof window.gtag !== "function") return;
   const value = granted ? "granted" : "denied";
   window.gtag("consent", "update", {
     analytics_storage: value,
