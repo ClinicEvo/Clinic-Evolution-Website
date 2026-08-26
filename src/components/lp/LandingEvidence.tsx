@@ -105,8 +105,18 @@ export default function LandingEvidence() {
                   </div>
 
                   {/* The owner. The mark does the recognition, so the name is not
-                      repeated as text — it is already in the h3 above. */}
-                  <div className="flex flex-col lg:items-start lg:pt-1">
+                      repeated as text — it is already in the h3 above.
+
+                      `items-start` is load-bearing at every breakpoint, not a
+                      tidy-up. A column flex container stretches its children
+                      across the cross axis by default, which makes the logo's
+                      width definite at the full column width; the height below
+                      then holds and the mark renders stretched. This was
+                      shipped as `lg:items-start`, so the three marks were
+                      distorted on every phone and tablet — Bodyfunction at
+                      342×22 against a 6.09 aspect ratio — and correct only on
+                      desktop. Any per-mark height needs the alignment with it. */}
+                  <div className="flex flex-col items-start lg:pt-1">
                     <Image
                       src={row.clinic.logo}
                       alt={row.clinic.name}
