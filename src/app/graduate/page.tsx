@@ -8,15 +8,13 @@ import FAQAccordion from "@/components/sections/FAQAccordion";
 import FAQSchema from "@/components/schema/FAQSchema";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
+import IntakeCountdown from "@/components/ui/IntakeCountdown";
 import GraduateForm from "@/components/forms/GraduateForm";
 import GoogleReviews from "@/components/sections/GoogleReviews";
 import {
-  GRADUATE_CONSTRAINTS,
   GRADUATE_EQUATION,
   GRADUATE_FOUNDERS,
   GRADUATE_FOUNDER_QUOTE,
-  GRADUATE_PHILOSOPHY,
-  GRADUATE_PRESSURES,
   GRADUATE_ELIGIBILITY,
   GRADUATE_ELIGIBILITY_NOTE,
   GRADUATE_INTAKE,
@@ -52,7 +50,16 @@ import {
  *   - Any check-in or session cadence. Simon's instruction, 3 Sep 2026. The
  *     mentoring can be named and described; its rhythm cannot.
  *   - A fee, in either direction. No price is published anywhere on this site,
- *     so the page states the halving and never a number.
+ *     so the page states the halving and never a number. "50%" is the same
+ *     permitted fact as "half", which is why the offer band can set it at 128px
+ *     without publishing anything.
+ *   - Any deadline that is not real. The countdown on the offer band runs to
+ *     the intake date, which the page also states in words. There is no
+ *     published applications-close date; if one is ever wanted, get it from the
+ *     client and change the target in src/lib/graduate.ts. Do not shorten the
+ *     clock to manufacture urgency.
+ *   - A places-remaining count. The intake is capped at ten and the page says
+ *     so; how many are left is not tracked anywhere this page can read.
  *
  * ONE OPEN ITEM. Serena Gower-Johnson's testimonial (LP_TESTIMONIAL in
  * src/lib/lp.ts) would be the strongest thing on this page — she opened cold,
@@ -72,7 +79,7 @@ import {
 export const metadata = buildMetadata({
   title: "Graduate Clinic Launch Programme",
   description:
-    "A six-month launch programme for newly qualified osteopaths, physiotherapists and chiropractors starting their first private practice. Website, Google presence, reviews and mentoring, at half our normal fee. Next intake 15 October.",
+    "50% off your first six months. A launch programme for newly qualified osteopaths, physiotherapists and chiropractors starting their first private practice — website, Google presence, reviews and mentoring. Next intake 15 October, 10 places.",
   path: "/graduate/",
 });
 
@@ -166,33 +173,164 @@ export default function GraduatePage() {
           </>
         }
         subtext="Six months to take you from a standing start to a practice patients can find and book. Your job is to become a brilliant clinician. Ours is to make sure people know you exist."
+        /* The discount leads. It was third and set in 14px grey, which is where
+           the strongest thing on the page had been sitting. */
         bullets={[
-          `Next intake ${GRADUATE_INTAKE.label}`,
-          `${GRADUATE_INTAKE.places} places`,
-          "Half our normal fee for six months",
+          `${GRADUATE_TERMS.discountPercent}% off your first six months`,
+          `Only ${GRADUATE_INTAKE.places} places`,
+          `Intake starts ${GRADUATE_INTAKE.label}`,
         ]}
         primaryCta={{ label: "Apply for the October intake", href: "#apply" }}
         secondaryCta={{ label: "What the six months covers", href: "#system" }}
         breadcrumbs={crumbs}
         bulletsBelow
         rightPanelWidth="600px"
+        rightPanelBleed
+        /*
+         * THE HERO PHOTOGRAPH.
+         *
+         * graduate-clinician-hero.jpg is a crop of graduate-clinicians-campus.jpg,
+         * which is still in the repo. The source is five clinicians in a row,
+         * evenly spaced, arms folded, all grinning at the lens — and that
+         * composition, not the resolution, is what reads as stock. Cropped to one
+         * subject at 42% across with a second figure falling off behind her, it
+         * stops announcing itself.
+         *
+         * The crop is 960x768 from +0+60, upscaled 1.5x to 1440x1152 with Lanczos
+         * and a light unsharp. The upscale is deliberate: the panel renders up to
+         * ~960px on a wide screen, and a native 960px crop would be soft on any
+         * 2x display. THE SHARPNESS CEILING IS THE SOURCE FILE — a tighter crop
+         * than this needs a higher-resolution original, so do not zoom further by
+         * cropping this one again.
+         *
+         * It bleeds to the right edge of the screen at >=1024px, which is why the
+         * trailing radius, border and shadow are dropped there: a card border
+         * running off the page looks like a mistake. Below 1024 the hero stacks
+         * and it goes back to being a framed 5:4 card in the flow.
+         */
         rightPanel={
           <figure className="m-0">
-            <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
+            <div className="relative aspect-[5/4] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)] lg:aspect-auto lg:h-[600px] lg:rounded-r-none lg:border-r-0 lg:shadow-none">
               <Image
-                src="/images/graduate/graduate-clinicians-campus.jpg"
-                alt="Five clinical students in scrubs outside a university building"
+                src="/images/graduate/graduate-clinician-hero.jpg"
+                alt="Two clinical students in scrubs outside a university building"
                 fill
                 priority
                 className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 600px"
+                sizes="(max-width: 1024px) 100vw, (max-width: 1536px) 720px, 960px"
               />
             </div>
           </figure>
         }
       />
 
-      {/* ── 2. Where you are by month six (Transformation) ─────────────────── */}
+      {/* ── 2. The offer ────────────────────────────────────────────────────
+       *
+       * The discount was three grey words in a hero bullet and an h2 eleven
+       * sections down. It is the reason this page exists, so it is now the
+       * second thing on it, at display size, on the only full-bleed band the
+       * page has.
+       *
+       * WHAT IT MAY SAY. "50%" and "half" are the same permitted fact — no fee
+       * appears in either direction, so the percentage can be as loud as it
+       * likes. The month-seven term travels WITH the headline rather than
+       * being left for the reader to find later: a discount stated without its
+       * end date is the kind of thing this audience is right to distrust.
+       *
+       * THE PHOTOGRAPH is a treatment room, not people. Every other image on
+       * this page is a clinician mid-treatment or a founder; an empty room set
+       * up and waiting is the one image that is about the reader's own clinic
+       * rather than somebody else's. It also survives the navy scrim, which a
+       * face would not.
+       */}
+      <section className="relative isolate overflow-hidden bg-[var(--color-ink)]">
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/images/graduate/treatment-room.jpg"
+            alt=""
+            aria-hidden="true"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          {/* Two layers, and both change at lg.
+           *
+           * The content sits in the left ~58% and the right stays empty ON
+           * PURPOSE — that is the window the room shows through, and it is what
+           * fills the other half of an asymmetric band. So at lg the flat scrim
+           * drops to a quarter and the gradient runs left-to-right: solid navy
+           * under the text, thinning to 20% over the photograph.
+           *
+           * Below lg there is no empty half to protect, the copy runs the full
+           * width, and the scrim goes back up to 80% with a vertical gradient.
+           * A first pass had the desktop values at 88% flat, which is a navy
+           * rectangle with an expensive JPEG behind it. */}
+          <div className="absolute inset-0 bg-[var(--color-ink)]/80 lg:bg-[var(--color-ink)]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/90 to-[var(--color-ink)]/60 lg:bg-gradient-to-r lg:from-[var(--color-ink)] lg:via-[var(--color-ink)]/85 lg:to-[var(--color-ink)]/20" />
+        </div>
+
+        <div className="cx-main py-16 sm:py-20 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,58%)_1fr]">
+            <FadeUp>
+              <div>
+                <p className="eyebrow eyebrow-invert mb-6">The graduate offer</p>
+
+                <h2 className="mb-6 flex flex-wrap items-baseline gap-x-5 gap-y-2 text-white">
+                  <span className="font-display text-[clamp(4.5rem,13vw,8rem)] font-extrabold leading-[0.85] tracking-[-0.02em] text-[var(--color-accent)]">
+                    {GRADUATE_TERMS.discountPercent}%
+                  </span>
+                  <span className="text-h2 text-white">
+                    off your first six months
+                  </span>
+                </h2>
+
+                <p className="text-body-lg max-w-[38rem] text-white/75">
+                  You are building a patient base before you have built an
+                  income. So for the first six months, you pay half. Same
+                  system, same team, same mentoring as every other clinic we
+                  work with.
+                </p>
+
+                <p className="text-body mt-5 max-w-[38rem] text-white/55">
+                  From month {GRADUATE_TERMS.standardRateFromMonthWord} the fee
+                  moves to our standard rate, and everything else carries on.
+                  Mentoring runs from month one either way.
+                </p>
+
+                {/* Countdown and CTA sit in the same column as the copy rather
+                    than in a panel opposite it. The right-hand half is the
+                    photograph's, and a bordered card floating over the room was
+                    both fighting it and re-boxing content that reads perfectly
+                    well against the navy. */}
+                <div className="mt-10 border-t border-white/15 pt-8">
+                  <IntakeCountdown
+                    target={GRADUATE_INTAKE.startsAt}
+                    targetLabel={GRADUATE_INTAKE.labelLong}
+                    label={`Next intake starts ${GRADUATE_INTAKE.labelLong}`}
+                    expired={
+                      <p className="text-body text-white/75">
+                        This intake has started. Applications for the next one
+                        are open.
+                      </p>
+                    }
+                  />
+
+                  <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                    <Button href="#apply" size="lg">
+                      Apply for a place
+                    </Button>
+                    <p className="text-body-sm text-white/55">
+                      Only {GRADUATE_INTAKE.places} places on this intake.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. Where you are by month six (Transformation) ─────────────────── */}
       <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-10 sm:py-12">
         <div className="cx-main">
           <FadeUp>
@@ -236,21 +374,14 @@ export default function GraduatePage() {
               </FadeUp>
             ))}
           </ul>
-          <FadeUp delay={0.3}>
-            <p className="text-body-sm mt-7 text-[var(--color-muted)]">
-              Mentoring runs from month one. At month{" "}
-              {GRADUATE_TERMS.standardRateFromMonthWord} the fee goes to our
-              standard rate and{" "}
-              <strong className="font-semibold text-[var(--color-ink)]">
-                everything else carries on
-              </strong>
-              .
-            </p>
-          </FadeUp>
+          {/* The month-seven term used to be restated here. It now travels with
+              the headline discount on the band above, which is where a reader
+              meets the offer — repeating it a third time before they have even
+              reached the argument was answering an objection nobody had yet. */}
         </div>
       </section>
 
-      {/* ── 3. Why Clinic Evo (Founder Credibility - moved up) ─────────────── */}
+      {/* ── 4. Why Clinic Evo (founder credibility) ─────────────────────────── */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
@@ -296,7 +427,11 @@ export default function GraduatePage() {
               </div>
             </FadeUp>
 
-            <FadeUp delay={0.1}>
+            {/* self-start, then sticky. Left to stretch, the founders column
+                filled the row height and left ~350px of dead grid beside the
+                pull-quote; shrunk to its content it can travel with the read
+                instead, the same as the Lind Street and apply columns. */}
+            <FadeUp delay={0.1} className="lg:sticky lg:top-28 lg:self-start">
               <ul role="list" className="flex flex-col">
                 {GRADUATE_FOUNDERS.map((f) => (
                   <li
@@ -331,7 +466,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── 4. The Clinical Gap (Consolidated Reality Check) ──────────────── */}
+      {/* ── 5. The clinical gap (consolidated reality check) ────────────────── */}
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
           <div className="mb-12 max-w-[46rem]">
@@ -408,7 +543,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── 5. The System & Philosophy ────────────────────────────────────── */}
+      {/* ── 6. The system ───────────────────────────────────────────────────── */}
       <section id="system" className="section scroll-mt-20 bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
@@ -427,16 +562,28 @@ export default function GraduatePage() {
           {/* Growth Equation formula */}
           <FadeUp delay={0.06}>
             <div className="mb-12 flex flex-wrap items-baseline gap-x-4 gap-y-2 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-5 text-h3 text-[var(--color-ink)] shadow-[var(--shadow-card)]">
-              {GRADUATE_EQUATION.map(({ term, op }) => (
-                <span key={term} className="inline-flex items-baseline gap-3">
-                  <span>{term}</span>
-                  {op && (
-                    <span className="font-display font-bold text-[var(--color-accent-text)]">
-                      {op}
-                    </span>
-                  )}
-                </span>
-              ))}
+              {/* Each operator LEADS the term it precedes rather than trailing
+                  the one before it. Identical at desktop width, but at 390px
+                  the equation wraps to four lines and the trailing form orphans
+                  every operator at a line end — "Visibility + Trust +" over
+                  "Conversion +". nowrap then keeps each operator glued to its
+                  own term instead of wrapping between them. */}
+              {GRADUATE_EQUATION.map(({ term }, i) => {
+                const lead = i === 0 ? null : GRADUATE_EQUATION[i - 1].op;
+                return (
+                  <span
+                    key={term}
+                    className="inline-flex items-baseline gap-3 whitespace-nowrap"
+                  >
+                    {lead && (
+                      <span className="font-display font-bold text-[var(--color-accent-text)]">
+                        {lead}
+                      </span>
+                    )}
+                    <span>{term}</span>
+                  </span>
+                );
+              })}
             </div>
           </FadeUp>
 
@@ -444,9 +591,19 @@ export default function GraduatePage() {
             {GRADUATE_SYSTEM.map((pillar, i) => (
               <FadeUp key={pillar.title} delay={0.05 + i * 0.05}>
                 <li className="grid grid-cols-1 gap-5 border-t border-[var(--color-border)] py-8 last:border-b lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
-                  <h3 className="text-h3 text-[var(--color-ink)]">
-                    {pillar.title}
-                  </h3>
+                  {/* The heading promises an order and nothing on the rows was
+                      showing one — "Get found" is two words against a 40%
+                      column, so the sequence was asserted in the h2 and then
+                      invisible underneath it. Grey, not coral: the order is
+                      structure, and coral on this page marks the action. */}
+                  <div className="flex items-baseline gap-5">
+                    <span className="font-display text-[2rem] font-bold leading-none text-[var(--color-muted-light)]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-h3 text-[var(--color-ink)]">
+                      {pillar.title}
+                    </h3>
+                  </div>
                   <ul role="list" className="flex flex-col gap-3">
                     {pillar.points.map((point) => (
                       <li key={point} className="flex items-start gap-3">
@@ -479,7 +636,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── 6. What a strong first year looks like ─────────────────────────── */}
+      {/* ── 7. What a strong first year looks like ──────────────────────────── */}
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
@@ -532,7 +689,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── 7. Proof: The Standing Start ────────────────────────────────────── */}
+      {/* ── 8. Proof: the standing start ────────────────────────────────────── */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:items-start">
@@ -607,7 +764,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── 8. Google Reviews (Directly following the case study) ─────────── */}
+      {/* ── 9. Google reviews (directly after the case study) ───────────────── */}
       <GoogleReviews
         surface="surface"
         heading={
@@ -619,7 +776,7 @@ export default function GraduatePage() {
         intro="The first of these is Serena Gower-Johnson, whose clinic is the standing start featured above."
       />
 
-      {/* ── 9. Mentoring (Becoming a business owner) ───────────────────────── */}
+      {/* ── 10. Mentoring (becoming a business owner) ───────────────────────── */}
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-ink)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
@@ -661,7 +818,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── 10. Roadmap ────────────────────────────────────────────────────── */}
+      {/* ── 11. Roadmap ─────────────────────────────────────────────────────── */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
@@ -678,14 +835,31 @@ export default function GraduatePage() {
             </div>
           </FadeUp>
 
-          <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {/* One timeline, not four cards.
+           *
+           * No gap-x, and the padding lives inside each cell, so the hairline
+           * top borders butt together into a single rule running the width of
+           * the row — six months reading as one line with four marks on it.
+           * The four 2px coral rules this replaces were the page's heaviest
+           * coral spend on something that is not an action; the accent is now
+           * four 6px nodes sitting on the rule.
+           *
+           * min-h on the title stops the ragged baseline: "Look established
+           * from day one" wraps to two lines and "Start getting discovered"
+           * does not, which had the body copy starting at three different
+           * heights across the row. */}
+          <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {GRADUATE_ROADMAP.map((phase, i) => (
               <FadeUp key={phase.period} delay={0.05 + i * 0.07}>
-                <div className="border-t-2 border-[var(--color-accent)] pt-5">
+                <div className="relative border-t border-[var(--color-border)] pt-6 sm:pr-8 lg:pr-10">
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-0 top-0 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[var(--color-accent)]"
+                  />
                   <p className="text-label mb-3 text-[var(--color-accent-text)]">
                     {phase.period}
                   </p>
-                  <h3 className="text-h4 mb-3 text-[var(--color-ink)]">
+                  <h3 className="text-h4 mb-3 text-[var(--color-ink)] lg:min-h-[3.5rem]">
                     {phase.title}
                   </h3>
                   <p className="text-body-sm text-[var(--color-muted)]">
@@ -698,7 +872,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── 11. FAQ (Moved directly ABOVE Apply to resolve objections) ──────── */}
+      {/* ── 12. FAQ (directly above Apply, to clear objections) ─────────────── */}
       <section className="section grain border-t border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
@@ -721,21 +895,26 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── 12. The Offer & Apply (Unified conversion section) ─────────────── */}
+      {/* ── 13. Apply (eligibility, next steps and the form) ────────────────── */}
       <section id="apply" className="section scroll-mt-20 border-t border-[var(--color-border)] bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:items-start">
             <FadeUp>
               <div className="lg:sticky lg:top-28">
-                <p className="eyebrow mb-4">The offer &amp; apply</p>
+                {/* This section used to open by arguing the discount, in copy
+                    the offer band above now carries almost word for word. The
+                    band makes the case; this is the point of action, so the
+                    heading is the action and the terms are one line under it. */}
+                <p className="eyebrow mb-4">Apply</p>
                 <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                  Half our normal fee for your first six months
+                  Apply for one of the {GRADUATE_INTAKE.places} places on the{" "}
+                  {GRADUATE_INTAKE.label} intake
                 </h2>
                 <p className="text-body-lg mb-6 text-[var(--color-charcoal)]">
-                  You are building a patient base before you have built an
-                  income. So the fee is halved while you do it. Same system, same
-                  team. From month {GRADUATE_TERMS.standardRateFromMonthWord} the fee
-                  moves to standard, and everything else carries on.
+                  {GRADUATE_TERMS.discountPercent}% off for your first six
+                  months, then our standard rate from month{" "}
+                  {GRADUATE_TERMS.standardRateFromMonthWord}. The application
+                  takes a couple of minutes.
                 </p>
 
                 <div className="mb-8 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)]">
@@ -809,7 +988,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── 13. Closing Reassurance Micro-bar ──────────────────────────────── */}
+      {/* ── 14. Closing reassurance micro-bar ───────────────────────────────── */}
       <section className="border-t border-[var(--color-border)] bg-[var(--color-surface)] py-8">
         <div className="cx-main text-center">
           <p className="text-body-sm text-[var(--color-muted)]">

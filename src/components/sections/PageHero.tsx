@@ -19,6 +19,11 @@ interface PageHeroProps {
    *  the copy column. The copy column is only ~530px at 1440, so three bullets of
    *  any real length wrap to a stack there; full width they sit across. */
   bulletsBelow?: boolean;
+  /** Let the right panel run past the container to the right edge of the screen
+   *  at >=1024px. The geometry lives in `.hero-bleed-r` in globals.css. The panel
+   *  keeps its own corner radius and border, so a bleeding panel should drop the
+   *  ones on its trailing edge itself. */
+  rightPanelBleed?: boolean;
 }
 
 export default function PageHero({
@@ -33,6 +38,7 @@ export default function PageHero({
   compactBottom,
   rightPanelWidth = "480px",
   bulletsBelow = false,
+  rightPanelBleed = false,
 }: PageHeroProps) {
   const bulletRow =
     bullets && bullets.length > 0 ? (
@@ -116,7 +122,10 @@ export default function PageHero({
 
           {/* Right, optional panel */}
           {rightPanel && (
-            <FadeUp delay={0.22} className="min-w-0">
+            <FadeUp
+              delay={0.22}
+              className={`min-w-0 ${rightPanelBleed ? "hero-bleed-r" : ""}`}
+            >
               <div className="min-w-0">{rightPanel}</div>
             </FadeUp>
           )}

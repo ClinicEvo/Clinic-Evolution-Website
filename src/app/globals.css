@@ -124,6 +124,34 @@ body {
   max-width: 78rem; /* 75rem content + 2×1.5rem padding = aligns flush with hero */
 }
 
+/* ─── Hero right-panel bleed ────────────────────────────────────────────────
+   Lets a hero's right panel escape .cx-main and run to the viewport edge, so
+   the image reads as a slab running off the page rather than a photograph in a
+   box. The offset is the container's own right margin plus its gutter:
+
+       (100vw - 78rem) / 2   the margin auto-centring puts on each side
+     + 1.5rem                the container's padding
+
+   max() clamps the first term at zero below 78rem, where the container is
+   already full-bleed and only the gutter needs cancelling.
+
+   THE 78rem MUST TRACK .cx-main's max-width above. It is repeated rather than
+   tokenised because .cx-main hardcodes it too; if that becomes a token, change
+   both.
+
+   100vw counts the classic scrollbar, so on a desktop browser that reserves
+   layout space this overshoots by the scrollbar width. That is deliberate —
+   undershooting leaves a visible sliver of paper at the edge, and `body` sets
+   `overflow-x: clip`, which absorbs the overshoot without a scrollbar.
+
+   Applied from 1024px only: below that the hero is stacked and the panel is a
+   framed card in the normal flow. */
+@media (min-width: 1024px) {
+  .hero-bleed-r {
+    margin-right: calc(-1 * (max(0px, (100vw - 78rem) / 2) + var(--space-gutter)));
+  }
+}
+
 /* ─── Section spacing ───────────────────────────────────────────────────────── */
 .section { padding-block: var(--space-section); }
 

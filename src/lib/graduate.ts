@@ -24,6 +24,20 @@ export const GRADUATE_INTAKE = {
   labelLong: "15 October 2026",
   /** ISO, for structured data. */
   iso: "2026-10-15",
+  /**
+   * The instant the countdown on the offer band runs to.
+   *
+   * Explicit offset, not a bare date: a bare date is parsed as UTC and the
+   * clock then runs an hour out for every UK reader through British Summer
+   * Time. BST ends on 25 October 2026, so 15 October is +01:00. IF THE INTAKE
+   * DATE MOVES, re-check the offset — a date after the last Sunday in October
+   * is +00:00.
+   *
+   * It points at the intake, which is a date this page states in words and the
+   * reader can check. It is not an offer deadline. There is no published
+   * applications-close date, so do not invent one to make the clock shorter.
+   */
+  startsAt: "2026-10-15T09:00:00+01:00",
   /** Places per intake. [src: programme deck] */
   places: 10,
 };
@@ -42,6 +56,14 @@ export const GRADUATE_INTAKE = {
  */
 export const GRADUATE_TERMS = {
   discountMonths: 6,
+  /**
+   * The headline figure. "50%" and "half" are the same fact, and both are
+   * permitted — what is not permitted is a fee in either direction, so the
+   * page can shout the percentage as loudly as it likes and still never says
+   * what is being halved. The offer band uses the numeral because "50" set at
+   * display size is a number a skimmer reads and "half" is a word they parse.
+   */
+  discountPercent: 50,
   standardRateFromMonth: 7,
   /** Spelled out, because the roadmap directly above writes "Month one" and
    *  "Months two and three". A numeral among words reads as carelessness. */
