@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { upsertGhlContact, logInboundConversationMessage } from "@/lib/gohighlevel";
 import { isLpVariantSlug } from "@/lib/lp";
+import {
+  GRADUATE_INTAKE,
+  GRADUATE_PROFESSIONS,
+  GRADUATE_STAGES,
+  GRADUATE_STARTING_POINTS,
+  OTHER_PROFESSION,
+} from "@/lib/graduate";
 
 // ─── Field constraints ────────────────────────────────────────────────────────
 const LIMITS = {
@@ -12,6 +19,15 @@ const LIMITS = {
 };
 
 const VALID_DISCIPLINES = ["Osteopath", "Physiotherapist", "Chiropractor", "Other"] as const;
+
+// Maps the form's discipline names onto the four values the GHL discipline
+// custom field accepts. All three graduate options map cleanly; the ?? "Other"
+// fallback is belt-and-braces for a future addition to GRADUATE_PROFESSIONS.
+const GRADUATE_DISCIPLINE_MAP: Record<string, string> = {
+  Osteopathy: "Osteopath",
+  Physiotherapy: "Physiotherapist",
+  Chiropractic: "Chiropractor",
+};
 
 // ─── Simple in-memory rate limiting ──────────────────────────────────────────
 // NOTE: This resets on cold-start in serverless. For production, replace with
@@ -130,6 +146,99 @@ export async function POST(req: NextRequest) {
         fromName: name,
         subject: "New website contact form message",
         message,
+      });
+    }
+
+    return NextResponse.json({ ok: true });
+  }
+
+  // ── Graduate Clinic Launch application ──────────────────────────────────
+  // Its own form_type rather than a flag on the audit branch: these are
+  // applications for a capped intake, they carry different questions, and they
+  // must not dilute the audit pipeline's source or its conversion count.
+  if (formType === "graduate") {
+    const first_name       = clean(body.first_name,       LIMITS.name);
+    const last_name        = clean(body.last_name,        LIMITS.name);
+    const email            = clean(body.email,            LIMITS.email);
+    const phone            = clean(body.phone,            50);
+    const profession       = clean(body.profession,       LIMITS.short);
+    const profession_other = clean(body.profession_other, LIMITS.short);
+    const stage            = clean(body.stage,            LIMITS.short);
+    const location         = clean(body.location,         LIMITS.short);
+    const starting_point   = clean(body.starting_point,   LIMITS.short);
+    const message          = clean(body.message,          LIMITS.message);
+
+    const gclid        = clean(body.gclid,        LIMITS.short);
+    const utm_source   = clean(body.utm_source,   LIMITS.short);
+    const utm_medium   = clean(body.utm_medium,   LIMITS.short);
+    const utm_campaign = clean(body.utm_campaign, LIMITS.short);
+
+    if (!first_name)                  return err("First name is required.");
+    if (!last_name)                   return err("Last name is required.");
+    if (!isValidEmail(email))         return err("A valid email address is required.");
+    if (!location)                    return err("Please tell us where you are setting up.");
+
+    if (!GRADUATE_PROFESSIONS.includes(profession)) {
+      return err("Please select your discipline.");
+    }
+    if (!GRADUATE_STAGES.includes(stage)) {
+      return err("Please tell us where you are up to.");
+    }
+    if (!GRADUATE_STARTING_POINTS.includes(starting_point)) {
+      return err("Please tell us what you have so far.");
+    }
+    // The catch-all is the only option whose label does not identify the
+    // applicant's profession, so the free-text field behind it is required.
+    if (profession === OTHER_PROFESSION && !profession_other) {
+      return err("Please tell us which discipline you qualified in.");
+    }
+
+    const statedProfession = profession_other || profession;
+    const discipline = GRADUATE_DISCIPLINE_MAP[profession] ?? "Other";
+
+    const detailLines = [
+      `Discipline: ${statedProfession}`,
+      `Stage: ${stage}`,
+      `Setting up in: ${location}`,
+      `Starting point: ${starting_point}`,
+      `Intake applied for: ${GRADUATE_INTAKE.labelLong}`,
+    ];
+
+    const attributionLines = [
+      gclid && `GCLID: ${gclid}`,
+      utm_campaign && `Campaign: ${utm_campaign}`,
+      (utm_source || utm_medium) && `Source / medium: ${utm_source || "?"} / ${utm_medium || "?"}`,
+    ].filter(Boolean);
+
+    const fullMessage = [
+      message,
+      detailLines.join(" | "),
+      attributionLines.join(" | "),
+    ].filter(Boolean).join("\n\n");
+
+    const result = await upsertGhlContact({
+      firstName: first_name,
+      lastName: last_name,
+      email,
+      phone: phone || undefined,
+      message: fullMessage,
+      discipline,
+      source: "Website – Graduate Clinic Launch",
+      tags: [
+        "graduate-launch-programme",
+        `graduate-intake-${GRADUATE_INTAKE.iso}`,
+        discipline.toLowerCase(),
+      ],
+    });
+    if (!result.ok) return err("Submission failed. Please try again.", 502);
+
+    if (result.contactId) {
+      await logInboundConversationMessage({
+        contactId: result.contactId,
+        fromEmail: email,
+        fromName: `${first_name} ${last_name}`.trim(),
+        subject: `Graduate Clinic Launch application — ${GRADUATE_INTAKE.labelLong} intake`,
+        message: fullMessage,
       });
     }
 

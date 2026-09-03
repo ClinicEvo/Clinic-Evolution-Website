@@ -17,6 +17,7 @@ import ProofBand from "@/components/sections/ProofBand";
 import SearchSurfaces from "@/components/sections/SearchSurfaces";
 import BrowserFrame from "@/components/sections/mockups/BrowserFrame";
 import SearchConsolePanel from "@/components/sections/mockups/SearchConsolePanel";
+import GoogleReviews from "@/components/sections/GoogleReviews";
 import {
   StatTiles,
   OrganicGrowthChart,
@@ -953,6 +954,10 @@ export default function SeoForClinicsPage() {
           area, and before this the page ran fifteen thousand pixels between the
           hero button and the closing one. Dark and full-bleed so it reads as a
           break in the page rather than a rehearsal of the footer panel. */}
+      {/* Directly after the Lind Street evidence, on purpose: those are
+          Serena's numbers, and this is Serena describing what it was like.
+          Data then voice, same clinic, one after the other. */}
+      <GoogleReviews surface="surface" />
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)] !py-12 sm:!py-14">
         <div className="cx-main">
           <FadeUp>

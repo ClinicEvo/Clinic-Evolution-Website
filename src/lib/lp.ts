@@ -257,7 +257,13 @@ export const LP_PROOF: LpProofRow[] = [
 ];
 
 /**
- * The one approved practitioner testimonial.
+ * The one approved practitioner testimonial. NO LONGER RENDERED ANYWHERE.
+ *
+ * Superseded on 3 Sep 2026 by Serena's public Google review, which is her own
+ * words rather than words drafted for her — see src/lib/reviews.ts and
+ * GooglePullQuote. Kept here rather than deleted because it is the record of
+ * what she approved on 17 Aug 2026, and deleting an approval record to tidy up
+ * is how the next person concludes no approval ever existed.
  *
  * Drafted for Serena and confirmed verbally via Simon on 17 Aug 2026
  * [src: client approval, relayed]. VERBATIM AS APPROVED: the approval covers

@@ -33,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { ...url("/case-studies/bodyfunction-clinic/"), priority: 0.8 },
     { ...url("/case-studies/lind-street-osteopathy/"), priority: 0.8 },
     { ...url("/free-clinic-audit/"), priority: 0.95 },
+    // Indexed because it cannibalises nothing and people search the brand, but
+    // deliberately low priority: the graduate research found no measurable GB
+    // search demand for this audience, so it converts warm traffic rather than
+    // competing for queries. /graduate/thank-you/ is absent — it carries a
+    // noindex, same as the other confirmation pages.
+    { ...url("/graduate/"), priority: 0.6 },
     { ...url("/about/"), priority: 0.7 },
     { ...url("/team/"), priority: 0.6 },
     { ...url("/contact/"), priority: 0.8 },

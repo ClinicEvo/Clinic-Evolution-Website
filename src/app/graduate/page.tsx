@@ -1,0 +1,920 @@
+import Image from "next/image";
+import { buildMetadata } from "@/lib/metadata";
+import FadeUp from "@/components/ui/FadeUp";
+import ArrowLink from "@/components/ui/ArrowLink";
+import Button from "@/components/ui/Button";
+import PageHero from "@/components/sections/PageHero";
+import HeroChecklistPanel from "@/components/sections/HeroChecklistPanel";
+import FAQAccordion from "@/components/sections/FAQAccordion";
+import FAQSchema from "@/components/schema/FAQSchema";
+import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
+import StickyMobileCta from "@/components/ui/StickyMobileCta";
+import GraduateForm from "@/components/forms/GraduateForm";
+import GoogleReviews from "@/components/sections/GoogleReviews";
+import {
+  GRADUATE_CONSTRAINTS,
+  GRADUATE_EQUATION,
+  GRADUATE_FOUNDERS,
+  GRADUATE_FOUNDER_QUOTE,
+  GRADUATE_PHILOSOPHY,
+  GRADUATE_PRESSURES,
+  GRADUATE_ELIGIBILITY,
+  GRADUATE_ELIGIBILITY_NOTE,
+  GRADUATE_INTAKE,
+  GRADUATE_ROADMAP,
+  GRADUATE_SYSTEM,
+  GRADUATE_TERMS,
+  MENTORING_TOPICS,
+  NOT_TRAINED_IN,
+  STRONG_FIRST_YEAR,
+  TRAINED_IN,
+} from "@/lib/graduate";
+
+/*
+ * /graduate/ — the Graduate Clinic Launch Programme.
+ *
+ * NOT AN SEO PAGE, and it should not be briefed as one. The keyword research at
+ * ~/claude/clinic-evo-graduate-seo-research.md found no measurable GB search
+ * demand for graduate practice-startup terms across 17 seeds and every
+ * expansion: career and employment intent outweighs it roughly 110:1. This page
+ * converts traffic that arrives already warm — from a course leader's email, a
+ * professional-body listing, social, or a conversation on campus. It is indexed
+ * because it cannibalises nothing and people will search the brand, but organic
+ * sessions are not one of its success metrics.
+ *
+ * That constraint is a gift, not a limitation: nothing here is written for a
+ * crawler, so the page can be as direct as the offer deserves.
+ *
+ * WHAT THIS PAGE MAY NOT SAY, and why:
+ *
+ *   - The deck's case-study figures (572 enquiries / page 4 to position 1 /
+ *     34 lapsed patients). All three were deliberately removed from this site
+ *     as unverifiable, one at Danny's request. See src/lib/graduate.ts.
+ *   - Any check-in or session cadence. Simon's instruction, 3 Sep 2026. The
+ *     mentoring can be named and described; its rhythm cannot.
+ *   - A fee, in either direction. No price is published anywhere on this site,
+ *     so the page states the halving and never a number.
+ *
+ * ONE OPEN ITEM. Serena Gower-Johnson's testimonial (LP_TESTIMONIAL in
+ * src/lib/lp.ts) would be the strongest thing on this page — she opened cold,
+ * which is exactly the reader's position. It is deliberately NOT used here: the
+ * approval note on it says re-use on another page needs re-approving. The
+ * Lind Street figures below are tool-sourced and carry no such restriction, so
+ * the section runs on those until Serena okays the quote moving.
+ *
+ * SCOPE. Argued to osteopathy, physiotherapy and chiropractic; open to other
+ * healthcare on a case-by-case basis [src: client — Simon, 3 Sep 2026]. The
+ * body copy stays MSK because that is where every proof asset is, and the soft
+ * edge lives in exactly two operable places: the note under the eligibility
+ * list, and the FAQ. Keep it that way — a healthcare-wide claim in the hero
+ * would meet MSK-only evidence a few scrolls later.
+ */
+
+export const metadata = buildMetadata({
+  title: "Graduate Clinic Launch Programme",
+  description:
+    "A six-month launch programme for newly qualified osteopaths, physiotherapists and chiropractors starting their first private practice. Website, Google presence, reviews and mentoring, at half our normal fee. Next intake 15 October.",
+  path: "/graduate/",
+});
+
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Graduate Clinic Launch", href: "/graduate/" },
+];
+
+/*
+ * Lind Street Osteopathy, the standing-start clinic.
+ *
+ * Chosen over Bodyfunction on purpose. Bodyfunction is the founding clinic and
+ * an established multi-practitioner practice, which is why the deck has to
+ * apologise for it ("your first clinic will not look like an established
+ * multi-practitioner clinic"). Lind Street opened with no logo, no website and
+ * no search presence — the reader's actual position — so it needs no apology.
+ *
+ * Every figure and its source is lifted verbatim from
+ * /case-studies/lind-street-osteopathy/, where the sourcing lanes are explained.
+ * Ahrefs supplies positions, GSC supplies clicks; they are never mixed on one
+ * claim, because GSC averages across every device and location and always reads
+ * worse for the same term.
+ */
+const STANDING_START_PROOF = [
+  {
+    figure: "No. 1",
+    headline:
+      "for six of her local searches, including “osteopath Ryde”, within twelve months of opening",
+    source: "Ahrefs — all ten tracked local terms sit in the top four",
+  },
+  {
+    figure: "+570%",
+    headline: "growth in people arriving from Google, half on half",
+    source: "Google Search Console — 86 clicks rising to 576",
+  },
+  {
+    figure: "67%",
+    headline: "of the people who see her name in Google click it",
+    source: "Google Search Console — 113 clicks at position 1.0",
+  },
+];
+
+const faqs = [
+  {
+    question: "What happens after the six months?",
+    answer:
+      "From month seven you move to our standard rate. Nothing else changes. The mentoring is not something that starts once the discount ends — it runs from month one, and it carries on.",
+  },
+  {
+    question: "I do not qualify until next summer. Can I still apply?",
+    answer:
+      "Yes. Final-year students are eligible, and starting before you qualify is an advantage rather than a problem: search visibility takes months to build, so the work done now is what makes your first weeks in practice look different. Put your qualifying date on the application.",
+  },
+  {
+    question: "I am not an osteopath, physio or chiropractor. Can I apply?",
+    answer:
+      "Yes. Pick the last option on the form, tell us what you do, and we will give it a proper look. The programme is built around MSK clinics because that is where our case studies are and where one of the founders practises, so that is who it fits most closely. But getting a new practice found, trusted and booked is not unique to MSK, and we would rather read your application than turn you away on a category.",
+  },
+  {
+    question: "I have no premises and no business name yet.",
+    answer:
+      "That is the normal starting point at this stage and it does not count against you. Month one is the brand, the website, the Google presence and the booking path, so this is the part we would be building with you anyway. Tell us on the application where you have got to.",
+  },
+  {
+    question: "Do I need patients already?",
+    answer:
+      "No. The programme assumes you are starting from zero — no patient base, no reviews, no visibility. That is what it is for.",
+  },
+  {
+    question: "What does the half-price actually apply to?",
+    answer:
+      "Our normal fee for the programme, halved for your first six months. You get the same work either way.",
+  },
+];
+
+export default function GraduatePage() {
+  return (
+    <>
+      <BreadcrumbSchema items={crumbs} />
+      <FAQSchema items={faqs} />
+
+      <PageHero
+        badge="Graduate Clinic Launch Programme"
+        heading={
+          <>
+            You qualified as a clinician.{" "}
+            <em className="not-italic text-[var(--color-accent)]">
+              Now let&apos;s get you patients.
+            </em>
+          </>
+        }
+        subtext="Six months to take you from a standing start to a practice patients can find and book. Your job is to become a brilliant clinician. Ours is to make sure people know you exist."
+        bullets={[
+          `Next intake ${GRADUATE_INTAKE.label}`,
+          `${GRADUATE_INTAKE.places} places`,
+          "Half our normal fee for six months",
+        ]}
+        primaryCta={{ label: "Apply for the October intake", href: "#apply" }}
+        secondaryCta={{ label: "What the six months covers", href: "#system" }}
+        breadcrumbs={crumbs}
+        rightPanel={
+          /* The hero's right half carries the outcome, not decoration. It is
+             also where the month-seven answer appears for the first time —
+             a reader who sees "half price for six months" and nothing else
+             prices the offer as a cliff. */
+          <HeroChecklistPanel
+            title="Where you are by month six"
+            items={[
+              "A website that looks established, not new",
+              "A Google presence people nearby actually find",
+              "Your first reviews, arriving without you chasing them",
+              "Enquiries answered and tracked, so none go cold",
+              "Numbers that tell you where your patients came from",
+            ]}
+            footer={
+              <>
+                Mentoring runs from month one. At month{" "}
+                {GRADUATE_TERMS.standardRateFromMonthWord} the fee goes to our
+                standard rate and{" "}
+                <strong className="font-semibold text-[var(--color-ink)]">
+                  everything else carries on
+                </strong>
+                .
+              </>
+            }
+          />
+        }
+      />
+
+      {/* ── The gap ──────────────────────────────────────────────────────────
+          Deck slides 2 and 3 merged. As three separate sections they make the
+          same point three times and the reader is three scrolls in before
+          anything is offered. */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="mb-12 max-w-[46rem]">
+            <FadeUp>
+              <div>
+                <p className="eyebrow mb-4">Reality check</p>
+                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                  The bit university doesn&apos;t teach you
+                </h2>
+                <p className="text-body-lg text-[var(--color-charcoal)]">
+                  You leave university ready to treat patients. Building the
+                  patient base that lets you practise is a different skill, and
+                  nobody examined you on it.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
+            <FadeUp delay={0.06}>
+              <div className="h-full rounded-[var(--radius-card)] bg-[var(--color-ink)] p-8 lg:p-10">
+                <h3 className="text-h3 mb-6 text-white">
+                  What you were trained in
+                </h3>
+                <ul role="list" className="flex flex-col gap-4">
+                  {TRAINED_IN.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-[0.6rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--color-accent)]"
+                      />
+                      <span className="text-body text-white/80">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.12}>
+              <div className="h-full rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)] lg:p-10">
+                <h3 className="text-h3 mb-6 text-[var(--color-accent-text)]">
+                  What nobody trained you in
+                </h3>
+                {/* A wrapped chip field, not a grid. The point is the volume of
+                    it — a tidy set of equal columns would undersell how much
+                    lands on someone in their first year. */}
+                <ul role="list" className="flex flex-wrap gap-2.5">
+                  {NOT_TRAINED_IN.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3.5 py-2 text-body-sm text-[var(--color-charcoal)]"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-body mt-8 text-[var(--color-muted)]">
+                  All of it lands at once, while you are also treating patients,
+                  building confidence and watching the cash flow.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Starting from zero (deck slide 3) ──────────────────────────────
+          Its own section rather than a line inside the reality check, because
+          the argument is simultaneity: five things you do not have, while six
+          others are expected of you at the same time. Two stacked rows carry
+          that; the single sentence this replaced did not.
+
+          Navy, as the deck has it. It is the low point of the page and the
+          only dark beat before the mentoring section, which is the answer. */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-ink)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-10 max-w-[44rem]">
+              <p className="eyebrow eyebrow-invert mb-4">
+                The graduate clinic problem
+              </p>
+              <h2 className="text-h2 text-white">Starting from zero is hard</h2>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.06}>
+            <ul
+              role="list"
+              className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5"
+            >
+              {GRADUATE_CONSTRAINTS.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-[var(--radius-card)] border border-white/12 bg-white/[0.04] px-5 py-5 text-body text-white/85"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </FadeUp>
+
+          <FadeUp delay={0.12}>
+            <div className="mt-10">
+              <p className="text-body mb-4 text-white/55">
+                And at the same time, you are expected to:
+              </p>
+              <ul role="list" className="flex flex-wrap gap-2.5">
+                {GRADUATE_PRESSURES.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-[var(--radius-sm)] border border-white/12 px-3.5 py-2 text-body-sm text-white/75"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.18}>
+            <p className="text-h3 mt-12 max-w-[42rem] text-white">
+              You shouldn&apos;t have to become a marketing expert at the same
+              time as becoming a great clinician.
+            </p>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── What a strong first year looks like ─────────────────────────────── */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <FadeUp>
+              <div className="lg:sticky lg:top-28">
+                <p className="eyebrow mb-4">What you&apos;re building toward</p>
+                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                  What does a strong first year actually look like?
+                </h2>
+                <p className="text-body text-[var(--color-muted)]">
+                  Not a full diary in week one. These are the things that,
+                  together, mean it has started behaving like a business.
+                </p>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.08}>
+              <ul role="list" className="flex flex-col">
+                {STRONG_FIRST_YEAR.map((item, i) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-4 border-t border-[var(--color-border)] py-5 last:border-b"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 font-display text-sm font-bold text-[var(--color-accent-text)]"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-body-lg text-[var(--color-ink)]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Proof: the standing start ───────────────────────────────────────── */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:items-start">
+            <div>
+              <FadeUp>
+                <div className="mb-10 max-w-[42rem]">
+                  <p className="eyebrow mb-4">What a standing start looks like</p>
+                  <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                    Lind Street Osteopathy opened with no logo, no website and
+                    no search presence
+                  </h2>
+                  <p className="text-body text-[var(--color-muted)]">
+                    One osteopath, one treatment room, a brand new business on
+                    the Isle of Wight with no reputation online. Twelve months
+                    later she held page one across her catchment.
+                  </p>
+                </div>
+              </FadeUp>
+
+              <ul role="list" className="flex flex-col">
+                {STANDING_START_PROOF.map((row, i) => (
+                  <FadeUp key={row.figure} delay={0.06 + i * 0.06}>
+                    <li className="grid grid-cols-1 gap-2 border-t border-[var(--color-border)] py-6 last:border-b lg:grid-cols-[1fr_auto] lg:items-baseline lg:gap-8">
+                      <h3 className="text-h4 font-normal text-[var(--color-charcoal)]">
+                        <span className="font-display text-[2.25rem] font-bold leading-none text-[var(--color-ink)] md:text-[2.75rem]">
+                          {row.figure}
+                        </span>{" "}
+                        {row.headline}
+                      </h3>
+                      <p className="text-body-sm text-[var(--color-muted)] lg:text-right">
+                        {row.source}
+                      </p>
+                    </li>
+                  </FadeUp>
+                ))}
+              </ul>
+
+              <FadeUp delay={0.24}>
+                <div className="mt-8">
+                  <p className="text-body mb-6 max-w-[46rem] text-[var(--color-muted)]">
+                    Lind Street is an osteopathy clinic. A physiotherapy or
+                    chiropractic practice competes for different searches and
+                    against different neighbours. The order of operations is
+                    identical: get found, earn trust, get booked, follow up.
+                    That is the work the six months does.
+                  </p>
+                  <ArrowLink href="/case-studies/lind-street-osteopathy/">
+                    Read the full Lind Street case study
+                  </ArrowLink>
+                </div>
+              </FadeUp>
+            </div>
+
+            {/* Sticky, because the evidence rows run a long way past the
+                bottom of this photograph at >=1024px. Left as-is it read as the
+                dead right column the contact hero is already criticised for. */}
+            <FadeUp delay={0.14} className="lg:sticky lg:top-28">
+              <figure className="m-0">
+                <div className="relative aspect-square w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
+                  <Image
+                    src="/images/lind-street/clinic-sign.png"
+                    alt="The brass Lind Street Osteopathy clinic sign in Ryde, listing back pain, neck pain, sciatica, arthritis and other conditions treated"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 420px"
+                  />
+                </div>
+                <figcaption className="text-body-sm mt-4 text-[var(--color-muted)]">
+                  Lind Street Osteopathy, Ryde. Opened cold, and built its
+                  search presence from nothing.
+                </figcaption>
+              </figure>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── The philosophy (deck slide 5) ───────────────────────────────────
+          The most repeatable idea in the deck, and it was previously reduced to
+          a clause inside a paragraph in the proof section. It sits immediately
+          before the system, which is this chain turned into deliverables — the
+          same order the deck uses, and the reason the next heading can say "in
+          this order" and mean something. */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-10 max-w-[44rem]">
+              <p className="eyebrow mb-4">The Clinic Evo philosophy</p>
+              <h2 className="text-h2 text-[var(--color-ink)]">
+                What actually builds a clinic
+              </h2>
+            </div>
+          </FadeUp>
+
+          {/* A sequence, not a card row: each step is separated by an arrow that
+              points right on desktop and down once the chain stacks. */}
+          <FadeUp delay={0.06}>
+            <ol
+              role="list"
+              className="flex flex-col items-stretch gap-2 lg:flex-row lg:items-center"
+            >
+              {GRADUATE_PHILOSOPHY.map((step, i) => {
+                const last = i === GRADUATE_PHILOSOPHY.length - 1;
+                return (
+                  <li
+                    key={step}
+                    className="flex flex-col items-center gap-2 lg:flex-1 lg:flex-row"
+                  >
+                    <span
+                      className={`flex w-full flex-1 items-center justify-center rounded-[var(--radius-card)] border px-4 py-5 text-center text-body-sm font-semibold uppercase tracking-[0.08em] ${
+                        last
+                          ? "border-transparent bg-[var(--color-accent-strong)] text-white"
+                          : "border-[var(--color-border)] bg-[var(--color-paper)] text-[var(--color-ink)]"
+                      }`}
+                    >
+                      {step}
+                    </span>
+                    {!last && (
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        aria-hidden="true"
+                        className="flex-shrink-0 rotate-90 text-[var(--color-accent)] lg:mx-2 lg:rotate-0"
+                      >
+                        <path
+                          d="M3 7h8M7 3l4 4-4 4"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+          </FadeUp>
+
+          <FadeUp delay={0.14}>
+            <p className="mt-8 flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] px-7 py-6 text-h3 text-[var(--color-ink)]">
+              {GRADUATE_EQUATION.map(({ term, op }) => (
+                <span key={term} className="inline-flex items-baseline gap-3">
+                  {term}
+                  {op && (
+                    <span className="text-[var(--color-accent-text)]">{op}</span>
+                  )}
+                </span>
+              ))}
+            </p>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── The system ──────────────────────────────────────────────────────── */}
+      <section id="system" className="section scroll-mt-20 bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-12 max-w-[44rem]">
+              <p className="eyebrow mb-4">The system</p>
+              <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                Five things get built, in this order
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                The order matters. Reviews are worth little if nobody can find
+                you, and visibility is wasted if the enquiry goes unanswered.
+              </p>
+            </div>
+          </FadeUp>
+
+          <ul role="list" className="flex flex-col">
+            {GRADUATE_SYSTEM.map((pillar, i) => (
+              <FadeUp key={pillar.title} delay={0.05 + i * 0.05}>
+                <li className="grid grid-cols-1 gap-5 border-t border-[var(--color-border)] py-8 last:border-b lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+                  <h3 className="text-h3 text-[var(--color-ink)]">
+                    {pillar.title}
+                  </h3>
+                  <ul role="list" className="flex flex-col gap-3">
+                    {pillar.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3">
+                        <svg
+                          className="mt-[0.45rem] flex-shrink-0 text-[var(--color-accent)]"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M2.5 7l3 3 6-6"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span className="text-body text-[var(--color-charcoal)]">
+                          {point}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </FadeUp>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Google reviews. Sits between the white system section and the navy
+          mentoring one, so the white cards have a mist ground to read against.
+
+          The intro line connects the two proof sections: Serena is the founder
+          of Lind Street Osteopathy [src: lp.ts LP_TESTIMONIAL], the clinic in
+          the standing-start section above. Her review says "as a relatively
+          new clinic owner" in her own words, which is this page's reader. */}
+      <GoogleReviews
+        heading={
+          <>
+            And what clinic owners say{" "}
+            <em className="not-italic text-[var(--color-accent)]">on Google</em>
+          </>
+        }
+        intro="The first of these is Serena Gower-Johnson, whose clinic is the standing start further up this page."
+      />
+
+      {/* ── Who built this (deck slide 8) ───────────────────────────────────
+          The strongest card this page holds for this audience, and the first
+          draft barely played it — one sentence, no names, no faces. A graduate
+          deciding who to trust with their first year wants to know a practising
+          osteopath is behind it.
+
+          Roles and biography lines come from /team/, not the deck. The deck
+          bills Simon as "MOst"; he has resigned from the GOsC register, and
+          calling him a former registered osteopath is both the accurate version
+          and, for a room full of people about to qualify, the more useful one.
+
+          Placed immediately before the mentoring section so that "sessions are
+          with Danny and Simon" has just been given two faces. */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+            <FadeUp>
+              <div>
+                <p className="eyebrow mb-4">Why Clinic Evo</p>
+                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                  Built from inside a{" "}
+                  <em className="not-italic text-[var(--color-accent)]">
+                    real clinic
+                  </em>
+                </h2>
+                <p className="text-body-lg mb-6 text-[var(--color-charcoal)]">
+                  Clinic Evo wasn&apos;t created by people who decided
+                  healthcare looked like a good marketing niche. It was built
+                  and tested inside a working MSK clinic before it was offered
+                  to anyone else.
+                </p>
+                <blockquote className="m-0 border-l-2 border-[var(--color-accent)] pl-6">
+                  <p className="text-h4 text-[var(--color-ink)]">
+                    &ldquo;{GRADUATE_FOUNDER_QUOTE}&rdquo;
+                  </p>
+                  <footer className="text-body-sm mt-3 text-[var(--color-muted)]">
+                    Danny Morgan and Simon Smith, co-founders
+                  </footer>
+                </blockquote>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <ul role="list" className="flex flex-col">
+                {GRADUATE_FOUNDERS.map((f) => (
+                  <li
+                    key={f.name}
+                    className="flex flex-col gap-5 border-t border-[var(--color-border)] py-7 last:border-b sm:flex-row sm:items-start sm:gap-6"
+                  >
+                    <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]">
+                      <Image
+                        src={f.image}
+                        alt={`${f.name}, ${f.role} at Clinic Evo`}
+                        fill
+                        className="object-cover object-top"
+                        sizes="80px"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-h4 text-[var(--color-ink)]">
+                        {f.name}
+                      </h3>
+                      <p className="text-body-sm mt-1 font-semibold text-[var(--color-accent-text)]">
+                        {f.role}
+                      </p>
+                      <p className="text-body mt-3 text-[var(--color-muted)]">
+                        {f.line}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Mentoring ────────────────────────────────────────────────────────
+          Slide 7 in the deck, and the last thing a reader reached. Promoted to
+          here because it is the part a standard agency retainer does not
+          include — the actual differentiator, not a bonus.
+
+          No cadence anywhere in this section, by instruction. */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-ink)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <FadeUp>
+              <div>
+                <p className="eyebrow eyebrow-invert mb-4">
+                  Becoming a business owner
+                </p>
+                <h2 className="text-h2 mb-6 text-white">
+                  We want you confident running the business, not dependent on
+                  us
+                </h2>
+                <p className="text-body-lg mb-6 leading-relaxed text-white/70">
+                  Alongside the build, we show you how the numbers behind it
+                  work: where patients come from, what an enquiry is worth, why
+                  some convert and some do not.
+                </p>
+                <p className="text-body leading-relaxed text-white/60">
+                  Sessions are with Danny and Simon — one still practising,
+                  one who built the marketing side of it. You are not handed to
+                  an account manager.
+                </p>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <ul role="list" className="flex flex-col">
+                {MENTORING_TOPICS.map((topic) => (
+                  <li
+                    key={topic}
+                    className="border-t border-white/10 py-4 text-body text-white/85 last:border-b"
+                  >
+                    {topic}
+                  </li>
+                ))}
+              </ul>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Roadmap ─────────────────────────────────────────────────────────── */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-12 max-w-[44rem]">
+              <p className="eyebrow mb-4">The roadmap</p>
+              <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                Your first six months
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                Six months in, you are not &ldquo;just starting out&rdquo; any
+                more. You have a professional presence, real patient data,
+                reviews, visibility, and a view of where growth comes from.
+              </p>
+            </div>
+          </FadeUp>
+
+          {/* Four periods, deliberately uneven in the copy beneath them. Each
+              eyebrow carries its own claim: "Month 4" alone means nothing to a
+              skimmer who did not count the cards before it, and `npm run scan`
+              fails ordinal-only labels for exactly that reason. */}
+          <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+            {GRADUATE_ROADMAP.map((phase, i) => (
+              <FadeUp key={phase.period} delay={0.05 + i * 0.07}>
+                <div className="border-t-2 border-[var(--color-accent)] pt-5">
+                  <p className="text-label mb-3 text-[var(--color-accent-text)]">
+                    {phase.period}
+                  </p>
+                  <h3 className="text-h4 mb-3 text-[var(--color-ink)]">
+                    {phase.title}
+                  </h3>
+                  <p className="text-body-sm text-[var(--color-muted)]">
+                    {phase.body}
+                  </p>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── The offer ───────────────────────────────────────────────────────── */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:items-center">
+            <FadeUp>
+              <div>
+                <p className="eyebrow mb-4">The offer</p>
+                <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
+                  Half our normal fee for your first six months
+                </h2>
+                <p className="text-body-lg mb-5 text-[var(--color-charcoal)]">
+                  You are building a patient base before you have built an
+                  income. So the fee is halved while you do it. Same system,
+                  same people. The price is the only difference.
+                </p>
+                <p className="text-body text-[var(--color-muted)]">
+                  From month {GRADUATE_TERMS.standardRateFromMonthWord} you
+                  move to our standard rate. The mentoring is not something that begins
+                  at that point — it has been running since month one, and it
+                  keeps running.
+                </p>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <div className="rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)] lg:p-10">
+                <p className="text-label mb-5 text-[var(--color-muted)]">
+                  Who it is for
+                </p>
+                <ul role="list" className="mb-8 flex flex-col gap-4">
+                  {GRADUATE_ELIGIBILITY.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <svg
+                        className="mt-1 flex-shrink-0 text-[var(--color-accent)]"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M3 8.5l3.5 3.5L13 5"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <span className="text-body text-[var(--color-ink)]">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-body-sm mb-8 -mt-4 text-[var(--color-muted)]">
+                  {GRADUATE_ELIGIBILITY_NOTE}
+                </p>
+                <div className="border-t border-[var(--color-border)] pt-6">
+                  <p className="text-body text-[var(--color-charcoal)]">
+                    <strong className="font-semibold text-[var(--color-ink)]">
+                      {GRADUATE_INTAKE.places} places.
+                    </strong>{" "}
+                    Next intake {GRADUATE_INTAKE.labelLong}.
+                  </p>
+                  <div className="mt-6">
+                    <Button href="#apply" size="lg">
+                      Apply for a place
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Apply ───────────────────────────────────────────────────────────── */}
+      <section id="apply" className="section scroll-mt-20 bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:items-start">
+            <FadeUp>
+              <div className="lg:sticky lg:top-28">
+                <p className="eyebrow mb-4">Apply</p>
+                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                  Build the clinic you imagined when you started training
+                </h2>
+                <p className="text-body-lg mb-8 text-[var(--color-charcoal)]">
+                  Your first reviews. Your first fully booked day. Your first
+                  month where the clinic starts to feel like a business.{" "}
+                  <strong className="font-semibold text-[var(--color-ink)]">
+                    We&apos;ll help you get there.
+                  </strong>
+                </p>
+                <ul role="list" className="flex flex-col gap-4">
+                  {[
+                    "Send the application — it takes a couple of minutes",
+                    "We read it and come back to you",
+                    "A short call about where you are and what you need",
+                    `If it is a fit, you start with the ${GRADUATE_INTAKE.label} intake`,
+                  ].map((step, i) => (
+                    <li key={step} className="flex items-start gap-3.5">
+                      <span
+                        aria-hidden="true"
+                        className="mt-px w-4 flex-shrink-0 font-display text-sm font-bold text-[var(--color-accent-text)]"
+                      >
+                        {i + 1}
+                      </span>
+                      <span className="text-body text-[var(--color-muted)]">
+                        {step}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <div className="rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 shadow-[var(--shadow-card)] sm:p-9">
+                <GraduateForm />
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ─────────────────────────────────────────────────────────────── */}
+      <section className="section grain border-t border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            <FadeUp>
+              <div>
+                <p className="eyebrow mb-4">Questions</p>
+                <h2 className="text-h2 text-[var(--color-ink)]">
+                  The things graduates ask first
+                </h2>
+              </div>
+            </FadeUp>
+            <FadeUp delay={0.08}>
+              <FAQAccordion items={faqs} />
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      <StickyMobileCta href="#apply" label="Apply for a place" hideNearId="apply" />
+    </>
+  );
+}

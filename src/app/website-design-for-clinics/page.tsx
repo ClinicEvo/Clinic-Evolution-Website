@@ -15,6 +15,7 @@ import ProcessSteps from "@/components/sections/ProcessSteps";
 import ResearchPagePlan from "@/components/sections/ResearchPagePlan";
 import RealClinicSites from "@/components/sections/mockups/RealClinicSites";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
+import GoogleReviews from "@/components/sections/GoogleReviews";
 
 /*
  * Clinic website design — rebuilt around the research, 13 Aug 2026.
@@ -650,6 +651,10 @@ export default function WebsiteDesignForClinicsPage() {
       </section>
 
       {/* FAQ */}
+      {/* Serena's review is largely about the website we built her, which is
+          why it sits on this page rather than only on the service index. Mist
+          cards on a white ground — the FAQ below is mist. */}
+      <GoogleReviews surface="paper" />
       <section className="section grain border-t border-[var(--color-border)] bg-[var(--color-surface)] !pb-10">
         <div className="cx-main">
           <div className="mx-auto max-w-3xl">

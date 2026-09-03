@@ -9,6 +9,7 @@ import {
 } from "@/components/brand/PlatformLogos";
 import FadeUp from "@/components/animations/FadeUp";
 import ResourceCard from "@/components/sections/ResourceCard";
+import GoogleReviews from "@/components/sections/GoogleReviews";
 import ClientLogo from "@/components/sections/ClientLogo";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import HeroVisual from "@/components/hero/HeroVisual";
@@ -743,6 +744,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Google reviews ────────────────────────────────────────────────
+          Straight after the founder/origin-clinic block, so the page goes from
+          "who built this" to "what their clients say about it" before it asks
+          who you are. On paper rather than mist because Who We Help below is
+          mist and two mist sections would run together; the cards invert to
+          mist to stay separated from the ground. */}
+      <GoogleReviews surface="paper" />
 
       {/* ── Who We Help ───────────────────────────────────────────────────── */}
       <section id="who-we-help" className="section bg-[var(--color-surface)] border-y border-[var(--color-border)] grain">

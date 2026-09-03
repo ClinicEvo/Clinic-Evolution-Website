@@ -114,6 +114,17 @@ export const mainNav: NavItem[] = [
         icon: "ChiroIcon",
         description: "Trust-first marketing built around the longer chiropractic consideration cycle.",
       },
+      // The odd one out in this group, deliberately: the three above are
+      // disciplines, this is a career stage across all three. It sits here
+      // because "who we help" is where a final-year student looks, and a page
+      // reachable only by a direct link reads as orphaned to visitors and
+      // crawlers alike.
+      {
+        label: "New Graduates",
+        href: "/graduate/",
+        icon: "GraduationCap",
+        description: "A six-month launch programme for clinicians opening their first practice, at half our normal fee.",
+      },
     ],
   },
   { label: "Client Results", href: "/case-studies/" },
@@ -138,6 +149,7 @@ export const footerNav = {
     { label: "Osteopaths", href: "/osteopath-marketing/" },
     { label: "Physiotherapists", href: "/physiotherapy-marketing/" },
     { label: "Chiropractors", href: "/chiropractic-marketing/" },
+    { label: "New Graduates", href: "/graduate/" },
   ],
   services: [
     { label: "Clinic Websites", href: "/website-design-for-clinics/" },

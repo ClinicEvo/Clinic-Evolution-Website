@@ -19,6 +19,9 @@ export const ROUTES = [
   { path: "/learning-hub/how-to-market-your-clinic/",      name: "article" },
   { path: "/free-clinic-audit/",                          name: "audit-form" },
   { path: "/contact/",                                    name: "contact" },
+  // Its own template: hero checklist panel, chip field, evidence rows and an
+  // application form that exists nowhere else on the site.
+  { path: "/graduate/",                                   name: "graduate" },
   { path: "/about/",                                      name: "about" },
   // The PPC ad destinations. These are noindex and off the nav, which is exactly
   // why they need to be on this list: nothing else would ever crawl to them, and

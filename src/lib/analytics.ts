@@ -57,6 +57,11 @@ export const events = {
     trackEvent({ action: "free_audit_submit", category: "conversion" }),
   contactFormSubmit: () =>
     trackEvent({ action: "contact_form_submit", category: "conversion" }),
+  // Its own action rather than a label on free_audit_submit: the graduate
+  // intake is a separate funnel with a separate cap, and merging the two would
+  // make the audit conversion count meaningless the moment an intake opens.
+  graduateApplySubmit: () =>
+    trackEvent({ action: "graduate_apply_submit", category: "conversion" }),
   whatsappClick: () =>
     trackEvent({ action: "whatsapp_click", category: "engagement" }),
   // `label` carries the placement on the landing pages, where click-to-call is

@@ -5,7 +5,7 @@ import { useState, FormEvent } from "react";
 export type FormState = "idle" | "submitting" | "success" | "error";
 
 interface Options {
-  formType: "contact" | "audit";
+  formType: "contact" | "audit" | "graduate";
   onSuccess?: (payload: Record<string, string>, form: HTMLFormElement) => void;
 }
 

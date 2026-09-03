@@ -4,7 +4,8 @@ import FadeUp from "@/components/ui/FadeUp";
 import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
 import { GoogleAdsLockup } from "@/components/icons/GoogleColorMark";
 import LpCtaButton from "./LpCtaButton";
-import { LP_PROOF, LP_SECTION_ANCHORS, LP_TESTIMONIAL } from "@/lib/lp";
+import { LP_PROOF, LP_SECTION_ANCHORS } from "@/lib/lp";
+import GooglePullQuote from "@/components/sections/GooglePullQuote";
 
 /**
  * One proof layer, not two.
@@ -43,8 +44,8 @@ import { LP_PROOF, LP_SECTION_ANCHORS, LP_TESTIMONIAL } from "@/lib/lp";
  * not an outside client. It appears once, on the first row, not on both
  * Bodyfunction rows — the relationship is declared, not re-declared.
  *
- * The testimonial is verbatim as approved. See LP_TESTIMONIAL before touching a
- * word of it.
+ * The practitioner voice at the foot of this section is now Serena's public
+ * Google review rather than the quote drafted for her — see GooglePullQuote.
  */
 export default function LandingEvidence() {
   return (
@@ -164,31 +165,15 @@ export default function LandingEvidence() {
           </ul>
 
           {/* The only practitioner voice on a page selling to practitioners, so
-              it carries display size rather than body size. */}
+              it carries display size rather than body size.
+
+              This used to render LP_TESTIMONIAL — a quote drafted for Serena
+              and approved verbally via Simon on 17 Aug 2026. It now renders her
+              actual public Google review instead: her own words, published by
+              her, five stars, and verifiable by anyone who clicks through. The
+              old constant stays in lp.ts as the record of that approval. */}
           <FadeUp delay={0.24}>
-            <blockquote className="mt-10 border-l-2 border-[var(--color-accent)] pl-6 sm:mt-12 sm:pl-8">
-              <p className="text-h3 max-w-[46ch] text-[var(--color-ink)]">
-                &ldquo;{LP_TESTIMONIAL.text}&rdquo;
-              </p>
-              <footer className="mt-5 flex items-center gap-4">
-                <Image
-                  src={LP_TESTIMONIAL.portrait}
-                  alt={`${LP_TESTIMONIAL.name}, ${LP_TESTIMONIAL.role}`}
-                  width={80}
-                  height={80}
-                  sizes="48px"
-                  className="h-12 w-12 flex-shrink-0 rounded-full border border-[var(--color-border)] bg-white object-cover object-top"
-                />
-                <span className="text-body-sm">
-                  <strong className="font-semibold text-[var(--color-ink)]">
-                    {LP_TESTIMONIAL.name}
-                  </strong>
-                  <span className="block text-[var(--color-muted)]">
-                    {LP_TESTIMONIAL.role}
-                  </span>
-                </span>
-              </footer>
-            </blockquote>
+            <GooglePullQuote className="mt-10 sm:mt-12" />
           </FadeUp>
 
           {/* The turn from proof to offer. A visitor convinced by the rows above

@@ -35,16 +35,21 @@ export default function StickyMobileCta({
    *  normally the closing CTASection. */
   hideNearId,
   label = ctaNav.label,
+  href: hrefOverride,
 }: {
   hideNearId?: string;
   label?: string;
+  /** Overrides the site-wide CTA target. Set on pages whose conversion is not
+   *  the free audit — /graduate/ sends this bar to its own application form,
+   *  and offering an audit there would be the wrong ask. */
+  href?: string;
 }) {
   const [scrolledPast, setScrolledPast] = useState(false);
   const [targetInView, setTargetInView] = useState(false);
   const [cookieBannerHeight, setCookieBannerHeight] = useState(0);
   const barRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const href = resolveCtaHref(pathname);
+  const href = hrefOverride ?? resolveCtaHref(pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolledPast(window.scrollY > SHOW_AFTER_PX);

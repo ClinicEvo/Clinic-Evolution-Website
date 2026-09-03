@@ -11,6 +11,7 @@ import {
   Phone,
   Sparkle,
   ChartLineUp,
+  GraduationCap,
   type Icon,
 } from "@phosphor-icons/react";
 import { usePathname } from "next/navigation";
@@ -63,6 +64,7 @@ const iconMap: Record<string, AnyIcon> = {
   OsteopathIcon,
   PhysioIcon,
   ChiroIcon,
+  GraduationCap,
 };
 
 export default function Header() {

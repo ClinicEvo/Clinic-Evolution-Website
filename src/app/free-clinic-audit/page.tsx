@@ -6,6 +6,7 @@ import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroChecklistPanel from "@/components/sections/HeroChecklistPanel";
+import GoogleReviews from "@/components/sections/GoogleReviews";
 import AuditForm from "@/components/forms/AuditForm";
 
 
@@ -180,6 +181,10 @@ export default function FreeClinicAuditPage() {
       </section>
 
       {/* Form Section */}
+      {/* Last thing before the form. Someone about to hand over their clinic's
+          details is deciding whether to trust us, and two named clinic owners
+          answer that better than another paragraph from us does. */}
+      <GoogleReviews surface="paper" />
       <section id="audit-form" className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           {/* items-start, not items-center: the form runs to ~1130px and this
