@@ -4,7 +4,6 @@ import FadeUp from "@/components/ui/FadeUp";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Button from "@/components/ui/Button";
 import PageHero from "@/components/sections/PageHero";
-import HeroChecklistPanel from "@/components/sections/HeroChecklistPanel";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import FAQSchema from "@/components/schema/FAQSchema";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
@@ -174,34 +173,95 @@ export default function GraduatePage() {
         primaryCta={{ label: "Apply for the October intake", href: "#apply" }}
         secondaryCta={{ label: "What the six months covers", href: "#system" }}
         breadcrumbs={crumbs}
+        // Full width beneath the grid: the copy column is only ~470px against a
+        // 600px photograph, and three bullets wrap to two ragged rows inside it.
+        bulletsBelow
+        rightPanelWidth="600px"
         rightPanel={
-          /* The hero's right half carries the outcome, not decoration. It is
-             also where the month-seven answer appears for the first time —
-             a reader who sees "half price for six months" and nothing else
-             prices the offer as a cliff. */
-          <HeroChecklistPanel
-            title="Where you are by month six"
-            items={[
+          /* The deck's own hero image. The first draft put a checklist card
+             here and opened the page with no photograph at all — on a page
+             whose job is to let someone picture their own practice, and for a
+             reader who is currently one of these people, that was wrong.
+
+             600px and 16:11 rather than the default 480px and a portrait crop:
+             the five of them span nearly the full frame, so a tall crop cuts
+             the two on the ends in half. The checklist this replaced is
+             directly below, where full width suits five items better. */
+          <figure className="m-0">
+            <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
+              <Image
+                src="/images/graduate/graduate-clinicians-campus.jpg"
+                alt="Five clinical students in scrubs outside a university building"
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 600px"
+              />
+            </div>
+          </figure>
+        }
+      />
+
+      {/* Where you are by month six. Full width, straight under the hero, so
+          the month-seven answer still sits near the top of the page — a reader
+          who sees "half price for six months" and nothing else prices the
+          offer as a cliff. */}
+      <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-10 sm:py-12">
+        <div className="cx-main">
+          <FadeUp>
+            <p className="text-label mb-6 text-[var(--color-muted)]">
+              Where you are by month six
+            </p>
+          </FadeUp>
+          <ul
+            role="list"
+            className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-5"
+          >
+            {[
               "A website that looks established, not new",
               "A Google presence people nearby actually find",
               "Your first reviews, arriving without you chasing them",
               "Enquiries answered and tracked, so none go cold",
               "Numbers that tell you where your patients came from",
-            ]}
-            footer={
-              <>
-                Mentoring runs from month one. At month{" "}
-                {GRADUATE_TERMS.standardRateFromMonthWord} the fee goes to our
-                standard rate and{" "}
-                <strong className="font-semibold text-[var(--color-ink)]">
-                  everything else carries on
-                </strong>
-                .
-              </>
-            }
-          />
-        }
-      />
+            ].map((item, i) => (
+              <FadeUp key={item} delay={0.04 + i * 0.05}>
+                <li className="flex items-start gap-3 border-t border-[var(--color-border)] pt-4">
+                  <svg
+                    className="mt-[0.35rem] flex-shrink-0 text-[var(--color-accent)]"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2.5 7l3 3 6-6"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span className="text-body-sm text-[var(--color-charcoal)]">
+                    {item}
+                  </span>
+                </li>
+              </FadeUp>
+            ))}
+          </ul>
+          <FadeUp delay={0.3}>
+            <p className="text-body-sm mt-7 text-[var(--color-muted)]">
+              Mentoring runs from month one. At month{" "}
+              {GRADUATE_TERMS.standardRateFromMonthWord} the fee goes to our
+              standard rate and{" "}
+              <strong className="font-semibold text-[var(--color-ink)]">
+                everything else carries on
+              </strong>
+              .
+            </p>
+          </FadeUp>
+        </div>
+      </section>
 
       {/* ── The gap ──────────────────────────────────────────────────────────
           Deck slides 2 and 3 merged. As three separate sections they make the
@@ -345,10 +405,21 @@ export default function GraduatePage() {
                 <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
                   What does a strong first year actually look like?
                 </h2>
-                <p className="text-body text-[var(--color-muted)]">
+                <p className="text-body mb-8 text-[var(--color-muted)]">
                   Not a full diary in week one. These are the things that,
                   together, mean it has started behaving like a business.
                 </p>
+                <figure className="m-0">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                    <Image
+                      src="/images/graduate/manual-therapy-lower-back.jpg"
+                      alt="A clinician in scrubs treating a patient's lower back on a treatment couch"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 420px"
+                    />
+                  </div>
+                </figure>
               </div>
             </FadeUp>
 
@@ -636,6 +707,22 @@ export default function GraduatePage() {
                   and tested inside a working MSK clinic before it was offered
                   to anyone else.
                 </p>
+                <figure className="m-0 mb-8">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                    <Image
+                      src="/images/bodyfunction-clinic-team-at-reception-01.jpg"
+                      alt="The Bodyfunction Clinic team at reception in Angel, London, with Danny Morgan on the right"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 560px"
+                    />
+                  </div>
+                  <figcaption className="text-body-sm mt-3 text-[var(--color-muted)]">
+                    Bodyfunction Clinic, Angel. The clinic Clinic Evo was built
+                    inside.
+                  </figcaption>
+                </figure>
+
                 <blockquote className="m-0 border-l-2 border-[var(--color-accent)] pl-6">
                   <p className="text-h4 text-[var(--color-ink)]">
                     &ldquo;{GRADUATE_FOUNDER_QUOTE}&rdquo;
@@ -883,6 +970,18 @@ export default function GraduatePage() {
                     </li>
                   ))}
                 </ul>
+
+                <figure className="m-0 mt-9">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                    <Image
+                      src="/images/graduate/graduate-clinicians-studio.jpg"
+                      alt="A group of clinical students in scrubs"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 420px"
+                    />
+                  </div>
+                </figure>
               </div>
             </FadeUp>
 
