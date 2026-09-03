@@ -96,87 +96,114 @@ export const GRADUATE_ELIGIBILITY = [
 export const GRADUATE_ELIGIBILITY_NOTE =
   "Another healthcare discipline? Tell us on the form. We consider those case by case.";
 
-/** What you were examined on, against what you were not. Deck slides 2 and 3,
- *  merged — on a page they are one argument, not two. */
-export const TRAINED_IN = [
-  "Assessment",
-  "Clinical reasoning",
-  "Treatment",
-  "Patient management",
-  "Professional standards",
-];
-
-export const NOT_TRAINED_IN = [
-  "How patients find you",
-  "Websites",
-  "Google",
-  "Local SEO",
-  "Reviews",
-  "Pricing",
-  "Marketing",
-  "Enquiry handling",
-  "Rebooking",
-  "Follow-up",
-  "Building a reputation",
-  "Knowing whether any of it works",
-];
-
-/** Deck slide 4. Seven items, deliberately not rounded to six or eight. */
-export const STRONG_FIRST_YEAR = [
-  "People in your area can find you",
-  "Your website gives them the confidence to book",
-  "Your Google reviews start building",
-  "Enquiries turn into patients",
-  "Patients come back, and recommend you",
-  "You know where your growth is coming from",
-  "The income starts to look predictable",
+/**
+ * THE OVERWHELM. Simon's own list, 3 Sep 2026 [src: client], barely reworded.
+ *
+ * His brief was that the page was "trying to be too clever" and that the one
+ * thing it had to land was: when you start out you do not know what you do not
+ * know, and it all seems overwhelming. He then listed it — social media, paid
+ * ads, SEO, building a business, what works, what does not, what tools, how
+ * they connect, who to register with.
+ *
+ * WHY THESE ARE QUESTIONS AND NOT NOUNS. NOT_TRAINED_IN below is the same
+ * territory as a tidy list of nouns ("Websites", "Local SEO", "Pricing") and it
+ * reads as a syllabus — which is the opposite of overwhelmed. A syllabus is
+ * calm and someone else's; a question in the reader's own voice is the feeling
+ * the section is for. Keep them as questions, and keep them in the first
+ * person: the moment one turns into "You need to know whether SEO is worth it"
+ * it goes back to being a curriculum.
+ *
+ * Nothing here is a claim about anybody, so nothing here needs a source beyond
+ * Simon. They are propositions addressed to the reader — see the claim-vs-
+ * proposition rule in ~/.claude/CLAUDE.md.
+ */
+export const GRADUATE_UNKNOWNS = [
+  "Should I be doing SEO? What even is it?",
+  "Are paid ads worth it, or a fast way to lose money?",
+  "Do I have to post on social media every day?",
+  "Which booking system? Which of these tools do I actually need?",
+  "How is any of this meant to connect together?",
+  "Who do I actually need to register with?",
+  "How would I know if any of it is working?",
 ];
 
 /**
- * The five parts of the build. Rendered as rows, not as a card grid: five equal
- * cards would fail the house rule against equal-column card rows, and rows put
- * each pillar's name in a real heading, which is what `npm run scan` reads.
+ * The marks in the overwhelm section's logo cluster.
+ *
+ * They are there to BE the noise, not to decorate a list — a grid of platforms
+ * a graduate has been told they need is the argument, made without a sentence.
+ * Slugs resolve through src/components/icons/BrandIcons.tsx, with the
+ * four-colour Google and Instagram marks coming from BrandColorMarks.
+ *
+ * TRADEMARK. Every mark is used nominatively, to name the platform it belongs
+ * to. There is no partner badge, no implied endorsement, and none is to be
+ * added — the same standing note as GoogleColorMark.tsx. And do NOT add the
+ * professional registers here (GOsC, HCPC, GCC): a regulator's logo on a
+ * marketing page reads as accreditation, which we do not have. "Who do I
+ * actually need to register with?" stays a question in words.
+ *
+ * WHAT IS NOT IN THIS LIST, having been tried and pulled at 32px on white:
+ *
+ *   typeform  — simple-icons' Typeform mark is a WORDMARK; its path draws the
+ *               letters, so at icon size it renders as unreadable grey text.
+ *   mailchimp — brand yellow #FFE01B on the white card is about 1.3:1. The
+ *               monkey was there and invisible. It would work on the navy
+ *               sections, so if this cluster ever moves onto ink, bring it back.
+ *   hootsuite — #FF4C46 is within a couple of points of our own coral
+ *               (#FF5B4A). A competitor's mark that reads as our accent is
+ *               worse than a missing logo.
+ *   hubspot   — #FF7A59 clashes with the accent the same way, and a graduate
+ *               opening their first treatment room has not been pitched a CRM.
+ *
+ * The bar is: would a final-year student recognise it, and does it read at
+ * 32px on paper. Seven that pass beat ten where four are mush.
+ */
+export const GRADUATE_NOISE_MARKS = [
+  "google",
+  "instagram",
+  "facebook",
+  "tiktok",
+  "whatsapp",
+  "trustpilot",
+  "calendly",
+] as const;
+
+/** Closes the mark row. The list is deliberately not exhaustive and saying so
+ *  is the point — the overwhelm is that it never ends, not that it is long. */
+export const GRADUATE_NOISE_TAIL = "\u2026 and whatever is next";
+
+/**
+ * The five parts of the build, ONE LINE EACH.
+ *
+ * This was five pillars of three bullets — fifteen list items under a heading,
+ * which is precisely the "massive double wall of text" Simon objected to on
+ * 3 Sep 2026. The detail was accurate and nobody was reading it. A graduate
+ * deciding whether to apply needs to know the five things exist and that they
+ * happen in an order; the specifics are what the call is for.
+ *
+ * DO NOT PUT THE BULLETS BACK. If a pillar genuinely needs three facts, it
+ * needs its own page, not three more lines here.
  */
 export const GRADUATE_SYSTEM = [
   {
     title: "Build your foundation",
-    points: [
-      "A website that makes you look established from day one",
-      "A Google presence that puts you in front of people nearby",
-      "Tracking from the start, so month one is measurable",
-    ],
+    line: "A website and a Google presence that make you look established from day one, with tracking from the start.",
   },
   {
     title: "Get found",
-    points: [
-      "Appearing when people search for treatment near them",
-      "Pages and content that build authority in your area",
-      "Organic visibility that keeps growing after the build",
-    ],
+    line: "The search work that puts you in front of people looking for treatment near them.",
   },
   {
     title: "Turn interest into patients",
-    points: [
-      "A short path from searching to booked",
-      "More of your enquiries becoming appointments",
-      "Enquiries answered quickly and professionally",
-    ],
+    line: "A short path from searching to booked, and enquiries answered before they go cold.",
   },
   {
     title: "Build relationships",
-    points: [
-      "Patient Pulse, so patients do not quietly disappear",
-      "More reviews, without the awkward ask",
-      "Follow-up that brings people back",
-    ],
+    line: "Reviews without the awkward ask, and follow-up that brings people back.",
   },
   {
     title: "Track your growth",
-    points: [
-      "Knowing what is bringing patients through the door",
-      "Advice grounded in your own numbers, not general advice",
-      "A growth plan you can actually act on",
-    ],
+    line: "You see what is bringing patients through the door, and get advice grounded in your own numbers.",
   },
 ];
 
@@ -254,29 +281,30 @@ export const GRADUATE_STARTING_POINTS = [
 ];
 
 /**
- * Deck slide 3 — the standing-start constraints, and the pressure on top.
+ * WHAT USED TO BE HERE, and why it is not.
  *
- * Restored after a first pass compressed both into a single sentence. The point
- * of this slide is not the list, it is the SIMULTANEITY: five things you do not
- * have, while six other things are expected of you at once. A subordinate
- * clause cannot carry that; two stacked rows can.
+ * Removed 3 Sep 2026 on Simon's brief that the page was "trying to be too
+ * clever" and carried "massive double walls of text":
+ *
+ *   TRAINED_IN / NOT_TRAINED_IN — five nouns against twelve nouns. Superseded
+ *     by GRADUATE_UNKNOWNS above. The twelve were the right subject matter in
+ *     the wrong voice: a syllabus reads as calm and somebody else's, and the
+ *     section exists to convey being overwhelmed. TRAINED_IN survives as half a
+ *     sentence of the section's intro rather than as a card.
+ *   STRONG_FIRST_YEAR — seven outcomes that mapped one-to-one onto the five in
+ *     the month-six strip. It was the same promise a third time, in its own
+ *     full-height section.
+ *   GRADUATE_CONSTRAINTS / GRADUATE_PRESSURES — already orphaned by the
+ *     previous restructure; never re-imported.
+ *   GRADUATE_EQUATION — "Visibility + Trust + Conversion + Retention = Clinic
+ *     growth". The most abstract thing on the page, and it sat immediately
+ *     above GRADUATE_PHILOSOPHY, which makes the same argument in verbs and in
+ *     order. Two abstractions for one idea is the "too clever" complaint in
+ *     miniature. The chain stayed; the equation went.
+ *
+ * All of it is in git history if a future page wants it. Do not restore any of
+ * it to /graduate/ without re-reading that brief.
  */
-export const GRADUATE_CONSTRAINTS = [
-  "No established patient base",
-  "Few or no reviews",
-  "Little online visibility",
-  "Limited cash flow",
-  "A small marketing budget",
-];
-
-export const GRADUATE_PRESSURES = [
-  "Treat patients",
-  "Build confidence",
-  "Find patients",
-  "Manage finances",
-  "Handle enquiries",
-  "Build your reputation",
-];
 
 /**
  * Deck slide 5 — the philosophy chain.
@@ -293,16 +321,6 @@ export const GRADUATE_PHILOSOPHY = [
   "Follow up",
   "Build your reputation",
   "Grow",
-];
-
-/** The equation under the chain. Split so the operators can carry the accent
- *  without colouring the nouns, which is how the deck sets it. */
-export const GRADUATE_EQUATION = [
-  { term: "Visibility", op: "+" },
-  { term: "Trust", op: "+" },
-  { term: "Conversion", op: "+" },
-  { term: "Retention", op: "=" },
-  { term: "Clinic growth", op: null },
 ];
 
 /**
