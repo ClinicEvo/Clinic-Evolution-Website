@@ -16,7 +16,7 @@ import HeroVisual from "@/components/hero/HeroVisual";
 import HeroHeadline from "@/components/hero/HeroHeadline";
 import CTASection from "@/components/sections/CTASection";
 import ProofBand from "@/components/sections/ProofBand";
-import { NEW_PATIENTS, SITE } from "@/lib/clinic-capacity";
+import { NEW_PATIENTS } from "@/lib/clinic-capacity";
 import { siteConfig } from "@/lib/metadata";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
@@ -776,7 +776,7 @@ export default function HomePage() {
           value: NEW_PATIENTS.figure,
           label: "New patients at Bodyfunction Clinic in its best month",
         }}
-        body={`That is ${SITE.description}, not a group of them, which is the only reason the figure means anything. Every other number on this site measures search — Ahrefs and Search Console see clicks and positions, never a booking. This one is the clinic's own diary.`}
+        body="One clinic, five treatment rooms, one location. Not a group with seven sites making up the number."
         source={NEW_PATIENTS.source}
         image="/images/bodyfunction-clinic-team-at-reception-01.jpg"
         imageAlt="The reception desk at Bodyfunction Clinic in Angel, London"

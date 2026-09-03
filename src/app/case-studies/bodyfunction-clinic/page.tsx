@@ -17,7 +17,7 @@ import {
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 import ClientLink from "@/components/ui/ClientLink";
 import ProofBand from "@/components/sections/ProofBand";
-import { APPOINTMENTS, SITE } from "@/lib/clinic-capacity";
+import { APPOINTMENTS } from "@/lib/clinic-capacity";
 
 /*
  * Bodyfunction Clinic — the origin story, written for a clinic owner.
@@ -724,7 +724,7 @@ export default function BodyfunctionCaseStudyPage() {
           value: APPOINTMENTS.figure,
           label: APPOINTMENTS.metric,
         }}
-        body={`${SITE.description[0].toUpperCase()}${SITE.description.slice(1)}. Spread across seven locations the same 572 would describe a group in trouble; in one building it is close to what the rooms can hold. The figure is undated, so it is not a point on the two-year search curve above — it is what the diary held at its fullest.`}
+        body="One site, five treatment rooms, at its busiest. Spread across seven locations that number would describe a group in trouble. In one building it is close to what the rooms can hold."
         source={APPOINTMENTS.source}
         /* Not the neck-treatment photograph: that one is already in "The problem"
            section further up this page, and running the same image twice reads as
