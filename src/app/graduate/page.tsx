@@ -154,6 +154,7 @@ export default function GraduatePage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
+      {/* ── 1. Hero ─────────────────────────────────────────────────────────── */}
       <PageHero
         badge="Graduate Clinic Launch Programme"
         heading={
@@ -173,20 +174,9 @@ export default function GraduatePage() {
         primaryCta={{ label: "Apply for the October intake", href: "#apply" }}
         secondaryCta={{ label: "What the six months covers", href: "#system" }}
         breadcrumbs={crumbs}
-        // Full width beneath the grid: the copy column is only ~470px against a
-        // 600px photograph, and three bullets wrap to two ragged rows inside it.
         bulletsBelow
         rightPanelWidth="600px"
         rightPanel={
-          /* The deck's own hero image. The first draft put a checklist card
-             here and opened the page with no photograph at all — on a page
-             whose job is to let someone picture their own practice, and for a
-             reader who is currently one of these people, that was wrong.
-
-             600px and 16:11 rather than the default 480px and a portrait crop:
-             the five of them span nearly the full frame, so a tall crop cuts
-             the two on the ends in half. The checklist this replaced is
-             directly below, where full width suits five items better. */
           <figure className="m-0">
             <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
               <Image
@@ -202,10 +192,7 @@ export default function GraduatePage() {
         }
       />
 
-      {/* Where you are by month six. Full width, straight under the hero, so
-          the month-seven answer still sits near the top of the page — a reader
-          who sees "half price for six months" and nothing else prices the
-          offer as a cliff. */}
+      {/* ── 2. Where you are by month six (Transformation) ─────────────────── */}
       <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-10 sm:py-12">
         <div className="cx-main">
           <FadeUp>
@@ -263,432 +250,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── The gap ──────────────────────────────────────────────────────────
-          Deck slides 2 and 3 merged. As three separate sections they make the
-          same point three times and the reader is three scrolls in before
-          anything is offered. */}
-      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
-        <div className="cx-main">
-          <div className="mb-12 max-w-[46rem]">
-            <FadeUp>
-              <div>
-                <p className="eyebrow mb-4">Reality check</p>
-                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                  The bit university doesn&apos;t teach you
-                </h2>
-                <p className="text-body-lg text-[var(--color-charcoal)]">
-                  You leave university ready to treat patients. Building the
-                  patient base that lets you practise is a different skill, and
-                  nobody examined you on it.
-                </p>
-              </div>
-            </FadeUp>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
-            <FadeUp delay={0.06}>
-              <div className="h-full rounded-[var(--radius-card)] bg-[var(--color-ink)] p-8 lg:p-10">
-                <h3 className="text-h3 mb-6 text-white">
-                  What you were trained in
-                </h3>
-                <ul role="list" className="flex flex-col gap-4">
-                  {TRAINED_IN.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span
-                        aria-hidden="true"
-                        className="mt-[0.6rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--color-accent)]"
-                      />
-                      <span className="text-body text-white/80">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={0.12}>
-              <div className="h-full rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)] lg:p-10">
-                <h3 className="text-h3 mb-6 text-[var(--color-accent-text)]">
-                  What nobody trained you in
-                </h3>
-                {/* A wrapped chip field, not a grid. The point is the volume of
-                    it — a tidy set of equal columns would undersell how much
-                    lands on someone in their first year. */}
-                <ul role="list" className="flex flex-wrap gap-2.5">
-                  {NOT_TRAINED_IN.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3.5 py-2 text-body-sm text-[var(--color-charcoal)]"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-body mt-8 text-[var(--color-muted)]">
-                  All of it lands at once, while you are also treating patients,
-                  building confidence and watching the cash flow.
-                </p>
-              </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Starting from zero (deck slide 3) ──────────────────────────────
-          Its own section rather than a line inside the reality check, because
-          the argument is simultaneity: five things you do not have, while six
-          others are expected of you at the same time. Two stacked rows carry
-          that; the single sentence this replaced did not.
-
-          Navy, as the deck has it. It is the low point of the page and the
-          only dark beat before the mentoring section, which is the answer. */}
-      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-ink)]">
-        <div className="cx-main">
-          <FadeUp>
-            <div className="mb-10 max-w-[44rem]">
-              <p className="eyebrow eyebrow-invert mb-4">
-                The graduate clinic problem
-              </p>
-              <h2 className="text-h2 text-white">Starting from zero is hard</h2>
-            </div>
-          </FadeUp>
-
-          <FadeUp delay={0.06}>
-            <ul
-              role="list"
-              className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5"
-            >
-              {GRADUATE_CONSTRAINTS.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-[var(--radius-card)] border border-white/12 bg-white/[0.04] px-5 py-5 text-body text-white/85"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </FadeUp>
-
-          <FadeUp delay={0.12}>
-            <div className="mt-10">
-              <p className="text-body mb-4 text-white/55">
-                And at the same time, you are expected to:
-              </p>
-              <ul role="list" className="flex flex-wrap gap-2.5">
-                {GRADUATE_PRESSURES.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-[var(--radius-sm)] border border-white/12 px-3.5 py-2 text-body-sm text-white/75"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </FadeUp>
-
-          <FadeUp delay={0.18}>
-            <p className="text-h3 mt-12 max-w-[42rem] text-white">
-              You shouldn&apos;t have to become a marketing expert at the same
-              time as becoming a great clinician.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* ── What a strong first year looks like ─────────────────────────────── */}
-      <section className="section bg-[var(--color-paper)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-            <FadeUp>
-              <div className="lg:sticky lg:top-28">
-                <p className="eyebrow mb-4">What you&apos;re building toward</p>
-                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                  What does a strong first year actually look like?
-                </h2>
-                <p className="text-body mb-8 text-[var(--color-muted)]">
-                  Not a full diary in week one. These are the things that,
-                  together, mean it has started behaving like a business.
-                </p>
-                <figure className="m-0">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
-                    <Image
-                      src="/images/graduate/manual-therapy-lower-back.jpg"
-                      alt="A clinician in scrubs treating a patient's lower back on a treatment couch"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 420px"
-                    />
-                  </div>
-                </figure>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={0.08}>
-              <ul role="list" className="flex flex-col">
-                {STRONG_FIRST_YEAR.map((item, i) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-4 border-t border-[var(--color-border)] py-5 last:border-b"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="mt-1 font-display text-sm font-bold text-[var(--color-accent-text)]"
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-body-lg text-[var(--color-ink)]">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Proof: the standing start ───────────────────────────────────────── */}
-      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:items-start">
-            <div>
-              <FadeUp>
-                <div className="mb-10 max-w-[42rem]">
-                  <p className="eyebrow mb-4">What a standing start looks like</p>
-                  <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                    Lind Street Osteopathy opened with no logo, no website and
-                    no search presence
-                  </h2>
-                  <p className="text-body text-[var(--color-muted)]">
-                    One osteopath, one treatment room, a brand new business on
-                    the Isle of Wight with no reputation online. Twelve months
-                    later she held page one across her catchment.
-                  </p>
-                </div>
-              </FadeUp>
-
-              <ul role="list" className="flex flex-col">
-                {STANDING_START_PROOF.map((row, i) => (
-                  <FadeUp key={row.figure} delay={0.06 + i * 0.06}>
-                    <li className="grid grid-cols-1 gap-2 border-t border-[var(--color-border)] py-6 last:border-b lg:grid-cols-[1fr_auto] lg:items-baseline lg:gap-8">
-                      <h3 className="text-h4 font-normal text-[var(--color-charcoal)]">
-                        <span className="font-display text-[2.25rem] font-bold leading-none text-[var(--color-ink)] md:text-[2.75rem]">
-                          {row.figure}
-                        </span>{" "}
-                        {row.headline}
-                      </h3>
-                      <p className="text-body-sm text-[var(--color-muted)] lg:text-right">
-                        {row.source}
-                      </p>
-                    </li>
-                  </FadeUp>
-                ))}
-              </ul>
-
-              <FadeUp delay={0.24}>
-                <div className="mt-8">
-                  <p className="text-body mb-6 max-w-[46rem] text-[var(--color-muted)]">
-                    Lind Street is an osteopathy clinic. A physiotherapy or
-                    chiropractic practice competes for different searches and
-                    against different neighbours. The order of operations is
-                    identical: get found, earn trust, get booked, follow up.
-                    That is the work the six months does.
-                  </p>
-                  <ArrowLink href="/case-studies/lind-street-osteopathy/">
-                    Read the full Lind Street case study
-                  </ArrowLink>
-                </div>
-              </FadeUp>
-            </div>
-
-            {/* Sticky, because the evidence rows run a long way past the
-                bottom of this photograph at >=1024px. Left as-is it read as the
-                dead right column the contact hero is already criticised for. */}
-            <FadeUp delay={0.14} className="lg:sticky lg:top-28">
-              <figure className="m-0">
-                <div className="relative aspect-square w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
-                  <Image
-                    src="/images/lind-street/clinic-sign.png"
-                    alt="The brass Lind Street Osteopathy clinic sign in Ryde, listing back pain, neck pain, sciatica, arthritis and other conditions treated"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 420px"
-                  />
-                </div>
-                <figcaption className="text-body-sm mt-4 text-[var(--color-muted)]">
-                  Lind Street Osteopathy, Ryde. Opened cold, and built its
-                  search presence from nothing.
-                </figcaption>
-              </figure>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* ── The philosophy (deck slide 5) ───────────────────────────────────
-          The most repeatable idea in the deck, and it was previously reduced to
-          a clause inside a paragraph in the proof section. It sits immediately
-          before the system, which is this chain turned into deliverables — the
-          same order the deck uses, and the reason the next heading can say "in
-          this order" and mean something. */}
-      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
-        <div className="cx-main">
-          <FadeUp>
-            <div className="mb-10 max-w-[44rem]">
-              <p className="eyebrow mb-4">The Clinic Evo philosophy</p>
-              <h2 className="text-h2 text-[var(--color-ink)]">
-                What actually builds a clinic
-              </h2>
-            </div>
-          </FadeUp>
-
-          {/* A sequence, not a card row: each step is separated by an arrow that
-              points right on desktop and down once the chain stacks. */}
-          <FadeUp delay={0.06}>
-            <ol
-              role="list"
-              className="flex flex-col items-stretch gap-2 lg:flex-row lg:items-center"
-            >
-              {GRADUATE_PHILOSOPHY.map((step, i) => {
-                const last = i === GRADUATE_PHILOSOPHY.length - 1;
-                return (
-                  <li
-                    key={step}
-                    className="flex flex-col items-center gap-2 lg:flex-1 lg:flex-row"
-                  >
-                    <span
-                      className={`flex w-full flex-1 items-center justify-center rounded-[var(--radius-card)] border px-4 py-5 text-center text-body-sm font-semibold uppercase tracking-[0.08em] ${
-                        last
-                          ? "border-transparent bg-[var(--color-accent-strong)] text-white"
-                          : "border-[var(--color-border)] bg-[var(--color-paper)] text-[var(--color-ink)]"
-                      }`}
-                    >
-                      {step}
-                    </span>
-                    {!last && (
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                        aria-hidden="true"
-                        className="flex-shrink-0 rotate-90 text-[var(--color-accent)] lg:mx-2 lg:rotate-0"
-                      >
-                        <path
-                          d="M3 7h8M7 3l4 4-4 4"
-                          stroke="currentColor"
-                          strokeWidth="1.6"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    )}
-                  </li>
-                );
-              })}
-            </ol>
-          </FadeUp>
-
-          <FadeUp delay={0.14}>
-            <p className="mt-8 flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] px-7 py-6 text-h3 text-[var(--color-ink)]">
-              {GRADUATE_EQUATION.map(({ term, op }) => (
-                <span key={term} className="inline-flex items-baseline gap-3">
-                  {term}
-                  {op && (
-                    <span className="text-[var(--color-accent-text)]">{op}</span>
-                  )}
-                </span>
-              ))}
-            </p>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* ── The system ──────────────────────────────────────────────────────── */}
-      <section id="system" className="section scroll-mt-20 bg-[var(--color-paper)]">
-        <div className="cx-main">
-          <FadeUp>
-            <div className="mb-12 max-w-[44rem]">
-              <p className="eyebrow mb-4">The system</p>
-              <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                Five things get built, in this order
-              </h2>
-              <p className="text-body-lg text-[var(--color-charcoal)]">
-                The order matters. Reviews are worth little if nobody can find
-                you, and visibility is wasted if the enquiry goes unanswered.
-              </p>
-            </div>
-          </FadeUp>
-
-          <ul role="list" className="flex flex-col">
-            {GRADUATE_SYSTEM.map((pillar, i) => (
-              <FadeUp key={pillar.title} delay={0.05 + i * 0.05}>
-                <li className="grid grid-cols-1 gap-5 border-t border-[var(--color-border)] py-8 last:border-b lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
-                  <h3 className="text-h3 text-[var(--color-ink)]">
-                    {pillar.title}
-                  </h3>
-                  <ul role="list" className="flex flex-col gap-3">
-                    {pillar.points.map((point) => (
-                      <li key={point} className="flex items-start gap-3">
-                        <svg
-                          className="mt-[0.45rem] flex-shrink-0 text-[var(--color-accent)]"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M2.5 7l3 3 6-6"
-                            stroke="currentColor"
-                            strokeWidth="1.6"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <span className="text-body text-[var(--color-charcoal)]">
-                          {point}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              </FadeUp>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Google reviews. Sits between the white system section and the navy
-          mentoring one, so the white cards have a mist ground to read against.
-
-          The intro line connects the two proof sections: Serena is the founder
-          of Lind Street Osteopathy [src: lp.ts LP_TESTIMONIAL], the clinic in
-          the standing-start section above. Her review says "as a relatively
-          new clinic owner" in her own words, which is this page's reader. */}
-      <GoogleReviews
-        heading={
-          <>
-            And what clinic owners say{" "}
-            <em className="not-italic text-[var(--color-accent)]">on Google</em>
-          </>
-        }
-        intro="The first of these is Serena Gower-Johnson, whose clinic is the standing start further up this page."
-      />
-
-      {/* ── Who built this (deck slide 8) ───────────────────────────────────
-          The strongest card this page holds for this audience, and the first
-          draft barely played it — one sentence, no names, no faces. A graduate
-          deciding who to trust with their first year wants to know a practising
-          osteopath is behind it.
-
-          Roles and biography lines come from /team/, not the deck. The deck
-          bills Simon as "MOst"; he has resigned from the GOsC register, and
-          calling him a former registered osteopath is both the accurate version
-          and, for a room full of people about to qualify, the more useful one.
-
-          Placed immediately before the mentoring section so that "sessions are
-          with Danny and Simon" has just been given two faces. */}
+      {/* ── 3. Why Clinic Evo (Founder Credibility - moved up) ─────────────── */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
@@ -702,10 +264,10 @@ export default function GraduatePage() {
                   </em>
                 </h2>
                 <p className="text-body-lg mb-6 text-[var(--color-charcoal)]">
-                  Clinic Evo wasn&apos;t created by people who decided
-                  healthcare looked like a good marketing niche. It was built
-                  and tested inside a working MSK clinic before it was offered
-                  to anyone else.
+                  Clinic Evo wasn&apos;t created by people who decided healthcare
+                  looked like a good marketing niche. It was built and tested
+                  inside a working MSK clinic before it was offered to anyone
+                  else.
                 </p>
                 <figure className="m-0 mb-8">
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
@@ -769,12 +331,295 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── Mentoring ────────────────────────────────────────────────────────
-          Slide 7 in the deck, and the last thing a reader reached. Promoted to
-          here because it is the part a standard agency retainer does not
-          include — the actual differentiator, not a bonus.
+      {/* ── 4. The Clinical Gap (Consolidated Reality Check) ──────────────── */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="mb-12 max-w-[46rem]">
+            <FadeUp>
+              <div>
+                <p className="eyebrow mb-4">The graduate reality</p>
+                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                  The bit university doesn&apos;t teach you
+                </h2>
+                <p className="text-body-lg text-[var(--color-charcoal)]">
+                  You leave university ready to treat patients. Building the
+                  patient base that lets you practise is a completely different
+                  skill, and nobody examined you on it.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
 
-          No cadence anywhere in this section, by instruction. */}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
+            <FadeUp delay={0.06}>
+              <div className="flex h-full flex-col justify-between rounded-[var(--radius-card)] bg-[var(--color-ink)] p-8 lg:p-10">
+                <div>
+                  <h3 className="text-h3 mb-6 text-white">
+                    What you were trained in
+                  </h3>
+                  <ul role="list" className="flex flex-col gap-4">
+                    {TRAINED_IN.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span
+                          aria-hidden="true"
+                          className="mt-[0.6rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--color-accent)]"
+                        />
+                        <span className="text-body text-white/80">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p className="text-body-sm mt-8 border-t border-white/10 pt-4 text-white/50">
+                  Ready to diagnose and deliver exceptional patient care.
+                </p>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.12}>
+              <div className="flex h-full flex-col justify-between rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)] lg:p-10">
+                <div>
+                  <h3 className="text-h3 mb-6 text-[var(--color-accent-text)]">
+                    What nobody trained you in
+                  </h3>
+                  <ul role="list" className="flex flex-wrap gap-2.5">
+                    {NOT_TRAINED_IN.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3.5 py-2 text-body-sm text-[var(--color-charcoal)]"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-8 border-t border-[var(--color-border)] pt-5">
+                  <p className="text-body text-[var(--color-charcoal)]">
+                    <strong className="font-semibold text-[var(--color-ink)]">
+                      Starting from zero is hard:
+                    </strong>{" "}
+                    no reviews, no search visibility, and a limited budget, all
+                    while learning to run a business. You shouldn&apos;t have to
+                    become a marketing specialist just to practise.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. The System & Philosophy ────────────────────────────────────── */}
+      <section id="system" className="section scroll-mt-20 bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <FadeUp>
+            <div className="mb-10 max-w-[44rem]">
+              <p className="eyebrow mb-4">The system</p>
+              <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                Five things get built, in this order
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)]">
+                The order matters. Reviews are worth little if nobody can find
+                you, and visibility is wasted if the enquiry goes unanswered.
+              </p>
+            </div>
+          </FadeUp>
+
+          {/* Growth Equation formula */}
+          <FadeUp delay={0.06}>
+            <div className="mb-12 flex flex-wrap items-baseline gap-x-4 gap-y-2 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-5 text-h3 text-[var(--color-ink)] shadow-[var(--shadow-card)]">
+              {GRADUATE_EQUATION.map(({ term, op }) => (
+                <span key={term} className="inline-flex items-baseline gap-3">
+                  <span>{term}</span>
+                  {op && (
+                    <span className="font-display font-bold text-[var(--color-accent-text)]">
+                      {op}
+                    </span>
+                  )}
+                </span>
+              ))}
+            </div>
+          </FadeUp>
+
+          <ul role="list" className="flex flex-col">
+            {GRADUATE_SYSTEM.map((pillar, i) => (
+              <FadeUp key={pillar.title} delay={0.05 + i * 0.05}>
+                <li className="grid grid-cols-1 gap-5 border-t border-[var(--color-border)] py-8 last:border-b lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+                  <h3 className="text-h3 text-[var(--color-ink)]">
+                    {pillar.title}
+                  </h3>
+                  <ul role="list" className="flex flex-col gap-3">
+                    {pillar.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3">
+                        <svg
+                          className="mt-[0.45rem] flex-shrink-0 text-[var(--color-accent)]"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M2.5 7l3 3 6-6"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span className="text-body text-[var(--color-charcoal)]">
+                          {point}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </FadeUp>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── 6. What a strong first year looks like ─────────────────────────── */}
+      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <FadeUp>
+              <div className="lg:sticky lg:top-28">
+                <p className="eyebrow mb-4">What you&apos;re building toward</p>
+                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                  What does a strong first year actually look like?
+                </h2>
+                <p className="text-body mb-8 text-[var(--color-muted)]">
+                  Not a full diary in week one. These are the things that,
+                  together, mean your practice has started behaving like a
+                  predictable business.
+                </p>
+                <figure className="m-0">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+                    <Image
+                      src="/images/graduate/manual-therapy-lower-back.jpg"
+                      alt="A clinician in scrubs treating a patient's lower back on a treatment couch"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 420px"
+                    />
+                  </div>
+                </figure>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.08}>
+              <ul role="list" className="flex flex-col">
+                {STRONG_FIRST_YEAR.map((item, i) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-4 border-t border-[var(--color-border)] py-5 last:border-b"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 font-display text-sm font-bold text-[var(--color-accent-text)]"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-body-lg text-[var(--color-ink)]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. Proof: The Standing Start ────────────────────────────────────── */}
+      <section className="section bg-[var(--color-paper)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:items-start">
+            <div>
+              <FadeUp>
+                <div className="mb-10 max-w-[42rem]">
+                  <p className="eyebrow mb-4">What a standing start looks like</p>
+                  <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                    Lind Street Osteopathy opened with no logo, no website and
+                    no search presence
+                  </h2>
+                  <p className="text-body text-[var(--color-muted)]">
+                    One osteopath, one treatment room, a brand new business on
+                    the Isle of Wight with no reputation online. Twelve months
+                    later she held page one across her catchment.
+                  </p>
+                </div>
+              </FadeUp>
+
+              <ul role="list" className="flex flex-col">
+                {STANDING_START_PROOF.map((row, i) => (
+                  <FadeUp key={row.figure} delay={0.06 + i * 0.06}>
+                    <li className="grid grid-cols-1 gap-2 border-t border-[var(--color-border)] py-6 last:border-b lg:grid-cols-[1fr_auto] lg:items-baseline lg:gap-8">
+                      <h3 className="text-h4 font-normal text-[var(--color-charcoal)]">
+                        <span className="font-display text-[2.25rem] font-bold leading-none text-[var(--color-ink)] md:text-[2.75rem]">
+                          {row.figure}
+                        </span>{" "}
+                        {row.headline}
+                      </h3>
+                      <p className="text-body-sm text-[var(--color-muted)] lg:text-right">
+                        {row.source}
+                      </p>
+                    </li>
+                  </FadeUp>
+                ))}
+              </ul>
+
+              <FadeUp delay={0.24}>
+                <div className="mt-8">
+                  <p className="text-body mb-6 max-w-[46rem] text-[var(--color-muted)]">
+                    Lind Street is an osteopathy clinic. A physiotherapy or
+                    chiropractic practice competes for different searches and
+                    against different neighbours. The order of operations is
+                    identical: get found, earn trust, get booked, follow up.
+                    That is the work the six months does.
+                  </p>
+                  <ArrowLink href="/case-studies/lind-street-osteopathy/">
+                    Read the full Lind Street case study
+                  </ArrowLink>
+                </div>
+              </FadeUp>
+            </div>
+
+            <FadeUp delay={0.14} className="lg:sticky lg:top-28">
+              <figure className="m-0">
+                <div className="relative aspect-square w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
+                  <Image
+                    src="/images/lind-street/clinic-sign.png"
+                    alt="The brass Lind Street Osteopathy clinic sign in Ryde, listing back pain, neck pain, sciatica, arthritis and other conditions treated"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 420px"
+                  />
+                </div>
+                <figcaption className="text-body-sm mt-4 text-[var(--color-muted)]">
+                  Lind Street Osteopathy, Ryde. Opened cold, and built its
+                  search presence from nothing.
+                </figcaption>
+              </figure>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 8. Google Reviews (Directly following the case study) ─────────── */}
+      <GoogleReviews
+        surface="surface"
+        heading={
+          <>
+            What clinic owners say{" "}
+            <em className="not-italic text-[var(--color-accent)]">on Google</em>
+          </>
+        }
+        intro="The first of these is Serena Gower-Johnson, whose clinic is the standing start featured above."
+      />
+
+      {/* ── 9. Mentoring (Becoming a business owner) ───────────────────────── */}
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-ink)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
@@ -816,7 +661,7 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── Roadmap ─────────────────────────────────────────────────────────── */}
+      {/* ── 10. Roadmap ────────────────────────────────────────────────────── */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <FadeUp>
@@ -833,10 +678,6 @@ export default function GraduatePage() {
             </div>
           </FadeUp>
 
-          {/* Four periods, deliberately uneven in the copy beneath them. Each
-              eyebrow carries its own claim: "Month 4" alone means nothing to a
-              skimmer who did not count the cards before it, and `npm run scan`
-              fails ordinal-only labels for exactly that reason. */}
           <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {GRADUATE_ROADMAP.map((phase, i) => (
               <FadeUp key={phase.period} delay={0.05 + i * 0.07}>
@@ -857,131 +698,105 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── The offer ───────────────────────────────────────────────────────── */}
-      <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+      {/* ── 11. FAQ (Moved directly ABOVE Apply to resolve objections) ──────── */}
+      <section className="section grain border-t border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:items-center">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
             <FadeUp>
               <div>
-                <p className="eyebrow mb-4">The offer</p>
-                <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
-                  Half our normal fee for your first six months
+                <p className="eyebrow mb-4">Questions</p>
+                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                  The things graduates ask first
                 </h2>
-                <p className="text-body-lg mb-5 text-[var(--color-charcoal)]">
-                  You are building a patient base before you have built an
-                  income. So the fee is halved while you do it. Same system,
-                  same people. The price is the only difference.
-                </p>
                 <p className="text-body text-[var(--color-muted)]">
-                  From month {GRADUATE_TERMS.standardRateFromMonthWord} you
-                  move to our standard rate. The mentoring is not something that begins
-                  at that point — it has been running since month one, and it
-                  keeps running.
+                  Common questions on timing, qualifications, premises and how
+                  the programme runs.
                 </p>
               </div>
             </FadeUp>
-
-            <FadeUp delay={0.1}>
-              <div className="rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)] lg:p-10">
-                <p className="text-label mb-5 text-[var(--color-muted)]">
-                  Who it is for
-                </p>
-                <ul role="list" className="mb-8 flex flex-col gap-4">
-                  {GRADUATE_ELIGIBILITY.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <svg
-                        className="mt-1 flex-shrink-0 text-[var(--color-accent)]"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M3 8.5l3.5 3.5L13 5"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      <span className="text-body text-[var(--color-ink)]">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-body-sm mb-8 -mt-4 text-[var(--color-muted)]">
-                  {GRADUATE_ELIGIBILITY_NOTE}
-                </p>
-                <div className="border-t border-[var(--color-border)] pt-6">
-                  <p className="text-body text-[var(--color-charcoal)]">
-                    <strong className="font-semibold text-[var(--color-ink)]">
-                      {GRADUATE_INTAKE.places} places.
-                    </strong>{" "}
-                    Next intake {GRADUATE_INTAKE.labelLong}.
-                  </p>
-                  <div className="mt-6">
-                    <Button href="#apply" size="lg">
-                      Apply for a place
-                    </Button>
-                  </div>
-                </div>
-              </div>
+            <FadeUp delay={0.08}>
+              <FAQAccordion items={faqs} />
             </FadeUp>
           </div>
         </div>
       </section>
 
-      {/* ── Apply ───────────────────────────────────────────────────────────── */}
-      <section id="apply" className="section scroll-mt-20 bg-[var(--color-paper)]">
+      {/* ── 12. The Offer & Apply (Unified conversion section) ─────────────── */}
+      <section id="apply" className="section scroll-mt-20 border-t border-[var(--color-border)] bg-[var(--color-paper)]">
         <div className="cx-main">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:items-start">
             <FadeUp>
               <div className="lg:sticky lg:top-28">
-                <p className="eyebrow mb-4">Apply</p>
+                <p className="eyebrow mb-4">The offer &amp; apply</p>
                 <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                  Build the clinic you imagined when you started training
+                  Half our normal fee for your first six months
                 </h2>
-                <p className="text-body-lg mb-8 text-[var(--color-charcoal)]">
-                  Your first reviews. Your first fully booked day. Your first
-                  month where the clinic starts to feel like a business.{" "}
-                  <strong className="font-semibold text-[var(--color-ink)]">
-                    We&apos;ll help you get there.
-                  </strong>
+                <p className="text-body-lg mb-6 text-[var(--color-charcoal)]">
+                  You are building a patient base before you have built an
+                  income. So the fee is halved while you do it. Same system, same
+                  team. From month {GRADUATE_TERMS.standardRateFromMonthWord} the fee
+                  moves to standard, and everything else carries on.
                 </p>
-                <ul role="list" className="flex flex-col gap-4">
-                  {[
-                    "Send the application — it takes a couple of minutes",
-                    "We read it and come back to you",
-                    "A short call about where you are and what you need",
-                    `If it is a fit, you start with the ${GRADUATE_INTAKE.label} intake`,
-                  ].map((step, i) => (
-                    <li key={step} className="flex items-start gap-3.5">
-                      <span
-                        aria-hidden="true"
-                        className="mt-px w-4 flex-shrink-0 font-display text-sm font-bold text-[var(--color-accent-text)]"
-                      >
-                        {i + 1}
-                      </span>
-                      <span className="text-body text-[var(--color-muted)]">
-                        {step}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
 
-                <figure className="m-0 mt-9">
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
-                    <Image
-                      src="/images/graduate/graduate-clinicians-studio.jpg"
-                      alt="A group of clinical students in scrubs"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 420px"
-                    />
-                  </div>
-                </figure>
+                <div className="mb-8 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)]">
+                  <p className="text-label mb-4 text-[var(--color-muted)]">
+                    Who it is for
+                  </p>
+                  <ul role="list" className="flex flex-col gap-3">
+                    {GRADUATE_ELIGIBILITY.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <svg
+                          className="mt-1 flex-shrink-0 text-[var(--color-accent)]"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M2.5 7l3 3 6-6"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span className="text-body-sm text-[var(--color-ink)]">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-body-sm mt-4 border-t border-[var(--color-border)] pt-4 text-[var(--color-muted)]">
+                    {GRADUATE_ELIGIBILITY_NOTE}
+                  </p>
+                </div>
+
+                <div className="border-t border-[var(--color-border)] pt-6">
+                  <p className="text-body-sm font-semibold uppercase tracking-[0.08em] text-[var(--color-muted)]">
+                    What happens next
+                  </p>
+                  <ul role="list" className="mt-4 flex flex-col gap-3.5">
+                    {[
+                      "Send the application — it takes a couple of minutes",
+                      "We read it and come back to you",
+                      "A short call about where you are and what you need",
+                      `If it is a fit, you secure one of the ${GRADUATE_INTAKE.places} places for the ${GRADUATE_INTAKE.label} intake`,
+                    ].map((step, i) => (
+                      <li key={step} className="flex items-start gap-3.5">
+                        <span
+                          aria-hidden="true"
+                          className="mt-px w-4 flex-shrink-0 font-display text-sm font-bold text-[var(--color-accent-text)]"
+                        >
+                          {i + 1}
+                        </span>
+                        <span className="text-body text-[var(--color-charcoal)]">
+                          {step}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </FadeUp>
 
@@ -994,22 +809,13 @@ export default function GraduatePage() {
         </div>
       </section>
 
-      {/* ── FAQ ─────────────────────────────────────────────────────────────── */}
-      <section className="section grain border-t border-[var(--color-border)] bg-[var(--color-surface)]">
-        <div className="cx-main">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-            <FadeUp>
-              <div>
-                <p className="eyebrow mb-4">Questions</p>
-                <h2 className="text-h2 text-[var(--color-ink)]">
-                  The things graduates ask first
-                </h2>
-              </div>
-            </FadeUp>
-            <FadeUp delay={0.08}>
-              <FAQAccordion items={faqs} />
-            </FadeUp>
-          </div>
+      {/* ── 13. Closing Reassurance Micro-bar ──────────────────────────────── */}
+      <section className="border-t border-[var(--color-border)] bg-[var(--color-surface)] py-8">
+        <div className="cx-main text-center">
+          <p className="text-body-sm text-[var(--color-muted)]">
+            No hard sell, no lock-in. Just an honest conversation to see if the
+            programme is the right fit for your practice.
+          </p>
         </div>
       </section>
 
@@ -1017,3 +823,4 @@ export default function GraduatePage() {
     </>
   );
 }
+
