@@ -100,12 +100,25 @@ function Band(props: Omit<ProofBandProps, "bare">) {
 
           {props.stat ? (
             <>
-              <p className="mt-6 font-display text-5xl font-bold leading-none text-white md:text-6xl">
-                {props.stat.value}
-              </p>
-              <p className="mt-3 max-w-md text-[15px] font-medium text-white/80">
-                {props.stat.label}
-              </p>
+              {/* The figure and its label are ONE h3, not two paragraphs.
+                  scripts/scan.mjs reads the heading ladder to judge whether a page
+                  argues its case to a skimmer, so a 48px number rendered as a <p>
+                  is invisible to it — and to a reader skimming headings, which is
+                  the same thing. As a heading it reads cold: "572 Appointments in
+                  the clinic's busiest month" carries its own unit and meaning where
+                  a bare "572" does not.
+
+                  Bare <h3> takes no size from globals.css (only text-wrap), so the
+                  spans keep the exact type scale this had as paragraphs. Same
+                  reasoning as LpProofRow.headline in src/lib/lp.ts. */}
+              <h3 className="m-0 [text-wrap:initial]">
+                <span className="mt-6 block font-display text-5xl font-bold leading-none text-white md:text-6xl">
+                  {props.stat.value}
+                </span>
+                <span className="mt-3 block max-w-md text-[15px] font-medium text-white/80">
+                  {props.stat.label}
+                </span>
+              </h3>
               <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/60">
                 {props.body}
               </p>

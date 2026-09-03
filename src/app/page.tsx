@@ -15,6 +15,8 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import HeroVisual from "@/components/hero/HeroVisual";
 import HeroHeadline from "@/components/hero/HeroHeadline";
 import CTASection from "@/components/sections/CTASection";
+import ProofBand from "@/components/sections/ProofBand";
+import { NEW_PATIENTS, SITE } from "@/lib/clinic-capacity";
 import { siteConfig } from "@/lib/metadata";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
@@ -631,7 +633,15 @@ export default function HomePage() {
             {/* Left, the origin clinic. The previous version led with "572 new
                 patient enquiries in 30 days" and a testimonial quoting a page-4
                 to position-1 move and 34 recovered patients. All three figures
-                were unverifiable, so they are out until real numbers exist. */}
+                were unverifiable, so they came out.
+
+                One of the three has since been replaced rather than restored.
+                Danny gave real diary figures on 3 Sep 2026 and 212 new patients
+                now sits in the ProofBand below this section. The deck's version
+                stays banned: 572 counts APPOINTMENTS, not new patient enquiries,
+                so the deck's framing overstates the new-patient figure roughly
+                two and a half times. The other two figures have no source and
+                are still out. See src/lib/clinic-capacity.ts. */}
             <FadeUp>
               <figure className="m-0">
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]">
@@ -744,6 +754,33 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── The diary figure ──────────────────────────────────────────────
+          The slot the deck's "572 new patient enquiries in 30 days" was cut
+          from, filled at last with a sourced number — see the comment on the
+          origin-clinic photograph above for why the old one went.
+
+          ONE figure, in a ProofBand, not three in a StatBand. Simon's
+          instruction on 3 Sep 2026: "as soon as a few numbers are seen together
+          they lose their meaning." The five rooms are a clause in the body copy
+          for the same reason, and 572 is deliberately NOT here — it is on the
+          case study this band links to, so the two numbers never share a page.
+          src/lib/clinic-capacity.ts has the provenance and the traps.
+
+          Placed between the founder block and the Google reviews so the page
+          runs from who built this, to what it did in his own clinic, to what
+          clients say about it. Dark ground also breaks a paper-to-paper run. */}
+      <ProofBand
+        eyebrow="What a full diary looks like"
+        stat={{
+          value: NEW_PATIENTS.figure,
+          label: "New patients at Bodyfunction Clinic in its best month",
+        }}
+        body={`That is ${SITE.description}, not a group of them, which is the only reason the figure means anything. Every other number on this site measures search — Ahrefs and Search Console see clicks and positions, never a booking. This one is the clinic's own diary.`}
+        source={NEW_PATIENTS.source}
+        image="/images/bodyfunction-clinic-team-at-reception-01.jpg"
+        imageAlt="The reception desk at Bodyfunction Clinic in Angel, London"
+      />
 
       {/* ── Google reviews ────────────────────────────────────────────────
           Straight after the founder/origin-clinic block, so the page goes from

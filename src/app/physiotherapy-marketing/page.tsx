@@ -219,7 +219,7 @@ export default function PhysiotherapyMarketingPage() {
       <StatBand
         eyebrow="What we can evidence"
         heading="Measured in a working MSK clinic."
-        body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so we do not publish a booking figure."
+        body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so none of these three is a booking figure."
         stats={[
           { value: "8 → 3,822", label: "Monthly organic visitors at a London MSK clinic, over two years" },
           { value: "+425%", label: "Google clicks year on year across the same period" },

@@ -237,21 +237,31 @@ export const LP_PROOF: LpProofRow[] = [
     href: "/case-studies/lind-street-osteopathy/",
   },
   {
-    // £30 per patient, confirmed by Simon on 18 Aug 2026 [src: client
-    // confirmation]. This is a cost per booked patient, not the account's cost
-    // per tracked conversion — the two are different measures and the £42.50
-    // conversion figure on /google-ads-for-clinics/ is still correct for what it
-    // describes there.
+    // £30 IS A COST PER CONVERSION, NOT PER BOOKED PATIENT. This row said
+    // "booked new patient" until 3 Sep 2026, which was wrong: Danny gave the
+    // figure as "cost per patient £30" in WhatsApp that morning [src: WhatsApp,
+    // Danny, 3 Sep 2026] and Simon confirmed the same day that it means per
+    // conversion [src: client]. Google counts a conversion as a tracked enquiry
+    // — a call, a form, a chat — so the metric and headline now say enquiry.
+    // Do not put the word "booked" back; see CONVERSION_CAVEAT in
+    // src/lib/google-ads-evidence.ts.
     //
-    // Deliberately no "89 conversions from £3.78k" line here. That arithmetic
-    // yields £42.50, so quoting it under £30 would have the row contradict
-    // itself; and the patient count behind £30 is not recorded anywhere. The
-    // window is attribution, not justification.
+    // THE WINDOW WAS REMOVED ON PURPOSE. This row used to carry "Google Ads,
+    // 29 Dec 2025 – 22 Jun 2026", which is the window on the overview
+    // screenshot behind /google-ads-for-clinics/. That window's own arithmetic
+    // is £3.78k over 89 conversions = £42.50, so attaching it to £30 implied
+    // £30 came from data that yields a different number. £30 is Danny's own
+    // current figure and no window has been given for it; the source line now
+    // says whose figure it is instead of implying a period it was measured over.
+    //
+    // £42.50 therefore stays on /google-ads-for-clinics/, where the screenshot
+    // it is read off is on the page, and £30 stays here. Same measure, two
+    // periods — so they must never appear on the same page.
     platform: "Google Ads",
-    metric: "Cost per booked new patient",
+    metric: "Cost per patient enquiry",
     figure: "£30",
-    headline: "per booked new patient through Google Ads at Bodyfunction Clinic",
-    source: "Google Ads, 29 Dec 2025 – 22 Jun 2026",
+    headline: "per patient enquiry from Google Ads at Bodyfunction Clinic",
+    source: "Bodyfunction Clinic's own Google Ads figure",
     clinic: BODYFUNCTION,
   },
 ];

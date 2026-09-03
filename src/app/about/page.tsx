@@ -12,7 +12,6 @@ import PersonSchema from "@/components/schema/PersonSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
 import HeroFounderPanel from "@/components/sections/HeroFounderPanel";
-import StatBand from "@/components/sections/StatBand";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 import ClientLink from "@/components/ui/ClientLink";
 
@@ -388,17 +387,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Proof band */}
-      <StatBand
-        eyebrow="One connected system"
-        heading="The parts work together."
-        body="Visibility, website, enquiries, calls and follow-up are designed to work as one, so each stage strengthens the next instead of competing for attention."
-        stats={[
-          { value: "5", label: "Connected growth stages, from first search to rebooking" },
-          { value: "3", label: "MSK disciplines we specialise in: osteo, physio, chiro" },
-          { value: "1", label: "Single system in place of disconnected tools and agencies" },
-        ]}
-      />
+      {/* A StatBand sat here reading "5 connected growth stages / 3 MSK
+          disciplines / 1 single system". Removed on 3 Sep 2026: those are not
+          statistics, they are the offer counted up, and they were in the
+          component this site uses for evidence. The service cards directly above
+          already name the five stages and the "Proof" section directly below
+          does the evidence job with sourced figures, so the band was arguing a
+          third time with numbers that prove nothing.
+
+          Nothing replaces it. Simon's instruction the same day was that numbers
+          seen together lose their meaning, so this page does not get a
+          consolation figure — the two real diary numbers are one per page, on
+          the home page and the Bodyfunction case study. */}
 
       {/* Proof */}
       <section className="section bg-[var(--color-paper)]">

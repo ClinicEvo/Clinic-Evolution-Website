@@ -29,12 +29,25 @@
  * a tracked action — a call, a form, a chat — so FIGURES' £42.50 is a cost per
  * conversion and /google-ads-for-clinics/ must keep saying so.
  *
- * The £30-per-patient figure is no longer held back: Simon confirmed it on
- * 18 Aug 2026 [src: client confirmation] and the /lp/ pages state it as a cost
- * per booked patient. That is a DIFFERENT measure from the £42.50 here, not a
- * correction of it, which is why both numbers are live on different pages. The
- * patient count behind £30 is not recorded — if it turns up, it belongs here
- * beside the figure it produces.
+ * £30 AND £42.50 ARE THE SAME MEASURE OVER DIFFERENT PERIODS. This note used
+ * to say they were different measures — £30 a cost per booked patient, £42.50 a
+ * cost per conversion — and that reasoning is void. Danny gave £30 as "cost per
+ * patient" in WhatsApp on 3 Sep 2026 and Simon confirmed the same day that he
+ * means per conversion [src: WhatsApp, Danny + client confirmation, 3 Sep 2026].
+ * So both figures count tracked enquiries, and /lp/ has been relabelled to say
+ * enquiry rather than booked patient.
+ *
+ * That leaves one metric with two values live on one site, which is only
+ * survivable because they never share a page. £42.50 stays HERE, on the page
+ * that shows the screenshot it is read off, described as what that window
+ * averaged. £30 stays on /lp/ as Danny's own current figure, with no window,
+ * because none has been given for it. DO NOT put £30 on this page or £42.50 on
+ * /lp/: side by side they read as a 40% discrepancy in the same number, which is
+ * exactly what a clinician checking two pages would spot.
+ *
+ * Still not recorded: what period £30 covers. Worth asking — with a window it
+ * could replace £42.50 outright and the site would carry one figure instead of
+ * two.
  */
 
 /** The date range visible on the overview chart's x-axis. */

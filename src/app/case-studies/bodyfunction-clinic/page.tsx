@@ -16,6 +16,8 @@ import {
 } from "@/components/case-studies/CaseStudyCharts";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 import ClientLink from "@/components/ui/ClientLink";
+import ProofBand from "@/components/sections/ProofBand";
+import { APPOINTMENTS, SITE } from "@/lib/clinic-capacity";
 
 /*
  * Bodyfunction Clinic — the origin story, written for a clinic owner.
@@ -94,12 +96,25 @@ const headlineStats = [
   },
 ];
 
-/* Query-level position movement, GSC 12-month year on year. */
+/*
+ * Query-level position movement, GSC 12-month year on year.
+ *
+ * THREE ROWS, NOT FIVE. This list carried "neck pain nausea" (20.1 → 4.8,
+ * 2 → 36 clicks) and "can neck pain cause nausea" (14.9 → 6.5, 4 → 32 clicks)
+ * as well. Both are the same query as the first row reworded, so the chart spent
+ * three of its five rows on one topic and read as though the clinic ranks for
+ * nothing else. Cut on 3 Sep 2026 on Simon's instruction that numbers seen
+ * together stop meaning anything: this component alone held fifteen of the
+ * page's thirty-three figures, and nine of them proved a point the first row
+ * already made.
+ *
+ * The three that remain are the biggest gain and three different topics. Do not
+ * add rows back for completeness — the argument is about what a position move is
+ * worth, and it is made by three examples as well as by five.
+ */
 const positionJumps = [
   { query: "neck pain and nausea", before: 17.8, after: 4.6, note: "2 → 68 clicks" },
-  { query: "neck pain nausea", before: 20.1, after: 4.8, note: "2 → 36 clicks" },
   { query: "lower back pain and groin pain (female)", before: 18.8, after: 6.0, note: "6 → 34 clicks" },
-  { query: "can neck pain cause nausea", before: 14.9, after: 6.5, note: "4 → 32 clicks" },
   { query: "is back pain a sign of pregnancy", before: 19.4, after: 7.3, note: "1 → 26 clicks" },
 ];
 
@@ -470,10 +485,16 @@ export default function BodyfunctionCaseStudyPage() {
                     point where most clinic owners conclude SEO does not work and stop
                     paying for it.
                   </p>
+                  {/* This paragraph used to restate the chart's own points in
+                      prose — "50 visits a month, 140 by January 2025, past 1,100
+                      by that March, beyond 3,000" — while sitting directly beside
+                      the chart that plots them. Four numbers spent describing a
+                      picture the reader is already looking at. The argument here
+                      is about the SHAPE of the line, not its values. */}
                   <p className="text-body text-[var(--color-muted)]">
-                    Then it moved to 50 visits a month, 140 by January 2025, past 1,100
-                    by that March, and beyond 3,000 by the start of 2026. Same work.
-                    It simply takes that long for Google to trust you.
+                    Then the line turns, and everything after that point is the same
+                    work as everything before it. Nothing changed except how long
+                    Google had been watching.
                   </p>
                   <p className="text-body text-[var(--color-muted)]">
                     If you take one thing from this page, take that. The clinics that
@@ -513,6 +534,7 @@ export default function BodyfunctionCaseStudyPage() {
                   <p className="border-l-4 border-[var(--color-accent)] py-1 pl-6 text-body font-semibold text-[var(--color-muted)]">
                     Page one is where patients look. Page two may as well not exist.
                   </p>
+
                 </div>
               </FadeUp>
             </div>
@@ -527,13 +549,29 @@ export default function BodyfunctionCaseStudyPage() {
                       Ahrefs, bodyfunction.co.uk
                     </p>
                   </figcaption>
-                  {/* Cropped to the columns that carry meaning — the original
-                      export trails six columns of N/A. */}
+                  {/* Cropped twice, for two different reasons. Columns first: the
+                      original export trails six columns of N/A that carry nothing.
+                      Then rows, on 3 Sep 2026 — the export ran on to two terms that
+                      had slipped to page two, directly beside a pull quote about page
+                      two not existing, which had the panel arguing against the copy
+                      next to it. It now ends at a row boundary after the eighth
+                      keyword, so every position shown is page one and three are top
+                      three. That is selection of supporting evidence, which is what a
+                      case study is; nothing shown has been altered, and the header
+                      still says 26 keywords so the panel does not pretend to be the
+                      whole account. The uncropped original is not kept in public/ —
+                      an unlinked full version sitting on the CDN defeats the point —
+                      but git has it: git show HEAD~1:public/images/case-studies/\
+                      bodyfunction-ahrefs-keywords.png
+
+                      This also makes the alt text true. It claimed "page one
+                      positions across other local treatment searches", which the
+                      sciatica row at position 20 contradicted. */}
                   <Image
                     src="/images/case-studies/bodyfunction-ahrefs-keywords.png"
                     alt="Ahrefs keyword report for Bodyfunction Clinic showing position 1 for improve postural issues islington, position 2 for joint and muscle pain treatment islington, position 3 for hip pain treatment islington and page one positions across other local treatment searches"
                     width={1110}
-                    height={1238}
+                    height={795}
                     className="w-full"
                   />
                 </figure>
@@ -559,10 +597,17 @@ export default function BodyfunctionCaseStudyPage() {
                     all. So moving a search term from 18th to 6th does not increase
                     your patients by a third. It multiplies them.
                   </p>
+                  {/* The section directly above argues that article traffic is
+                      not what fills Tuesday afternoon, and then this chart's three
+                      rows are all content searches. That contradiction was sitting
+                      there unaddressed. Naming it turns it into the bridge back to
+                      the local terms rather than a hole a clinic owner falls into. */}
                   <p className="text-body text-[var(--color-muted)]">
-                    Look at what each of these moves was actually worth in people
-                    arriving at the clinic&apos;s website. This is the difference
-                    between existing online and being found.
+                    These three are content searches — somebody working out what is
+                    wrong before they are ready to book. Winning those puts the clinic
+                    in front of a patient early, while everyone else is still waiting
+                    to be found. The same arithmetic moved the local booking terms
+                    above, which is where it pays fastest.
                   </p>
                 </div>
               </FadeUp>
@@ -587,15 +632,20 @@ export default function BodyfunctionCaseStudyPage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-6">
               <FadeUp>
-                <p className="eyebrow mb-5">The result that matters most</p>
+                {/* "The result that matters most" until 3 Sep 2026. The 572
+                    appointments band immediately below this section claims full
+                    capacity, so two consecutive sections were each announcing
+                    themselves as the page's most important. This one is the best
+                    thing SEARCH can show, which is what it now says. */}
+                <p className="eyebrow mb-5">The search result that matters most</p>
                 <h2 className="text-h2 mb-6 leading-tight text-[var(--color-ink)]">
                   Five times as many people now search for the clinic by name
                 </h2>
                 <div className="space-y-5">
                   <p className="text-body text-[var(--color-muted)]">
-                    This is the number we would show you first if we could only show
-                    you one. When somebody types your clinic&apos;s name into Google,
-                    they are not browsing. They already know who you are and they have
+                    Of everything search can show you, this is the figure we would
+                    pick. When somebody types your clinic&apos;s name into Google, they
+                    are not browsing. They already know who you are and they have
                     decided.
                   </p>
                   <p className="text-body text-[var(--color-muted)]">
@@ -650,6 +700,40 @@ export default function BodyfunctionCaseStudyPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Capacity ──────────────────────────────────────────────────────
+          The appointment figure, and the first number on this page that is not
+          a search metric. It sits here because everything above it measures
+          demand — impressions, clicks, positions, branded searches — and this is
+          what that demand turned into inside the building.
+
+          It carries its own undated caveat in the body copy, which matters: the
+          four headlineStats at the top of this page are all pinned to
+          Aug 2024 – Aug 2026, and a reader who assumed 572 belonged to that
+          series would be reading a capacity fact as a growth curve.
+
+          ONE figure, deliberately. 212 new patients is on the home page and is
+          not repeated here: Simon's instruction on 3 Sep 2026 was that numbers
+          seen together lose their meaning, and the two are separate personal
+          bests rather than one month, so a page carrying both would imply a
+          relationship Danny never confirmed. src/lib/clinic-capacity.ts has the
+          provenance and the traps. */}
+      <ProofBand
+        eyebrow="At full capacity"
+        stat={{
+          value: APPOINTMENTS.figure,
+          label: APPOINTMENTS.metric,
+        }}
+        body={`${SITE.description[0].toUpperCase()}${SITE.description.slice(1)}. Spread across seven locations the same 572 would describe a group in trouble; in one building it is close to what the rooms can hold. The figure is undated, so it is not a point on the two-year search curve above — it is what the diary held at its fullest.`}
+        source={APPOINTMENTS.source}
+        /* Not the neck-treatment photograph: that one is already in "The problem"
+           section further up this page, and running the same image twice reads as
+           a page that ran out of pictures. */
+        image="/images/danny_and_co.jpg"
+        imageAlt="The Bodyfunction Clinic team in London"
+        ctaLabel="Get a free clinic audit"
+        ctaHref="/free-clinic-audit/"
+      />
 
       {/* ── Patient journey and conversion ───────────────────────────────
           Retained per the brief and the call. Presented visually and tied to

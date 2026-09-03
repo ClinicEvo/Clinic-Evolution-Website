@@ -206,7 +206,7 @@ export default function OsteopathMarketingPage() {
       <StatBand
         eyebrow="What we can evidence"
         heading="Two clinics at different stages."
-        body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so we do not publish a booking figure."
+        body="Every figure here comes from Google Search Console or Ahrefs and can be checked in either tool. Both tools measure search, not appointments, so none of these three is a booking figure."
         stats={[
           { value: "8 → 3,822", label: "Monthly organic visitors at a London osteopathy clinic, over two years" },
           { value: "332", label: "Keywords now ranking in Google's top three, from none in 2024" },
