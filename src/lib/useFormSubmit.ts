@@ -28,7 +28,12 @@ export function useFormSubmit({ formType, onSuccess }: Options) {
     }
 
     try {
-      const res = await fetch("/api/submit-form", {
+      // TRAILING SLASH IS REQUIRED. next.config.mjs sets `trailingSlash: true`,
+      // which applies to route handlers too, so "/api/submit-form" answers 308
+      // to "/api/submit-form/". A 308 preserves the method and body and fetch
+      // follows it, so this worked either way — it just did it in two requests
+      // instead of one, on every submission from every form on the site.
+      const res = await fetch("/api/submit-form/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...payload, form_type: formType }),

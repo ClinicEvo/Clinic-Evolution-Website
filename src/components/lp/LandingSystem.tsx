@@ -42,11 +42,23 @@ export default function LandingSystem({ variant }: { variant: LpVariant }) {
 
           <FadeUp delay={0.08}>
             <div>
+              {/* "Most clinics buy a web designer, an SEO freelancer and an ads
+                  agency who never speak to each other" — an unsourced claim
+                  about how a whole market behaves, which is the one thing this
+                  project's rules put above everything else. LandingProblem's
+                  own comments record an identical line being removed for the
+                  same reason; this one survived because it reads as scene-
+                  setting rather than as a statistic.
+
+                  Recast as a conditional about a purchase the reader might
+                  make, which asserts nothing about anybody and puts them in the
+                  sentence. Same argument, no claim. */}
               <p className="text-body-lg mb-5 text-[var(--color-muted)]">
-                Most clinics buy a web designer, an SEO freelancer and an ads
-                agency who never speak to each other, then handle the enquiries
-                themselves. We run all five layers below as one thing, with one
-                team, aimed at one number: patients in the diary.
+                Buy a web designer, an SEO freelancer and an ads agency
+                separately and you have three suppliers who never speak to each
+                other, with the enquiries they produce still landing on you. We
+                run all five layers below as one thing, with one team, aimed at
+                one number: patients in the diary.
               </p>
               <p className="text-body text-[var(--color-muted)]">
                 You do not pick items off this list. The free audit works out
@@ -84,8 +96,13 @@ export default function LandingSystem({ variant }: { variant: LpVariant }) {
 
                   <div>
                     <p className="text-body max-w-[58ch] text-[var(--color-muted)]">
+                      {/* Colon, not an em dash. The global copy rule bans em
+                          dashes in anything client-facing, and this template
+                          was generating one into visible body copy on all four
+                          landing pages. A colon is also the right mark here:
+                          what follows is a list the clause introduces. */}
                       {layer.stage === "Get found"
-                        ? `${layer.detail.replace(/\.$/, "")} — ${variant.seoConditions}.`
+                        ? `${layer.detail.replace(/\.$/, "")}: ${variant.seoConditions}.`
                         : layer.detail}
                     </p>
 

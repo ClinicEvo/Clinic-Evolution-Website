@@ -26,9 +26,21 @@ export const ROUTES = [
   // The PPC ad destinations. These are noindex and off the nav, which is exactly
   // why they need to be on this list: nothing else would ever crawl to them, and
   // they had drifted a long way behind the rest of the site before anyone looked.
-  // The three variants share a template and differ only in copy and one FAQ, so
-  // one covers all three here, the same as the who-we-help pages above.
+  //
+  // ALL FOUR ARE HERE, which breaks this file's own rule that one page per
+  // template is enough. The rule is right and the exception is deliberate:
+  // since 9 Sep 2026 these four no longer differ only in copy. Each carries its
+  // own photograph in LandingDiscipline, cropped hard by object-fit against a
+  // per-variant objectPosition, and three of the four sources are portrait. A
+  // bad crop is precisely what source review cannot catch and what a curated
+  // route list exists to catch, so the extra minutes buy something here where
+  // they would not on a fourth who-we-help page.
+  //
+  // To shoot just this set:  npm run shots -- --routes lp-ads,lp-ads-osteo,lp-ads-chiro,lp-ads-broad
   { path: "/lp/physiotherapy-marketing/",                 name: "lp-ads" },
+  { path: "/lp/osteopathy-marketing/",                    name: "lp-ads-osteo" },
+  { path: "/lp/chiropractic-marketing/",                  name: "lp-ads-chiro" },
+  { path: "/lp/healthcare-marketing/",                    name: "lp-ads-broad" },
   { path: "/lp/thank-you/",                               name: "lp-thank-you" },
 ];
 

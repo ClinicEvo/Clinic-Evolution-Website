@@ -64,8 +64,11 @@ export const events = {
     trackEvent({ action: "graduate_apply_submit", category: "conversion" }),
   whatsappClick: () =>
     trackEvent({ action: "whatsapp_click", category: "engagement" }),
-  // `label` carries the placement on the landing pages, where click-to-call is
-  // offered in three positions and we need to know which one earns the calls.
+  // `label` carries the placement. It was added when the landing pages offered
+  // click-to-call in three positions; all three were removed on 26 Aug 2026
+  // (see LP_PHONE in src/lib/lp.ts), so on /lp/ this now only fires from the
+  // thank-you page's number. The parameter stays for the site pages and for
+  // whenever a tracked call-forwarding number is put back.
   phoneClick: (label?: string) =>
     trackEvent({ action: "phone_click", category: "engagement", label }),
   emailClick: () =>

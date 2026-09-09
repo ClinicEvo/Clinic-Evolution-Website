@@ -1,13 +1,16 @@
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import FadeUp from "@/components/ui/FadeUp";
-import { LP_SECTION_ANCHORS, type LpVariant } from "@/lib/lp";
+import { LP_SECTION_ANCHORS, LP_TURNAROUND, type LpVariant } from "@/lib/lp";
 
 /**
- * Shared objections, plus one question written for this ad group specifically.
+ * Shared objections, plus two questions written for this ad group specifically.
  *
- * The variant question is most of what makes a variant more than a headline
+ * The variant questions are much of what makes a variant more than a headline
  * swap: a physiotherapist who clicked a physiotherapy ad previously found
- * nothing below the H1 written for physiotherapists.
+ * nothing below the H1 written for physiotherapists. There was one per variant
+ * until 9 Sep 2026; see `variantFaqs` in src/lib/lp.ts for what the second one
+ * is doing on each page, and for why the physiotherapy and chiropractic
+ * answers no longer open by conceding that no case study exists.
  *
  * No FAQSchema on this page, deliberately — it is noindex, and marking up
  * questions Google is told not to index is pointless. The organic service pages
@@ -36,12 +39,12 @@ const SHARED_FAQS = [
   {
     question: "What actually happens after I send the form?",
     answer:
-      "A person reviews your clinic — not an automated report generator — and comes back within two working days with what they found.",
+      `A person reviews your clinic (not an automated report generator) and comes back ${LP_TURNAROUND} with what they found.`,
   },
 ];
 
 export default function LandingFaq({ variant }: { variant: LpVariant }) {
-  const faqs = [variant.variantFaq, ...SHARED_FAQS];
+  const faqs = [...variant.variantFaqs, ...SHARED_FAQS];
 
   return (
     // Ad sitelink target — see LP_SECTION_ANCHORS before renaming.

@@ -15,7 +15,7 @@ import LpCtaButton from "./LpCtaButton";
  */
 const TRUST_POINTS = [
   "Built and run by a practising clinic owner",
-  "MSK clinics only — osteopathy, physio, chiropractic",
+  "MSK clinics only: osteopathy, physio, chiropractic",
   "Rolling monthly, no lock-in contract",
 ];
 
@@ -96,8 +96,9 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
                   <strong className="font-semibold text-[var(--color-ink)]">
                     Danny Morgan, M.Ost
                   </strong>{" "}
-                  — Clinic Evo&apos;s founder, with his team at Bodyfunction Clinic,
-                  London. The clinic this system was built and tested inside.
+                  is Clinic Evo&apos;s founder, pictured with his team at
+                  Bodyfunction Clinic, London. The clinic this system was built
+                  and tested inside.
                 </span>
               </figcaption>
             </figure>

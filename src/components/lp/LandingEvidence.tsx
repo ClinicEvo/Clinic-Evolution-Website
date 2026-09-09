@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "@/components/ui/FadeUp";
-import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
 import { GoogleAdsLockup } from "@/components/icons/GoogleColorMark";
 import LpCtaButton from "./LpCtaButton";
 import { LP_PROOF, LP_SECTION_ANCHORS } from "@/lib/lp";
@@ -46,12 +45,16 @@ import GooglePullQuote from "@/components/sections/GooglePullQuote";
  *
  * The practitioner voice at the foot of this section is now Serena's public
  * Google review rather than the quote drafted for her — see GooglePullQuote.
+ *
+ * ClientLogoStrip used to be rendered here, above the results. It moved up into
+ * the page on 9 Sep 2026 when LandingDiscipline was inserted between the hero
+ * and this section: the strip belongs directly under the hero and would
+ * otherwise have been carried a screen down as a side effect of the new band.
+ * Nothing else about this section changed with it.
  */
 export default function LandingEvidence() {
   return (
     <>
-      <ClientLogoStrip label="Clinics and brands we build and grow" />
-
       {/* Ad sitelink target — see LP_SECTION_ANCHORS before renaming. */}
       <section
         id={LP_SECTION_ANCHORS.results.slice(1)}
