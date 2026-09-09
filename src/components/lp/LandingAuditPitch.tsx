@@ -44,7 +44,12 @@ export default function LandingAuditPitch({ variant }: { variant: LpVariant }) {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
           <FadeUp>
             <div>
-              <p className="eyebrow mb-5">Free clinic audit</p>
+              {/* The eyebrow gave up "Free clinic audit" when the h2 took
+                  "Free audit" as its opening words. Two of them at 11px and
+                  52px inches apart is the close-range repetition this project
+                  keeps having to remove; the eyebrow now adds the terms
+                  instead of restating the name. */}
+              <p className="eyebrow mb-5">No cost, no obligation</p>
               {/* POSITIVE FRAME, on Simon's instruction 9 Sep 2026. This was
                   §8's suggested heading, "Find out where your clinic is losing
                   potential patients", and it went in as supplied. It is a loss
@@ -58,10 +63,14 @@ export default function LandingAuditPitch({ variant }: { variant: LpVariant }) {
                   wrong; what they want now is what they get. So this section
                   is positive throughout, which is also the right division of
                   labour between the two. */}
+              {/* Opened on "See where", which conveys nothing. This is the
+                  free-audit section: read as a heading on its own it has to say
+                  so, and "free" is the highest-value word available anywhere on
+                  the page. */}
               <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
-                See where your next patients are, and{" "}
+                Free audit:{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  what it takes to reach them
+                  where your next patients will come from
                 </em>
               </h2>
               <p className="text-body-lg mb-7 max-w-[46ch] text-[var(--color-muted)]">

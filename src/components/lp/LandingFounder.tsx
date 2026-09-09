@@ -39,8 +39,12 @@ export default function LandingFounder() {
           <div>
             <FadeUp delay={0.06}>
               <p className="eyebrow mb-5">Who builds this</p>
+              {/* Was "A practising osteopath built this for his own clinic
+                  first" — the claim is good and the first two words were "A
+                  practising", which carry none of it. Same sentence, credential
+                  first. */}
               <h2 className="text-h2 mb-7 text-[var(--color-ink)]">
-                A practising osteopath built this{" "}
+                Built by an osteopath,{" "}
                 <em className="not-italic text-[var(--color-accent)]">
                   for his own clinic first
                 </em>

@@ -896,7 +896,10 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     // because both clinics in the proof rows are osteopathy clinics and both case
     // studies on the site are osteopathy case studies.
     proofHeading: {
-      start: "What happened at ",
+      // "What happened at" front-loaded a question word and teased instead of
+      // telling. The other three variants already open on "Results from"; this
+      // one was the odd one out.
+      start: "Results from ",
       accent: "two osteopathy clinics",
     },
     proofStrip: STRIP_OSTEOPATHY,
