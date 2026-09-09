@@ -379,15 +379,52 @@ const STAT_CLICKS: LpStat = {
   // makes the same point and cannot be accused of inflating it.
   context: "Lind Street Osteopathy, up 570% half on half",
 };
+/*
+ * £30, ON SIMON'S INSTRUCTION, 9 Sep 2026. This reverses his own decision from
+ * earlier the same day to hold £42.50 until a measurement period existed. It is
+ * his figure and his client relationship; the concern was raised twice and
+ * answered.
+ *
+ * The figure is sourced: Danny gave "cost per patient £30" in WhatsApp on
+ * 3 Sep 2026 and Simon confirmed the same day that it means per conversion
+ * [src: WhatsApp, Danny + client confirmation, 3 Sep 2026]. What it does not
+ * have is a window, which is why the context line says whose current figure it
+ * is rather than implying a period it was measured over. DO NOT attach the
+ * 29 Dec 2025 – 22 Jun 2026 window to it: that window belongs to £42.50 and its
+ * own arithmetic yields £42.50, not £30.
+ *
+ * WHAT HAD TO GO WITH THE SWAP, and this is the part that was not a one-word
+ * change. STAT_ENQUIRIES said "89 tracked enquiries, from £3.78k of Google Ads
+ * spend over the same period". £3.78k over 89 is £42.47. Printed anywhere near
+ * £30 that invites a reader to divide two published figures and get a third
+ * that contradicts the headline, which is exactly what a clinician checking the
+ * numbers would do. Both tiles are therefore gone from the paid pages and the
+ * advertising block uses the two auction figures instead, which share no
+ * arithmetic with any cost.
+ *
+ * £42.50 still lives on /google-ads-for-clinics/, beside the screenshot it is
+ * read off, and the two must never share a page. That is the arrangement
+ * src/lib/google-ads-evidence.ts already describes as correct, so nothing in
+ * that file needed changing.
+ */
 const STAT_COST_PER_ENQUIRY: LpStat = {
-  figure: "£42.50",
+  figure: "£30",
   label: "Cost per tracked enquiry",
-  context: "Bodyfunction's Google Ads account, 29 Dec 2025 to 22 Jun 2026",
+  context: "Bodyfunction Clinic's own current Google Ads figure",
 };
-const STAT_ENQUIRIES: LpStat = {
-  figure: "89",
-  label: "Tracked enquiries",
-  context: "From £3.78k of Google Ads spend over the same period",
+const STAT_AUCTION_SHARE: LpStat = {
+  figure: "70%",
+  label: "Share of the local ad auction",
+  // Auction insights, google-ppc.png. The three competing advertisers sat
+  // under 10%. See FIGURES in src/lib/google-ads-evidence.ts.
+  context: "Bodyfunction's account, against three competing advertisers",
+};
+const STAT_AD_CTR: LpStat = {
+  figure: "7.79%",
+  label: "Click-through rate",
+  // google-ad.png: 2,646 impressions, 206 clicks, and the display URL in the
+  // shot names Bodyfunction, which is what makes it attributable.
+  context: "On Bodyfunction's live search ad, 2,646 impressions",
 };
 const STAT_AD_EXPERIENCE: LpStat = {
   figure: "£70k+",
@@ -467,9 +504,11 @@ export const LP_RESULTS_CAVEAT =
  * rather than restating the number six sections later. The osteopathy strip has
  * no ad figure at all, so its ads block is where £42.50 is introduced.
  *
- * £42.50 AND NOT £30, confirmed by Simon on 9 Sep 2026 and unchanged until a
- * measurement period exists for the newer figure. Both measure the same thing
- * and must never share a page. See the note on the removed LP_PROOF row.
+ * £30 AND NOT £42.50, on Simon's instruction of 9 Sep 2026. See the long note
+ * on STAT_COST_PER_ENQUIRY: the figure is sourced but undated, so it never
+ * carries a window, and the two spend figures that used to sit beside it were
+ * removed because their ratio is £42.50. The two cost figures must never share
+ * a page.
  *
  * "TRACKED ENQUIRY" IS THE ONLY PERMITTED WORDING. Google counts a conversion
  * as a call, a form or a chat. Nothing here connects that to a booked patient,
@@ -481,17 +520,21 @@ export const LP_RESULTS_CAVEAT =
  */
 const ADS_PROOF_LEAD: LpStat[] = [
   STAT_COST_PER_ENQUIRY,
-  STAT_ENQUIRIES,
+  STAT_AUCTION_SHARE,
   STAT_AD_EXPERIENCE,
 ];
 
+/*
+ * The MSK pages headline £30 in their own strip, so this block does not repeat
+ * it. Both figures here are channel metrics, which is deliberate: §7 said
+ * business outcomes lead and technical metrics support, and this is the
+ * supporting block. They are also the only two ad figures on the site that
+ * share no arithmetic with a cost per conversion, which is what makes them
+ * safe to print on a page carrying £30.
+ */
 const ADS_PROOF_WORKING: LpStat[] = [
-  STAT_ENQUIRIES,
-  {
-    figure: "£3.78k",
-    label: "Ad spend behind them",
-    context: "Google Ads, 29 Dec 2025 to 22 Jun 2026",
-  },
+  STAT_AUCTION_SHARE,
+  STAT_AD_CTR,
   STAT_AD_EXPERIENCE,
 ];
 

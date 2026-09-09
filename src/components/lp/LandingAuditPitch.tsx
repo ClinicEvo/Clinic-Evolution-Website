@@ -21,12 +21,17 @@ import LpCtaButton from "./LpCtaButton";
  * §8: "Do not make the audit sound like a generic automated report." Hence the
  * last line, which is the only promise the section makes and the one that
  * separates this from a scanner tool.
+ *
+ * THE WHOLE SECTION IS A POSITIVE FRAME and should stay one. The problems are
+ * LandingProblem's job, immediately before this; by the time a reader is here
+ * they have accepted the problem and want the offer. Do not put "where you are
+ * losing patients" back into this heading.
  */
 const AUDIT_LOOKS_AT = [
   "Your website, and what it does with somebody who is ready to book",
   "Your Google Business Profile and whether it is earning the map results",
   "Where you rank locally, and which clinics are above you",
-  "Your organic search visibility and the conditions you are missing",
+  "Your organic search visibility, and the conditions worth ranking for",
   "Your Google Ads, if you are running any, and what they pay per enquiry",
   "What happens to an enquiry after it arrives, and how fast",
   "Whether there are lapsed patients worth contacting again",
@@ -40,23 +45,38 @@ export default function LandingAuditPitch({ variant }: { variant: LpVariant }) {
           <FadeUp>
             <div>
               <p className="eyebrow mb-5">Free clinic audit</p>
-              {/* §8's suggested heading. It names the reader's problem rather
-                  than our deliverable, which is why it beats "What the free
-                  clinic audit includes" in the same slot. */}
+              {/* POSITIVE FRAME, on Simon's instruction 9 Sep 2026. This was
+                  §8's suggested heading, "Find out where your clinic is losing
+                  potential patients", and it went in as supplied. It is a loss
+                  frame and it is also faintly accusatory: it opens the OFFER
+                  section by telling a clinic owner they are getting something
+                  wrong.
+                  
+                  The problems belong in LandingProblem, which is the section
+                  before this one and is built to name them. By the time a
+                  reader arrives here they have already agreed something is
+                  wrong; what they want now is what they get. So this section
+                  is positive throughout, which is also the right division of
+                  labour between the two. */}
               <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
-                Find out where your {variant.practiceNoun} is{" "}
+                See where your next patients are, and{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  losing potential patients
+                  what it takes to reach them
                 </em>
               </h2>
               <p className="text-body-lg mb-7 max-w-[46ch] text-[var(--color-muted)]">
-                We go through your clinic the way we went through our own, and
-                come back {LP_TURNAROUND} with what is working, what is costing
-                you patients, and what we would fix first.
+                We go through your {variant.practiceNoun} the way we went
+                through our own, and come back {LP_TURNAROUND} with what is
+                already working, where the biggest gains are, and what we would
+                do first.
               </p>
+              {/* Second sentence dropped: "It is not a tool that emails you a
+                  score out of a hundred" was a fourth instance of the
+                  "not X, but Y" device in the page's visible copy, and the
+                  same point is already made in LandingAudit's reassurance list
+                  and in the FAQ. */}
               <p className="text-body mb-9 max-w-[46ch] font-medium text-[var(--color-ink)]">
-                A person does it and writes it. It is not a tool that emails you
-                a score out of a hundred.
+                A person goes through it and writes the response themselves.
               </p>
 
               <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-6">

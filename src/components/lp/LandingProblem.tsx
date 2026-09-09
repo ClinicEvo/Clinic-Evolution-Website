@@ -38,16 +38,34 @@ export default function LandingProblem({ variant }: { variant: LpVariant }) {
           <FadeUp>
             <div className="lg:sticky lg:top-28">
               <p className="eyebrow mb-5">If any of this is your clinic</p>
+              {/* Was "None of it is a marketing problem. It is a joined-up
+                  problem." Two faults, and this file's own comments warn about
+                  the first one:
+                  
+                  1. "It is not X, it is Y" is the device those comments call
+                     the page's most obvious tic, and it was set at 52px in the
+                     section whose docblock says to stop using it.
+                  2. "A joined-up problem" is an abstraction with no subject, no
+                     verb and no image, and "none of it is a marketing problem"
+                     is a strange thing to say on a page selling marketing.
+                  
+                  The replacement is one clause with a subject, a verb and a
+                  concrete object, and it states the actual argument. */}
               <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
-                None of it is a marketing problem.{" "}
+                Nobody is responsible for the{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  It is a joined-up problem
+                  whole route from a search to a patient
                 </em>
               </h2>
+              {/* Adds the mechanism instead of restating the heading, which is
+                  what it used to do. Two named suppliers doing exactly the job
+                  they were hired for is more persuasive than the abstract noun
+                  it replaces. */}
               <p className="text-body-lg max-w-[42ch] text-[var(--color-muted)]">
-                Each one of these has somebody responsible for it. What none of
-                them has is somebody responsible for the whole route from a
-                search to a patient on the table.
+                Your web designer will not be answering the phone at nine on a
+                Sunday. Your ads agency will not notice that the enquiry it
+                produced never got called back. Each one is doing the job you
+                hired them for.
               </p>
             </div>
           </FadeUp>
