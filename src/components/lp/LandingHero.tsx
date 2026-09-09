@@ -31,6 +31,13 @@ const TRUST_POINTS = [
   "One team for the website, search, ads and follow-up",
 ];
 
+/*
+ * EVERY FadeUp HERE IS `immediate`. The hero is the LCP candidate on all four
+ * pages and it was shipping at opacity 0 inside a framer wrapper, so nothing
+ * above the fold painted until the JavaScript had loaded and hydrated: 3.4 to
+ * 4.8 seconds on a throttled phone against a 0.2s server response. There is no
+ * entrance animation to lose; nobody was seeing one on a first paint.
+ */
 export default function LandingHero({ variant }: { variant: LpVariant }) {
   return (
     <section className="grain relative overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-paper)]">
@@ -49,7 +56,7 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           {/* Copy */}
           <div>
-            <FadeUp>
+            <FadeUp immediate>
               <p className="eyebrow mb-4 sm:mb-5">{variant.badge}</p>
               <h1 className="text-h1 mb-5 text-[var(--color-ink)]">
                 {variant.headline.start}
@@ -60,7 +67,7 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
               </h1>
             </FadeUp>
 
-            <FadeUp delay={0.08}>
+            <FadeUp immediate>
               {/* Sized with utilities rather than .text-body-lg so it can step
                   down on mobile — the design-system text classes are plain CSS
                   and take no responsive variants. */}
@@ -69,7 +76,7 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.14}>
+            <FadeUp immediate>
               {/* One action. Full width on a phone so it is not a narrow tap
                   target, shrink-to-fit from sm. */}
               <div className="flex flex-col items-stretch sm:flex-row sm:items-center">
@@ -77,7 +84,7 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
               </div>
             </FadeUp>
 
-            <FadeUp delay={0.18}>
+            <FadeUp immediate>
               <p className="mt-4 text-body-sm text-[var(--color-muted)]">
                 Free, no obligation. A written review of your{" "}
                 {variant.practiceNoun}, back to you {LP_TURNAROUND}.
@@ -86,16 +93,20 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
           </div>
 
           {/* Real clinic, real practitioner — deliberately not stock photography */}
-          <FadeUp delay={0.1}>
+          <FadeUp immediate>
             <figure className="relative">
-              <div className="overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+              {/* 4:3 below lg, square from lg. The source is square, and at
+                  100vw on a phone that was a 390px-tall photograph filling most
+                  of the second screen before the first hard number. Cropping
+                  from the top keeps the faces and the sign on the wall. */}
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] shadow-[var(--shadow-card)] lg:aspect-square">
                 <Image
                   src="/images/danny_and_co.jpg"
                   alt="Danny Morgan with the practitioner team at Bodyfunction Clinic reception"
-                  width={1400}
-                  height={1400}
+                  fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="h-auto w-full"
+                  className="object-cover"
+                  style={{ objectPosition: "50% 18%" }}
                   priority
                 />
               </div>
@@ -107,10 +118,9 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
                 <span>
                   <strong className="font-semibold text-[var(--color-ink)]">
                     Danny Morgan, M.Ost
-                  </strong>{" "}
-                  is Clinic Evo&apos;s founder, pictured with his team at
-                  Bodyfunction Clinic, London. The clinic this system was built
-                  and tested inside.
+                  </strong>
+                  , Clinic Evo&apos;s founder, with his team at Bodyfunction
+                  Clinic, London.
                 </span>
               </figcaption>
             </figure>
@@ -120,7 +130,7 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
         {/* Trust strip as one full-width row beneath the grid, the same pattern
             PageHero uses on the site pages. Inside the copy column these three
             wrap to a stack, because that column is only ~530px at 1440. */}
-        <FadeUp delay={0.22}>
+        <FadeUp immediate>
           <div className="mt-10 border-t border-[var(--color-border)] pt-7">
             <ul
               role="list"

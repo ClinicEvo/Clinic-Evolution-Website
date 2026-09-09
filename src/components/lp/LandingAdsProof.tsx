@@ -7,31 +7,34 @@ import { type LpVariant } from "@/lib/lp";
  *
  * "Business outcomes should lead. Technical marketing metrics should support."
  * A clinic owner cares about patients, appointments and enquiries before cost
- * per click or auction share, so the proof strip under the hero carries 212
- * new patients and 8 → 3,822, and these three sit down here beside the paid
- * part of the system where they answer a question the reader has by then
- * actually got: does the advertising work, and what does it cost.
+ * per click or auction share, so the proof strip under the hero carries the
+ * diary figures and these three sit down here beside the paid part of the
+ * system, where they answer a question the reader has by then actually got:
+ * does the advertising work.
  *
- * THE THREE FIGURES DIFFER PER PAGE, so that no figure is a headline twice on
- * one page. The three MSK pages already show £42.50 in their proof strip, so
- * here they show what produced it: 89 enquiries and the spend behind them. The
- * osteopathy strip carries no ad figure, so this is where £42.50 is introduced
- * on that page. See `adsProof` in src/lib/lp.ts.
+ * THE HEADING AND INTRO ARE PER VARIANT since 9 Sep 2026, because the tiles
+ * are. The three MSK pages carry £30 in their proof strip, so this block shows
+ * the account's auction share and click-through rate instead and its heading
+ * points back at the cost rather than promising it. The osteopathy strip has no
+ * ad figure, so this is where £30 appears on that page and the heading can say
+ * "what an enquiry costs". One heading used to serve both sets, and on three
+ * pages it promised a cost above three tiles none of which was one.
  *
- * £42.50, NOT £30. Read the long note on those constants in src/lib/lp.ts before
- * changing this. Both figures measure the same thing, only one of them has a
- * period attached, and they must never appear on the same page.
+ * The intro attributes each figure to the account it is from. £70k+ is Clinic
+ * Evo's own spend across accounts, not Bodyfunction's, and the old intro said
+ * everything here was Bodyfunction's. See `adsHeading` / `adsIntro` in
+ * src/lib/lp.ts.
+ *
+ * £30, NOT £42.50, anywhere under /lp/. Read the long note on
+ * STAT_COST_PER_ENQUIRY in src/lib/lp.ts before changing that: both figures
+ * measure the same thing, only one has a period attached, and they must never
+ * share a page.
  *
  * "TRACKED ENQUIRY" IS THE ONLY PERMITTED WORDING. Google counts a conversion
  * as a tracked action: a call, a form or a chat. It is not a booked patient and
  * no evidence on this site connects the two, so "per new patient" is a claim we
  * cannot make. §5 says so and so does CONVERSION_CAVEAT in
  * src/lib/google-ads-evidence.ts.
- *
- * The three figures deliberately do NOT include the 7.79% CTR or the ~70%
- * auction share, both of which are verified and both of which are exactly the
- * channel metric §7 says should not lead. They stay on
- * /google-ads-for-clinics/, next to the screenshots they are read off.
  */
 export default function LandingAdsProof({ variant }: { variant: LpVariant }) {
   return (
@@ -47,21 +50,15 @@ export default function LandingAdsProof({ variant }: { variant: LpVariant }) {
                   invert
                 />
               </div>
-              {/* Front-loaded. "What the paid side actually costs and returns"
-                  opened on "What the", and "the paid side" is ambiguous read on
-                  its own in a heading-only scan. "Google Ads" is the most
-                  informative pair of words available here. */}
+              {/* Front-loaded on "Google Ads", the most informative pair of
+                  words available here in a heading-only scan. */}
               <h2 className="text-h3 mb-4 text-white">
-                Google Ads:{" "}
+                {variant.adsHeading.start}
                 <em className="not-italic text-[var(--color-accent)]">
-                  what an enquiry costs
+                  {variant.adsHeading.accent}
                 </em>
               </h2>
-              <p className="text-body max-w-[46ch] text-white/70">
-                From the Bodyfunction Clinic account, which is our founder&apos;s
-                own clinic. A tracked enquiry means a call, a form or a chat that
-                the account recorded, not a booked patient.
-              </p>
+              <p className="text-body max-w-[46ch] text-white/70">{variant.adsIntro}</p>
             </div>
           </FadeUp>
 
@@ -70,8 +67,10 @@ export default function LandingAdsProof({ variant }: { variant: LpVariant }) {
             className="grid grid-cols-1 gap-x-10 gap-y-7 sm:grid-cols-3"
           >
             {variant.adsProof.map((stat, index) => (
-              <FadeUp key={stat.figure} delay={0.08 + index * 0.06}>
-                <li className="border-t border-white/20 pt-4">
+              <li key={stat.figure} className="border-t border-white/20 pt-4">
+                {/* Reveal inside the <li>: a <div> between <ul> and <li> is
+                    invalid and loses the list semantics. */}
+                <FadeUp delay={0.08 + index * 0.06}>
                   <h3 className="text-white">
                     <span className="block font-display text-[clamp(1.6rem,4vw,2.15rem)] font-bold leading-[1.05] tracking-tight text-[var(--color-accent)]">
                       {stat.figure}
@@ -86,8 +85,8 @@ export default function LandingAdsProof({ variant }: { variant: LpVariant }) {
                   <p className="text-body-sm mt-1.5 text-white/55">
                     {stat.context}
                   </p>
-                </li>
-              </FadeUp>
+                </FadeUp>
+              </li>
             ))}
           </ul>
         </div>

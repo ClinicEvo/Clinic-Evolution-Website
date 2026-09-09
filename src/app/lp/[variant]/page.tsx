@@ -91,15 +91,22 @@ export default async function LandingPage({
    *   1  LandingHero          discipline-specific claim, one CTA, offer stated
    *   2  ClientLogoStrip      who we work with
    *   3  LandingProofStrip    four hard numbers, earliest possible
-   *   4  LandingSystem        WHAT YOU GET — second heading, was seventh
-   *   5  LandingAuditPitch    the offer, once proof has earned it
+   *   4  LandingSystem        WHAT YOU GET — second heading, was seventh (#how-it-works)
+   *   5  LandingAuditPitch    the offer, once proof has earned it, WITH THE FORM (#audit)
    *   6  LandingDiscipline    recognition, three questions, the discipline photo
    *   7  LandingEvidence      the two clinics, with the figures the strip omits
    *   8  LandingAdsProof      what the advertising costs
    *   9  LandingPatientPulse  what happens after the enquiry arrives
    *  10  LandingFounder       credibility, after the numbers rather than before
    *  11  LandingFaq           six objections
-   *  12  LandingAudit         four fields and the form
+   *  12  LandingAudit         the second form, for the reader who read the FAQ first (#audit-form)
+   *
+   * TWO FORMS since 9 Sep 2026. The twelve-section cut above did not move the
+   * form: it was still at 88% depth on a 19-screen phone page, behind roughly
+   * 1,500 words, for a four-field ask. So the form now also renders beside the
+   * audit pitch at section 5, which is where the offer is made, and every CTA
+   * and the sticky bar point there. Each form tells the CRM and the conversion
+   * event which position it was, so this is measurable rather than assumed.
    *
    * BAND RHYTHM, which is why LandingProofStrip is paper and LandingSystem is
    * surface rather than the other way round: paper, surface, paper, surface,

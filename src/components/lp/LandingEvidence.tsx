@@ -96,8 +96,16 @@ export default function LandingEvidence({ variant }: { variant: LpVariant }) {
               the row, the clinic identifies it. */}
           <ul role="list" className="flex flex-col">
             {variant.proofRows.map((row, index) => (
-              <FadeUp key={row.headline} delay={0.06 + index * 0.06}>
-                <li className="grid grid-cols-1 gap-5 border-t border-[var(--color-border)] py-6 last:border-b sm:py-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+              <li
+                key={row.headline}
+                className="border-t border-[var(--color-border)] py-6 last:border-b sm:py-7"
+              >
+                {/* Reveal inside the <li>: a <div> between <ul> and <li> is
+                    invalid and loses the list semantics. */}
+                <FadeUp
+                  delay={0.06 + index * 0.06}
+                  className="grid grid-cols-1 gap-5 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10"
+                >
                   <div>
                     <div className="mb-3 grid grid-cols-[auto_1fr] items-center gap-2.5">
                       <GoogleAdsLockup
@@ -155,8 +163,15 @@ export default function LandingEvidence({ variant }: { variant: LpVariant }) {
                     </p>
 
                     {row.href ? (
+                      // New tab. This is a paid landing page and the case study
+                      // lives on the organic site with the full navigation: in
+                      // the same tab it was the one link mid-page that took a
+                      // paid visitor away from the form for good. The client
+                      // logos above and the Google review already open new tabs.
                       <Link
                         href={row.href}
+                        target="_blank"
+                        rel="noopener"
                         className="text-body-sm mt-3 inline-flex items-center gap-2 self-start font-semibold text-[var(--color-ink)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
                       >
                         Read the full case study
@@ -178,8 +193,8 @@ export default function LandingEvidence({ variant }: { variant: LpVariant }) {
                       </Link>
                     ) : null}
                   </div>
-                </li>
-              </FadeUp>
+                </FadeUp>
+              </li>
             ))}
           </ul>
 

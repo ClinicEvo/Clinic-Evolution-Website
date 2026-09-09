@@ -1,6 +1,6 @@
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import FadeUp from "@/components/ui/FadeUp";
-import { LP_SECTION_ANCHORS, LP_TURNAROUND, type LpVariant } from "@/lib/lp";
+import { LP_SECTION_ANCHORS, type LpVariant } from "@/lib/lp";
 
 /**
  * Shared objections, plus two questions written for this ad group specifically.
@@ -51,11 +51,16 @@ import { LP_SECTION_ANCHORS, LP_TURNAROUND, type LpVariant } from "@/lib/lp";
 const SHARED_FAQS = [
   {
     question: "How is Clinic Evo different from a normal marketing agency?",
+    // "We were a clinic before we were an agency" opened this until 9 Sep 2026
+    // and is now the hero eyebrow on the chiropractic and healthcare pages. The
+    // answer starts on the fact instead of the slogan.
     answer:
-      "We were a clinic before we were an agency. Clinic Evo was built inside Bodyfunction Clinic in London by its owner, tested on that clinic's own diary, and only then offered to anyone else. The practical difference is that we take responsibility past the enquiry: the call handling, the follow-up and the recall are ours to run, so there is no gap to argue about.",
+      "Clinic Evo was built inside Bodyfunction Clinic in London by its owner, and only then offered to anyone else. The practical difference is that we take responsibility past the enquiry: the call handling, the follow-up and the recall are ours to run, so there is no gap to argue about.",
   },
   {
-    question: "What does Clinic Evo actually manage?",
+    // The section heading above carries the page's one "actually"; the
+    // question does not need a second.
+    question: "What does Clinic Evo manage day to day?",
     answer:
       "The website, the local search work, the paid campaigns, the phone, and the follow-up after an enquiry arrives. One team runs all of it and reports on it together, so enquiries and bookings sit next to the spend that produced them rather than in four separate dashboards.",
   },
@@ -66,7 +71,7 @@ const SHARED_FAQS = [
     // anywhere on this site.
     question: "What does it cost?",
     answer:
-      "It depends which parts your clinic needs and how much we are taking on, which is what the audit establishes. You get the plan and a realistic figure for running it in plain numbers, and nothing gets built before you have both in front of you.",
+      "It depends which parts your clinic needs and how much we are taking on, which is what the audit establishes. You get the plan and a realistic figure for running it, in plain numbers, before anything is agreed.",
   },
   {
     // ANSWER SUPPLIED BY SIMON, 9 Sep 2026, and used verbatim. It replaced
@@ -84,8 +89,12 @@ const SHARED_FAQS = [
   },
   {
     question: "What happens during the free clinic audit?",
+    // Answers the question asked (what happens, and what the reader has to do)
+    // rather than re-listing the seven things LandingAuditPitch already lists.
+    // The turnaround is stated three times on the page already, and "a person,
+    // not a tool" and "yours to keep" each have their one place.
     answer:
-      `A person reviews your clinic, not an automated report generator: where you rank now and who is above you, what your site does with somebody ready to book, whether your Google Business Profile is earning the map results, and what your ads are paying per enquiry if you run any. It comes back in writing ${LP_TURNAROUND}, with a prioritised list of what we would fix first. It is yours to keep either way.`,
+      "Nothing on your side. Send the four details and we do the rest: rankings, the site, your Google Business Profile, your ads if you run any, and what happens to an enquiry once it arrives. It comes back in writing, with what we would fix first at the top.",
   },
 ];
 

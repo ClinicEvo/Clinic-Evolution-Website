@@ -49,7 +49,10 @@ export default function LandingProofStrip({ variant }: { variant: LpVariant }) {
           <div className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
             <h2 className="text-h3 max-w-[30ch] text-[var(--color-ink)]">
               {variant.proofHeading.start}
-              <em className="not-italic text-[var(--color-accent)]">
+              {/* accent-text, not accent: at .text-h3 this drops under 24px on
+                  a phone, where brand coral on paper is 3.07:1 and fails AA.
+                  The larger h1/h2 accents clear the 3:1 large-text bar. */}
+              <em className="not-italic text-[var(--color-accent-text)]">
                 {variant.proofHeading.accent}
               </em>
             </h2>
@@ -74,8 +77,10 @@ export default function LandingProofStrip({ variant }: { variant: LpVariant }) {
           className="grid grid-cols-2 gap-x-6 gap-y-8 sm:gap-x-10 lg:grid-cols-4"
         >
           {variant.proofStrip.map((stat, index) => (
-            <FadeUp key={stat.figure} delay={0.05 + index * 0.06}>
-              <li className="border-t-2 border-[var(--color-ink)]/10 pt-4">
+            <li key={stat.figure} className="border-t-2 border-[var(--color-ink)]/10 pt-4">
+              {/* Reveal inside the <li>: a <div> between <ul> and <li> is
+                  invalid and loses the list semantics. */}
+              <FadeUp delay={0.05 + index * 0.06}>
                 {/* Figure and label in one h3, so the number reaches the
                     heading ladder carrying its own unit. `npm run scan` reads
                     headings, and a bare 48px figure is invisible to it. */}
@@ -96,8 +101,8 @@ export default function LandingProofStrip({ variant }: { variant: LpVariant }) {
                 <p className="text-body-sm mt-1.5 text-[var(--color-muted)]">
                   {stat.context}
                 </p>
-              </li>
-            </FadeUp>
+              </FadeUp>
+            </li>
           ))}
         </ul>
 

@@ -265,10 +265,18 @@ export async function POST(req: NextRequest) {
     const lp_variant   = clean(body.lp_variant,   60);
     const isPaidLead   = isLpVariantSlug(lp_variant);
     const gclid        = clean(body.gclid,        LIMITS.short);
+    const gbraid       = clean(body.gbraid,       LIMITS.short);
+    const wbraid       = clean(body.wbraid,       LIMITS.short);
     const utm_source   = clean(body.utm_source,   LIMITS.short);
     const utm_medium   = clean(body.utm_medium,   LIMITS.short);
     const utm_campaign = clean(body.utm_campaign, LIMITS.short);
     const utm_term     = clean(body.utm_term,     LIMITS.short);
+    const utm_content  = clean(body.utm_content,  LIMITS.short);
+    // Which of the two forms on a landing page sent this. Allowlisted so the
+    // CRM note can only ever say one of two things.
+    const lp_form_position = (["pitch", "footer"] as const).find(
+      (p) => p === body.lp_form_position,
+    );
 
     // The landing-page form asks four questions, not eleven, so last name,
     // clinic name and discipline can all legitimately arrive empty from a paid
@@ -301,9 +309,15 @@ export async function POST(req: NextRequest) {
 
     const attributionLines = [
       isPaidLead && `Landing page: /lp/${lp_variant}/`,
+      isPaidLead && lp_form_position && `Form: ${lp_form_position === "pitch" ? "audit pitch, mid-page" : "foot of page"}`,
       gclid && `GCLID: ${gclid}`,
+      // iOS Safari sends one of these in place of a gclid since App Tracking
+      // Transparency; without them an iPhone click looks organic in the CRM.
+      gbraid && `GBRAID: ${gbraid}`,
+      wbraid && `WBRAID: ${wbraid}`,
       utm_campaign && `Campaign: ${utm_campaign}`,
       utm_term && `Search term / keyword: ${utm_term}`,
+      utm_content && `Ad / content: ${utm_content}`,
       (utm_source || utm_medium) && `Source / medium: ${utm_source || "?"} / ${utm_medium || "?"}`,
     ].filter(Boolean);
 

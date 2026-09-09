@@ -40,16 +40,54 @@ function updateConsent(granted: boolean) {
   });
 }
 
+/**
+ * How long a visitor who does not scroll or touch anything waits before the
+ * banner appears anyway.
+ */
+const REVEAL_AFTER_MS = 5000;
+
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
+  /*
+   * THE BANNER WAITS FOR THE FIRST SCROLL OR TAP (or five seconds), since
+   * 9 Sep 2026. It used to mount immediately, which on a phone put a 217px
+   * card over the bottom quarter of the first screen: on a 667px-tall phone
+   * that covered the hero CTA on every paid landing page, and on an 844px one
+   * it stacked with the sticky header and sticky CTA into 44% of the viewport.
+   *
+   * Nothing this delays needs consent to be lawful. Google Consent Mode
+   * starts with all four signals denied (see the root layout), so no
+   * advertising or analytics cookie is set until Accept is pressed, whenever
+   * that is. The visitor simply gets to read the first screen before being
+   * asked about cookies, which is what they came for.
+   */
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) {
-      setVisible(true);
-    } else if (saved === "accepted") {
+    if (saved === "accepted") {
       updateConsent(true);
+      return;
     }
+    if (saved) return;
+
+    let revealed = false;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      setVisible(true);
+      cleanup();
+    };
+    const timer = window.setTimeout(reveal, REVEAL_AFTER_MS);
+    window.addEventListener("scroll", reveal, { passive: true });
+    window.addEventListener("pointerdown", reveal, { passive: true });
+    window.addEventListener("keydown", reveal);
+    const cleanup = () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", reveal);
+      window.removeEventListener("pointerdown", reveal);
+      window.removeEventListener("keydown", reveal);
+    };
+    return cleanup;
   }, []);
 
   const accept = () => {
@@ -73,14 +111,16 @@ export default function CookieBanner() {
       role="dialog"
       aria-label="Cookie consent"
       aria-live="polite"
-      className="cookie-in fixed z-50 inset-x-0 bottom-0 p-4 sm:inset-x-auto sm:bottom-6 sm:left-6 sm:p-0"
-      style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
+      className="cookie-in fixed z-50 inset-x-0 bottom-0 p-3 sm:inset-x-auto sm:bottom-6 sm:left-6 sm:p-0"
+      style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
-      <div className="mx-auto w-full max-w-sm bg-[var(--color-paper)] text-[var(--color-ink)] rounded-2xl p-5 shadow-[0_12px_40px_-8px_rgba(13,27,42,0.18)] border border-[var(--color-border)]">
-        <p className="text-sm leading-relaxed text-[var(--color-muted)]">
-          We use cookies to analyse site traffic, improve your experience and
-          measure our advertising. Accepting also allows advertising cookies from
-          Google. See our{" "}
+      {/* Tighter on a phone: smaller type, less padding, and one fewer clause
+          in the sentence. This card is the one piece of chrome every first-time
+          visitor meets, and on the paid pages every visitor is first-time. */}
+      <div className="mx-auto w-full max-w-sm bg-[var(--color-paper)] text-[var(--color-ink)] rounded-2xl p-4 sm:p-5 shadow-[0_12px_40px_-8px_rgba(13,27,42,0.18)] border border-[var(--color-border)]">
+        <p className="text-[13px] leading-snug sm:text-sm sm:leading-relaxed text-[var(--color-muted)]">
+          We use cookies to analyse site traffic and measure our advertising.
+          Accepting also allows advertising cookies from Google. See our{" "}
           <Link
             href="/cookie-policy/"
             className="text-[var(--color-ink)] underline underline-offset-2 hover:text-[var(--color-accent)]"
@@ -89,7 +129,7 @@ export default function CookieBanner() {
           </Link>
           .
         </p>
-        <div className="mt-4 flex items-center gap-3">
+        <div className="mt-3 sm:mt-4 flex items-center gap-3">
           <Button size="sm" variant="secondary" onClick={accept} className="flex-1 sm:flex-initial">
             Accept cookies
           </Button>

@@ -55,8 +55,8 @@ export default function LandingPatientPulse() {
 
           <FadeUp delay={0.08}>
             <p className="text-body-lg max-w-[50ch] text-white/70">
-              Patient Pulse brings every enquiry, reply and follow-up into one
-              place. It is included in the system and run for you.
+              Patient Pulse is where every enquiry, reply and follow-up lands.
+              It is included in the system and run for you.
             </p>
           </FadeUp>
         </div>
@@ -75,8 +75,9 @@ export default function LandingPatientPulse() {
           <div>
             <ol role="list" className="flex flex-col border-t border-white/10">
               {JOBS.map((job, index) => (
-                <FadeUp key={job.title} delay={0.1 + index * 0.05}>
-                  <li className="grid grid-cols-[2rem_1fr] gap-4 border-b border-white/10 py-5">
+                <li key={job.title} className="border-b border-white/10 py-5">
+                  {/* Reveal inside the <li>; see LandingProofStrip. */}
+                  <FadeUp delay={0.1 + index * 0.05} className="grid grid-cols-[2rem_1fr] gap-4">
                     <span
                       aria-hidden="true"
                       className="pt-1 text-xs font-semibold tabular-nums text-[var(--color-accent)]"
@@ -87,8 +88,8 @@ export default function LandingPatientPulse() {
                       <h3 className="text-h4 mb-1 text-white">{job.title}</h3>
                       <p className="text-body-sm text-white/65">{job.body}</p>
                     </div>
-                  </li>
-                </FadeUp>
+                  </FadeUp>
+                </li>
               ))}
             </ol>
 

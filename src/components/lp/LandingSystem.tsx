@@ -1,6 +1,6 @@
 import FadeUp from "@/components/ui/FadeUp";
 import { brandHex, brandMarks, brandTitle, type BrandSlug } from "@/components/icons/BrandIcons";
-import { LP_SYSTEM_LAYERS, type LpVariant } from "@/lib/lp";
+import { LP_SECTION_ANCHORS, LP_SYSTEM_LAYERS, type LpVariant } from "@/lib/lp";
 import LpCtaButton from "./LpCtaButton";
 
 /**
@@ -31,7 +31,12 @@ import LpCtaButton from "./LpCtaButton";
  */
 export default function LandingSystem({ variant }: { variant: LpVariant }) {
   return (
-    <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-24 sm:py-28 lg:py-32">
+    // Ad sitelink target — see LP_SECTION_ANCHORS before renaming.
+    <section
+      id={LP_SECTION_ANCHORS.howItWorks.slice(1)}
+      tabIndex={-1}
+      className="scroll-mt-20 focus-visible:outline-none border-b border-[var(--color-border)] bg-[var(--color-surface)] py-24 sm:py-28 lg:py-32"
+    >
       <div className="cx-main">
         <div className="mb-14 grid grid-cols-1 gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:gap-16">
           <FadeUp>
@@ -63,8 +68,8 @@ export default function LandingSystem({ variant }: { variant: LpVariant }) {
                 Buy a web designer, an SEO freelancer and an ads agency
                 separately and you have three suppliers who never speak to each
                 other, with the enquiries they produce still landing on you. We
-                run all five layers below as one thing, with one team, aimed at
-                one number: patients in the diary.
+                run all five layers below together and judge them on one number:
+                patients in the diary.
               </p>
               {/* Was "You do not pick items off this list." Replaced on
                   9 Sep 2026 on Simon's instruction: the strategic proposition
@@ -95,8 +100,14 @@ export default function LandingSystem({ variant }: { variant: LpVariant }) {
             cards. Indentation steps in on desktop to keep it off a rigid grid. */}
         <ol role="list" className="relative flex flex-col">
           {LP_SYSTEM_LAYERS.map((layer, index) => (
-            <FadeUp key={layer.stage} delay={index * 0.06}>
-              <li className="group relative flex gap-5 border-t border-[var(--color-border)] py-7 last:border-b sm:gap-8 sm:py-8">
+            // The reveal wrapper sits INSIDE the <li>, not around it. A <div>
+            // between <ol> and <li> is invalid markup and drops the list from
+            // the accessibility tree; axe reported 18 such nodes per page.
+            <li
+              key={layer.stage}
+              className="group relative border-t border-[var(--color-border)] py-7 last:border-b sm:py-8"
+            >
+              <FadeUp delay={index * 0.06} className="flex gap-5 sm:gap-8">
                 {/* Stage index. Quiet, because the stage name does the work. */}
                 <span
                   aria-hidden="true"
@@ -146,8 +157,8 @@ export default function LandingSystem({ variant }: { variant: LpVariant }) {
                     ) : null}
                   </div>
                 </div>
-              </li>
-            </FadeUp>
+              </FadeUp>
+            </li>
           ))}
         </ol>
 

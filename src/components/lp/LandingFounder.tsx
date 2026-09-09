@@ -59,9 +59,9 @@ export default function LandingFounder() {
                   reported on clicks; neither could connect them to booked patients.
                 </p>
                 <p className="text-body-lg text-[var(--color-muted)]">
-                  He built Clinic Evo with Simon Smith around that missing link:
-                  website, search, ads and follow-up run as one job. Bodyfunction
-                  was the first clinic it had to work for.
+                  He built Clinic Evo with Simon Smith to close that gap, so the
+                  people running the website, the search, the ads and the
+                  follow-up are the same people answering for the diary.
                 </p>
               </div>
             </FadeUp>

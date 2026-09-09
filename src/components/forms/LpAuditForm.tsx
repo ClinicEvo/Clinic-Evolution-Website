@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
 import { events } from "@/lib/analytics";
 import { useFormSubmit } from "@/lib/useFormSubmit";
-import { LP_CTA_LABEL, LP_TURNAROUND, type LpVariant } from "@/lib/lp";
+import { LP_CTA_LABEL, type LpVariant } from "@/lib/lp";
 import { Field, Input, Honeypot } from "./Field";
 import TrackingFields from "./TrackingFields";
 
@@ -26,13 +26,29 @@ import TrackingFields from "./TrackingFields";
  *
  * The name is one field. It is split on submit rather than asked twice, because
  * "First name / Last name" is two required boxes for one piece of information.
+ *
+ * TWO OF THESE RENDER ON EVERY LANDING PAGE since 9 Sep 2026: one beside the
+ * audit pitch a third of the way down, one at the foot. `position` does three
+ * jobs: it prefixes the field ids so the document does not carry duplicates,
+ * it labels the conversion event, and it travels to the CRM so the note on the
+ * lead says which form was used. That last one is how the mid-page form gets
+ * judged rather than assumed.
  */
-export default function LpAuditForm({ variant }: { variant: LpVariant }) {
+export type LpFormPosition = "pitch" | "footer";
+
+export default function LpAuditForm({
+  variant,
+  position,
+}: {
+  variant: LpVariant;
+  position: LpFormPosition;
+}) {
   const router = useRouter();
+  const id = (field: string) => `${position}-${field}`;
   const { state, errorMsg, handleSubmit } = useFormSubmit({
     formType: "audit",
     onSuccess: (payload) => {
-      events.freeAuditSubmit();
+      events.freeAuditSubmit(position);
       // Hand the identity to the thank-you page so its optional follow-up
       // questions can upsert onto the same CRM contact. sessionStorage rather
       // than a query string: this is PII and does not belong in a URL, in
@@ -73,6 +89,7 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
       <Honeypot />
       <TrackingFields />
       <input type="hidden" name="lp_variant" value={variant.slug} readOnly />
+      <input type="hidden" name="lp_form_position" value={position} readOnly />
       <input
         type="hidden"
         name="discipline"
@@ -85,7 +102,7 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
 
       <Field label="Your name" required>
         <Input
-          id="full_name"
+          id={id("full_name")}
           name="full_name"
           type="text"
           required
@@ -96,7 +113,7 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
 
       <Field label="Email address" required>
         <Input
-          id="email"
+          id={id("email")}
           name="email"
           type="email"
           required
@@ -107,7 +124,7 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
 
       <Field label="Phone" required>
         <Input
-          id="phone"
+          id={id("phone")}
           name="phone"
           type="tel"
           required
@@ -118,7 +135,7 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
 
       <Field label="Clinic website (optional)">
         <Input
-          id="clinic_website"
+          id={id("clinic_website")}
           name="clinic_website"
           type="text"
           autoComplete="url"
@@ -141,9 +158,10 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
         {state === "submitting" ? "Sending…" : LP_CTA_LABEL}
       </Button>
 
+      {/* The turnaround and "a person reads it" used to be repeated here. Both
+          are said in the section this form sits in, a few centimetres up. */}
       <p className="text-xs leading-relaxed text-[var(--color-muted)]">
-        Three details, plus your website if you have one. A person reads it and comes back{" "}
-        {LP_TURNAROUND} with what they found.
+        Three details, plus your website if you have one.
       </p>
     </form>
   );

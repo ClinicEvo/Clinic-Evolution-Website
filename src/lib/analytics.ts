@@ -53,8 +53,11 @@ export function trackEvent({ action, category, label, value }: GTagEvent) {
 }
 
 export const events = {
-  freeAuditSubmit: () =>
-    trackEvent({ action: "free_audit_submit", category: "conversion" }),
+  // `label` is which form on the page converted. The paid landing pages carry
+  // two since 9 Sep 2026 (at the audit pitch and at the foot of the page), and
+  // without this they would be indistinguishable in the event report.
+  freeAuditSubmit: (label?: string) =>
+    trackEvent({ action: "free_audit_submit", category: "conversion", label }),
   contactFormSubmit: () =>
     trackEvent({ action: "contact_form_submit", category: "conversion" }),
   // Its own action rather than a label on free_audit_submit: the graduate

@@ -62,7 +62,18 @@ export const LP_CTA_LABEL = "Get my free clinic audit";
 
 /** Short form for the sticky header, where the full label overflows below ~375px. */
 export const LP_CTA_LABEL_SHORT = "Get my free audit";
+
+/**
+ * Where every CTA on the page points. Since 9 Sep 2026 this is the form beside
+ * the audit pitch, a third of the way down, not the one at the foot: the page
+ * measured 19 phone screens with its only form at 88% depth, so the ask now
+ * sits where the offer is made and the foot-of-page form is the second chance.
+ * The id is also a plausible sitelink destination in Google Ads, which is why it
+ * kept its name rather than the section it moved from.
+ */
 export const LP_FORM_ANCHOR = "#audit";
+/** The second form, at the foot of the page after the FAQ. */
+export const LP_FORM_ANCHOR_FOOTER = "#audit-form";
 
 /**
  * Section anchors on the landing pages, for Google Ads sitelink extensions.
@@ -86,7 +97,12 @@ export const LP_SECTION_ANCHORS = {
   results: "#results",
   /** LandingFounder — a practising osteopath built this. */
   founder: "#founder",
-  /** LandingProcess — audit, then plan, then you decide. */
+  /**
+   * LandingSystem — the five layers, in the order a patient moves through them.
+   * LandingProcess carried this id until it was cut on 9 Sep 2026, and for a
+   * few hours the sitelink in Google Ads pointed at nothing and landed visitors
+   * at the top of the page. The id moved rather than died, for that reason.
+   */
   howItWorks: "#how-it-works",
   /** LandingFaq — contracts, cost, what happens next. */
   faq: "#faq",
@@ -138,7 +154,7 @@ export const LP_SYSTEM_LAYERS = [
     stage: "Get found",
     summary: "A website built to be found, and local search visibility that holds",
     detail:
-      "The search and competitor research comes first, the site gets built around what it finds, then it is ranked for the local and condition searches your patients actually type.",
+      "The search and competitor research comes first, the site gets built around what it finds, then it is ranked for the local and condition searches your patients type.",
     platforms: ["google"] as const,
   },
   {
@@ -300,8 +316,13 @@ const ROW_NO1: LpProofRow = {
   platform: "Google Search",
   metric: "Local search rankings",
   figure: "No. 1",
+  // "six local searches", not "six local osteopathy searches". This row leads
+  // the evidence on the physiotherapy and chiropractic pages, where a reader
+  // meets it as somebody else's discipline; the search term in quotes and the
+  // clinic descriptor beside it already say osteopathy, so the heading does not
+  // need to say it a third time.
   headline:
-    "for six local osteopathy searches, including “osteopath Ryde”, within twelve months of opening",
+    "for six local searches, including “osteopath Ryde”, within twelve months of opening",
   source: "Ahrefs: all ten tracked local searches ranked in the top four",
   clinic: LIND_STREET,
   href: "/case-studies/lind-street-osteopathy/",
@@ -321,8 +342,10 @@ const ROW_CTR: LpProofRow = {
 /** Osteopathy: its strip already headlines No. 1 × 6 and 86 → 576. */
 const ROWS_OSTEOPATHY: LpProofRow[] = [ROW_TRAFFIC, ROW_CTR];
 
-/** The MSK pages: their strip already headlines 8 → 3,822. */
-const ROWS_MSK: LpProofRow[] = [ROW_NO1, ROW_BRANDED];
+/** The MSK pages: their strip already headlines 8 → 3,822. Branded search
+ *  leads because it is discipline-neutral; the Ryde rankings, which name an
+ *  osteopathy search, come second on a page a physiotherapist is reading. */
+const ROWS_MSK: LpProofRow[] = [ROW_BRANDED, ROW_NO1];
 
 
 /**
@@ -387,7 +410,13 @@ const STAT_APPOINTMENTS: LpStat = {
   // APPOINTMENTS, NOT NEW PATIENTS. The sales deck says "572 new patient
   // enquiries in 30 days", which is wrong by roughly 2.5x — the new-patient
   // figure is 212. Never relabel this one. See src/lib/clinic-capacity.ts.
-  context: "Bodyfunction's busiest month, and a different month to the one beside it",
+  //
+  // "…and a different month to the one beside it" used to be in this line.
+  // The fact still has to be stated and now is, once, in LP_RESULTS_CAVEAT
+  // directly under the strip; here it read as a compliance footnote at display
+  // size, which is the "methodology in the body copy" fault Simon called out on
+  // 3 Sep 2026. A proof tile says what the number is, then stops.
+  context: "Bodyfunction's busiest month",
 };
 const STAT_TRAFFIC: LpStat = {
   figure: "8 → 3,822",
@@ -438,7 +467,9 @@ const STAT_CLICKS: LpStat = {
 const STAT_COST_PER_ENQUIRY: LpStat = {
   figure: "£30",
   label: "Cost per tracked enquiry",
-  context: "Bodyfunction Clinic's own current Google Ads figure",
+  // Not "own current figure": "current" was a hedge about the missing window,
+  // audible as one. The absence of a window is honest on its own.
+  context: "Bodyfunction Clinic's Google Ads account",
 };
 const STAT_AUCTION_SHARE: LpStat = {
   figure: "70%",
@@ -518,7 +549,7 @@ const STRIP_MSK: LpStat[] = [
  * is qualified to notice if we blur the two.
  */
 export const LP_RESULTS_CAVEAT =
-  "Results shown are from specific Clinic Evo clinic accounts and periods. Individual results will vary.";
+  "Results shown are from specific Clinic Evo clinic accounts and periods. The two diary figures are from different months. Individual results will vary.";
 
 /**
  * §7 — the advertising figures, low on the page beside the paid layer.
@@ -565,6 +596,22 @@ const ADS_PROOF_WORKING: LpStat[] = [
   STAT_AD_CTR,
   STAT_AD_EXPERIENCE,
 ];
+
+/*
+ * The heading and intro over each set, added 9 Sep 2026 because one heading was
+ * serving both. "Google Ads: what an enquiry costs" sat over 70%, 7.79% and
+ * £70k+ on three of the four pages, none of which is what an enquiry costs; the
+ * cost was six sections up in the strip. And the intro said every figure was
+ * "from the Bodyfunction Clinic account" when £70k+ is Clinic Evo's spend across
+ * accounts. Each pair below only claims what its three tiles show.
+ */
+const ADS_HEADING_LEAD = { start: "Google Ads: ", accent: "what an enquiry costs" };
+const ADS_INTRO_LEAD =
+  "The cost and the auction share are from the Bodyfunction Clinic account, our founder's own clinic. A tracked enquiry is a call, a form or a chat, not a booked patient. The spend is Clinic Evo's, across the healthcare accounts we run.";
+
+const ADS_HEADING_WORKING = { start: "Google Ads: ", accent: "the account behind that cost per enquiry" };
+const ADS_INTRO_WORKING =
+  "The auction share and click-through rate are from the Bodyfunction Clinic account, our founder's own clinic, and the same account the cost per enquiry above comes from. The spend is Clinic Evo's, across the healthcare accounts we run.";
 
 /**
  * The one approved practitioner testimonial. NO LONGER RENDERED ANYWHERE.
@@ -693,6 +740,10 @@ export interface LpVariant {
    * one page.
    */
   adsProof: LpStat[];
+  /** The heading over `adsProof`. Has to describe those three tiles and nothing else. */
+  adsHeading: { start: string; accent: string };
+  /** One paragraph under it, attributing each figure to the account it is from. */
+  adsIntro: string;
   /**
    * The rows LandingEvidence renders. Chosen so no figure appears at display
    * size twice on one page: these are the verified figures this page's strip
@@ -764,7 +815,11 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     metaTitle: "Healthcare Marketing For UK Clinics, Run By A Clinic Owner",
     metaDescription:
       "One system for UK healthcare clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Request a free clinic audit.",
-    badge: "Built inside a working MSK clinic",
+    // Was "Built inside a working MSK clinic", under an H1 that also says MSK
+    // and above a trust point that says "practising clinic owner". This is the
+    // strongest sentence on the page and it was buried in the second FAQ
+    // answer; it is already live copy, so it is not a new claim.
+    badge: "We were a clinic before we were an agency",
     // §13. This ad group is the broadest and therefore the weakest: "healthcare
     // marketing" attracts dentists, aesthetics, vets, private GPs and medtech,
     // none of which we can evidence. So the H1 names MSK in the headline itself
@@ -776,8 +831,11 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       accent: "more booked patients",
       end: "",
     },
+    // Outcome-led, and it names the three disciplines the H1 abbreviates to
+    // MSK. The service list it replaces is given in full by LandingSystem two
+    // sections down and was appearing five times per page.
     subhead:
-      "Websites, SEO, Google Ads and patient follow-up built specifically for UK osteopaths, physiotherapists and chiropractors, and run as one connected system rather than four suppliers you have to manage.",
+      "For osteopathy, physiotherapy and chiropractic clinics: get found locally, get chosen, and get every enquiry answered before it goes cold.",
     practiceNoun: "clinic",
     seoConditions: "back pain, sciatica, sports injury and postural problems",
     proofHeading: {
@@ -786,6 +844,8 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     },
     proofStrip: STRIP_MSK,
     adsProof: ADS_PROOF_WORKING,
+    adsHeading: ADS_HEADING_WORKING,
+    adsIntro: ADS_INTRO_WORKING,
     proofRows: ROWS_MSK,
     problems: [
       {
@@ -810,7 +870,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       },
     ],
     evidenceNote:
-      "Both clinics below are musculoskeletal practices, and both are where this system was built and tested before it was sold to anybody.",
+      "Both clinics below are musculoskeletal practices. One is our founder's own, and the other opened from nothing and reached page one within a year.",
     band: {
       // Discipline-neutral on purpose: this ad group covers treatment-led
       // healthcare generally, so the one photograph that must not name a
@@ -887,8 +947,10 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     // proof strip directly below now opens with "What happened at two
     // osteopathy clinics", so the hero was spending a line of a five-line
     // mobile paragraph saying what the next screen says in its heading.
+    // One sentence. The second, a list of the four services, is what
+    // LandingSystem is for.
     subhead:
-      "Get your clinic found, turn more searches into enquiries and stop good leads going cold. Website, SEO, Google Ads and patient follow-up managed as one connected system.",
+      "Get your clinic found, turn more of those searches into enquiries, and stop good leads going cold.",
     defaultDiscipline: "Osteopath",
     practiceNoun: "osteopathy clinic",
     seoConditions: "back pain, sciatica, sports injury and postural problems",
@@ -904,6 +966,8 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     },
     proofStrip: STRIP_OSTEOPATHY,
     adsProof: ADS_PROOF_LEAD,
+    adsHeading: ADS_HEADING_LEAD,
+    adsIntro: ADS_INTRO_LEAD,
     proofRows: ROWS_OSTEOPATHY,
     problems: [
       {
@@ -928,7 +992,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       },
     ],
     evidenceNote:
-      "Both clinics below are osteopathy practices. Bodyfunction is our founder's own; Lind Street is a client who opened cold with nothing.",
+      "Both clinics below are osteopathy practices. Bodyfunction is our founder's own. Lind Street is a client who opened cold with nothing.",
     band: {
       // Centre-weighted and cool-toned, which is what a hard crop at two very
       // different aspect ratios needs. It is a high-key frame and reads pale at
@@ -946,8 +1010,15 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       // the copy column puts solid navy. The desktop band would show her under
       // the text and a white wall in the window. A re-crop of that photograph
       // with the practitioner moved right would win outright.
-      image: "/images/osteopath-treatment.jpg",
-      objectPosition: "50% 50%",
+      // SWAPPED 9 Sep 2026 for the real photograph the note above argues for,
+      // after rendering both. The premise that her subject sits in the left
+      // third was half right: the practitioner does, but the patient's face
+      // and the practitioner's hands at her neck sit centre-right, which is
+      // exactly the window the desktop gradient leaves open. A vertical
+      // position of 62% puts that treatment in shot at 1440px and keeps it in
+      // the 62vw mobile band. Navy scrubs under a navy scrim is a bonus.
+      image: "/images/bodyfunction-clinic-neck-treatment-session-close.jpg",
+      objectPosition: "50% 62%",
       eyebrow: "First, three questions",
       headline: {
         // Names the exact split the whole page argues: visibility and
@@ -970,7 +1041,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
           body: "An enquiry lands while you are mid-treatment. How long before somebody answers it?",
         },
         {
-          label: "Cost per patient",
+          label: "Cost per enquiry",
           body: "Could you say what one new osteopathy enquiry currently costs you?",
         },
       ],
@@ -978,7 +1049,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     variantFaqs: [
       {
         question:
-          "Do you actually work with osteopaths, or is this transferred from somewhere else?",
+          "Do you work with osteopaths, or is this transferred from somewhere else?",
         answer:
           "Both of the clinics whose figures are on this page are osteopathy clinics. Bodyfunction Clinic in Angel is our founder's own osteopathy and MSK practice, and Lind Street Osteopathy opened cold in Ryde with no logo, no website and no search presence. Clinic Evo was founded by a practising osteopath, and every case study we publish is an osteopathy clinic.",
       },
@@ -1018,8 +1089,13 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       accent: "booked patients",
       end: "",
     },
+    // Rewritten 9 Sep 2026. The old second sentence restated the eyebrow
+    // directly above it, word for word in places, and the pair pushed the hero
+    // CTA under the cookie banner on a 667px phone. "While you are still
+    // treating" is the problem list's own image and is the one that lands with
+    // a hands-on practitioner.
     subhead:
-      "SEO, Google Ads, websites and patient follow-up built around how private MSK clinics actually acquire and retain patients. It was developed inside a clinic that treats physiotherapy patients alongside osteopathy, and tested on that clinic's own diary first.",
+      "Rank for the conditions you treat, get chosen when patients compare clinics, and have every enquiry answered while you are still treating.",
     defaultDiscipline: "Physiotherapist",
     practiceNoun: "physiotherapy clinic",
     seoConditions:
@@ -1034,6 +1110,8 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     },
     proofStrip: STRIP_MSK,
     adsProof: ADS_PROOF_WORKING,
+    adsHeading: ADS_HEADING_WORKING,
+    adsIntro: ADS_INTRO_WORKING,
     proofRows: ROWS_MSK,
     problems: [
       {
@@ -1064,7 +1142,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     // page was rewritten to stop making: honesty about what the evidence IS
     // does not require announcing what it is not.
     evidenceNote:
-      "Both clinics below are musculoskeletal practices where this system was built and tested. Bodyfunction treats physiotherapy patients alongside osteopathy.",
+      "Both clinics below are musculoskeletal practices. Bodyfunction treats physiotherapy patients alongside osteopathy, and Lind Street opened from nothing on the Isle of Wight.",
     band: {
       // Kinesiology taping: the one image in the repo that could not be
       // mistaken for any other discipline, and its blue-grey ground sits under
@@ -1120,7 +1198,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       {
         question: "Will this work for a physiotherapy clinic?",
         answer:
-          "It was built in one. Bodyfunction Clinic in Angel, where the system was tested before it was offered to anybody else, is an osteopathy and physiotherapy practice. The search work, the website, the ads and the follow-up are the same job whichever of the two a patient books, and the audit looks at your local search market, your website, your booking path and your follow-up before anybody suggests what to do about them.",
+          "It was built in one. Bodyfunction Clinic in Angel is an osteopathy and physiotherapy practice. The search work, the website, the ads and the follow-up are the same job whichever of the two a patient books, and the audit looks at your local search market, your website, your booking path and your follow-up before anybody suggests what to do about them.",
       },
     ],
   },
@@ -1131,7 +1209,11 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     metaTitle: "Marketing For Chiropractic Clinics, Built To Fill The Diary",
     metaDescription:
       "One system for UK chiropractic clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Request a free clinic audit.",
-    badge: "Built inside a working MSK clinic",
+    // Was "Built inside a working MSK clinic", under an H1 that also says MSK
+    // and above a trust point that says "practising clinic owner". This is the
+    // strongest sentence on the page and it was buried in the second FAQ
+    // answer; it is already live copy, so it is not a new claim.
+    badge: "We were a clinic before we were an agency",
     // §12's suggested H1. Trust before booking is the chiropractic-specific
     // problem and it is not the same problem as visibility, which is what the
     // old "built to fill the diary" accent flattened it into.
@@ -1141,7 +1223,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       end: "",
     },
     subhead:
-      "Get found when local patients are looking for help, give them a reason to choose your clinic, and follow up every enquiry before it goes cold. Website, SEO, Google Ads and patient follow-up run as one system.",
+      "Get found when local patients are looking for help, give them a reason to choose your clinic, and follow up every enquiry before it goes cold.",
     defaultDiscipline: "Chiropractor",
     practiceNoun: "chiropractic clinic",
     seoConditions: "back pain, sciatica, neck pain and postural problems",
@@ -1154,6 +1236,8 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     },
     proofStrip: STRIP_MSK,
     adsProof: ADS_PROOF_WORKING,
+    adsHeading: ADS_HEADING_WORKING,
+    adsIntro: ADS_INTRO_WORKING,
     proofRows: ROWS_MSK,
     problems: [
       {
@@ -1188,7 +1272,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     // A first draft here ended "neither is a chiropractic clinic", which
     // volunteers the gap rather than framing the evidence.
     evidenceNote:
-      "Both clinics below are musculoskeletal practices, and both are where this patient-acquisition system was built and tested before it was sold to anybody.",
+      "Both clinics below are musculoskeletal practices. One is our founder's own, and the other opened from nothing and reached page one within a year.",
     band: {
       // Portrait source, cropped to a horizontal slice through the hands. The
       // three chiropractic images in the repo are all portrait, so this is a
@@ -1219,7 +1303,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
           body: "Somebody enquires at 10pm with acute back pain. Who replies to them, and when?",
         },
         {
-          label: "Cost per patient",
+          label: "Cost per enquiry",
           body: "Could you say what a new patient enquiry costs you, and whether the tracking behind that figure is right?",
         },
       ],
