@@ -1,6 +1,6 @@
 import FadeUp from "@/components/ui/FadeUp";
 import { GoogleAdsLockup } from "@/components/icons/GoogleColorMark";
-import { LP_ADS_PROOF } from "@/lib/lp";
+import { type LpVariant } from "@/lib/lp";
 
 /**
  * §7 — the advertising figures, kept away from the top of the page.
@@ -12,7 +12,13 @@ import { LP_ADS_PROOF } from "@/lib/lp";
  * part of the system where they answer a question the reader has by then
  * actually got: does the advertising work, and what does it cost.
  *
- * £42.50, NOT £30. Read the long note on LP_ADS_PROOF in src/lib/lp.ts before
+ * THE THREE FIGURES DIFFER PER PAGE, so that no figure is a headline twice on
+ * one page. The three MSK pages already show £42.50 in their proof strip, so
+ * here they show what produced it: 89 enquiries and the spend behind them. The
+ * osteopathy strip carries no ad figure, so this is where £42.50 is introduced
+ * on that page. See `adsProof` in src/lib/lp.ts.
+ *
+ * £42.50, NOT £30. Read the long note on those constants in src/lib/lp.ts before
  * changing this. Both figures measure the same thing, only one of them has a
  * period attached, and they must never appear on the same page.
  *
@@ -27,7 +33,7 @@ import { LP_ADS_PROOF } from "@/lib/lp";
  * channel metric §7 says should not lead. They stay on
  * /google-ads-for-clinics/, next to the screenshots they are read off.
  */
-export default function LandingAdsProof() {
+export default function LandingAdsProof({ variant }: { variant: LpVariant }) {
   return (
     <section className="border-b border-white/10 bg-[var(--color-ink)] py-16 sm:py-20">
       <div className="cx-main">
@@ -59,7 +65,7 @@ export default function LandingAdsProof() {
             role="list"
             className="grid grid-cols-1 gap-x-10 gap-y-7 sm:grid-cols-3"
           >
-            {LP_ADS_PROOF.map((stat, index) => (
+            {variant.adsProof.map((stat, index) => (
               <FadeUp key={stat.figure} delay={0.08 + index * 0.06}>
                 <li className="border-t border-white/20 pt-4">
                   <h3 className="text-white">

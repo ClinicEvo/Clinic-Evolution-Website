@@ -13,10 +13,22 @@ import LpCtaButton from "./LpCtaButton";
  * form, 900px further down, because a paid visitor decides whether the offer is
  * worth their details before they have scrolled at all.
  */
+/*
+ * "Rolling monthly, no lock-in contract" was the third point until 9 Sep 2026.
+ * Removed on Simon's instruction: the commercial model is not universally
+ * rolling monthly, and it should not be represented that way on live ad
+ * traffic. No source in this repo ever supported it. Nothing contractual
+ * replaces it — the third point now states the positioning instead, which is
+ * checkable and is the actual differentiator.
+ *
+ * DO NOT PUT A CONTRACT OR NOTICE-PERIOD CLAIM BACK HERE without a written
+ * source from Simon. The same claim is still live in three places on the
+ * organic pages and is flagged for a separate pass.
+ */
 const TRUST_POINTS = [
   "Built and run by a practising clinic owner",
   "MSK clinics only: osteopathy, physio, chiropractic",
-  "Rolling monthly, no lock-in contract",
+  "One team for the website, search, ads and follow-up",
 ];
 
 export default function LandingHero({ variant }: { variant: LpVariant }) {

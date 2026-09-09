@@ -13,8 +13,14 @@ import LpCtaButton from "./LpCtaButton";
  *
  * This is one ordered list under one heading — the shape the homepage's
  * OperatingSystemBand settled on — so the eye reads a single sequence rather
- * than a menu. Nothing here is presented as separately buyable, because it is
- * not: the audit sets the scope, the system ships whole.
+ * than a menu.
+ *
+ * It does NOT say the layers cannot be bought separately, and that changed on
+ * 9 Sep 2026. This docblock used to end "nothing here is presented as
+ * separately buyable, because it is not: the audit sets the scope, the system
+ * ships whole." Simon's correction: the proposition is that the connected
+ * system produces the strongest results, not that a clinic is refused one part
+ * of it. The list argues for the whole; it no longer rules out the parts.
  *
  * Stage names carry the sequence, with the numeral as a quiet index beside them.
  * Ordinals alone are a scan failure — "05" tells a skimmer nothing.
@@ -60,10 +66,25 @@ export default function LandingSystem({ variant }: { variant: LpVariant }) {
                 run all five layers below as one thing, with one team, aimed at
                 one number: patients in the diary.
               </p>
+              {/* Was "You do not pick items off this list." Replaced on
+                  9 Sep 2026 on Simon's instruction: the strategic proposition
+                  is that the connected system produces the strongest results,
+                  NOT that a clinic is forbidden from buying one part. The old
+                  line asserted the second, which is a commercial claim nobody
+                  had verified, and it was also the half of a contradiction with
+                  the FAQ that used to offer standalone services.
+                  
+                  The integrated positioning is unchanged and is doing more work
+                  than before, because it is now an argument rather than a rule.
+                  Wording direction supplied by Simon. */}
               <p className="text-body text-[var(--color-muted)]">
-                You do not pick items off this list. The free audit works out
-                which layers your {variant.practiceNoun} needs most and in what
-                order, and the plan is built from that.
+                <strong className="font-semibold text-[var(--color-ink)]">
+                  The strongest results come when these parts work together.
+                </strong>{" "}
+                Rather than treating your website, SEO, advertising and
+                follow-up as four separate projects, we connect them around one
+                goal, and the audit works out which of them your{" "}
+                {variant.practiceNoun} needs first.
               </p>
             </div>
           </FadeUp>

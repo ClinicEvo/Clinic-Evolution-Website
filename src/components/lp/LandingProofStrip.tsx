@@ -1,9 +1,5 @@
 import FadeUp from "@/components/ui/FadeUp";
-import {
-  LP_PROOF_STRIP,
-  LP_RESULTS_CAVEAT,
-  type LpVariant,
-} from "@/lib/lp";
+import { LP_RESULTS_CAVEAT, type LpVariant } from "@/lib/lp";
 
 /**
  * §5 and §6 — four hard numbers, directly under the hero.
@@ -14,6 +10,12 @@ import {
  * assertion: built by clinic owners, healthcare specialists, no jargon. Every
  * competitor in the same auction says those things. Only these four can be
  * looked up.
+ *
+ * WHICH FOUR DIFFERS PER PAGE since 9 Sep 2026 — see `proofStrip` and the note
+ * on STRIP_OSTEOPATHY / STRIP_MSK in src/lib/lp.ts. Osteopathy leads with both
+ * Lind Street figures so every tile on it is an osteopathy clinic's own result;
+ * the other three lead with a broader MSK mix. The evidence base is identical
+ * on all four pages; only the selection and the heading above it change.
  *
  * FOUR TILES IS THE CAP, and it is a deliberate reversal of a standing
  * instruction, which is worth knowing before adding a fifth. Simon, 3 Sep 2026:
@@ -71,7 +73,7 @@ export default function LandingProofStrip({ variant }: { variant: LpVariant }) {
           role="list"
           className="grid grid-cols-2 gap-x-6 gap-y-8 sm:gap-x-10 lg:grid-cols-4"
         >
-          {LP_PROOF_STRIP.map((stat, index) => (
+          {variant.proofStrip.map((stat, index) => (
             <FadeUp key={stat.figure} delay={0.05 + index * 0.06}>
               <li className="border-t-2 border-[var(--color-ink)]/10 pt-4">
                 {/* Figure and label in one h3, so the number reaches the

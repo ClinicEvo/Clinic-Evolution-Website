@@ -60,14 +60,27 @@ const SHARED_FAQS = [
       "The website, the local search work, the paid campaigns, the phone, and the follow-up after an enquiry arrives. One team runs all of it and reports on it together, so enquiries and bookings sit next to the spend that produced them rather than in four separate dashboards.",
   },
   {
+    // Trimmed on 9 Sep 2026 so it does not restate the contract answer below
+    // it. That one owns "we explain it before you agree"; this one owns what
+    // the figure depends on. No number appears, because none is published
+    // anywhere on this site.
     question: "What does it cost?",
     answer:
-      "It depends which layers your clinic needs, which is what the audit establishes. Once we have both looked at it we talk you through what it would realistically cost to run, in plain numbers, before you decide anything. Nothing gets built until you have that figure and the plan in front of you.",
+      "It depends which parts your clinic needs and how much we are taking on, which is what the audit establishes. You get the plan and a realistic figure for running it in plain numbers, and nothing gets built before you have both in front of you.",
   },
   {
+    // ANSWER SUPPLIED BY SIMON, 9 Sep 2026, and used verbatim. It replaced
+    // "No. Rolling monthly, no long-term lock-in", which asserted a commercial
+    // model that is not universally true and had no source behind it.
+    //
+    // Note what this answer deliberately does NOT do: it does not say no, and
+    // it does not say yes. That is the point. It commits to explaining the
+    // commitment before anybody signs, which is the reassurance a paid visitor
+    // actually needs, without inventing terms. Do not "improve" it back into a
+    // promise.
     question: "Do I need to sign a long contract?",
     answer:
-      "No. Rolling monthly, no long-term lock-in. The work needs a few months to compound and we will tell you that plainly, but you are not tied in while it does.",
+      "We\u2019ll explain the recommended package, pricing and commitment clearly before you agree to anything. The right setup depends on what your clinic needs and what we\u2019re taking responsibility for.",
   },
   {
     question: "What happens during the free clinic audit?",

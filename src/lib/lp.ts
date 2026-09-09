@@ -13,9 +13,16 @@
  *    `LP_EVIDENCE` below, with its source named, and is copied from the case
  *    studies or `google-ads-evidence.ts` rather than restated from memory.
  *
- * 2. The offer is one system, scoped per clinic — not a menu of products and not
- *    a fixed package. The homepage settled that framing and `LandingSystem`
- *    renders it; the wording here has to agree with it.
+ * 2. The offer is one connected system, scoped per clinic. `LandingSystem`
+ *    renders that argument and the wording here has to agree with it.
+ *
+ *    WHAT CHANGED ON 9 SEP 2026: this rule used to read "not a menu of products
+ *    and not a fixed package", and LandingSystem enforced it with "You do not
+ *    pick items off this list." Simon's correction is that the proposition is
+ *    that the connected system works BEST, not that a clinic cannot buy one
+ *    part of it. So the copy now argues for the system rather than forbidding
+ *    the alternative. Keep the positioning strong; do not turn it back into a
+ *    rule about what a clinic is not allowed to purchase.
  */
 
 /**
@@ -334,86 +341,158 @@ export interface LpStat {
   context: string;
 }
 
-export const LP_PROOF_STRIP: LpStat[] = [
-  {
-    figure: "212",
-    label: "New patients",
-    context: "Bodyfunction's best month",
-  },
-  {
-    figure: "572",
-    label: "Appointments",
-    context: "Bodyfunction's busiest month",
-  },
-  {
-    figure: "8 → 3,822",
-    label: "Monthly organic traffic",
-    context: "Bodyfunction, over two years",
-  },
-  {
-    figure: "No. 1 × 6",
-    label: "Local searches",
-    context: "Lind Street Osteopathy",
-  },
+/*
+ * One constant per verified figure, composed into per-page sets below.
+ *
+ * Written this way rather than as four hand-typed arrays so a figure's wording
+ * and its provenance live in exactly one place. Every one of these was checked
+ * against its source on 9 Sep 2026; the source is named on each.
+ */
+const STAT_NEW_PATIENTS: LpStat = {
+  figure: "212",
+  label: "New patients",
+  context: "Bodyfunction's best month",
+};
+const STAT_APPOINTMENTS: LpStat = {
+  figure: "572",
+  label: "Appointments",
+  // APPOINTMENTS, NOT NEW PATIENTS. The sales deck says "572 new patient
+  // enquiries in 30 days", which is wrong by roughly 2.5x — the new-patient
+  // figure is 212. Never relabel this one. See src/lib/clinic-capacity.ts.
+  context: "Bodyfunction's busiest month, a separate month to the 212",
+};
+const STAT_TRAFFIC: LpStat = {
+  figure: "8 → 3,822",
+  label: "Monthly organic traffic",
+  context: "Bodyfunction, Ahrefs estimate over two years",
+};
+const STAT_NO1: LpStat = {
+  figure: "No. 1 × 6",
+  label: "Local searches",
+  context: "Lind Street Osteopathy, all ten tracked terms in the top four",
+};
+const STAT_CLICKS: LpStat = {
+  figure: "86 → 576",
+  label: "Google clicks",
+  // The +570% the brief also asked for is here rather than as the figure. A
+  // percentage off a base of 86 overstates what happened; showing the base
+  // makes the same point and cannot be accused of inflating it.
+  context: "Lind Street Osteopathy, up 570% half on half",
+};
+const STAT_COST_PER_ENQUIRY: LpStat = {
+  figure: "£42.50",
+  label: "Cost per tracked enquiry",
+  context: "Bodyfunction's Google Ads account, 29 Dec 2025 to 22 Jun 2026",
+};
+const STAT_ENQUIRIES: LpStat = {
+  figure: "89",
+  label: "Tracked enquiries",
+  context: "From £3.78k of Google Ads spend over the same period",
+};
+const STAT_AD_EXPERIENCE: LpStat = {
+  figure: "£70k+",
+  label: "Spent on healthcare paid ads",
+  // Danny's own statement about Clinic Evo's track record, made on the 10 Aug
+  // call and confirmed by Simon on 13 Aug 2026. A first-party claim about us,
+  // not about a client, which is why it can be a figure. Also published as a
+  // quote on /google-ads-for-clinics/.
+  context: "Clinic Evo's own spend, across healthcare accounts",
+};
+
+/**
+ * §5, §6 and the 9 Sep amendment — the hard-number strip under the hero.
+ *
+ * WHY IT IS THERE. The paid journey used to spend three sections on argument
+ * before showing a figure, and every claim in those sections is one a
+ * competitor in the same auction also makes. These four can be looked up.
+ *
+ * TWO SETS, NOT ONE. The first pass used identical tiles on all four pages, on
+ * the reasoning that the evidence base is identical and manufacturing
+ * discipline-specific proof is the one thing this project forbids. Simon's
+ * amendment is that the SELECTION can differ even when the evidence cannot:
+ *
+ *   OSTEOPATHY  leans into the directly relevant osteopathy evidence, so it
+ *               takes both Lind Street figures (No. 1 × 6 and 86 → 576) and
+ *               drops the traffic estimate and the ad cost. Every tile on that
+ *               page is then an osteopathy clinic's own result.
+ *
+ *   THE OTHER   take a broader MSK mix: the two diary figures, the traffic
+ *   THREE       growth and the cost per tracked enquiry. Their heading says
+ *               these came from the MSK clinics where the system was developed
+ *               and tested, which is what §11 and §12 required.
+ *
+ * NOTHING IS INVENTED BY THE SPLIT. Both sets draw on the same four verified
+ * sources; only which four are shown changes, and the framing above them says
+ * whose results they are on every page.
+ *
+ * 212 AND 572 ARE DIFFERENT MONTHS and STAT_APPOINTMENTS says so in its own
+ * context line. Danny gave them as two separate personal bests; as one month it
+ * is an unconfirmed claim.
+ *
+ * NO ANIMATED COUNTERS. StatTiles on the case studies animated from zero and
+ * that zero reached the server-rendered HTML, so crawlers were served "+0%" and
+ * "0×". These are plain strings and must stay plain strings.
+ */
+const STRIP_OSTEOPATHY: LpStat[] = [
+  STAT_NEW_PATIENTS,
+  STAT_APPOINTMENTS,
+  STAT_NO1,
+  STAT_CLICKS,
+];
+
+const STRIP_MSK: LpStat[] = [
+  STAT_NEW_PATIENTS,
+  STAT_APPOINTMENTS,
+  STAT_TRAFFIC,
+  STAT_COST_PER_ENQUIRY,
 ];
 
 /**
- * §27. Required, not optional, and it stays directly under the figures rather
- * than in a footer. Past results are evidence; they are not a forecast, and a
- * clinician is the right person to be sceptical about that.
+ * §27. Required, not optional, and it stays with the figures rather than in a
+ * footer. Past results are evidence; they are not a forecast, and this audience
+ * is qualified to notice if we blur the two.
  */
 export const LP_RESULTS_CAVEAT =
   "Results shown are from specific Clinic Evo clinic accounts and periods. Individual results will vary.";
 
 /**
- * §7 — the advertising figures, deliberately NOT in the strip above.
+ * §7 — the advertising figures, low on the page beside the paid layer.
  *
- * Business outcomes lead; channel metrics support. A clinic owner cares about
- * patients, appointments and enquiries before CTR or auction share, so these
- * sit beside the paid-search part of the system rather than at the top of the
- * page.
+ * Business outcomes lead and channel metrics support, so the strip at the top
+ * carries patients and appointments while the working sits down here.
  *
- * £42.50 REPLACED £30 ON 9 SEP 2026, and that was the brief's call in §5:
- * "Do not publish the £30 figure without verifying it."
+ * TWO SETS, FOR ONE REASON: no figure should be a headline twice on the same
+ * page. The three MSK pages already show £42.50 in their strip, so their ads
+ * block shows what produced it (89 enquiries, and the total spend behind them)
+ * rather than restating the number six sections later. The osteopathy strip has
+ * no ad figure at all, so its ads block is where £42.50 is introduced.
  *
- *   - £30 is Danny's own current figure [src: WhatsApp, Danny, 3 Sep 2026] and
- *     Simon confirmed the same day that it means per conversion. Its source is
- *     sound. What it has never had is a PERIOD, which is why it could not be
- *     published beside anything else and why the brief was right to query it.
- *   - £42.50 is read off ads-graph.png, which is in the repo, and carries its
- *     own window: £3.78k over 89 conversions between 29 Dec 2025 and 22 Jun
- *     2026. It is the same measure over a stated period.
+ * £42.50 AND NOT £30, confirmed by Simon on 9 Sep 2026 and unchanged until a
+ * measurement period exists for the newer figure. Both measure the same thing
+ * and must never share a page. See the note on the removed LP_PROOF row.
  *
- * They are the same metric with two values, so they must never share a page —
- * side by side they read as a 40% discrepancy in one number. The paid pages now
- * carry the dated one. If Danny gives a window for £30, it supersedes this
- * outright and /google-ads-for-clinics/ should change with it. See the note at
- * the top of src/lib/google-ads-evidence.ts before touching either.
+ * "TRACKED ENQUIRY" IS THE ONLY PERMITTED WORDING. Google counts a conversion
+ * as a call, a form or a chat. Nothing here connects that to a booked patient,
+ * so "per new patient" is a claim we cannot make.
  *
- * "TRACKED ENQUIRY", NEVER "NEW PATIENT". Google counts a conversion as a
- * tracked action: a call, a form or a chat. §5 is explicit about this and so is
- * CONVERSION_CAVEAT in google-ads-evidence.ts. Do not put "patient" back.
+ * The 7.79% CTR and ~70% auction share are both verified and both deliberately
+ * absent: they are exactly the channel metric §7 says must not lead. They stay
+ * on /google-ads-for-clinics/ beside the screenshots they are read off.
  */
-export const LP_ADS_PROOF: LpStat[] = [
+const ADS_PROOF_LEAD: LpStat[] = [
+  STAT_COST_PER_ENQUIRY,
+  STAT_ENQUIRIES,
+  STAT_AD_EXPERIENCE,
+];
+
+const ADS_PROOF_WORKING: LpStat[] = [
+  STAT_ENQUIRIES,
   {
-    figure: "£42.50",
-    label: "Cost per tracked enquiry",
-    context: "Bodyfunction's Google Ads account, 29 Dec 2025 to 22 Jun 2026",
+    figure: "£3.78k",
+    label: "Ad spend behind them",
+    context: "Google Ads, 29 Dec 2025 to 22 Jun 2026",
   },
-  {
-    figure: "89",
-    label: "Tracked enquiries",
-    context: "From £3.78k of spend over the same period",
-  },
-  {
-    figure: "£70k+",
-    label: "Spent on healthcare paid ads",
-    // Danny's own statement about Clinic Evo's track record, made on the 10 Aug
-    // call and confirmed by Simon on 13 Aug 2026. It is a first-party claim
-    // about us, not about a client, which is why it can be a figure here. It is
-    // also currently published as a quote on /google-ads-for-clinics/.
-    context: "Clinic Evo's own spend, across healthcare accounts",
-  },
+  STAT_AD_EXPERIENCE,
 ];
 
 /**
@@ -530,6 +609,19 @@ export interface LpVariant {
    */
   proofHeading: { start: string; accent: string };
   /**
+   * §6 as amended 9 Sep 2026 — which four verified figures this page leads
+   * with. Osteopathy takes STRIP_OSTEOPATHY (both Lind Street figures, so every
+   * tile is an osteopathy clinic's own result); the rest take STRIP_MSK. See
+   * the note on those constants: the SELECTION differs per page, the evidence
+   * base does not.
+   */
+  proofStrip: LpStat[];
+  /**
+   * §7 — the advertising block's three figures. Whichever set this page's strip
+   * does not already headline, so £42.50 is never a headline twice on one page.
+   */
+  adsProof: LpStat[];
+  /**
    * §14 — the problem list, and the section that carries most of the
    * discipline-specific weight on the page.
    *
@@ -614,6 +706,8 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       start: "Results from the MSK clinics where we ",
       accent: "built and tested this",
     },
+    proofStrip: STRIP_MSK,
+    adsProof: ADS_PROOF_WORKING,
     problems: [
       {
         title: "Local patients cannot find you",
@@ -726,6 +820,8 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       start: "What happened at ",
       accent: "two osteopathy clinics",
     },
+    proofStrip: STRIP_OSTEOPATHY,
+    adsProof: ADS_PROOF_LEAD,
     problems: [
       {
         title: "You are not the first osteopath they find",
@@ -853,6 +949,8 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       start: "Results from the MSK clinics where we ",
       accent: "developed and tested the system",
     },
+    proofStrip: STRIP_MSK,
+    adsProof: ADS_PROOF_WORKING,
     problems: [
       {
         title: "One practitioner is flat out, another has gaps",
@@ -970,6 +1068,8 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
       start: "Results from the MSK clinics where we ",
       accent: "developed and tested the system",
     },
+    proofStrip: STRIP_MSK,
+    adsProof: ADS_PROOF_WORKING,
     problems: [
       {
         title: "They want to know what the first visit involves",

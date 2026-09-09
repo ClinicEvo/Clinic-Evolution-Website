@@ -108,7 +108,7 @@ export default async function LandingPage({
       <LandingDiscipline variant={variant} />
       <LandingEvidence variant={variant} />
       <LandingSystem variant={variant} />
-      <LandingAdsProof />
+      <LandingAdsProof variant={variant} />
       <LandingPatientPulse />
       <LandingFounder />
       <LandingProcess />
