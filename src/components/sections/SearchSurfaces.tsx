@@ -48,7 +48,7 @@ function Line({ w, dim = false }: { w: string; dim?: boolean }) {
 export default function SearchSurfaces() {
   return (
     <div className="grid gap-8 sm:grid-cols-[minmax(0,290px)_minmax(0,1fr)] sm:items-start sm:gap-14 lg:gap-20">
-      <BrowserFrame label="google.co.uk — one search">
+      <BrowserFrame label="google.co.uk: one search">
         <div className="space-y-3 p-3.5">
           {/* Query */}
           <div className="flex items-center gap-2 rounded-full bg-[var(--color-surface)] px-3 py-2 ring-1 ring-[var(--color-border)]">

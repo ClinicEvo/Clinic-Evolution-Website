@@ -357,7 +357,7 @@ export default function ResourcesHubPage() {
         heading={<>Read the thinking <em className="not-italic text-[var(--color-accent)]">behind the system</em></>}
         subtext="Practical guides on patient acquisition, clinic SEO, Google Ads, website conversion and patient reactivation, written for UK osteopaths, physiotherapists and chiropractors."
         breadcrumbs={crumbs}
-        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         rightPanel={heroPanel}
         compactBottom
       />
@@ -415,7 +415,7 @@ export default function ResourcesHubPage() {
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">SEO for clinics resources</h2>
               <p className="text-body-lg text-[var(--color-muted)] max-w-2xl">
                 Guides to help clinic owners understand how local SEO, service pages and search
-                visibility work in practice — supporting the{" "}
+                visibility work in practice, supporting the{" "}
                 <a href="/seo-for-clinics/" className="text-[var(--color-accent-text)] hover:underline">SEO for Clinics</a> service.
               </p>
             </div>
@@ -473,8 +473,8 @@ export default function ResourcesHubPage() {
       <CTASection
         id="closing-cta"
         heading="Need a clearer plan for your clinic?"
-        subheading="A free Clinic Evo audit reviews your website, search visibility, enquiry handling and patient follow-up — and shows you where the strongest opportunities are."
-        primaryLabel="Get a free clinic audit"
+        subheading="A free Clinic Evo audit reviews your website, search visibility, enquiry handling and patient follow-up, then shows you where the strongest opportunities are."
+        primaryLabel="Get my free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
 

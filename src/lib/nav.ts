@@ -86,9 +86,11 @@ export const mainNav: NavItem[] = [
     ],
     callout: {
       eyebrow: "Not sure where to start?",
-      title: "Book a free clinic audit",
-      description: "A practising osteopath reviews your clinic's online presence and shows you where patients are slipping away.",
-      ctaLabel: "Get your audit",
+      title: "Get a free clinic audit",
+      // "shows you where patients are slipping away" was loss framing in a nav
+      // callout, which is an offer slot. Reframed with the rest of them.
+      description: "A practising osteopath reviews your clinic's online presence and shows you where the biggest gains are.",
+      ctaLabel: "Get my free clinic audit",
       href: "/free-clinic-audit/",
     },
   },
@@ -131,8 +133,12 @@ export const mainNav: NavItem[] = [
   { label: "Learning Hub", href: "/learning-hub/" },
 ];
 
+/* "Book" implied choosing a calendar slot when the action is submitting a
+   clinic for review. Changed 9 Sep 2026 with the same change on the paid
+   pages. This one label renders in the header and footer of every page, so it
+   was the majority of the site's instances on its own. */
 export const ctaNav = {
-  label: "Book a free clinic audit",
+  label: "Get my free clinic audit",
   href: "/free-clinic-audit/",
 };
 

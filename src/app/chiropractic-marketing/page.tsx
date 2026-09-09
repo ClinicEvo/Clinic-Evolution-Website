@@ -47,7 +47,7 @@ const faqs = [
     question:
       "What separates the best SEO for chiropractors from generic SEO?",
     answer:
-      "Generic SEO chases traffic. Chiropractic SEO has to account for a longer consideration cycle, a patient who is often nervous about the first appointment, and regulatory limits on how treatment claims can be worded. That changes which pages are worth building, what the content has to prove, and how success is measured — enquiries and booked patients rather than sessions or impressions.",
+      "Generic SEO chases traffic. Chiropractic SEO has to account for a longer consideration cycle, a patient who is often nervous about the first appointment, and regulatory limits on how treatment claims can be worded. That changes which pages are worth building, what the content has to prove, and how success is measured: enquiries and booked patients rather than sessions or impressions.",
   },
   {
     question: "Are Google Ads useful for chiropractors?",
@@ -79,7 +79,7 @@ const steps = [
     title: "Custom growth strategy",
     description:
       "You receive a clear plan covering which channels to focus on, what content to create, and how to convert more website visitors into booked chiropractic appointments.",
-    note: "You'll see exactly which channels make sense for your clinic and why \u2014 no pressure to proceed.",
+    note: "You'll see exactly which channels make sense for your clinic and why. No pressure to proceed.",
   },
   {
     number: 3,
@@ -93,7 +93,7 @@ const steps = [
     title: "Monthly reporting & refinement",
     description:
       "Every month you receive a plain-English report covering rankings, traffic, enquiries and ad performance. We continuously refine based on what's working.",
-    note: "No dense reports or vanity metrics \u2014 just honest numbers tied to enquiries and bookings.",
+    note: "No dense reports or vanity metrics: just honest numbers tied to enquiries and bookings.",
   },
 ];
 
@@ -123,7 +123,7 @@ export default function ChiropracticMarketingPage() {
           "Conversion-focused website design",
           "AI patient reactivation systems",
         ]}
-        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanel={
           <HeroImagePlaceholder
@@ -216,7 +216,7 @@ export default function ChiropracticMarketingPage() {
       <StatBand
         eyebrow="What we can evidence"
         heading="The same foundations, proven in MSK practice."
-        body="These figures come from osteopathy and MSK clinics, measured in Google Search Console and Ahrefs. The work behind them — local search, condition pages, follow-up — is the same for a chiropractic clinic."
+        body="These figures come from osteopathy and MSK clinics, measured in Google Search Console and Ahrefs. The work behind them (local search, condition pages, follow-up) is the same for a chiropractic clinic."
         stats={[
           { value: "8 → 3,822", label: "Monthly organic visitors at a London MSK clinic, over two years" },
           { value: "332", label: "Keywords now ranking in Google's top three, from none in 2024" },
@@ -452,7 +452,7 @@ export default function ChiropracticMarketingPage() {
               <div className="relative overflow-hidden rounded-[var(--radius-card)] shadow-[var(--shadow-card)]" style={{ aspectRatio: "4/3" }}>
                 <Image
                   src="/images/bodyfunction-clinic-team-at-reception-01.jpg"
-                  alt="Bodyfunction Clinic — London MSK clinic"
+                  alt="Bodyfunction Clinic, London MSK clinic"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -478,8 +478,8 @@ export default function ChiropracticMarketingPage() {
                 Start with a free chiropractic marketing audit
               </h2>
               <p className="text-body text-[var(--color-muted)] mb-4">
-                Get a clear view of where your clinic is currently losing
-                visibility, enquiries or rebooking opportunities.
+                Get a clear view of the visibility, enquiries and rebooking
+                your clinic could be winning, and what it takes to get there.
               </p>
               <p className="text-body text-[var(--color-muted)] mb-4">
                 Your audit will review your website, SEO, local search presence,
@@ -523,7 +523,7 @@ export default function ChiropracticMarketingPage() {
       <CTASection
         id="closing-cta"
         heading="Ready to grow your chiropractic clinic?"
-        subheading="Get a clear picture of your current visibility, website performance and missed enquiries — delivered within 2 business days."
+        subheading="Get a clear picture of your current visibility, website performance and missed enquiries, delivered within 2 business days."
         primaryLabel="See what's holding your clinic back"
         primaryHref="/free-clinic-audit/"
       />

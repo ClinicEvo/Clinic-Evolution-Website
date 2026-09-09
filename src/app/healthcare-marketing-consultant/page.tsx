@@ -74,7 +74,7 @@ export default function HealthcareMarketingConsultantPage() {
           "Built with real clinical and digital growth experience",
           "Clear plan delivered within 5 business days",
         ]}
-        primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "Explore services", href: "#strategy-areas" }}
         breadcrumbs={crumbs}
         rightPanel={

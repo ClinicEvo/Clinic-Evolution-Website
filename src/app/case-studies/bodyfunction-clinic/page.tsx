@@ -44,7 +44,7 @@ const faqs = [
   {
     question: "How long before a clinic sees results from this kind of work?",
     answer:
-      "The local patient searches — the ones where somebody is looking for an osteopath near them right now — reached page one within six months. The bigger content engine took longer to compound, which is normal. Any agency promising you page one in week three is describing something that does not happen.",
+      "The local patient searches, the ones where somebody is looking for an osteopath near them right now, reached page one within six months. The bigger content engine took longer to compound, which is normal. Any agency promising you page one in week three is describing something that does not happen.",
   },
   {
     question: "Is Bodyfunction Clinic a Clinic Evo client?",
@@ -74,25 +74,25 @@ const headlineStats = [
   {
     display: "8 → 3,822",
     label: "People finding the clinic through Google each month",
-    source: "Ahrefs — Aug 2024 against Aug 2026",
+    source: "Ahrefs: Aug 2024 against Aug 2026",
   },
   {
     value: 425,
     prefix: "+",
     suffix: "%",
     label: "More clicks through to the website, year on year",
-    source: "GSC — 9,345 rising to 49,065",
+    source: "GSC: 9,345 rising to 49,065",
   },
   {
     display: "Page one",
     label: "For the local searches patients use to find an osteopath nearby",
-    source: "GSC — reached within six months",
+    source: "GSC: reached within six months",
   },
   {
     value: 5,
     suffix: "×",
     label: "More people searching for the clinic by name",
-    source: "GSC — combined branded search clicks",
+    source: "GSC: combined branded search clicks",
   },
 ];
 
@@ -171,7 +171,7 @@ export default function BodyfunctionCaseStudyPage() {
               <FadeUp delay={0.15}>
                 <div className="mt-10 flex flex-col gap-5 sm:flex-row">
                   <Button href="/free-clinic-audit/" size="lg">
-                    Get a free clinic audit
+                    Get my free clinic audit
                   </Button>
                   <Button href="/case-studies/lind-street-osteopathy/" variant="outline" size="lg">
                     See a clinic starting from zero
@@ -387,7 +387,7 @@ export default function BodyfunctionCaseStudyPage() {
               },
               {
                 title: "Made the local searches winnable",
-                desc: "The terms that bring in someone ready to book — “osteopath near me”, “osteopath islington” — need local signals, consistent details and pages built for the area, not just good content.",
+                desc: "The terms that bring in someone ready to book, like “osteopath near me” and “osteopath islington”, need local signals, consistent details and pages built for the area, not just good content.",
               },
               {
                 title: "Shortened the route to booking",
@@ -603,7 +603,7 @@ export default function BodyfunctionCaseStudyPage() {
                       there unaddressed. Naming it turns it into the bridge back to
                       the local terms rather than a hole a clinic owner falls into. */}
                   <p className="text-body text-[var(--color-muted)]">
-                    These three are content searches — somebody working out what is
+                    These three are content searches: somebody working out what is
                     wrong before they are ready to book. Winning those puts the clinic
                     in front of a patient early, while everyone else is still waiting
                     to be found. The same arithmetic moved the local booking terms
@@ -650,7 +650,7 @@ export default function BodyfunctionCaseStudyPage() {
                   </p>
                   <p className="text-body text-[var(--color-muted)]">
                     Five times as many people in Angel and Islington now do that. That
-                    is a clinic becoming the name people remember in its area — the
+                    is a clinic becoming the name people remember in its area, the
                     thing every practice owner actually wants, underneath all the
                     talk about rankings.
                   </p>
@@ -731,7 +731,7 @@ export default function BodyfunctionCaseStudyPage() {
            a page that ran out of pictures. */
         image="/images/danny_and_co.jpg"
         imageAlt="The Bodyfunction Clinic team in London"
-        ctaLabel="Get a free clinic audit"
+        ctaLabel="Get my free clinic audit"
         ctaHref="/free-clinic-audit/"
       />
 
@@ -930,7 +930,7 @@ export default function BodyfunctionCaseStudyPage() {
         id="closing-cta"
         heading="Where does your clinic actually rank right now?"
         subheading="A free clinic audit shows you where you appear for the searches your patients are making, which competitors are taking that work, and what it would take to be the one they find first."
-        primaryLabel="Get a free clinic audit"
+        primaryLabel="Get my free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
 

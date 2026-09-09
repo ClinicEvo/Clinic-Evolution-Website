@@ -60,7 +60,7 @@ export const ACCOUNT = "the Bodyfunction Clinic Google Ads account";
 export const AD_CLINIC = "Bodyfunction Clinic";
 
 export const CONVERSION_CAVEAT =
-  "Google counts a conversion as a tracked enquiry — a call, a form or a chat — not a booked patient. Figures are from one account over one period and are not a forecast for another clinic.";
+  "Google counts a conversion as a tracked enquiry (a call, a form or a chat), not a booked patient. Figures are from one account over one period and are not a forecast for another clinic.";
 
 /** Figures quoted as text, each with the source that backs it. */
 export const FIGURES = [

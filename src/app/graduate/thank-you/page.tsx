@@ -26,7 +26,7 @@ export const metadata = buildMetadata({
 });
 
 const NEXT_STEPS = [
-  "We read your application ourselves — no automated triage",
+  "We read your application ourselves. No automated triage",
   "We come back to you about a short call",
   "The call covers where you are, what you are building and what you need first",
   `If it is a fit, you start with the ${GRADUATE_INTAKE.labelLong} intake`,

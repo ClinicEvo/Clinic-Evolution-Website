@@ -146,7 +146,7 @@ export default function CallCentrePage() {
           "Leads from your ads and forms called back while intent is high",
           "Patients booked straight into your diary, not left as a message",
         ]}
-        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanelWidth="0.85fr"
         bulletsBelow
@@ -202,11 +202,11 @@ export default function CallCentrePage() {
           <FadeUp>
             <p className="eyebrow mb-4">Where patients drop out</p>
             <h2 className="text-h2 text-balance text-[var(--color-ink)] max-w-[680px] mb-6">
-              Most MSK clinics lose patients long before treatment begins.
+              Four things can end an enquiry before treatment ever begins.
             </h2>
             <p className="text-body-lg text-[var(--color-charcoal)] max-w-[620px] mb-14">
-              Four quiet drop-out points. None of them show up in the accounts, so most
-              clinics never see them, they just feel the empty diary.
+              Four quiet drop-out points. None of them show up in the accounts, so
+              they are easy to miss: you just feel the empty diary.
             </p>
           </FadeUp>
 
@@ -234,10 +234,10 @@ export default function CallCentrePage() {
         eyebrow="Why we built this"
         quote="Ads are one part of the process. It has to be an integrated system: what happens after that person provides their details, the follow-up process, and going into your marketing ecosystem. That is just as important."
         authorName="Danny Morgan"
-        authorRole="Co-founder, Clinic Evo — and a practising osteopath"
+        authorRole="Co-founder, Clinic Evo, and a practising osteopath"
         image="/images/danny-morgan-angel-clinic.png"
         imageAlt="Danny Morgan, co-founder of Clinic Evo"
-        ctaLabel="Get a free clinic audit"
+        ctaLabel="Get my free clinic audit"
         ctaHref="/free-clinic-audit/"
       />
 
@@ -406,8 +406,8 @@ export default function CallCentrePage() {
 
       <CTASection
         id="closing-cta"
-        heading="Stop losing patients to unanswered calls"
-        subheading="Book a free clinic audit. We'll identify exactly how many enquiries your clinic is likely losing to unanswered calls, and what a full system would do about it."
+        heading="Answer every call, and book the patients already ringing"
+        subheading="Get a free clinic audit. We will look at how your calls and enquiries are handled now, and what a fully answered phone would be worth to the diary."
       />
 
       <StickyMobileCta hideNearId="closing-cta" />

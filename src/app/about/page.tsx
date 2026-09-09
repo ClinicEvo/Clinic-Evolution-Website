@@ -82,7 +82,7 @@ export default function AboutPage() {
           "Strategy and delivery, not just advice",
           "Grounded in real clinic patient journey experience",
         ]}
-        primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "Explore our services", href: "/#services" }}
         breadcrumbs={crumbs}
         rightPanel={<HeroFounderPanel />}
@@ -545,7 +545,7 @@ export default function AboutPage() {
         id="closing-cta"
         heading="Start with a free clinic audit"
         subheading="The easiest way to see where Clinic Evo can help is to start with a free clinic marketing audit. We will review your website, SEO, local visibility, patient journey and conversion points, then highlight the opportunities most likely to improve enquiries and bookings."
-        primaryLabel="Get a free clinic audit"
+        primaryLabel="Get my free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
 

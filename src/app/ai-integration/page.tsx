@@ -145,7 +145,7 @@ export default function AiIntegrationPage() {
           "Review requests after every positive session",
           "All managed through Patient Pulse, no new tools to learn",
         ]}
-        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See all automations", href: "#automations" }}
         breadcrumbs={crumbs}
         rightPanel={
@@ -357,7 +357,7 @@ export default function AiIntegrationPage() {
       <CTASection
         id="closing-cta"
         heading="Find out how many lapsed patients your clinic has"
-        subheading="Book a free clinic audit. We'll review your patient database, your current reactivation rate, and show you what an automated system would do differently."
+        subheading="Get a free clinic audit. We'll review your patient database, your current reactivation rate, and show you what an automated system would do differently."
       />
 
       <StickyMobileCta hideNearId="closing-cta" />

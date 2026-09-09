@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
 import { events } from "@/lib/analytics";
 import { useFormSubmit } from "@/lib/useFormSubmit";
-import { LP_TURNAROUND, type LpVariant } from "@/lib/lp";
+import { LP_CTA_LABEL, LP_TURNAROUND, type LpVariant } from "@/lib/lp";
 import { Field, Input, Honeypot } from "./Field";
 import TrackingFields from "./TrackingFields";
 
@@ -138,7 +138,7 @@ export default function LpAuditForm({ variant }: { variant: LpVariant }) {
       )}
 
       <Button type="submit" size="lg" disabled={state === "submitting"} className="w-full">
-        {state === "submitting" ? "Sending…" : "Request my free clinic audit"}
+        {state === "submitting" ? "Sending…" : LP_CTA_LABEL}
       </Button>
 
       <p className="text-xs leading-relaxed text-[var(--color-muted)]">

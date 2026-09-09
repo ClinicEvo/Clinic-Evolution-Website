@@ -80,9 +80,9 @@ export default function ArticlePage() {
       content: (
         <>
           <p>Private medical care is a growing market. More patients are seeking quicker access to specialists, diagnostics and consultations than the NHS can always provide, and most of them begin on Google.</p>
-          <p>&quot;Private GP near me&quot;, &quot;private orthopaedic surgeon [city]&quot;, &quot;private dermatology clinic [area]&quot; — these are high-intent searches with real commercial value, and they behave differently from a symptom search. The patient has already decided to pay; they are choosing where.</p>
+          <p>&quot;Private GP near me&quot;, &quot;private orthopaedic surgeon [city]&quot;, &quot;private dermatology clinic [area]&quot;. These are high-intent searches with real commercial value, and they behave differently from a symptom search. The patient has already decided to pay; they are choosing where.</p>
           <p>Clinics that invest in local visibility capture a consistent flow of these enquiries. Those that do not lose them to better-optimised competitors, even where the clinical quality is equivalent.</p>
-          <p>For multi-practitioner clinics, individual practitioner profiles — where Google offers them — supplement the main listing and pick up specialist searches the practice-level profile will not.</p>
+          <p>For multi-practitioner clinics, individual practitioner profiles, where Google offers them, supplement the main listing and pick up specialist searches the practice-level profile will not.</p>
         </>
       ),
     },
@@ -166,7 +166,7 @@ export default function ArticlePage() {
           <ul>
             <li>General business directories: Google, Bing, Yell, Yelp, Apple Maps</li>
             <li>Healthcare-specific directories: NHS Find a Service listings, Doctolib, Doctify, Top Doctors, the Physio Rooms</li>
-            <li>Private Healthcare Information Network (PHIN) — mandatory for most regulated private providers</li>
+            <li>Private Healthcare Information Network (PHIN), mandatory for most regulated private providers</li>
             <li>Professional association member directories: GMC, BMA, HCPC, GCC, GOsC, CSP and relevant specialty societies</li>
           </ul>
           <p>Consistency matters. Your practice name, address and phone number should be identical across all of these. Any discrepancies can confuse Google&apos;s local relevance signals.</p>

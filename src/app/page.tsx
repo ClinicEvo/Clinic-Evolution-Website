@@ -78,7 +78,7 @@ const channels = [
   {
     num: "04",
     label: "Paid Social",
-    body: "Campaigns that create demand among people who were not searching yet. Each platform needs its own creative, offer and audience — they are not interchangeable.",
+    body: "Campaigns that create demand among people who were not searching yet. Each platform needs its own creative, offer and audience. They are not interchangeable.",
     href: "/digital-marketing/",
     anchor: "Digital Marketing",
     // Facebook, Instagram and TikTok — exactly the three Danny named in the
@@ -368,7 +368,7 @@ export default function HomePage() {
                       fontFamily: "var(--font-display)",
                     }}
                   >
-                    Book a free clinic audit
+                    Get my free clinic audit
                   </Link>
                   <Link
                     href="#system-section"
@@ -858,9 +858,9 @@ export default function HomePage() {
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
       <CTASection
         id="book-audit"
-        heading="Find out where your clinic is losing patients."
-        subheading="Book a free clinic audit. We review your search visibility, website, enquiry handling and follow-up systems, then tell you honestly where patients are falling through the gaps. Back to you within two business days. No commitment. No agency jargon."
-        primaryLabel="Book a free clinic audit"
+        heading="Find out where your next patients will come from."
+        subheading="Get a free clinic audit. We review your search visibility, website, enquiry handling and follow-up systems, then show you what is already working, where the biggest gains are, and what we would do first. Back to you within two business days. No commitment. No agency jargon."
+        primaryLabel="Get my free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
 

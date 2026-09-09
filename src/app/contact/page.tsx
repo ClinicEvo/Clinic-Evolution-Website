@@ -28,13 +28,13 @@ export default function ContactPage() {
         heading={<>Speak to us about <em className="not-italic text-[var(--color-accent)]">growing your clinic online</em></>}
         subtext="Have a question about your clinic's marketing? Send us a quick message and we will come back with the most useful next step. Want a full review of your website and visibility? The free audit is the better starting point."
         primaryCta={{ label: "Send a message", href: "#contact-form" }}
-        secondaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        secondaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanel={
           <HeroChecklistPanel
             title="What happens after you send it"
             items={[
-              "A person reads it \u2014 no ticket queue and no chatbot",
+              "A person reads it. No ticket queue and no chatbot",
               "You get a straight answer, or the name of the thing to fix first",
               "If a full review would help more, we say so rather than sell",
               "No mailing list, and no follow-up sequence you did not ask for",

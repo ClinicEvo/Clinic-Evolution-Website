@@ -21,7 +21,7 @@ export const metadata = buildMetadata({
   // marketing" (150) — adding the one word captures both head terms.
   title: "Physiotherapy Marketing Agency UK",
   description:
-    "Specialist marketing for UK physiotherapists. SEO, Google Ads and website design that attracts more patients to your physio clinic. Book a free clinic audit.",
+    "Specialist marketing for UK physiotherapists. SEO, Google Ads and website design that attracts more patients to your physio clinic. Get a free clinic audit.",
   path: "/physiotherapy-marketing/",
 });
 
@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "How do you help physiotherapy clinics compete with the NHS?",
     answer:
-      "Most people who go private have already tried the NHS route and hit a waiting list, so the searches worth owning are the ones carrying that intent: 'private physio [town]', 'physio near me', condition terms with 'private' attached. Your service pages then have to answer what those patients check first — how soon you can see them, what it costs, and whether you treat their condition. That is the first thing we look at in an audit.",
+      "Most people who go private have already tried the NHS route and hit a waiting list, so the searches worth owning are the ones carrying that intent: 'private physio [town]', 'physio near me', condition terms with 'private' attached. Your service pages then have to answer what those patients check first: how soon you can see them, what it costs, and whether you treat their condition. That is the first thing we look at in an audit.",
   },
   {
     question: "Which physiotherapy keywords do you target?",
@@ -49,7 +49,7 @@ const faqs = [
   {
     question: "How do you build a physiotherapy marketing strategy?",
     answer:
-      "Start from the diary rather than the channel. Work out how many new patients you need, where the current ones actually come from, and which step is losing people — visibility, the website, the enquiry response, or follow-up. Only then decide which channels to use. A strategy that starts with 'we should do more social' usually fixes the step that was not broken.",
+      "Start from the diary rather than the channel. Work out how many new patients you need, where the current ones actually come from, and which step is losing people: visibility, the website, the enquiry response, or follow-up. Only then decide which channels to use. A strategy that starts with 'we should do more social' usually fixes the step that was not broken.",
   },
   {
     question: "How much should physio marketing spend be?",
@@ -62,9 +62,20 @@ const faqs = [
       "Ad spend varies by location and competition. In London, expect £800–£1,500/month before the numbers settle enough to plan around. Outside major cities, £400–£800/month is often sufficient. We put projections for your area in the free audit.",
   },
   {
+      // CONTRACT CLAIM REMOVED, 9 Sep 2026. Simon's instruction: the commercial
+      // model is not universally rolling monthly and must not be represented
+      // that way. This answer had the site's only specific notice period
+      // ("30 days"), and it argued at length why long contracts are bad, which
+      // made it the hardest version to walk back. No source in this repo ever
+      // supported any of it.
+      //
+      // The replacement is the wording Simon supplied for the paid pages, so
+      // all five instances on the site now say the same thing. It commits to
+      // explaining the commitment before anybody signs and invents no terms.
+      // Do not turn it back into a promise.
     question: "Do you sign long contracts?",
     answer:
-      "No. Rolling monthly, 30 days' notice. Long contracts mainly protect agencies whose results arrive late — SEO that is working shows movement in Search Console inside a quarter, and you should be able to leave if it does not.",
+      "We\u2019ll explain the recommended package, pricing and commitment clearly before you agree to anything. The right setup depends on what your clinic needs and what we\u2019re taking responsibility for.",
   },
 ];
 
@@ -73,7 +84,7 @@ const steps = [
     number: 1,
     title: "Free clinic audit",
     description:
-      "We go through your website, Google Business Profile, local rankings and any existing ad account, then come back with what is currently losing you enquiries.",
+      "We go through your website, Google Business Profile, local rankings and any existing ad account, then come back with what is already working and where the biggest gains are.",
     note: "Back to you within two business days.",
   },
   {
@@ -87,7 +98,7 @@ const steps = [
     number: 3,
     title: "Campaign launch",
     description:
-      "We build the SEO foundations, the Google Ads campaigns or the website, depending on what the plan called for. Ads can produce enquiries in the first few weeks. SEO is slower — expect a quarter before rankings move.",
+      "We build the SEO foundations, the Google Ads campaigns or the website, depending on what the plan called for. Ads can produce enquiries in the first few weeks. SEO is slower: expect a quarter before rankings move.",
     note: "Conversion tracking goes in before anything goes live, so the numbers mean something later.",
   },
   {
@@ -123,9 +134,11 @@ export default function PhysiotherapyMarketingPage() {
         bullets={[
           "SEO, ads and website design for physio clinics",
           "Results tracked to enquiries and bookings",
-          "No long-term lock-in contracts",
+          // Was "No long-term lock-in contracts". Removed with the rest of the
+          // contract claims; replaced with the positioning, which is checkable.
+          "One team for the website, search, ads and follow-up",
         ]}
-        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanel={
           <HeroImagePlaceholder
@@ -287,7 +300,7 @@ export default function PhysiotherapyMarketingPage() {
                 Marketing services for physiotherapists
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
-                Six areas, and most clinics do not need all of them at once. The
+                Six areas, and few clinics need all of them at once. The
                 audit says which two or three are worth starting with.
               </p>
             </div>
@@ -429,7 +442,7 @@ export default function PhysiotherapyMarketingPage() {
               <div className="relative overflow-hidden rounded-[var(--radius-card)] shadow-[var(--shadow-card)]" style={{ aspectRatio: "4/3" }}>
                 <Image
                   src="/images/bodyfunction-clinic-team-at-reception-01.jpg"
-                  alt="Bodyfunction Clinic — London osteopathy practice"
+                  alt="Bodyfunction Clinic, London osteopathy practice"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -494,7 +507,7 @@ export default function PhysiotherapyMarketingPage() {
       <CTASection
         id="closing-cta"
         heading="Ready to grow your physiotherapy practice?"
-        subheading="Get a clear picture of your current visibility, website performance and missed enquiries — delivered within 2 business days."
+        subheading="Get a clear picture of your current visibility, website performance and missed enquiries, delivered within 2 business days."
         primaryLabel="See what's holding your clinic back"
         primaryHref="/free-clinic-audit/"
       />

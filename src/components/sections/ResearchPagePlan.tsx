@@ -105,7 +105,7 @@ export default function ResearchPagePlan() {
       <FadeUp>
         <p className="mt-6 text-body-sm text-[var(--color-muted)]">
           Lind Street Osteopathy, Ryde. Search demand and positions from Ahrefs, July 2026. The
-          clinic opened with no website and no search history of any kind — every page above was
+          clinic opened with no website and no search history of any kind. Every page above was
           decided before a line of design work started.
         </p>
       </FadeUp>

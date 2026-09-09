@@ -46,7 +46,7 @@ const faqs = [
   {
     question: "Does this work for a single-practitioner clinic?",
     answer:
-      "This is the case study for exactly that. One osteopath, one treatment room, a brand new business with no reputation online. You are not trying to beat the internet — you are trying to be the obvious choice within about fifteen miles, and that is a fight you can win.",
+      "This is the case study for exactly that. One osteopath, one treatment room, a brand new business with no reputation online. You are not trying to beat the internet. You are trying to be the obvious choice within about fifteen miles, and that is a fight you can win.",
   },
   {
     question: "How long before a new clinic starts getting patients from Google?",
@@ -75,25 +75,25 @@ const headlineStats = [
   {
     display: "Page one",
     label: "For every core osteopathy search in her catchment",
-    source: "GSC — from no search presence at all",
+    source: "GSC: from no search presence at all",
   },
   {
     value: 570,
     prefix: "+",
     suffix: "%",
     label: "Growth in people arriving from Google, half on half",
-    source: "GSC — 86 clicks rising to 576",
+    source: "GSC: 86 clicks rising to 576",
   },
   {
     display: "No. 1",
     label: "For six of her local searches, including “osteopath ryde”",
-    source: "Ahrefs — all ten tracked terms sit in the top four",
+    source: "Ahrefs: all ten tracked terms sit in the top four",
   },
   {
     value: 67,
     suffix: "%",
     label: "Of people who see her name in Google click it",
-    source: "GSC — 113 clicks, position 1.0",
+    source: "GSC: 113 clicks, position 1.0",
   },
 ];
 
@@ -168,7 +168,7 @@ export default function LindStreetCaseStudyPage() {
               <FadeUp delay={0.15}>
                 <div className="mt-10 flex flex-col gap-5 sm:flex-row">
                   <Button href="/free-clinic-audit/" size="lg">
-                    Get a free clinic audit
+                    Get my free clinic audit
                   </Button>
                   <Button href="/seo-for-clinics/" variant="outline" size="lg">
                     See how we do it
@@ -491,7 +491,7 @@ export default function LindStreetCaseStudyPage() {
         id="closing-cta"
         heading="Starting from nothing, or starting again?"
         subheading="A free clinic audit shows you where your clinic stands in local search right now, what your competitors are ranking for that you are not, and what it would take to be the one patients find first."
-        primaryLabel="Get a free clinic audit"
+        primaryLabel="Get my free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
 

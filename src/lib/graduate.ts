@@ -274,7 +274,7 @@ export const GRADUATE_STAGES = [
 ];
 
 export const GRADUATE_STARTING_POINTS = [
-  "Nothing yet — this is all ahead of me",
+  "Nothing yet, this is all ahead of me",
   "I have a name, maybe a logo",
   "I have a website already",
   "I am seeing patients already",

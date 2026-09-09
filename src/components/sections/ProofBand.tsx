@@ -172,7 +172,7 @@ function Band(props: Omit<ProofBandProps, "bare">) {
                     {props.authorName ?? "Danny Morgan"}
                   </p>
                   <p className="text-body-sm text-white/55">
-                    {props.authorRole ?? "Bodyfunction Clinic, London — Founding partner"}
+                    {props.authorRole ?? "Bodyfunction Clinic, London. Founding partner"}
                   </p>
                 </div>
               </div>

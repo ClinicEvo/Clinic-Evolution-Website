@@ -90,7 +90,7 @@ const faqs = [
   {
     question: "What are the most useful physiotherapy clinic SEO tips?",
     answer:
-      "Give every treatment you offer its own page rather than listing them all on one. Put your town in the page title where it is genuinely relevant and nowhere it is not. Keep the Google Business Profile current and ask for reviews consistently rather than in bursts. Make the phone number and booking path visible without scrolling on a phone. Most physiotherapy clinic sites lose more enquiries to a slow, buried booking path than to rankings.",
+      "Give every treatment you offer its own page rather than listing them all on one. Put your town in the page title where it is genuinely relevant and nowhere it is not. Keep the Google Business Profile current and ask for reviews consistently rather than in bursts. Make the phone number and booking path visible without scrolling on a phone. A slow, buried booking path can cost a clinic more enquiries than its rankings do.",
   },
   {
     question: "How long does clinic SEO take to work?",
@@ -273,7 +273,7 @@ const healthcareDifferences = [
   },
   {
     label: "Patients search for the problem, not the treatment",
-    body: "Nobody wakes up wanting osteopathy. They wake up unable to turn their head, and type that — which is why the condition pages carry more weight here than the service list.",
+    body: "Nobody wakes up wanting osteopathy. They wake up unable to turn their head, and type that, which is why the condition pages carry more weight here than the service list.",
   },
   {
     label: "Trust signals are ranking signals here",
@@ -601,7 +601,7 @@ export default function SeoForClinicsPage() {
                 </p>
                 <p className="text-body-sm max-w-xl text-[var(--color-muted)]">
                   The audit works through this list on your clinic and tells you which
-                  of them are actually costing you patients.
+                  of them are worth your attention first.
                 </p>
               </div>
               <Button href="/free-clinic-audit/" size="md" className="flex-shrink-0">
@@ -641,7 +641,7 @@ export default function SeoForClinicsPage() {
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14">
             <FadeUp>
               <BrowserFrame
-                label="Ahrefs — organic vs paid, a Clinic Evo clinic"
+                label="Ahrefs: organic vs paid, a Clinic Evo clinic"
                 caption="Left column is what the clinic earns through search. Right column is what it pays for. Nothing in this account is bought."
               >
                 <div className="px-4 py-4">
@@ -658,7 +658,7 @@ export default function SeoForClinicsPage() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <BrowserFrame
-                label="Google Analytics — new users by channel"
+                label="Google Analytics: new users by channel"
                 caption="First visit source for new users on a clinic site we run."
               >
                 <div className="px-4 py-4">
@@ -772,7 +772,7 @@ export default function SeoForClinicsPage() {
             <FadeUp delay={0.1}>
               <BrowserFrame
                 scrollOnMobile
-                label="app.ahrefs.com — organic keywords, bodyfunction.co.uk"
+                label="app.ahrefs.com: organic keywords, bodyfunction.co.uk"
                 caption="The tracked keyword list as it stands today. Green is movement since the last check."
               >
                 <Image
@@ -854,7 +854,7 @@ export default function SeoForClinicsPage() {
           value: "0 → page one",
           label: "Every core local search term, twelve months from launch",
         }}
-        body="Lind Street Osteopathy had no website, no logo and no search history of any kind — literally zero clicks and zero impressions before August 2025. A year later it holds position one for its own name at a 67% click-through rate, and page one across its whole catchment."
+        body="Lind Street Osteopathy had no website, no logo and no search history of any kind: literally zero clicks and zero impressions before August 2025. A year later it holds position one for its own name at a 67% click-through rate, and page one across its whole catchment."
         source="Search Console, lindstreetosteopathy.co.uk, to Jul 2026"
         image="/images/lind-street/clinic-sign.png"
         imageAlt="The Lind Street Osteopathy clinic sign in Ryde, Isle of Wight"
@@ -894,7 +894,7 @@ export default function SeoForClinicsPage() {
               </p>
               <p className="text-body text-[var(--color-muted)]">
                 The absolute numbers are small, and in a catchment this size they
-                should be — only so many people search for an osteopath in one seaside
+                should be. Only so many people search for an osteopath in one seaside
                 town in a year. What the table measures is share, not volume.
               </p>
             </FadeUp>
@@ -911,7 +911,7 @@ export default function SeoForClinicsPage() {
             <FadeUp>
               <BrowserFrame
                 scrollOnMobile
-                label="app.ahrefs.com — tracked positions, lindstreetosteopathy.co.uk"
+                label="app.ahrefs.com: tracked positions, lindstreetosteopathy.co.uk"
                 caption="Position one for back pain, neck pain, women's health and shoulder pain in Ryde. Each one is a page built for that search on purpose."
               >
                 <Image

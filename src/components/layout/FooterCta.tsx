@@ -18,7 +18,7 @@ export default function FooterCta() {
     >
       <div>
         <p className="font-display font-bold text-[1.35rem] leading-snug text-white mb-1">
-          Find out where your clinic is losing patients.
+          Find out where your next patients will come from.
         </p>
         <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
           Free audit, honest assessment within 2 business days. No jargon. No commitment.

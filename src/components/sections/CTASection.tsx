@@ -12,8 +12,13 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-  heading = "Find out exactly where your clinic is losing patients.",
-  subheading = "Book a free clinic audit. We review your diary, your search visibility, your enquiry handling and your follow-up systems, and tell you honestly where patients are falling through the gaps. Within two business days.",
+  /* POSITIVE FRAME, 9 Sep 2026. This default is rendered on roughly a dozen
+     pages, so it was the single biggest source of loss framing on the site:
+     "where your clinic is losing patients" plus "falling through the gaps".
+     A closing CTA is an offer, and an offer should say what the reader gets.
+     The problem sections further up each page are where problems belong. */
+  heading = "Find out where your next patients will come from.",
+  subheading = "Get a free clinic audit. We review your search visibility, your website, your enquiry handling and your follow-up, then show you what is already working, where the biggest gains are, and what we would do first. Back to you within two business days.",
   primaryLabel = ctaNav.label,
   primaryHref = ctaNav.href,
   id,

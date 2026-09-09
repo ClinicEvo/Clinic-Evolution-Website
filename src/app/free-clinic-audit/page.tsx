@@ -65,7 +65,7 @@ export default function FreeClinicAuditPage() {
           "Clear recommendations, not a generic automated report",
           "For osteopaths, physiotherapists and chiropractors",
         ]}
-        primaryCta={{ label: "Request your free audit", href: "#audit-form" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "#audit-form" }}
         breadcrumbs={crumbs}
         rightPanel={
           /* Deliberately the process, not the deliverables: the "What you
@@ -98,10 +98,10 @@ export default function FreeClinicAuditPage() {
               <div>
                 <p className="eyebrow mb-4">What we look at</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-5">
-                  A practical look at where your clinic is losing enquiries
+                  A practical look at where your next patients will come from
                 </h2>
                 <p className="text-body text-[var(--color-muted)] mb-8">
-                  Most clinics do not have one single problem. They have a few small
+                  It is rarely one single problem. More often it is a few small
                   gaps that compound: a website that does not explain services
                   clearly, weak rankings for the treatments patients search for,
                   hidden booking buttons, or past patients with no follow-up. The
@@ -200,9 +200,9 @@ export default function FreeClinicAuditPage() {
             <div className="lg:self-stretch">
               <div className="lg:sticky lg:top-28">
                 <FadeUp>
-                <p className="eyebrow mb-4">Request</p>
+                <p className="eyebrow mb-4">The form</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-5">
-                  Request your free clinic audit
+                  Get your free clinic audit
                 </h2>
                 <p className="text-body-lg text-[var(--color-muted)] mb-5">
                   Complete the short form below and share your clinic website.

@@ -328,7 +328,7 @@ export default function WebsiteDesignForClinicsPage() {
                 compounds on the last one, so the site gets more valuable the longer it runs.
               </p>
               <p className="text-body text-[var(--color-muted)]">
-                Ads are still worth running, and we run them — they fill the diary while search
+                Ads are still worth running, and we run them: they fill the diary while search
                 matures. But paid traffic is rented and organic is owned, so the first fortnight
                 goes on research and not on a homepage carousel.
               </p>
@@ -433,7 +433,7 @@ export default function WebsiteDesignForClinicsPage() {
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">
                 At Lind Street the condition pages outperform the general osteopathy and sports
-                massage pages by a distance — the fibromyalgia, hypermobility and TMJ pages are
+                massage pages by a distance. The fibromyalgia, hypermobility and TMJ pages are
                 doing the heavy lifting. That is not a design opinion, it is what the data showed
                 once the pages were live.
               </p>
@@ -627,7 +627,7 @@ export default function WebsiteDesignForClinicsPage() {
                 Morgan is an osteopath who founded Bodyfunction Clinic in Islington and still
                 practises there, so he knows exactly what a clinic needs in order to grow. Simon
                 Smith trained in osteopathy on the same course and is a former registered
-                osteopath, then founded Neometa — the web design, SEO and digital marketing agency
+                osteopath, then founded Neometa, the web design, SEO and digital marketing agency
                 that built Bodyfunction&apos;s website and search presence.
               </p>
               <p className="text-body mb-5 text-[var(--color-muted)]">

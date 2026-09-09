@@ -180,7 +180,7 @@ export const STACK_SUMMARY = {
   quoteOnly: quoteOnlyCount,
   /** The honest basis. Must travel with the figure wherever it is quoted. */
   basis:
-    "Priced for a working clinic — three staff logins and a patient list in the low thousands — not a single-user starter tier. Checked August 2026, excluding VAT.",
+    "Priced for a working clinic (three staff logins and a patient list in the low thousands) rather than a single-user starter tier. Checked August 2026, excluding VAT.",
 };
 
 function BrandPill({ item }: { item: Replaced }) {
@@ -387,8 +387,8 @@ export default function StackReplacementTable() {
 
         <FadeUp delay={0.12}>
           <p className="mt-5 max-w-3xl text-[0.75rem] leading-relaxed text-[var(--color-muted)]">
-            Priced for a working clinic — three staff logins and a patient list in the
-            low thousands — rather than a single-user starter tier, using the cheapest
+            Priced for a working clinic (three staff logins and a patient list in the
+            low thousands) rather than a single-user starter tier, using the cheapest
             plan from each vendor that supports that. Checked August 2026, excluding VAT.
             Per-seat products are the published seat price multiplied by the number of
             logins shown. Where a vendor publishes in US dollars only, converted at

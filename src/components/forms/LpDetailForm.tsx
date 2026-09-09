@@ -54,7 +54,7 @@ export default function LpDetailForm() {
     return (
       <div className="card-surface max-w-lg p-6">
         <p className="text-body font-semibold text-[var(--color-ink)]">
-          Got it — that goes on your file.
+          Got it. That goes on your file.
         </p>
         <p className="text-body-sm mt-1.5 text-[var(--color-muted)]">
           It means the audit that lands in your inbox is about your clinic
@@ -70,7 +70,7 @@ export default function LpDetailForm() {
         Want a sharper audit? Four more questions.
       </p>
       <p className="text-body-sm mb-6 text-[var(--color-muted)]">
-        Entirely optional — your request is already with us. These just let us
+        Entirely optional: your request is already with us. These just let us
         skip the guesswork.
       </p>
 

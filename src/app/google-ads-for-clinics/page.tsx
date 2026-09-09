@@ -198,7 +198,7 @@ export default function GoogleAdsForClinicsPage() {
           "Osteopaths, physios and chiropractors only",
         ]}
         bulletsBelow
-        primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanelWidth="520px"
         rightPanel={<GoogleAdsPanel />}
@@ -236,7 +236,7 @@ export default function GoogleAdsForClinicsPage() {
             <FadeUp delay={0.1}>
               <div className="mx-auto max-w-md lg:ml-auto lg:mr-0">
                 <BrowserFrame
-                  label="ads.google.com — ad preview"
+                  label="ads.google.com: ad preview"
                   caption={<GoogleAdsLockup label="Google Search ad" />}
                 >
                   <div className="relative aspect-[483/368]">
@@ -373,7 +373,7 @@ export default function GoogleAdsForClinicsPage() {
                 </p>
                 <div className="mt-9">
                   <Button href="/free-clinic-audit/" size="lg">
-                    Get a free clinic audit
+                    Get my free clinic audit
                   </Button>
                 </div>
               </FadeUp>
@@ -382,7 +382,7 @@ export default function GoogleAdsForClinicsPage() {
             <FadeUp delay={0.12}>
               <div className="mx-auto max-w-md lg:ml-auto lg:mr-0">
                 <BrowserFrame
-                  label="ads.google.com — auction insights"
+                  label="ads.google.com: auction insights"
                   caption={
                     <span className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
                       <GoogleAdsLockup label="Google Ads auction insights" />
@@ -403,7 +403,7 @@ export default function GoogleAdsForClinicsPage() {
                 <p className="mt-4 text-body-sm text-[var(--color-muted)]">
                   Impression share is how often your ad showed when it could have.
                   Here the clinic appears in 70% of its local auctions and the three
-                  competing advertisers sit under 10% — the difference between
+                  competing advertisers sit under 10%. That is the difference between
                   being the obvious choice and being the fourth one seen.
                 </p>
               </div>
@@ -428,10 +428,10 @@ export default function GoogleAdsForClinicsPage() {
         eyebrow="The experience behind the campaigns"
         quote="We've been doing this for years. We've invested over £70,000 into paid ads specifically in healthcare, and we know exactly which ones work and which ones don't, so we take the guesswork out of it."
         authorName="Danny Morgan"
-        authorRole="Co-founder, Clinic Evo — and a practising osteopath"
+        authorRole="Co-founder, Clinic Evo, and a practising osteopath"
         image="/images/danny-morgan-angel-clinic.png"
         imageAlt="Danny Morgan, co-founder of Clinic Evo"
-        ctaLabel="Get a free clinic audit"
+        ctaLabel="Get my free clinic audit"
         ctaHref="/free-clinic-audit/"
       />
 
@@ -593,7 +593,7 @@ export default function GoogleAdsForClinicsPage() {
                     findings whether or not you work with us.
                   </p>
                   <div className="mt-7">
-                    <Button href="/free-clinic-audit/">Get a free clinic audit</Button>
+                    <Button href="/free-clinic-audit/">Get my free clinic audit</Button>
                   </div>
                   {/* Deliberately a claim we can stand behind. An earlier draft
                       said campaigns run in the clinic's own Google Ads account,
@@ -635,7 +635,7 @@ export default function GoogleAdsForClinicsPage() {
       <CTASection
         id="closing-cta"
         heading="Find out whether Google Ads is right for your clinic"
-        subheading="A free clinic audit will highlight where your current digital presence is helping, where it may be losing enquiries, and whether paid search should be part of your growth plan."
+        subheading="A free clinic audit will show you what your current digital presence is already doing for you, where the biggest gains are, and whether paid search should be part of your growth plan."
       />
 
       <StickyMobileCta hideNearId="closing-cta" />

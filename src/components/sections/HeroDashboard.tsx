@@ -1,7 +1,13 @@
 "use client";
 
 import { motion, useInView, useReducedMotion, animate, type Variants, type Transition } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+
+/* useLayoutEffect logs a warning when React renders on the server, and this
+   component is server-rendered despite the "use client" boundary. */
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const metrics = [
   { label: "New Enquiries", value: 342,    display: "342",     delta: "+27%", sub: "vs previous 30 days" },
@@ -24,8 +30,26 @@ function CountUp({
   inView: boolean;
   reduce: boolean | null;
 }) {
-  const [val, setVal] = useState(0);
+  /*
+   * INITIALISED TO THE REAL FIGURE, NOT ZERO. Same defect and same fix as the
+   * Counter in src/components/case-studies/CaseStudyCharts.tsx: this is a
+   * client component, so a `useState(0)` start put a zero into the
+   * server-rendered HTML and every consumer that does not scroll in a browser
+   * — Google, a no-JS reader, a link preview, a screen reader reaching the
+   * tile early — was served that zero instead of the number.
+   *
+   * This component is currently imported nowhere, so the bug was latent rather
+   * than live. Fixed anyway, because the next person to mount it would have
+   * shipped it. The layout effect drops to zero before paint, and only when
+   * the tile is off screen, so the animation still runs and never flickers.
+   */
+  const [val, setVal] = useState(target);
   const hasRun = useRef(false);
+
+  useIsomorphicLayoutEffect(() => {
+    if (hasRun.current || reduce || inView) return;
+    setVal(0);
+  }, [reduce, inView]);
 
   useEffect(() => {
     if (!inView || hasRun.current || reduce) return;

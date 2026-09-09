@@ -22,7 +22,7 @@ export const metadata = buildMetadata({
   // the keyword set at all, so its volume is unvalidated.
   title: "Osteopathy Marketing Agency UK",
   description:
-    "Specialist marketing for UK osteopaths. SEO, Google Ads and website design that fills your diary with new patients. Book a free clinic audit.",
+    "Specialist marketing for UK osteopaths. SEO, Google Ads and website design that fills your diary with new patients. Get a free clinic audit.",
   path: "/osteopath-marketing/",
 });
 
@@ -67,7 +67,7 @@ const steps = [
     title: "Custom growth strategy",
     description:
       "You receive a clear, prioritised plan covering which channels to focus on, what content to create, and how to convert more website visitors into booked appointments.",
-    note: "You'll see exactly what we'd focus on and why — no obligation to proceed.",
+    note: "You'll see exactly what we'd focus on and why. No obligation to proceed.",
   },
   {
     number: 3,
@@ -81,7 +81,7 @@ const steps = [
     title: "Monthly reporting & refinement",
     description:
       "Every month you receive a plain-English report covering rankings, traffic, enquiries and ad performance. We continuously refine based on what's working.",
-    note: "No jargon, no vanity metrics — just numbers tied to enquiries and booked appointments.",
+    note: "No jargon, no vanity metrics: just numbers tied to enquiries and booked appointments.",
   },
 ];
 
@@ -111,7 +111,7 @@ export default function OsteopathMarketingPage() {
           "Local and national search visibility",
           "Results tracked to enquiries and booked appointments",
         ]}
-        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanel={
           <HeroImagePlaceholder
@@ -417,7 +417,7 @@ export default function OsteopathMarketingPage() {
               <div className="relative overflow-hidden rounded-[var(--radius-card)] shadow-[var(--shadow-card)]" style={{ aspectRatio: "4/3" }}>
                 <Image
                   src="/images/bodyfunction-clinic-team-at-reception-01.jpg"
-                  alt="Bodyfunction Clinic — London osteopathy practice"
+                  alt="Bodyfunction Clinic, London osteopathy practice"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -442,9 +442,12 @@ export default function OsteopathMarketingPage() {
               <h2 className="text-h2 text-[var(--color-ink)] mb-4">
                 From audit to growing practice
               </h2>
+              {/* "no long lock-in contracts" removed 9 Sep 2026 with the rest
+                  of the site's contract claims. The sentence now describes the
+                  process, which is what the heading above it promises. */}
               <p className="text-body text-[var(--color-muted)] mb-4">
-                A clear, transparent process with no jargon and no long lock-in
-                contracts.
+                A clear, transparent process, with the plan and what it would
+                cost to run in front of you before anything is built.
               </p>
               <p className="text-body-sm text-[var(--color-muted)]">
                 Not ready to start?{" "}
@@ -482,7 +485,7 @@ export default function OsteopathMarketingPage() {
       <CTASection
         id="closing-cta"
         heading="Ready to grow your osteopathy practice?"
-        subheading="Get a clear picture of your current visibility, website performance and missed enquiries — delivered within 2 business days."
+        subheading="Get a clear picture of your current visibility, website performance and missed enquiries, delivered within 2 business days."
         primaryLabel="See what's holding your clinic back"
         primaryHref="/free-clinic-audit/"
       />

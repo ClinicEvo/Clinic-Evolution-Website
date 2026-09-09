@@ -57,7 +57,7 @@ export default function ArticlePage() {
       ),
     },
     {
-      title: "Why most clinics lose patients unnecessarily",
+      title: "Why patients drift away without anyone noticing",
       content: (
         <>
           <p>When a patient finishes a course of treatment and feels better, they often do not book a follow-up. From a clinical standpoint, this is sometimes fine. But in many cases, those patients would benefit from maintenance appointments, seasonal check-ins or treatment when a previous problem recurs.</p>

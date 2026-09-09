@@ -94,12 +94,12 @@ const faqs = [
   {
     question: "Why coordinate channels instead of buying them separately?",
     answer:
-      "Most clinics lose patients in the gaps between suppliers, the enquiry that arrives after hours and never gets a reply, or the caller who reaches voicemail. When traffic, follow-up, calls and retention are run by one team, every handoff is covered and nothing falls through.",
+      "The gaps between suppliers are where patients get lost: the enquiry that arrives after hours and never gets a reply, or the caller who reaches voicemail. When traffic, follow-up, calls and retention are run by one team, every handoff is covered and nothing falls through.",
   },
   {
     question: "Do I have to take every service at once?",
     answer:
-      "No. Clinic Evo can start with the weakest part of the chain, then connect the others over time. The plan is built around where your clinic is losing patients now, not a fixed package.",
+      "No. Clinic Evo can start with the weakest part of the chain, then connect the others over time. The plan is built around where the biggest gains are for your clinic now, rather than a fixed package.",
   },
   {
     question: "Is this suitable for osteopaths, physios and chiropractors?",
@@ -144,14 +144,14 @@ export default function DigitalMarketingPage() {
           "Offer, targeting and creative handled for you",
           "Every lead followed up and tracked through to a booking",
         ]}
-        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanelWidth="1.1fr"
         bulletsBelow
         rightPanel={
           <LaptopFrame label="Clinic Evo's own Meta ad account: eight campaigns, £68,539 spent, 9.3 million impressions.">
             <BrowserFrame
-              label="Meta Ads Manager — Clinic Evo"
+              label="Meta Ads Manager: Clinic Evo"
               flush
               scrollOnMobile
               scrollMinWidth="44rem"
@@ -403,7 +403,7 @@ export default function DigitalMarketingPage() {
         source="Clinic Evo Meta Ads Manager, account totals"
         image="/images/bodyfunction-physiotherapy-strength-conditioning-floor-exercise-02.jpg"
         imageAlt="A physiotherapy strength and conditioning session at Bodyfunction Clinic"
-        ctaLabel="Get a free clinic audit"
+        ctaLabel="Get my free clinic audit"
         ctaHref="/free-clinic-audit/"
       />
 
@@ -543,7 +543,7 @@ export default function DigitalMarketingPage() {
       <CTASection
         id="closing-cta"
         heading="See the whole system working for your clinic"
-        subheading="Book a free clinic audit. We review every part of your current digital presence and show you honestly where growth is being lost, and what a connected system would do differently."
+        subheading="Get a free clinic audit. We review every part of your current digital presence and show you honestly where the growth is, and what a connected system would do differently."
       />
 
       <StickyMobileCta hideNearId="closing-cta" />

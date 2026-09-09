@@ -105,7 +105,7 @@ export default function PatientPulsePage() {
           "Replies automatically within minutes",
           "Replaces most of your current tool stack",
         ]}
-        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         secondaryCta={{ label: "See what it does", href: "#features" }}
         breadcrumbs={crumbs}
         rightPanelWidth="0.8fr"
@@ -245,7 +245,7 @@ export default function PatientPulsePage() {
       <CTASection
         id="closing-cta"
         heading="See Patient Pulse working for your clinic"
-        subheading="Book a free clinic audit. We'll walk you through Patient Pulse live on the call and show you exactly where your current follow-up system is losing bookings."
+        subheading="Get a free clinic audit. We will walk you through Patient Pulse live on the call and show you exactly what your follow-up could be turning into bookings."
       />
 
       <StickyMobileCta hideNearId="closing-cta" />

@@ -63,8 +63,9 @@ export default function LandingHeader() {
 
           {/* Two wrappers for one button, because the label has to get shorter
               before the bar runs out of room. Measured against the 150px logo
-              plus the gap: "Request a free audit" is 220px wide and overflows
-              at 320–375px, while "Free audit" is 149px and fits from 320 up.
+              plus the gap: the full CTA label overflows at 320–375px, while
+              "Free audit" is 149px and fits from 320 up. LP_CTA_LABEL_SHORT
+              carries the desktop label so the two stay in one place.
 
               This used to be `hidden sm:block`, on the reasoning that the hero
               CTA sits right below the header on a phone anyway. That held while

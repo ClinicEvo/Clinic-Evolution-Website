@@ -75,7 +75,7 @@ export default function ClientLogo({
       rel="noopener"
       /* The mark is already the label, so the accessible name comes from the
          alt text; this only tells a screen-reader user where it goes. */
-      aria-label={`${name} — visit their website`}
+      aria-label={`${name}, visit their website`}
       /* An outline rather than a ring with an offset: a ring offset has to be
          painted in the strip's own background colour, and these strips sit on
          --color-surface in two places and --color-paper in a third. An outline

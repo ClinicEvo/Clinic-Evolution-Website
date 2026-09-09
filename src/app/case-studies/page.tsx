@@ -171,7 +171,7 @@ export default function CaseStudiesPage() {
           </>
         }
         subtext="Two clinics at opposite ends of the scale. One established practice in London that nobody could find, and one brand new osteopath opening cold on the Isle of Wight. Here is what changed for both, and what it would mean for you."
-        primaryCta={{ label: "Book a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanel={<HeroCliniciansPanel />}
         /* The clinicians panel is shorter than the copy column, so items-center
@@ -352,7 +352,7 @@ export default function CaseStudiesPage() {
         id="closing-cta"
         heading="Want to see what your clinic is missing?"
         subheading="A free clinic audit will show where your current website, SEO, patient journey and conversion points could be improved."
-        primaryLabel="Get a free clinic audit"
+        primaryLabel="Get my free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
 

@@ -117,17 +117,17 @@ const STANDING_START_PROOF = [
     figure: "No. 1",
     headline:
       "for six of her local searches, including “osteopath Ryde”, within twelve months of opening",
-    source: "Ahrefs — all ten tracked local terms sit in the top four",
+    source: "Ahrefs: all ten tracked local terms sit in the top four",
   },
   {
     figure: "+570%",
     headline: "growth in people arriving from Google, half on half",
-    source: "Google Search Console — 86 clicks rising to 576",
+    source: "Google Search Console: 86 clicks rising to 576",
   },
   {
     figure: "67%",
     headline: "of the people who see her name in Google click it",
-    source: "Google Search Console — 113 clicks at position 1.0",
+    source: "Google Search Console: 113 clicks at position 1.0",
   },
 ];
 
@@ -135,7 +135,7 @@ const faqs = [
   {
     question: "What happens after the six months?",
     answer:
-      "From month seven you move to our standard rate. Nothing else changes. The mentoring is not something that starts once the discount ends — it runs from month one, and it carries on.",
+      "From month seven you move to our standard rate. Nothing else changes. The mentoring is not something that starts once the discount ends. It runs from month one, and it carries on.",
   },
   {
     question: "I do not qualify until next summer. Can I still apply?",
@@ -155,7 +155,7 @@ const faqs = [
   {
     question: "Do I need patients already?",
     answer:
-      "No. The programme assumes you are starting from zero — no patient base, no reviews, no visibility. That is what it is for.",
+      "No. The programme assumes you are starting from zero: no patient base, no reviews, no visibility. That is what it is for.",
   },
   {
     question: "What does the half-price actually apply to?",
@@ -759,7 +759,7 @@ export default function GraduatePage() {
                     paragraph at 60% opacity. It is the clearest differentiator
                     in the section, so it is now the sentence people read. */}
                 <p className="text-body-lg leading-relaxed text-white/70">
-                  Sessions are with Danny and Simon — one still practising, one
+                  Sessions are with Danny and Simon: one still practising, one
                   who built the marketing side of it.{" "}
                   <strong className="font-semibold text-white">
                     You are not handed to an account manager.
@@ -923,7 +923,7 @@ export default function GraduatePage() {
                   </p>
                   <ul role="list" className="mt-4 flex flex-col gap-3.5">
                     {[
-                      "Send the application — it takes a couple of minutes",
+                      "Send the application. It takes a couple of minutes",
                       "We read it and come back to you",
                       "A short call about where you are and what you need",
                       `If it is a fit, you secure one of the ${GRADUATE_INTAKE.places} places for the ${GRADUATE_INTAKE.label} intake`,
@@ -957,9 +957,14 @@ export default function GraduatePage() {
       {/* ── 13. Closing reassurance micro-bar ───────────────────────────────── */}
       <section className="border-t border-[var(--color-border)] bg-[var(--color-surface)] py-8">
         <div className="cx-main text-center">
+          {/* "no lock-in" removed 9 Sep 2026. In context it meant the CALL
+              commits you to nothing, which is true, but the phrase reads as a
+              contract term and the site no longer makes any. Rephrased so it
+              says what it actually meant. */}
           <p className="text-body-sm text-[var(--color-muted)]">
-            No hard sell, no lock-in. Just an honest conversation to see if the
-            programme is the right fit for your practice.
+            No hard sell. Applying costs you nothing and commits you to nothing,
+            beyond an honest conversation about whether the programme fits your
+            practice.
           </p>
         </div>
       </section>

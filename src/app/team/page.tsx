@@ -10,7 +10,7 @@ import StickyMobileCta from "@/components/ui/StickyMobileCta";
 export const metadata = buildMetadata({
   title: "Meet the Team",
   description:
-    "The people behind Clinic Evo — osteopaths and digital specialists who understand private healthcare from the inside.",
+    "The people behind Clinic Evo: osteopaths and digital specialists who understand private healthcare from the inside.",
   path: "/team/",
 });
 
@@ -29,7 +29,7 @@ const team = [
     title: "Co-founder & Osteopath",
     image: "/images/danny-morgan-angel-clinic.png",
     linkedin: "https://www.linkedin.com/in/danny-morgan-a0137b39/",
-    bio: "Danny founded Bodyfunction Clinic in London, where he still practises as an osteopath. Through building and running a successful MSK clinic, he developed first-hand understanding of what actually drives growth in private healthcare — local visibility, patient trust, enquiry handling, follow-up and the systems behind the patient journey. That direct clinical and business experience shapes every part of how Clinic Evo approaches clinic marketing.",
+    bio: "Danny founded Bodyfunction Clinic in London, where he still practises as an osteopath. Through building and running a successful MSK clinic, he developed first-hand understanding of what actually drives growth in private healthcare: local visibility, patient trust, enquiry handling, follow-up and the systems behind the patient journey. That direct clinical and business experience shapes every part of how Clinic Evo approaches clinic marketing.",
   },
   {
     name: "Simon Smith",
@@ -38,7 +38,7 @@ const team = [
     linkedin: "https://www.linkedin.com/in/simon-smith-neometa/",
     // Simon has resigned from the GOsC register: "former registered osteopath",
     // never "osteopath", "registered" or "practising".
-    bio: "Simon co-founded Clinic Evo after founding Neometa, a web design, SEO and digital marketing agency. A former registered osteopath, Simon brings clinical understanding to every digital decision — from how service pages are structured to how SEO, paid search, AI automation and conversion systems work together to grow a clinic sustainably.",
+    bio: "Simon co-founded Clinic Evo after founding Neometa, a web design, SEO and digital marketing agency. A former registered osteopath, Simon brings clinical understanding to every digital decision, from how service pages are structured to how SEO, paid search, AI automation and conversion systems work together to grow a clinic sustainably.",
   },
   {
     name: "Joana Rita Vieira",
@@ -69,9 +69,9 @@ export default function TeamPage() {
             <em className="not-italic text-[var(--color-accent)]">Clinic Evo</em>
           </>
         }
-        subtext="Clinic Evo is built by osteopaths and digital specialists who understand private healthcare from the inside — clinicians who have run clinics and built the digital systems to grow them."
+        subtext="Clinic Evo is built by osteopaths and digital specialists who understand private healthcare from the inside: clinicians who have run clinics and built the digital systems to grow them."
         breadcrumbs={crumbs}
-        primaryCta={{ label: "Get a free clinic audit", href: "/free-clinic-audit/" }}
+        primaryCta={{ label: "Get my free clinic audit", href: "/free-clinic-audit/" }}
         compactBottom
         rightPanel={<HeroFounderPanel />}
       />
@@ -159,8 +159,8 @@ export default function TeamPage() {
       <CTASection
         id="closing-cta"
         heading="Want to work with the team?"
-        subheading="Book a free clinic audit and speak directly with the people who will work on your clinic's growth."
-        primaryLabel="Get a free clinic audit"
+        subheading="Get a free clinic audit and speak directly with the people who will work on your clinic's growth."
+        primaryLabel="Get my free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
 

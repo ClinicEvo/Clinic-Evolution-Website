@@ -200,10 +200,10 @@ export default function ArticleLayout({
                     Free clinic audit
                   </p>
                   <p className="text-sm leading-relaxed text-white/80 mb-5">
-                    See exactly where your clinic is losing patients online, and what to fix first.
+                    See where your next patients will come from, and what to do first.
                   </p>
                   <Button href="/free-clinic-audit/" size="sm" className="w-full justify-center">
-                    Get your free audit
+                    Get my free clinic audit
                   </Button>
                 </div>
 
@@ -261,7 +261,7 @@ export default function ArticleLayout({
         id="closing-cta"
         heading="Get a clearer view of your clinic's marketing opportunities"
         subheading="Clinic Evo can review your website, search visibility, local SEO, patient journey and missed conversion opportunities, then show you where your budget is likely to have the strongest impact."
-        primaryLabel="Get a free clinic audit"
+        primaryLabel="Get my free clinic audit"
         primaryHref="/free-clinic-audit/"
       />
 
