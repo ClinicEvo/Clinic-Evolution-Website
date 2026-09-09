@@ -102,7 +102,7 @@ export const LP_TURNAROUND = "within 2 working days";
  *
  * `osteopathy-marketing` was added on 9 Sep 2026 and is the strongest of the
  * four, because it is the only one whose proof, founder and photography all
- * belong to the same discipline: both clinics in LP_PROOF are osteopathy
+ * belong to the same discipline: both clinics in the proof rows are osteopathy
  * clinics and Danny Morgan is a practising osteopath. The research at
  * ~/claude/clinic-evo-ads-seo-research.md puts "osteopathy marketing agency" at
  * 70/mo — the smallest of the three disciplines and, per that file, "osteopathy
@@ -252,50 +252,78 @@ const LIND_STREET = {
   logoHeight: 38,
 };
 
-export const LP_PROOF: LpProofRow[] = [
-  {
-    platform: "Google Search",
-    metric: "Estimated monthly organic traffic",
-    figure: "8 → 3,822",
-    headline: "at Bodyfunction Clinic",
-    source: "Ahrefs estimate · Aug 2024–Aug 2026",
-    clinic: BODYFUNCTION,
-    href: "/case-studies/bodyfunction-clinic/",
-  },
-  {
-    platform: "Google Search",
-    metric: "Local search rankings",
-    figure: "No. 1",
-    headline:
-      "for six local osteopathy searches, including “osteopath Ryde”, within twelve months of opening",
-    source: "Ahrefs: all ten tracked local searches ranked in the top four",
-    clinic: LIND_STREET,
-    href: "/case-studies/lind-street-osteopathy/",
-  },
-  // THE £30 ROW WAS REMOVED FROM THIS LIST ON 9 SEP 2026. It is not lost, and
-  // this is not a downgrade — read this before putting a cost figure back here.
-  //
-  // The brief that day (§5) said: "Do not publish the £30 figure without
-  // verifying it." Its SOURCE was never the problem: Danny gave it in WhatsApp
-  // on 3 Sep 2026 and Simon confirmed the same day that it means per
-  // conversion. What it has never had is a PERIOD, which is exactly why it
-  // could not sit beside any other figure and why the query was fair.
-  //
-  // The paid pages now carry £42.50 instead, in LP_ADS_PROOF and rendered by
-  // LandingAdsProof further down the page. That figure is read off
-  // ads-graph.png, which is in this repo, and it arrives with its own window:
-  // £3.78k over 89 conversions, 29 Dec 2025 to 22 Jun 2026. Same measure,
-  // stated period, checkable.
-  //
-  // £30 AND £42.50 MUST NEVER SHARE A PAGE. They are one metric with two
-  // values; side by side they read as a 40% discrepancy in the same number,
-  // which is precisely what a clinician checking two pages would spot. That is
-  // the whole reason this row had to go when £42.50 arrived, rather than the two
-  // sitting three sections apart.
-  //
-  // If Danny gives a window for £30 it supersedes £42.50 outright, and then
-  // both this file and src/lib/google-ads-evidence.ts should change together.
-];
+/*
+ * The rows LandingEvidence renders, and the rule that decides which page gets
+ * which.
+ *
+ * EVERY FIGURE HERE IS ABSENT FROM THAT PAGE'S PROOF STRIP. That is the whole
+ * point of the split, added 9 Sep 2026 after a count found one figure repeated
+ * on every page: the osteopathy strip and this section both led with "No. 1",
+ * and the three MSK pages both led with "8 → 3,822". A number stated twice at
+ * display size on one page does not read as emphasis, it reads as though we
+ * only have one.
+ *
+ * So the strip carries the headlines and this section carries FURTHER verified
+ * figures, with the clinic logo, the source and the case-study link. It adds
+ * evidence instead of restating it, which is also what its heading promises.
+ *
+ * Each set keeps one Bodyfunction row and one Lind Street row, so both clinics
+ * appear on every page with their marks.
+ *
+ * Provenance, all checked 9 Sep 2026 against the case studies that publish it:
+ *   8 → 3,822  Ahrefs, Aug 2024 v Aug 2026        [bodyfunction case study]
+ *   5×         GSC, combined branded search clicks [bodyfunction case study]
+ *   No. 1 × 6  Ahrefs, ten terms in the top four   [lind street case study]
+ *   67%        GSC, 113 clicks at position 1.0     [lind street case study]
+ */
+const ROW_TRAFFIC: LpProofRow = {
+  platform: "Google Search",
+  metric: "Estimated monthly organic traffic",
+  figure: "8 → 3,822",
+  headline: "at Bodyfunction Clinic",
+  source: "Ahrefs estimate · Aug 2024–Aug 2026",
+  clinic: BODYFUNCTION,
+  href: "/case-studies/bodyfunction-clinic/",
+};
+
+const ROW_BRANDED: LpProofRow = {
+  platform: "Google Search",
+  metric: "Branded search demand",
+  figure: "5×",
+  headline: "more people searching for Bodyfunction Clinic by name",
+  source: "Google Search Console · combined branded search clicks",
+  clinic: BODYFUNCTION,
+  href: "/case-studies/bodyfunction-clinic/",
+};
+
+const ROW_NO1: LpProofRow = {
+  platform: "Google Search",
+  metric: "Local search rankings",
+  figure: "No. 1",
+  headline:
+    "for six local osteopathy searches, including “osteopath Ryde”, within twelve months of opening",
+  source: "Ahrefs: all ten tracked local searches ranked in the top four",
+  clinic: LIND_STREET,
+  href: "/case-studies/lind-street-osteopathy/",
+};
+
+const ROW_CTR: LpProofRow = {
+  platform: "Google Search",
+  metric: "Click-through rate on her own name",
+  figure: "67%",
+  headline:
+    "of the people who see Lind Street Osteopathy in Google go on to click it",
+  source: "Google Search Console · 113 clicks at position 1.0",
+  clinic: LIND_STREET,
+  href: "/case-studies/lind-street-osteopathy/",
+};
+
+/** Osteopathy: its strip already headlines No. 1 × 6 and 86 → 576. */
+const ROWS_OSTEOPATHY: LpProofRow[] = [ROW_TRAFFIC, ROW_CTR];
+
+/** The MSK pages: their strip already headlines 8 → 3,822. */
+const ROWS_MSK: LpProofRow[] = [ROW_NO1, ROW_BRANDED];
+
 
 /**
  * §5 and §6 — the hard-number proof strip that now sits directly under the hero.
@@ -359,7 +387,7 @@ const STAT_APPOINTMENTS: LpStat = {
   // APPOINTMENTS, NOT NEW PATIENTS. The sales deck says "572 new patient
   // enquiries in 30 days", which is wrong by roughly 2.5x — the new-patient
   // figure is 212. Never relabel this one. See src/lib/clinic-capacity.ts.
-  context: "Bodyfunction's busiest month, a separate month to the 212",
+  context: "Bodyfunction's busiest month, and a different month to the one beside it",
 };
 const STAT_TRAFFIC: LpStat = {
   figure: "8 → 3,822",
@@ -661,9 +689,16 @@ export interface LpVariant {
   proofStrip: LpStat[];
   /**
    * §7 — the advertising block's three figures. Whichever set this page's strip
-   * does not already headline, so £42.50 is never a headline twice on one page.
+   * does not already headline, so the cost figure is never a headline twice on
+   * one page.
    */
   adsProof: LpStat[];
+  /**
+   * The rows LandingEvidence renders. Chosen so no figure appears at display
+   * size twice on one page: these are the verified figures this page's strip
+   * does NOT carry. See the note on ROWS_OSTEOPATHY / ROWS_MSK.
+   */
+  proofRows: LpProofRow[];
   /**
    * §14 — the problem list, and the section that carries most of the
    * discipline-specific weight on the page.
@@ -751,6 +786,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     },
     proofStrip: STRIP_MSK,
     adsProof: ADS_PROOF_WORKING,
+    proofRows: ROWS_MSK,
     problems: [
       {
         title: "Local patients cannot find you",
@@ -822,7 +858,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
    *   - Danny Morgan is M.Ost and still treats patients [src: site, /about/,
    *     LandingFounder]. "Run by an osteopath" is therefore literal.
    *   - Bodyfunction Clinic is described as an osteopathy and MSK clinic and
-   *     Lind Street Osteopathy as an osteopathy clinic, both in LP_PROOF above,
+   *     Lind Street Osteopathy as an osteopathy clinic, both in the proof rows above,
    *     both copied from their published case studies.
    *   - Those are the only two case studies on the site, so "every case study
    *     we publish is an osteopathy clinic" is checkable in one click. If a
@@ -857,7 +893,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     practiceNoun: "osteopathy clinic",
     seoConditions: "back pain, sciatica, sports injury and postural problems",
     // The only variant whose proof heading can claim the discipline outright,
-    // because both clinics in LP_PROOF are osteopathy clinics and both case
+    // because both clinics in the proof rows are osteopathy clinics and both case
     // studies on the site are osteopathy case studies.
     proofHeading: {
       start: "What happened at ",
@@ -865,6 +901,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     },
     proofStrip: STRIP_OSTEOPATHY,
     adsProof: ADS_PROOF_LEAD,
+    proofRows: ROWS_OSTEOPATHY,
     problems: [
       {
         title: "You are not the first osteopath they find",
@@ -994,6 +1031,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     },
     proofStrip: STRIP_MSK,
     adsProof: ADS_PROOF_WORKING,
+    proofRows: ROWS_MSK,
     problems: [
       {
         title: "One practitioner is flat out, another has gaps",
@@ -1113,6 +1151,7 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     },
     proofStrip: STRIP_MSK,
     adsProof: ADS_PROOF_WORKING,
+    proofRows: ROWS_MSK,
     problems: [
       {
         title: "They want to know what the first visit involves",

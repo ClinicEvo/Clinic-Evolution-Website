@@ -43,7 +43,7 @@ import { LP_RESULTS_CAVEAT, type LpVariant } from "@/lib/lp";
  */
 export default function LandingProofStrip({ variant }: { variant: LpVariant }) {
   return (
-    <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-12 sm:py-14 lg:py-16">
+    <section className="border-b border-[var(--color-border)] bg-[var(--color-paper)] py-12 sm:py-14 lg:py-16">
       <div className="cx-main">
         <FadeUp>
           <div className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-12">

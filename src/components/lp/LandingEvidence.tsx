@@ -3,7 +3,7 @@ import Link from "next/link";
 import FadeUp from "@/components/ui/FadeUp";
 import { GoogleAdsLockup } from "@/components/icons/GoogleColorMark";
 import LpCtaButton from "./LpCtaButton";
-import { LP_PROOF, LP_SECTION_ANCHORS, type LpVariant } from "@/lib/lp";
+import { LP_SECTION_ANCHORS, type LpVariant } from "@/lib/lp";
 import GooglePullQuote from "@/components/sections/GooglePullQuote";
 
 /**
@@ -95,7 +95,7 @@ export default function LandingEvidence({ variant }: { variant: LpVariant }) {
           {/* One row per figure. Asymmetric: the figure and its meaning carry
               the row, the clinic identifies it. */}
           <ul role="list" className="flex flex-col">
-            {LP_PROOF.map((row, index) => (
+            {variant.proofRows.map((row, index) => (
               <FadeUp key={row.headline} delay={0.06 + index * 0.06}>
                 <li className="grid grid-cols-1 gap-5 border-t border-[var(--color-border)] py-6 last:border-b sm:py-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
                   <div>

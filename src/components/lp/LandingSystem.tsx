@@ -31,7 +31,7 @@ import LpCtaButton from "./LpCtaButton";
  */
 export default function LandingSystem({ variant }: { variant: LpVariant }) {
   return (
-    <section className="border-b border-[var(--color-border)] bg-[var(--color-paper)] py-24 sm:py-28 lg:py-32">
+    <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-24 sm:py-28 lg:py-32">
       <div className="cx-main">
         <div className="mb-14 grid grid-cols-1 gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:gap-16">
           <FadeUp>
