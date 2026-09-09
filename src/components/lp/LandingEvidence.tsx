@@ -71,10 +71,15 @@ export default function LandingEvidence({ variant }: { variant: LpVariant }) {
                     above — that one now says what happened, so this one has to
                     say where it can be checked, or the two read as the same
                     section twice. */}
+                {/* Opened on "Every figure", which describes the section's
+                    editorial standard rather than its content. A scanner
+                    reading only headings learned nothing about what is in it.
+                    This names both: whose results, and that they are
+                    verifiable. */}
                 <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                  Every figure here is one you can{" "}
+                  Named clinics, and{" "}
                   <em className="not-italic text-[var(--color-accent)]">
-                    check yourself
+                    figures you can check
                   </em>
                 </h2>
                 {/* §18 and §27: the per-variant framing, so a chiropractor is

@@ -47,10 +47,14 @@ export default function LandingAdsProof({ variant }: { variant: LpVariant }) {
                   invert
                 />
               </div>
+              {/* Front-loaded. "What the paid side actually costs and returns"
+                  opened on "What the", and "the paid side" is ambiguous read on
+                  its own in a heading-only scan. "Google Ads" is the most
+                  informative pair of words available here. */}
               <h2 className="text-h3 mb-4 text-white">
-                What the paid side actually{" "}
+                Google Ads:{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  costs and returns
+                  what an enquiry costs
                 </em>
               </h2>
               <p className="text-body max-w-[46ch] text-white/70">

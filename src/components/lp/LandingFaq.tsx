@@ -104,10 +104,16 @@ export default function LandingFaq({ variant }: { variant: LpVariant }) {
           <FadeUp>
             <div className="lg:sticky lg:top-28">
               <p className="eyebrow mb-5">Questions</p>
+              {/* Was "How it works, what happens next, and where we would
+                  start" — three clauses, opening on "How it", and generic
+                  enough to sit on any page on the internet. The new one names
+                  the three objections the questions below actually answer, so
+                  a scanner learns what is in the section from its first two
+                  words. */}
               <h2 className="text-h2 text-[var(--color-ink)]">
-                How it works, what happens next, and{" "}
+                Cost, contracts, and{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  where we would start
+                  what we actually manage
                 </em>
               </h2>
             </div>

@@ -51,10 +51,31 @@ export default function LandingProblem({ variant }: { variant: LpVariant }) {
                   
                   The replacement is one clause with a subject, a verb and a
                   concrete object, and it states the actual argument. */}
+              {/* THIRD VERSION OF THIS HEADING, and the reasons are recorded
+                  because each fixed a different fault.
+                  
+                  v1 "None of it is a marketing problem. It is a joined-up
+                  problem" used the not-X-but-Y tic this file warns about, and
+                  ended in an abstraction.
+                  
+                  v2 "Nobody is responsible for the whole route from a search to
+                  a patient" was accurate but broke twice. On the chiropractic
+                  page it sat directly above LandingDiscipline's "Nobody books a
+                  chiropractor on a good day", so two consecutive h2s opened on
+                  the same word — Simon caught it. And it opens on "Nobody is",
+                  which carries no information about the section.
+                  
+                  v3 front-loads the informative words, per Nielsen Norman
+                  Group: "start headings with the words carrying most
+                  information: if users see only the first 2 words, they should
+                  still get the gist." "Separate suppliers" passes that test;
+                  "Nobody is" does not. Readers scan headings and skip the prose
+                  below (NN/g call it the layer-cake pattern), so the first two
+                  words of every h2 on these pages are doing real work. */}
               <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
-                Nobody is responsible for the{" "}
+                Separate suppliers{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  whole route from a search to a patient
+                  leave the gaps to you
                 </em>
               </h2>
               {/* Adds the mechanism instead of restating the heading, which is
