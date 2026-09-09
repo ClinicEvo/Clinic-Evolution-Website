@@ -58,25 +58,35 @@ export default function LandingAudit({ variant }: { variant: LpVariant }) {
                   reader has not been offered a choice at this point in the page,
                   so "either way" points at nothing. This says the same thing
                   plainly, and the reassurance list below no longer repeats it. */}
-              {/* Opened on "A free", spending the first slot on an article,
-                  and it now sits five sections below LandingAuditPitch's "Free
-                  audit:" heading, so leading on "free" twice would be the same
-                  word doing the same job twice on one page.
+              {/* THIRD VERSION. The first, "A free audit of your clinic, and a
+                  plan you can use with or without us", spent its opening slot
+                  on an article and led on "free" a second time once
+                  LandingAuditPitch took that word.
                   
-                  "Four questions" is the better opener anyway: it is the actual
-                  ask, it is the smallest the ask can be made to sound, and it
-                  is the one thing a reader at this depth still wants to know.
-                  The sentence below no longer has to introduce it. */}
+                  The second, "Four questions, and a plan you can use with or
+                  without us", front-loaded the ASK. That is backwards at the
+                  point of conversion: a reader who has reached 89% page depth
+                  wants the reward, and low friction belongs in the reassurance
+                  underneath rather than in the headline. Describing the form's
+                  mechanics is the weakest thing this heading can do.
+                  
+                  This one front-loads the reader's own clinic, which is the
+                  most relevant pair of words available anywhere on the page,
+                  and puts the value in the accent: prioritisation. Knowing
+                  which thing to do first is what a clinic owner with five
+                  problems and one budget actually lacks.
+                  
+                  "Four questions" survives in the sentence below, where it is
+                  reassurance about effort rather than a headline. */}
               <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
-                Four questions, and a plan{" "}
+                Your {variant.practiceNoun},{" "}
                 <em className="not-italic text-[var(--color-accent)]">
-                  you can use with or without us
+                  and what we would do first
                 </em>
               </h2>
               <p className="text-body-lg mb-8 max-w-[48ch] text-[var(--color-muted)]">
-                That is all we need to start. A written review of your{" "}
-                {variant.practiceNoun} comes back to you {LP_TURNAROUND}, with a
-                prioritised list of what we would fix first.
+                Four questions is all we need. A written review comes back to
+                you {LP_TURNAROUND}.
               </p>
             </FadeUp>
 
