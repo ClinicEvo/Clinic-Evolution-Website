@@ -43,7 +43,18 @@ export const LP_PHONE = {
   href: "tel:+447460082683",
 };
 
-export const LP_CTA_LABEL = "Request a free clinic audit";
+/**
+ * §3 of the 9 Sep 2026 brief: "Book" was wrong because it implies picking a
+ * calendar slot, and the action is submitting a clinic for review. The brief
+ * asked for "Get My Free Clinic Audit"; this is the same words in sentence
+ * case, because every other button on this site is sentence case and title
+ * case in one place would read as a different system. One constant, so
+ * changing it back is one edit.
+ */
+export const LP_CTA_LABEL = "Get my free clinic audit";
+
+/** Short form for the sticky header, where the full label overflows below ~375px. */
+export const LP_CTA_LABEL_SHORT = "Get my free audit";
 export const LP_FORM_ANCHOR = "#audit";
 
 /**
@@ -254,33 +265,154 @@ export const LP_PROOF: LpProofRow[] = [
     clinic: LIND_STREET,
     href: "/case-studies/lind-street-osteopathy/",
   },
+  // THE £30 ROW WAS REMOVED FROM THIS LIST ON 9 SEP 2026. It is not lost, and
+  // this is not a downgrade — read this before putting a cost figure back here.
+  //
+  // The brief that day (§5) said: "Do not publish the £30 figure without
+  // verifying it." Its SOURCE was never the problem: Danny gave it in WhatsApp
+  // on 3 Sep 2026 and Simon confirmed the same day that it means per
+  // conversion. What it has never had is a PERIOD, which is exactly why it
+  // could not sit beside any other figure and why the query was fair.
+  //
+  // The paid pages now carry £42.50 instead, in LP_ADS_PROOF and rendered by
+  // LandingAdsProof further down the page. That figure is read off
+  // ads-graph.png, which is in this repo, and it arrives with its own window:
+  // £3.78k over 89 conversions, 29 Dec 2025 to 22 Jun 2026. Same measure,
+  // stated period, checkable.
+  //
+  // £30 AND £42.50 MUST NEVER SHARE A PAGE. They are one metric with two
+  // values; side by side they read as a 40% discrepancy in the same number,
+  // which is precisely what a clinician checking two pages would spot. That is
+  // the whole reason this row had to go when £42.50 arrived, rather than the two
+  // sitting three sections apart.
+  //
+  // If Danny gives a window for £30 it supersedes £42.50 outright, and then
+  // both this file and src/lib/google-ads-evidence.ts should change together.
+];
+
+/**
+ * §5 and §6 — the hard-number proof strip that now sits directly under the hero.
+ *
+ * WHY IT MOVED. The paid pages used to spend three sections on argument before
+ * showing a figure. Every claim in those sections is an assertion a competitor
+ * in the same auction also makes; these are the only things on the page that
+ * can be checked. So they come first now.
+ *
+ * WHY THE SAME FOUR TILES ON ALL FOUR VARIANTS. Because the evidence base is
+ * the same, and inventing discipline-specific proof is the one thing this
+ * project's rules forbid outright. What changes per variant is the HEADING
+ * above the strip and how the clinics are framed underneath it: the osteopathy
+ * page can call both clinics osteopathy clinics because both are, and the other
+ * three call them the MSK clinics the system was developed and tested in, which
+ * is what §11 and §12 asked for. Differentiation lives in the hero, the problem
+ * list, the case-study framing and the FAQ, not in the numbers.
+ *
+ * TRANSPARENCY IS DELIBERATE, per §5. Bodyfunction is named as Danny's own
+ * clinic on the strip itself rather than in a footnote. It reads as a stronger
+ * fact than a client logo would: the system was built by someone who had to
+ * live with the result.
+ *
+ * NO ANIMATED COUNTERS HERE. `StatTiles` on the case studies animates from
+ * zero, which put "+0%" and "0×" into the server-rendered HTML — see the fix in
+ * src/components/case-studies/CaseStudyCharts.tsx. These are static strings and
+ * must stay static strings.
+ *
+ * EVERY FIGURE'S PROVENANCE, checked 9 Sep 2026:
+ *   212  src/lib/clinic-capacity.ts NEW_PATIENTS  [src: WhatsApp, Danny, 3 Sep 2026]
+ *   572  src/lib/clinic-capacity.ts APPOINTMENTS  [src: WhatsApp, Danny, 3 Sep 2026]
+ *   8 → 3,822  bodyfunction case study headlineStats  [src: ahrefs, Aug 24 v Aug 26]
+ *   No. 1 × 6  lind-street case study headlineStats   [src: ahrefs]
+ *
+ * 212 AND 572 ARE NOT THE SAME MONTH and the labels below must keep saying so.
+ * Danny gave them as two separate personal bests; written as one month it is an
+ * unconfirmed claim. See the trap list in src/lib/clinic-capacity.ts, which also
+ * bans multiplying 212 by any cost-per-enquiry figure.
+ */
+export interface LpStat {
+  figure: string;
+  label: string;
+  context: string;
+}
+
+export const LP_PROOF_STRIP: LpStat[] = [
   {
-    // £30 IS A COST PER CONVERSION, NOT PER BOOKED PATIENT. This row said
-    // "booked new patient" until 3 Sep 2026, which was wrong: Danny gave the
-    // figure as "cost per patient £30" in WhatsApp that morning [src: WhatsApp,
-    // Danny, 3 Sep 2026] and Simon confirmed the same day that it means per
-    // conversion [src: client]. Google counts a conversion as a tracked enquiry
-    // — a call, a form, a chat — so the metric and headline now say enquiry.
-    // Do not put the word "booked" back; see CONVERSION_CAVEAT in
-    // src/lib/google-ads-evidence.ts.
-    //
-    // THE WINDOW WAS REMOVED ON PURPOSE. This row used to carry "Google Ads,
-    // 29 Dec 2025 – 22 Jun 2026", which is the window on the overview
-    // screenshot behind /google-ads-for-clinics/. That window's own arithmetic
-    // is £3.78k over 89 conversions = £42.50, so attaching it to £30 implied
-    // £30 came from data that yields a different number. £30 is Danny's own
-    // current figure and no window has been given for it; the source line now
-    // says whose figure it is instead of implying a period it was measured over.
-    //
-    // £42.50 therefore stays on /google-ads-for-clinics/, where the screenshot
-    // it is read off is on the page, and £30 stays here. Same measure, two
-    // periods — so they must never appear on the same page.
-    platform: "Google Ads",
-    metric: "Cost per patient enquiry",
-    figure: "£30",
-    headline: "per patient enquiry from Google Ads at Bodyfunction Clinic",
-    source: "Bodyfunction Clinic's own Google Ads figure",
-    clinic: BODYFUNCTION,
+    figure: "212",
+    label: "New patients",
+    context: "Bodyfunction's best month",
+  },
+  {
+    figure: "572",
+    label: "Appointments",
+    context: "Bodyfunction's busiest month",
+  },
+  {
+    figure: "8 → 3,822",
+    label: "Monthly organic traffic",
+    context: "Bodyfunction, over two years",
+  },
+  {
+    figure: "No. 1 × 6",
+    label: "Local searches",
+    context: "Lind Street Osteopathy",
+  },
+];
+
+/**
+ * §27. Required, not optional, and it stays directly under the figures rather
+ * than in a footer. Past results are evidence; they are not a forecast, and a
+ * clinician is the right person to be sceptical about that.
+ */
+export const LP_RESULTS_CAVEAT =
+  "Results shown are from specific Clinic Evo clinic accounts and periods. Individual results will vary.";
+
+/**
+ * §7 — the advertising figures, deliberately NOT in the strip above.
+ *
+ * Business outcomes lead; channel metrics support. A clinic owner cares about
+ * patients, appointments and enquiries before CTR or auction share, so these
+ * sit beside the paid-search part of the system rather than at the top of the
+ * page.
+ *
+ * £42.50 REPLACED £30 ON 9 SEP 2026, and that was the brief's call in §5:
+ * "Do not publish the £30 figure without verifying it."
+ *
+ *   - £30 is Danny's own current figure [src: WhatsApp, Danny, 3 Sep 2026] and
+ *     Simon confirmed the same day that it means per conversion. Its source is
+ *     sound. What it has never had is a PERIOD, which is why it could not be
+ *     published beside anything else and why the brief was right to query it.
+ *   - £42.50 is read off ads-graph.png, which is in the repo, and carries its
+ *     own window: £3.78k over 89 conversions between 29 Dec 2025 and 22 Jun
+ *     2026. It is the same measure over a stated period.
+ *
+ * They are the same metric with two values, so they must never share a page —
+ * side by side they read as a 40% discrepancy in one number. The paid pages now
+ * carry the dated one. If Danny gives a window for £30, it supersedes this
+ * outright and /google-ads-for-clinics/ should change with it. See the note at
+ * the top of src/lib/google-ads-evidence.ts before touching either.
+ *
+ * "TRACKED ENQUIRY", NEVER "NEW PATIENT". Google counts a conversion as a
+ * tracked action: a call, a form or a chat. §5 is explicit about this and so is
+ * CONVERSION_CAVEAT in google-ads-evidence.ts. Do not put "patient" back.
+ */
+export const LP_ADS_PROOF: LpStat[] = [
+  {
+    figure: "£42.50",
+    label: "Cost per tracked enquiry",
+    context: "Bodyfunction's Google Ads account, 29 Dec 2025 to 22 Jun 2026",
+  },
+  {
+    figure: "89",
+    label: "Tracked enquiries",
+    context: "From £3.78k of spend over the same period",
+  },
+  {
+    figure: "£70k+",
+    label: "Spent on healthcare paid ads",
+    // Danny's own statement about Clinic Evo's track record, made on the 10 Aug
+    // call and confirmed by Simon on 13 Aug 2026. It is a first-party claim
+    // about us, not about a client, which is why it can be a figure here. It is
+    // also currently published as a quote on /google-ads-for-clinics/.
+    context: "Clinic Evo's own spend, across healthcare accounts",
   },
 ];
 
@@ -391,8 +523,44 @@ export interface LpVariant {
   /** The per-variant navy photograph band. See LpBand. */
   band: LpBand;
   /**
-   * Two extra FAQs, specific to this ad group, prepended to the shared set.
-   * This and `band` are most of what makes a variant more than a headline swap.
+   * §6/§11/§12 — the heading over LP_PROOF_STRIP, and the only per-variant part
+   * of it. The osteopathy page may call both clinics osteopathy clinics because
+   * both are; the other three must not imply the evidence is theirs, so they
+   * name it as the MSK clinics the system was developed and tested in.
+   */
+  proofHeading: { start: string; accent: string };
+  /**
+   * §14 — the problem list, and the section that carries most of the
+   * discipline-specific weight on the page.
+   *
+   * THE SECTION EYEBROW FRAMES THESE AS A CHECKLIST ("If any of this is your
+   * clinic"), which is what makes the second person safe here. "Your website
+   * gets traffic but too few visitors enquire" as a bare assertion is an
+   * unsourced claim about the reader's business; offered as one item on a list
+   * they self-select from, it claims nothing. Do not remove that eyebrow and
+   * leave these as statements.
+   *
+   * Each list is three problems every clinic recognises plus two written for
+   * this discipline, per §11 and §12's focus lists.
+   */
+  problems: { title: string; body: string }[];
+  /**
+   * §18 — how the case-study section introduces evidence that is entirely
+   * osteopathy. On the osteopathy page that is an asset; elsewhere it has to be
+   * framed honestly as the MSK system's evidence rather than as the reader's
+   * own discipline.
+   */
+  evidenceNote: string;
+  /**
+   * ONE question per ad group, filling §20's "Does Clinic Evo only work with
+   * MSK clinics?" slot in the words the reader would actually use. Five shared
+   * objections in LandingFaq plus this one makes the six the brief asked for.
+   *
+   * There were two per variant until 9 Sep 2026. The second ones were good and
+   * discipline-specific (a solo osteopathy practice, physiotherapy referral
+   * pipelines, an existing chiropractic ad account) but §20 asked for the FAQ
+   * to be reduced to high-conversion objections, and depth of that kind belongs
+   * on the organic service pages where it can rank. They are in git history.
    *
    * THE PHYSIO AND CHIRO ANSWERS WERE REWRITTEN ON 9 SEP 2026. Both used to
    * open "We do not have a published physiotherapy/chiropractic case study
@@ -427,15 +595,49 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     metaDescription:
       "One system for UK healthcare clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Request a free clinic audit.",
     badge: "Built inside a working MSK clinic",
+    // §13. This ad group is the broadest and therefore the weakest: "healthcare
+    // marketing" attracts dentists, aesthetics, vets, private GPs and medtech,
+    // none of which we can evidence. So the H1 names MSK in the headline itself
+    // rather than leaving the qualifying to the trust strip six inches below,
+    // where it was contradicting the old inclusive H1. Losing an irrelevant
+    // click on the H1 is cheaper than paying for the lead behind it.
     headline: {
-      start: "Healthcare marketing for UK clinics, ",
-      accent: "run by a clinic owner",
+      start: "Healthcare marketing for MSK clinics that want ",
+      accent: "more booked patients",
       end: "",
     },
     subhead:
-      "One team builds the website, wins the local searches, runs the ads, and picks up every enquiry they produce. It is one system built around your clinic, rather than five suppliers you have to manage.",
+      "Websites, SEO, Google Ads and patient follow-up built specifically for UK osteopaths, physiotherapists and chiropractors, and run as one connected system rather than four suppliers you have to manage.",
     practiceNoun: "clinic",
     seoConditions: "back pain, sciatica, sports injury and postural problems",
+    proofHeading: {
+      start: "Results from the MSK clinics where we ",
+      accent: "built and tested this",
+    },
+    problems: [
+      {
+        title: "Local patients cannot find you",
+        body: "Somebody two streets away searches for treatment and gets three other clinics before yours, or gets yours on page two.",
+      },
+      {
+        title: "Clicks arrive, enquiries do not",
+        body: "The site gets visitors and the ads get clicks, and nobody can show you which of either turned into somebody asking for an appointment.",
+      },
+      {
+        title: "Enquiries land while you are treating",
+        body: "A form comes in at four o'clock. You are hands-on until seven. Whoever replied first has already booked them.",
+      },
+      {
+        title: "Four suppliers, one diary",
+        body: "A web designer, an SEO freelancer, an ads agency and you. None of them can see the whole journey, so the gaps between them belong to nobody.",
+      },
+      {
+        title: "Discharged patients simply vanish",
+        body: "A course of treatment ends and nothing goes out at three, six or twelve months, so the next flare-up goes to whoever advertises.",
+      },
+    ],
+    evidenceNote:
+      "Both clinics below are musculoskeletal practices, and both are where this system was built and tested before it was sold to anybody.",
     band: {
       // Discipline-neutral on purpose: this ad group covers treatment-led
       // healthcare generally, so the one photograph that must not name a
@@ -471,12 +673,6 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
         answer:
           "Some of it. The search work, the website and the ads transfer to most treatment-led healthcare businesses. What we can evidence, and what the system was tested on, is musculoskeletal: osteopathy, physiotherapy and chiropractic. If you are outside that, say so in the audit request and we will tell you honestly which parts we would stand behind and which we would not.",
       },
-      {
-        question:
-          "We already have an agency. What would the audit tell us that they have not?",
-        answer:
-          "What your clinic ranks for right now, which clinics sit above you, and what an enquiry is costing you, with those three things next to each other. If your current reporting already puts them side by side then the audit will largely confirm it, and it cost you nothing to check. If it gives you sessions and impressions instead, that is the gap.",
-      },
     ],
   },
 
@@ -503,16 +699,57 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     metaDescription:
       "One system for UK osteopathy clinics: website, SEO, ads, call handling and follow-up, run by one team. Founded by a practising osteopath, and both our published case studies are osteopathy clinics. Request a free clinic audit.",
     badge: "Built by a practising osteopath, in his own clinic",
+    // §10's suggested H1, taken almost verbatim because it is better than what
+    // was here: "built inside a real osteopathy clinic" is a verifiable fact
+    // about where the system comes from, where "run by an osteopath" was a fact
+    // about a person. The clinic is the thing another clinic owner recognises.
     headline: {
-      start: "Marketing for osteopathy clinics, ",
-      accent: "run by an osteopath",
+      start: "Osteopathy marketing built inside ",
+      accent: "a real osteopathy clinic",
       end: "",
     },
+    // §4: no long paragraphs, CTA above the fold. This is §10's suggested copy
+    // and nothing else. A third sentence ("both of the clinics whose figures
+    // are on this page are osteopathy clinics") was here and is gone: the
+    // proof strip directly below now opens with "What happened at two
+    // osteopathy clinics", so the hero was spending a line of a five-line
+    // mobile paragraph saying what the next screen says in its heading.
     subhead:
-      "One team builds the website, wins the local osteopathy searches, runs the ads, and picks up every enquiry they produce. Both of the clinics whose figures appear on this page are osteopathy clinics.",
+      "Get your clinic found, turn more searches into enquiries and stop good leads going cold. Website, SEO, Google Ads and patient follow-up managed as one connected system.",
     defaultDiscipline: "Osteopath",
     practiceNoun: "osteopathy clinic",
     seoConditions: "back pain, sciatica, sports injury and postural problems",
+    // The only variant whose proof heading can claim the discipline outright,
+    // because both clinics in LP_PROOF are osteopathy clinics and both case
+    // studies on the site are osteopathy case studies.
+    proofHeading: {
+      start: "What happened at ",
+      accent: "two osteopathy clinics",
+    },
+    problems: [
+      {
+        title: "You are not the first osteopath they find",
+        body: "Somebody searches “osteopath near me” from a mile away and meets three other practices before yours.",
+      },
+      {
+        title: "Clicks arrive, enquiries do not",
+        body: "The site gets visitors and the ads get clicks, and nobody can show you which of either turned into somebody asking for an appointment.",
+      },
+      {
+        title: "Enquiries land while you are treating",
+        body: "A form comes in at four o'clock. You are hands-on until seven. Whoever replied first has already booked them.",
+      },
+      {
+        title: "Four suppliers, one diary",
+        body: "A web designer, an SEO freelancer, an ads agency and you. None of them can see the whole journey, so the gaps between them belong to nobody.",
+      },
+      {
+        title: "Maintenance patients drift off quietly",
+        body: "Nobody announces they have stopped coming. Without something reaching them at three, six and twelve months, the next episode goes elsewhere.",
+      },
+    ],
+    evidenceNote:
+      "Both clinics below are osteopathy practices. Bodyfunction is our founder's own; Lind Street is a client who opened cold with nothing.",
     band: {
       // Centre-weighted and cool-toned, which is what a hard crop at two very
       // different aspect ratios needs. It is a high-key frame and reads pale at
@@ -566,11 +803,6 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
         answer:
           "Both of the clinics whose figures are on this page are osteopathy clinics. Bodyfunction Clinic in Angel is our founder's own osteopathy and MSK practice, and Lind Street Osteopathy opened cold in Ryde with no logo, no website and no search presence. Clinic Evo was founded by a practising osteopath, and every case study we publish is an osteopathy clinic.",
       },
-      {
-        question: "We are one practitioner, not a multi-room clinic. Is this too much for us?",
-        answer:
-          "No. Lind Street Osteopathy came to us as a brand new single-practitioner clinic and was on page one across its catchment twelve months after opening. The audit sets the scope, and for a solo practice it is more likely to mean two or three layers running properly than all five at once.",
-      },
     ],
   },
 
@@ -598,17 +830,59 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     // two pages a physiotherapist and a chiropractor each landed on differed by
     // one noun. Self-referral is the physiotherapy-specific commercial fact and
     // it pairs with the second FAQ below.
+    // §11's suggested H1. "Turns local searches into booked patients" names the
+    // outcome rather than the audience, which is what a paid headline should do;
+    // the self-referral angle it replaces has moved down into the problem list
+    // and the second FAQ, where it has room to mean something.
     headline: {
-      start: "Marketing for physiotherapy clinics, ",
-      accent: "built for the patients who self-refer",
+      start: "Physiotherapy marketing that turns local searches into ",
+      accent: "booked patients",
       end: "",
     },
     subhead:
-      "One team builds the website, wins the local physio searches, runs the ads, and picks up every enquiry they produce. It was built inside a clinic that treats physiotherapy patients alongside osteopathy, and tested on that clinic's own diary first.",
+      "SEO, Google Ads, websites and patient follow-up built around how private MSK clinics actually acquire and retain patients. It was developed inside a clinic that treats physiotherapy patients alongside osteopathy, and tested on that clinic's own diary first.",
     defaultDiscipline: "Physiotherapist",
     practiceNoun: "physiotherapy clinic",
     seoConditions:
       "back pain, sciatica, sports injury and post-operative rehab",
+    // §11: must not imply a Bodyfunction result came from a physiotherapy
+    // client. The brief's own suggested wording, and it is accurate: both
+    // clinics are MSK, and bodyfunction.co.uk's title tag reads "Osteopathy &
+    // Physiotherapy Clinic | Islington" [src: site, checked 17 Aug 2026].
+    proofHeading: {
+      start: "Results from the MSK clinics where we ",
+      accent: "developed and tested the system",
+    },
+    problems: [
+      {
+        title: "One practitioner is flat out, another has gaps",
+        body: "Clinic-level enquiry numbers look fine while an individual diary has holes in it, because nothing routes demand to the person with capacity.",
+      },
+      {
+        title: "Clicks arrive, enquiries do not",
+        body: "The site gets visitors and the ads get clicks, and nobody can show you which of either turned into somebody asking for an appointment.",
+      },
+      {
+        title: "Enquiries land while you are treating",
+        body: "A form comes in at four o'clock. You are hands-on until seven. Whoever replied first has already booked them.",
+      },
+      {
+        title: "Four suppliers, one diary",
+        body: "A web designer, an SEO freelancer, an ads agency and you. None of them can see the whole journey, so the gaps between them belong to nobody.",
+      },
+      {
+        title: "Everything sits behind one “what we treat” list",
+        body: "A runner with a knee and a patient six weeks post-op need different pages, different ads and different words. One list serves neither.",
+      },
+    ],
+    // §11 wants it clear that these are not physiotherapy-specific results, and
+    // §27 wants no implied repeatability. Both are satisfied by saying what the
+    // clinics are. The sentence that first sat here added "we do not have a
+    // physiotherapy case study published yet", which is the concession this
+    // page was rewritten to stop making: honesty about what the evidence IS
+    // does not require announcing what it is not.
+    evidenceNote:
+      "Both clinics below are musculoskeletal practices where this system was built and tested. Bodyfunction treats physiotherapy patients alongside osteopathy.",
     band: {
       // Kinesiology taping: the one image in the repo that could not be
       // mistaken for any other discipline, and its blue-grey ground sits under
@@ -666,12 +940,6 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
         answer:
           "It was built in one. Bodyfunction Clinic in Angel, where the system was tested before it was offered to anybody else, is an osteopathy and physiotherapy practice. The search work, the website, the ads and the follow-up are the same job whichever of the two a patient books, and the audit looks at your local search market, your website, your booking path and your follow-up before anybody suggests what to do about them.",
       },
-      {
-        question:
-          "Most of our new patients come from GP and consultant referrals. Why would we need this?",
-        answer:
-          "Because it is aimed at a different route in. Referrals and self-referral are two separate pipelines into the same diary, and a clinic filling one of them still has the other to open. The audit measures how much self-referral demand your catchment actually has, and what reaching it would cost, before you spend anything on it.",
-      },
     ],
   },
 
@@ -682,16 +950,60 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
     metaDescription:
       "One system for UK chiropractic clinics: website, SEO, ads, call handling and follow-up, run by one team. Built inside a working MSK clinic. Request a free clinic audit.",
     badge: "Built inside a working MSK clinic",
+    // §12's suggested H1. Trust before booking is the chiropractic-specific
+    // problem and it is not the same problem as visibility, which is what the
+    // old "built to fill the diary" accent flattened it into.
     headline: {
-      start: "Marketing for chiropractic clinics, ",
-      accent: "built to fill the diary",
+      start: "Chiropractic marketing that builds trust ",
+      accent: "before the first appointment",
       end: "",
     },
     subhead:
-      "One team builds the website, wins the local chiropractic searches, runs the ads, and picks up every enquiry they produce. It was built inside a working MSK clinic and tested on that clinic's own diary first.",
+      "Get found when local patients are looking for help, give them a reason to choose your clinic, and follow up every enquiry before it goes cold. Website, SEO, Google Ads and patient follow-up run as one system.",
     defaultDiscipline: "Chiropractor",
     practiceNoun: "chiropractic clinic",
     seoConditions: "back pain, sciatica, neck pain and postural problems",
+    // §12: must not imply the evidence is chiropractic-specific. It is not, and
+    // there is no chiropractic client to draw on, so the heading frames it as
+    // the wider MSK system exactly as the brief asked.
+    proofHeading: {
+      start: "Results from the MSK clinics where we ",
+      accent: "developed and tested the system",
+    },
+    problems: [
+      {
+        title: "They want to know what the first visit involves",
+        body: "Safety, technique, cost, how many sessions. Four questions a nervous first-timer will not ring up to ask, so the site has to answer them.",
+      },
+      {
+        title: "Clicks arrive, enquiries do not",
+        body: "The site gets visitors and the ads get clicks, and nobody can show you which of either turned into somebody asking for an appointment.",
+      },
+      {
+        title: "Enquiries land while you are treating",
+        body: "A form comes in at four o'clock. You are hands-on until seven. Whoever replied first has already booked them.",
+      },
+      {
+        title: "Four suppliers, one diary",
+        body: "A web designer, an SEO freelancer, an ads agency and you. None of them can see the whole journey, so the gaps between them belong to nobody.",
+      },
+      {
+        title: "Reviews are thin, or three years old",
+        body: "Nothing asks a patient for one on the day treatment happened, so the profile a first-timer checks before calling has gone quiet.",
+      },
+    ],
+    // Deliberately does not name the GCC. §12 asked for accuracy if a
+    // professional body is mentioned, and the accurate thing is that no source
+    // in this repo documents what the GCC's advertising guidance says or how we
+    // work within it. So the copy stays with what is true of all regulated
+    // healthcare advertising and claims nothing specific. See the FAQ note too.
+    // Says what the clinics ARE and stops. Each row already carries its own
+    // descriptor ("Osteopathy and MSK clinic, Angel, London"), so a reader can
+    // see the discipline without the copy announcing that it is not theirs.
+    // A first draft here ended "neither is a chiropractic clinic", which
+    // volunteers the gap rather than framing the evidence.
+    evidenceNote:
+      "Both clinics below are musculoskeletal practices, and both are where this patient-acquisition system was built and tested before it was sold to anybody.",
     band: {
       // Portrait source, cropped to a horizontal slice through the hands. The
       // three chiropractic images in the repo are all portrait, so this is a
@@ -732,17 +1044,6 @@ const VARIANTS: Record<LpVariantSlug, LpVariant> = {
         question: "Will this work for a chiropractic clinic?",
         answer:
           "The work is the same shape: local search, a site that answers what a first visit involves, ads pointed at high-intent searches, and follow-up that runs after hours. What we can evidence is musculoskeletal, in clinics our founder either owns or took from nothing to page one. The audit looks at your local search market, your website, your booking path and your follow-up, then shows where the system fits your clinic.",
-      },
-      {
-        // On the chiropractic variant rather than the other three because the
-        // keyword research puts chiropractic marketing demand at roughly twice
-        // physiotherapy's and calls chiropractors the most marketing-aware of
-        // the three professions [src: ~/claude/clinic-evo-ads-seo-research.md],
-        // so an account already running is the likeliest thing behind a
-        // chiropractic click.
-        question: "We already run Google Ads. Would you take the account over or start again?",
-        answer:
-          "The audit tells you which. It looks at what the account is paying per enquiry, and at whether the conversion tracking behind that figure can be trusted, because a cost per enquiry is only as reliable as what is being counted. You get that finding in writing either way, and it is yours whether or not we ever touch the account.",
       },
     ],
   },

@@ -3,8 +3,12 @@ import { buildMetadata } from "@/lib/metadata";
 import { LP_VARIANT_SLUGS, getLpVariant } from "@/lib/lp";
 import ClientLogoStrip from "@/components/sections/ClientLogoStrip";
 import LandingHero from "@/components/lp/LandingHero";
+import LandingProofStrip from "@/components/lp/LandingProofStrip";
+import LandingAuditPitch from "@/components/lp/LandingAuditPitch";
+import LandingProblem from "@/components/lp/LandingProblem";
 import LandingDiscipline from "@/components/lp/LandingDiscipline";
 import LandingEvidence from "@/components/lp/LandingEvidence";
+import LandingAdsProof from "@/components/lp/LandingAdsProof";
 import LandingSystem from "@/components/lp/LandingSystem";
 import LandingPatientPulse from "@/components/lp/LandingPatientPulse";
 import LandingFounder from "@/components/lp/LandingFounder";
@@ -52,38 +56,61 @@ export default async function LandingPage({
   if (!variant) notFound();
 
   /*
-   * The paid journey stays linear: claim, recognition, proof, origin, offer,
-   * product, process, objections, form. Each section adds new information.
+   * §2 of the 9 Sep 2026 brief. The order below is the conversion sequence it
+   * asked for, and the one change that matters is that PROOF COMES THIRD.
    *
-   * LandingDiscipline was inserted third on 9 Sep 2026. It is the one section
-   * that describes the reader's own clinic rather than ours, which the page had
-   * gone without since LandingProblem was cut for length on 18 Aug — and it is
-   * the only place any of the four variants shows a photograph of its own
-   * discipline. Three questions and a photograph, against the four-row, ~400
-   * word section it replaces.
+   * What it replaced ran hero, logos, recognition, proof, origin, offer,
+   * product, process, objections, form. A visitor met their first checkable
+   * figure three sections down, and everything above it was assertion: built by
+   * clinic owners, MSK only, no lock-in. Every competitor bidding on the same
+   * keywords says those things too. The four numbers in LandingProofStrip are
+   * the only content on the page that can be looked up, so they now sit
+   * directly under the hero, and the offer follows immediately after them
+   * rather than waiting until the form at the bottom.
    *
-   * ClientLogoStrip is rendered HERE rather than inside LandingEvidence, which
-   * is where it used to live. Its position directly under the hero is
-   * deliberate (it is where the site's own service pages put it, and a paid
-   * visitor decides whether to keep reading before they have read anything), so
-   * inserting a band above the evidence section would otherwise have pushed the
-   * strip a full screen down as a side effect.
+   *   1  LandingHero          discipline-specific claim, one CTA
+   *   2  ClientLogoStrip      who we work with, above the fold on desktop
+   *   3  LandingProofStrip    §5/§6 — four hard numbers, earliest possible
+   *   4  LandingAuditPitch    §8 — the offer, stated once proof has earned it
+   *   5  LandingProblem       §14 — five problems, two written per discipline
+   *   6  LandingDiscipline    the navy photo band, recognition + three questions
+   *   7  LandingEvidence      §18 — the two clinics, sourced, with a real review
+   *   8  LandingSystem        §16 — the connected system
+   *   9  LandingAdsProof      §7 — advertising figures, deliberately not at top
+   *  10  LandingPatientPulse  §17 — what happens after the enquiry arrives
+   *  11  LandingFounder       §19 — credibility, AFTER the numbers not before
+   *  12  LandingProcess       what happens after you send the form
+   *  13  LandingFaq           §20 — six objections
+   *  14  LandingAudit         §9 — four fields and the form
+   *  15  LandingStickyCta     §22 — mobile only
    *
-   * Band rhythm, which is the reason this order and not another: paper, paper,
-   * INK, paper, surface, paper, INK, surface, paper, surface. The two navy
-   * bands sit three sections apart, which is the same spacing LandingProblem
-   * and LandingPatientPulse had. Adjacent, they would read as one long dark
-   * stretch and both would lose their impact.
+   * FOUNDER MOVED DOWN, from fourth to eleventh, and that is deliberate
+   * against the earlier reasoning in this file. The story used to answer "why
+   * should this lot be able to do that" immediately after the claim. §15 is
+   * right that it reads better once the reader has already seen the figures:
+   * it stops being a promise and becomes the explanation for something they
+   * have accepted.
+   *
+   * BAND RHYTHM: paper, surface, surface, paper, paper, INK, paper, paper, INK,
+   * INK, surface, surface, paper, surface. The two adjacent navy sections at 9
+   * and 10 are intentional and are one visual unit — the ads figures are the
+   * paid half of the system and Patient Pulse is the follow-up half, so they
+   * read as one dark stretch about what happens to an enquiry. LandingDiscipline
+   * at 6 is far enough from both to keep its own weight.
    */
   return (
     <>
       <LandingHero variant={variant} />
       <ClientLogoStrip label="Clinics and brands we build and grow" />
+      <LandingProofStrip variant={variant} />
+      <LandingAuditPitch variant={variant} />
+      <LandingProblem variant={variant} />
       <LandingDiscipline variant={variant} />
-      <LandingEvidence />
-      <LandingFounder />
+      <LandingEvidence variant={variant} />
       <LandingSystem variant={variant} />
+      <LandingAdsProof />
       <LandingPatientPulse />
+      <LandingFounder />
       <LandingProcess />
       <LandingFaq variant={variant} />
       <LandingAudit variant={variant} />

@@ -61,16 +61,28 @@ export function GoogleAdsLockup({
   className = "",
   markClass = "h-[1.05rem] w-[1.05rem]",
   label = "Google Ads",
+  invert = false,
 }: {
   className?: string;
   markClass?: string;
   /** Which Google surface this refers to, e.g. "Google Ads", "Google Search". */
   label?: string;
+  /**
+   * For a navy ground. --color-charcoal is unreadable on --color-ink, so the
+   * label switches to white/85 rather than every dark-section caller
+   * hand-rolling an override. The MARK never changes: those are Google's own
+   * brand colours and inverting or tinting them is not ours to do.
+   */
+  invert?: boolean;
 }) {
   return (
     <span className={`inline-flex items-center gap-2 ${className}`}>
       <GoogleColorMark className={`flex-shrink-0 ${markClass}`} />
-      <span className="font-display text-[0.78rem] font-semibold tracking-[-0.01em] text-[var(--color-charcoal)]">
+      <span
+        className={`font-display text-[0.78rem] font-semibold tracking-[-0.01em] ${
+          invert ? "text-white/85" : "text-[var(--color-charcoal)]"
+        }`}
+      >
         {label}
       </span>
     </span>

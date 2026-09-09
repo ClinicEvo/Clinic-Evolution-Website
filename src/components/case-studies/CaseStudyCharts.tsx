@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef, useEffect, useState, useId } from "react";
+import { useRef, useEffect, useLayoutEffect, useState, useId } from "react";
 
 /*
  * Case study data visuals.
@@ -25,22 +25,67 @@ import { useRef, useEffect, useState, useId } from "react";
  * wrappers are tall — a full table never reaches 30% visibility on a short
  * viewport, which left the rows stuck at their initial opacity.
  */
+/* useLayoutEffect logs a warning when React renders on the server, and these
+   components are server-rendered despite the "use client" boundary. Same hook,
+   chosen per environment. */
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 function useOnceInView() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.01 });
   return { ref, isInView };
 }
 
+/*
+ * THE INITIAL STATE IS THE REAL FIGURE, NOT ZERO. Do not change it back.
+ *
+ * This counted up from `useState(0)`, and because this is a client component
+ * that zero was what got server-rendered. Every consumer of the value was
+ * therefore served a wrong number:
+ *
+ *   /case-studies/lind-street-osteopathy/   "+0%"  where the copy says +570%
+ *                                           "0%"   where it says 67%
+ *   /case-studies/bodyfunction-clinic/      "+0%"  where it says +425%
+ *                                           "0×"   where it says 5×
+ *   /seo-for-clinics/                       "0%"
+ *
+ * Verified by fetching the production HTML on 9 Sep 2026: the string "+570%"
+ * appeared nowhere in it and "+0%" appeared once. So Google, any crawler
+ * without JavaScript, any social or SEO scraper, a reader with JS off, and a
+ * screen reader announcing the tile before it scrolled into view all got zero.
+ * Simon reported seeing "+0%" and "0×" on the live site; this is why.
+ *
+ * The fix has three parts and all three matter:
+ *
+ *   1. `useState(to)` — the correct figure is in the markup from the start, so
+ *      the no-JS and crawler case is right by default rather than by luck.
+ *   2. The reset to 0 happens in a LAYOUT effect, which runs after hydration
+ *      but before the browser paints. Doing it in useEffect would paint the
+ *      real figure and then visibly snap back to zero.
+ *   3. It only resets when the tile is off screen. A tile already in view on
+ *      load keeps its value and simply does not animate, because animating
+ *      something the reader is already looking at is what produces the flicker
+ *      this is meant to avoid.
+ *
+ * `useReducedMotion` returns null on the first render and resolves after, so
+ * the reduced-motion branch is inside the effect rather than in the initialiser.
+ */
 function Counter({ to, duration = 1.4 }: { to: number; duration?: number }) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(to);
   const reduce = useReducedMotion();
   const started = useRef(false);
   const { ref, isInView } = useOnceInView();
 
+  // Before paint: drop to zero only if this is going to animate at all.
+  useIsomorphicLayoutEffect(() => {
+    if (started.current || reduce || isInView) return;
+    setValue(0);
+  }, [reduce, isInView]);
+
   useEffect(() => {
     if (started.current) return;
-    // Reduced motion skips straight to the value without waiting to be scrolled
-    // into view, so the figure is never a stray zero.
+    // Reduced motion holds the real value, which is now also the initial one.
     if (reduce) {
       started.current = true;
       setValue(to);

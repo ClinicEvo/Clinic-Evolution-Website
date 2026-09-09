@@ -20,26 +20,59 @@ import { LP_SECTION_ANCHORS, LP_TURNAROUND, type LpVariant } from "@/lib/lp";
  * opening a commercial conversation, and a generic "it depends" answer gives a
  * skimmer neither a useful number nor a reason to get in touch.
  */
+/**
+ * §20 — five shared objections plus one written for the ad group, six in total.
+ *
+ * The set is the brief's list, in its order, with one substitution. It asked
+ * for "Does Clinic Evo only work with MSK clinics?"; that slot is the variant's
+ * own question instead (see `variantFaqs` in src/lib/lp.ts), because on the
+ * osteopathy page the useful version is "do you actually work with osteopaths"
+ * and on the broad page it is "we are not an MSK clinic, does this apply". Same
+ * objection, asked in the reader's words.
+ *
+ * COST IS NOW ANSWERED, which reverses a documented decision. This file used to
+ * say pricing was "deliberately absent... a generic 'it depends' gives a
+ * skimmer neither a useful number nor a reason to get in touch." That reasoning
+ * holds for a NUMBER and no number is published anywhere on this site, so none
+ * appears here. But cost is the first objection a paid visitor has, and saying
+ * nothing at all reads as evasion rather than discretion. The answer below says
+ * what determines the cost and when they will hear it, which is exactly what
+ * LandingProcess step three already promises, so the page now agrees with
+ * itself instead of going quiet.
+ *
+ * WHAT IS NOT HERE. "Is this a fixed package, or is it built around my clinic?"
+ * was removed: its answer offered to "deliver it as a standalone service",
+ * which directly contradicted LandingSystem's "You do not pick items off this
+ * list" two screens above. That contradiction is flagged to Simon and unresolved
+ * — so rather than pick a side, the question is gone and "What does Clinic Evo
+ * actually manage?" covers the scope honestly without making a claim about
+ * whether parts can be bought separately.
+ */
 const SHARED_FAQS = [
   {
-    question: "Is this a fixed package, or is it built around my clinic?",
-    answer:
-      "It is built around your clinic. The five layers are designed to work together as one system, but they are not an all-or-nothing package. If you only need one part, we can deliver it as a standalone service. The audit shows what needs attention first, and we recommend the work your clinic actually needs.",
-  },
-  {
-    question: "How is this different from a normal marketing agency?",
+    question: "How is Clinic Evo different from a normal marketing agency?",
     answer:
       "We were a clinic before we were an agency. Clinic Evo was built inside Bodyfunction Clinic in London by its owner, tested on that clinic's own diary, and only then offered to anyone else. The practical difference is that we take responsibility past the enquiry: the call handling, the follow-up and the recall are ours to run, so there is no gap to argue about.",
   },
   {
-    question: "Do I have to sign a long contract?",
+    question: "What does Clinic Evo actually manage?",
     answer:
-      "No. Rolling monthly, no long-term lock-in. The work needs a few months to compound, and we will tell you that plainly, but you are not tied in while it does.",
+      "The website, the local search work, the paid campaigns, the phone, and the follow-up after an enquiry arrives. One team runs all of it and reports on it together, so enquiries and bookings sit next to the spend that produced them rather than in four separate dashboards.",
   },
   {
-    question: "What actually happens after I send the form?",
+    question: "What does it cost?",
     answer:
-      `A person reviews your clinic (not an automated report generator) and comes back ${LP_TURNAROUND} with what they found.`,
+      "It depends which layers your clinic needs, which is what the audit establishes. Once we have both looked at it we talk you through what it would realistically cost to run, in plain numbers, before you decide anything. Nothing gets built until you have that figure and the plan in front of you.",
+  },
+  {
+    question: "Do I need to sign a long contract?",
+    answer:
+      "No. Rolling monthly, no long-term lock-in. The work needs a few months to compound and we will tell you that plainly, but you are not tied in while it does.",
+  },
+  {
+    question: "What happens during the free clinic audit?",
+    answer:
+      `A person reviews your clinic, not an automated report generator: where you rank now and who is above you, what your site does with somebody ready to book, whether your Google Business Profile is earning the map results, and what your ads are paying per enquiry if you run any. It comes back in writing ${LP_TURNAROUND}, with a prioritised list of what we would fix first. It is yours to keep either way.`,
   },
 ];
 

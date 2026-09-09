@@ -3,7 +3,7 @@ import Link from "next/link";
 import FadeUp from "@/components/ui/FadeUp";
 import { GoogleAdsLockup } from "@/components/icons/GoogleColorMark";
 import LpCtaButton from "./LpCtaButton";
-import { LP_PROOF, LP_SECTION_ANCHORS } from "@/lib/lp";
+import { LP_PROOF, LP_SECTION_ANCHORS, type LpVariant } from "@/lib/lp";
 import GooglePullQuote from "@/components/sections/GooglePullQuote";
 
 /**
@@ -52,7 +52,7 @@ import GooglePullQuote from "@/components/sections/GooglePullQuote";
  * otherwise have been carried a screen down as a side effect of the new band.
  * Nothing else about this section changed with it.
  */
-export default function LandingEvidence() {
+export default function LandingEvidence({ variant }: { variant: LpVariant }) {
   return (
     <>
       {/* Ad sitelink target — see LP_SECTION_ANCHORS before renaming. */}
@@ -65,13 +65,24 @@ export default function LandingEvidence() {
           <div className="mb-9 max-w-[48rem] sm:mb-10">
             <FadeUp>
               <div>
-                <p className="eyebrow mb-4">Results</p>
-                <h2 className="text-h2 text-[var(--color-ink)]">
-                  What changed at{" "}
+                <p className="eyebrow mb-4">The detail behind the numbers</p>
+                {/* Was "What changed at two clinics", which since 9 Sep 2026
+                    collides with LandingProofStrip's heading three sections
+                    above — that one now says what happened, so this one has to
+                    say where it can be checked, or the two read as the same
+                    section twice. */}
+                <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                  Every figure here is one you can{" "}
                   <em className="not-italic text-[var(--color-accent)]">
-                    two clinics
+                    check yourself
                   </em>
                 </h2>
+                {/* §18 and §27: the per-variant framing, so a chiropractor is
+                    never left to assume this evidence is theirs. See
+                    `evidenceNote` in src/lib/lp.ts. */}
+                <p className="text-body-lg text-[var(--color-muted)]">
+                  {variant.evidenceNote}
+                </p>
               </div>
             </FadeUp>
           </div>
@@ -186,10 +197,15 @@ export default function LandingEvidence() {
               interruption. */}
           <FadeUp delay={0.28}>
             <div className="mt-10 flex flex-col gap-5 border-t border-[var(--color-border)] pt-7 sm:mt-12 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+              {/* Was a second statement of what the audit contains. That is
+                  LandingAuditPitch's job since 9 Sep 2026 and it does it eight
+                  sections earlier, so repeating it here was the "double content
+                  next to each other" fault the 10 Aug review objected to. This
+                  points at the one thing these rows cannot show: the reader's
+                  own clinic. */}
               <p className="text-body max-w-[52ch] font-medium text-[var(--color-ink)]">
-                The free audit does this first part for your clinic: where you
-                rank now, who is above you, and what to fix first. Yours to keep
-                either way.
+                None of this tells you where your own clinic stands. That is
+                what the audit is for.
               </p>
               <div className="flex flex-col items-stretch sm:flex-row sm:items-center lg:flex-shrink-0">
                 <LpCtaButton placement="mid-evidence" size="md" />

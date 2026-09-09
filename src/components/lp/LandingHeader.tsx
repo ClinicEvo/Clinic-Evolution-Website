@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { PhoneIcon } from "@phosphor-icons/react/dist/icons/Phone";
 import { events } from "@/lib/analytics";
-import { LP_PHONE, LP_THANK_YOU_PATH } from "@/lib/lp";
+import { LP_CTA_LABEL_SHORT, LP_PHONE, LP_THANK_YOU_PATH } from "@/lib/lp";
 import LpCtaButton from "./LpCtaButton";
 
 /**
@@ -80,7 +80,7 @@ export default function LandingHeader() {
                 <LpCtaButton placement="header" size="md" label="Free audit" />
               </div>
               <div className="hidden sm:block">
-                <LpCtaButton placement="header" size="md" label="Request a free audit" />
+                <LpCtaButton placement="header" size="md" label={LP_CTA_LABEL_SHORT} />
               </div>
             </>
           ) : null}
