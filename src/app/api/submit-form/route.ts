@@ -13,6 +13,7 @@ import {
 const LIMITS = {
   name: 100,
   email: 254,
+  phone: 50,
   url: 2048,
   short: 200,
   message: 2000,
@@ -60,6 +61,20 @@ function clean(value: unknown, max: number): string {
 
 function isValidEmail(v: string): boolean {
   return v.length > 0 && v.length <= LIMITS.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
+// A mobile number is required on every form since 10 Sep 2026, so each lead
+// can be reached by phone. The check is lenient on purpose: "07700 900123",
+// "+44 7700 900123" and "+44 (0)7700 900123" all pass. It rejects letters,
+// stray punctuation and anything without enough digits to dial. It does not
+// insist on a UK mobile prefix: turning away a clinic owner who typed their
+// landline at the point of conversion costs more than the odd landline does,
+// and the label already asks for a mobile.
+function isValidPhone(v: string): boolean {
+  if (!v || v.length > LIMITS.phone) return false;
+  if (!/^\+?[\d\s().-]+$/.test(v)) return false;
+  const digits = v.replace(/\D/g, "").length;
+  return digits >= 10 && digits <= 15;
 }
 
 // Users routinely type a bare domain ("myclinic.co.uk") with no protocol.
@@ -119,17 +134,19 @@ export async function POST(req: NextRequest) {
   if (formType === "contact") {
     const name    = clean(body.name,    LIMITS.name);
     const email   = clean(body.email,   LIMITS.email);
-    const phone   = clean(body.phone,   50);
+    const phone   = clean(body.phone,   LIMITS.phone);
     const message = clean(body.message, LIMITS.message);
 
     if (!name)                        return err("Name is required.");
     if (!isValidEmail(email))         return err("A valid email address is required.");
+    if (!phone)                       return err("A mobile number is required.");
+    if (!isValidPhone(phone))         return err("Please enter a valid mobile number.");
     if (message.length < 10)          return err("Message must be at least 10 characters.");
 
     const result = await upsertGhlContact({
       name,
       email,
-      phone: phone || undefined,
+      phone,
       message,
       source: "Website – Contact form",
       tags: ["website-contact-form"],
@@ -160,7 +177,7 @@ export async function POST(req: NextRequest) {
     const first_name       = clean(body.first_name,       LIMITS.name);
     const last_name        = clean(body.last_name,        LIMITS.name);
     const email            = clean(body.email,            LIMITS.email);
-    const phone            = clean(body.phone,            50);
+    const phone            = clean(body.phone,            LIMITS.phone);
     const profession       = clean(body.profession,       LIMITS.short);
     const profession_other = clean(body.profession_other, LIMITS.short);
     const stage            = clean(body.stage,            LIMITS.short);
@@ -176,6 +193,8 @@ export async function POST(req: NextRequest) {
     if (!first_name)                  return err("First name is required.");
     if (!last_name)                   return err("Last name is required.");
     if (!isValidEmail(email))         return err("A valid email address is required.");
+    if (!phone)                       return err("A mobile number is required.");
+    if (!isValidPhone(phone))         return err("Please enter a valid mobile number.");
     if (!location)                    return err("Please tell us where you are setting up.");
 
     if (!GRADUATE_PROFESSIONS.includes(profession)) {
@@ -220,7 +239,7 @@ export async function POST(req: NextRequest) {
       firstName: first_name,
       lastName: last_name,
       email,
-      phone: phone || undefined,
+      phone,
       message: fullMessage,
       discipline,
       source: "Website – Graduate Clinic Launch",
@@ -250,7 +269,7 @@ export async function POST(req: NextRequest) {
     const first_name     = clean(body.first_name,     LIMITS.name);
     const last_name      = clean(body.last_name,      LIMITS.name);
     const email          = clean(body.email,          LIMITS.email);
-    const phone          = clean(body.phone,          50);
+    const phone          = clean(body.phone,          LIMITS.phone);
     const clinic_name    = clean(body.clinic_name,    LIMITS.short);
     const clinic_website = normalizeUrl(clean(body.clinic_website, LIMITS.url));
     const location       = clean(body.location,       LIMITS.short);
@@ -281,9 +300,13 @@ export async function POST(req: NextRequest) {
     // The landing-page form asks four questions, not eleven, so last name,
     // clinic name and discipline can all legitimately arrive empty from a paid
     // lead. Those three stay required for the organic /free-clinic-audit/ form,
-    // which does ask for them. Everything else is required on both.
+    // which does ask for them. Everything else is required on both, including
+    // the phone: the thank-you follow-up form has no phone field, so it
+    // re-sends the one the landing-page form captured.
     if (!first_name)                                  return err("Name is required.");
     if (!isValidEmail(email))                         return err("A valid email address is required.");
+    if (!phone)                                       return err("A mobile number is required.");
+    if (!isValidPhone(phone))                         return err("Please enter a valid mobile number.");
     if (!isValidHttpUrl(clinic_website))              return err("Clinic website must be a valid http/https URL.");
 
     if (!isPaidLead) {
@@ -336,7 +359,7 @@ export async function POST(req: NextRequest) {
       firstName: first_name,
       lastName: last_name,
       email,
-      phone: phone || undefined,
+      phone,
       companyName: companyName || undefined,
       website: clinic_website || undefined,
       message: fullMessage || undefined,

@@ -39,8 +39,8 @@ export default function ContactForm() {
         <Field label="Email address" required>
           <Input id="contact_email" name="email" type="email" required autoComplete="email" placeholder="jane@myclinic.co.uk" />
         </Field>
-        <Field label="Phone">
-          <Input id="contact_phone" name="phone" type="tel" autoComplete="tel" placeholder="Optional" />
+        <Field label="Mobile number" required>
+          <Input id="contact_phone" name="phone" type="tel" required autoComplete="tel" placeholder="07700 900123" />
         </Field>
       </div>
 

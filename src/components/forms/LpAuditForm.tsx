@@ -9,7 +9,7 @@ import { Field, Input, Honeypot } from "./Field";
 import TrackingFields from "./TrackingFields";
 
 /**
- * Four questions. The organic /free-clinic-audit/ form asks eleven, nine of them
+ * Four questions. The organic /free-clinic-audit/ form asks eleven, ten of them
  * required, which is a reasonable trade on a visitor who arrived through the
  * site and is defensible there. On paid traffic it asks a stranger for their
  * booking system and their main goal before anything has earned the right to.
@@ -60,6 +60,10 @@ export default function LpAuditForm({
             email: payload.email ?? "",
             first_name: payload.first_name ?? "",
             last_name: payload.last_name ?? "",
+            // The API requires a phone on every audit submission, and the
+            // follow-up form has no phone field of its own, so it re-sends
+            // this one alongside the email it upserts on.
+            phone: payload.phone ?? "",
             discipline: payload.discipline ?? "",
             lp_variant: variant.slug,
           }),
@@ -122,7 +126,7 @@ export default function LpAuditForm({
         />
       </Field>
 
-      <Field label="Phone" required>
+      <Field label="Mobile number" required>
         <Input
           id={id("phone")}
           name="phone"

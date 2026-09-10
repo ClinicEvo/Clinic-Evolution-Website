@@ -29,6 +29,7 @@ interface Lead {
   email: string;
   first_name: string;
   last_name: string;
+  phone: string;
   discipline: string;
   lp_variant: string;
 }
@@ -80,6 +81,7 @@ export default function LpDetailForm() {
         <input type="hidden" name="email" value={lead.email} readOnly />
         <input type="hidden" name="first_name" value={lead.first_name} readOnly />
         <input type="hidden" name="last_name" value={lead.last_name} readOnly />
+        <input type="hidden" name="phone" value={lead.phone ?? ""} readOnly />
         <input type="hidden" name="lp_variant" value={lead.lp_variant} readOnly />
 
         <Field label="Discipline">
