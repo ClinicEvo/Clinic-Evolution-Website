@@ -120,8 +120,8 @@ export default function AuditForm({
       </Button>
 
       <p className="text-xs text-[var(--color-muted)]">
-        No commitment. We&apos;ll review your clinic&apos;s online presence and send you a
-        personalised report within 2 business days.
+        No commitment. We&apos;ll review your clinic&apos;s online presence and come
+        back to you within 2 business days.
       </p>
     </form>
   );

@@ -60,7 +60,7 @@ export default function AuditThankYouPage() {
                 {[
                   "We review your clinic's website, SEO and local visibility",
                   "We identify the clearest growth opportunities",
-                  "We send you a practical summary of recommendations",
+                  "We come back to you with what to fix first",
                   "If there is a good fit, we can discuss next steps together",
                 ].map((step, i) => (
                   <li key={i} className="flex items-start gap-3">

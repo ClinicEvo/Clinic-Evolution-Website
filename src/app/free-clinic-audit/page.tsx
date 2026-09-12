@@ -62,7 +62,7 @@ export default function FreeClinicAuditPage() {
         subtext="The free Clinic Evo audit gives you a clear view of what is working, what is being missed, and where your clinic has the strongest opportunity to improve enquiries, bookings and patient reactivation."
         bullets={[
           "Reviews website, SEO, local visibility and patient journey",
-          "Clear recommendations, not a generic automated report",
+          "Clear, prioritised recommendations",
           "For osteopaths, physiotherapists and chiropractors",
         ]}
         primaryCta={{ label: "Get my free clinic audit", href: "#audit-form" }}
@@ -77,11 +77,11 @@ export default function FreeClinicAuditPage() {
             items={[
               "Send the short form with your clinic website",
               "We review the site, search visibility and booking journey by hand",
-              "You get the findings and the priority actions, yours to keep",
+              "You get the findings and the priority actions",
             ]}
             footer={
               <>
-                Human review, not an automated report. Back with you within{" "}
+                Reviewed by a person, start to finish. Back with you within{" "}
                 <strong className="font-semibold text-[var(--color-ink)]">2 business days</strong>,
                 with no obligation.
               </>
@@ -144,9 +144,12 @@ export default function FreeClinicAuditPage() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <div className="card-surface p-8">
-                <p className="eyebrow mb-4">What you receive</p>
+                {/* "What you receive / A short summary" until 12 Sep 2026: the
+                    audit is not delivered as a document (Simon), so this names
+                    what it covers rather than what arrives. */}
+                <p className="eyebrow mb-4">What the audit covers</p>
                 <h3 className="text-h3 text-[var(--color-ink)] mb-5">
-                  A short summary you can act on
+                  Priorities you can act on
                 </h3>
                 <ul className="flex flex-col gap-3 mb-6">
                   {[

@@ -72,7 +72,7 @@ const steps = [
     title: "Free clinic audit",
     description:
       "We review your website, SEO, local search presence, patient journey, competitors and main growth opportunities. You come away with practical, prioritised recommendations.",
-    note: "A written report with prioritised recommendations, back to you within two business days.",
+    note: "Back to you within two business days.",
   },
   {
     number: 2,

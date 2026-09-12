@@ -1368,12 +1368,14 @@ export default function SeoForClinicsPage() {
       </section>
 
       {/* The close carries the risk reversal the page had been asking people to
-          take on trust: free, yours to keep, no obligation, and a named
-          turnaround. Every one of those is already true elsewhere on the site. */}
+          take on trust: free, no obligation, and a named turnaround. Every one
+          of those is already true elsewhere on the site. "Yours to keep" came
+          out on 12 Sep 2026 with every other line that implied the audit is a
+          document (Simon). */}
       <CTASection
         id="closing-cta"
         heading="Start with a free clinic SEO audit"
-        subheading="We will show you what you already rank for, which searches in your area are going to competitors, and the shortest route to more enquiries. Back with you within two business days. It is free, the findings are yours to keep, and there is nothing to cancel if you decide not to go ahead."
+        subheading="We will show you what you already rank for, which searches in your area are going to competitors, and the shortest route to more enquiries. Back with you within two business days. It is free, and there is nothing to cancel if you decide not to go ahead."
       />
 
       {/* This page is ~29,000px on a phone. The header CTA is desktop-only, so

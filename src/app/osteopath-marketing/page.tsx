@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "What does the free clinic audit include?",
     answer:
-      "We review your website, Google Business Profile, local search rankings, and any existing ad campaigns. You'll receive a written report with specific, prioritised recommendations within 2 business days.",
+      "We review your website, Google Business Profile, local search rankings, and any existing ad campaigns, and come back to you within 2 business days with specific, prioritised recommendations.",
   },
   {
     question: "Can you help a new osteopathy practice with no online presence?",
@@ -60,7 +60,7 @@ const steps = [
     title: "Free clinic audit",
     description:
       "We assess your current online presence, website, Google rankings, and any paid campaigns, and identify the biggest growth opportunities specific to your practice.",
-    note: "A written report with prioritised recommendations, back to you within two business days.",
+    note: "Back to you within two business days.",
   },
   {
     number: 2,

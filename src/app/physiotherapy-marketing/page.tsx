@@ -390,7 +390,7 @@ export default function PhysiotherapyMarketingPage() {
                     },
                     {
                       label: "Recommendations you can act on",
-                      desc: "The audit comes back as a short list in priority order, not a document cataloguing everything that could theoretically be improved.",
+                      desc: "You get a few priorities in order, not a catalogue of everything that could theoretically be improved.",
                     },
                   ].map((item) => (
                     <div key={item.label}>
