@@ -401,7 +401,7 @@ export default function SeoForClinicsPage() {
             {pillars.map((p, i) => (
               <FadeUp key={p.title} delay={i * 0.07}>
                 <div className="flex gap-5 border-t border-[var(--color-border)] py-6 md:border-t-0 md:pt-0">
-                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted-light)]">
+                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -538,7 +538,7 @@ export default function SeoForClinicsPage() {
             {rankingFailures.map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.07}>
                 <div className="grid grid-cols-1 gap-2 border-b border-[var(--color-border)] py-6 md:grid-cols-[auto_1fr_1.1fr] md:items-baseline md:gap-8 lg:gap-12">
-                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted-light)]">
+                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="text-h4 text-[var(--color-ink)]">{item.title}</h3>
@@ -1018,7 +1018,7 @@ export default function SeoForClinicsPage() {
             {whatWeImprove.map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.05}>
                 <div className="flex gap-5 border-t border-[var(--color-border)] py-6">
-                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted-light)]">
+                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -1083,7 +1083,7 @@ export default function SeoForClinicsPage() {
                     key={d.label}
                     className="flex gap-5 border-b border-[var(--color-border)] py-5"
                   >
-                    <span className="font-display text-base font-light leading-tight text-[var(--color-muted-light)]">
+                    <span className="font-display text-base font-light leading-tight text-[var(--color-muted)]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>

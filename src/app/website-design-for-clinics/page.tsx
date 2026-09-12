@@ -484,7 +484,7 @@ export default function WebsiteDesignForClinicsPage() {
             {buildScope.map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.05}>
                 <div className="flex gap-5 border-t border-[var(--color-border)] py-6">
-                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted-light)]">
+                  <span className="font-display text-lg font-light leading-none text-[var(--color-muted)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>

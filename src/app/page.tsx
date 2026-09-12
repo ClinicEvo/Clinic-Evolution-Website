@@ -295,17 +295,24 @@ function OperatingSystemBand() {
 
         <ol className="flex flex-col justify-center divide-y divide-white/10 border-t border-white/10 lg:border-t-0">
           {journeyStages.map((s, i) => (
-            <li key={s.stage} className="flex items-baseline gap-5 py-4 first:pt-0 lg:first:pt-4">
+            <li
+              key={s.stage}
+              className="grid grid-cols-[1.5rem_1fr] items-baseline gap-x-5 gap-y-1.5 py-4 first:pt-0 md:grid-cols-[1.5rem_8rem_1fr] lg:first:pt-4"
+            >
               <span
-                className="w-6 flex-shrink-0 font-display text-sm font-semibold leading-none text-[var(--color-accent)]"
+                className="font-display text-sm font-semibold leading-none text-[var(--color-accent)]"
                 aria-hidden
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="w-32 flex-shrink-0 font-display text-[15px] font-semibold leading-snug text-white">
+              <span className="font-display text-[15px] font-semibold leading-snug text-white">
                 {s.stage}
               </span>
-              <span className="text-sm leading-snug text-white/60">{s.body}</span>
+              {/* Under the title on phones, third column from md. Never a fixed-width
+                  third column at phone width: that left the body 78px wide. */}
+              <span className="col-start-2 text-sm leading-relaxed text-white/60 md:col-start-auto md:leading-snug">
+                {s.body}
+              </span>
             </li>
           ))}
         </ol>

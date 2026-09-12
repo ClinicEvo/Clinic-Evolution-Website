@@ -554,16 +554,14 @@ export default function GraduatePage() {
           <ul role="list" className="mt-14 flex flex-col">
             {GRADUATE_SYSTEM.map((pillar, i) => (
               <FadeUp key={pillar.title} delay={0.05 + i * 0.05}>
-                <li className="grid grid-cols-1 items-baseline gap-x-10 gap-y-2 border-t border-[var(--color-border)] py-6 last:border-b lg:grid-cols-[0.8fr_1.2fr]">
-                  <div className="flex items-baseline gap-5">
-                    <span className="font-display text-[1.5rem] font-bold leading-none text-[var(--color-muted-light)]">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="text-h4 text-[var(--color-ink)]">
-                      {pillar.title}
-                    </h3>
-                  </div>
-                  <p className="text-body text-[var(--color-muted)]">
+                <li className="grid grid-cols-[2rem_1fr] items-baseline gap-x-5 gap-y-2 border-t border-[var(--color-border)] py-6 last:border-b lg:grid-cols-[2rem_0.8fr_1.2fr]">
+                  <span className="font-display text-[1.5rem] font-bold leading-none text-[var(--color-muted-light)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-h4 text-[var(--color-ink)]">
+                    {pillar.title}
+                  </h3>
+                  <p className="col-start-2 text-body text-[var(--color-muted)] lg:col-start-auto lg:pl-5">
                     {pillar.line}
                   </p>
                 </li>
