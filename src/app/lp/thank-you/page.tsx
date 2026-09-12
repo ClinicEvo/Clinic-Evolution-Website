@@ -20,7 +20,7 @@ export const metadata = buildMetadata({
 const NEXT_STEPS = [
   "We review your website, search visibility and local presence",
   "We look at where enquiries are being lost in the patient journey",
-  "We send you a practical summary of what to fix first",
+  "We come back to you with what to fix first",
   "If there is a good fit, we can talk through how we would run it",
 ];
 
@@ -67,7 +67,7 @@ export default function LandingThankYouPage() {
 
           <FadeUp delay={0.1}>
             <p className="text-body-lg mb-10 max-w-[52ch] text-[var(--color-muted)]">
-              A person reads every audit request and writes the response. If
+              A person goes through every audit request themselves. If
               something is urgent in the meantime, the number is at the top of
               this page.
             </p>

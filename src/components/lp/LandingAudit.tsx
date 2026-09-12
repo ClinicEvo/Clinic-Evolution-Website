@@ -30,9 +30,14 @@ import { LP_FORM_ANCHOR_FOOTER, LP_TURNAROUND, type LpVariant } from "@/lib/lp";
  * reassurance was on the page four times, and LandingAuditPitch's "A person
  * goes through it and writes the response themselves" is the one that stays.
  */
+/*
+ * "Yours to keep" and every "written review" / "in writing" on these pages
+ * came out on 12 Sep 2026 (Simon): the audit is not delivered as a document.
+ * The copy does not say what it is delivered as, deliberately. Two items is
+ * fine; do not pad this back to three.
+ */
 const REASSURANCE = [
   "Free. There is no version of this you pay for.",
-  "Yours to keep, whether or not we end up working together",
   // The one line worth saving from LandingProcess, which was cut with it. It
   // was the strongest thing in that section: the reader is not agreeing to
   // anything by sending four fields.
@@ -92,8 +97,8 @@ export default function LandingAudit({ variant }: { variant: LpVariant }) {
                 </em>
               </h2>
               <p className="text-body-lg mb-8 max-w-[48ch] text-[var(--color-muted)]">
-                Four questions is all we need. A written review comes back to
-                you {LP_TURNAROUND}.
+                Four questions is all we need, and we come back to you{" "}
+                {LP_TURNAROUND}.
               </p>
             </FadeUp>
 

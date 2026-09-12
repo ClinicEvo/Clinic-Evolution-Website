@@ -94,7 +94,7 @@ const SHARED_FAQS = [
     // The turnaround is stated three times on the page already, and "a person,
     // not a tool" and "yours to keep" each have their one place.
     answer:
-      "Nothing on your side. Send the four details and we do the rest: rankings, the site, your Google Business Profile, your ads if you run any, and what happens to an enquiry once it arrives. It comes back in writing, with what we would fix first at the top.",
+      "Nothing on your side. Send the four details and we do the rest: rankings, the site, your Google Business Profile, your ads if you run any, and what happens to an enquiry once it arrives. We come back to you with what we would fix first.",
   },
 ];
 

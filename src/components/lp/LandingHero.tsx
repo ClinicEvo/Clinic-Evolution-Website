@@ -86,8 +86,7 @@ export default function LandingHero({ variant }: { variant: LpVariant }) {
 
             <FadeUp immediate>
               <p className="mt-4 text-body-sm text-[var(--color-muted)]">
-                Free, no obligation. A written review of your{" "}
-                {variant.practiceNoun}, back to you {LP_TURNAROUND}.
+                Free, no obligation, and back to you {LP_TURNAROUND}.
               </p>
             </FadeUp>
           </div>

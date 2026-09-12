@@ -76,7 +76,7 @@ export default function LandingAuditPitch({ variant }: { variant: LpVariant }) {
                 would start.
               </p>
               <p className="text-body max-w-[46ch] font-medium text-[var(--color-ink)]">
-                A person goes through it and writes the response themselves.
+                A person goes through it themselves, start to finish.
               </p>
             </div>
           </FadeUp>
@@ -94,7 +94,7 @@ export default function LandingAuditPitch({ variant }: { variant: LpVariant }) {
                 <LpAuditForm variant={variant} position="pitch" />
               </div>
               <p className="mt-4 text-body-sm text-[var(--color-muted)]">
-                Free, and yours to keep either way.
+                Free, whether or not we end up working together.
               </p>
             </div>
           </FadeUp>

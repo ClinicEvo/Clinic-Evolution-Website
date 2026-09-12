@@ -152,7 +152,7 @@ export default function LandingDiscipline({ variant }: { variant: LpVariant }) {
                 />
                 <p className="text-body-sm max-w-[36ch] text-white/60">
                   The free audit answers all three for your{" "}
-                  {variant.practiceNoun}, in writing.
+                  {variant.practiceNoun}.
                 </p>
               </div>
             </div>

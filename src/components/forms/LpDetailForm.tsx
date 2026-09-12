@@ -58,8 +58,8 @@ export default function LpDetailForm() {
           Got it. That goes on your file.
         </p>
         <p className="text-body-sm mt-1.5 text-[var(--color-muted)]">
-          It means the audit that lands in your inbox is about your clinic
-          specifically rather than a generic checklist.
+          It means the audit is about your clinic specifically rather than a
+          generic checklist.
         </p>
       </div>
     );
