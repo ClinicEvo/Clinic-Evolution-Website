@@ -194,13 +194,15 @@ const nextConfig = {
     //
     // Keep it to what the tag needs. It is an allowlist, not a wildcard, and
     // widening it to *.google.com would defeat the point of having one.
-    // The Growth System thank-you page embeds a booking calendar once
-    // NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL is set (see src/lib/growth-system.ts).
-    // Its origin is added to frame-src here from the same variable, so the one
-    // setting is the whole change. Unset, nothing is widened.
+    // The Growth System thank-you page embeds a GoHighLevel booking calendar
+    // (see GROWTH_CALL_CALENDAR_URL in src/lib/growth-system.ts). Its origin is
+    // allowed in frame-src here. The default is the GoHighLevel widget host;
+    // NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL overrides it in both places, and
+    // "none" turns the embed and this allowance off together.
     const growthCalendarOrigin = (() => {
       const url = process.env.NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL;
-      if (!url) return null;
+      if (url === "none") return null;
+      if (!url) return "https://api.leadconnectorhq.com";
       try {
         return new URL(url).origin;
       } catch {

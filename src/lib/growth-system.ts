@@ -103,17 +103,37 @@ export interface GrowthSitelink {
 }
 
 /**
- * The calendar the thank-you page embeds once the diary decision is made.
+ * The booking calendar the thank-you page embeds.
  *
- * Empty until NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL is set in Vercel, and the
- * thank-you page then says a person will be in touch to arrange the call
- * instead of showing a calendar. next.config.mjs reads the same variable to
- * add the calendar's origin to frame-src, so setting the one variable is the
- * whole change. Expected value: a GoHighLevel booking widget URL, e.g.
- * https://api.leadconnectorhq.com/widget/booking/<calendarId>.
+ * "Schedule an Appointment" in the Clinic Evolution GoHighLevel sub-account
+ * (location ugpHx15Ou2HYugshA7KO), calendar id 1ClOusw55fSa9a1U84t0. Chosen on
+ * 14 Sep 2026 because it was the only active calendar of the five: 30-minute
+ * slots, Monday to Friday 08:00 to 17:00, auto-confirm, 180 free slots in the
+ * following fortnight [src: GoHighLevel calendars API, read with Simon's
+ * read-only integration token]. The other four are inactive snapshot
+ * templates (SEO, social, content, digital marketing) and were never used.
+ *
+ * HARDCODED WITH AN ENV OVERRIDE, the same pattern as GOOGLE_ADS_ID in
+ * src/lib/analytics.ts and for the same two reasons: the value is public (it
+ * is the iframe src in the page source), and the Vercel account the CLI runs
+ * as is not permitted to create production environment variables in the
+ * CLINIC EVO team, so an env-only value would have sat empty. Set
+ * NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL to point the page at a different
+ * calendar without a code change; set it to "none" to show the no-calendar
+ * version of the page. next.config.mjs allows the widget's origin in
+ * frame-src, also with the env var as the override.
+ *
+ * Two things were still to do in GoHighLevel when this was wired up: the
+ * calendar had no team member assigned (so a booking lands in the calendar but
+ * on nobody's diary), and its name was the generic "Schedule an Appointment",
+ * which is what a prospect sees. Both are UI edits; neither changes this URL.
  */
+const DEFAULT_GROWTH_CALL_CALENDAR_URL =
+  "https://api.leadconnectorhq.com/widget/booking/1ClOusw55fSa9a1U84t0";
+
+const calendarOverride = process.env.NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL;
 export const GROWTH_CALL_CALENDAR_URL =
-  process.env.NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL ?? "";
+  calendarOverride === "none" ? "" : calendarOverride || DEFAULT_GROWTH_CALL_CALENDAR_URL;
 
 /** The one line under the hero CTA. [src: lp brief, p4] */
 export const GROWTH_TRUST_LINE = "Built by clinic owners. Developed inside a working MSK clinic.";
