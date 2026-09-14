@@ -194,6 +194,20 @@ const nextConfig = {
     //
     // Keep it to what the tag needs. It is an allowlist, not a wildcard, and
     // widening it to *.google.com would defeat the point of having one.
+    // The Growth System thank-you page embeds a booking calendar once
+    // NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL is set (see src/lib/growth-system.ts).
+    // Its origin is added to frame-src here from the same variable, so the one
+    // setting is the whole change. Unset, nothing is widened.
+    const growthCalendarOrigin = (() => {
+      const url = process.env.NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL;
+      if (!url) return null;
+      try {
+        return new URL(url).origin;
+      } catch {
+        return null;
+      }
+    })();
+
     const googleAds = [
       "https://googleads.g.doubleclick.net",
       "https://www.googleadservices.com",
@@ -265,7 +279,10 @@ const nextConfig = {
               // to its click without these two. X-Frame-Options still stops this
               // site being framed by anyone else — frame-src is the other
               // direction, what this page may embed.
-              "frame-src https://td.doubleclick.net https://www.googletagmanager.com",
+              [
+                "frame-src https://td.doubleclick.net https://www.googletagmanager.com",
+                ...(growthCalendarOrigin ? [growthCalendarOrigin] : []),
+              ].join(" "),
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",

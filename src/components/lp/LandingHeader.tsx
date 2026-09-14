@@ -5,7 +5,9 @@ import { usePathname } from "next/navigation";
 import { PhoneIcon } from "@phosphor-icons/react/dist/icons/Phone";
 import { events } from "@/lib/analytics";
 import { LP_CTA_LABEL_SHORT, LP_PHONE, LP_THANK_YOU_PATH } from "@/lib/lp";
+import { GROWTH_CTA_LABEL_SHORT, GROWTH_THANK_YOU_PATH, isGrowthPagePath } from "@/lib/growth-system";
 import LpCtaButton from "./LpCtaButton";
+import GrowthCtaButton from "./growth/GrowthCtaButton";
 
 /**
  * Stripped-back header for the PPC landing pages: logo and one CTA. No nav, so
@@ -22,9 +24,19 @@ import LpCtaButton from "./LpCtaButton";
  *     already submitted, so the number diverts nobody from it, and the CTA would
  *     be a dead anchor.
  */
+/*
+ * Since 14 Sep 2026 the same header also serves the Growth System pages under
+ * /lp/growth-system/, whose one action is the booking form rather than the
+ * audit form. Keyed off the path, like the thank-you branch: a nested layout
+ * would render inside this one and produce two headers.
+ */
 export default function LandingHeader() {
   const pathname = usePathname();
-  const isThankYou = pathname === LP_THANK_YOU_PATH;
+  // Not a prefix test: since 14 Sep 2026 the three discipline pages live at
+  // their ad group's keyword URL (/lp/osteopath-marketing-agency/ and so on),
+  // so the growth pages are an allowlist rather than a folder.
+  const isGrowth = isGrowthPagePath(pathname);
+  const isThankYou = pathname === LP_THANK_YOU_PATH || pathname === GROWTH_THANK_YOU_PATH;
   const hasPhone =
     isThankYou && LP_PHONE.display !== "" && LP_PHONE.href !== "";
   const hasForm = !isThankYou;
@@ -75,7 +87,17 @@ export default function LandingHeader() {
 
               Wrapped rather than class-toggled: `hidden` on the button itself
               loses to its own `inline-flex`. */}
-          {hasForm ? (
+          {hasForm && isGrowth ? (
+            <>
+              <div className="sm:hidden">
+                <GrowthCtaButton placement="header" size="md" label="Book a call" />
+              </div>
+              <div className="hidden sm:block">
+                <GrowthCtaButton placement="header" size="md" label={GROWTH_CTA_LABEL_SHORT} />
+              </div>
+            </>
+          ) : null}
+          {hasForm && !isGrowth ? (
             <>
               <div className="sm:hidden">
                 <LpCtaButton placement="header" size="md" label="Free audit" />

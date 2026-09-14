@@ -50,8 +50,12 @@ export const GRADUATE_INTAKE = {
  * that month 7 is only the price change. The page has to say this, because a
  * reader who sees "50% off six months" and nothing else prices it as a cliff.
  *
- * No fee is published anywhere on this site, so the page states the halving and
- * never a number. And no check-in cadence is stated anywhere, by instruction
+ * This page states the halving and never a number. Until 14 Sep 2026 that was
+ * because no fee was published anywhere on the site. The Growth System pages
+ * under /lp/growth-system/ now publish £1,350 a month, but that is a different
+ * product (the full system, with advertising management and Patient Pulse),
+ * so it is not the rate this discount is taken from, and the graduate page
+ * still names no fee. And no check-in cadence is stated anywhere, by instruction
  * [src: client — Simon, 3 Sep 2026]: sessions can be named, their rhythm cannot.
  */
 export const GRADUATE_TERMS = {

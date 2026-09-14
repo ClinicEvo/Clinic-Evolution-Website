@@ -8,6 +8,18 @@ import {
   GRADUATE_STARTING_POINTS,
   OTHER_PROFESSION,
 } from "@/lib/graduate";
+import {
+  GROWTH_BOOKING_SYSTEMS,
+  GROWTH_BUDGET_BANDS,
+  GROWTH_CHALLENGES,
+  GROWTH_DISCIPLINE_MAP,
+  GROWTH_LOCATION_COUNTS,
+  GROWTH_PROFESSIONS,
+  GROWTH_REVENUE_BANDS,
+  getGrowthVariant,
+  isGrowthVariantSlug,
+  type GrowthProfession,
+} from "@/lib/growth-system";
 
 // ─── Field constraints ────────────────────────────────────────────────────────
 const LIMITS = {
@@ -257,6 +269,120 @@ export async function POST(req: NextRequest) {
         fromEmail: email,
         fromName: `${first_name} ${last_name}`.trim(),
         subject: `Graduate Clinic Launch application — ${GRADUATE_INTAKE.labelLong} intake`,
+        message: fullMessage,
+      });
+    }
+
+    return NextResponse.json({ ok: true });
+  }
+
+  // ── Growth System call request ───────────────────────────────────────────
+  // Its own form_type: these are requests for a call about a priced monthly
+  // system, from /lp/growth-system/, and they must not dilute the audit
+  // pipeline's source or its conversion count. Every select is allowlisted
+  // against the options the form offers, so a forged value cannot reach the
+  // CRM. [src: lp brief, p10 for the fields]
+  if (formType === "growth-call") {
+    const first_name       = clean(body.first_name,       LIMITS.name);
+    const last_name        = clean(body.last_name,        LIMITS.name);
+    const email            = clean(body.email,            LIMITS.email);
+    const phone            = clean(body.phone,            LIMITS.phone);
+    const clinic_name      = clean(body.clinic_name,      LIMITS.short);
+    const profession       = clean(body.profession,       LIMITS.short);
+    const location         = clean(body.location,         LIMITS.short);
+    const locations_count  = clean(body.locations_count,  LIMITS.short);
+    const monthly_revenue  = clean(body.monthly_revenue,  LIMITS.short);
+    const marketing_budget = clean(body.marketing_budget, LIMITS.short);
+    const growth_challenge = clean(body.growth_challenge, LIMITS.short);
+    const booking_system   = clean(body.booking_system,   LIMITS.short);
+    const consent          = clean(body.consent,          10);
+    const growth_variant   = clean(body.growth_variant,   30);
+
+    const gclid        = clean(body.gclid,        LIMITS.short);
+    const gbraid       = clean(body.gbraid,       LIMITS.short);
+    const wbraid       = clean(body.wbraid,       LIMITS.short);
+    const utm_source   = clean(body.utm_source,   LIMITS.short);
+    const utm_medium   = clean(body.utm_medium,   LIMITS.short);
+    const utm_campaign = clean(body.utm_campaign, LIMITS.short);
+    const utm_term     = clean(body.utm_term,     LIMITS.short);
+    const utm_content  = clean(body.utm_content,  LIMITS.short);
+
+    const inList = (list: readonly string[], value: string) => list.includes(value);
+
+    if (!first_name)                                  return err("Name is required.");
+    if (!isValidEmail(email))                         return err("A valid email address is required.");
+    if (!phone)                                       return err("A mobile number is required.");
+    if (!isValidPhone(phone))                         return err("Please enter a valid mobile number.");
+    if (!clinic_name)                                 return err("Clinic name is required.");
+    if (!inList(GROWTH_PROFESSIONS, profession))      return err("Please select your profession.");
+    if (!location)                                    return err("Please tell us where the clinic is.");
+    if (!inList(GROWTH_LOCATION_COUNTS, locations_count))   return err("Please tell us how many locations you have.");
+    if (!inList(GROWTH_REVENUE_BANDS, monthly_revenue))     return err("Please select your approximate monthly revenue.");
+    if (!inList(GROWTH_BUDGET_BANDS, marketing_budget))     return err("Please select your monthly marketing budget.");
+    if (!inList(GROWTH_CHALLENGES, growth_challenge))       return err("Please select your main growth challenge.");
+    if (booking_system && !inList(GROWTH_BOOKING_SYSTEMS, booking_system)) {
+      return err("Please select a valid booking system.");
+    }
+    if (consent !== "yes")                            return err("Please confirm we can contact you about your enquiry.");
+    if (!isGrowthVariantSlug(growth_variant))         return err("Invalid page reference.");
+
+    const discipline = GROWTH_DISCIPLINE_MAP[profession as GrowthProfession];
+    const hasClickId = Boolean(gclid || gbraid || wbraid);
+
+    const detailLines = [
+      `Clinic: ${clinic_name}`,
+      `Profession: ${profession}`,
+      `Location: ${location}`,
+      `Locations: ${locations_count}`,
+      `Approx. monthly revenue: ${monthly_revenue}`,
+      `Monthly marketing budget: ${marketing_budget}`,
+      `Main growth challenge: ${growth_challenge}`,
+      booking_system && `Booking system: ${booking_system}`,
+      `Consent to contact by email, SMS and WhatsApp: yes`,
+    ].filter(Boolean);
+
+    const attributionLines = [
+      `Landing page: ${getGrowthVariant(growth_variant)?.path ?? growth_variant}`,
+      gclid && `GCLID: ${gclid}`,
+      gbraid && `GBRAID: ${gbraid}`,
+      wbraid && `WBRAID: ${wbraid}`,
+      utm_campaign && `Campaign: ${utm_campaign}`,
+      utm_term && `Search term / keyword: ${utm_term}`,
+      utm_content && `Ad / content: ${utm_content}`,
+      (utm_source || utm_medium) && `Source / medium: ${utm_source || "?"} / ${utm_medium || "?"}`,
+    ].filter(Boolean);
+
+    const fullMessage = [
+      "Clinic growth call requested.",
+      detailLines.join(" | "),
+      attributionLines.join(" | "),
+    ].join("\n\n");
+
+    const result = await upsertGhlContact({
+      firstName: first_name,
+      lastName: last_name,
+      email,
+      phone,
+      companyName: clinic_name,
+      message: fullMessage,
+      discipline,
+      source: `Growth System – ${growth_variant} landing page`,
+      tags: [
+        "growth-call-request",
+        `lp-growth-${growth_variant}`,
+        discipline.toLowerCase(),
+        "consent-email-sms-whatsapp",
+        ...(hasClickId ? ["google-ads-lead"] : []),
+      ],
+    });
+    if (!result.ok) return err("Submission failed. Please try again.", 502);
+
+    if (result.contactId) {
+      await logInboundConversationMessage({
+        contactId: result.contactId,
+        fromEmail: email,
+        fromName: `${first_name} ${last_name}`.trim(),
+        subject: "New clinic growth call request",
         message: fullMessage,
       });
     }

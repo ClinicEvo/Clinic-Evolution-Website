@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import LpCtaButton from "./LpCtaButton";
 
 const SHOW_AFTER_PX = 520;
@@ -27,7 +27,13 @@ const COOKIE_BANNER = '[role="dialog"][aria-label="Cookie consent"]';
  * taking the left half; that was removed with the rest of the phone CTAs, since
  * the form is the only conversion these pages are for. See LP_PHONE.
  */
-export default function LandingStickyCta() {
+/**
+ * `children` is the button. The audit pages pass nothing and get LpCtaButton;
+ * the Growth System pages pass GrowthCtaButton, which points at a different
+ * form and reports to a different event. Composition rather than a mode flag,
+ * so this component knows nothing about which funnel it is on.
+ */
+export default function LandingStickyCta({ children }: { children?: ReactNode }) {
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const [formsInView, setFormsInView] = useState(0);
   const [bannerUp, setBannerUp] = useState(false);
@@ -82,7 +88,7 @@ export default function LandingStickyCta() {
         transform: visible ? "translateY(0)" : "translateY(100%)",
       }}
     >
-      <LpCtaButton placement="sticky-mobile" className="w-full" />
+      {children ?? <LpCtaButton placement="sticky-mobile" className="w-full" />}
     </div>
   );
 }

@@ -42,6 +42,19 @@ export const ROUTES = [
   { path: "/lp/chiropractic-marketing/",                  name: "lp-ads-chiro" },
   { path: "/lp/healthcare-marketing/",                    name: "lp-ads-broad" },
   { path: "/lp/thank-you/",                               name: "lp-thank-you" },
+  // The Growth System pages, added 14 Sep 2026. Same argument as the four
+  // above for listing all four: each carries its own photograph in
+  // GrowthProblem, cropped by object-fit against a per-variant position, and
+  // the crop is what a screenshot catches and a source review does not.
+  //
+  // To shoot just this set:  npm run shots -- --routes growth,growth-osteo,growth-physio,growth-chiro
+  { path: "/lp/growth-system/",                           name: "growth" },
+  // The three discipline pages sit at their ad group's head keyword, not
+  // under /lp/growth-system/. See the header of src/lib/growth-system.ts.
+  { path: "/lp/osteopath-marketing-agency/",              name: "growth-osteo" },
+  { path: "/lp/physiotherapy-marketing-agency/",          name: "growth-physio" },
+  { path: "/lp/chiropractor-marketing-agency/",           name: "growth-chiro" },
+  { path: "/lp/growth-system/thank-you/",                 name: "growth-thank-you" },
 ];
 
 // 390 is the iPhone 13/14/15 logical width and the narrowest mainstream phone

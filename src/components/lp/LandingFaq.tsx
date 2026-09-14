@@ -32,13 +32,14 @@ import { LP_SECTION_ANCHORS, type LpVariant } from "@/lib/lp";
  *
  * COST IS NOW ANSWERED, which reverses a documented decision. This file used to
  * say pricing was "deliberately absent... a generic 'it depends' gives a
- * skimmer neither a useful number nor a reason to get in touch." That reasoning
- * holds for a NUMBER and no number is published anywhere on this site, so none
- * appears here. But cost is the first objection a paid visitor has, and saying
- * nothing at all reads as evasion rather than discretion. The answer below says
- * what determines the cost and when they will hear it, which is exactly what
- * LandingProcess step three already promises, so the page now agrees with
- * itself instead of going quiet.
+ * skimmer neither a useful number nor a reason to get in touch."
+ *
+ * A NUMBER IS NOW PUBLISHED, since 14 Sep 2026: the Growth System pages under
+ * /lp/growth-system/ carry £1,350 a month for the complete system, on Simon's
+ * decision and per the landing page brief. So the answer below names that
+ * figure too. A visitor who sees an audit page and a Growth System page must
+ * not find one saying "it depends" and the other saying £1,350. What still
+ * depends is which parts a clinic needs, and that is what the audit settles.
  *
  * WHAT IS NOT HERE. "Is this a fixed package, or is it built around my clinic?"
  * was removed: its answer offered to "deliver it as a standalone service",
@@ -71,7 +72,7 @@ const SHARED_FAQS = [
     // anywhere on this site.
     question: "What does it cost?",
     answer:
-      "It depends which parts your clinic needs and how much we are taking on, which is what the audit establishes. You get the plan and a realistic figure for running it, in plain numbers, before anything is agreed.",
+      "The complete Growth System, which is the website, SEO, Google and Meta advertising management, Patient Pulse, reactivation, referrals and mentoring run together, is £1,350 a month, with advertising budget and messaging usage paid separately. If your clinic needs only part of it, the audit establishes which part, and you get the plan and a realistic figure for running it before anything is agreed.",
   },
   {
     // ANSWER SUPPLIED BY SIMON, 9 Sep 2026, and used verbatim. It replaced

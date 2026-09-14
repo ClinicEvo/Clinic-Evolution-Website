@@ -10,8 +10,18 @@ const sizes: Record<Size, string> = {
   lg: "px-9 py-4 text-base",
 };
 
-const base =
-  "inline-flex items-center justify-center gap-2 rounded-[4px] transition-[background-color,color,border-color,transform] duration-200 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 whitespace-nowrap";
+/**
+ * Exported so GrowthCtaButton (src/components/lp/growth/) renders the same
+ * button for a different destination without a second copy of these strings.
+ * `lpCtaBaseWrap` is the same base without `whitespace-nowrap`, for the one
+ * long label on the pricing section that has to wrap on a phone.
+ */
+export const lpCtaBaseWrap =
+  "inline-flex items-center justify-center gap-2 rounded-[4px] transition-[background-color,color,border-color,transform] duration-200 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2";
+export const lpCtaBase = `${lpCtaBaseWrap} whitespace-nowrap`;
+export const lpCtaSizes = sizes;
+export type LpCtaSize = Size;
+const base = lpCtaBase;
 
 interface LpCtaButtonProps {
   /** Where on the page this button sits — used as the analytics event label. */

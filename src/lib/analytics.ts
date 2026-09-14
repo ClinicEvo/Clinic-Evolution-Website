@@ -78,4 +78,12 @@ export const events = {
     trackEvent({ action: "email_click", category: "engagement" }),
   auditCtaClick: (label?: string) =>
     trackEvent({ action: "audit_cta_click", category: "engagement", label }),
+  // The Growth System pages (/lp/growth-system/) have their own conversion
+  // and their own CTA event. Kept apart from the audit events on purpose: one
+  // funnel offers something free, the other asks for a call about a monthly
+  // fee, and a shared count would make both meaningless.
+  growthCallSubmit: () =>
+    trackEvent({ action: "growth_call_submit", category: "conversion" }),
+  growthCtaClick: (label?: string) =>
+    trackEvent({ action: "growth_cta_click", category: "engagement", label }),
 };
