@@ -346,6 +346,10 @@ export async function POST(req: NextRequest) {
       gclid && `GCLID: ${gclid}`,
       gbraid && `GBRAID: ${gbraid}`,
       wbraid && `WBRAID: ${wbraid}`,
+      // Recorded so a missing click id is visible in the CRM as a tracking
+      // problem rather than as a different traffic source. The lead is still
+      // tagged google-ads-lead either way, for the reason on the tags below.
+      !hasClickId && "No Google click id captured on this submission",
       utm_campaign && `Campaign: ${utm_campaign}`,
       utm_term && `Search term / keyword: ${utm_term}`,
       utm_content && `Ad / content: ${utm_content}`,
@@ -367,12 +371,18 @@ export async function POST(req: NextRequest) {
       message: fullMessage,
       discipline,
       source: `Growth System – ${growth_variant} landing page`,
+      // google-ads-lead is unconditional here, not gated on a click id as it
+      // once was. All four Growth System pages are noindex, absent from the
+      // sitemap and linked from nowhere on the site: the only way to reach one
+      // is an advert. A submission with no gclid is an ad click whose click id
+      // was stripped (iOS ATT, an ad blocker, a copied URL), not an organic
+      // visitor, and gating the tag on it hid real paid leads from the CRM.
       tags: [
+        "google-ads-lead",
         "growth-call-request",
         `lp-growth-${growth_variant}`,
         discipline.toLowerCase(),
         "consent-email-sms-whatsapp",
-        ...(hasClickId ? ["google-ads-lead"] : []),
       ],
     });
     if (!result.ok) return err("Submission failed. Please try again.", 502);
