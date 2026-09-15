@@ -35,8 +35,8 @@ import TrackingFields from "./TrackingFields";
  * already answered.
  *
  * On success the identity goes to sessionStorage (not the URL: it is PII) and
- * the visitor is sent to the thank-you page, which shows the calendar when one
- * is configured.
+ * the visitor is sent to the thank-you page, which confirms the request and
+ * says a person will be in touch to arrange the time.
  */
 export default function GrowthCallForm({ variant }: { variant: GrowthVariant }) {
   const router = useRouter();

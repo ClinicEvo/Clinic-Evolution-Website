@@ -47,8 +47,8 @@
  *
  * THE CONVERSION IS A BOOKED CALL, NOT AN AUDIT. The audit pages ask for four
  * fields in exchange for something free; this page asks ten questions from a
- * clinic owner considering a monthly commitment, then hands them a calendar.
- * The longer form is proportionate to the larger ask, which is the same
+ * clinic owner considering a monthly commitment, then a person arranges the
+ * call. The longer form is proportionate to the larger ask, which is the same
  * argument the audit pages used to make theirs shorter.
  *
  * No em dashes in any visible string. The global copy rule bans them in
@@ -102,38 +102,22 @@ export interface GrowthSitelink {
   description: [string, string];
 }
 
-/**
- * The booking calendar the thank-you page embeds.
+/*
+ * THERE IS NO BOOKING CALENDAR. The thank-you page embedded a GoHighLevel
+ * booking widget (calendar 1ClOusw55fSa9a1U84t0 in the Clinic Evolution
+ * sub-account) from 14 Sep 2026 until 15 Sep 2026, when Simon asked for a
+ * plain confirmation page instead. A person arranges the time.
  *
- * "Schedule an Appointment" in the Clinic Evolution GoHighLevel sub-account
- * (location ugpHx15Ou2HYugshA7KO), calendar id 1ClOusw55fSa9a1U84t0. Chosen on
- * 14 Sep 2026 because it was the only active calendar of the five: 30-minute
- * slots, Monday to Friday 08:00 to 17:00, auto-confirm, 180 free slots in the
- * following fortnight [src: GoHighLevel calendars API, read with Simon's
- * read-only integration token]. The other four are inactive snapshot
- * templates (SEO, social, content, digital marketing) and were never used.
+ * Worth knowing if it is ever reinstated: that calendar had no team member
+ * assigned, so a slot picked by a prospect landed in the calendar but on
+ * nobody's diary [src: GoHighLevel calendars API, 14 Sep 2026].
  *
- * HARDCODED WITH AN ENV OVERRIDE, the same pattern as GOOGLE_ADS_ID in
- * src/lib/analytics.ts and for the same two reasons: the value is public (it
- * is the iframe src in the page source), and the Vercel account the CLI runs
- * as is not permitted to create production environment variables in the
- * CLINIC EVO team, so an env-only value would have sat empty. Set
- * NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL to point the page at a different
- * calendar without a code change; set it to "none" to show the no-calendar
- * version of the page. next.config.mjs allows the widget's origin in
- * frame-src, also with the env var as the override.
- *
- * Two things were still to do in GoHighLevel when this was wired up: the
- * calendar had no team member assigned (so a booking lands in the calendar but
- * on nobody's diary), and its name was the generic "Schedule an Appointment",
- * which is what a prospect sees. Both are UI edits; neither changes this URL.
+ * Removed with it: the GROWTH_CALL_CALENDAR_URL constant, its
+ * NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL override, and the frame-src allowance
+ * for https://api.leadconnectorhq.com in next.config.mjs. If a calendar ever
+ * comes back, all three have to come back together, and the page copy here and
+ * in GrowthBook.tsx has to promise it again.
  */
-const DEFAULT_GROWTH_CALL_CALENDAR_URL =
-  "https://api.leadconnectorhq.com/widget/booking/1ClOusw55fSa9a1U84t0";
-
-const calendarOverride = process.env.NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL;
-export const GROWTH_CALL_CALENDAR_URL =
-  calendarOverride === "none" ? "" : calendarOverride || DEFAULT_GROWTH_CALL_CALENDAR_URL;
 
 /** The one line under the hero CTA. [src: lp brief, p4] */
 export const GROWTH_TRUST_LINE = "Built by clinic owners. Developed inside a working MSK clinic.";
@@ -634,7 +618,7 @@ function sitelinks(seoText: string, adsText: string): GrowthSitelink[] {
     { id: "google-ads", text: adsText, description: ["Search and Meta campaigns, managed", "Landing pages and tracking built"] },
     { id: "lead-generation", text: "Lead generation system", description: ["Patient Pulse CRM and follow-up", "SMS, WhatsApp and email automation"] },
     { id: "investment", text: "Pricing: £1,350 a month", description: ["One fee, all costs set out", "Ad budget and usage paid separately"] },
-    { id: "book", text: "Book a growth call", description: ["Ten questions, then pick a time", "We review your clinic first"] },
+    { id: "book", text: "Book a growth call", description: ["Ten questions, then we call you back", "We review your clinic first"] },
   ];
 }
 

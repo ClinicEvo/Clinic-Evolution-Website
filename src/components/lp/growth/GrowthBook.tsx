@@ -18,8 +18,11 @@ import { GROWTH_FORM_ANCHOR, type GrowthVariant } from "@/lib/growth-system";
  * `data-lp-form` on the form's wrapper is what LandingStickyCta watches, so
  * the sticky bar never covers the submit button.
  */
+// Kept in step with NEXT_STEPS on the thank-you page, which promises the same
+// sequence to the same person a moment later.
 const AFTER_BOOKING = [
   "We review your website, Google presence and current marketing before we speak.",
+  "We come back to you to arrange a time that suits your clinic diary.",
   "On the call we go through your numbers, your capacity and where the system would start for you.",
   "If it fits, you leave with the plan and the exact monthly figure. If it does not, we will say so.",
 ];
@@ -57,14 +60,15 @@ export default function GrowthBook({ variant }: { variant: GrowthVariant }) {
                 </em>
               </h2>
               <p className="text-body-lg mb-9 max-w-[48ch] text-[var(--color-muted)]">
-                Send the details and pick a time. We do the reading before the
-                call, so it starts from your clinic rather than from a slide.
+                Send the details and we will come back to you to arrange a
+                time. We do the reading before the call, so it starts from your
+                clinic rather than from a slide.
               </p>
             </FadeUp>
 
             <FadeUp delay={0.06}>
               <div className="border-t border-[var(--color-border)] pt-7">
-                <h3 className="text-h4 mb-4 text-[var(--color-ink)]">What happens after you book</h3>
+                <h3 className="text-h4 mb-4 text-[var(--color-ink)]">What happens after you send it</h3>
                 <ol role="list" className="flex flex-col gap-3">
                   {AFTER_BOOKING.map((step, index) => (
                     <li key={step} className="flex items-start gap-3">

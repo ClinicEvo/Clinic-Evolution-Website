@@ -194,22 +194,6 @@ const nextConfig = {
     //
     // Keep it to what the tag needs. It is an allowlist, not a wildcard, and
     // widening it to *.google.com would defeat the point of having one.
-    // The Growth System thank-you page embeds a GoHighLevel booking calendar
-    // (see GROWTH_CALL_CALENDAR_URL in src/lib/growth-system.ts). Its origin is
-    // allowed in frame-src here. The default is the GoHighLevel widget host;
-    // NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL overrides it in both places, and
-    // "none" turns the embed and this allowance off together.
-    const growthCalendarOrigin = (() => {
-      const url = process.env.NEXT_PUBLIC_GROWTH_CALL_CALENDAR_URL;
-      if (url === "none") return null;
-      if (!url) return "https://api.leadconnectorhq.com";
-      try {
-        return new URL(url).origin;
-      } catch {
-        return null;
-      }
-    })();
-
     const googleAds = [
       "https://googleads.g.doubleclick.net",
       "https://www.googleadservices.com",
@@ -281,10 +265,10 @@ const nextConfig = {
               // to its click without these two. X-Frame-Options still stops this
               // site being framed by anyone else — frame-src is the other
               // direction, what this page may embed.
-              [
-                "frame-src https://td.doubleclick.net https://www.googletagmanager.com",
-                ...(growthCalendarOrigin ? [growthCalendarOrigin] : []),
-              ].join(" "),
+              // The GoHighLevel booking widget used to be allowed here too, for
+              // the Growth System thank-you page. That embed was removed on
+              // 15 Sep 2026; see the note at the top of src/lib/growth-system.ts.
+              "frame-src https://td.doubleclick.net https://www.googletagmanager.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
