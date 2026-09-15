@@ -1,6 +1,6 @@
 import GrowthCallForm from "@/components/forms/GrowthCallForm";
 import FadeUp from "@/components/ui/FadeUp";
-import { GROWTH_FORM_ANCHOR, type GrowthVariant } from "@/lib/growth-system";
+import { GROWTH_CTA_LABEL, GROWTH_FORM_ANCHOR, type GrowthVariant } from "@/lib/growth-system";
 
 /**
  * Section 10, the final CTA, and THE form. [src: lp brief, p5, p10 and p11]
@@ -52,7 +52,7 @@ export default function GrowthBook({ variant }: { variant: GrowthVariant }) {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
           <div>
             <FadeUp>
-              <p className="eyebrow mb-5">Book your clinic growth call</p>
+              <p className="eyebrow mb-5">{GROWTH_CTA_LABEL}</p>
               <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
                 Your {variant.practiceNoun},{" "}
                 <em className="not-italic text-[var(--color-accent)]">
@@ -118,7 +118,7 @@ export default function GrowthBook({ variant }: { variant: GrowthVariant }) {
             <div data-lp-form>
               <div className="card-surface p-6 sm:p-8">
                 <p className="text-h4 mb-1.5 text-[var(--color-ink)]">
-                  Book your clinic growth call
+                  {GROWTH_CTA_LABEL}
                 </p>
                 <p className="text-body-sm mb-6 text-[var(--color-muted)]">
                   Ten short questions, so the call is about your clinic from the first minute.

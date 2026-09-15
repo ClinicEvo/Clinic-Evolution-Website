@@ -57,7 +57,7 @@ export default function GrowthThankYouPage() {
             </p>
             <h1 className="text-h1 mb-6 text-[var(--color-ink)]">
               That is with us. We will be in touch to{" "}
-              <em className="not-italic text-[var(--color-accent)]">arrange your growth call</em>
+              <em className="not-italic text-[var(--color-accent)]">arrange your growth strategy call</em>
             </h1>
           </FadeUp>
 

@@ -7,17 +7,32 @@
  * identical on all four, on purpose: a visitor who sees two of these pages
  * must see one offer.
  *
- * URLS AND H1S CARRY THE AD GROUP'S HEAD KEYWORD (Simon, 14 Sep 2026). The
- * Google Ads campaign has three exact-match ad groups, Osteopaths,
- * Chiropractors and Physiotherapists, each led by "[<profession> marketing
- * agency]" and filled out with digital marketing, SEO, Google Ads and lead
- * generation variants [src: campaign structure, Simon's screenshots]. So the
- * three discipline pages live at /lp/osteopath-marketing-agency/,
- * /lp/chiropractor-marketing-agency/ and /lp/physiotherapy-marketing-agency/,
- * and each H1 opens on that phrase. The MSK page keeps /lp/growth-system/:
- * "[msk marketing agency]" is on the campaign's test-later list, not live.
- * The internal variant slugs ("osteopathy" etc.) are unchanged; they travel
- * to the CRM as tags and are not URLs.
+ * URLS CARRY THE AD GROUP'S HEAD KEYWORD (Simon, 14 Sep 2026). The Google Ads
+ * campaign has three exact-match ad groups, Osteopaths, Chiropractors and
+ * Physiotherapists, each led by "[<profession> marketing agency]" and filled
+ * out with digital marketing, SEO, Google Ads and lead generation variants
+ * [src: campaign structure, Simon's screenshots]. So the three discipline
+ * pages live at /lp/osteopath-marketing-agency/,
+ * /lp/chiropractor-marketing-agency/ and /lp/physiotherapy-marketing-agency/.
+ * The MSK page keeps /lp/growth-system/: "[msk marketing agency]" is on the
+ * campaign's test-later list, not live. The internal variant slugs
+ * ("osteopathy" etc.) are unchanged; they travel to the CRM as tags and are
+ * not URLs.
+ *
+ * THE H1S NO LONGER DO (Simon, 15 Sep 2026). They opened on "<profession>
+ * marketing agency" until Simon replaced the hero copy with an
+ * outcome-led headline: "Grow your <discipline> clinic with a complete patient
+ * growth system". The head keyword now survives on the page only in the URL,
+ * the meta title and the meta description, not in any visible text.
+ *
+ * That is a deliberate trade and worth knowing before anyone "fixes" it back:
+ * an exact-match ad group whose landing page does not contain its keyword can
+ * score lower on ad relevance and landing page experience, which shows up as a
+ * higher cost per click rather than as an error. If CPCs climb after this goes
+ * live, this is the first thing to look at. The counter-argument, and the
+ * reason for the change, is that "marketing agency" is what the advertiser
+ * calls itself, and the clinic owner reading the page wants to know what they
+ * get.
  *
  * FIVE SITELINK ANCHORS PER PAGE, in each variant's `sitelinks`, one per keyword theme
  * the ad group carries: SEO, Google Ads, lead generation, pricing and the
@@ -68,9 +83,9 @@ export const GROWTH_THANK_YOU_PATH = "/lp/growth-system/thank-you/";
  * label in title case ("Book Your Clinic Growth Call"); title case in one
  * place would read as a different system. [src: lp brief, p4]
  */
-export const GROWTH_CTA_LABEL = "Book your clinic growth call";
+export const GROWTH_CTA_LABEL = "Book your growth strategy call";
 /** For the sticky header, where the full label overflows below ~375px. */
-export const GROWTH_CTA_LABEL_SHORT = "Book a growth call";
+export const GROWTH_CTA_LABEL_SHORT = "Book a strategy call";
 /** The pricing section's own CTA. [src: lp brief, p9] */
 export const GROWTH_PRICING_CTA_LABEL = "Discuss the right growth plan for your clinic";
 
@@ -618,18 +633,33 @@ function sitelinks(seoText: string, adsText: string): GrowthSitelink[] {
     { id: "google-ads", text: adsText, description: ["Search and Meta campaigns, managed", "Landing pages and tracking built"] },
     { id: "lead-generation", text: "Lead generation system", description: ["Patient Pulse CRM and follow-up", "SMS, WhatsApp and email automation"] },
     { id: "investment", text: "Pricing: £1,350 a month", description: ["One fee, all costs set out", "Ad budget and usage paid separately"] },
-    { id: "book", text: "Book a growth call", description: ["Ten questions, then we call you back", "We review your clinic first"] },
+    { id: "book", text: "Book a strategy call", description: ["Ten questions, then we call you back", "We review your clinic first"] },
   ];
 }
 
 /**
- * The brief's hero opening. [src: lp brief, p4, "Recommended hero copy"] Only
- * the MSK page uses it now; the three discipline pages open on their ad
- * group's head keyword instead, per the header note.
+ * The brief's hero opening and subhead. [src: lp brief, p4, "Recommended hero
+ * copy"] Only the MSK page uses either now; the three discipline pages carry
+ * Simon's outcome-led copy instead, per the header note.
  */
 const HERO_START = "The complete growth system for ";
 const SUBHEAD =
   "Website, SEO, Google Ads, Meta advertising, Patient Pulse and clinic mentoring, installed and managed for you.";
+
+/**
+ * The three discipline pages' hero subhead. [src: Simon, 15 Sep 2026] One
+ * sentence of outcome, one of scope, with the discipline named in the second
+ * so the page reads as built for that reader rather than adapted to them.
+ *
+ * Simon's copy ran the two together across an em dash. The global rule bans
+ * them in anything public, and swapping in an en dash or a spaced hyphen is
+ * ruled out with it, so it is two sentences. In a hero subhead that reads
+ * better anyway: the outcome lands before the list of parts begins.
+ */
+const disciplineSubhead = (clinics: string) =>
+  "Attract more new patients, reactivate your existing database and generate " +
+  "more referrals. Your website, SEO, paid ads, CRM and growth strategy, all " +
+  `managed in one system built specifically for ${clinics}.`;
 
 const VARIANTS: Record<GrowthVariantSlug, GrowthVariant> = {
   msk: {
@@ -663,9 +693,9 @@ const VARIANTS: Record<GrowthVariantSlug, GrowthVariant> = {
     metaTitle: "Osteopath Marketing Agency | The Complete Clinic Growth System",
     metaDescription:
       "The osteopath marketing agency behind the complete growth system: website, SEO, Google Ads, Meta advertising, Patient Pulse CRM and mentoring for £1,350 a month. Built inside a working osteopathy clinic. Book a growth call.",
-    eyebrow: "For independent osteopathy clinic owners",
-    headline: { start: "The osteopath marketing agency behind ", accent: "the complete growth system", end: "" },
-    subhead: SUBHEAD,
+    eyebrow: "Built exclusively for osteopathy clinic owners",
+    headline: { start: "Grow your osteopathy clinic with ", accent: "a complete patient growth system", end: "" },
+    subhead: disciplineSubhead("osteopathy clinics"),
     practiceNoun: "osteopathy clinic",
     defaultProfession: "Osteopathy",
     band: {
@@ -689,9 +719,9 @@ const VARIANTS: Record<GrowthVariantSlug, GrowthVariant> = {
     metaTitle: "Physiotherapy Marketing Agency | The Complete Clinic Growth System",
     metaDescription:
       "The physiotherapy marketing agency behind the complete growth system: website, SEO, Google Ads, Meta advertising, Patient Pulse CRM and mentoring for £1,350 a month. Built inside a working osteopathy and physiotherapy clinic. Book a growth call.",
-    eyebrow: "For independent physiotherapy clinic owners",
-    headline: { start: "The physiotherapy marketing agency behind ", accent: "the complete growth system", end: "" },
-    subhead: SUBHEAD,
+    eyebrow: "Built exclusively for physiotherapy clinic owners",
+    headline: { start: "Grow your physiotherapy clinic with ", accent: "a complete patient growth system", end: "" },
+    subhead: disciplineSubhead("physiotherapy clinics"),
     practiceNoun: "physiotherapy clinic",
     defaultProfession: "Physiotherapy",
     band: {
@@ -715,9 +745,9 @@ const VARIANTS: Record<GrowthVariantSlug, GrowthVariant> = {
     metaTitle: "Chiropractor Marketing Agency | The Complete Clinic Growth System",
     metaDescription:
       "The chiropractor marketing agency behind the complete growth system: website, SEO, Google Ads, Meta advertising, Patient Pulse CRM and mentoring for £1,350 a month. Built inside a working MSK clinic. Book a growth call.",
-    eyebrow: "For independent chiropractic clinic owners",
-    headline: { start: "The chiropractor marketing agency behind ", accent: "the complete growth system", end: "" },
-    subhead: SUBHEAD,
+    eyebrow: "Built exclusively for chiropractic clinic owners",
+    headline: { start: "Grow your chiropractic clinic with ", accent: "a complete patient growth system", end: "" },
+    subhead: disciplineSubhead("chiropractic clinics"),
     practiceNoun: "chiropractic clinic",
     defaultProfession: "Chiropractic",
     band: {
