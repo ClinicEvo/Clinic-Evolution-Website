@@ -48,7 +48,7 @@ export default function GrowthSystemPage({ variant }: { variant: GrowthVariant }
       <GrowthEngines />
       <GrowthJourney />
       <GrowthIncluded />
-      <GrowthWhy />
+      <GrowthWhy variant={variant} />
       <GrowthProof variant={variant} />
       <GrowthInvestment />
       <GrowthFaq variant={variant} />

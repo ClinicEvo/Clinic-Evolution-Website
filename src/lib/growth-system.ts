@@ -622,6 +622,11 @@ export interface GrowthVariant {
   /** The searches the Google Ads engine names for this discipline. [src: growth-system doc, p5] */
   adSearches: string;
   variantFaq: { question: string; answer: string };
+  /**
+   * A closing paragraph for the Why section, on the three discipline pages
+   * only. See disciplinePositioning for what it is for.
+   */
+  whyPositioning?: string;
   /** The five ad sitelinks for this page. See GrowthSitelink. */
   sitelinks: GrowthSitelink[];
 }
@@ -656,6 +661,39 @@ const SUBHEAD =
  * ruled out with it, so it is two sentences. In a hero subhead that reads
  * better anyway: the outcome lands before the list of parts begins.
  */
+/**
+ * The last paragraph of the Why section on the three discipline pages.
+ *
+ * It exists for the ad groups. Simon's keyword list (15 Sep 2026, his
+ * screenshot) bids on thirteen exact-match phrases per discipline: the
+ * "marketing agency" pair, "marketing for <profession>", "seo for
+ * <profession>" and the seo pair, "<profession> google ads", the "website
+ * design" pair, "<profession> business growth" and "<profession> business
+ * coach", plus the "physio" short forms on the physiotherapy page. When the
+ * H1s stopped opening on "<profession> marketing agency" (see the header
+ * note), a check of the rendered pages found "website design", "business
+ * growth", "business coach" and "physio" appearing nowhere in the visible
+ * text, and "marketing agency" only in the generic line above this one. A
+ * page that never says "coach" is a weak landing for "[osteopath business
+ * coach]", and that gap predates the H1 change.
+ *
+ * So this paragraph says those things, once each, in a sentence that is
+ * true: the components it lists are the inclusions [src: growth-system doc],
+ * and the mentoring inclusion covers conversion, team management, P&L and
+ * revenue, which is business coaching by any other name. It is written to the
+ * reader, so nothing in it is a claim about a client. Google reads stems, so
+ * "coaching" serves "[... business coach]".
+ *
+ * Two constraints on editing it: keep every phrase in the list above, and do
+ * not add "rather than" or a "not X, but Y" pair; the page has spent both
+ * budgets from ~/.claude/docs/COPY.md already.
+ */
+const disciplinePositioning = (agency: string, seoFor: string, marketing: string) =>
+  `If you searched for ${agency}, the pieces you expected are all here: website ` +
+  `design, ${seoFor}, Google Ads, and business coaching and mentoring for you as the ` +
+  `clinic owner. They come as one system because ${marketing} on its own only fills ` +
+  "the enquiry inbox. The business growth of your clinic depends on what happens after that.";
+
 const disciplineSubhead = (clinics: string) =>
   "Attract more new patients, reactivate your existing database and generate " +
   "more referrals. Your website, SEO, paid ads, CRM and growth strategy, all " +
@@ -711,6 +749,7 @@ const VARIANTS: Record<GrowthVariantSlug, GrowthVariant> = {
       answer:
         "Clinic Evolution was founded by a practising osteopath, and the system was built inside his own osteopathy clinic. Both of the clinics whose results are on this site are osteopathy practices: Bodyfunction Clinic in London and Lind Street Osteopathy in Ryde, which opened with no website and no search presence.",
     },
+    whyPositioning: disciplinePositioning("an osteopath marketing agency", "SEO for osteopaths", "osteopathy marketing"),
     sitelinks: sitelinks("SEO for osteopaths", "Google Ads for osteopaths"),
   },
   physiotherapy: {
@@ -737,6 +776,7 @@ const VARIANTS: Record<GrowthVariantSlug, GrowthVariant> = {
       answer:
         "It was built in one. Bodyfunction Clinic in London is an osteopathy and physiotherapy practice, and the website, the search work, the advertising and Patient Pulse do the same job whichever of the two a patient books. The growth call looks at your specialisms, your local market and your follow-up before anybody suggests what to do about them.",
     },
+    whyPositioning: disciplinePositioning("a physiotherapy marketing agency", "SEO for physiotherapists", "physio marketing"),
     sitelinks: sitelinks("SEO for physiotherapists", "Google Ads for physios"),
   },
   chiropractic: {
@@ -763,6 +803,7 @@ const VARIANTS: Record<GrowthVariantSlug, GrowthVariant> = {
       answer:
         "The work is the same shape: local search, a site that answers what a first visit involves, adverts pointed at high-intent searches, and follow-up that runs after hours. What we can evidence is musculoskeletal, in clinics our founder either owns or took from nothing to page one. The growth call looks at your local market, your website, your booking path and your follow-up, then shows where the system fits your clinic.",
     },
+    whyPositioning: disciplinePositioning("a chiropractor marketing agency", "SEO for chiropractors", "chiropractic marketing"),
     sitelinks: sitelinks("SEO for chiropractors", "Chiropractor Google Ads"),
   },
 };

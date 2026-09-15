@@ -1,6 +1,6 @@
 import Image from "next/image";
 import FadeUp from "@/components/ui/FadeUp";
-import { GROWTH_WHY } from "@/lib/growth-system";
+import { GROWTH_WHY, type GrowthVariant } from "@/lib/growth-system";
 
 /**
  * Section 06, "Why Clinic Evolution": MSK specialism and Bodyfunction as the
@@ -11,9 +11,17 @@ import { GROWTH_WHY } from "@/lib/growth-system";
  * right. It sits after the product and before the proof because a reader who
  * has just read seven inclusions wants to know who is behind them before
  * being shown the numbers.
+ *
+ * The three shared paragraphs are followed, on the discipline pages, by one
+ * more written for that page's ad group. See disciplinePositioning in
+ * src/lib/growth-system.ts for why it exists and what it has to contain. The
+ * MSK page has none and renders the three alone.
  */
-export default function GrowthWhy() {
-  const { heading, paragraphs, portrait } = GROWTH_WHY;
+export default function GrowthWhy({ variant }: { variant: GrowthVariant }) {
+  const { heading, portrait } = GROWTH_WHY;
+  const paragraphs = variant.whyPositioning
+    ? [...GROWTH_WHY.paragraphs, variant.whyPositioning]
+    : GROWTH_WHY.paragraphs;
 
   return (
     <section className="border-b border-[var(--color-border)] bg-[var(--color-paper)] py-24 sm:py-28 lg:py-32">
