@@ -105,7 +105,7 @@ export default function ArticlePage() {
       content: (
         <>
           <p>Patients choosing a chiropractor for the first time pay close attention to credentials and professional background. Unlike some other services where brand trust is paramount, in healthcare the individual practitioner often matters as much as the practice itself.</p>
-          <p>Effective chiropractic marketing makes practitioner credibility visible:</p>
+          <p>Effective <a href="/chiropractic-marketing/">chiropractic marketing</a> makes practitioner credibility visible:</p>
           <ul>
             <li>Practitioner bio pages with qualifications, GCC registration, clinical interests and approach</li>
             <li>Photos that show a professional, approachable environment</li>

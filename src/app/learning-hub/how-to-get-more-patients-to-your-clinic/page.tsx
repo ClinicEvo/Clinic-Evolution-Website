@@ -76,7 +76,7 @@ export default function ArticlePage() {
             <li>Consistent name, address and phone number (NAP) information across the web</li>
             <li>Location-specific service pages where relevant</li>
           </ul>
-          <p>Local SEO does not require big budgets. It requires accurate information, relevant pages and a managed reputation.</p>
+          <p><a href="/seo-for-clinics/">Local SEO</a> does not require big budgets. It requires accurate information, relevant pages and a managed reputation.</p>
         </>
       ),
     },
@@ -140,7 +140,7 @@ export default function ArticlePage() {
         <>
           <p>New patient acquisition gets most of the attention, but for many clinics, the fastest route to more appointments is reconnecting with past patients.</p>
           <p>People who have already visited your clinic already know you, trust you and have experienced your care. Many of them may benefit from a follow-up appointment, seasonal treatment or a reminder that you are available.</p>
-          <p>A patient reactivation system helps identify which past patients may be suitable for follow-up, and communicates with them in a clinically appropriate and well-timed way.</p>
+          <p>A <a href="/ai-integration/">patient reactivation system</a> helps identify which past patients may be suitable for follow-up, and communicates with them in a clinically appropriate and well-timed way.</p>
           <p>In many cases, reactivation can deliver a meaningful increase in booked appointments with less effort than attracting entirely new patients.</p>
         </>
       ),
@@ -159,6 +159,7 @@ export default function ArticlePage() {
             <li>Keeping your Google Business Profile active with updated information</li>
           </ul>
           <p>Reputation is a long-term growth asset. A clinic with a strong, current review presence has a structural advantage over competitors who are not actively managing theirs.</p>
+          <p>For the version of this written around your own discipline, see <a href="/osteopath-marketing/">marketing for osteopaths</a>, <a href="/physiotherapy-marketing/">physiotherapy marketing</a> or <a href="/chiropractic-marketing/">chiropractic marketing</a>.</p>
         </>
       ),
     },

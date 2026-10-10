@@ -51,7 +51,7 @@ export default function ArticlePage() {
       content: (
         <>
           <p>Physiotherapy is an inherently local service. Patients want a clinic they can reach easily. The search behaviour reflects this, the majority of new patient searches include a location or a &quot;near me&quot; qualifier.</p>
-          <p>This means local SEO, optimising your clinic to appear in location-based searches, is far more valuable than trying to rank nationally for generic terms.</p>
+          <p>This means <a href="/seo-for-clinics/">local SEO</a>, optimising your clinic to appear in location-based searches, is far more valuable than trying to rank nationally for generic terms.</p>
           <p>When a patient in your area searches for physiotherapy, you want your clinic to appear in:</p>
           <ul>
             <li>The Google map pack (the three local business results that appear above organic results)</li>

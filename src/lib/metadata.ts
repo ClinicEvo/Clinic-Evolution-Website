@@ -3,7 +3,10 @@ import { Metadata } from "next";
 export const siteConfig = {
   name: "Clinic Evo",
   legalName: "Clinic Evolution Ltd",
-  tagline: "Clinic Marketing Agency UK",
+  // Carries "healthcare marketing agency" (1,000/mo UK, KD 22), the largest
+  // term in the niche, which no page targeted (10 Oct 2026 review). "Clinic"
+  // stays first so the existing term is not traded away for it.
+  tagline: "Clinic & Healthcare Marketing Agency UK",
   url: "https://www.clinicevolution.com",
   email: "hello@clinicevolution.com",
   // TODO: Add phone number when confirmed

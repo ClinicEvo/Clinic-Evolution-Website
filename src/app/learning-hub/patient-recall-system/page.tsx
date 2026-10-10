@@ -93,7 +93,7 @@ export default function ArticlePage() {
       content: (
         <>
           <p>Manually running a patient recall system is time-consuming. Reviewing appointment histories, writing individual messages, timing outreach correctly and tracking responses is difficult to do at scale in a busy clinic.</p>
-          <p>AI-assisted reactivation systems can handle much of this work. They can:</p>
+          <p><a href="/ai-integration/">AI-assisted reactivation systems</a> can handle much of this work. They can:</p>
           <ul>
             <li>Analyse appointment and condition data to identify high-priority past patients</li>
             <li>Generate personalised, clinically appropriate outreach messages</li>

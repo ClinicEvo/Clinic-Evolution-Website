@@ -60,7 +60,7 @@ export default function ArticlePage() {
       title: "The fundamentals of a physio Google Ads campaign",
       content: (
         <>
-          <p>A well-structured physio Google Ads campaign has several key components.</p>
+          <p>A well-structured <a href="/google-ads-for-clinics/">physio Google Ads campaign</a> has several key components.</p>
           <h3>Keyword targeting</h3>
           <p>The best keywords for physio Google Ads combine a condition or service with a location signal, &quot;sports physio London&quot;, &quot;physio for back pain [town]&quot;, &quot;shoulder physiotherapist near me&quot;. These searches have clear intent and manageable competition.</p>
           <p>Generic terms like &quot;physiotherapy&quot; attract a broad audience and tend to have lower conversion rates at higher cost. Condition-specific and location-specific terms perform better for most clinic campaigns.</p>

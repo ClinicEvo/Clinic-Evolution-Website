@@ -127,9 +127,13 @@ export default function PhysiotherapyMarketingPage() {
       <BreadcrumbSchema items={crumbs} />
       <FAQSchema items={faqs} />
 
+      {/* The H1 opens on "physiotherapy marketing" because the page did not
+          rank for that term at all (10 Oct 2026 review): the phrase was in the
+          title tag and the eyebrow but not the heading. The eyebrow drops it so
+          the same two words do not stack one above the other. */}
       <PageHero
-        badge="Physiotherapy marketing for UK practices"
-        heading={<>More patients for your <em className="not-italic text-[var(--color-accent)]">physiotherapy clinic</em>, predictably</>}
+        badge="For UK physiotherapy practices"
+        heading={<>Physiotherapy marketing for clinics that want <em className="not-italic text-[var(--color-accent)]">more private patients</em></>}
         subtext="We help UK physiotherapists grow their private practice through specialist SEO, targeted Google Ads and high-converting websites, built around how physio patients search, compare and book."
         bullets={[
           "SEO, ads and website design for physio clinics",

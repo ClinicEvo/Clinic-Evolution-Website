@@ -17,13 +17,15 @@ import Image from "next/image";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 
 export const metadata = buildMetadata({
-  // "osteopathy marketing agency" (70/mo) is the only researched osteopathy
-  // term. "osteopath marketing" — the previous title and the URL — is not in
-  // the keyword set at all, so its volume is unvalidated.
-  title: "Osteopathy Marketing Agency UK",
+  // "osteopathy marketing agency" (70/mo) is the term in the 11 Aug research.
+  // "marketing for osteopaths" (100/mo, Ahrefs UK) came from the 10 Oct 2026
+  // ranking review, where the page already sat at 16.5 for it, its closest
+  // term to page one. Absolute so both fit without the brand suffix.
+  title: "Marketing for Osteopaths | Osteopathy Marketing Agency UK",
   description:
     "Specialist marketing for UK osteopaths. SEO, Google Ads and website design that fills your diary with new patients. Get a free clinic audit.",
   path: "/osteopath-marketing/",
+  absoluteTitle: true,
 });
 
 const faqs = [
@@ -104,7 +106,7 @@ export default function OsteopathMarketingPage() {
 
       <PageHero
         badge="Osteopath marketing for UK practices"
-        heading={<>More patients for your <em className="not-italic text-[var(--color-accent)]">osteopathy practice</em>, consistently</>}
+        heading={<>Marketing for osteopaths who want <em className="not-italic text-[var(--color-accent)]">more patients, consistently</em></>}
         subtext="We help UK osteopaths attract consistent new patients through specialist SEO, Google Ads and conversion-focused website design, built around how patients actually choose an osteopath."
         bullets={[
           "SEO, ads and web design for osteopathy clinics",

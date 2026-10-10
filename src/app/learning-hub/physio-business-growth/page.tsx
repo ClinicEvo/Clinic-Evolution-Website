@@ -84,7 +84,7 @@ export default function ArticlePage() {
       title: "Improve local search visibility for physiotherapy",
       content: (
         <>
-          <p>The majority of new physio patients come from local Google searches. When someone searches &quot;physiotherapist near me&quot; or &quot;sports physio [town]&quot;, they are typically ready to book. Appearing well in those results is one of the highest-value outcomes in physio marketing.</p>
+          <p>The majority of new physio patients come from local Google searches. When someone searches &quot;physiotherapist near me&quot; or &quot;sports physio [town]&quot;, they are typically ready to book. Appearing well in those results is one of the highest-value outcomes in <a href="/physiotherapy-marketing/">physio marketing</a>.</p>
           <p>Key local SEO foundations for physio clinics:</p>
           <ul>
             <li>Google Business Profile, complete, accurate, regularly updated with posts and photos</li>
@@ -93,7 +93,7 @@ export default function ArticlePage() {
             <li>Local citations, consistent practice name, address and phone number across directories</li>
             <li>FAQs and content that answers the questions patients search before booking</li>
           </ul>
-          <p>Clinics that take local SEO seriously can significantly outrank competitors with larger practices simply by being more thorough with the fundamentals.</p>
+          <p>Clinics that take <a href="/seo-for-clinics/">local SEO</a> seriously can significantly outrank competitors with larger practices simply by being more thorough with the fundamentals.</p>
         </>
       ),
     },

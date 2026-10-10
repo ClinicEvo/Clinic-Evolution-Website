@@ -75,7 +75,7 @@ export default function ArticlePage() {
             <li>What outcomes previous patients have experienced</li>
             <li>How to book, and how quickly you can see them</li>
           </ul>
-          <p>These may seem obvious, but a surprising number of clinic websites fail to answer all of them clearly. Any gap is a reason for a potential patient to look elsewhere.</p>
+          <p>These may seem obvious, but a surprising number of <a href="/website-design-for-clinics/">clinic websites</a> fail to answer all of them clearly. Any gap is a reason for a potential patient to look elsewhere.</p>
         </>
       ),
     },
@@ -84,7 +84,7 @@ export default function ArticlePage() {
       content: (
         <>
           <p>Local search is how most patients find a private practice for the first time. Appearing prominently in local Google results, especially the map pack that appears when patients search for clinics near them, is one of the highest-value marketing outcomes for a private practice.</p>
-          <p>Local SEO for a private practice involves:</p>
+          <p><a href="/seo-for-clinics/">Local SEO for a private practice</a> involves:</p>
           <ul>
             <li>A fully completed Google Business Profile with accurate opening hours, services, photos and regular updates</li>
             <li>Service and condition pages on the website that include the location and specific treatments</li>

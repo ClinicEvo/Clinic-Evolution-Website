@@ -147,7 +147,7 @@ export default function ArticlePage() {
       title: "Healthcare-specific local SEO considerations",
       content: (
         <>
-          <p>Healthcare SEO has specific requirements that general SEO guidance does not always address.</p>
+          <p><a href="/seo-for-clinics/">Healthcare SEO</a> has specific requirements that general SEO guidance does not always address.</p>
           <h3>YMYL content</h3>
           <p>Google classifies healthcare content as &quot;Your Money or Your Life&quot;, content where poor quality or inaccuracy could harm users. This means healthcare pages are held to a higher standard of expertise, authority and trustworthiness (known as E-E-A-T in Google&apos;s guidelines).</p>
           <h3>Practitioner credibility signals</h3>

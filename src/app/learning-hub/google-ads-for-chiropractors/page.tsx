@@ -65,7 +65,7 @@ export default function ArticlePage() {
       title: "Keyword strategy for chiropractic Google Ads",
       content: (
         <>
-          <p>Keyword selection is the most important decision in a chiropractic Google Ads campaign. The wrong keywords produce irrelevant clicks that cost money without producing patients.</p>
+          <p>Keyword selection is the most important decision in a <a href="/google-ads-for-clinics/">chiropractic Google Ads campaign</a>. The wrong keywords produce irrelevant clicks that cost money without producing patients.</p>
           <p>The most effective chiropractic keywords combine intent signals:</p>
           <ul>
             <li>Condition + location: &quot;back pain chiropractor [town]&quot;, &quot;neck pain chiro [area]&quot;</li>

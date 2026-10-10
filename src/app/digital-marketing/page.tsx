@@ -23,7 +23,7 @@ import StickyMobileCta from "@/components/ui/StickyMobileCta";
 export const metadata = buildMetadata({
   title: "Digital Marketing for MSK Clinics, Coordinated Growth",
   description:
-    "Paid social for UK osteopaths, physiotherapists and chiropractors. Clinic Evo builds Facebook, Instagram and TikTok campaigns and the follow-up system that turns the leads into booked patients.",
+    "Digital marketing for UK osteopaths, physios and chiropractors: Facebook, Instagram and TikTok campaigns, plus the follow-up that turns leads into bookings.",
   path: "/digital-marketing/",
 });
 

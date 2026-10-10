@@ -96,7 +96,7 @@ export default function ArticlePage() {
         <>
           <p>Search engine optimisation is the process of making your clinic more visible to people who are actively searching for the treatments and conditions you help with.</p>
           <p>For private clinics, local SEO is particularly valuable. When a patient searches for &quot;physiotherapist in [town]&quot; or &quot;osteopath for back pain near me&quot;, appearing at the top of those results produces consistent, high-intent enquiries without ongoing ad spend.</p>
-          <p>The foundations of good clinic SEO are:</p>
+          <p>The foundations of good <a href="/seo-for-clinics/">clinic SEO</a> are:</p>
           <ul>
             <li>Well-structured service and condition pages</li>
             <li>A complete and active Google Business Profile</li>

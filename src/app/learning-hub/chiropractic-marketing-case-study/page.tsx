@@ -93,7 +93,7 @@ export default function ArticlePage() {
       title: "How SEO improvement works for chiropractic clinics",
       content: (
         <>
-          <p>SEO for a chiropractic clinic focuses primarily on local visibility. The goal is to appear in the searches patients make when they are looking for chiropractic care in a specific location.</p>
+          <p><a href="/chiropractic-marketing/">SEO for a chiropractic clinic</a> focuses primarily on local visibility. The goal is to appear in the searches patients make when they are looking for chiropractic care in a specific location.</p>
           <p>For most chiropractic clinics, the highest-priority SEO work includes:</p>
           <ul>
             <li>Creating dedicated pages for each condition and service area</li>
@@ -111,7 +111,7 @@ export default function ArticlePage() {
       content: (
         <>
           <p>Many chiropractic clinics have a database of past patients who completed a course of treatment and then drifted away. Some of these patients may have had their issue recur, may be experiencing a new problem, or may benefit from maintenance care.</p>
-          <p>A structured patient reactivation approach, identifying suitable past patients and communicating with them at the right time, can generate a meaningful number of booked appointments from an existing database.</p>
+          <p>A structured <a href="/ai-integration/">patient reactivation</a> approach, identifying suitable past patients and communicating with them at the right time, can generate a meaningful number of booked appointments from an existing database.</p>
           <p>For chiropractic, where patients often present with recurring MSK conditions, the clinical rationale for recall is often strong. The challenge is implementing a system that is timely, clinically appropriate and easy to manage operationally.</p>
         </>
       ),
