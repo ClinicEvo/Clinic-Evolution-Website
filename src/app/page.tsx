@@ -12,7 +12,7 @@ import ResourceCard from "@/components/sections/ResourceCard";
 import GoogleReviews from "@/components/sections/GoogleReviews";
 import ClientLogo from "@/components/sections/ClientLogo";
 import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
-import HeroVisual from "@/components/hero/HeroVisual";
+import HeroVideo from "@/components/hero/HeroVideo";
 import HeroHeadline from "@/components/hero/HeroHeadline";
 import CTASection from "@/components/sections/CTASection";
 import ProofBand from "@/components/sections/ProofBand";
@@ -415,9 +415,15 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right, clinical photography with one patient-journey overlay */}
-          <div className="relative">
-            <HeroVisual />
+          {/* Right, the founder on camera. Square panel held to the container's
+              right edge so it lines up with the copy's left edge opposite. */}
+          <div
+            className="flex items-center justify-center px-6 pb-12 lg:justify-end lg:py-14 lg:pl-0"
+            style={{ paddingRight: "max(1.5rem, calc((100vw - 75rem) / 2))" }}
+          >
+            <div className="w-full max-w-[560px]">
+              <HeroVideo />
+            </div>
           </div>
 
         </div>
