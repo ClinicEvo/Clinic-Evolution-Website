@@ -80,7 +80,7 @@ export default function HeroVideo() {
           className="group absolute inset-0 flex cursor-pointer items-end justify-end p-5 text-left sm:p-7 focus-visible:outline-none"
         >
           <span className="flex items-center gap-4">
-            <span className="hidden flex-col items-end sm:flex">
+            <span className="hidden flex-col items-end xl:flex">
               <span className="font-display text-[14px] font-semibold leading-tight text-white">
                 Watch the story
               </span>
