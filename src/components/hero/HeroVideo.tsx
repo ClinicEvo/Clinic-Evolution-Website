@@ -16,8 +16,9 @@ import { useRef, useState } from "react";
    turns an intent signal into a head start, and the click itself calls
    `play()` inside the gesture, which is the one path iOS treats as reliable.
 
-   The file is the 1080px master re-encoded to 720px at a capped bitrate: a
-   talking head and flat graphic slides compress to ~3.6MB for 108s. */
+   The file is the 1080px master (~18MB for 108s), chosen over a 720px re-encode
+   for quality. Its moov atom sits at the front, so playback starts on the first
+   bytes rather than after the full download. */
 
 const VIDEO_SRC = "/videos/danny-morgan-clinic-evo-intro.mp4";
 const POSTER_SRC = "/images/hero-video-cover.jpg";
