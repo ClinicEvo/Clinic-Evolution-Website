@@ -265,6 +265,16 @@ h1 {
   letter-spacing: 0;
 }
 
+/* The homepage draft (/homepage-v2-draft/) sets a smaller h2. Its hero h1 tops
+   out around 58-64px, and the shared 52px h2 sat almost level with it, so the
+   page read as a run of headlines. Capped at 40px it keeps a steady ~1.4x
+   step from h1 to h2 to h3 (28px). Scoped to the draft so live pages keep
+   the shared scale until the draft replaces the homepage. */
+.draft-home .text-h2 {
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem); /* 28px → 40px */
+  line-height: 1.15;
+}
+
 /* h3 and h4 were fixed px while display/h1/h2 all scaled, so on a 390px screen
    a 28px h3 inside a padded card had ~278px to wrap in and broke into three-
    word ragged lines. Both now scale on the same vw ramp as the rest. */

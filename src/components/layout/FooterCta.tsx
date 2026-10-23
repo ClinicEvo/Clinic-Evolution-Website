@@ -2,14 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ctaNav, resolveCtaHref } from "@/lib/nav";
+import { ctaNav, resolveCtaHref, isHomeDraftPath } from "@/lib/nav";
 
 /** Split out of Footer purely so the CTA can read the current route. On
  *  /free-clinic-audit/ the strip otherwise links to the page it is already on;
  *  resolveCtaHref points it at the form instead. Footer itself stays a server
  *  component. */
 export default function FooterCta() {
-  const href = resolveCtaHref(usePathname());
+  const pathname = usePathname();
+  const href = resolveCtaHref(pathname);
+
+  // The homepage draft ends on its own audit form, so a second CTA band
+  // directly under it is the repetition the draft is meant to remove.
+  if (isHomeDraftPath(pathname)) return null;
 
   return (
     <div

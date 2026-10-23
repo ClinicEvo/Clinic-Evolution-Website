@@ -1,19 +1,30 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { events } from "@/lib/analytics";
+import { isHomeDraftPath, PREVIEW_BRAND_NAME } from "@/lib/nav";
 
 export default function WhatsAppButton() {
   const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
-  if (!number) return null;
+  const isPreview = isHomeDraftPath(usePathname());
 
-  const href = `https://wa.me/${number}?text=${encodeURIComponent("Hi Clinic Evo, I'd like to enquire about your services.")}`;
+  // Live pages show nothing until a number is configured. The homepage draft
+  // shows the button regardless, so reviewers can judge it in place; without a
+  // number it is an inert placeholder rather than a broken wa.me link.
+  if (!number && !isPreview) return null;
+
+  const name = isPreview ? PREVIEW_BRAND_NAME : "Clinic Evo";
+  const href = number
+    ? `https://wa.me/${number}?text=${encodeURIComponent(`Hi ${name}, I'd like to enquire about your services.`)}`
+    : undefined;
 
   return (
     <a
       href={href}
+      title={href ? undefined : "WhatsApp number TBC"}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => events.whatsappClick()}
+      onClick={href ? () => events.whatsappClick() : undefined}
       /* --sticky-cta-h is published by StickyMobileCta on the pages that carry
          one. Both are fixed to this corner at z-40, so without the offset the
          bar lands on top of the bubble. Unset everywhere else, hence the 0px

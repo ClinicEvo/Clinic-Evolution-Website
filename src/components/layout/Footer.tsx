@@ -1,28 +1,15 @@
 import Link from "next/link";
-import Image from "next/image";
 import { footerNav } from "@/lib/nav";
 import { siteConfig } from "@/lib/metadata";
 import FooterCta from "@/components/layout/FooterCta";
-
-/* Coral on the navy footer clears AA at 5.67:1, so the footer keeps the full
-   brightness accent rather than the darker text variant used on light ground. */
-const ACCENT = "var(--color-accent)";
+import FooterLogoLink from "@/components/layout/FooterLogoLink";
+import FooterNavColumns from "@/components/layout/FooterNavColumns";
 
 const LinkedInIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
     <circle cx="4" cy="4" r="2" />
   </svg>
-);
-
-const FooterLogo = () => (
-  <Image
-    src="/images/cevo_newlogo_dark.png"
-    alt="Clinic Evo"
-    width={190}
-    height={55}
-    style={{ objectFit: "contain" }}
-  />
 );
 
 export default function Footer() {
@@ -43,9 +30,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" aria-label="Clinic Evo home" className="inline-block">
-              <FooterLogo />
-            </Link>
+            <FooterLogoLink />
             <p className="mt-5 text-sm max-w-xs leading-relaxed text-white">
               Patient acquisition and retention systems for UK MSK clinics.
             </p>
@@ -72,65 +57,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Who We Help */}
-          <div className="lg:pl-12">
-            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] mb-3" style={{ color: ACCENT }}>Who We Help</h3>
-            <ul className="flex flex-col gap-2" role="list">
-              {footerNav.whoWeHelp.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-[13px] transition-colors hover:opacity-70"
-                    style={{ color: "rgba(255,255,255,1)" }}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] mb-3" style={{ color: ACCENT }}>Services</h3>
-            <ul className="flex flex-col gap-2" role="list">
-              {footerNav.services.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-[13px] transition-colors hover:opacity-70"
-                    style={{ color: "rgba(255,255,255,1)" }}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] mb-3" style={{ color: ACCENT }}>Company</h3>
-            <ul className="flex flex-col gap-2" role="list">
-              {footerNav.company.map((item) => {
-                const isAudit = item.href.includes("audit");
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-[13px] transition-colors hover:text-white"
-                      style={{
-                        color: isAudit ? ACCENT : "rgba(255,255,255,1)",
-                        fontWeight: isAudit ? 600 : 400,
-                      }}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <FooterNavColumns />
         </div>
 
         {/* ── Bottom bar ─────────────────────────────────────────────────── */}

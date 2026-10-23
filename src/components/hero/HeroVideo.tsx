@@ -28,11 +28,15 @@ const DURATION_LABEL = "1:48";
  *  agencies…" headline baked into the image; the homepage passes the
  *  video's own frame at 0:50, the system diagram, instead.
  *  `lightPoster` sets the "Watch the story" label in brand navy rather than
- *  white, for a light cover like that frame, where white text disappears. */
+ *  white, for a light cover like that frame, where white text disappears.
+ *  On a light cover the old cover's headline is set as live text over it;
+ *  `coverHeadline={false}` leaves it off (the homepage draft has its own
+ *  caption under the video instead). */
 export default function HeroVideo({
   posterSrc = POSTER_SRC,
   lightPoster = false,
-}: { posterSrc?: string; lightPoster?: boolean } = {}) {
+  coverHeadline = lightPoster,
+}: { posterSrc?: string; lightPoster?: boolean; coverHeadline?: boolean } = {}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -85,7 +89,7 @@ export default function HeroVideo({
             line is set as live text in the brand navy. A discreet paper fade
             behind it keeps it legible and softens the subtitle burned into
             that frame. Right padding keeps both lines clear of the play control. */}
-        {lightPoster && (
+        {coverHeadline && (
           <>
             <div
               aria-hidden

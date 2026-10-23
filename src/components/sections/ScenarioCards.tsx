@@ -155,7 +155,9 @@ const cards = [
 
 // ── Component ─────────────────────────────────────────────────────────────
 
-export default function ScenarioCards() {
+/** `costs` is optional and positional, one per card. The homepage draft
+ *  shows what each one costs; the call-centre page renders the cards bare. */
+export default function ScenarioCards({ costs }: { costs?: string[] } = {}) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
   const reduce = useReducedMotion();
@@ -194,6 +196,14 @@ export default function ScenarioCards() {
           </p>
           {/* Evidence mockup, pinned to the card bottom so all four align */}
           <div className="mt-auto">{card.illustration}</div>
+          {costs?.[i] && (
+            <p className="mt-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-[var(--color-border)] pt-4">
+              <span className="text-label">What it costs</span>
+              <span className="font-display text-2xl font-semibold tabular-nums text-[var(--color-accent-text)]">
+                {costs[i]}
+              </span>
+            </p>
+          )}
         </motion.div>
       ))}
     </div>
