@@ -45,7 +45,7 @@ export default function StickyMobileCta({
    *  and offering an audit there would be the wrong ask. */
   href?: string;
   /** Fully rounded button in the brand coral. Only the homepage draft
-   *  (/preview/home-v2/) sets it; see the contrast note there before it ships. */
+   *  (/homepage-v2-draft/) sets it; see the contrast note there before it ships. */
   pill?: boolean;
 }) {
   const [scrolledPast, setScrolledPast] = useState(false);

@@ -185,9 +185,8 @@ export const footerNav = {
 /** The homepage draft: an internal review copy of the homepage (noindex,
  *  unlinked). The header, footer and floating buttons switch to the draft's
  *  version on this one path only, so the draft can propose changes to them
- *  without touching the live site or any other page, including other drafts
- *  that may later sit under /preview/. */
-export const HOME_DRAFT_PATH = "/preview/home-v2/";
+ *  without touching the live site or any other page. */
+export const HOME_DRAFT_PATH = "/homepage-v2-draft/";
 
 export function isHomeDraftPath(pathname?: string | null) {
   // Matches with or without the trailing slash; trailingSlash: true redirects

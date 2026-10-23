@@ -265,7 +265,7 @@ h1 {
   letter-spacing: 0;
 }
 
-/* The homepage draft (/preview/home-v2/) sets a smaller h2. Its hero h1 tops
+/* The homepage draft (/homepage-v2-draft/) sets a smaller h2. Its hero h1 tops
    out around 58-64px, and the shared 52px h2 sat almost level with it, so the
    page read as a run of headlines. Capped at 40px it keeps a steady ~1.4x
    step from h1 to h2 to h3 (28px). Scoped to the draft so live pages keep
