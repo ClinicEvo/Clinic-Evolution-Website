@@ -417,13 +417,14 @@ export default function HomePage() {
 
           {/* Right, the founder on camera. Square panel held to the container's
               right edge so it lines up with the copy's left edge opposite. The
-              cover is the video's own frame at 0:50, the system diagram. */}
+              cover is the video's own frame at 0:50, the system diagram; it is
+              light, so the play label is set in brand navy (`lightPoster`). */}
           <div
             className="flex items-center justify-center px-6 pb-12 lg:justify-end lg:py-14 lg:pl-0"
             style={{ paddingRight: "max(1.5rem, calc((100vw - 75rem) / 2))" }}
           >
             <div className="w-full max-w-[560px]">
-              <HeroVideo posterSrc="/images/hero-video-cover-0050.jpg" />
+              <HeroVideo posterSrc="/images/hero-video-cover-0050.jpg" lightPoster />
             </div>
           </div>
 

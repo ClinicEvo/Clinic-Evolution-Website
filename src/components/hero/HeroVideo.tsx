@@ -26,8 +26,13 @@ const DURATION_LABEL = "1:48";
 
 /** `posterSrc` swaps the cover. The default carries the "Tired of paying
  *  agencies…" headline baked into the image; the homepage passes the
- *  video's own frame at 0:50, the system diagram, instead. */
-export default function HeroVideo({ posterSrc = POSTER_SRC }: { posterSrc?: string } = {}) {
+ *  video's own frame at 0:50, the system diagram, instead.
+ *  `lightPoster` sets the "Watch the story" label in brand navy rather than
+ *  white, for a light cover like that frame, where white text disappears. */
+export default function HeroVideo({
+  posterSrc = POSTER_SRC,
+  lightPoster = false,
+}: { posterSrc?: string; lightPoster?: boolean } = {}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -45,7 +50,7 @@ export default function HeroVideo({ posterSrc = POSTER_SRC }: { posterSrc?: stri
 
   return (
     <div
-      className="relative aspect-square w-full overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-ink)] shadow-[var(--shadow-card-hover)]"
+      className={`relative aspect-square w-full overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-ink)] shadow-[var(--shadow-card-hover)]${lightPoster ? " [container-type:inline-size]" : ""}`}
       onPointerEnter={warm}
     >
       <video
@@ -76,6 +81,30 @@ export default function HeroVideo({ posterSrc = POSTER_SRC }: { posterSrc?: stri
           className="object-cover"
         />
 
+        {/* The light cover carries no headline of its own, so the old cover's
+            line is set as live text in the brand navy. A discreet paper fade
+            behind it keeps it legible and softens the subtitle burned into
+            that frame. Right padding keeps both lines clear of the play control. */}
+        {lightPoster && (
+          <>
+            <div
+              aria-hidden
+              className="absolute inset-x-0 bottom-0 h-[44%] bg-gradient-to-t from-[var(--color-paper)] from-22% via-[var(--color-paper)]/65 via-55% to-transparent"
+            />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 sm:p-7">
+              <p
+                className="font-display font-semibold leading-[1.1] text-[var(--color-ink)] pr-24 sm:pr-28"
+                style={{ fontSize: "clamp(0.95rem, 4cqw, 1.6rem)", letterSpacing: "-0.01em" }}
+              >
+                Tired of paying agencies for <span className="whitespace-nowrap">poor-quality</span> leads?
+              </p>
+              <p className="mt-2 max-w-[calc(100%-5.5rem)] text-[12px] leading-snug text-[var(--color-muted)] sm:max-w-[calc(100%-13rem)] sm:text-[13px]">
+                Danny Morgan, osteopath and clinic owner, on the system he built instead.
+              </p>
+            </div>
+          </>
+        )}
+
         <button
           type="button"
           onClick={play}
@@ -84,11 +113,15 @@ export default function HeroVideo({ posterSrc = POSTER_SRC }: { posterSrc?: stri
           className="group absolute inset-0 flex cursor-pointer items-end justify-end p-5 text-left sm:p-7 focus-visible:outline-none"
         >
           <span className="flex items-center gap-4">
-            <span className="hidden flex-col items-end xl:flex">
-              <span className="font-display text-[14px] font-semibold leading-tight text-white">
+            {/* Hidden below xl on the default cover, where it would collide with the
+                headline baked into the image. On the light cover it shows from
+                sm up; on phones the play button stands alone so Danny's line
+                beside it has room. */}
+            <span className={`flex-col items-end ${lightPoster ? "hidden sm:flex" : "hidden xl:flex"}`}>
+              <span className={`font-display text-[14px] font-semibold leading-tight ${lightPoster ? "text-[var(--color-ink)]" : "text-white"}`}>
                 Watch the story
               </span>
-              <span className="mt-0.5 text-[12px] tabular-nums leading-tight text-white/60">
+              <span className={`mt-0.5 text-[12px] tabular-nums leading-tight ${lightPoster ? "text-[var(--color-muted)]" : "text-white/60"}`}>
                 {DURATION_LABEL}
               </span>
             </span>
