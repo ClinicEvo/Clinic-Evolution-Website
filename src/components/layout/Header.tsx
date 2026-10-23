@@ -15,7 +15,8 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { usePathname } from "next/navigation";
-import { mainNav, ctaNav, resolveCtaHref } from "@/lib/nav";
+import { mainNav, previewNav, ctaNav, resolveCtaHref, isHomeDraftPath, PREVIEW_BRAND_NAME } from "@/lib/nav";
+import { siteConfig } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 
 type AnyIcon = Icon | React.ComponentType<{ size?: number }>;
@@ -73,7 +74,15 @@ export default function Header() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const ctaHref = resolveCtaHref(usePathname());
+  const pathname = usePathname();
+  const ctaHref = resolveCtaHref(pathname);
+  // The homepage draft gets its own nav labels, the full brand name and
+  // pill-shaped CTAs in the brand coral (see the contrast note in the draft
+  // page before this ships).
+  const isPreview = isHomeDraftPath(pathname);
+  const nav = isPreview ? previewNav : mainNav;
+  const brandName = isPreview ? PREVIEW_BRAND_NAME : siteConfig.name;
+  const draftCta = isPreview ? "!bg-[var(--color-accent)] hover:!bg-[var(--color-accent-strong)]" : "";
 
   const clearCloseTimer = () => {
     if (closeTimer.current) {
@@ -108,15 +117,31 @@ export default function Header() {
     };
   }, []);
 
+  // On the homepage draft the header floats: a rounded pill inset from the
+  // window edge, over the page as it scrolls behind. Its max width matches
+  // .cx-main, so the logo still lines up with the content. No backdrop-blur on
+  // the pill: a backdrop-filter makes the header the containing block for
+  // fixed descendants, which traps the full-screen mobile menu inside it.
   return (
-    <div className="sticky top-0 z-50">
-      {/* Top bar */}
-      <div className="bg-[var(--color-ink)] text-white/70 text-[0.7rem] font-medium tracking-wide text-center py-2 px-4 hidden sm:block">
-        Founded inside a working MSK clinic. Built exclusively for UK osteopaths, physiotherapists and chiropractors.
-      </div>
+    <div className={isPreview ? "sticky top-0 z-50 px-3 pt-3 sm:px-5" : "sticky top-0 z-50"}>
+      {/* Top bar. Not on the homepage draft, which drops it so the
+          hero and logo strip get the full first screen. */}
+      {!isPreview && (
+        <div className="bg-[var(--color-ink)] text-white/70 text-[0.7rem] font-medium tracking-wide text-center py-2 px-4 hidden sm:block">
+          Founded inside a working MSK clinic. Built exclusively for UK osteopaths, physiotherapists and chiropractors.
+        </div>
+      )}
 
       {/* Main header */}
-      <header className="bg-[var(--color-paper)] border-b border-[var(--color-border)] py-4 lg:py-5">
+      {/* Slimmer on the homepage draft too: less padding and a smaller logo, so
+          the draft's one-screen hero gets more of the first screen. */}
+      <header
+        className={
+          isPreview
+            ? "mx-auto max-w-[78rem] rounded-full border border-[var(--color-border)] bg-[var(--color-paper)]/95 py-2 shadow-[var(--shadow-card)]"
+            : "bg-[var(--color-paper)] border-b border-[var(--color-border)] py-4 lg:py-5"
+        }
+      >
         <div className="cx-main relative">
           <nav
             ref={navRef}
@@ -127,14 +152,14 @@ export default function Header() {
             <Link
               href="/"
               className="flex flex-col leading-none group"
-              aria-label="Clinic Evo home"
+              aria-label={`${brandName} home`}
               onClick={() => setMobileOpen(false)}
             >
               <Image
                 src="/images/cevo_newlogo.png"
-                alt="Clinic Evo"
-                width={180}
-                height={52}
+                alt={brandName}
+                width={isPreview ? 140 : 180}
+                height={isPreview ? 40 : 52}
                 style={{ objectFit: "contain" }}
                 priority
               />
@@ -142,7 +167,7 @@ export default function Header() {
 
             {/* Desktop Nav */}
             <ul className="hidden lg:flex items-center gap-1" role="list">
-              {mainNav.map((item) => {
+              {nav.map((item) => {
                 const hasMenu = Boolean(item.groups || item.children);
                 return (
                   <li
@@ -317,7 +342,7 @@ export default function Header() {
             {/* CTA */}
             <div className="flex items-center gap-4">
               <div className="hidden lg:block">
-                <Button href={ctaHref} size="md" style={{ letterSpacing: "0.03em" }}>
+                <Button href={ctaHref} size="md" className={draftCta} style={{ letterSpacing: "0.03em", ...(isPreview && { borderRadius: "9999px", paddingTop: "0.6rem", paddingBottom: "0.6rem" }) }}>
                   {ctaNav.label}
                 </Button>
               </div>
@@ -343,10 +368,10 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div id="mobile-menu" className="lg:hidden fixed inset-0 top-[73px] bg-white z-40 overflow-y-auto flex flex-col">
+          <div id="mobile-menu" className={`lg:hidden fixed inset-0 ${isPreview ? "top-[70px]" : "top-[73px]"} bg-white z-40 overflow-y-auto flex flex-col`}>
             {/* Nav rows */}
             <ul role="list" className="flex-1 border-t border-[var(--color-border)]">
-              {mainNav.map((item) => {
+              {nav.map((item) => {
                 const hasMenu = Boolean(item.groups || item.children);
                 const isExpanded = mobileExpanded === item.label;
                 const flatItems = item.groups
@@ -414,7 +439,7 @@ export default function Header() {
 
             {/* Callout card + CTA — pinned to bottom */}
             <div className="p-6 flex flex-col gap-4 border-t border-[var(--color-border)]">
-              {mainNav.filter((item) => item.callout).map((item) => (
+              {nav.filter((item) => item.callout).map((item) => (
                 <Link
                   key={item.callout!.href}
                   href={item.callout!.href}
@@ -436,7 +461,7 @@ export default function Header() {
                   </span>
                 </Link>
               ))}
-              <Button href={ctaHref} size="lg" className="w-full">
+              <Button href={ctaHref} size="lg" className={`w-full ${draftCta}`} style={isPreview ? { borderRadius: "9999px" } : undefined}>
                 {ctaNav.label}
               </Button>
             </div>

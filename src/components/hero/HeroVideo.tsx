@@ -24,7 +24,15 @@ const VIDEO_SRC = "/videos/danny-morgan-clinic-evo-intro.mp4";
 const POSTER_SRC = "/images/hero-video-cover.jpg";
 const DURATION_LABEL = "1:48";
 
-export default function HeroVideo() {
+/** `posterSrc` swaps the cover. The default carries the "Tired of paying
+ *  agencies…" headline baked into the image; the homepage draft uses the
+ *  video's own frame at 0:50 and sets that line as a caption instead.
+ *  `lightPoster` sets the "Watch the story" label in ink rather than white,
+ *  for a light cover like that frame, where white text disappears. */
+export default function HeroVideo({
+  posterSrc = POSTER_SRC,
+  lightPoster = false,
+}: { posterSrc?: string; lightPoster?: boolean } = {}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -65,7 +73,7 @@ export default function HeroVideo() {
         aria-hidden={playing}
       >
         <Image
-          src={POSTER_SRC}
+          src={posterSrc}
           alt=""
           fill
           priority
@@ -82,10 +90,10 @@ export default function HeroVideo() {
         >
           <span className="flex items-center gap-4">
             <span className="hidden flex-col items-end xl:flex">
-              <span className="font-display text-[14px] font-semibold leading-tight text-white">
+              <span className={`font-display text-[14px] font-semibold leading-tight ${lightPoster ? "text-[var(--color-ink)]" : "text-white"}`}>
                 Watch the story
               </span>
-              <span className="mt-0.5 text-[12px] tabular-nums leading-tight text-white/60">
+              <span className={`mt-0.5 text-[12px] tabular-nums leading-tight ${lightPoster ? "text-[var(--color-muted)]" : "text-white/60"}`}>
                 {DURATION_LABEL}
               </span>
             </span>

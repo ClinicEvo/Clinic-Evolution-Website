@@ -36,6 +36,7 @@ export default function StickyMobileCta({
   hideNearId,
   label = ctaNav.label,
   href: hrefOverride,
+  pill = false,
 }: {
   hideNearId?: string;
   label?: string;
@@ -43,6 +44,9 @@ export default function StickyMobileCta({
    *  the free audit — /graduate/ sends this bar to its own application form,
    *  and offering an audit there would be the wrong ask. */
   href?: string;
+  /** Fully rounded button in the brand coral. Only the homepage draft
+   *  (/preview/home-v2/) sets it; see the contrast note there before it ships. */
+  pill?: boolean;
 }) {
   const [scrolledPast, setScrolledPast] = useState(false);
   const [targetInView, setTargetInView] = useState(false);
@@ -111,7 +115,11 @@ export default function StickyMobileCta({
         href={href}
         tabIndex={visible ? undefined : -1}
         onClick={() => events.auditCtaClick("sticky-mobile")}
-        className="flex w-full items-center justify-center rounded-[4px] bg-[var(--color-accent-strong)] px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[var(--color-accent-dim)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-strong)] focus-visible:ring-offset-2"
+        className={
+          pill
+            ? "flex w-full items-center justify-center rounded-full bg-[var(--color-accent)] px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[var(--color-accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-strong)] focus-visible:ring-offset-2"
+            : "flex w-full items-center justify-center rounded-[4px] bg-[var(--color-accent-strong)] px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[var(--color-accent-dim)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-strong)] focus-visible:ring-offset-2"
+        }
       >
         {label}
       </a>

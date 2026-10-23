@@ -181,3 +181,77 @@ export const footerNav = {
     { label: "Terms", href: "/terms/" },
   ],
 };
+
+/** The homepage draft: an internal review copy of the homepage (noindex,
+ *  unlinked). The header, footer and floating buttons switch to the draft's
+ *  version on this one path only, so the draft can propose changes to them
+ *  without touching the live site or any other page, including other drafts
+ *  that may later sit under /preview/. */
+export const HOME_DRAFT_PATH = "/preview/home-v2/";
+
+export function isHomeDraftPath(pathname?: string | null) {
+  // Matches with or without the trailing slash; trailingSlash: true redirects
+  // the bare form, but usePathname() can report either during navigation.
+  return pathname?.replace(/\/?$/, "/") === HOME_DRAFT_PATH;
+}
+
+/** The homepage draft's nav: same menus, shorter labels, anchors pointed at
+ *  the draft's own sections rather than the live homepage. */
+const previewLabels: Record<string, { label: string; href: string }> = {
+  "What We Do": { label: "Services", href: "#system-section" },
+  "Who We Help": { label: "Who we help", href: "#who-we-help" },
+  "Client Results": { label: "Results", href: "/case-studies/" },
+};
+
+export const previewNav: NavItem[] = mainNav.map((item) =>
+  previewLabels[item.label] ? { ...item, ...previewLabels[item.label] } : item,
+);
+
+/** The draft uses the company's full name, Clinic Evolution, everywhere it
+ *  shows a name. The live site still uses siteConfig.name ("Clinic Evo"). */
+export const PREVIEW_BRAND_NAME = "Clinic Evolution";
+
+/** The five stages on the homepage draft, each mapped to the service that
+ *  handles it. Shared with the draft footer so its services column follows
+ *  the page's structure instead of listing services in a different order. */
+export const SYSTEM_STAGES = [
+  {
+    stage: "Get found",
+    body: "Patients find you for what is wrong with them.",
+    services: [
+      { label: "Clinic Websites", href: "/website-design-for-clinics/" },
+      { label: "SEO for Clinics", href: "/seo-for-clinics/" },
+    ],
+  },
+  {
+    stage: "Create demand",
+    body: "Reach people actively looking for treatment.",
+    services: [
+      { label: "Google Ads", href: "/google-ads-for-clinics/" },
+      { label: "Paid Social", href: "/digital-marketing/" },
+    ],
+  },
+  {
+    stage: "Convert",
+    body: "Every call answered, every lead called back.",
+    services: [{ label: "Call Handling & Booking", href: "/call-centre/" }],
+  },
+  {
+    stage: "Follow up",
+    body: "Instant replies, then twelve months of nurture.",
+    services: [{ label: "Patient Pulse", href: "/patient-pulse/" }],
+  },
+  {
+    stage: "Bring back",
+    body: "Lapsed patients contacted automatically.",
+    services: [{ label: "AI reactivation", href: "/ai-integration/" }],
+  },
+];
+
+/** The draft footer: disciplines only, and the company list without the
+ *  consultant page. */
+export const previewFooterNav = {
+  ...footerNav,
+  whoWeHelp: footerNav.whoWeHelp.filter((item) => item.href !== "/graduate/"),
+  company: footerNav.company.filter((item) => item.href !== "/healthcare-marketing-consultant/"),
+};
