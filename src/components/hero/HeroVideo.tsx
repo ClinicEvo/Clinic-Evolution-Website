@@ -24,7 +24,10 @@ const VIDEO_SRC = "/videos/danny-morgan-clinic-evo-intro.mp4";
 const POSTER_SRC = "/images/hero-video-cover.jpg";
 const DURATION_LABEL = "1:48";
 
-export default function HeroVideo() {
+/** `posterSrc` swaps the cover. The default carries the "Tired of paying
+ *  agencies…" headline baked into the image; the homepage passes the
+ *  video's own frame at 0:50, the system diagram, instead. */
+export default function HeroVideo({ posterSrc = POSTER_SRC }: { posterSrc?: string } = {}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -65,7 +68,7 @@ export default function HeroVideo() {
         aria-hidden={playing}
       >
         <Image
-          src={POSTER_SRC}
+          src={posterSrc}
           alt=""
           fill
           priority
