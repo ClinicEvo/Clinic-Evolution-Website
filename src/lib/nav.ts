@@ -210,39 +210,41 @@ export const previewNav: NavItem[] = mainNav.map((item) =>
  *  shows a name. The live site still uses siteConfig.name ("Clinic Evo"). */
 export const PREVIEW_BRAND_NAME = "Clinic Evolution";
 
-/** The five stages on the homepage draft, each mapped to the service that
- *  handles it. Shared with the draft footer so its services column follows
- *  the page's structure instead of listing services in a different order. */
+/** The five steps on the homepage draft, each mapped to the service that
+ *  handles it. Read by the draft footer's services column (only on the draft
+ *  path; the live footer uses footerNav).
+ *  Named in a clinic owner's terms rather than agency stages ("Create demand",
+ *  "Convert"), which read as agency jargon to clinic owners. */
 export const SYSTEM_STAGES = [
   {
-    stage: "Get found",
-    body: "Patients find you for what is wrong with them.",
+    stage: "Get found on Google",
+    body: "Your clinic shows up when people nearby search for treatment, with a website that makes booking easy.",
     services: [
       { label: "Clinic Websites", href: "/website-design-for-clinics/" },
       { label: "SEO for Clinics", href: "/seo-for-clinics/" },
     ],
   },
   {
-    stage: "Create demand",
-    body: "Reach people actively looking for treatment.",
+    stage: "Reach more patients",
+    body: "Google and Facebook ads put you in front of people looking for treatment right now.",
     services: [
       { label: "Google Ads", href: "/google-ads-for-clinics/" },
       { label: "Paid Social", href: "/digital-marketing/" },
     ],
   },
   {
-    stage: "Convert",
-    body: "Every call answered, every lead called back.",
+    stage: "Answer every enquiry",
+    body: "Every call answered and every missed call rung back, so they book with you, not the next clinic.",
     services: [{ label: "Call Handling & Booking", href: "/call-centre/" }],
   },
   {
-    stage: "Follow up",
-    body: "Instant replies, then twelve months of nurture.",
+    stage: "Follow up for you",
+    body: "An instant reply, day or night, then friendly reminders for up to a year until they're ready to book.",
     services: [{ label: "Patient Pulse", href: "/patient-pulse/" }],
   },
   {
-    stage: "Bring back",
-    body: "Lapsed patients contacted automatically.",
+    stage: "Bring patients back",
+    body: "Past patients hear from you when they're due a check-in, so they rebook instead of searching again.",
     services: [{ label: "AI reactivation", href: "/ai-integration/" }],
   },
 ];
