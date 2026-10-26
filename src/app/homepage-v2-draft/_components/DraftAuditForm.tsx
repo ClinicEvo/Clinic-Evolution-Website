@@ -43,7 +43,7 @@ export default function DraftAuditForm() {
         type="submit"
         className="mt-2 inline-flex w-full items-center justify-center font-semibold text-white transition-colors bg-[var(--color-accent)] hover:bg-[var(--color-accent-strong)] active:translate-y-px"
         style={{
-          padding: "15px 28px",
+          padding: "0.6rem 28px",
           borderRadius: "9999px",
           fontSize: "15px",
           fontFamily: "var(--font-display)",

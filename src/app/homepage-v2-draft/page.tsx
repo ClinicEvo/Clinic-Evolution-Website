@@ -5,11 +5,11 @@ import Image from "next/image";
 import FadeUp from "@/components/animations/FadeUp";
 import ResourceCard from "@/components/sections/ResourceCard";
 import ClientLogo from "@/components/sections/ClientLogo";
-import ScenarioCards from "@/components/sections/ScenarioCards";
-import HeroVideo from "@/components/hero/HeroVideo";
+import SystemSteps from "./_components/SystemSteps";
+import DraftHeroVideo from "./_components/DraftHeroVideo";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 import { GOOGLE_PROFILE_URL, GOOGLE_RATING, GOOGLE_REVIEWS } from "@/lib/reviews";
-import { PREVIEW_BRAND_NAME, SYSTEM_STAGES } from "@/lib/nav";
+import { PREVIEW_BRAND_NAME } from "@/lib/nav";
 import DraftAuditForm from "./_components/DraftAuditForm";
 
 /**
@@ -18,10 +18,10 @@ import DraftAuditForm from "./_components/DraftAuditForm";
  * nothing links to it, and deliberately NOT blocked in robots.ts — Google has
  * to be able to crawl the page to read the directive, same as the /lp/ pages.
  *
- * The brief behind it: one story told once. You are losing patients in four
- * places, here is the system that closes each one, here is proof it works.
- * Every section does a different job, in that order — what is going wrong,
- * what we do about it, can you trust us — and the page ends on the CTA.
+ * The brief behind it: one story told once. Here is how it works, here is
+ * proof it works. Every section does a different job — what we do, can you
+ * trust us — and the page ends on the CTA. A "where clinics lose patients"
+ * section sat between the hero and the system until it was cut at review.
  *
  * Header and footer differences (nav labels, brand name, footer columns, no
  * footer CTA band) are switched by path in src/lib/nav.ts, so the live site
@@ -46,8 +46,22 @@ export const metadata: Metadata = {
   },
 };
 
-/* The tick marks use the stronger coral so they read on the light-coral wash. */
-const ACCENT = "var(--color-accent-strong)";
+/* The tick marks use the brand coral, like every other coral on the draft
+   (see DRAFT_CORAL below). */
+const ACCENT = "var(--color-accent)";
+
+/* Every coral on the draft is the bright brand coral, at the reviewers'
+   request: the darker text coral read as a second, duller orange. Done by
+   pointing --color-accent-text at the brand coral for this page's subtree,
+   which reaches the .eyebrow class and every text-[var(--color-accent-text)]
+   without touching globals.css or the live site. Hovers still darken through
+   --color-accent-strong and --color-accent-dim, so they keep a visible change.
+   CHECK BEFORE LAUNCH. The brand coral is 3.07:1 on white and 2.86:1 on the
+   grey surface, under the 4.5:1 AA needs for text this small (eyebrows, the
+   "More on…" links, table headings). The token block in globals.css explains
+   why --color-accent-text exists; drop this override before launch, or keep
+   it only where the text is large. */
+const DRAFT_CORAL = { "--color-accent-text": "var(--color-accent)" } as CSSProperties;
 
 /* CTA fills on this draft use the brand coral, the same as "Fuller diaries."
    in the h1, at the reviewers' request: the darker accessible coral read as
@@ -61,18 +75,6 @@ const ACCENT = "var(--color-accent-strong)";
 /* Buttons on this draft are pills, which nothing else on the site uses yet.
    Kept as one constant so the choice is easy to keep or revert as a whole. */
 const PILL = "9999px";
-
-/* CHECK BEFORE LAUNCH. The brief's "≈£300 lost" per card, standing for a
-   typical first course of treatment. It has no source in the repo yet — the
-   site's rule is that every published figure has one (see
-   src/lib/clinic-capacity.ts) — so Danny needs to confirm it from Bodyfunction's
-   own average before this goes live. Order matches the cards in ScenarioCards. */
-const LOSS_COSTS = ["≈£300 lost", "≈£300 lost", "≈£300 + the ad", "≈£300 a time"];
-
-// The five stages, each mapped to the service that handles it, shared with the
-// draft footer. Patient Pulse is drawn underneath all five rather than given a
-// column of its own, because it is the record every stage writes to.
-const stages = SYSTEM_STAGES;
 
 // Before and after, drawn from the capability list Danny gave in the 10 Aug
 // review and the Growth System copy. The left column is meant to read as the
@@ -177,13 +179,16 @@ function Arrow({ size = 12 }: { size?: number }) {
   );
 }
 
-function Check() {
+/* The tick: coral on the light-coral wash. `sm` is the hero's size, which
+   the Patient Pulse table uses too so the two lists match. */
+function Check({ size = "md" }: { size?: "sm" | "md" }) {
+  const sm = size === "sm";
   return (
     <span
-      className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full"
+      className={`flex flex-shrink-0 items-center justify-center rounded-full ${sm ? "h-4 w-4" : "h-5 w-5"}`}
       style={{ background: "var(--color-accent-light)", color: ACCENT }}
     >
-      <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <svg width={sm ? 9 : 10} height={sm ? 9 : 10} viewBox="0 0 14 14" fill="none" aria-hidden="true">
         <path d="M2.5 7.5l3 3 6-6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </span>
@@ -205,7 +210,7 @@ function Stars() {
 
 export default function HomeDraftPage() {
   return (
-    <div className="draft-home">
+    <div className="draft-home" style={DRAFT_CORAL}>
       {/* ── 1. Hero + client logos: one screen ─────────────────────────────
           From lg the hero and the logo strip fill exactly the first screen
           under the sticky header (70.5px: the floating pill plus its top gap),
@@ -242,9 +247,11 @@ export default function HomeDraftPage() {
                 className="mt-5 max-w-[32rem] leading-relaxed text-[var(--color-charcoal)] lg:mt-[clamp(1rem,2.6vh,1.5rem)]"
                 style={{ fontSize: "clamp(1rem, 2.2vh, 1.125rem)" }}
               >
-                Clinic Evolution runs the marketing, call handling and{" "}
-                <span className="whitespace-nowrap">follow-up</span> for UK osteopaths,
-                physios and chiropractors, as one system.
+                Clinic Evolution builds the website, search visibility and campaigns
+                that bring the right patients to your clinic. Then Patient Pulse
+                connects every enquiry, conversation and{" "}
+                <span className="whitespace-nowrap">follow-up</span>, so none of them go
+                cold.
               </p>
             </FadeUp>
 
@@ -254,7 +261,7 @@ export default function HomeDraftPage() {
                   href="#book-audit"
                   className="inline-flex items-center font-semibold text-white transition-colors bg-[var(--color-accent)] hover:bg-[var(--color-accent-strong)] active:translate-y-px"
                   style={{
-                    padding: "11px 26px",
+                    padding: "0.6rem 26px",
                     borderRadius: PILL,
                     fontSize: "15px",
                     fontFamily: "var(--font-display)",
@@ -265,7 +272,7 @@ export default function HomeDraftPage() {
                 <Link
                   href="#system-section"
                   className="group inline-flex items-center gap-2 font-medium text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent-text)]"
-                  style={{ padding: "11px 8px", fontSize: "15px" }}
+                  style={{ padding: "0.6rem 8px", fontSize: "15px" }}
                 >
                   See how it works
                   <span className="transition-transform group-hover:translate-x-0.5">
@@ -279,14 +286,7 @@ export default function HomeDraftPage() {
               <ul className="mt-7 flex flex-wrap gap-x-7 gap-y-3 border-t border-[var(--color-border)] pt-4 lg:mt-[clamp(1.25rem,3vh,1.75rem)]">
                 {heroChecks.map((item) => (
                   <li key={item} className="flex items-center gap-2.5 text-[13px] text-[var(--color-charcoal)]">
-                    <span
-                      className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full"
-                      style={{ background: "var(--color-accent-light)", color: ACCENT }}
-                    >
-                      <svg width="9" height="9" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                        <path d="M2.5 7.5l3 3 6-6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
+                    <Check size="sm" />
                     {item}
                   </li>
                 ))}
@@ -304,12 +304,8 @@ export default function HomeDraftPage() {
             className="m-0 mx-auto w-full lg:mr-0"
             style={{ maxWidth: "min(32rem, calc(100svh - 15.5rem))" }}
           >
-            <HeroVideo posterSrc="/images/hero-video-cover-0050.jpg" lightPoster coverHeadline={false} />
-            <figcaption className="mt-3 text-[12px] leading-relaxed text-[var(--color-muted)]">
-              <span className="font-semibold text-[var(--color-ink)]">See Patient Pulse at work.</span>{" "}
-              Danny Morgan shows how every enquiry gets a reply within minutes
-              and follow-up for a year.
-            </figcaption>
+            {/* The caption is set over the cover, as on the live homepage. */}
+            <DraftHeroVideo posterSrc="/images/hero-video-cover-0050.jpg" lightPoster />
           </figure>
         </div>
       </section>
@@ -342,123 +338,17 @@ export default function HomeDraftPage() {
       </section>
       </div>
 
-      {/* ── 2. The problem: four places patients are lost ─────────────────── */}
-      <section id="problem" className="section bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
-        <div className="cx-main">
-          <FadeUp>
-            <p className="eyebrow mb-4">Where clinics lose patients</p>
-            <h2 className="text-h2 text-balance mb-14 max-w-[680px] text-[var(--color-ink)]">
-              Most MSK clinics lose patients long before treatment begins
-            </h2>
-          </FadeUp>
+      {/* ── 2. How it works: four channels, Patient Pulse underneath ──────── */}
+      <SystemSteps />
 
-          <ScenarioCards costs={LOSS_COSTS} />
-
-          <FadeUp>
-            <p className="text-h3 mx-auto mt-16 max-w-3xl text-balance text-center font-medium text-[var(--color-ink)]">
-              Most clinics never see these in the accounts.{" "}
-              <span className="text-[var(--color-accent-text)]">They just feel the empty diary.</span>
-            </p>
-            <p className="mx-auto mt-4 max-w-xl text-center text-[12px] text-[var(--color-muted)]">
-              ≈£300 is a typical first course of treatment. Draft figure, to confirm before launch.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* ── 3. The system: one list ───────────────────────────────────────── */}
-      <section id="system-section" className="section bg-[var(--color-paper)] border-b border-[var(--color-border)]">
-        <div className="cx-main">
-          <FadeUp>
-            <p className="eyebrow mb-4">How Clinic Evolution closes each gap</p>
-            <h2 className="text-h2 mb-4 max-w-[720px] text-[var(--color-ink)]">
-              Five stages from first search to return visit, run as one system
-            </h2>
-            <p className="text-body-lg mb-14 max-w-[580px] text-[var(--color-charcoal)]">
-              Each stage is handled by one of our services, and Patient Pulse runs
-              underneath all five, so nothing falls between suppliers.
-            </p>
-          </FadeUp>
-
-          {/* A flow, not five boxes: arrows between the cards (across on
-              desktop, down on phones) and a drop line from each into the
-              Patient Pulse bar. The two-column tablet grid carries neither,
-              because a 2-2-1 layout has no single reading direction. */}
-          <ol className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-4 lg:grid-cols-5 lg:gap-8">
-            {stages.map((s, i) => (
-              <li key={s.stage} className="relative">
-                <FadeUp delay={i * 0.06} className="h-full">
-                  <div className="flex h-full flex-col rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-6 shadow-[var(--shadow-card)]">
-                    <span
-                      className="mb-4 flex h-8 w-8 items-center justify-center rounded-full font-display text-[13px] font-semibold text-white"
-                      style={{ background: "var(--color-ink)" }}
-                      aria-hidden
-                    >
-                      {i + 1}
-                    </span>
-                    <h3 className="text-h4 mb-2 text-[var(--color-ink)]">{s.stage}</h3>
-                    <p className="text-body mb-5 text-[var(--color-charcoal)]">{s.body}</p>
-                    <ul className="mt-auto flex flex-col gap-1.5 border-t border-[var(--color-border)] pt-4">
-                      {s.services.map((svc) => (
-                        <li key={svc.href}>
-                          <Link
-                            href={svc.href}
-                            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent-text)]"
-                          >
-                            {svc.label}
-                            <Arrow size={10} />
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </FadeUp>
-                {i < stages.length - 1 && (
-                  <span
-                    aria-hidden
-                    className="absolute z-10 flex h-7 w-7 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-paper)] text-[var(--color-accent-text)] shadow-[var(--shadow-card)] left-1/2 top-full mt-[6px] -translate-x-1/2 rotate-90 sm:hidden lg:flex lg:left-auto lg:-right-[30px] lg:top-1/2 lg:mt-0 lg:translate-x-0 lg:-translate-y-1/2 lg:rotate-0"
-                  >
-                    <Arrow size={11} />
-                  </span>
-                )}
-                {/* Drop line into the Patient Pulse bar, desktop only. */}
-                <span
-                  aria-hidden
-                  className="absolute left-1/2 top-full hidden h-6 w-px bg-[var(--color-muted-light)] lg:block"
-                />
-              </li>
-            ))}
-          </ol>
-
-          <FadeUp delay={0.3}>
-            <div
-              className="mt-4 flex flex-col gap-4 bg-[var(--color-ink)] px-7 py-6 text-white sm:flex-row sm:items-center sm:justify-between lg:mt-6"
-              style={{ borderRadius: "var(--radius-card)" }}
-            >
-              <p className="text-[15px] leading-relaxed text-white/70">
-                <span className="font-display font-semibold text-white">Patient Pulse, underneath every stage.</span>{" "}
-                One pipeline and one inbox, with every enquiry, reply and follow-up logged.
-              </p>
-              <Link
-                href="/patient-pulse/"
-                className="inline-flex flex-shrink-0 items-center gap-1.5 text-[13px] font-semibold text-[var(--color-accent)] transition-colors hover:text-white"
-              >
-                How Patient Pulse works
-                <Arrow size={10} />
-              </Link>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* ── 4. Patient Pulse spotlight ────────────────────────────────────── */}
+      {/* ── 3. Patient Pulse spotlight ────────────────────────────────────── */}
       <section className="section bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
         <div className="cx-main grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <FadeUp>
             <div className="lg:sticky lg:top-32">
               <p className="eyebrow mb-4">Patient Pulse</p>
               <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                Spreadsheets and five inboxes, replaced by one pipeline
+                Every patient who gets in touch, answered and followed up
               </h2>
               <p className="text-body-lg mb-8 text-[var(--color-charcoal)]">
                 If the left-hand column sounds like your week, this is the part of
@@ -470,7 +360,7 @@ export default function HomeDraftPage() {
                 style={{
                   border: "1px solid var(--color-border)",
                   color: "var(--color-ink)",
-                  padding: "13px 24px",
+                  padding: "0.6rem 24px",
                   borderRadius: PILL,
                   fontSize: "15px",
                 }}
@@ -496,9 +386,10 @@ export default function HomeDraftPage() {
                   {pulseRows.map((r) => (
                     <tr key={r.before} className="border-b border-[var(--color-border)] last:border-b-0 align-top">
                       <td className="px-5 py-4 text-[14px] leading-snug text-[var(--color-muted)] sm:px-7">{r.before}</td>
-                      <td className="px-5 py-4 text-[14px] font-semibold leading-snug text-[var(--color-ink)] sm:px-7">
-                        <span className="flex gap-3">
-                          <Check />
+                      <td className="px-5 py-4 text-[14px] font-medium leading-snug text-[var(--color-ink)] sm:px-7">
+                        {/* The tick nudged 1px down to sit on the first line's centre. */}
+                        <span className="flex gap-2.5 [&>span:first-child]:mt-px">
+                          <Check size="sm" />
                           {r.after}
                         </span>
                       </td>
@@ -511,7 +402,7 @@ export default function HomeDraftPage() {
         </div>
       </section>
 
-      {/* ── 5. Proof ──────────────────────────────────────────────────────── */}
+      {/* ── 4. Proof ──────────────────────────────────────────────────────── */}
       <section id="results" className="section bg-[var(--color-paper)] border-b border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
@@ -602,7 +493,7 @@ export default function HomeDraftPage() {
         </div>
       </section>
 
-      {/* ── 6. Founders and where it was built ─────────────────────────── */}
+      {/* ── 5. Founders and where it was built ─────────────────────────── */}
       {/* One origin story, told once. Bodyfunction used to close the results
           section as a dark card and then this section told the same story
           again; it now lives here, beside the people who built it. Danny's
@@ -659,7 +550,7 @@ export default function HomeDraftPage() {
         </div>
       </section>
 
-      {/* ── 7. Who we help ────────────────────────────────────────────────── */}
+      {/* ── 6. Who we help ────────────────────────────────────────────────── */}
       <section id="who-we-help" className="section bg-[var(--color-paper)] border-b border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
@@ -700,7 +591,7 @@ export default function HomeDraftPage() {
         </div>
       </section>
 
-      {/* ── 8. Learning Hub, above the CTA so the page ends on the ask ────── */}
+      {/* ── 7. Learning Hub, above the CTA so the page ends on the ask ────── */}
       <section className="section bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
         <div className="cx-main">
           <div className="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-end">
@@ -716,7 +607,7 @@ export default function HomeDraftPage() {
               style={{
                 border: "1px solid var(--color-border)",
                 color: "var(--color-ink)",
-                padding: "11px 22px",
+                padding: "0.6rem 22px",
                 borderRadius: PILL,
                 fontSize: "14px",
               }}
@@ -753,7 +644,7 @@ export default function HomeDraftPage() {
         </div>
       </section>
 
-      {/* ── 9. One closing CTA, with the form on the page ─────────────────── */}
+      {/* ── 8. One closing CTA, with the form on the page ─────────────────── */}
       <section id="book-audit" className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div
