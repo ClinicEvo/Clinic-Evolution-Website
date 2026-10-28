@@ -91,7 +91,10 @@ export default function DraftHeroVideo({
         {/* The light cover carries no headline of its own, so the caption is
             set as live text in the brand navy. A discreet paper fade
             behind it keeps it legible and softens the subtitle burned into
-            that frame. Right padding keeps both lines clear of the play control. */}
+            that frame. The title is one line across the full width, sized to
+            fit it (19.5em covers the text); it clears the play control because
+            the subtitle under it is held at least the button's height, with
+            right padding of its own. */}
         {coverHeadline && (
           <>
             <div
@@ -100,14 +103,15 @@ export default function DraftHeroVideo({
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 sm:p-7">
               <p
-                className="font-display font-semibold leading-[1.1] text-[var(--color-ink)] pr-20 sm:pr-24"
-                style={{ fontSize: "clamp(0.95rem, 4cqw, 1.6rem)", letterSpacing: "-0.01em" }}
+                className="whitespace-nowrap font-display font-semibold leading-[1.1] text-[var(--color-ink)]"
+                style={{
+                  fontSize: "min(1.6rem, max(0.95rem, 4cqw), calc((100cqw - 56px) / 19.5))",
+                  letterSpacing: "-0.01em",
+                }}
               >
-                <span className="whitespace-nowrap">Patient Pulse: What it is and how</span>
-                <br />
-                it works
+                Patient Pulse: What it is and how it works
               </p>
-              <p className="mt-1.5 pr-20 text-[12px] leading-snug text-[var(--color-muted)] sm:pr-24 sm:text-[13px]">
+              <p className="mt-1.5 min-h-[52px] pr-20 text-[12px] leading-snug text-[var(--color-muted)] sm:min-h-14 sm:pr-24 sm:text-[13px]">
                 Danny Morgan, osteopath and clinic owner, on the system he built.
               </p>
             </div>
