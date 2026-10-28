@@ -7,6 +7,7 @@ import ResourceCard from "@/components/sections/ResourceCard";
 import ClientLogo from "@/components/sections/ClientLogo";
 import SystemSteps from "./_components/SystemSteps";
 import DraftHeroVideo from "./_components/DraftHeroVideo";
+import DraftScrollLink from "./_components/DraftScrollLink";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
 import { GOOGLE_PROFILE_URL, GOOGLE_RATING, GOOGLE_REVIEWS } from "@/lib/reviews";
 import { PREVIEW_BRAND_NAME } from "@/lib/nav";
@@ -86,6 +87,12 @@ const pulseRows = [
   { before: "Follow-up depends on who remembers", after: "Twelve months of follow-up that runs itself" },
   { before: "Review requests forgotten", after: "Google review requests sent automatically" },
   { before: "Lapsed patients never hear from you", after: "Reactivation messages before the next flare-up" },
+];
+
+const pulseFacts = [
+  { term: "What it is", detail: "Software your team logs into: one inbox and pipeline for every enquiry, from every channel." },
+  { term: "Who runs it", detail: "We set it up, connect it to your booking system and keep it running. Your reception team just works the inbox." },
+  { term: "What it costs", detail: "Included in the full Clinic Evolution system. You pay only the messaging usage, typically £50 to £100 a month." },
 ];
 
 // The live homepage's five marks under the hero, set deliberately quiet:
@@ -247,11 +254,10 @@ export default function HomeDraftPage() {
                 className="mt-5 max-w-[32rem] leading-relaxed text-[var(--color-charcoal)] lg:mt-[clamp(1rem,2.6vh,1.5rem)]"
                 style={{ fontSize: "clamp(1rem, 2.2vh, 1.125rem)" }}
               >
-                Clinic Evolution builds the website, search visibility and campaigns
-                that bring the right patients to your clinic. Then Patient Pulse
-                connects every enquiry, conversation and{" "}
-                <span className="whitespace-nowrap">follow-up</span>, so none of them go
-                cold.
+                We build the website, search visibility and campaigns that bring the
+                right patients in.
+                Then Patient Pulse, our clinic CRM, handles every enquiry until the
+                patient books.
               </p>
             </FadeUp>
 
@@ -269,16 +275,18 @@ export default function HomeDraftPage() {
                 >
                   Get my free clinic audit
                 </Link>
-                <Link
+                {/* Glides down to the four services, so this button's job is
+                    visible: the audit is the action, this is the explanation. */}
+                <DraftScrollLink
                   href="#system-section"
                   className="group inline-flex items-center gap-2 font-medium text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent-text)]"
                   style={{ padding: "0.6rem 8px", fontSize: "15px" }}
                 >
                   See how it works
-                  <span className="transition-transform group-hover:translate-x-0.5">
+                  <span className="inline-flex rotate-90 transition-transform group-hover:translate-y-0.5">
                     <Arrow size={13} />
                   </span>
-                </Link>
+                </DraftScrollLink>
               </div>
             </FadeUp>
 
@@ -341,19 +349,31 @@ export default function HomeDraftPage() {
       {/* ── 2. How it works: four channels, Patient Pulse underneath ──────── */}
       <SystemSteps />
 
-      {/* ── 3. Patient Pulse spotlight ────────────────────────────────────── */}
-      <section className="section bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
+      {/* ── 3. Patient Pulse: the one place it is explained ───────────────────
+          The hero names it in a line and the system section only points
+          here, so this section has to answer what a clinic owner asks first:
+          is it software or a service, who runs it, and does it cost extra.
+          Figures from GROWTH_COSTS in src/lib/growth-system.ts. */}
+      <section id="patient-pulse" className="section scroll-mt-24 bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
         <div className="cx-main grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <FadeUp>
             <div className="lg:sticky lg:top-32">
               <p className="eyebrow mb-4">Patient Pulse</p>
               <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                Every patient who gets in touch, answered and followed up
+                The clinic CRM that answers and follows up every enquiry
               </h2>
-              <p className="text-body-lg mb-8 text-[var(--color-charcoal)]">
-                If the left-hand column sounds like your week, this is the part of
-                the system that changes it first.
+              <p className="text-body-lg mb-6 text-[var(--color-charcoal)]">
+                If the &ldquo;without it&rdquo; column sounds like your week, this is
+                the part of the system that changes it first.
               </p>
+              <dl className="mb-8 border-t border-[var(--color-border)] text-[14px] leading-snug">
+                {pulseFacts.map((f) => (
+                  <div key={f.term} className="grid grid-cols-[7.5rem_1fr] gap-4 border-b border-[var(--color-border)] py-3">
+                    <dt className="font-semibold text-[var(--color-ink)]">{f.term}</dt>
+                    <dd className="m-0 text-[var(--color-charcoal)]">{f.detail}</dd>
+                  </div>
+                ))}
+              </dl>
               <Link
                 href="/patient-pulse/"
                 className="inline-flex items-center gap-2 font-semibold transition-colors hover:bg-[var(--color-paper)]"

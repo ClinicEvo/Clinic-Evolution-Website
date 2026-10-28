@@ -88,8 +88,8 @@ export default function SystemSteps() {
           {/* Each channel is also sold on its own, which the "one system"
               framing could otherwise hide from someone who only wants SEO. */}
           <p className="text-body-lg mb-12 max-w-[600px] font-medium text-[var(--color-ink)]" style={{ lineHeight: 1.5 }}>
-            Use the whole system with Patient Pulse underneath, or just the service
-            you need. Each one is also available on its own.
+            Use all four together, or just the service you need. Each one is
+            also available on its own.
           </p>
         </FadeUp>
 
@@ -148,19 +148,21 @@ export default function SystemSteps() {
           ))}
         </ol>
 
+        {/* The bar only names where the enquiries land and points down to the
+            Patient Pulse section, which is the one place it is explained.
+            Pitching it here as well was the second of three introductions. */}
         <FadeUp delay={0.3}>
-          <div className="mt-5 flex flex-col gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-6 sm:flex-row sm:items-center sm:justify-between lg:mt-8">
+          <div className="mt-5 flex flex-col gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-5 sm:flex-row sm:items-center sm:justify-between lg:mt-8">
             <p className="text-[15px] text-[var(--color-charcoal)]" style={{ lineHeight: 1.5 }}>
-              <span className="font-display font-semibold text-[var(--color-ink)]">Patient Pulse, underneath all four.</span>{" "}
-              Missed calls caught, every enquiry replied to in minutes, follow-up
-              for a year and past patients brought back, all in one place.
+              <span className="font-display font-semibold text-[var(--color-ink)]">All four feed one inbox:</span>{" "}
+              Patient Pulse.
             </p>
             <Link
-              href="/patient-pulse/"
+              href="#patient-pulse"
               className="inline-flex flex-shrink-0 items-center gap-1.5 text-[13px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)]"
             >
-              See how Patient Pulse works
-              <Arrow size={10} />
+              What Patient Pulse is
+              <span className="inline-flex rotate-90"><Arrow size={10} /></span>
             </Link>
           </div>
         </FadeUp>
