@@ -9,7 +9,7 @@ import SystemSteps from "./_components/SystemSteps";
 import DraftHeroVideo from "./_components/DraftHeroVideo";
 import DraftScrollLink from "./_components/DraftScrollLink";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
-import { GOOGLE_PROFILE_URL, GOOGLE_RATING, GOOGLE_REVIEWS } from "@/lib/reviews";
+import { GOOGLE_PROFILE_URL, GOOGLE_REVIEWS } from "@/lib/reviews";
 import { PREVIEW_BRAND_NAME } from "@/lib/nav";
 import DraftAuditForm from "./_components/DraftAuditForm";
 
@@ -133,18 +133,67 @@ const elliotQuote = {
   name: GOOGLE_REVIEWS[1].name,
 };
 
+// The two results cards. Figures from each case study's headline stats:
+// src/app/case-studies/lind-street-osteopathy/ and bodyfunction-clinic/.
+const results: Array<{
+  clinic: string;
+  short: string;
+  where: string;
+  logo: { src: string; width: number; height: number; displayHeight: number };
+  before: string;
+  after: string;
+  measure: string;
+  source: string;
+  href: string;
+  quote?: { text: string; name: string; role: string; portrait: string };
+  note?: string;
+}> = [
+  {
+    clinic: "Lind Street Osteopathy",
+    short: "Lind Street",
+    where: "Ryde, Isle of Wight",
+    logo: { src: "/images/clients/lind-street.png", width: 1500, height: 500, displayHeight: 40 },
+    before: "No website",
+    after: "No. 1",
+    measure: "on Google for six of her local searches, including “osteopath ryde”.",
+    source: "Ahrefs, all ten tracked searches in the top four",
+    href: "/case-studies/lind-street-osteopathy/",
+    quote: {
+      text: serenaQuote.text,
+      name: serenaQuote.name,
+      role: "founder, in her Google review",
+      portrait: "/images/lind-street/serena-portrait.png",
+    },
+  },
+  {
+    clinic: "Bodyfunction Clinic",
+    short: "Bodyfunction",
+    where: "Angel, London",
+    logo: { src: "/images/clients/bodyfunction.png", width: 1850, height: 304, displayHeight: 24 },
+    before: "8",
+    after: "3,822",
+    measure: "people a month finding the clinic through Google.",
+    source: "Ahrefs, Aug 2024 against Aug 2026",
+    href: "/case-studies/bodyfunction-clinic/",
+    note: "Danny’s own clinic, in one of the most competitive boroughs in the country. Every part of the system was tested here first.",
+  },
+];
+
 const founders = [
   {
     name: "Danny Morgan",
     image: "/images/danny-morgan-angel-clinic.png",
-    line: "GOsC-registered osteopath. Founded Bodyfunction Clinic in London and still treats patients there.",
+    // What each founder brings, not just their credentials: the value is the
+    // pairing of someone who lives the clinic problem with someone who fixes
+    // it in marketing and tech.
+    line: "GOsC-registered osteopath who still treats patients at Bodyfunction Clinic in Angel. He built the system to fix the missed calls and lost enquiries in his own clinic.",
   },
   {
     // Simon has resigned from the GOsC register: "former registered osteopath",
     // never "osteopath", "registered" or "practising".
     name: "Simon Smith",
     image: "/images/simon-smith.jpg",
-    line: "Former registered osteopath. Founded Neometa, a web design, SEO and digital marketing agency.",
+    line: "Former registered osteopath who went on to found Neometa, building websites, SEO and campaigns. He knows both sides of the treatment room door.",
   },
 ];
 
@@ -422,90 +471,125 @@ export default function HomeDraftPage() {
         </div>
       </section>
 
-      {/* ── 4. Proof ──────────────────────────────────────────────────────── */}
+      {/* ── 4. Proof: two clinics, before and after ───────────────────────
+          Two named clinics from two different starting points, so the proof
+          reads as repeatable rather than as one lucky client. One figure per
+          card, as a before and after, because Simon's rule is that numbers
+          seen together lose their meaning.
+
+          Bodyfunction's 212 new patients is deliberately NOT here: it is an
+          undated personal best, and beside the 2024 to 2026 search figure it
+          would read as what that growth produced, which Danny never said. See
+          src/lib/clinic-capacity.ts. Bodyfunction also has no quote by design:
+          it is Danny's own clinic, which the card says rather than hides. */}
       <section id="results" className="section bg-[var(--color-paper)] border-b border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
             <p className="eyebrow mb-4">Client results</p>
-            <h2 className="text-h2 mb-12 max-w-[760px] text-[var(--color-ink)]">
-              A clinic that opened with no website, now No. 1 on Google for six local searches
+            <h2 className="text-h2 mb-4 max-w-[760px] text-balance text-[var(--color-ink)]">
+              Clinics patients could not find on Google, now on page one
             </h2>
+            {/* "Two of" says these are a sample without putting a client count
+                on the page that nobody has signed off. */}
+            <p className="text-body-lg mb-12 max-w-[600px] text-[var(--color-charcoal)]">
+              Two of the clinics we work with, from very different starting points.
+            </p>
           </FadeUp>
 
-          {/* Lind Street leads: a real client from a cold start, one specific
-              metric, and the owner's own words inside the same block. Figures
-              from the case study, src/app/case-studies/lind-street-osteopathy/:
-              Ahrefs shows No. 1 for six terms and all ten tracked in the top
-              four. */}
-          <FadeUp>
-            <div className="grid overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)] md:grid-cols-2">
-              <div className="relative aspect-[4/3] md:aspect-auto">
-                <Image
-                  src="/images/lind-street/clinic-sign.png"
-                  alt="The sign outside Lind Street Osteopathy in Ryde"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 600px"
-                />
+          <ul className="grid gap-6 md:grid-cols-2">
+            {results.map((r, i) => (
+              <li key={r.clinic} className="flex">
+                <FadeUp delay={i * 0.06} className="flex w-full">
+                  <article className="flex w-full flex-col rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)] md:p-10">
+                    <div className="mb-7 flex min-h-10 flex-wrap items-center justify-between gap-x-6 gap-y-3">
+                      <Image
+                        src={r.logo.src}
+                        alt={r.clinic}
+                        width={r.logo.width}
+                        height={r.logo.height}
+                        style={{ height: r.logo.displayHeight, width: "auto" }}
+                      />
+                      <p className="text-label">{r.where}</p>
+                    </div>
+
+                    {/* Before, then now: only the "now" figure carries coral. */}
+                    <div className="grid grid-cols-[auto_auto_1fr] items-end gap-x-4 gap-y-2 border-y border-[var(--color-border)] py-6">
+                      <p className="text-label">Before</p>
+                      <span />
+                      <p className="text-label">Now</p>
+                      <p
+                        className="font-display font-semibold leading-none text-[var(--color-muted)]"
+                        style={{ fontSize: "clamp(1.375rem, 2.4vw, 1.875rem)" }}
+                      >
+                        {r.before}
+                      </p>
+                      <span className="mb-1 text-[var(--color-muted)]"><Arrow size={16} /></span>
+                      <p
+                        className="font-display font-semibold leading-none text-[var(--color-accent-text)]"
+                        style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+                      >
+                        {r.after}
+                      </p>
+                    </div>
+                    <p className="text-body-lg mt-5 text-[var(--color-ink)]">{r.measure}</p>
+                    <p className="mt-2 text-[12px] text-[var(--color-muted)]">Source: {r.source}</p>
+
+                    {r.quote ? (
+                      <figure className="m-0 mt-7 border-l-2 border-[var(--color-accent)] pl-5">
+                        <blockquote className="text-[15px] font-medium leading-relaxed text-[var(--color-ink)]">
+                          &ldquo;{r.quote.text}&rdquo;
+                        </blockquote>
+                        <figcaption className="mt-3 flex items-center gap-3 text-[13px] text-[var(--color-muted)]">
+                          <span className="relative block h-9 w-9 flex-shrink-0 overflow-hidden rounded-full border border-[var(--color-border)]">
+                            <Image src={r.quote.portrait} alt="" fill className="object-cover" sizes="36px" />
+                          </span>
+                          <span>
+                            <span className="font-semibold text-[var(--color-ink)]">{r.quote.name}</span>, {r.quote.role}
+                          </span>
+                        </figcaption>
+                      </figure>
+                    ) : (
+                      <p className="mt-7 text-[15px] leading-relaxed text-[var(--color-charcoal)]">{r.note}</p>
+                    )}
+
+                    <Link
+                      href={r.href}
+                      className="mt-auto inline-flex items-center gap-2 self-start pt-7 text-[14px] font-semibold text-[var(--color-ink)] underline underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
+                    >
+                      Read the {r.short} case study
+                      <Arrow />
+                    </Link>
+                  </article>
+                </FadeUp>
+              </li>
+            ))}
+          </ul>
+
+          {/* Elliot's review as a slim line under the cases. No rating: with
+              only two reviews the count would undercut "two of the clinics we
+              work with", and an average without its count is what
+              src/lib/reviews.ts exists to prevent. Bring GOOGLE_RATING back
+              once the count is worth showing. */}
+          <FadeUp delay={0.12}>
+            <figure className="m-0 mt-6 flex flex-col gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-5 md:flex-row md:items-center md:justify-between md:gap-8">
+              <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+                <Stars />
+                <blockquote className="text-[15px] font-medium leading-snug text-[var(--color-ink)]">
+                  &ldquo;{elliotQuote.text}&rdquo;{" "}
+                  <span className="whitespace-nowrap text-[13px] font-normal text-[var(--color-muted)]">
+                    {elliotQuote.name}, clinic owner
+                  </span>
+                </blockquote>
               </div>
-              <div className="flex flex-col justify-center p-8 md:p-11">
-                <p className="text-label mb-5">Lind Street Osteopathy · Ryde</p>
-                <p
-                  className="font-display font-semibold leading-none text-[var(--color-accent-text)]"
-                  style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
-                >
-                  No. 1
-                </p>
-                <p className="text-body-lg mt-4 text-[var(--color-ink)]">
-                  on Google for six of her local searches, including
-                  &ldquo;osteopath ryde&rdquo;. All ten tracked searches sit in the
-                  top four.
-                </p>
-                <p className="mt-2 text-[12px] text-[var(--color-muted)]">Source: Ahrefs tracked keyword positions</p>
-
-                <figure className="m-0 mt-7 border-l-2 border-[var(--color-accent)] pl-5">
-                  <blockquote className="text-[15px] font-medium leading-relaxed text-[var(--color-ink)]">
-                    &ldquo;{serenaQuote.text}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-3 flex items-center gap-3 text-[13px] text-[var(--color-muted)]">
-                    <span className="relative block h-9 w-9 flex-shrink-0 overflow-hidden rounded-full border border-[var(--color-border)]">
-                      <Image src="/images/lind-street/serena-portrait.png" alt="" fill className="object-cover" sizes="36px" />
-                    </span>
-                    <span>
-                      <span className="font-semibold text-[var(--color-ink)]">{serenaQuote.name}</span>, founder, in her Google review
-                    </span>
-                  </figcaption>
-                </figure>
-
-                <Link
-                  href="/case-studies/lind-street-osteopathy/"
-                  className="mt-7 inline-flex items-center gap-2 text-[14px] font-semibold text-[var(--color-ink)] underline underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
-                >
-                  Read the Lind Street case study
-                  <Arrow />
-                </Link>
-              </div>
-            </div>
-          </FadeUp>
-
-          {/* Elliot's review and the rating, with no count. */}
-          <FadeUp delay={0.06}>
-            <figure className="m-0 mt-6 flex flex-col rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 md:p-9">
-              <Stars />
-              <blockquote className="text-h4 mt-4 font-medium text-[var(--color-ink)]">
-                &ldquo;{elliotQuote.text}&rdquo;
-              </blockquote>
-              <figcaption className="mt-5 flex flex-wrap items-center justify-between gap-3 text-[13px] text-[var(--color-muted)]">
-                <span>
-                  <span className="font-semibold text-[var(--color-ink)]">{elliotQuote.name}</span> · Clinic owner
-                </span>
+              <figcaption className="flex-shrink-0 text-[13px] text-[var(--color-muted)]">
                 <a
                   href={GOOGLE_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-[var(--color-ink)]"
+                  className="inline-flex items-center gap-1.5 font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent-text)]"
                 >
-                  <span className="font-semibold text-[var(--color-ink)]">{GOOGLE_RATING.average} out of 5</span> on Google
+                  Read it on Google
+                  <Arrow size={10} />
                 </a>
               </figcaption>
             </figure>
@@ -524,33 +608,48 @@ export default function HomeDraftPage() {
           <FadeUp>
             <figure className="m-0">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
+                {/* danny_and_co.jpg is the same reception photograph as
+                    bodyfunction-clinic-team-at-reception-01.jpg, but sharp: the
+                    wide file is soft and full of compression artefacts at its
+                    own size, so no image setting rescues it. */}
                 <Image
-                  src="/images/bodyfunction-clinic-team-at-reception-01.jpg"
+                  src="/images/danny_and_co.jpg"
                   alt="The team at the reception desk of Bodyfunction Clinic in Angel, London"
                   fill
-                  className="object-cover"
+                  // Square source in a 4:3 frame: crop from the bottom, so the
+                  // clinic's sign above the team stays whole.
+                  className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 560px"
                 />
               </div>
               <figcaption className="mt-4 text-[14px] leading-relaxed text-[var(--color-muted)]">
                 Every part of the system was tested in Bodyfunction Clinic,
-                Danny&apos;s own practice in Angel, London, before any client saw it.{" "}
-                <Link
-                  href="/case-studies/bodyfunction-clinic/"
-                  className="inline-flex items-center gap-1.5 font-semibold text-[var(--color-ink)] underline underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
-                >
-                  The Bodyfunction story
-                  <Arrow />
-                </Link>
+                Danny&apos;s own practice in Angel, London, before any client saw it.
               </figcaption>
             </figure>
           </FadeUp>
           <FadeUp delay={0.08}>
             <div>
               <p className="eyebrow mb-4">The founders</p>
-              <h2 className="text-h2 mb-10 text-[var(--color-ink)]">
-                Built from inside the profession, not by an agency looking in
+              <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
+                Built by osteopaths who&rsquo;ve run the front desk
               </h2>
+              {/* The origin story, told once and here: why the system exists.
+                  It was split between the results card and the bios. The link
+                  ties the story to its proof. */}
+              <p className="text-body-lg mb-4 text-[var(--color-charcoal)]">
+                Bodyfunction was busy, but calls went unanswered during
+                treatments and enquiries went cold overnight. So Danny and Simon
+                built the system that fixed it, ran it in the clinic first, then
+                opened it to other clinics.
+              </p>
+              <Link
+                href="/case-studies/bodyfunction-clinic/"
+                className="mb-10 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--color-ink)] underline underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
+              >
+                The Bodyfunction story
+                <Arrow />
+              </Link>
               <ul className="flex flex-col">
                 {founders.map((f) => (
                   <li key={f.name} className="flex items-center gap-5 border-t border-[var(--color-border)] py-5 last:border-b">
