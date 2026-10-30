@@ -275,6 +275,26 @@ h1 {
   line-height: 1.15;
 }
 
+/* The draft's Learning Hub cards come from the shared ResourceCard, whose
+   type is a step smaller than every other card on the draft. Brought onto the
+   draft's scale here rather than in the component, so the live homepage and
+   /learning-hub/ keep theirs: title as .text-h4, excerpt as .text-body, link
+   as the draft's 14px links, category as .text-label. */
+.draft-home .draft-resource-cards h3 {
+  font-size: clamp(1.125rem, 1vw + 0.85rem, 1.25rem);
+  line-height: 1.4;
+}
+.draft-home .draft-resource-cards h3 + p {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.draft-home .draft-resource-cards h3 + p + span {
+  font-size: 0.875rem;
+}
+.draft-home .draft-resource-cards span.uppercase {
+  font-size: 0.68rem;
+}
+
 /* h3 and h4 were fixed px while display/h1/h2 all scaled, so on a 390px screen
    a 28px h3 inside a padded card had ~278px to wrap in and broke into three-
    word ragged lines. Both now scale on the same vw ramp as the rest. */

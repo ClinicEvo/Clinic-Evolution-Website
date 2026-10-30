@@ -64,7 +64,7 @@ const ACCENT = "var(--color-accent)";
    it only where the text is large. */
 const DRAFT_CORAL = { "--color-accent-text": "var(--color-accent)" } as CSSProperties;
 
-/* CTA fills on this draft use the brand coral, the same as "Fuller diaries."
+/* CTA fills on this draft use the brand coral, the same as "for MSK clinics."
    in the h1, at the reviewers' request: the darker accessible coral read as
    dull. CHECK BEFORE LAUNCH. White 15px labels on the brand coral are 3.07:1,
    under the 4.5:1 WCAG AA needs at this size (see the note in
@@ -200,31 +200,27 @@ const founders = [
 const disciplineCards = [
   {
     title: "Osteopaths",
-    headline: "You built your clinic on clinical reputation. We make sure patients can find it.",
+    headline: "Most patients aren’t sure what an osteopath treats, so they search for their back pain instead of for you.",
     href: "/osteopath-marketing/",
-    anchor: "Marketing for Osteopaths",
-    image: "/images/watermark-osteopath.jpg",
   },
   {
     title: "Physiotherapists",
-    headline: "The most competitive discipline in local search. We know how to win it.",
+    headline: "Physio is the most crowded clinic search in most towns, and the three clinics on the map get most of the calls.",
     href: "/physiotherapy-marketing/",
-    anchor: "Physiotherapy Marketing",
-    image: "/images/watermark-physio.jpg",
   },
   {
     title: "Chiropractors",
-    headline: "Chiropractic patients research longer before booking. We build for that journey.",
+    headline: "Chiropractic patients read reviews and compare clinics for weeks before they book.",
     href: "/chiropractic-marketing/",
-    anchor: "Chiropractic Marketing",
-    image: "/images/watermark-chiro.jpg",
   },
 ];
 
-const auditIncludes = [
-  "Your search visibility and website, reviewed by a practising osteopath",
-  "Where enquiries slip through: missed calls, slow replies, no follow-up",
-  "What we would fix first, back to you within two business days",
+/* The audit as three steps: a bold lead that says who does what, then the
+   detail. The leads alone read as the process, which is what a skimmer takes. */
+const auditSteps = [
+  { lead: "We review", rest: "your search visibility and website." },
+  { lead: "We find where enquiries slip through:", rest: "missed calls, slow replies, no follow-up." },
+  { lead: "You get a plan", rest: "of what we would fix first, within two business days." },
 ];
 
 function Arrow({ size = 12 }: { size?: number }) {
@@ -281,8 +277,8 @@ export default function HomeDraftPage() {
               <span className="eyebrow mb-4 lg:mb-[clamp(0.75rem,2vh,1.25rem)]">For UK osteopaths, physios &amp; chiropractors</span>
             </FadeUp>
 
-            {/* The social tagline, so the site and the feed match. Coral on
-                the payoff only, the way every hero on the site marks its H1. */}
+            {/* Says what it is, who built it and who it is for. Coral on the
+                second half only, the way every hero on the site marks its H1. */}
             <FadeUp delay={0.06}>
               <h1
                 className="font-display text-balance text-[var(--color-ink)]"
@@ -293,8 +289,8 @@ export default function HomeDraftPage() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                More patients. Better <span className="whitespace-nowrap">follow-up.</span>{" "}
-                <em className="not-italic text-[var(--color-accent)]">Fuller diaries.</em>
+                Patient acquisition built by osteopaths,{" "}
+                <em className="not-italic text-[var(--color-accent)]">for MSK clinics.</em>
               </h1>
             </FadeUp>
 
@@ -374,7 +370,7 @@ export default function HomeDraftPage() {
               across the row (the list uses `display: contents` so its items
               join the row), which fills the width without opening big gaps. */}
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-            <p className="flex-shrink-0 whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.14em] text-[var(--color-muted)]">
+            <p className="text-label flex-shrink-0 whitespace-nowrap">
               Brands we work with
             </p>
             {/* Two-column grid below sm so five marks sit in three tidy rows;
@@ -512,11 +508,18 @@ export default function HomeDraftPage() {
                       <p className="text-label">{r.where}</p>
                     </div>
 
-                    {/* Before, then now: only the "now" figure carries coral. */}
-                    <div className="grid grid-cols-[auto_auto_1fr] items-end gap-x-4 gap-y-2 border-y border-[var(--color-border)] py-6">
+                    {/* Before, then now: only the "now" figure carries coral. The
+                        measure sits beside it, small, so the number reads first
+                        and the line explains it. It switches on the card's own
+                        width, not the screen's: two cards side by side on a
+                        tablet are as narrow as one on a phone, and there the
+                        line drops to its own row. */}
+                    <div className="@container">
+                    <div className="grid grid-cols-[auto_auto_1fr] items-end gap-x-4 gap-y-2 border-y border-[var(--color-border)] py-6 @[30rem]:grid-cols-[auto_auto_auto_1fr]">
                       <p className="text-label">Before</p>
                       <span />
                       <p className="text-label">Now</p>
+                      <span className="hidden @[30rem]:block" />
                       <p
                         className="font-display font-semibold leading-none text-[var(--color-muted)]"
                         style={{ fontSize: "clamp(1.375rem, 2.4vw, 1.875rem)" }}
@@ -530,13 +533,16 @@ export default function HomeDraftPage() {
                       >
                         {r.after}
                       </p>
+                      <p className="col-span-3 mt-2 max-w-[34ch] text-[13px] leading-snug text-[var(--color-charcoal)] @[30rem]:col-span-1 @[30rem]:mt-0 @[30rem]:max-w-[26ch]">
+                        {r.measure}
+                      </p>
                     </div>
-                    <p className="text-body-lg mt-5 text-[var(--color-ink)]">{r.measure}</p>
-                    <p className="mt-2 text-[12px] text-[var(--color-muted)]">Source: {r.source}</p>
+                    </div>
+                    <p className="mt-4 text-[13px] text-[var(--color-muted)]">Source: {r.source}</p>
 
                     {r.quote ? (
                       <figure className="m-0 mt-7 border-l-2 border-[var(--color-accent)] pl-5">
-                        <blockquote className="text-[15px] font-medium leading-relaxed text-[var(--color-ink)]">
+                        <blockquote className="text-body font-medium text-[var(--color-ink)]">
                           &ldquo;{r.quote.text}&rdquo;
                         </blockquote>
                         <figcaption className="mt-3 flex items-center gap-3 text-[13px] text-[var(--color-muted)]">
@@ -549,7 +555,7 @@ export default function HomeDraftPage() {
                         </figcaption>
                       </figure>
                     ) : (
-                      <p className="mt-7 text-[15px] leading-relaxed text-[var(--color-charcoal)]">{r.note}</p>
+                      <p className="text-body mt-7 text-[var(--color-charcoal)]">{r.note}</p>
                     )}
 
                     <Link
@@ -574,7 +580,7 @@ export default function HomeDraftPage() {
             <figure className="m-0 mt-6 flex flex-col gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-5 md:flex-row md:items-center md:justify-between md:gap-8">
               <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
                 <Stars />
-                <blockquote className="text-[15px] font-medium leading-snug text-[var(--color-ink)]">
+                <blockquote className="text-[16px] font-medium leading-snug text-[var(--color-ink)]">
                   &ldquo;{elliotQuote.text}&rdquo;{" "}
                   <span className="whitespace-nowrap text-[13px] font-normal text-[var(--color-muted)]">
                     {elliotQuote.name}, clinic owner
@@ -586,7 +592,7 @@ export default function HomeDraftPage() {
                   href={GOOGLE_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent-text)]"
+                  className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent-text)]"
                 >
                   Read it on Google
                   <Arrow size={10} />
@@ -622,7 +628,7 @@ export default function HomeDraftPage() {
                   sizes="(max-width: 1024px) 100vw, 560px"
                 />
               </div>
-              <figcaption className="mt-4 text-[14px] leading-relaxed text-[var(--color-muted)]">
+              <figcaption className="mt-4 text-[13px] leading-relaxed text-[var(--color-muted)]">
                 Every part of the system was tested in Bodyfunction Clinic,
                 Danny&apos;s own practice in Angel, London, before any client saw it.
               </figcaption>
@@ -670,6 +676,11 @@ export default function HomeDraftPage() {
       </section>
 
       {/* ── 6. Who we help ────────────────────────────────────────────────── */}
+      {/* Typographic rows on plain white, between the two grey sections, no photos or cards, so it reads nothing
+          like the Learning Hub cards below it. Each whole row is the link; on
+          hover it fills with the coral wash and the profession turns coral.
+          The list bleeds out by the row padding, so the text lines up with the
+          heading and only the hover fill reaches past it. */}
       <section id="who-we-help" className="section bg-[var(--color-paper)] border-b border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
@@ -678,35 +689,35 @@ export default function HomeDraftPage() {
               Osteopaths, physiotherapists and chiropractors
             </h2>
           </FadeUp>
-          <div className="grid gap-6 md:grid-cols-3">
+          <ul className="-mx-4 border-b border-[var(--color-border)] lg:-mx-6">
             {disciplineCards.map((card, i) => (
-              <FadeUp key={card.title} delay={i * 0.06}>
-                <Link
-                  href={card.href}
-                  className="group flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)] transition-all hover:-translate-y-[2px] hover:shadow-[var(--shadow-card-hover)]"
-                  style={{ transitionDuration: "var(--duration-slow)" }}
-                >
-                  <div className="relative h-44 overflow-hidden">
-                    <Image
-                      src={card.image}
-                      alt=""
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-7">
-                    <p className="eyebrow mb-3">{card.title}</p>
-                    <h3 className="text-h4 mb-5 flex-1 text-[var(--color-ink)]">{card.headline}</h3>
-                    <span className="inline-flex items-center gap-2 text-[14px] font-medium text-[var(--color-ink)] underline underline-offset-4 transition-colors group-hover:text-[var(--color-accent-text)]">
-                      {card.anchor}
-                      <Arrow />
+              <li key={card.title} className="border-t border-[var(--color-border)]">
+                <FadeUp delay={i * 0.06}>
+                  <Link
+                    href={card.href}
+                    className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 px-4 py-7 transition-colors hover:bg-[var(--color-accent-light)] lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_auto] lg:gap-x-12 lg:px-6 lg:py-8"
+                    style={{ transitionDuration: "var(--duration-base)" }}
+                  >
+                    <h3
+                      className="text-h3 col-start-1 row-start-1 text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-accent-text)]"
+                      style={{ transitionDuration: "var(--duration-base)" }}
+                    >
+                      {card.title}
+                    </h3>
+                    <p className="text-body-lg col-span-2 col-start-1 row-start-2 max-w-[52ch] text-[var(--color-charcoal)] lg:col-span-1 lg:col-start-2 lg:row-start-1">
+                      {card.headline}
+                    </p>
+                    <span
+                      className="col-start-2 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)] transition-all group-hover:translate-x-1 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] lg:col-start-3"
+                      style={{ transitionDuration: "var(--duration-base)", transitionTimingFunction: "var(--ease-out-quart)" }}
+                    >
+                      <Arrow size={14} />
                     </span>
-                  </div>
-                </Link>
-              </FadeUp>
+                  </Link>
+                </FadeUp>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -728,13 +739,13 @@ export default function HomeDraftPage() {
                 color: "var(--color-ink)",
                 padding: "0.6rem 22px",
                 borderRadius: PILL,
-                fontSize: "14px",
+                fontSize: "15px",
               }}
             >
               Visit the Learning Hub
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          <div className="draft-resource-cards grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             <ResourceCard
               category="Patient Acquisition"
               title="How to get more patients to your clinic"
@@ -764,34 +775,49 @@ export default function HomeDraftPage() {
       </section>
 
       {/* ── 8. One closing CTA, with the form on the page ─────────────────── */}
+      {/* A flat coral-wash panel, no border or gradient, so the white form card
+          is the one raised thing in it. Danny's sign-off backs the headline's
+          "practising osteopath" with a name and a face. */}
       <section id="book-audit" className="section bg-[var(--color-paper)]">
         <div className="cx-main">
           <div
-            className="grid gap-10 border border-[var(--color-border)] p-8 shadow-[var(--shadow-card)] md:p-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16 lg:p-14"
-            style={{
-              borderRadius: "var(--radius-panel)",
-              background: "linear-gradient(180deg, var(--color-paper) 0%, var(--color-accent-light) 100%)",
-            }}
+            className="grid items-center gap-12 bg-[var(--color-accent-light)] px-6 py-12 sm:px-10 md:px-14 md:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-20 lg:px-20 lg:py-24"
+            style={{ borderRadius: "var(--radius-panel)" }}
           >
             <FadeUp>
               <div>
                 <p className="eyebrow mb-4">Free clinic audit</p>
-                <h2 className="text-h2 mb-6 text-[var(--color-ink)]">
-                  Find out where your clinic is losing patients
+                <h2 className="text-h2 mb-8 text-[var(--color-ink)]">
+                  See what your clinic is missing, reviewed by a practising osteopath
                 </h2>
-                <p className="text-body-lg mb-8 text-[var(--color-charcoal)]">What you get:</p>
-                <ul className="flex flex-col gap-4">
-                  {auditIncludes.map((item) => (
-                    <li key={item} className="flex gap-3 text-[15px] leading-relaxed text-[var(--color-ink)]">
-                      <Check />
-                      {item}
+                <ol className="flex flex-col gap-5">
+                  {auditSteps.map((step, i) => (
+                    <li key={step.lead} className="flex items-start gap-4">
+                      <span
+                        aria-hidden="true"
+                        className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[var(--color-paper)] font-display text-[14px] font-semibold text-[var(--color-accent-text)]"
+                      >
+                        {i + 1}
+                      </span>
+                      <p className="text-body-lg pt-1 text-[var(--color-charcoal)]">
+                        <strong className="font-medium text-[var(--color-ink)]">{step.lead}</strong> {step.rest}
+                      </p>
                     </li>
                   ))}
-                </ul>
+                </ol>
+                <div className="mt-10 flex items-center gap-4 border-t border-[var(--color-ink)]/10 pt-8">
+                  <span className="relative block h-14 w-14 flex-shrink-0 overflow-hidden rounded-full bg-[var(--color-paper)]">
+                    <Image src="/images/danny-morgan-angel-clinic.png" alt="" fill className="object-cover" sizes="56px" />
+                  </span>
+                  <span>
+                    <span className="block font-display text-[15px] font-semibold text-[var(--color-ink)]">Reviewed by Danny Morgan</span>
+                    <span className="block text-[14px] leading-relaxed text-[var(--color-muted)]">GOsC-registered osteopath, Bodyfunction Clinic, London</span>
+                  </span>
+                </div>
               </div>
             </FadeUp>
             <FadeUp delay={0.08}>
-              <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-6 shadow-[var(--shadow-card)] sm:p-8">
+              <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-6 shadow-[var(--shadow-card)] sm:p-10">
                 <DraftAuditForm />
               </div>
             </FadeUp>

@@ -111,7 +111,7 @@ export default function DraftHeroVideo({
               >
                 Patient Pulse: What it is and how it works
               </p>
-              <p className="mt-1.5 min-h-[52px] pr-20 text-[12px] leading-snug text-[var(--color-muted)] sm:min-h-14 sm:pr-24 sm:text-[13px]">
+              <p className="mt-1.5 min-h-[52px] pr-20 text-[13px] leading-snug text-[var(--color-muted)] sm:min-h-14 sm:pr-24">
                 Danny Morgan, osteopath and clinic owner, on the system he built.
               </p>
             </div>
