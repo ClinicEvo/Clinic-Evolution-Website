@@ -9,8 +9,8 @@ import { footerNav, previewFooterNav, isHomeDraftPath, SYSTEM_STAGES } from "@/l
 const ACCENT = "var(--color-accent)";
 
 /** The footer's three link columns, split out of Footer, like FooterCta, so
- *  they can read the route. The homepage draft lists services by the five
- *  stages the homepage draft is built around, and drop the graduate and
+ *  they can read the route. The homepage draft lists its services in the
+ *  order of the five stages it is built around, and drops the graduate and
  *  consultant pages. */
 export default function FooterNavColumns() {
   const isPreview = isHomeDraftPath(usePathname());
@@ -40,24 +40,18 @@ export default function FooterNavColumns() {
       <div>
         <h3 className="text-[13px] font-semibold uppercase tracking-[0.04em] mb-3" style={{ color: ACCENT }}>Services</h3>
         {isPreview ? (
-          <ul className="flex flex-col gap-3" role="list">
-            {SYSTEM_STAGES.map((s) => (
-              <li key={s.stage}>
-                <span className="block text-[11px] uppercase tracking-[0.08em]" style={{ color: "rgba(255,255,255,0.45)" }}>
-                  {s.stage}
-                </span>
-                <span className="mt-0.5 flex flex-wrap gap-x-3 gap-y-1">
-                  {s.services.map((svc) => (
-                    <Link
-                      key={svc.href}
-                      href={svc.href}
-                      className="text-[13px] transition-colors hover:opacity-70"
-                      style={{ color: "rgba(255,255,255,1)" }}
-                    >
-                      {svc.label}
-                    </Link>
-                  ))}
-                </span>
+          // Services in the order of the five stages, but without the stage
+          // names: one link a line, like the other two columns.
+          <ul className="flex flex-col gap-2" role="list">
+            {SYSTEM_STAGES.flatMap((s) => s.services).map((svc) => (
+              <li key={svc.href}>
+                <Link
+                  href={svc.href}
+                  className="text-[13px] transition-colors hover:opacity-70"
+                  style={{ color: "rgba(255,255,255,1)" }}
+                >
+                  {svc.label}
+                </Link>
               </li>
             ))}
           </ul>

@@ -87,7 +87,7 @@ export default function SystemSteps() {
           </h2>
           {/* Each channel is also sold on its own, which the "one system"
               framing could otherwise hide from someone who only wants SEO. */}
-          <p className="text-body-lg mb-12 max-w-[600px] font-medium text-[var(--color-ink)]" style={{ lineHeight: 1.5 }}>
+          <p className="text-body-lg mb-12 max-w-[600px] text-[var(--color-charcoal)]">
             Use all four together, or just the service you need. Each one is
             also available on its own.
           </p>
@@ -134,7 +134,7 @@ export default function SystemSteps() {
                         stays one link for screen readers rather than two. */}
                     <Link
                       href={c.service.href}
-                      className="after:absolute after:inset-0 after:rounded-[var(--radius-card)] after:content-[''] flex items-center gap-1.5 border-t border-[var(--color-border)] pt-4 text-[13px] font-semibold text-[var(--color-ink)] transition-colors duration-[var(--hover-lift)] group-hover:text-[var(--color-accent-text)]"
+                      className="after:absolute after:inset-0 after:rounded-[var(--radius-card)] after:content-[''] flex items-center gap-1.5 border-t border-[var(--color-border)] pt-4 text-[14px] font-semibold text-[var(--color-ink)] transition-colors duration-[var(--hover-lift)] group-hover:text-[var(--color-accent-text)]"
                     >
                       More on {c.service.label}
                       <Arrow size={10} />
@@ -153,13 +153,13 @@ export default function SystemSteps() {
             Pitching it here as well was the second of three introductions. */}
         <FadeUp delay={0.3}>
           <div className="mt-5 flex flex-col gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-5 sm:flex-row sm:items-center sm:justify-between lg:mt-8">
-            <p className="text-[15px] text-[var(--color-charcoal)]" style={{ lineHeight: 1.5 }}>
+            <p className="text-[16px] text-[var(--color-charcoal)]" style={{ lineHeight: 1.5 }}>
               <span className="font-display font-semibold text-[var(--color-ink)]">All four feed one inbox:</span>{" "}
               Patient Pulse.
             </p>
             <Link
               href="#patient-pulse"
-              className="inline-flex flex-shrink-0 items-center gap-1.5 text-[13px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)]"
+              className="inline-flex flex-shrink-0 items-center gap-1.5 text-[14px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)]"
             >
               What Patient Pulse is
               <span className="inline-flex rotate-90"><Arrow size={10} /></span>
