@@ -197,16 +197,22 @@ const disciplineCards = [
     title: "Osteopaths",
     headline: "Most patients aren’t sure what an osteopath treats, so they search for their back pain instead of for you.",
     href: "/osteopath-marketing/",
+    image: "/images/homepage-draft/osteopath-back-treatment.jpg",
+    imagePosition: "60% 50%",
   },
   {
     title: "Physiotherapists",
     headline: "Physio is the most crowded clinic search in most towns, and the three clinics on the map get most of the calls.",
     href: "/physiotherapy-marketing/",
+    image: "/images/homepage-draft/physio-band-exercise.jpg",
+    imagePosition: "45% 50%",
   },
   {
     title: "Chiropractors",
     headline: "Chiropractic patients read reviews and compare clinics for weeks before they book.",
     href: "/chiropractic-marketing/",
+    image: "/images/homepage-draft/chiropractic-neck-treatment.jpg",
+    imagePosition: "50% 50%",
   },
 ];
 
@@ -686,7 +692,7 @@ export default function HomeDraftPage() {
                 <FadeUp delay={i * 0.06}>
                   <Link
                     href={card.href}
-                    className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 px-4 py-7 transition-colors hover:bg-[var(--color-accent-light)] lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_auto] lg:gap-x-12 lg:px-6 lg:py-8"
+                    className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 px-4 py-7 transition-colors hover:bg-[var(--color-accent-light)] lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_auto] lg:gap-x-12 xl:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_9rem_auto] lg:px-6 lg:py-8"
                     style={{ transitionDuration: "var(--duration-base)" }}
                   >
                     <h3
@@ -698,8 +704,22 @@ export default function HomeDraftPage() {
                     <p className="text-body-lg col-span-2 col-start-1 row-start-2 max-w-[52ch] text-[var(--color-charcoal)] lg:col-span-1 lg:col-start-2 lg:row-start-1">
                       {card.headline}
                     </p>
+                    {/* Hover reveal, from xl only: the discipline's treatment
+                        photo fades in, in its own column before the arrow so it
+                        never covers the text. The photo is taller than the
+                        text and spills into the row's padding rather than
+                        growing the row. Decorative, so hidden from screen
+                        readers; smaller screens keep the plain text rows. */}
+                    <span aria-hidden className="pointer-events-none relative hidden self-stretch xl:col-start-3 xl:row-start-1 xl:block">
+                      <span
+                        className="absolute inset-x-0 top-1/2 h-28 -translate-y-1/2 scale-95 overflow-hidden rounded-[var(--radius-card)] opacity-0 shadow-[var(--shadow-card-hover)] transition-[opacity,transform] group-hover:scale-100 group-hover:opacity-100 group-focus-visible:scale-100 group-focus-visible:opacity-100 motion-reduce:scale-100"
+                        style={{ transitionDuration: "var(--duration-slow)", transitionTimingFunction: "var(--ease-out-quart)" }}
+                      >
+                        <Image src={card.image} alt="" fill className="object-cover" style={{ objectPosition: card.imagePosition }} sizes="144px" />
+                      </span>
+                    </span>
                     <span
-                      className="col-start-2 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)] transition-all group-hover:translate-x-1 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] lg:col-start-3"
+                      className="col-start-2 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)] transition-all group-hover:translate-x-1 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] lg:col-start-3 xl:col-start-4"
                       style={{ transitionDuration: "var(--duration-base)", transitionTimingFunction: "var(--ease-out-quart)" }}
                     >
                       <Arrow size={14} />
