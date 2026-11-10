@@ -24,14 +24,14 @@ const channels: {
   },
   {
     title: "SEO for clinics",
-    tag: "Map pack and organic",
+    tag: "Google Maps and search",
     body: "Show up on Google Maps and in search results when people nearby look for treatment.",
     service: { label: "SEO for Clinics", href: "/seo-for-clinics/" },
     platforms: [{ name: "Google", icon: GoogleLogo }],
   },
   {
     title: "Google Ads",
-    tag: "High-intent search",
+    tag: "Sponsored Google results",
     body: "Appear at the top of Google for people searching for treatment right now.",
     service: { label: "Google Ads", href: "/google-ads-for-clinics/" },
     platforms: [{ name: "Google Ads", icon: GoogleLogo }],
@@ -154,8 +154,8 @@ export default function SystemSteps() {
         <FadeUp delay={0.3}>
           <div className="mt-5 flex flex-col gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-5 sm:flex-row sm:items-center sm:justify-between lg:mt-8">
             <p className="text-[16px] text-[var(--color-charcoal)]" style={{ lineHeight: 1.5 }}>
-              <span className="font-display font-semibold text-[var(--color-ink)]">All four feed one inbox:</span>{" "}
-              Patient Pulse.
+              <span className="font-display font-semibold text-[var(--color-ink)]">Every enquiry lands in Patient Pulse,</span>{" "}
+              answered straight away and followed up until they book.
             </p>
             <Link
               href="#patient-pulse"

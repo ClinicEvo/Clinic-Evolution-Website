@@ -80,19 +80,14 @@ const PILL = "9999px";
 // Before and after, drawn from the capability list Danny gave in the 10 Aug
 // review and the Growth System copy. The left column is meant to read as the
 // clinic owner's own week.
+// Four rows, each backing the headline's "answers and follows up every
+// enquiry". Pipeline and review requests were cut for length; both are on
+// /patient-pulse/.
 const pulseRows = [
-  { before: "Leads tracked in spreadsheets", after: "All leads in one pipeline" },
   { before: "Messages spread across five apps", after: "Website, Facebook, Instagram and TikTok in one inbox" },
   { before: "Replies wait until the next morning", after: "An instant first reply, day or night" },
   { before: "Follow-up depends on who remembers", after: "Twelve months of follow-up that runs itself" },
-  { before: "Review requests forgotten", after: "Google review requests sent automatically" },
   { before: "Lapsed patients never hear from you", after: "Reactivation messages before the next flare-up" },
-];
-
-const pulseFacts = [
-  { term: "What it is", detail: "Software your team logs into: one inbox and pipeline for every enquiry, from every channel." },
-  { term: "Who runs it", detail: "We set it up, connect it to your booking system and keep it running. Your reception team just works the inbox." },
-  { term: "What it costs", detail: "Included in the full Clinic Evolution system. You pay only the messaging usage, typically £50 to £100 a month." },
 ];
 
 // The live homepage's five marks under the hero, set deliberately quiet:
@@ -202,16 +197,22 @@ const disciplineCards = [
     title: "Osteopaths",
     headline: "Most patients aren’t sure what an osteopath treats, so they search for their back pain instead of for you.",
     href: "/osteopath-marketing/",
+    image: "/images/homepage-draft/osteopath-back-treatment.jpg",
+    imagePosition: "60% 50%",
   },
   {
     title: "Physiotherapists",
     headline: "Physio is the most crowded clinic search in most towns, and the three clinics on the map get most of the calls.",
     href: "/physiotherapy-marketing/",
+    image: "/images/homepage-draft/physio-band-exercise.jpg",
+    imagePosition: "45% 50%",
   },
   {
     title: "Chiropractors",
     headline: "Chiropractic patients read reviews and compare clinics for weeks before they book.",
     href: "/chiropractic-marketing/",
+    image: "/images/homepage-draft/chiropractic-neck-treatment.jpg",
+    imagePosition: "50% 50%",
   },
 ];
 
@@ -407,31 +408,12 @@ export default function HomeDraftPage() {
               <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
                 The clinic CRM that answers and follows up every enquiry
               </h2>
-              <p className="text-body-lg mb-6 text-[var(--color-charcoal)]">
-                If the &ldquo;without it&rdquo; column sounds like your week, this is
-                the part of the system that changes it first.
+              {/* Simon: the left side is the headline and one paragraph only.
+                  No prices here, at the user's request. */}
+              <p className="text-body-lg text-pretty text-[var(--color-charcoal)]">
+                Patient Pulse replies to every enquiry instantly and follows up
+                until they book. We set it up and run it for you.
               </p>
-              <dl className="mb-8 border-t border-[var(--color-border)] text-[14px] leading-snug">
-                {pulseFacts.map((f) => (
-                  <div key={f.term} className="grid grid-cols-[7.5rem_1fr] gap-4 border-b border-[var(--color-border)] py-3">
-                    <dt className="font-semibold text-[var(--color-ink)]">{f.term}</dt>
-                    <dd className="m-0 text-[var(--color-charcoal)]">{f.detail}</dd>
-                  </div>
-                ))}
-              </dl>
-              <Link
-                href="/patient-pulse/"
-                className="inline-flex items-center gap-2 font-semibold transition-colors hover:bg-[var(--color-paper)]"
-                style={{
-                  border: "1px solid var(--color-border)",
-                  color: "var(--color-ink)",
-                  padding: "0.6rem 24px",
-                  borderRadius: PILL,
-                  fontSize: "15px",
-                }}
-              >
-                See everything Patient Pulse does
-              </Link>
             </div>
           </FadeUp>
 
@@ -463,6 +445,17 @@ export default function HomeDraftPage() {
                 </tbody>
               </table>
             </div>
+            {/* Same coral text-and-arrow link as "What Patient Pulse is" in
+                SystemSteps; the arrow points right because it opens a page. */}
+            <div className="mt-6 flex justify-end">
+              <Link
+                href="/patient-pulse/"
+                className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)]"
+              >
+                See everything Patient Pulse does
+                <Arrow size={10} />
+              </Link>
+            </div>
           </FadeUp>
         </div>
       </section>
@@ -483,7 +476,7 @@ export default function HomeDraftPage() {
           <FadeUp>
             <p className="eyebrow mb-4">Client results</p>
             <h2 className="text-h2 mb-4 max-w-[760px] text-balance text-[var(--color-ink)]">
-              Clinics patients could not find on Google, now on page one
+              Clinics that patients couldn&rsquo;t find on Google, now on page one
             </h2>
             {/* "Two of" says these are a sample without putting a client count
                 on the page that nobody has signed off. */}
@@ -494,9 +487,14 @@ export default function HomeDraftPage() {
 
           <ul className="grid gap-6 md:grid-cols-2">
             {results.map((r, i) => (
-              <li key={r.clinic} className="flex">
-                <FadeUp delay={i * 0.06} className="flex w-full">
-                  <article className="flex w-full flex-col rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)] md:p-10">
+              // From md the two cards sit side by side and share five rows
+              // (logo, figures, source, quote or note, link) through subgrid,
+              // so a figure caption that wraps to an extra line in one card
+              // moves the rows below it in both, and the quote and the note
+              // start at the same height.
+              <li key={r.clinic} className="flex md:row-span-5 md:grid md:grid-rows-subgrid md:gap-y-0">
+                <FadeUp delay={i * 0.06} className="flex w-full md:row-span-5 md:grid md:grid-rows-subgrid md:gap-y-0">
+                  <article className="flex w-full flex-col md:row-span-5 md:grid md:grid-rows-subgrid md:gap-y-0 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)] md:p-10">
                     <div className="mb-7 flex min-h-10 flex-wrap items-center justify-between gap-x-6 gap-y-3">
                       <Image
                         src={r.logo.src}
@@ -515,7 +513,7 @@ export default function HomeDraftPage() {
                         tablet are as narrow as one on a phone, and there the
                         line drops to its own row. */}
                     <div className="@container">
-                    <div className="grid grid-cols-[auto_auto_1fr] items-end gap-x-4 gap-y-2 border-y border-[var(--color-border)] py-6 @[30rem]:grid-cols-[auto_auto_auto_1fr]">
+                    <div className="grid h-full grid-cols-[auto_auto_1fr] items-end gap-x-4 gap-y-2 border-y border-[var(--color-border)] py-6 @[30rem]:grid-cols-[auto_auto_auto_1fr]">
                       <p className="text-label">Before</p>
                       <span />
                       <p className="text-label">Now</p>
@@ -560,7 +558,7 @@ export default function HomeDraftPage() {
 
                     <Link
                       href={r.href}
-                      className="mt-auto inline-flex items-center gap-2 self-start pt-7 text-[14px] font-semibold text-[var(--color-ink)] underline underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
+                      className="mt-auto inline-flex items-center gap-2 self-start pt-7 md:justify-self-start text-[14px] font-semibold text-[var(--color-ink)] underline underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
                     >
                       Read the {r.short} case study
                       <Arrow />
@@ -644,10 +642,9 @@ export default function HomeDraftPage() {
                   It was split between the results card and the bios. The link
                   ties the story to its proof. */}
               <p className="text-body-lg mb-4 text-[var(--color-charcoal)]">
-                Bodyfunction was busy, but calls went unanswered during
-                treatments and enquiries went cold overnight. So Danny and Simon
-                built the system that fixed it, ran it in the clinic first, then
-                opened it to other clinics.
+                It started in Danny&apos;s own clinic, with calls missed
+                mid-treatment and messages left overnight. Danny and Simon built
+                something to answer every one, and other clinics soon followed.
               </p>
               <Link
                 href="/case-studies/bodyfunction-clinic/"
@@ -695,7 +692,7 @@ export default function HomeDraftPage() {
                 <FadeUp delay={i * 0.06}>
                   <Link
                     href={card.href}
-                    className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 px-4 py-7 transition-colors hover:bg-[var(--color-accent-light)] lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_auto] lg:gap-x-12 lg:px-6 lg:py-8"
+                    className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 px-4 py-7 transition-colors hover:bg-[var(--color-accent-light)] lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_auto] lg:gap-x-12 xl:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_9rem_auto] lg:px-6 lg:py-8"
                     style={{ transitionDuration: "var(--duration-base)" }}
                   >
                     <h3
@@ -707,8 +704,22 @@ export default function HomeDraftPage() {
                     <p className="text-body-lg col-span-2 col-start-1 row-start-2 max-w-[52ch] text-[var(--color-charcoal)] lg:col-span-1 lg:col-start-2 lg:row-start-1">
                       {card.headline}
                     </p>
+                    {/* Hover reveal, from xl only: the discipline's treatment
+                        photo fades in, in its own column before the arrow so it
+                        never covers the text. The photo is taller than the
+                        text and spills into the row's padding rather than
+                        growing the row. Decorative, so hidden from screen
+                        readers; smaller screens keep the plain text rows. */}
+                    <span aria-hidden className="pointer-events-none relative hidden self-stretch xl:col-start-3 xl:row-start-1 xl:block">
+                      <span
+                        className="absolute inset-x-0 top-1/2 h-28 -translate-y-1/2 scale-95 overflow-hidden rounded-[var(--radius-card)] opacity-0 shadow-[var(--shadow-card-hover)] transition-[opacity,transform] group-hover:scale-100 group-hover:opacity-100 group-focus-visible:scale-100 group-focus-visible:opacity-100 motion-reduce:scale-100"
+                        style={{ transitionDuration: "var(--duration-slow)", transitionTimingFunction: "var(--ease-out-quart)" }}
+                      >
+                        <Image src={card.image} alt="" fill className="object-cover" style={{ objectPosition: card.imagePosition }} sizes="144px" />
+                      </span>
+                    </span>
                     <span
-                      className="col-start-2 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)] transition-all group-hover:translate-x-1 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] lg:col-start-3"
+                      className="col-start-2 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)] transition-all group-hover:translate-x-1 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] lg:col-start-3 xl:col-start-4"
                       style={{ transitionDuration: "var(--duration-base)", transitionTimingFunction: "var(--ease-out-quart)" }}
                     >
                       <Arrow size={14} />
