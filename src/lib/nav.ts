@@ -6,6 +6,16 @@ export interface NavItem {
   children?: NavItem[];
   groups?: NavGroup[];
   callout?: NavCallout;
+  bundle?: NavBundle;
+}
+
+/** A separated row at the foot of a dropdown, for an offer that spans the
+ *  items above it rather than sitting as one more peer among them. */
+export interface NavBundle {
+  label: string;
+  href: string;
+  description: string;
+  icon?: string;
 }
 
 export interface NavGroup {
@@ -202,9 +212,74 @@ const previewLabels: Record<string, { label: string; href: string }> = {
   "Client Results": { label: "Results", href: "/case-studies/" },
 };
 
-export const previewNav: NavItem[] = mainNav.map((item) =>
-  previewLabels[item.label] ? { ...item, ...previewLabels[item.label] } : item,
-);
+/** The draft's Services menu: a plain list of names, in the order a patient
+ *  meets them (found, enquiry, booked, back again). No group headings or audit
+ *  panel: the audit CTA is already in the header bar. "AI Integration" is named for what it does.
+ *  Digital Marketing, which is all of the services run together, sits apart at
+ *  the foot so it doesn't read as a seventh peer. */
+const previewServiceItems: NavItem[] = [
+  {
+    label: "Clinic Websites",
+    href: "/website-design-for-clinics/",
+    icon: "Monitor",
+    description: "Websites that turn visits into bookings",
+  },
+  {
+    label: "SEO for Clinics",
+    href: "/seo-for-clinics/",
+    icon: "MagnifyingGlass",
+    description: "Show up when local patients search",
+  },
+  {
+    label: "Google Ads for Clinics",
+    href: "/google-ads-for-clinics/",
+    icon: "Target",
+    description: "Ads for patients ready to book",
+  },
+  {
+    label: "Patient Pulse",
+    href: "/patient-pulse/",
+    icon: "ChatCircleDots",
+    description: "Instant text reply to every enquiry",
+  },
+  {
+    label: "Call Handling & Booking",
+    href: "/call-centre/",
+    icon: "Phone",
+    description: "Every call answered and booked in",
+  },
+  {
+    label: "Patient Reactivation",
+    href: "/ai-integration/",
+    icon: "ArrowCounterClockwise",
+    description: "Bring past patients back",
+  },
+];
+
+const previewServiceBundle: NavBundle = {
+  label: "Digital Marketing",
+  href: "/digital-marketing/",
+  icon: "ChartLineUp",
+  description: "All of the above, managed for you",
+};
+
+/** The draft's Who We Help menu: the live descriptions, cut to one line each
+ *  to match the Services menu. */
+const previewWhoWeHelpItems: NavItem[] = [
+  { label: "Osteopaths", href: "/osteopath-marketing/", icon: "OsteopathIcon", description: "Built by a GOsC-registered osteopath" },
+  { label: "Physiotherapists", href: "/physiotherapy-marketing/", icon: "PhysioIcon", description: "For the most competitive MSK search" },
+  { label: "Chiropractors", href: "/chiropractic-marketing/", icon: "ChiroIcon", description: "Trust-first, for a longer decision cycle" },
+  { label: "New Graduates", href: "/graduate/", icon: "GraduationCap", description: "Six-month launch at half our fee" },
+];
+
+export const previewNav: NavItem[] = mainNav.map((item) => {
+  if (!previewLabels[item.label]) return item;
+  const relabelled = { ...item, ...previewLabels[item.label] };
+  if (item.label === "Who We Help") return { ...relabelled, children: previewWhoWeHelpItems };
+  if (item.label !== "What We Do") return relabelled;
+  const { groups: _groups, callout: _callout, ...rest } = relabelled;
+  return { ...rest, children: previewServiceItems, bundle: previewServiceBundle };
+});
 
 /** The draft uses the company's full name, Clinic Evolution, everywhere it
  *  shows a name. The live site still uses siteConfig.name ("Clinic Evo"). */

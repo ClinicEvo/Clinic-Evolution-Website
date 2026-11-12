@@ -12,6 +12,7 @@ import {
   Sparkle,
   ChartLineUp,
   GraduationCap,
+  ArrowCounterClockwise,
   type Icon,
 } from "@phosphor-icons/react";
 import { usePathname } from "next/navigation";
@@ -66,6 +67,7 @@ const iconMap: Record<string, AnyIcon> = {
   PhysioIcon,
   ChiroIcon,
   GraduationCap,
+  ArrowCounterClockwise,
 };
 
 export default function Header() {
@@ -321,6 +323,35 @@ export default function Header() {
                                   </li>
                                 );
                               })}
+                              {/* Bundle row (homepage draft only): set apart on
+                                  a grey ground so the package reads as all of
+                                  the above rather than one more service. */}
+                              {item.bundle && (() => {
+                                const BundleIcon = item.bundle.icon ? iconMap[item.bundle.icon] : null;
+                                return (
+                                  <li>
+                                    <Link
+                                      href={item.bundle.href}
+                                      className="flex gap-3 px-5 py-4 bg-[var(--color-surface)] hover:bg-[var(--color-accent-light)] transition-colors group"
+                                      onClick={() => setOpenDropdown(null)}
+                                    >
+                                      {BundleIcon && (
+                                        <span className="mt-0.5 shrink-0 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
+                                          <BundleIcon size={17} />
+                                        </span>
+                                      )}
+                                      <span>
+                                        <span className="block text-[13px] font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors mb-0.5 leading-tight">
+                                          {item.bundle.label}
+                                        </span>
+                                        <span className="block text-[11px] text-[var(--color-muted)] leading-normal">
+                                          {item.bundle.description}
+                                        </span>
+                                      </span>
+                                    </Link>
+                                  </li>
+                                );
+                              })()}
                             </ul>
                           </div>
                         )}
@@ -374,9 +405,11 @@ export default function Header() {
               {nav.map((item) => {
                 const hasMenu = Boolean(item.groups || item.children);
                 const isExpanded = mobileExpanded === item.label;
-                const flatItems = item.groups
+                const flatItems: { label: string; href: string; icon?: string }[] = item.groups
                   ? item.groups.flatMap((g) => g.items)
                   : item.children ?? [];
+                // The draft's bundle row still needs a place on mobile.
+                if (item.bundle) flatItems.push(item.bundle);
                 return (
                   <li key={item.label} className="border-b border-[var(--color-border)]">
                     {hasMenu ? (
