@@ -83,11 +83,14 @@ const PILL = "9999px";
 // Four rows, each backing the headline's "answers and follows up every
 // enquiry". Pipeline and review requests were cut for length; both are on
 // /patient-pulse/.
-const pulseRows = [
-  { before: "Messages spread across five apps", after: "Website, Facebook, Instagram and TikTok in one inbox" },
-  { before: "Replies wait until the next morning", after: "An instant first reply, day or night" },
-  { before: "Follow-up depends on who remembers", after: "Twelve months of follow-up that runs itself" },
-  { before: "Lapsed patients never hear from you", after: "Reactivation messages before the next flare-up" },
+/* What Patient Pulse does: the "With Patient Pulse" column of the earlier
+   comparison, kept word for word. The "Without it" column was removed in
+   review. */
+const pulseTicks = [
+  "Website, Facebook, Instagram and TikTok in one inbox",
+  "An instant first reply, day or night",
+  "Twelve months of follow-up that runs itself",
+  "Reactivation messages before the next flare-up",
 ];
 
 // The live homepage's five marks under the hero, set deliberately quiet:
@@ -181,14 +184,14 @@ const founders = [
     // What each founder brings, not just their credentials: the value is the
     // pairing of someone who lives the clinic problem with someone who fixes
     // it in marketing and tech.
-    line: "GOsC-registered osteopath who still treats patients at Bodyfunction Clinic in Angel. He built the system to fix the missed calls and lost enquiries in his own clinic.",
+    line: "Registered Osteopath & Clinic Director",
   },
   {
     // Simon has resigned from the GOsC register: "former registered osteopath",
     // never "osteopath", "registered" or "practising".
     name: "Simon Smith",
     image: "/images/simon-smith.jpg",
-    line: "Former registered osteopath who went on to found Neometa, building websites, SEO and campaigns. He knows both sides of the treatment room door.",
+    line: "M.Ost & Clinic Director",
   },
 ];
 
@@ -278,8 +281,9 @@ export default function HomeDraftPage() {
               <span className="eyebrow mb-4 lg:mb-[clamp(0.75rem,2vh,1.25rem)]">For UK osteopaths, physios &amp; chiropractors</span>
             </FadeUp>
 
-            {/* Says what it is, who built it and who it is for. Coral on the
-                second half only, the way every hero on the site marks its H1. */}
+            {/* Says what it is and the outcome it promises; the eyebrow above
+                says who it is for. Coral on the second half only, the way every
+                hero on the site marks its H1. */}
             <FadeUp delay={0.06}>
               <h1
                 className="font-display text-balance text-[var(--color-ink)]"
@@ -290,8 +294,8 @@ export default function HomeDraftPage() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                Patient acquisition built by osteopaths,{" "}
-                <em className="not-italic text-[var(--color-accent)]">for MSK clinics.</em>
+                Clinic marketing that fills your diary{" "}
+                <em className="not-italic text-[var(--color-accent)]">and keeps it full.</em>
               </h1>
             </FadeUp>
 
@@ -308,7 +312,7 @@ export default function HomeDraftPage() {
             </FadeUp>
 
             <FadeUp delay={0.2}>
-              <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center lg:mt-[clamp(1.25rem,3vh,2rem)]">
+              <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center lg:mt-[clamp(1.75rem,4.5vh,2.75rem)]">
                 <Link
                   href="#book-audit"
                   className="inline-flex items-center font-semibold text-white transition-colors bg-[var(--color-accent)] hover:bg-[var(--color-accent-strong)] active:translate-y-px"
@@ -400,43 +404,69 @@ export default function HomeDraftPage() {
           is it software or a service, who runs it, and does it cost extra.
           Figures from GROWTH_COSTS in src/lib/growth-system.ts. */}
       <section id="patient-pulse" className="section scroll-mt-24 bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
-        <div className="cx-main grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        {/* Text on the left, taking all the width up to the card, which is
+            held to the right edge of the container. */}
+        <div className="cx-main grid gap-12 lg:grid-cols-[minmax(0,1fr)_28rem] lg:gap-12 xl:gap-28">
           <FadeUp>
             <div className="lg:sticky lg:top-32">
-              <p className="eyebrow mb-4">Patient Pulse</p>
-              <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                The clinic CRM that answers and follows up every enquiry
+              {/* The product's name is the headline, per review; what it is
+                  moves to the eyebrow and the line under it. */}
+              <p className="eyebrow mb-4">Our clinic CRM</p>
+              <h2 className="text-h2 mb-5 text-balance text-[var(--color-ink)]">
+                {/* Two set lines from lg, broken after "books"; phones wrap freely. */}
+                <em className="not-italic text-[var(--color-accent)]">Patient Pulse</em>: the CRM
+                that books <br className="hidden lg:block" />
+                the patients your marketing brings in
               </h2>
               {/* Simon: the left side is the headline and one paragraph only.
-                  No prices here, at the user's request. */}
+                  No prices here, at the user's request. The audit button was
+                  added later, at the user's request, so the section has a
+                  next step; it is the hero's own button. */}
               <p className="text-body-lg text-pretty text-[var(--color-charcoal)]">
                 Patient Pulse replies to every enquiry instantly and follows up
                 until they book. We set it up and run it for you.
               </p>
+              <Link
+                href="#book-audit"
+                className="mt-7 inline-flex items-center font-semibold text-white transition-colors bg-[var(--color-accent)] hover:bg-[var(--color-accent-strong)] active:translate-y-px"
+                style={{
+                  padding: "0.6rem 26px",
+                  borderRadius: PILL,
+                  fontSize: "15px",
+                  fontFamily: "var(--font-display)",
+                }}
+              >
+                Get my free clinic audit
+              </Link>
             </div>
           </FadeUp>
 
           <FadeUp delay={0.08}>
+            {/* The original table with the "Without it" column removed; rows
+                kept word for word, its header row removed in review. Narrowed
+                to its content's width, since one column across a wide track
+                left an empty strip on the right. The logo heads the card. */}
+            <div className="w-full max-w-[30rem]">
             <div className="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
+              <div className="border-b border-[var(--color-border)] px-5 py-4 sm:px-7">
+                <Image
+                  src="/images/patientpulse_logo.png"
+                  alt="Patient Pulse"
+                  width={3116}
+                  height={440}
+                  className="h-5 w-auto sm:h-6"
+                />
+              </div>
               <table className="w-full border-collapse text-left">
-                <caption className="sr-only">A clinic week without and with Patient Pulse</caption>
-                <thead>
-                  <tr className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-                    <th scope="col" className="text-label w-1/2 px-5 py-4 sm:px-7">Without it</th>
-                    <th scope="col" className="w-1/2 px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.15em] text-[var(--color-accent-text)] sm:px-7">
-                      With Patient Pulse
-                    </th>
-                  </tr>
-                </thead>
+                <caption className="sr-only">What a clinic week looks like with Patient Pulse</caption>
                 <tbody>
-                  {pulseRows.map((r) => (
-                    <tr key={r.before} className="border-b border-[var(--color-border)] last:border-b-0 align-top">
-                      <td className="px-5 py-4 text-[14px] leading-snug text-[var(--color-muted)] sm:px-7">{r.before}</td>
+                  {pulseTicks.map((t) => (
+                    <tr key={t} className="border-b border-[var(--color-border)] last:border-b-0 align-top">
                       <td className="px-5 py-4 text-[14px] font-medium leading-snug text-[var(--color-ink)] sm:px-7">
                         {/* The tick nudged 1px down to sit on the first line's centre. */}
                         <span className="flex gap-2.5 [&>span:first-child]:mt-px">
                           <Check size="sm" />
-                          {r.after}
+                          {t}
                         </span>
                       </td>
                     </tr>
@@ -454,6 +484,7 @@ export default function HomeDraftPage() {
                 See everything Patient Pulse does
                 <Arrow size={10} />
               </Link>
+            </div>
             </div>
           </FadeUp>
         </div>
@@ -607,7 +638,7 @@ export default function HomeDraftPage() {
           video moved up to the hero, so Bodyfunction's reception photo is the
           section's image. */}
       <section id="founders" className="section bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
-        <div className="cx-main grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="cx-main grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
           <FadeUp>
             <figure className="m-0">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
@@ -626,8 +657,7 @@ export default function HomeDraftPage() {
                 />
               </div>
               <figcaption className="mt-4 text-[13px] leading-relaxed text-[var(--color-muted)]">
-                Every part of the system was tested in Bodyfunction Clinic,
-                Danny&apos;s own practice in Angel, London, before any client saw it.
+                Danny and the team at Bodyfunction Clinic
               </figcaption>
             </figure>
           </FadeUp>
@@ -672,8 +702,9 @@ export default function HomeDraftPage() {
       </section>
 
       {/* ── 6. Who we help ────────────────────────────────────────────────── */}
-      {/* Typographic rows on plain white, between the two grey sections, no photos or cards, so it reads nothing
-          like the Learning Hub cards below it. Each whole row is the link; on
+      {/* Rows on plain white, between the two grey sections, each led by its
+          treatment photo, so it reads nothing like the Learning Hub cards
+          below it. Each whole row is the link; on
           hover it fills with the coral wash and the profession turns coral.
           The list bleeds out by the row padding, so the text lines up with the
           heading and only the hover fill reaches past it. */}
@@ -682,7 +713,7 @@ export default function HomeDraftPage() {
           <FadeUp>
             <p className="eyebrow mb-4">Who we work with</p>
             <h2 className="text-h2 mb-12 text-[var(--color-ink)]">
-              Osteopaths, physiotherapists and chiropractors
+              Built for osteopaths, physios and chiropractors
             </h2>
           </FadeUp>
           <ul className="-mx-4 border-b border-[var(--color-border)] lg:-mx-6">
@@ -691,34 +722,37 @@ export default function HomeDraftPage() {
                 <FadeUp delay={i * 0.06}>
                   <Link
                     href={card.href}
-                    className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 px-4 py-7 transition-colors hover:bg-[var(--color-accent-light)] lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_auto] lg:gap-x-12 xl:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_14rem_auto] lg:px-6 lg:py-8"
+                    className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-5 gap-y-2 px-4 py-6 transition-colors hover:bg-[var(--color-accent-light)] sm:grid-cols-[10rem_minmax(0,1fr)_auto] lg:grid-cols-[15rem_minmax(0,1fr)_auto] lg:gap-x-10 lg:gap-y-2 lg:px-6 lg:py-7"
                     style={{ transitionDuration: "var(--duration-base)" }}
                   >
+                    {/* The discipline's treatment photo, always shown (it was a
+                        hover reveal): a wide banner on top on phones, a
+                        thumbnail on the left from sm. Decorative, so hidden
+                        from screen readers; a slight zoom on hover. */}
+                    <span
+                      aria-hidden
+                      className="relative col-span-2 row-start-1 mb-2 block aspect-[16/9] w-full overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-surface)] sm:col-span-1 sm:col-start-1 sm:row-span-2 sm:mb-0 sm:aspect-[16/10] sm:self-start lg:self-center"
+                    >
+                      <Image
+                        src={card.image}
+                        alt=""
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105 motion-reduce:group-hover:scale-100"
+                        style={{ objectPosition: card.imagePosition, transitionDuration: "var(--duration-slow)", transitionTimingFunction: "var(--ease-out-quart)" }}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 160px, 240px"
+                      />
+                    </span>
                     <h3
-                      className="text-h3 col-start-1 row-start-1 text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-accent-text)]"
+                      className="text-h3 col-start-1 row-start-2 text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-accent-text)] sm:col-start-2 sm:row-start-1 lg:self-end"
                       style={{ transitionDuration: "var(--duration-base)" }}
                     >
                       {card.title}
                     </h3>
-                    <p className="text-body-lg col-span-2 col-start-1 row-start-2 max-w-[52ch] text-[var(--color-charcoal)] lg:col-span-1 lg:col-start-2 lg:row-start-1">
+                    <p className="text-body-lg col-span-2 col-start-1 row-start-3 max-w-[52ch] text-[var(--color-charcoal)] sm:col-start-2 sm:row-start-2 lg:self-start">
                       {card.headline}
                     </p>
-                    {/* Hover reveal, from xl only: the discipline's treatment
-                        photo fades in, in its own column before the arrow so it
-                        never covers the text. The photo is taller than the
-                        text and spills into the row's padding rather than
-                        growing the row. Decorative, so hidden from screen
-                        readers; smaller screens keep the plain text rows. */}
-                    <span aria-hidden className="pointer-events-none relative hidden self-stretch xl:col-start-3 xl:row-start-1 xl:block">
-                      <span
-                        className="absolute inset-x-0 top-1/2 h-28 -translate-y-1/2 scale-95 overflow-hidden rounded-[var(--radius-card)] opacity-0 shadow-[var(--shadow-card-hover)] transition-[opacity,transform] group-hover:scale-100 group-hover:opacity-100 group-focus-visible:scale-100 group-focus-visible:opacity-100 motion-reduce:scale-100"
-                        style={{ transitionDuration: "var(--duration-slow)", transitionTimingFunction: "var(--ease-out-quart)" }}
-                      >
-                        <Image src={card.image} alt="" fill className="object-cover" style={{ objectPosition: card.imagePosition }} sizes="224px" />
-                      </span>
-                    </span>
                     <span
-                      className="col-start-2 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)] transition-all group-hover:translate-x-1 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] lg:col-start-3 xl:col-start-4"
+                      className="col-start-2 row-start-2 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)] transition-all group-hover:translate-x-1 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] sm:col-start-3 sm:row-start-1 lg:row-span-2 lg:row-start-1 lg:self-center"
                       style={{ transitionDuration: "var(--duration-base)", transitionTimingFunction: "var(--ease-out-quart)" }}
                     >
                       <Arrow size={14} />
@@ -788,10 +822,17 @@ export default function HomeDraftPage() {
       {/* A flat coral-wash panel, no border or gradient, so the white form card
           is the one raised thing in it. Danny's sign-off backs the headline's
           "practising osteopath" with a name and a face. */}
-      <section id="book-audit" className="section bg-[var(--color-paper)]">
+      {/* Tighter than the standard section gap, at the user's request: 64px
+          to 96px around the panel, inline because .section is unlayered CSS
+          and outranks Tailwind utilities. */}
+      <section
+        id="book-audit"
+        className="section bg-[var(--color-paper)]"
+        style={{ paddingBlock: "clamp(var(--space-block), 6vw, var(--space-section-sm))" }}
+      >
         <div className="cx-main">
           <div
-            className="grid items-center gap-12 bg-[var(--color-accent-light)] px-6 py-12 sm:px-10 md:px-14 md:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-20 lg:px-20 lg:py-24"
+            className="grid items-center gap-12 bg-[var(--color-accent-light)] px-6 py-10 sm:px-10 md:px-14 md:py-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-20 lg:px-20 lg:py-14"
             style={{ borderRadius: "var(--radius-panel)" }}
           >
             <FadeUp>
@@ -821,7 +862,7 @@ export default function HomeDraftPage() {
                   </span>
                   <span>
                     <span className="block font-display text-[15px] font-semibold text-[var(--color-ink)]">Reviewed by Danny Morgan</span>
-                    <span className="block text-[14px] leading-relaxed text-[var(--color-muted)]">GOsC-registered osteopath, Bodyfunction Clinic, London</span>
+                    <span className="block text-[14px] leading-relaxed text-[var(--color-muted)]">Registered Osteopath &amp; Clinic Director</span>
                   </span>
                 </div>
               </div>

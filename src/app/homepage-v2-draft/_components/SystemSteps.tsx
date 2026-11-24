@@ -3,8 +3,8 @@ import type { ComponentType, CSSProperties } from "react";
 import FadeUp from "@/components/animations/FadeUp";
 import { GoogleLogo, FacebookLogo, InstagramLogo, TiktokLogo } from "@/components/brand/PlatformLogos";
 
-// The four ways patients come in, as the video's own diagram draws them ("Four
-// ways in. One system underneath."). Call handling, follow-up and reactivation
+// The four ways patients come in, as the video's own diagram draws them; the
+// section is titled plainly, "How we fill your diary". Call handling, follow-up and reactivation
 // are Patient Pulse's job, so they sit in the bar underneath rather than as
 // cards. The draft footer still lists every service, from SYSTEM_STAGES in
 // src/lib/nav.ts.
@@ -39,7 +39,7 @@ const channels: {
   {
     title: "Paid social",
     tag: "Facebook, Instagram, TikTok",
-    body: "Reach local people on Facebook, Instagram and TikTok before they start searching.",
+    body: "Reach local people on social media before they start searching.",
     service: { label: "Paid Social", href: "/digital-marketing/" },
     platforms: [
       { name: "Facebook", icon: FacebookLogo },
@@ -81,15 +81,18 @@ export default function SystemSteps() {
       <div className="cx-main">
         <FadeUp>
           <p className="eyebrow mb-4">How Clinic Evolution works</p>
+          {/* Plain, and no number in the title: "Four ways in. One system
+              underneath." read as AI copy in review. */}
           <h2 className="text-h2 mb-4 max-w-[720px] text-balance text-[var(--color-ink)]">
-            Four ways in.{" "}
-            <span className="sm:whitespace-nowrap">One system underneath.</span>
+            How we fill your diary
           </h2>
-          {/* Each channel is also sold on its own, which the "one system"
-              framing could otherwise hide from someone who only wants SEO. */}
-          <p className="text-body-lg mb-12 max-w-[600px] text-[var(--color-charcoal)]">
-            Use all four together, or just the service you need. Each one is
-            also available on its own.
+          {/* Each service is also sold on its own, which a "system" framing
+              could otherwise hide from someone who only wants SEO. Said here
+              and again on every card. */}
+          <p className="text-body-lg mb-12 max-w-[640px] text-[var(--color-charcoal)]">
+            Take just the service you need, or combine them.
+            <br />
+            You don&apos;t need the full system to work with us.
           </p>
         </FadeUp>
 
@@ -116,7 +119,21 @@ export default function SystemSteps() {
                 <div className="relative flex h-full flex-col rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-6 text-[var(--color-ink)] shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-[var(--hover-lift)] ease-[var(--ease-out-quart)] group-hover:-translate-y-1 group-hover:shadow-[var(--shadow-card-hover)] motion-reduce:group-hover:translate-y-0">
                   <h3 className="text-h4">{c.title}</h3>
                   <p className="text-label mb-3 mt-1">{c.tag}</p>
-                  <p className="text-body mb-5 text-[var(--color-charcoal)]" style={{ lineHeight: 1.5 }}>{c.body}</p>
+                  <p className="text-body mb-3 text-[var(--color-charcoal)]">{c.body}</p>
+                  {/* Straight under the description, as part of what the
+                      service is; a wider gap below keeps it apart from the
+                      platform logos pinned to the card foot. */}
+                  <p className="mb-8 flex items-center gap-2 text-[13px] font-medium text-[var(--color-charcoal)]">
+                    <span
+                      aria-hidden
+                      className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-light)] text-[var(--color-accent)]"
+                    >
+                      <svg width="9" height="9" viewBox="0 0 14 14" fill="none">
+                        <path d="M2.5 7.5l3 3 6-6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    Available on its own
+                  </p>
                   {/* Logos and link pinned to the card foot together, so the logo
                       row lines up across the cards whatever the body length. */}
                   <div className="mt-auto">
@@ -154,7 +171,7 @@ export default function SystemSteps() {
         <FadeUp delay={0.3}>
           <div className="mt-5 flex flex-col gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-5 sm:flex-row sm:items-center sm:justify-between lg:mt-8">
             <p className="text-[16px] text-[var(--color-charcoal)]" style={{ lineHeight: 1.5 }}>
-              <span className="font-display font-semibold text-[var(--color-ink)]">Every enquiry lands in Patient Pulse,</span>{" "}
+              <span className="font-display font-semibold text-[var(--color-ink)]">With the full system, every enquiry lands in Patient Pulse,</span>{" "}
               answered straight away and followed up until they book.
             </p>
             <Link
