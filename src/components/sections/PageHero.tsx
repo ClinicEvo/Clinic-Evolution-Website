@@ -24,6 +24,11 @@ interface PageHeroProps {
    *  keeps its own corner radius and border, so a bleeding panel should drop the
    *  ones on its trailing edge itself. */
   rightPanelBleed?: boolean;
+  /** Align the copy column to the top of the grid rather than centring it.
+   *  For a right panel much taller than the copy (a form), where centring
+   *  would push the headline down the page. Off by default, so other heroes
+   *  are unchanged. */
+  alignTop?: boolean;
 }
 
 export default function PageHero({
@@ -39,6 +44,7 @@ export default function PageHero({
   rightPanelWidth = "480px",
   bulletsBelow = false,
   rightPanelBleed = false,
+  alignTop = false,
 }: PageHeroProps) {
   const bulletRow =
     bullets && bullets.length > 0 ? (
@@ -79,7 +85,7 @@ export default function PageHero({
         )}
 
         <div
-          className={`grid gap-12 lg:gap-16 items-center ${breadcrumbs ? "mt-6" : ""} ${rightPanel ? "lg:grid-cols-[var(--hero-right-w)]" : ""}`}
+          className={`grid gap-12 lg:gap-16 ${alignTop ? "items-start" : "items-center"} ${breadcrumbs ? "mt-6" : ""} ${rightPanel ? "lg:grid-cols-[var(--hero-right-w)]" : ""}`}
           style={rightPanel ? ({ "--hero-right-w": `1fr ${rightPanelWidth}` } as CSSProperties) : undefined}
         >
           {/* Left, copy.

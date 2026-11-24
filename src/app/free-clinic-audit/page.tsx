@@ -5,8 +5,6 @@ import BreadcrumbSchema from "@/components/schema/BreadcrumbSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
 import ArrowLink from "@/components/ui/ArrowLink";
 import PageHero from "@/components/sections/PageHero";
-import HeroChecklistPanel from "@/components/sections/HeroChecklistPanel";
-import GoogleReviews from "@/components/sections/GoogleReviews";
 import AuditForm from "@/components/forms/AuditForm";
 
 
@@ -67,26 +65,15 @@ export default function FreeClinicAuditPage() {
         ]}
         primaryCta={{ label: "Get my free clinic audit", href: "#audit-form" }}
         breadcrumbs={crumbs}
+        alignTop
+        rightPanelWidth="540px"
         rightPanel={
-          /* Deliberately the process, not the deliverables: the "What you
-             receive" card further down this page already lists those, and
-             repeating them here would say the same thing twice. */
-          <HeroChecklistPanel
-            numbered
-            title="How the audit works"
-            items={[
-              "Send the short form with your clinic website",
-              "We review the site, search visibility and booking journey by hand",
-              "You get the findings and the priority actions",
-            ]}
-            footer={
-              <>
-                Reviewed by a person, start to finish. Back with you within{" "}
-                <strong className="font-semibold text-[var(--color-ink)]">2 business days</strong>,
-                with no obligation.
-              </>
-            }
-          />
+          /* The form sits in the hero, so it is visible as soon as the page
+             opens. The id stays on it, so every #audit-form link on the site
+             still lands on the form. */
+          <div id="audit-form" className="card-surface scroll-mt-28 p-6 sm:p-8">
+            <AuditForm />
+          </div>
         }
       />
 
@@ -177,57 +164,6 @@ export default function FreeClinicAuditPage() {
                   <ArrowLink href="/physiotherapy-marketing/">Physiotherapy Marketing</ArrowLink>
                   <ArrowLink href="/chiropractic-marketing/">Chiropractic Marketing</ArrowLink>
                 </div>
-              </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      {/* Form Section */}
-      {/* Last thing before the form. Someone about to hand over their clinic's
-          details is deciding whether to trust us, and two named clinic owners
-          answer that better than another paragraph from us does. */}
-      <GoogleReviews surface="paper" />
-      <section id="audit-form" className="section bg-[var(--color-paper)]">
-        <div className="cx-main">
-          {/* items-start, not items-center: the form runs to ~1130px and this
-              copy column to ~500px, so centring the short column left dead
-              space above it and a full empty viewport below. Aligned to the top
-              and made sticky, the reassurance points stay beside the fields
-              while the visitor works down the form. */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-            {/* The stretched grid item and the sticky element are plain divs,
-                with FadeUp inside them: framer-motion leaves a transform on its
-                wrapper, and a transformed ancestor becomes the containing block
-                for a sticky descendant, which stops it travelling. */}
-            <div className="lg:self-stretch">
-              <div className="lg:sticky lg:top-28">
-                <FadeUp>
-                <p className="eyebrow mb-4">The form</p>
-                <h2 className="text-h2 text-[var(--color-ink)] mb-5">
-                  Get your free clinic audit
-                </h2>
-                <p className="text-body-lg text-[var(--color-muted)] mb-5">
-                  Complete the short form below and share your clinic website.
-                  Clinic Evo will review your current digital presence and identify
-                  the clearest opportunities for improvement.
-                </p>
-                <div className="hidden lg:flex flex-col gap-4 mt-10">
-                  <div className="card-surface p-5">
-                    <p className="text-body-sm text-[var(--color-ink)] font-medium mb-1">Clinic-led advice</p>
-                    <p className="text-body-sm text-[var(--color-muted)]">Built around MSK patient journeys</p>
-                  </div>
-                  <div className="card-surface p-5">
-                    <p className="text-body-sm text-[var(--color-ink)] font-medium mb-1">No automated spam</p>
-                    <p className="text-body-sm text-[var(--color-muted)]">Human review of your website</p>
-                  </div>
-                </div>
-                </FadeUp>
-              </div>
-            </div>
-            <FadeUp delay={0.1}>
-              <div className="card-surface p-8">
-                <AuditForm />
               </div>
             </FadeUp>
           </div>

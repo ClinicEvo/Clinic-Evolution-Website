@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
 import { events } from "@/lib/analytics";
@@ -66,17 +67,18 @@ export default function AuditForm({
         <Input id="clinic_name" name="clinic_name" type="text" required placeholder="Peak Physio" />
       </Field>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <Field label="Clinic website (optional)">
-          <Input id="clinic_website" name="clinic_website" type="url" autoComplete="url" placeholder="https://www.myclinic.co.uk" />
-          <span className="mt-1.5 block text-xs leading-relaxed text-[var(--color-muted)]">
-            No website yet? Leave this blank. We also help practitioners launch new clinics.
-          </span>
-        </Field>
-        <Field label="Town / City" required>
-          <Input id="location" name="location" type="text" required placeholder="e.g. Bristol" />
-        </Field>
-      </div>
+      {/* Website on its own row, so its hint runs the full width of the form
+          rather than wrapping in half of it. */}
+      <Field label="Clinic website (optional)">
+        <Input id="clinic_website" name="clinic_website" type="url" autoComplete="url" placeholder="https://www.myclinic.co.uk" />
+        <span className="mt-1.5 block text-xs leading-relaxed text-[var(--color-muted)]">
+          No website yet? Leave this blank. We also help practitioners launch new clinics.
+        </span>
+      </Field>
+
+      <Field label="Town / City" required>
+        <Input id="location" name="location" type="text" required placeholder="e.g. Bristol" />
+      </Field>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Field label="Discipline" required>
@@ -114,6 +116,19 @@ export default function AuditForm({
       {state === "error" && (
         <p role="alert" className="text-sm text-[var(--color-error)]">{errorMsg}</p>
       )}
+
+      {/* The privacy notice UK GDPR expects at the point of collection, as on
+          the homepage draft's audit form. */}
+      <p className="text-[12px] text-[var(--color-muted)]">
+        By submitting, you agree to our{" "}
+        <Link
+          href="/privacy-policy/"
+          className="underline underline-offset-2 transition-colors hover:text-[var(--color-ink)]"
+        >
+          Privacy Policy
+        </Link>
+        .
+      </p>
 
       <Button type="submit" size="lg" disabled={state === "submitting"} className="w-full sm:w-auto">
         {state === "submitting" ? "Sending…" : "Get my free clinic audit"}
