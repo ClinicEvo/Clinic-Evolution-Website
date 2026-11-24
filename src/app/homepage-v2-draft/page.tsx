@@ -83,11 +83,14 @@ const PILL = "9999px";
 // Four rows, each backing the headline's "answers and follows up every
 // enquiry". Pipeline and review requests were cut for length; both are on
 // /patient-pulse/.
-const pulseRows = [
-  { before: "Messages spread across five apps", after: "Website, Facebook, Instagram and TikTok in one inbox" },
-  { before: "Replies wait until the next morning", after: "An instant first reply, day or night" },
-  { before: "Follow-up depends on who remembers", after: "Twelve months of follow-up that runs itself" },
-  { before: "Lapsed patients never hear from you", after: "Reactivation messages before the next flare-up" },
+/* What Patient Pulse does: the "With Patient Pulse" column of the earlier
+   comparison, kept word for word. The "Without it" column was removed in
+   review. */
+const pulseTicks = [
+  "Website, Facebook, Instagram and TikTok in one inbox",
+  "An instant first reply, day or night",
+  "Twelve months of follow-up that runs itself",
+  "Reactivation messages before the next flare-up",
 ];
 
 // The live homepage's five marks under the hero, set deliberately quiet:
@@ -181,14 +184,14 @@ const founders = [
     // What each founder brings, not just their credentials: the value is the
     // pairing of someone who lives the clinic problem with someone who fixes
     // it in marketing and tech.
-    line: "GOsC-registered osteopath who still treats patients at Bodyfunction Clinic in Angel. He built the system to fix the missed calls and lost enquiries in his own clinic.",
+    line: "Registered Osteopath & Clinic Director",
   },
   {
     // Simon has resigned from the GOsC register: "former registered osteopath",
     // never "osteopath", "registered" or "practising".
     name: "Simon Smith",
     image: "/images/simon-smith.jpg",
-    line: "Former registered osteopath who went on to found Neometa, building websites, SEO and campaigns. He knows both sides of the treatment room door.",
+    line: "M.Ost & Clinic Director",
   },
 ];
 
@@ -278,8 +281,9 @@ export default function HomeDraftPage() {
               <span className="eyebrow mb-4 lg:mb-[clamp(0.75rem,2vh,1.25rem)]">For UK osteopaths, physios &amp; chiropractors</span>
             </FadeUp>
 
-            {/* Says what it is, who built it and who it is for. Coral on the
-                second half only, the way every hero on the site marks its H1. */}
+            {/* Says what it is and the outcome it promises; the eyebrow above
+                says who it is for. Coral on the second half only, the way every
+                hero on the site marks its H1. */}
             <FadeUp delay={0.06}>
               <h1
                 className="font-display text-balance text-[var(--color-ink)]"
@@ -290,8 +294,8 @@ export default function HomeDraftPage() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                Patient acquisition built by osteopaths,{" "}
-                <em className="not-italic text-[var(--color-accent)]">for MSK clinics.</em>
+                Clinic marketing that fills your diary{" "}
+                <em className="not-italic text-[var(--color-accent)]">and keeps it full.</em>
               </h1>
             </FadeUp>
 
@@ -400,43 +404,69 @@ export default function HomeDraftPage() {
           is it software or a service, who runs it, and does it cost extra.
           Figures from GROWTH_COSTS in src/lib/growth-system.ts. */}
       <section id="patient-pulse" className="section scroll-mt-24 bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
-        <div className="cx-main grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        {/* Text on the left, taking all the width up to the card, which is
+            held to the right edge of the container. */}
+        <div className="cx-main grid gap-12 lg:grid-cols-[minmax(0,1fr)_28rem] lg:gap-12 xl:gap-28">
           <FadeUp>
             <div className="lg:sticky lg:top-32">
-              <p className="eyebrow mb-4">Patient Pulse</p>
-              <h2 className="text-h2 mb-5 text-[var(--color-ink)]">
-                The clinic CRM that answers and follows up every enquiry
+              {/* The product's name is the headline, per review; what it is
+                  moves to the eyebrow and the line under it. */}
+              <p className="eyebrow mb-4">Our clinic CRM</p>
+              <h2 className="text-h2 mb-5 text-balance text-[var(--color-ink)]">
+                {/* Two set lines from lg, broken after "books"; phones wrap freely. */}
+                <em className="not-italic text-[var(--color-accent)]">Patient Pulse</em>: the CRM
+                that books <br className="hidden lg:block" />
+                the patients your marketing brings in
               </h2>
               {/* Simon: the left side is the headline and one paragraph only.
-                  No prices here, at the user's request. */}
+                  No prices here, at the user's request. The audit button was
+                  added later, at the user's request, so the section has a
+                  next step; it is the hero's own button. */}
               <p className="text-body-lg text-pretty text-[var(--color-charcoal)]">
-                Patient Pulse replies to every enquiry instantly and follows up
-                until they book. We set it up and run it for you.
+                The clinic CRM that replies to every enquiry instantly and
+                follows up until they book. We set it up and run it for you.
               </p>
+              <Link
+                href="#book-audit"
+                className="mt-7 inline-flex items-center font-semibold text-white transition-colors bg-[var(--color-accent)] hover:bg-[var(--color-accent-strong)] active:translate-y-px"
+                style={{
+                  padding: "0.6rem 26px",
+                  borderRadius: PILL,
+                  fontSize: "15px",
+                  fontFamily: "var(--font-display)",
+                }}
+              >
+                Get my free clinic audit
+              </Link>
             </div>
           </FadeUp>
 
           <FadeUp delay={0.08}>
+            {/* The original table with the "Without it" column removed; rows
+                kept word for word, its header row removed in review. Narrowed
+                to its content's width, since one column across a wide track
+                left an empty strip on the right. The logo heads the card. */}
+            <div className="w-full max-w-[30rem]">
             <div className="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
+              <div className="border-b border-[var(--color-border)] px-5 py-4 sm:px-7">
+                <Image
+                  src="/images/patientpulse_logo.png"
+                  alt="Patient Pulse"
+                  width={3116}
+                  height={440}
+                  className="h-5 w-auto sm:h-6"
+                />
+              </div>
               <table className="w-full border-collapse text-left">
-                <caption className="sr-only">A clinic week without and with Patient Pulse</caption>
-                <thead>
-                  <tr className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-                    <th scope="col" className="text-label w-1/2 px-5 py-4 sm:px-7">Without it</th>
-                    <th scope="col" className="w-1/2 px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.15em] text-[var(--color-accent-text)] sm:px-7">
-                      With Patient Pulse
-                    </th>
-                  </tr>
-                </thead>
+                <caption className="sr-only">What a clinic week looks like with Patient Pulse</caption>
                 <tbody>
-                  {pulseRows.map((r) => (
-                    <tr key={r.before} className="border-b border-[var(--color-border)] last:border-b-0 align-top">
-                      <td className="px-5 py-4 text-[14px] leading-snug text-[var(--color-muted)] sm:px-7">{r.before}</td>
+                  {pulseTicks.map((t) => (
+                    <tr key={t} className="border-b border-[var(--color-border)] last:border-b-0 align-top">
                       <td className="px-5 py-4 text-[14px] font-medium leading-snug text-[var(--color-ink)] sm:px-7">
                         {/* The tick nudged 1px down to sit on the first line's centre. */}
                         <span className="flex gap-2.5 [&>span:first-child]:mt-px">
                           <Check size="sm" />
-                          {r.after}
+                          {t}
                         </span>
                       </td>
                     </tr>
@@ -454,6 +484,7 @@ export default function HomeDraftPage() {
                 See everything Patient Pulse does
                 <Arrow size={10} />
               </Link>
+            </div>
             </div>
           </FadeUp>
         </div>

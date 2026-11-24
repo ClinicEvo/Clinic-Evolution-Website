@@ -271,7 +271,7 @@ h1 {
    step from h1 to h2 to h3 (28px). Scoped to the draft so live pages keep
    the shared scale until the draft replaces the homepage. */
 .draft-home .text-h2 {
-  font-size: clamp(1.75rem, 2.8vw, 2.5rem); /* 28px → 40px */
+  font-size: clamp(1.75rem, 2.8vw, 2.25rem); /* 28px → 36px, set at 36px in review */
   line-height: 1.15;
 }
 
