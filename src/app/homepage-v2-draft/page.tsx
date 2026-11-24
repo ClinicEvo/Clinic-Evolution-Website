@@ -822,10 +822,17 @@ export default function HomeDraftPage() {
       {/* A flat coral-wash panel, no border or gradient, so the white form card
           is the one raised thing in it. Danny's sign-off backs the headline's
           "practising osteopath" with a name and a face. */}
-      <section id="book-audit" className="section bg-[var(--color-paper)]">
+      {/* Tighter than the standard section gap, at the user's request: 64px
+          to 96px around the panel, inline because .section is unlayered CSS
+          and outranks Tailwind utilities. */}
+      <section
+        id="book-audit"
+        className="section bg-[var(--color-paper)]"
+        style={{ paddingBlock: "clamp(var(--space-block), 6vw, var(--space-section-sm))" }}
+      >
         <div className="cx-main">
           <div
-            className="grid items-center gap-12 bg-[var(--color-accent-light)] px-6 py-12 sm:px-10 md:px-14 md:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-20 lg:px-20 lg:py-24"
+            className="grid items-center gap-12 bg-[var(--color-accent-light)] px-6 py-10 sm:px-10 md:px-14 md:py-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-20 lg:px-20 lg:py-14"
             style={{ borderRadius: "var(--radius-panel)" }}
           >
             <FadeUp>
@@ -855,7 +862,7 @@ export default function HomeDraftPage() {
                   </span>
                   <span>
                     <span className="block font-display text-[15px] font-semibold text-[var(--color-ink)]">Reviewed by Danny Morgan</span>
-                    <span className="block text-[14px] leading-relaxed text-[var(--color-muted)]">GOsC-registered osteopath, Bodyfunction Clinic, London</span>
+                    <span className="block text-[14px] leading-relaxed text-[var(--color-muted)]">Registered Osteopath &amp; Clinic Director</span>
                   </span>
                 </div>
               </div>
