@@ -423,8 +423,8 @@ export default function HomeDraftPage() {
                   added later, at the user's request, so the section has a
                   next step; it is the hero's own button. */}
               <p className="text-body-lg text-pretty text-[var(--color-charcoal)]">
-                The clinic CRM that replies to every enquiry instantly and
-                follows up until they book. We set it up and run it for you.
+                Patient Pulse replies to every enquiry instantly and follows up
+                until they book. We set it up and run it for you.
               </p>
               <Link
                 href="#book-audit"
