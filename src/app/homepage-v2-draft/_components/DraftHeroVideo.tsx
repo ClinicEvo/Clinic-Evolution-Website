@@ -20,9 +20,13 @@ import { useRef, useState } from "react";
    for quality. Its moov atom sits at the front, so playback starts on the first
    bytes rather than after the full download. */
 
-const VIDEO_SRC = "/videos/danny-morgan-clinic-evo-intro.mp4";
+/* Playback starts at 2.4s, skipping the "CLINIC EVO" logo card but keeping
+   the wipe into Danny, which he starts speaking over. A media fragment rather
+   than a re-encode: the live homepage shares this file and keeps its full
+   intro, and the logo card is still there for anyone who scrubs back. */
+const VIDEO_SRC = "/videos/danny-morgan-clinic-evo-intro.mp4#t=2.4";
 const POSTER_SRC = "/images/hero-video-cover.jpg";
-const DURATION_LABEL = "1:48";
+const DURATION_LABEL = "1:46";
 
 /** Homepage-draft copy of src/components/hero/HeroVideo.tsx, which the live
  *  homepage still uses. It differs in the line set over the light cover (a
@@ -57,7 +61,7 @@ export default function DraftHeroVideo({
 
   return (
     <div
-      className={`relative aspect-square w-full overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-ink)] shadow-[var(--shadow-card-hover)]${lightPoster ? " [container-type:inline-size]" : ""}`}
+      className={`relative aspect-video w-full overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-ink)] shadow-[var(--shadow-card-hover)]${lightPoster ? " [container-type:inline-size]" : ""}`}
       onPointerEnter={warm}
     >
       <video
@@ -67,8 +71,11 @@ export default function DraftHeroVideo({
         playsInline
         controls={playing}
         aria-label="Danny Morgan, osteopath and clinic owner, on the system he built instead of paying agencies for poor-quality leads"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-contain"
       />
+      {/* 16:9 frame, square file: the video is fitted, not cropped, so its
+          burned-in subtitles and full-frame diagrams stay whole, with the
+          frame's navy showing as bars at the sides. */}
 
       {/* Cover and play control. Sits above the video until play, then fades
           out on opacity alone and stops catching pointer events so the native
@@ -88,67 +95,67 @@ export default function DraftHeroVideo({
           className="object-cover"
         />
 
-        {/* The light cover carries no headline of its own, so the caption is
-            set as live text in the brand navy. A discreet paper fade
-            behind it keeps it legible and softens the subtitle burned into
-            that frame. The title is one line across the full width, sized to
-            fit it (19.5em covers the text); it clears the play control because
-            the subtitle under it is held at least the button's height, with
-            right padding of its own. */}
+        {/* The cover carries no headline of its own, so the caption is set as
+            live text in white over a navy fade. The fade is solid at the very
+            bottom, which hides the subtitle burned into the frame. */}
         {coverHeadline && (
-          <>
-            <div
-              aria-hidden
-              className="absolute inset-x-0 bottom-0 h-[44%] bg-gradient-to-t from-[var(--color-paper)] from-22% via-[var(--color-paper)]/65 via-55% to-transparent"
-            />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5 sm:p-7">
-              <p
-                className="whitespace-nowrap font-display font-semibold leading-[1.1] text-[var(--color-ink)]"
-                style={{
-                  fontSize: "min(1.6rem, max(0.95rem, 4cqw), calc((100cqw - 56px) / 19.5))",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                Patient Pulse: What it is and how it works
-              </p>
-              <p className="mt-1.5 min-h-[52px] pr-20 text-[13px] leading-snug text-[var(--color-muted)] sm:min-h-14 sm:pr-24">
-                Danny Morgan, osteopath and clinic owner, on the system he built.
-              </p>
-            </div>
-          </>
+          <div
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[var(--color-ink)] from-14% via-[var(--color-ink)]/70 via-50% to-transparent"
+          />
         )}
 
+        {/* The whole frame is the button; its visible cue is a coral disc set
+            in the caption, left of the title, so nothing covers Danny's face
+            and the control sits bottom-left, nearest the hero's own CTA. Disc
+            and title read as one row: press this to watch this. The title
+            stays one line, sized to the width left beside the disc
+            (19.5em covers the text, 5.75rem the disc, gap and padding). */}
         <button
           type="button"
           onClick={play}
           onFocus={warm}
           aria-label={`Play video, ${DURATION_LABEL}`}
-          className="group absolute inset-0 flex cursor-pointer items-end justify-end p-5 text-left sm:p-7 focus-visible:outline-none"
+          className="group absolute inset-0 flex cursor-pointer items-end justify-start pb-3.5 pl-3.5 pr-5 text-left sm:pb-4 sm:pl-4 sm:pr-7 focus-visible:outline-none"
         >
-          <span className="flex items-center gap-4">
-            {/* No "Watch the story" label beside the button on the draft: with
-                the caption on the cover it read as a second, competing line.
-                The duration stays in the button's accessible name. */}
-            {/* The pulse. Two rings on a stagger, transform and opacity only,
-                reusing the keyframe the Patient Pulse live dot already owns. */}
-            <span className="relative flex h-[52px] w-[52px] flex-shrink-0 items-center justify-center sm:h-14 sm:w-14">
-              {/* Toned down on the draft: one ring instead of two, slower, at
-                  half strength, and starting at half the button's size so its
-                  3× scale ends just past the button's edge (about 1.6×) rather
-                  than at three times its width. The shared keyframe drives
-                  opacity itself, so the strength is set on a wrapper. */}
-              <span aria-hidden className="absolute inset-0 opacity-50 motion-reduce:hidden">
+          <span className="flex items-center gap-4 sm:gap-5">
+            {/* The pulse, reusing the keyframe the Patient Pulse live dot
+                already owns (scale 1→3, opacity 0.7→0). Small in the caption,
+                so it runs at full strength: two rings on a stagger, each
+                starting at 60% of the button so it ends about 1.8× its width. */}
+            <span className="relative flex h-8 w-8 flex-shrink-0 items-center justify-center sm:h-9 sm:w-9">
+              <span aria-hidden className="absolute inset-0 motion-reduce:hidden">
                 <span
-                  className="absolute inset-[23%] rounded-full bg-[var(--color-accent)]"
-                  style={{ animation: "pulse-ring 3.2s ease-out infinite" }}
+                  className="absolute inset-[20%] rounded-full bg-[var(--color-accent)]"
+                  style={{ animation: "pulse-ring 2.4s ease-out infinite" }}
+                />
+                <span
+                  className="absolute inset-[20%] rounded-full bg-[var(--color-accent)]"
+                  style={{ animation: "pulse-ring 2.4s ease-out 1.2s infinite" }}
                 />
               </span>
               <span className="relative flex h-full w-full items-center justify-center rounded-full bg-[var(--color-accent)] text-white shadow-[var(--shadow-card)] transition-transform duration-[var(--duration-base)] ease-[var(--ease-spring)] group-hover:scale-105 group-focus-visible:scale-105 group-focus-visible:ring-2 group-focus-visible:ring-white group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-[var(--color-ink)] group-active:scale-95">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="translate-x-[1.5px]">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="translate-x-[1px]">
                   <path d="M7 4.6v14.8c0 .8.9 1.3 1.6.9l11.6-7.4c.6-.4.6-1.4 0-1.8L8.6 3.7C7.9 3.3 7 3.8 7 4.6z" />
                 </svg>
               </span>
             </span>
+            {coverHeadline && (
+              <span className="block min-w-0">
+                <span
+                  className="block whitespace-nowrap font-display font-semibold leading-[1.1] text-white"
+                  style={{
+                    fontSize: "min(1.125rem, calc((100cqw - 5.75rem) / 19.5))",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  Patient Pulse: What it is and how it works
+                </span>
+                <span className="mt-1 block text-[11px] leading-snug text-white/80 sm:text-xs">
+                  Danny Morgan, osteopath and clinic owner, on the system he built.
+                </span>
+              </span>
+            )}
           </span>
         </button>
       </div>

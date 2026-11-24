@@ -348,18 +348,17 @@ export default function HomeDraftPage() {
             </FadeUp>
           </div>
 
-          {/* Danny's video in place of the Patient Pulse card. The cover is
-              the video's own frame at 0:50, the system diagram, so the product
-              is still the first thing seen. The square frame is capped by
-              viewport height as well as width so it fits the one-screen hero
-              on a 720px-tall laptop. Its "Clinic Evo" wording is burned into
-              the video itself. */}
-          <figure
-            className="m-0 mx-auto w-full lg:mr-0"
-            style={{ maxWidth: "min(32rem, calc(100svh - 15.5rem))" }}
-          >
+          {/* Danny's video in place of the Patient Pulse card, in a 16:9
+              frame. The cover is his frame at 00:00:11:26 (glasses glare
+              reduced, lightly retouched), set square in the middle of a 16:9
+              image whose sides are the same frame blurred and darkened, as
+              the square video looks when it plays. At the column's width a
+              16:9 frame is short enough for the one-screen hero, so it needs
+              no height cap. Its "Clinic Evo" wording is burned into the video
+              itself; playback starts at 2.4s, past the logo card. */}
+          <figure className="m-0 mx-auto w-full lg:mr-0">
             {/* The caption is set over the cover, as on the live homepage. */}
-            <DraftHeroVideo posterSrc="/images/hero-video-cover-0050.jpg" lightPoster />
+            <DraftHeroVideo posterSrc="/images/hero-video-cover-danny-1126-16x9.jpg" lightPoster />
           </figure>
         </div>
       </section>
