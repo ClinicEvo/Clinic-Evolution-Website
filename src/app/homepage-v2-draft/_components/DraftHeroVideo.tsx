@@ -70,6 +70,11 @@ export default function DraftHeroVideo({
         preload="none"
         playsInline
         controls={playing}
+        /* No download: hides the Download item in the native controls'
+           menu, and the right-click menu that offers "Save video as". This
+           removes the easy route only; the file is still public by URL. */
+        controlsList="nodownload"
+        onContextMenu={(e) => e.preventDefault()}
         aria-label="Danny Morgan, osteopath and clinic owner, on the system he built instead of paying agencies for poor-quality leads"
         className="absolute inset-0 h-full w-full object-contain"
       />
