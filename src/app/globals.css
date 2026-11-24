@@ -286,7 +286,18 @@ h1 {
 }
 .draft-home .draft-resource-cards h3 + p {
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.5;
+}
+
+/* One body line height across the homepage draft, set at 1.5 in review (the
+   shared scale runs 1.65-1.75). Scoped so live pages keep theirs. The base
+   covers text that only inherits the body's 1.75. */
+.draft-home,
+.draft-home .text-body-lg,
+.draft-home .text-body,
+.draft-home .text-body-sm,
+.draft-home .leading-relaxed {
+  line-height: 1.5;
 }
 .draft-home .draft-resource-cards h3 + p + span {
   font-size: 0.875rem;

@@ -119,7 +119,7 @@ export default function SystemSteps() {
                 <div className="relative flex h-full flex-col rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-6 text-[var(--color-ink)] shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-[var(--hover-lift)] ease-[var(--ease-out-quart)] group-hover:-translate-y-1 group-hover:shadow-[var(--shadow-card-hover)] motion-reduce:group-hover:translate-y-0">
                   <h3 className="text-h4">{c.title}</h3>
                   <p className="text-label mb-3 mt-1">{c.tag}</p>
-                  <p className="text-body mb-3 text-[var(--color-charcoal)]" style={{ lineHeight: 1.5 }}>{c.body}</p>
+                  <p className="text-body mb-3 text-[var(--color-charcoal)]">{c.body}</p>
                   {/* Straight under the description, as part of what the
                       service is; a wider gap below keeps it apart from the
                       platform logos pinned to the card foot. */}

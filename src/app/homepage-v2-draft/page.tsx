@@ -312,7 +312,7 @@ export default function HomeDraftPage() {
             </FadeUp>
 
             <FadeUp delay={0.2}>
-              <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center lg:mt-[clamp(1.25rem,3vh,2rem)]">
+              <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center lg:mt-[clamp(1.75rem,4.5vh,2.75rem)]">
                 <Link
                   href="#book-audit"
                   className="inline-flex items-center font-semibold text-white transition-colors bg-[var(--color-accent)] hover:bg-[var(--color-accent-strong)] active:translate-y-px"
@@ -638,7 +638,7 @@ export default function HomeDraftPage() {
           video moved up to the hero, so Bodyfunction's reception photo is the
           section's image. */}
       <section id="founders" className="section bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
-        <div className="cx-main grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="cx-main grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
           <FadeUp>
             <figure className="m-0">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
@@ -657,8 +657,7 @@ export default function HomeDraftPage() {
                 />
               </div>
               <figcaption className="mt-4 text-[13px] leading-relaxed text-[var(--color-muted)]">
-                Every part of the system was tested in Bodyfunction Clinic,
-                Danny&apos;s own practice in Angel, London, before any client saw it.
+                Danny and the team at Bodyfunction Clinic
               </figcaption>
             </figure>
           </FadeUp>
@@ -703,8 +702,9 @@ export default function HomeDraftPage() {
       </section>
 
       {/* ── 6. Who we help ────────────────────────────────────────────────── */}
-      {/* Typographic rows on plain white, between the two grey sections, no photos or cards, so it reads nothing
-          like the Learning Hub cards below it. Each whole row is the link; on
+      {/* Rows on plain white, between the two grey sections, each led by its
+          treatment photo, so it reads nothing like the Learning Hub cards
+          below it. Each whole row is the link; on
           hover it fills with the coral wash and the profession turns coral.
           The list bleeds out by the row padding, so the text lines up with the
           heading and only the hover fill reaches past it. */}
@@ -713,7 +713,7 @@ export default function HomeDraftPage() {
           <FadeUp>
             <p className="eyebrow mb-4">Who we work with</p>
             <h2 className="text-h2 mb-12 text-[var(--color-ink)]">
-              Osteopaths, physiotherapists and chiropractors
+              Built for osteopaths, physios and chiropractors
             </h2>
           </FadeUp>
           <ul className="-mx-4 border-b border-[var(--color-border)] lg:-mx-6">
@@ -722,34 +722,37 @@ export default function HomeDraftPage() {
                 <FadeUp delay={i * 0.06}>
                   <Link
                     href={card.href}
-                    className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 px-4 py-7 transition-colors hover:bg-[var(--color-accent-light)] lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_auto] lg:gap-x-12 xl:grid-cols-[minmax(0,4fr)_minmax(0,7fr)_14rem_auto] lg:px-6 lg:py-8"
+                    className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-5 gap-y-2 px-4 py-6 transition-colors hover:bg-[var(--color-accent-light)] sm:grid-cols-[10rem_minmax(0,1fr)_auto] lg:grid-cols-[15rem_minmax(0,1fr)_auto] lg:gap-x-10 lg:gap-y-2 lg:px-6 lg:py-7"
                     style={{ transitionDuration: "var(--duration-base)" }}
                   >
+                    {/* The discipline's treatment photo, always shown (it was a
+                        hover reveal): a wide banner on top on phones, a
+                        thumbnail on the left from sm. Decorative, so hidden
+                        from screen readers; a slight zoom on hover. */}
+                    <span
+                      aria-hidden
+                      className="relative col-span-2 row-start-1 mb-2 block aspect-[16/9] w-full overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-surface)] sm:col-span-1 sm:col-start-1 sm:row-span-2 sm:mb-0 sm:aspect-[16/10] sm:self-start lg:self-center"
+                    >
+                      <Image
+                        src={card.image}
+                        alt=""
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105 motion-reduce:group-hover:scale-100"
+                        style={{ objectPosition: card.imagePosition, transitionDuration: "var(--duration-slow)", transitionTimingFunction: "var(--ease-out-quart)" }}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 160px, 240px"
+                      />
+                    </span>
                     <h3
-                      className="text-h3 col-start-1 row-start-1 text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-accent-text)]"
+                      className="text-h3 col-start-1 row-start-2 text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-accent-text)] sm:col-start-2 sm:row-start-1 lg:self-end"
                       style={{ transitionDuration: "var(--duration-base)" }}
                     >
                       {card.title}
                     </h3>
-                    <p className="text-body-lg col-span-2 col-start-1 row-start-2 max-w-[52ch] text-[var(--color-charcoal)] lg:col-span-1 lg:col-start-2 lg:row-start-1">
+                    <p className="text-body-lg col-span-2 col-start-1 row-start-3 max-w-[52ch] text-[var(--color-charcoal)] sm:col-start-2 sm:row-start-2 lg:self-start">
                       {card.headline}
                     </p>
-                    {/* Hover reveal, from xl only: the discipline's treatment
-                        photo fades in, in its own column before the arrow so it
-                        never covers the text. The photo is taller than the
-                        text and spills into the row's padding rather than
-                        growing the row. Decorative, so hidden from screen
-                        readers; smaller screens keep the plain text rows. */}
-                    <span aria-hidden className="pointer-events-none relative hidden self-stretch xl:col-start-3 xl:row-start-1 xl:block">
-                      <span
-                        className="absolute inset-x-0 top-1/2 h-28 -translate-y-1/2 scale-95 overflow-hidden rounded-[var(--radius-card)] opacity-0 shadow-[var(--shadow-card-hover)] transition-[opacity,transform] group-hover:scale-100 group-hover:opacity-100 group-focus-visible:scale-100 group-focus-visible:opacity-100 motion-reduce:scale-100"
-                        style={{ transitionDuration: "var(--duration-slow)", transitionTimingFunction: "var(--ease-out-quart)" }}
-                      >
-                        <Image src={card.image} alt="" fill className="object-cover" style={{ objectPosition: card.imagePosition }} sizes="224px" />
-                      </span>
-                    </span>
                     <span
-                      className="col-start-2 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)] transition-all group-hover:translate-x-1 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] lg:col-start-3 xl:col-start-4"
+                      className="col-start-2 row-start-2 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)] transition-all group-hover:translate-x-1 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent-text)] sm:col-start-3 sm:row-start-1 lg:row-span-2 lg:row-start-1 lg:self-center"
                       style={{ transitionDuration: "var(--duration-base)", transitionTimingFunction: "var(--ease-out-quart)" }}
                     >
                       <Arrow size={14} />
