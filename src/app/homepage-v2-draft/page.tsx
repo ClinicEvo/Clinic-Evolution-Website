@@ -126,42 +126,57 @@ const elliotQuote = {
   name: GOOGLE_REVIEWS[1].name,
 };
 
-// Clients on page one of Google, as a short list (the two before-and-after
-// cards were cut for this, per review). Only Bodyfunction and Lind Street
-// have case studies; the others carry no link until theirs is written.
-// Names as the clinics appear in GoHighLevel; locations from each client's own
-// title tag (src/lib/clients.ts) or, for Posture & Wellness, its GHL address
-// (Regent Studios, Thane Villas), stated only as London.
-// Each logo's height is tuned to its shape (wide wordmarks shorter, the
-// near-square One Percent Club taller) so they read at a similar weight.
-const pageOneClients: Array<{
+type ClientLogoSpec = { src: string; width: number; height: number; h: number };
+
+// Clients on page one of Google. The two with case studies are featured, each
+// as just a logo, one figure and one line, kept deliberately sparse in review.
+// Figures from each case study's headlineStats, where the sources are shown:
+// Bodyfunction, Ahrefs Aug 2024 (8) against Aug 2026; Lind Street, Ahrefs,
+// No. 1 for six local searches including "osteopath ryde". The rest sit in a
+// logo row underneath until the team supplies what we did for them. Each
+// logo's height is tuned to its shape so the marks read at a similar weight.
+const featuredClients: Array<{
   clinic: string;
-  where: string;
-  href?: string;
-  logo: { src: string; width: number; height: number; h: number };
+  href: string;
+  logo: ClientLogoSpec;
+  figure: string;
+  measure: string;
 }> = [
-  { clinic: "Bodyfunction Clinic", where: "Angel, London", href: "/case-studies/bodyfunction-clinic/",
-    logo: { src: "/images/clients/bodyfunction.png", width: 1850, height: 304, h: 18 } },
-  { clinic: "Lind Street Osteopathy", where: "Ryde, Isle of Wight", href: "/case-studies/lind-street-osteopathy/",
-    logo: { src: "/images/clients/lind-street.png", width: 1500, height: 500, h: 34 } },
-  { clinic: "Body Restore Clinic", where: "London Bridge, London",
-    logo: { src: "/images/clients/body-restore.png", width: 1714, height: 564, h: 30 } },
-  { clinic: "Posture & Wellness Chiropractic Clinic", where: "London",
-    logo: { src: "/images/clients/posture-wellness.svg", width: 390, height: 58, h: 18 } },
-  { clinic: "The One Percent Club", where: "Marylebone, London",
-    logo: { src: "/images/clients/one-percent-club.png", width: 500, height: 461, h: 40 } },
+  {
+    clinic: "Bodyfunction Clinic",
+    href: "/case-studies/bodyfunction-clinic/",
+    logo: { src: "/images/clients/bodyfunction.png", width: 1850, height: 304, h: 18 },
+    figure: "3,822",
+    measure: "people a month finding the clinic on Google",
+  },
+  {
+    clinic: "Lind Street Osteopathy",
+    href: "/case-studies/lind-street-osteopathy/",
+    logo: { src: "/images/clients/lind-street.png", width: 1500, height: 500, h: 34 },
+    figure: "No. 1",
+    measure: "on Google for “osteopath ryde”",
+  },
+];
+
+// Names as the clinics appear in GoHighLevel.
+const morePageOneClients: Array<{ clinic: string; logo: ClientLogoSpec }> = [
+  { clinic: "Body Restore Clinic", logo: { src: "/images/clients/body-restore.png", width: 1714, height: 564, h: 30 } },
+  { clinic: "Posture & Wellness Chiropractic Clinic", logo: { src: "/images/clients/posture-wellness.svg", width: 390, height: 58, h: 20 } },
+  { clinic: "The One Percent Club", logo: { src: "/images/clients/one-percent-club.png", width: 500, height: 461, h: 40 } },
 ];
 
 // Both Google reviews, with the clinic each reviewer runs. No count and no
 // average: with only two reviews the count undercuts the section, and an
 // average without its count is what src/lib/reviews.ts exists to prevent.
-// Serena's is her whole first paragraph (GOOGLE_PULL_QUOTE), and her review
-// runs to four, so it says there is more and links to it. Elliot's is complete.
+// Serena's is her whole first paragraph (GOOGLE_PULL_QUOTE). Her review runs
+// to four, so `continues` closes it with an ellipsis after the full stop: it
+// marks the paragraphs that follow, nothing cut from inside the quote. The
+// card's own "Read our reviews on Google" link is the way to the rest (her
+// review itself is at https://maps.app.goo.gl/bjHbG6n1prvWroRD7). Elliot's
+// review is complete.
 const draftReviews = [
-  // `fullReview` is Serena's review itself on Google Maps, not just the profile.
-  { text: GOOGLE_PULL_QUOTE.text, name: GOOGLE_PULL_QUOTE.name, clinic: "Lind Street Osteopathy",
-    fullReview: "https://maps.app.goo.gl/bjHbG6n1prvWroRD7" },
-  { ...elliotQuote, clinic: "Body Restore Clinic", fullReview: undefined },
+  { text: GOOGLE_PULL_QUOTE.text, name: GOOGLE_PULL_QUOTE.name, clinic: "Lind Street Osteopathy", continues: true },
+  { ...elliotQuote, clinic: "Body Restore Clinic", continues: false },
 ];
 
 const founders = [
@@ -480,10 +495,10 @@ export default function HomeDraftPage() {
       </section>
 
       {/* ── 4. Proof: clients on page one, and what they say ────────────────
-          Simplified in review from two before-and-after cards to a short list
-          of clients on page one of Google, so the proof reads as a roster
-          rather than as one or two lucky cases. Case-study links only where a
-          case study exists. Beside it, both Google reviews, with no count. */}
+          The two clients with case studies are featured with one headline
+          figure each; the other page-one clients follow as a logo row until
+          their results are written up. Beside it, both Google reviews, with
+          no count. */}
       <section id="results" className="section bg-[var(--color-paper)] border-b border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
@@ -494,45 +509,64 @@ export default function HomeDraftPage() {
           </FadeUp>
 
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-start lg:gap-20">
-            <FadeUp>
-              <ul className="flex flex-col">
-                {pageOneClients.map((c) => (
-                  <li
-                    key={c.clinic}
-                    className="flex flex-col gap-2 border-t border-[var(--color-border)] py-5 last:border-b sm:flex-row sm:items-center sm:justify-between sm:gap-6"
-                  >
-                    <div className="flex items-center gap-5">
-                      {/* A fixed slot so the names line up whatever each
-                          logo's shape. */}
-                      <span className="flex h-10 w-[7.5rem] flex-shrink-0 items-center">
-                        <Image
-                          src={c.logo.src}
-                          alt=""
-                          width={c.logo.width}
-                          height={c.logo.height}
-                          style={{ height: c.logo.h, width: "auto", maxWidth: "100%" }}
-                        />
-                      </span>
-                      <div>
-                        <h3 className="font-display text-[17px] font-semibold leading-snug text-[var(--color-ink)]">
-                          {c.clinic}
-                        </h3>
-                        <p className="mt-0.5 text-[13px] text-[var(--color-muted)]">{c.where}</p>
-                      </div>
-                    </div>
-                    {c.href && (
-                      <Link
-                        href={c.href}
-                        className="ml-[8.75rem] inline-flex flex-shrink-0 items-center gap-1.5 text-[14px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)] sm:ml-0"
-                      >
-                        Read the case study
-                        <Arrow size={10} />
-                      </Link>
-                    )}
+            <div>
+              {/* The two clients with case studies, one headline figure each. */}
+              <ul className="grid gap-5 sm:grid-cols-2">
+                {featuredClients.map((c, i) => (
+                  <li key={c.clinic} className="flex">
+                    <FadeUp delay={i * 0.06} className="flex w-full">
+                      <article className="flex w-full flex-col rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-6 shadow-[var(--shadow-card)] md:p-7">
+                        {/* The logo names the clinic, so there is no name line. */}
+                        <div className="flex h-10 items-center">
+                          <Image
+                            src={c.logo.src}
+                            alt={c.clinic}
+                            width={c.logo.width}
+                            height={c.logo.height}
+                            style={{ height: c.logo.h, width: "auto", maxWidth: "100%" }}
+                          />
+                        </div>
+                        <p
+                          className="mt-6 font-display font-semibold leading-none text-[var(--color-accent-text)]"
+                          style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)" }}
+                        >
+                          {c.figure}
+                        </p>
+                        <p className="mt-2 text-[14px] leading-snug text-[var(--color-charcoal)]">{c.measure}</p>
+
+                        <Link
+                          href={c.href}
+                          className="mt-auto inline-flex items-center gap-1.5 self-start pt-6 text-[14px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)]"
+                        >
+                          Read the case study
+                          <Arrow size={10} />
+                        </Link>
+                      </article>
+                    </FadeUp>
                   </li>
                 ))}
               </ul>
-            </FadeUp>
+
+              {/* The rest, as logos until their own results are written up. */}
+              <FadeUp delay={0.12}>
+                <div className="mt-10">
+                  <p className="text-label mb-5">Also on page one of Google</p>
+                  <ul className="flex flex-wrap items-center gap-x-6 gap-y-6 sm:gap-x-10">
+                    {morePageOneClients.map((c) => (
+                      <li key={c.clinic} className="flex items-center">
+                        <Image
+                          src={c.logo.src}
+                          alt={c.clinic}
+                          width={c.logo.width}
+                          height={c.logo.height}
+                          style={{ height: c.logo.h, width: "auto" }}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeUp>
+            </div>
 
             {/* Google reviews: stars and the reviews themselves, verbatim from
                 src/lib/reviews.ts. No count and no average, on purpose. */}
@@ -547,19 +581,14 @@ export default function HomeDraftPage() {
                     <li key={r.name}>
                       <figure className="m-0 border-l-2 border-[var(--color-accent)] pl-5">
                         <blockquote className="text-body font-medium text-[var(--color-ink)]">
-                          &ldquo;{r.text}&rdquo;
+                          &ldquo;{r.text}
+                          {r.continues && (
+                            <span className="text-[var(--color-muted)]" aria-label="review continues">
+                              {" "}&hellip;
+                            </span>
+                          )}
+                          &rdquo;
                         </blockquote>
-                        {r.fullReview && (
-                          <a
-                            href={r.fullReview}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)]"
-                          >
-                            Read full review
-                            <Arrow size={10} />
-                          </a>
-                        )}
                         <figcaption className="mt-2 text-[13px] text-[var(--color-muted)]">
                           <span className="font-semibold text-[var(--color-ink)]">{r.name}</span>, {r.clinic}
                         </figcaption>
