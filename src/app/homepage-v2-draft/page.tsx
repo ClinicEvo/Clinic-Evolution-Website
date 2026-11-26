@@ -9,7 +9,7 @@ import SystemSteps from "./_components/SystemSteps";
 import DraftHeroVideo from "./_components/DraftHeroVideo";
 import DraftScrollLink from "./_components/DraftScrollLink";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
-import { GOOGLE_PROFILE_URL, GOOGLE_REVIEWS } from "@/lib/reviews";
+import { GOOGLE_PROFILE_URL, GOOGLE_PULL_QUOTE, GOOGLE_REVIEWS } from "@/lib/reviews";
 import { PREVIEW_BRAND_NAME } from "@/lib/nav";
 import DraftAuditForm from "./_components/DraftAuditForm";
 
@@ -119,62 +119,49 @@ const clientLogos: Array<{
 
 const heroChecks = ["Built by clinicians", "UK MSK specialists", "Follow-up & recall included"];
 
-// Serena's line sits inside her own case study block, so she is not shown
-// twice in a row; Elliot's review stands on its own beside the rating. Both
-// verbatim. The long four-paragraph version is cut, per the brief.
-const serenaQuote = {
-  text: GOOGLE_REVIEWS[0].body[0].split(". ")[0] + ".",
-  name: GOOGLE_REVIEWS[0].name,
-};
+// Elliot's review, verbatim and complete. Serena's comes from
+// GOOGLE_PULL_QUOTE (see draftReviews below).
 const elliotQuote = {
   text: GOOGLE_REVIEWS[1].body[0],
   name: GOOGLE_REVIEWS[1].name,
 };
 
-// The two results cards. Figures from each case study's headline stats:
-// src/app/case-studies/lind-street-osteopathy/ and bodyfunction-clinic/.
-const results: Array<{
+// Clients on page one of Google, as a short list (the two before-and-after
+// cards were cut for this, per review). Only Bodyfunction and Lind Street
+// have case studies; the others carry no link until theirs is written.
+// Names as the clinics appear in GoHighLevel; locations from each client's own
+// title tag (src/lib/clients.ts) or, for Posture & Wellness, its GHL address
+// (Regent Studios, Thane Villas), stated only as London.
+// Each logo's height is tuned to its shape (wide wordmarks shorter, the
+// near-square One Percent Club taller) so they read at a similar weight.
+const pageOneClients: Array<{
   clinic: string;
-  short: string;
   where: string;
-  logo: { src: string; width: number; height: number; displayHeight: number };
-  before: string;
-  after: string;
-  measure: string;
-  source: string;
-  href: string;
-  quote?: { text: string; name: string; role: string; portrait: string };
-  note?: string;
+  href?: string;
+  logo: { src: string; width: number; height: number; h: number };
 }> = [
-  {
-    clinic: "Lind Street Osteopathy",
-    short: "Lind Street",
-    where: "Ryde, Isle of Wight",
-    logo: { src: "/images/clients/lind-street.png", width: 1500, height: 500, displayHeight: 40 },
-    before: "No website",
-    after: "No. 1",
-    measure: "on Google for six of her local searches, including “osteopath ryde”.",
-    source: "Ahrefs, all ten tracked searches in the top four",
-    href: "/case-studies/lind-street-osteopathy/",
-    quote: {
-      text: serenaQuote.text,
-      name: serenaQuote.name,
-      role: "founder, in her Google review",
-      portrait: "/images/lind-street/serena-portrait.png",
-    },
-  },
-  {
-    clinic: "Bodyfunction Clinic",
-    short: "Bodyfunction",
-    where: "Angel, London",
-    logo: { src: "/images/clients/bodyfunction.png", width: 1850, height: 304, displayHeight: 24 },
-    before: "8",
-    after: "3,822",
-    measure: "people a month finding the clinic through Google.",
-    source: "Ahrefs, Aug 2024 against Aug 2026",
-    href: "/case-studies/bodyfunction-clinic/",
-    note: "Danny’s own clinic, in one of the most competitive boroughs in the country. Every part of the system was tested here first.",
-  },
+  { clinic: "Bodyfunction Clinic", where: "Angel, London", href: "/case-studies/bodyfunction-clinic/",
+    logo: { src: "/images/clients/bodyfunction.png", width: 1850, height: 304, h: 18 } },
+  { clinic: "Lind Street Osteopathy", where: "Ryde, Isle of Wight", href: "/case-studies/lind-street-osteopathy/",
+    logo: { src: "/images/clients/lind-street.png", width: 1500, height: 500, h: 34 } },
+  { clinic: "Body Restore Clinic", where: "London Bridge, London",
+    logo: { src: "/images/clients/body-restore.png", width: 1714, height: 564, h: 30 } },
+  { clinic: "Posture & Wellness Chiropractic Clinic", where: "London",
+    logo: { src: "/images/clients/posture-wellness.svg", width: 390, height: 58, h: 18 } },
+  { clinic: "The One Percent Club", where: "Marylebone, London",
+    logo: { src: "/images/clients/one-percent-club.png", width: 500, height: 461, h: 40 } },
+];
+
+// Both Google reviews, with the clinic each reviewer runs. No count and no
+// average: with only two reviews the count undercuts the section, and an
+// average without its count is what src/lib/reviews.ts exists to prevent.
+// Serena's is her whole first paragraph (GOOGLE_PULL_QUOTE), and her review
+// runs to four, so it says there is more and links to it. Elliot's is complete.
+const draftReviews = [
+  // `fullReview` is Serena's review itself on Google Maps, not just the profile.
+  { text: GOOGLE_PULL_QUOTE.text, name: GOOGLE_PULL_QUOTE.name, clinic: "Lind Street Osteopathy",
+    fullReview: "https://maps.app.goo.gl/bjHbG6n1prvWroRD7" },
+  { ...elliotQuote, clinic: "Body Restore Clinic", fullReview: undefined },
 ];
 
 const founders = [
@@ -492,144 +479,106 @@ export default function HomeDraftPage() {
         </div>
       </section>
 
-      {/* ── 4. Proof: two clinics, before and after ───────────────────────
-          Two named clinics from two different starting points, so the proof
-          reads as repeatable rather than as one lucky client. One figure per
-          card, as a before and after, because Simon's rule is that numbers
-          seen together lose their meaning.
-
-          Bodyfunction's 212 new patients is deliberately NOT here: it is an
-          undated personal best, and beside the 2024 to 2026 search figure it
-          would read as what that growth produced, which Danny never said. See
-          src/lib/clinic-capacity.ts. Bodyfunction also has no quote by design:
-          it is Danny's own clinic, which the card says rather than hides. */}
+      {/* ── 4. Proof: clients on page one, and what they say ────────────────
+          Simplified in review from two before-and-after cards to a short list
+          of clients on page one of Google, so the proof reads as a roster
+          rather than as one or two lucky cases. Case-study links only where a
+          case study exists. Beside it, both Google reviews, with no count. */}
       <section id="results" className="section bg-[var(--color-paper)] border-b border-[var(--color-border)]">
         <div className="cx-main">
           <FadeUp>
             <p className="eyebrow mb-4">Client results</p>
-            <h2 className="text-h2 mb-4 max-w-[760px] text-balance text-[var(--color-ink)]">
+            <h2 className="text-h2 mb-12 max-w-[760px] text-balance text-[var(--color-ink)]">
               Clinics that patients couldn&rsquo;t find on Google, now on page one
             </h2>
-            {/* "Two of" says these are a sample without putting a client count
-                on the page that nobody has signed off. */}
-            <p className="text-body-lg mb-12 max-w-[600px] text-[var(--color-charcoal)]">
-              Two of the clinics we work with, from very different starting points.
-            </p>
           </FadeUp>
 
-          <ul className="grid gap-6 md:grid-cols-2">
-            {results.map((r, i) => (
-              // From md the two cards sit side by side and share five rows
-              // (logo, figures, source, quote or note, link) through subgrid,
-              // so a figure caption that wraps to an extra line in one card
-              // moves the rows below it in both, and the quote and the note
-              // start at the same height.
-              <li key={r.clinic} className="flex md:row-span-5 md:grid md:grid-rows-subgrid md:gap-y-0">
-                <FadeUp delay={i * 0.06} className="flex w-full md:row-span-5 md:grid md:grid-rows-subgrid md:gap-y-0">
-                  <article className="flex w-full flex-col md:row-span-5 md:grid md:grid-rows-subgrid md:gap-y-0 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)] md:p-10">
-                    <div className="mb-7 flex min-h-10 flex-wrap items-center justify-between gap-x-6 gap-y-3">
-                      <Image
-                        src={r.logo.src}
-                        alt={r.clinic}
-                        width={r.logo.width}
-                        height={r.logo.height}
-                        style={{ height: r.logo.displayHeight, width: "auto" }}
-                      />
-                      <p className="text-label">{r.where}</p>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-start lg:gap-20">
+            <FadeUp>
+              <ul className="flex flex-col">
+                {pageOneClients.map((c) => (
+                  <li
+                    key={c.clinic}
+                    className="flex flex-col gap-2 border-t border-[var(--color-border)] py-5 last:border-b sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+                  >
+                    <div className="flex items-center gap-5">
+                      {/* A fixed slot so the names line up whatever each
+                          logo's shape. */}
+                      <span className="flex h-10 w-[7.5rem] flex-shrink-0 items-center">
+                        <Image
+                          src={c.logo.src}
+                          alt=""
+                          width={c.logo.width}
+                          height={c.logo.height}
+                          style={{ height: c.logo.h, width: "auto", maxWidth: "100%" }}
+                        />
+                      </span>
+                      <div>
+                        <h3 className="font-display text-[17px] font-semibold leading-snug text-[var(--color-ink)]">
+                          {c.clinic}
+                        </h3>
+                        <p className="mt-0.5 text-[13px] text-[var(--color-muted)]">{c.where}</p>
+                      </div>
                     </div>
-
-                    {/* Before, then now: only the "now" figure carries coral. The
-                        measure sits beside it, small, so the number reads first
-                        and the line explains it. It switches on the card's own
-                        width, not the screen's: two cards side by side on a
-                        tablet are as narrow as one on a phone, and there the
-                        line drops to its own row. */}
-                    <div className="@container">
-                    <div className="grid h-full grid-cols-[auto_auto_1fr] items-end gap-x-4 gap-y-2 border-y border-[var(--color-border)] py-6 @[30rem]:grid-cols-[auto_auto_auto_1fr]">
-                      <p className="text-label">Before</p>
-                      <span />
-                      <p className="text-label">Now</p>
-                      <span className="hidden @[30rem]:block" />
-                      <p
-                        className="font-display font-semibold leading-none text-[var(--color-muted)]"
-                        style={{ fontSize: "clamp(1.375rem, 2.4vw, 1.875rem)" }}
+                    {c.href && (
+                      <Link
+                        href={c.href}
+                        className="ml-[8.75rem] inline-flex flex-shrink-0 items-center gap-1.5 text-[14px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)] sm:ml-0"
                       >
-                        {r.before}
-                      </p>
-                      <span className="mb-1 text-[var(--color-muted)]"><Arrow size={16} /></span>
-                      <p
-                        className="font-display font-semibold leading-none text-[var(--color-accent-text)]"
-                        style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
-                      >
-                        {r.after}
-                      </p>
-                      <p className="col-span-3 mt-2 max-w-[34ch] text-[13px] leading-snug text-[var(--color-charcoal)] @[30rem]:col-span-1 @[30rem]:mt-0 @[30rem]:max-w-[26ch]">
-                        {r.measure}
-                      </p>
-                    </div>
-                    </div>
-                    <p className="mt-4 text-[13px] text-[var(--color-muted)]">Source: {r.source}</p>
+                        Read the case study
+                        <Arrow size={10} />
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </FadeUp>
 
-                    {r.quote ? (
-                      <figure className="m-0 mt-7 border-l-2 border-[var(--color-accent)] pl-5">
+            {/* Google reviews: stars and the reviews themselves, verbatim from
+                src/lib/reviews.ts. No count and no average, on purpose. */}
+            <FadeUp delay={0.08}>
+              <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 md:p-8">
+                <div className="mb-6 flex items-center gap-3">
+                  <Stars />
+                  <p className="text-label">Google reviews</p>
+                </div>
+                <ul className="flex flex-col gap-6">
+                  {draftReviews.map((r) => (
+                    <li key={r.name}>
+                      <figure className="m-0 border-l-2 border-[var(--color-accent)] pl-5">
                         <blockquote className="text-body font-medium text-[var(--color-ink)]">
-                          &ldquo;{r.quote.text}&rdquo;
+                          &ldquo;{r.text}&rdquo;
                         </blockquote>
-                        <figcaption className="mt-3 flex items-center gap-3 text-[13px] text-[var(--color-muted)]">
-                          <span className="relative block h-9 w-9 flex-shrink-0 overflow-hidden rounded-full border border-[var(--color-border)]">
-                            <Image src={r.quote.portrait} alt="" fill className="object-cover" sizes="36px" />
-                          </span>
-                          <span>
-                            <span className="font-semibold text-[var(--color-ink)]">{r.quote.name}</span>, {r.quote.role}
-                          </span>
+                        {r.fullReview && (
+                          <a
+                            href={r.fullReview}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)]"
+                          >
+                            Read full review
+                            <Arrow size={10} />
+                          </a>
+                        )}
+                        <figcaption className="mt-2 text-[13px] text-[var(--color-muted)]">
+                          <span className="font-semibold text-[var(--color-ink)]">{r.name}</span>, {r.clinic}
                         </figcaption>
                       </figure>
-                    ) : (
-                      <p className="text-body mt-7 text-[var(--color-charcoal)]">{r.note}</p>
-                    )}
-
-                    <Link
-                      href={r.href}
-                      className="mt-auto inline-flex items-center gap-2 self-start pt-7 md:justify-self-start text-[14px] font-semibold text-[var(--color-ink)] underline underline-offset-4 transition-colors hover:text-[var(--color-accent-text)]"
-                    >
-                      Read the {r.short} case study
-                      <Arrow />
-                    </Link>
-                  </article>
-                </FadeUp>
-              </li>
-            ))}
-          </ul>
-
-          {/* Elliot's review as a slim line under the cases. No rating: with
-              only two reviews the count would undercut "two of the clinics we
-              work with", and an average without its count is what
-              src/lib/reviews.ts exists to prevent. Bring GOOGLE_RATING back
-              once the count is worth showing. */}
-          <FadeUp delay={0.12}>
-            <figure className="m-0 mt-6 flex flex-col gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-5 md:flex-row md:items-center md:justify-between md:gap-8">
-              <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
-                <Stars />
-                <blockquote className="text-[16px] font-medium leading-snug text-[var(--color-ink)]">
-                  &ldquo;{elliotQuote.text}&rdquo;{" "}
-                  <span className="whitespace-nowrap text-[13px] font-normal text-[var(--color-muted)]">
-                    {elliotQuote.name}, clinic owner
-                  </span>
-                </blockquote>
-              </div>
-              <figcaption className="flex-shrink-0 text-[13px] text-[var(--color-muted)]">
+                    </li>
+                  ))}
+                </ul>
                 <a
                   href={GOOGLE_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent-text)]"
+                  className="mt-7 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent-text)]"
                 >
-                  Read it on Google
+                  Read our reviews on Google
                   <Arrow size={10} />
                 </a>
-              </figcaption>
-            </figure>
-          </FadeUp>
+              </div>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
