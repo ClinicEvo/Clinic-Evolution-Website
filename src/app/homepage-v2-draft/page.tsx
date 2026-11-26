@@ -408,7 +408,7 @@ export default function HomeDraftPage() {
       <section id="patient-pulse" className="section scroll-mt-24 bg-[var(--color-surface)] border-b border-[var(--color-border)] grain">
         {/* Text on the left, taking all the width up to the card, which is
             held to the right edge of the container. */}
-        <div className="cx-main grid gap-12 lg:grid-cols-[minmax(0,1fr)_28rem] lg:gap-12 xl:gap-28">
+        <div className="cx-main grid gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:gap-12 xl:gap-28">
           <FadeUp>
             <div className="lg:sticky lg:top-32">
               {/* The product's name is the headline, per review; what it is
@@ -448,15 +448,15 @@ export default function HomeDraftPage() {
                 kept word for word, its header row removed in review. Narrowed
                 to its content's width, since one column across a wide track
                 left an empty strip on the right. The logo heads the card. */}
-            <div className="w-full max-w-[30rem]">
+            <div className="w-full lg:mt-2 lg:w-fit">
             <div className="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
-              <div className="border-b border-[var(--color-border)] px-5 py-4 sm:px-7">
+              <div className="border-b border-[var(--color-border)] px-5 py-3 sm:px-6">
                 <Image
                   src="/images/patientpulse_logo.png"
                   alt="Patient Pulse"
                   width={3116}
                   height={440}
-                  className="h-5 w-auto sm:h-6"
+                  className="h-5 w-auto"
                 />
               </div>
               <table className="w-full border-collapse text-left">
@@ -464,7 +464,7 @@ export default function HomeDraftPage() {
                 <tbody>
                   {pulseTicks.map((t) => (
                     <tr key={t} className="border-b border-[var(--color-border)] last:border-b-0 align-top">
-                      <td className="px-5 py-4 text-[14px] font-medium leading-snug text-[var(--color-ink)] sm:px-7">
+                      <td className="px-5 py-[1.125rem] text-[14px] font-medium leading-snug text-[var(--color-ink)] sm:px-6">
                         {/* The tick nudged 1px down to sit on the first line's centre. */}
                         <span className="flex gap-2.5 [&>span:first-child]:mt-px">
                           <Check size="sm" />
@@ -478,7 +478,7 @@ export default function HomeDraftPage() {
             </div>
             {/* Same coral text-and-arrow link as "What Patient Pulse is" in
                 SystemSteps; the arrow points right because it opens a page. */}
-            <div className="mt-6 flex justify-end">
+            <div className="mt-4 flex justify-end">
               <Link
                 href="/patient-pulse/"
                 className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--color-accent-text)] transition-colors hover:text-[var(--color-accent-dim)]"
