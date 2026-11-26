@@ -275,7 +275,7 @@ export default function HomeDraftPage() {
           on a 1280x720 laptop rather than only on a 1080p monitor. */}
       <div className="flex flex-col lg:min-h-[calc(100svh-70.5px)]">
       <section className="relative flex flex-1 items-center border-b border-[var(--color-border)] bg-[var(--color-paper)] grain">
-        <div className="cx-main grid w-full items-center gap-12 py-12 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-[clamp(1rem,3vh,3.5rem)]">
+        <div className="cx-main grid w-full items-center gap-12 py-12 sm:py-16 lg:grid-cols-2 lg:gap-20 lg:py-[clamp(1rem,3vh,3.5rem)]">
           <div className="max-w-[36rem]">
             <FadeUp>
               <span className="eyebrow mb-4 lg:mb-[clamp(0.75rem,2vh,1.25rem)]">For UK osteopaths, physios &amp; chiropractors</span>
@@ -288,7 +288,7 @@ export default function HomeDraftPage() {
               <h1
                 className="font-display text-balance text-[var(--color-ink)]"
                 style={{
-                  fontSize: "clamp(2.25rem, min(7vw, 6.4vh), 4rem)",
+                  fontSize: "clamp(2.5rem, min(7.5vw, 6.667vh), 4.625rem)",
                   fontWeight: 600,
                   lineHeight: 1.05,
                   letterSpacing: "-0.02em",
@@ -301,7 +301,7 @@ export default function HomeDraftPage() {
 
             <FadeUp delay={0.14}>
               <p
-                className="mt-5 max-w-[32rem] leading-relaxed text-[var(--color-charcoal)] lg:mt-[clamp(1rem,2.6vh,1.5rem)]"
+                className="mt-7 max-w-[30rem] leading-relaxed text-[var(--color-charcoal)] lg:mt-[clamp(1.75rem,4.2vh,2.5rem)]"
                 style={{ fontSize: "clamp(1rem, 2.2vh, 1.125rem)" }}
               >
                 We build the website, search visibility and campaigns that bring the
@@ -312,7 +312,7 @@ export default function HomeDraftPage() {
             </FadeUp>
 
             <FadeUp delay={0.2}>
-              <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center lg:mt-[clamp(1.75rem,4.5vh,2.75rem)]">
+              <div className="mt-11 flex flex-col items-start gap-3 sm:flex-row sm:items-center lg:mt-[clamp(2.5rem,6.5vh,4rem)]">
                 <Link
                   href="#book-audit"
                   className="inline-flex items-center font-semibold text-white transition-colors bg-[var(--color-accent)] hover:bg-[var(--color-accent-strong)] active:translate-y-px"
@@ -341,7 +341,9 @@ export default function HomeDraftPage() {
             </FadeUp>
 
             <FadeUp delay={0.26}>
-              <ul className="mt-7 flex flex-wrap gap-x-7 gap-y-3 border-t border-[var(--color-border)] pt-4 lg:mt-[clamp(1.25rem,3vh,1.75rem)]">
+              {/* No rule above: the ticks sit a clear step below the buttons as
+                  quiet proof, rather than a fifth boxed-off band. */}
+              <ul className="mt-9 flex flex-wrap gap-x-5 gap-y-2.5 lg:mt-[clamp(2rem,4.8vh,3rem)]">
                 {heroChecks.map((item) => (
                   <li key={item} className="flex items-center gap-2.5 text-[13px] text-[var(--color-charcoal)]">
                     <Check size="sm" />
