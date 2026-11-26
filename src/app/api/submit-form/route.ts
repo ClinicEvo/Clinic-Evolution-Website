@@ -400,6 +400,77 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
+  // ── Homepage audit form ──────────────────────────────────────────────────
+  // The short audit form at the foot of the homepage draft (DraftAuditForm):
+  // name, mobile, email, optional website and optional note. Its own
+  // form_type rather than the "audit" branch below, because that branch
+  // requires a last name, clinic name and discipline from organic leads and
+  // this form asks for none of them; loosening it would change what
+  // /free-clinic-audit/ accepts. Separate source and tag, so the two forms can
+  // be compared in the CRM.
+  if (formType === "homepage-audit") {
+    const first_name     = clean(body.first_name,     LIMITS.name);
+    const last_name      = clean(body.last_name,      LIMITS.name);
+    const email          = clean(body.email,          LIMITS.email);
+    const phone          = clean(body.phone,          LIMITS.phone);
+    const clinic_website = normalizeUrl(clean(body.clinic_website, LIMITS.url));
+    const message        = clean(body.message,        LIMITS.message);
+
+    const gclid        = clean(body.gclid,        LIMITS.short);
+    const gbraid       = clean(body.gbraid,       LIMITS.short);
+    const wbraid       = clean(body.wbraid,       LIMITS.short);
+    const utm_source   = clean(body.utm_source,   LIMITS.short);
+    const utm_medium   = clean(body.utm_medium,   LIMITS.short);
+    const utm_campaign = clean(body.utm_campaign, LIMITS.short);
+    const utm_term     = clean(body.utm_term,     LIMITS.short);
+    const utm_content  = clean(body.utm_content,  LIMITS.short);
+
+    if (!first_name)                     return err("Name is required.");
+    if (!isValidEmail(email))            return err("A valid email address is required.");
+    if (!phone)                          return err("A mobile number is required.");
+    if (!isValidPhone(phone))            return err("Please enter a valid mobile number.");
+    if (!isValidHttpUrl(clinic_website)) return err("Clinic website must be a valid http/https URL.");
+
+    const attributionLines = [
+      "Form: homepage audit form",
+      gclid && `GCLID: ${gclid}`,
+      gbraid && `GBRAID: ${gbraid}`,
+      wbraid && `WBRAID: ${wbraid}`,
+      utm_campaign && `Campaign: ${utm_campaign}`,
+      utm_term && `Search term / keyword: ${utm_term}`,
+      utm_content && `Ad / content: ${utm_content}`,
+      (utm_source || utm_medium) && `Source / medium: ${utm_source || "?"} / ${utm_medium || "?"}`,
+    ].filter(Boolean);
+
+    const fullMessage = [message, attributionLines.join(" | ")].filter(Boolean).join("\n\n");
+    const companyName = hostnameOf(clinic_website);
+
+    const result = await upsertGhlContact({
+      firstName: first_name,
+      lastName: last_name,
+      email,
+      phone,
+      companyName: companyName || undefined,
+      website: clinic_website || undefined,
+      message: fullMessage,
+      source: "Website – Homepage audit form",
+      tags: ["website-audit-form", "homepage-audit-form"],
+    });
+    if (!result.ok) return err("Submission failed. Please try again.", 502);
+
+    if (result.contactId) {
+      await logInboundConversationMessage({
+        contactId: result.contactId,
+        fromEmail: email,
+        fromName: `${first_name} ${last_name}`.trim(),
+        subject: "New free clinic audit request (homepage)",
+        message: fullMessage,
+      });
+    }
+
+    return NextResponse.json({ ok: true });
+  }
+
   // ── Audit form ───────────────────────────────────────────────────────────
   if (formType === "audit") {
     const first_name     = clean(body.first_name,     LIMITS.name);

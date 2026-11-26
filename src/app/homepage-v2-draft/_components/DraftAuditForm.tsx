@@ -1,19 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Input, Textarea } from "@/components/forms/Field";
+import { useRouter } from "next/navigation";
+import { Input, Textarea, Honeypot } from "@/components/forms/Field";
+import TrackingFields from "@/components/forms/TrackingFields";
+import { events } from "@/lib/analytics";
+import { useFormSubmit } from "@/lib/useFormSubmit";
 
 /**
  * The audit form proposed for the foot of the homepage: full name, email,
  * clinic website (optional), phone number, and an optional note. Town or
- * city was dropped in review and the phone field added, which also meets
- * /api/submit-form's requirement of a phone number on audit submissions.
+ * city was dropped in review and the phone field added.
  *
- * DELIBERATELY NOT WIRED. This renders on an internal review draft, so a real
- * submission would land a test lead in the CRM every time a reviewer tried it.
- * Before this replaces the live homepage, build it on useFormSubmit the way
- * LpAuditForm does.
+ * WIRED TO GOHIGHLEVEL through /api/submit-form as form_type
+ * "homepage-audit", its own branch: the "audit" branch that
+ * /free-clinic-audit/ uses requires fields this form does not ask for, and
+ * is left exactly as it was. Leads arrive with the source "Website –
+ * Homepage audit form" and the tag homepage-audit-form. Every submission,
+ * including a reviewer trying the draft, creates a real contact.
+ *
+ * The name is one field, split into first and last on submit, as LpAuditForm
+ * does.
  */
 /* Required marker: a coral asterisk, read aloud as "required" since the
    visual star alone means nothing to a screen reader. */
@@ -29,16 +36,34 @@ function Req() {
 const LABEL = "mb-1.5 block text-sm font-medium text-[var(--color-ink)]";
 
 export default function DraftAuditForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
+  const { state, errorMsg, handleSubmit } = useFormSubmit({
+    formType: "homepage-audit",
+    onSuccess: () => {
+      // Same conversion as the audit page, labelled so the two can be told apart.
+      events.freeAuditSubmit("homepage");
+      router.push("/free-clinic-audit/thank-you/");
+    },
+  });
+
+  /** Splits "Danny Morgan" into the two fields the CRM expects. */
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    const form = e.currentTarget;
+    const full = (form.elements.namedItem("full_name") as HTMLInputElement | null)?.value ?? "";
+    const parts = full.trim().split(/\s+/);
+    const first = form.elements.namedItem("first_name") as HTMLInputElement | null;
+    const last = form.elements.namedItem("last_name") as HTMLInputElement | null;
+    if (first) first.value = parts[0] ?? "";
+    if (last) last.value = parts.slice(1).join(" ");
+    handleSubmit(e);
+  }
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSubmitted(true);
-      }}
-      className="flex flex-col gap-4"
-    >
+    <form onSubmit={onSubmit} className="flex flex-col gap-4">
+      <Honeypot />
+      <TrackingFields />
+      <input type="hidden" name="first_name" defaultValue="" />
+      <input type="hidden" name="last_name" defaultValue="" />
       {/* Required fields carry a coral asterisk, explained by a quiet note
           under the button; the optional ones also say so. Labels wrap their
           inputs, as Field does, so each control stays labelled. */}
@@ -81,9 +106,14 @@ export default function DraftAuditForm() {
         .
       </p>
 
+      {state === "error" && (
+        <p role="alert" className="text-sm text-[var(--color-error)]">{errorMsg}</p>
+      )}
+
       <button
         type="submit"
-        className="-mt-1 inline-flex w-full items-center justify-center font-semibold text-white transition-colors bg-[var(--color-accent)] hover:bg-[var(--color-accent-strong)] active:translate-y-px"
+        disabled={state === "submitting"}
+        className="-mt-1 inline-flex w-full items-center justify-center font-semibold text-white transition-colors bg-[var(--color-accent)] hover:bg-[var(--color-accent-strong)] active:translate-y-px disabled:opacity-70"
         style={{
           padding: "0.85rem 28px",
           borderRadius: "var(--radius-btn)",
@@ -92,22 +122,12 @@ export default function DraftAuditForm() {
           transitionDuration: "var(--duration-base)",
         }}
       >
-        Get my free clinic audit
+        {state === "submitting" ? "Sending…" : "Get my free clinic audit"}
       </button>
 
       {/* What the asterisks mean, quiet and left-aligned under the button. */}
       <p className="-mt-1 text-[12px] text-[var(--color-muted)]">
         <span aria-hidden="true">*</span> Required
-      </p>
-
-      {/* Only the required note sits under the button, at the user's
-          request. The status note only appears after a submit, since this
-          draft form sends nothing. */}
-      <p
-        className={`text-center text-[13px] leading-snug text-[var(--color-muted)]${submitted ? "" : " sr-only"}`}
-        role="status"
-      >
-        {submitted ? "Draft preview: this form is not connected yet, so nothing was sent." : null}
       </p>
     </form>
   );
