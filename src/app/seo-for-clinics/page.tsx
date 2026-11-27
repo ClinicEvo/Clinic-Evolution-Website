@@ -88,11 +88,6 @@ const faqs = [
       "Yes. A clinic can only treat people who can physically reach it, so the searches worth winning either carry a place name or trigger the map pack. Local SEO is the work that gets a clinic into those results: service and condition pages tied to the areas you cover, consistent name and address data, and a Google Business Profile that matches the site.",
   },
   {
-    question: "What are the most useful physiotherapy clinic SEO tips?",
-    answer:
-      "Give every treatment you offer its own page rather than listing them all on one. Put your town in the page title where it is genuinely relevant and nowhere it is not. Keep the Google Business Profile current and ask for reviews consistently rather than in bursts. Make the phone number and booking path visible without scrolling on a phone. A slow, buried booking path can cost a clinic more enquiries than its rankings do.",
-  },
-  {
     question: "How long does clinic SEO take to work?",
     answer:
       "Some improvements can appear within weeks, especially when a site has low competition keywords or pages that are already close to ranking. Bigger gains usually take several months because Google needs time to crawl, assess and trust the updated website. On Bodyfunction Clinic the first movement showed within a couple of months and the curve turned sharply around six months in.",

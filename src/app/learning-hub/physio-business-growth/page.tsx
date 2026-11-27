@@ -84,7 +84,7 @@ export default function ArticlePage() {
       title: "Improve local search visibility for physiotherapy",
       content: (
         <>
-          <p>The majority of new physio patients come from local Google searches. When someone searches &quot;physiotherapist near me&quot; or &quot;sports physio [town]&quot;, they are typically ready to book. Appearing well in those results is one of the highest-value outcomes in <a href="/physiotherapy-marketing/">physio marketing</a>.</p>
+          <p>Your <a href="/physiotherapy-marketing/">physio marketing</a> plan should connect the services you want to grow with the areas you serve. We start by reviewing your website and local rankings, then identify which pages and search work need attention.</p>
           <p>Key local SEO foundations for physio clinics:</p>
           <ul>
             <li>Google Business Profile, complete, accurate, regularly updated with posts and photos</li>

@@ -15,13 +15,13 @@ import ConnectedJourney from "@/components/sections/ConnectedJourney";
 import StatBand from "@/components/sections/StatBand";
 import Image from "next/image";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
+import Button from "@/components/ui/Button";
 
 export const metadata = buildMetadata({
-  // "physiotherapy marketing agency" (150/mo) sits alongside "physiotherapy
-  // marketing" (150) — adding the one word captures both head terms.
-  title: "Physiotherapy Marketing Agency UK",
+  // The root layout's template appends " | Clinic Evo".
+  title: "Physiotherapy Marketing Agency & SEO",
   description:
-    "Specialist marketing for UK physiotherapists. SEO, Google Ads and website design that attracts more patients to your physio clinic. Get a free clinic audit.",
+    "Physiotherapy SEO built around sports injury, rehab and post-op services, with local search. Request your free clinic audit.",
   path: "/physiotherapy-marketing/",
 });
 
@@ -35,6 +35,11 @@ const faqs = [
     question: "Which physiotherapy keywords do you target?",
     answer:
       "Broad local terms like 'physiotherapist near me' and 'private physio [city]', plus condition-specific queries like 'sports injury physio' and 'post-operative rehabilitation'. The condition terms get searched less often but convert better, because someone typing their diagnosis has already decided they need treatment. Which ones we chase depends on what you actually treat.",
+  },
+  {
+    question: "What are the most useful physiotherapy clinic SEO tips?",
+    answer:
+      "Give each treatment you offer its own useful page rather than listing everything on one. Put your town in the page title where it is relevant. Keep your Google Business Profile current and ask for genuine reviews consistently. Make the phone number and booking path visible on a phone, and link service pages to the practitioners who provide that care. If you are unsure where to start, our free clinic audit identifies priorities for your website and local visibility.",
   },
   {
     question: "Can you help with sports physiotherapy marketing specifically?",
@@ -133,8 +138,8 @@ export default function PhysiotherapyMarketingPage() {
           the same two words do not stack one above the other. */}
       <PageHero
         badge="For UK physiotherapy practices"
-        heading={<>Physiotherapy marketing for clinics that want <em className="not-italic text-[var(--color-accent)]">more private patients</em></>}
-        subtext="We help UK physiotherapists grow their private practice through specialist SEO, targeted Google Ads and high-converting websites, built around how physio patients search, compare and book."
+        heading={<>Physiotherapy marketing and SEO for clinics that want <em className="not-italic text-[var(--color-accent)]">more private patients</em></>}
+        subtext="We help you attract more private patients for the services you want to grow. We build SEO for physiotherapists around local search and separate pages for sports injury treatment, rehabilitation and post-operative care, with a clear route to enquire about each. The audit identifies where website work or Google Ads should support that plan."
         bullets={[
           "SEO, ads and website design for physio clinics",
           "Results tracked to enquiries and bookings",
@@ -294,6 +299,100 @@ export default function PhysiotherapyMarketingPage() {
         </div>
       </section>
 
+      {/* SEO for physiotherapists.
+          Copy left; on the right, the three services the copy names, each with
+          its own route from page to practitioner to booking, which is the
+          multi-practitioner point the copy makes. The Bodyfunction figure stays
+          inline: the StatBand and proof panel already show it large. */}
+      <section id="physio-seo" className="section bg-[var(--color-paper)] border-b border-[var(--color-border)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-14 lg:gap-20 items-start">
+            <FadeUp>
+              <p className="eyebrow mb-5">Physio SEO</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                SEO for physiotherapists
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)] mb-5">
+                Start with the services you want patients to find. Sports injury
+                treatment, rehabilitation and post-operative care need pages that
+                explain who each service is for. Your private-treatment pages
+                should make the practical details clear, including fees and how
+                to book.
+              </p>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                We map those pages to relevant searches in the areas you serve,
+                review your Google Business Profile and address technical issues
+                on the website. SEO for physios needs that connection between the
+                service, the location and the next step.
+              </p>
+              <p className="text-body text-[var(--color-muted)] mb-8">
+                For a multi-practitioner clinic, we also make it clear who
+                provides each treatment. A patient should be able to move from a
+                service page to the relevant practitioner and booking route
+                without working out your team structure for themselves.
+              </p>
+              <div className="border-l-2 border-[var(--color-accent)] pl-4 mb-8">
+                <p className="text-body text-[var(--color-charcoal)]">
+                  Our method was built and tested in Bodyfunction, a London MSK
+                  clinic. It grew from 8 → 3,822 estimated monthly organic
+                  visitors over two years, according to Ahrefs, Aug 2024–Aug
+                  2026. That is an MSK search result, not a physiotherapy client
+                  result or a booking figure.
+                </p>
+              </div>
+              <Button href="/free-clinic-audit/" size="lg">Get my free clinic audit</Button>
+              <p className="text-body-sm text-[var(--color-muted)] mt-4 max-w-xl">
+                We review your website, Google Business Profile, local rankings
+                and any ads, with findings back within two business days. They
+                are yours to keep, with no obligation.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <div className="lg:sticky lg:top-28 rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 sm:p-6">
+                <div className="flex items-baseline justify-between gap-4 px-1 mb-4">
+                  <p className="font-display text-[0.95rem] font-semibold text-[var(--color-ink)]">One page per service</p>
+                  <p className="text-xs text-[var(--color-muted)]">Each with its own route</p>
+                </div>
+                <ul className="flex flex-col gap-3">
+                  {[
+                    { service: "Sports injury treatment", who: "Runners, gym-goers and club players" },
+                    { service: "Rehabilitation", who: "Recovering strength and movement" },
+                    { service: "Post-operative care", who: "Patients after surgery" },
+                  ].map((row) => (
+                    <li key={row.service} className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-4 shadow-[var(--shadow-card)]">
+                      <p className="font-display text-[0.95rem] font-semibold text-[var(--color-ink)]">{row.service}</p>
+                      <p className="text-body-sm text-[var(--color-muted)] mt-0.5 mb-3">{row.who}</p>
+                      <div className="flex flex-nowrap items-center gap-1 sm:gap-1.5">
+                        {["Page", "Practitioner", "Booking"].map((step, i) => (
+                          <span key={step} className="flex items-center gap-1 sm:gap-1.5">
+                            {i > 0 && (
+                              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 14 14" fill="none" className="text-[var(--color-muted-light)]">
+                                <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            )}
+                            <span className={`rounded-[var(--radius-sm)] px-2.5 py-1 text-xs font-semibold ${i === 2 ? "bg-[var(--color-ink)] text-[var(--color-white)]" : "border border-[var(--color-border)] text-[var(--color-charcoal)]"}`}>
+                              {step}
+                            </span>
+                          </span>
+                        ))}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-3 flex items-center gap-3 rounded-[var(--radius-card)] border border-dashed border-[var(--color-muted-light)] px-4 py-3">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]" />
+                  <p className="text-body-sm text-[var(--color-charcoal)]">
+                    Mapped to searches in the areas you serve, with a Google
+                    Business Profile to match.
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
@@ -311,7 +410,7 @@ export default function PhysiotherapyMarketingPage() {
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { title: "SEO for Physiotherapists", desc: "Rank for local searches and specialty-specific queries that bring in the patients you want.", href: "/seo-for-clinics/", cta: "Explore SEO for Clinics" },
+              { title: "SEO for physiotherapists", desc: "Local SEO and service pages that explain your specialisms and help patients find the right route to enquire.", href: "/seo-for-clinics/", cta: "How our clinic SEO works" },
               { title: "Google Ads for Physio Clinics", desc: "Targeted PPC campaigns judged on booked appointments.", href: "/google-ads-for-clinics/", cta: "Explore Google Ads for Clinics" },
               { title: "Physiotherapy Website Design", desc: "Professional, fast websites that convert visitors into new patients.", href: "/website-design-for-clinics/", cta: "Explore Clinic Website Design" },
               { title: "Patient Reactivation", desc: "Re-engage discharged and lapsed patients automatically with personalised AI messages.", href: "/ai-integration/", cta: "Explore AI Patient Reactivation" },
