@@ -62,18 +62,15 @@ import {
  * source with it. Do not round up, and do not imply clicks are bookings.
  */
 
-/* Title carries the head term once, then spends the rest of the space on the
-   three disciplines rather than repeating itself — the previous version said
-   "SEO" three times and "clinic" three times once the site suffix landed. The
-   H1 below is deliberately unchanged; that one was defended on the 10 Aug call. */
+/* Nov 2026 SEO handover: this page stops targeting the three professions,
+   which compete with /osteopath-marketing/, /physiotherapy-marketing/ and
+   /chiropractic-marketing/ for the same searches, and routes to them instead.
+   The root layout's template appends " | Clinic Evo" to the title. */
 export const metadata = buildMetadata({
-  // "clinic seo" (150/mo) is the researched head term for this page and was
-  // previously nowhere in the title, H1 or URL. absoluteTitle buys the room.
-  title: "Clinic SEO for Physiotherapy & Chiropractic Practices",
+  title: "SEO for Clinics | Private Clinic SEO",
   description:
-    "Specialist clinic SEO for osteopaths, physiotherapists and chiropractors. Improve local visibility, service pages, enquiries and patient bookings.",
+    "Clinic SEO with results reported in your own Search Console and Ahrefs. See where to focus with a free clinic audit.",
   path: "/seo-for-clinics/",
-  absoluteTitle: true,
 });
 
 const faqs = [
@@ -86,6 +83,11 @@ const faqs = [
     question: "Is local SEO important for private clinics?",
     answer:
       "Yes. A clinic can only treat people who can physically reach it, so the searches worth winning either carry a place name or trigger the map pack. Local SEO is the work that gets a clinic into those results: service and condition pages tied to the areas you cover, consistent name and address data, and a Google Business Profile that matches the site.",
+  },
+  {
+    question: "Which pages should we improve first for private clinic SEO?",
+    answer:
+      "Start with the pages that explain what you offer and how to enquire. Give each main service a clear purpose, connect it to relevant condition and practitioner information, and make the booking route easy to follow. The priority depends on what your website already contains and where it appears in local search. Our free clinic audit reviews those foundations alongside your Google Business Profile and any ads. You receive the findings within two business days, with no obligation.",
   },
   {
     question: "How long does clinic SEO take to work?",
@@ -174,8 +176,8 @@ const pillars = [
     body: "A top ranking that nobody clicks has done nothing for your diary. We report on the enquiries, calls and booking clicks, in your own accounts.",
   },
   {
-    title: "MSK and private healthcare only",
-    body: "Every clinic we have grown is an osteopathy, physiotherapy or chiropractic practice. We are not a general agency with a healthcare page.",
+    title: "UK MSK clinics only",
+    body: "We work only with UK musculoskeletal clinics. Our method was built and tested at Bodyfunction Clinic before we offered it to other practices.",
   },
 ];
 
@@ -268,7 +270,7 @@ const healthcareDifferences = [
   },
   {
     label: "Patients search for the problem, not the treatment",
-    body: "Nobody wakes up wanting osteopathy. They wake up unable to turn their head, and type that, which is why the condition pages carry more weight here than the service list.",
+    body: "Plan for searches that describe a problem as well as those that name a treatment. Give relevant condition questions a useful answer, with a link to the service and practitioner information a patient needs next.",
   },
   {
     label: "Trust signals are ranking signals here",
@@ -339,7 +341,7 @@ const included = [
 const rankingFailures = [
   {
     title: "The homepage is trying to be every service at once",
-    body: "So it ranks clearly for none of them. One page cannot own osteopathy, sports massage and back pain in your town simultaneously.",
+    body: "Give your homepage the job of introducing the clinic, then use dedicated pages to explain each main service and the conditions you treat.",
   },
   {
     title: "The service pages are too thin to compete",
@@ -378,11 +380,11 @@ export default function SeoForClinicsPage() {
         badge="Specialist SEO for private healthcare clinics"
         heading={
           <>
-            Clinic SEO for practices that need{" "}
+            SEO for clinics that need{" "}
             <em className="not-italic text-[var(--color-accent)]">more patient enquiries</em>
           </>
         }
-        subtext="When somebody near you searches for the treatment they need, SEO decides whether your clinic appears at all. Clinic Evo does that work for UK osteopaths, physiotherapists and chiropractors. Every figure on this page comes from a named clinic's Search Console or Ahrefs account, with the source and the date beside it."
+        subtext="We help you attract the right patients by connecting the treatments you offer with the searches people make locally. Our private clinic SEO work pairs clear service pages with a straightforward booking route. We work only with UK MSK clinics, and report search results in your own Search Console and Ahrefs."
         primaryCta={{ label: "Get a free clinic SEO audit", href: "/free-clinic-audit/" }}
         breadcrumbs={crumbs}
         rightPanelWidth="520px"
@@ -1150,45 +1152,46 @@ export default function SeoForClinicsPage() {
         </div>
       </section>
 
-      {/* Who we help. Icons removed from the cards — they were the "preset
-          website" tell, and the photograph already does that job. */}
+      {/* Who we help. Since the Nov 2026 handover this routes to the three
+          profession pages rather than targeting the professions itself, so
+          those pages own their own "SEO for X" searches. Icons removed from
+          the cards — they were the "preset website" tell, and the photograph
+          already does that job. */}
       <section className="section grain border-y border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="cx-main">
           <FadeUp>
             <div className="mb-12 max-w-2xl">
               <p className="eyebrow mb-4">Who we help</p>
               <h2 className="text-h2 mb-4 text-[var(--color-ink)]">
-                SEO for osteopaths, physios and chiropractors
+                Find the plan for your practice
               </h2>
               <p className="text-body-lg text-[var(--color-charcoal)]">
-                Clinic Evo works with MSK and private healthcare clinics, where patient
-                trust, clinical credibility and local visibility decide who gets the
-                appointment. Each discipline is searched for differently, so each one
-                gets its own research.
+                Choose your profession for the service-page priorities and
+                marketing approach relevant to your clinic.
               </p>
             </div>
           </FadeUp>
           <div className="flex flex-col gap-5">
             {[
               {
-                title: "Osteopaths",
-                desc: "An osteopathy clinic usually needs visibility across back pain, neck pain and local treatment searches, plus the condition pages patients actually type.",
+                title: "Osteopathy practices",
+                desc: "See how we approach local visibility and treatment pages for your practice.",
                 href: "/osteopath-marketing/",
-                cta: "SEO and Marketing for Osteopaths",
+                cta: "SEO for osteopaths",
                 watermarkImg: "/images/watermark-osteopath.jpg",
               },
               {
-                title: "Physiotherapists",
-                desc: "A physiotherapy clinic often needs clearer pathways around sports injuries, rehabilitation, post-operative support and private treatment.",
+                title: "Physiotherapy practices",
+                desc: "See how we organise search work around your services and the practitioners providing them.",
                 href: "/physiotherapy-marketing/",
-                cta: "Physiotherapy Marketing",
+                cta: "SEO for physiotherapists",
                 watermarkImg: "/images/watermark-physio.jpg",
               },
               {
-                title: "Chiropractors",
-                desc: "A chiropractic clinic needs to communicate trust, outcomes and difference in a market where three competitors are usually one search away.",
+                title: "Chiropractic practices",
+                desc: "See how we connect local search with clear explanations of your approach and first appointment.",
                 href: "/chiropractic-marketing/",
-                cta: "Chiropractic Marketing",
+                cta: "SEO for chiropractors",
                 watermarkImg: "/images/watermark-chiro.jpg",
               },
             ].map((item, i) => (
@@ -1209,7 +1212,7 @@ export default function SeoForClinicsPage() {
                     <div className="absolute inset-0 bg-[var(--color-ink)]/10" />
                   </div>
                   <div className="flex flex-1 flex-col justify-center p-7 md:p-9 lg:p-10">
-                    <p className="eyebrow mb-4">{item.title}</p>
+                    <h3 className="text-h4 mb-2 text-[var(--color-ink)]">{item.title}</h3>
                     <p className="text-body-sm mb-6 text-[var(--color-muted)]">{item.desc}</p>
                     <span
                       className="inline-flex items-center gap-2 transition-all group-hover:gap-3 group-hover:text-[var(--color-accent)]"
@@ -1310,7 +1313,7 @@ export default function SeoForClinicsPage() {
           <FadeUp delay={0.1}>
             <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
               {[
-                { title: "Local SEO for physio clinics", href: "/learning-hub/local-seo-for-physio-clinics/" },
+                { title: "Local SEO guide for physio clinics", href: "/learning-hub/local-seo-for-physio-clinics/" },
                 { title: "Local SEO for healthcare clinics", href: "/learning-hub/local-seo-for-healthcare-clinics/" },
               ].map((r) => (
                 <Link
