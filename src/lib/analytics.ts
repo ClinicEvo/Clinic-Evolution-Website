@@ -52,6 +52,47 @@ export function trackEvent({ action, category, label, value }: GTagEvent) {
   });
 }
 
+/* GA4 lead event for the free clinic audit (Nov 2026 SEO handover, section 4).
+ *
+ * The form marks a successful submission in sessionStorage; the thank-you page
+ * fires `generate_lead` only when that mark is present, then clears it. So a
+ * refresh, a back-button return or a direct visit to the thank-you URL never
+ * counts as a lead. The mark is cleared before the event is sent, which also
+ * keeps React's double-invoked effects in dev from sending it twice.
+ *
+ * It goes to GA4 only (send_to), so the Ads account sees nothing new; an Ads
+ * conversion is a separate decision for Simon. With no GA4 ID configured it
+ * does nothing, so it is safe to ship before the property exists. Consent is
+ * handled by the existing Consent Mode defaults: denied means a cookieless
+ * ping, granted means full measurement. No personal data in the parameters. */
+const AUDIT_LEAD_FLAG = "ce_audit_submitted";
+
+export function markAuditSubmitted() {
+  try {
+    sessionStorage.setItem(AUDIT_LEAD_FLAG, "1");
+  } catch {
+    // Storage blocked: the lead simply is not counted in GA4.
+  }
+}
+
+export function trackAuditLead() {
+  let submitted = false;
+  try {
+    submitted = sessionStorage.getItem(AUDIT_LEAD_FLAG) === "1";
+    sessionStorage.removeItem(AUDIT_LEAD_FLAG);
+  } catch {
+    return;
+  }
+  if (!submitted || !GA4_ID || typeof window.gtag !== "function") return;
+  window.gtag("event", "generate_lead", {
+    send_to: GA4_ID,
+    form_name: "free_clinic_audit",
+    lead_source: "website",
+    value: 0,
+    currency: "GBP",
+  });
+}
+
 export const events = {
   // `label` is which form on the page converted. The paid landing pages carry
   // two since 9 Sep 2026 (at the audit pitch and at the foot of the page), and

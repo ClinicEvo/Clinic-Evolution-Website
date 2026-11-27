@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/metadata";
 import Button from "@/components/ui/Button";
 import ArrowLink from "@/components/ui/ArrowLink";
 import FadeUp from "@/components/ui/FadeUp";
+import AuditLeadEvent from "@/components/analytics/AuditLeadEvent";
 
 export const metadata = buildMetadata({
   title: "Audit Request Received",
@@ -18,6 +19,7 @@ export const metadata = buildMetadata({
 export default function AuditThankYouPage() {
   return (
     <div className="bg-[var(--color-paper)] flex items-start lg:min-h-[calc(100svh-121px)]">
+      <AuditLeadEvent />
       {/* Top-aligned with a fixed lead-in rather than centred, so the tick
           sits closer under the header; the spare height falls below. */}
       <div className="cx-main w-full pt-12 pb-16 lg:pt-[clamp(3rem,9vh,5.5rem)] lg:pb-[clamp(2rem,6vh,4rem)]">

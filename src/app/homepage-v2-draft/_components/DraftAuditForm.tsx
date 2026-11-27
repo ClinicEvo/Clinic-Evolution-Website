@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Input, Textarea, Honeypot } from "@/components/forms/Field";
 import TrackingFields from "@/components/forms/TrackingFields";
-import { events } from "@/lib/analytics";
+import { events, markAuditSubmitted } from "@/lib/analytics";
 import { useFormSubmit } from "@/lib/useFormSubmit";
 
 /**
@@ -42,6 +42,7 @@ export default function DraftAuditForm() {
     onSuccess: () => {
       // Same conversion as the audit page, labelled so the two can be told apart.
       events.freeAuditSubmit("homepage");
+      markAuditSubmitted();
       router.push("/free-clinic-audit/thank-you/");
     },
   });

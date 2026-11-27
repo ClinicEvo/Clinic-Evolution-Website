@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
-import { events } from "@/lib/analytics";
+import { events, markAuditSubmitted } from "@/lib/analytics";
 import { useFormSubmit } from "@/lib/useFormSubmit";
 import { Field, Input, Textarea, Select, Honeypot } from "./Field";
 import TrackingFields from "./TrackingFields";
@@ -35,6 +35,7 @@ export default function AuditForm({
     formType: "audit",
     onSuccess: () => {
       events.freeAuditSubmit();
+      markAuditSubmitted();
       router.push(redirectTo);
     },
   });
