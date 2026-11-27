@@ -88,6 +88,7 @@ const faqs = [
     question: "Which pages should we improve first for private clinic SEO?",
     answer:
       "Start with the pages that explain what you offer and how to enquire. Give each main service a clear purpose, connect it to relevant condition and practitioner information, and make the booking route easy to follow. The priority depends on what your website already contains and where it appears in local search. Our free clinic audit reviews those foundations alongside your Google Business Profile and any ads. You receive the findings within two business days, with no obligation.",
+    link: { text: "free clinic audit", href: "/free-clinic-audit/" },
   },
   {
     question: "How long does clinic SEO take to work?",

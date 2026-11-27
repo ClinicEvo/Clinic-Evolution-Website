@@ -35,6 +35,7 @@ const faqs = [
     question: "What does SEO for my osteopathy practice involve, and what will it cost?",
     answer:
       "We look at your local visibility, treatment and condition pages, practitioner information and the route to making an enquiry. The work may include technical fixes, clearer content and improvements to your Google Business Profile. Price depends on what the audit finds and how much work your site needs. We would rather scope that properly than quote a number before seeing your clinic. Request your free clinic audit, back within two business days, with no obligation to proceed.",
+    link: { text: "Request your free clinic audit", href: "/free-clinic-audit/" },
   },
   {
     question: "Do you only work with osteopaths?",

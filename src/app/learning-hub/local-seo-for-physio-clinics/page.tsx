@@ -97,7 +97,7 @@ export default function ArticlePage() {
             <li>Shoulder, knee and hip rehabilitation</li>
           </ul>
           <p>Each page should be written for patients first, explaining who the service is for, what to expect, and how to book, and optimised for search second, with relevant keywords appearing naturally in headings, body copy and page metadata.</p>
-          <p>If you want help putting those pages in place, our <a href="/physiotherapy-marketing/#physio-seo">SEO for physiotherapists</a> work connects your individual services with local search and a clear route to booking.</p>
+          <p>If you want help putting those pages in place, our <a href="/physiotherapy-marketing/">SEO for physiotherapists</a> work connects your individual services with local search and a clear route to booking.</p>
         </>
       ),
     },

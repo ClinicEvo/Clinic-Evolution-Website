@@ -1,10 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 interface FAQItem {
   question: string;
   answer: string;
+  /** Turns the first occurrence of `text` in the answer into a link. The
+   *  answer stays a plain string, so FAQSchema still emits clean text. */
+  link?: { text: string; href: string };
+}
+
+function AnswerText({ answer, link }: Pick<FAQItem, "answer" | "link">) {
+  const at = link ? answer.indexOf(link.text) : -1;
+  if (!link || at === -1) return <>{answer}</>;
+  return (
+    <>
+      {answer.slice(0, at)}
+      <Link href={link.href} className="text-[var(--color-accent-text)] hover:underline">
+        {link.text}
+      </Link>
+      {answer.slice(at + link.text.length)}
+    </>
+  );
 }
 
 interface FAQAccordionProps {
@@ -51,7 +69,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
             hidden={openIndex !== index}
             className="pb-5"
           >
-            <p className="text-body text-[var(--color-muted)]">{item.answer}</p>
+            <p className="text-body text-[var(--color-muted)]"><AnswerText answer={item.answer} link={item.link} /></p>
           </dd>
         </div>
         );

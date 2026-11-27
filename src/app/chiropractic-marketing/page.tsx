@@ -35,6 +35,7 @@ const faqs = [
     question: "What should a chiropractic marketing agency do for my clinic?",
     answer:
       "It should identify where your route from search to enquiry needs work, then explain what to fix first. At Clinic Evo, that can mean SEO and local search, website improvements or Google Ads, depending on your clinic. We also offer paid social and patient reactivation. You should understand why each recommendation belongs in the plan. Start with our free clinic audit: we review your website, Google Business Profile, local rankings and any ads, with findings back within two business days.",
+    link: { text: "free clinic audit", href: "/free-clinic-audit/" },
   },
   {
     question: "How can SEO help a chiropractic clinic?",
@@ -45,6 +46,7 @@ const faqs = [
     question: "How long will SEO take for my chiropractic clinic?",
     answer:
       "We cannot give you a reliable date before reviewing your website and local rankings. The evidence we can show is from osteopathy: Lind Street Osteopathy, a new single-practitioner clinic in Ryde, reached page one for its core local searches within twelve months of opening. That is context, not a forecast for your chiropractic clinic. Your starting point and the work needed will differ. Our free clinic audit gives us the basis for discussing priorities and realistic expectations, with no obligation.",
+    link: { text: "free clinic audit", href: "/free-clinic-audit/" },
   },
   {
     question: "What is local SEO for chiropractors?",

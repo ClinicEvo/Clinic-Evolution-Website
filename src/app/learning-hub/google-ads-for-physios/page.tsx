@@ -119,7 +119,7 @@ export default function ArticlePage() {
             <li>Loads fast, especially on mobile</li>
           </ul>
           <p>The landing page should make booking feel like the obvious next step, not a hunt.</p>
-          <p>As a <a href="/physiotherapy-marketing/">physiotherapy marketing agency</a>, we review the landing page alongside your ads and organic search presence. The <a href="/free-clinic-audit/">free clinic audit</a> sets out where we would focus the work first.</p>
+          <p>As a <a href="/physiotherapy-marketing/">physiotherapy marketing agency</a>, we review the landing page alongside your ads and organic search presence. The free clinic audit sets out where we would focus the work first.</p>
         </>
       ),
     },

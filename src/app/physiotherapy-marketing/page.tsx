@@ -40,6 +40,7 @@ const faqs = [
     question: "What are the most useful physiotherapy clinic SEO tips?",
     answer:
       "Give each treatment you offer its own useful page rather than listing everything on one. Put your town in the page title where it is relevant. Keep your Google Business Profile current and ask for genuine reviews consistently. Make the phone number and booking path visible on a phone, and link service pages to the practitioners who provide that care. If you are unsure where to start, our free clinic audit identifies priorities for your website and local visibility.",
+    link: { text: "free clinic audit", href: "/free-clinic-audit/" },
   },
   {
     question: "Can you help with sports physiotherapy marketing specifically?",
