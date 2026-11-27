@@ -15,17 +15,14 @@ import ConnectedJourney from "@/components/sections/ConnectedJourney";
 import StatBand from "@/components/sections/StatBand";
 import Image from "next/image";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
+import Button from "@/components/ui/Button";
 
 export const metadata = buildMetadata({
-  // "osteopathy marketing agency" (70/mo) is the term in the 11 Aug research.
-  // "marketing for osteopaths" (100/mo, Ahrefs UK) came from the 10 Oct 2026
-  // ranking review, where the page already sat at 16.5 for it, its closest
-  // term to page one. Absolute so both fit without the brand suffix.
-  title: "Marketing for Osteopaths | Osteopathy Marketing Agency UK",
+  // The root layout's template appends " | Clinic Evo".
+  title: "Osteopath Marketing & SEO Agency",
   description:
-    "Specialist marketing for UK osteopaths. SEO, Google Ads and website design that fills your diary with new patients. Get a free clinic audit.",
+    "Practising osteopath Danny Morgan co-founded our marketing and SEO agency for osteopaths. Request your free clinic audit.",
   path: "/osteopath-marketing/",
-  absoluteTitle: true,
 });
 
 const faqs = [
@@ -33,6 +30,11 @@ const faqs = [
     question: "How long does osteopath SEO take to show results?",
     answer:
       "Slower than paid ads, and the early months are the hardest to sit through. Bodyfunction Clinic in Angel had close to a year of work with almost nothing to show before the line turned, then reached 3,822 monthly organic visitors over two years. Lind Street Osteopathy, opening cold in Ryde, was on page one for its core local searches inside twelve months. What your clinic should expect depends on your catchment and what is already in place, which is what the audit works out.",
+  },
+  {
+    question: "What does SEO for my osteopathy practice involve, and what will it cost?",
+    answer:
+      "We look at your local visibility, treatment and condition pages, practitioner information and the route to making an enquiry. The work may include technical fixes, clearer content and improvements to your Google Business Profile. Price depends on what the audit finds and how much work your site needs. We would rather scope that properly than quote a number before seeing your clinic. Request your free clinic audit, back within two business days, with no obligation to proceed.",
   },
   {
     question: "Do you only work with osteopaths?",
@@ -106,8 +108,8 @@ export default function OsteopathMarketingPage() {
 
       <PageHero
         badge="Osteopath marketing for UK practices"
-        heading={<>Marketing for osteopaths who want <em className="not-italic text-[var(--color-accent)]">more patients, consistently</em></>}
-        subtext="We help UK osteopaths attract consistent new patients through specialist SEO, Google Ads and conversion-focused website design, built around how patients actually choose an osteopath."
+        heading={<>Marketing and SEO for osteopaths who want <em className="not-italic text-[var(--color-accent)]">more patients</em></>}
+        subtext="We help you attract consistent new patients through SEO built around local and condition searches, with treatment pages that explain who you help and how to book. Our approach started at Bodyfunction Clinic, founded by practising osteopath and Clinic Evo co-founder Danny Morgan."
         bullets={[
           "SEO, ads and web design for osteopathy clinics",
           "Local and national search visibility",
@@ -266,6 +268,135 @@ export default function OsteopathMarketingPage() {
         </div>
       </section>
 
+      {/* SEO for osteopaths */}
+      {/* Copy left; on the right, the route the copy describes drawn as
+          three stages (search, page, enquiry) so the section reads at a
+          glance. The Bodyfunction figure stays inline rather than as another
+          big number: the StatBand and case-study panel already show it. */}
+      <section id="seo-for-osteopaths" className="section bg-[var(--color-paper)] border-b border-[var(--color-border)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-14 lg:gap-20 items-start">
+            <FadeUp>
+              <p className="eyebrow mb-5">Search to enquiry</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                SEO for osteopaths
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)] mb-5">
+                Your website needs to explain both where you practise and what
+                you treat. We plan your pages around local osteopath searches and
+                the condition questions relevant to your clinic, with a clear job
+                for each page.
+              </p>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                That means treatment pages with enough detail to help someone
+                decide whether to enquire. We make practitioner qualifications and
+                experience visible, explain what an appointment involves, and give
+                patients a straightforward route to contact you. Your Google
+                Business Profile should match the services, location and contact
+                details on your website.
+              </p>
+              <p className="text-body text-[var(--color-muted)] mb-8">
+                The aim is to connect a relevant search with a useful page and an
+                enquiry. Our monthly reporting ties the work to enquiries and
+                booked appointments, so you can see how your marketing supports
+                your diary.
+              </p>
+              <div className="border-l-2 border-[var(--color-accent)] pl-4 mb-8">
+                <p className="text-body text-[var(--color-charcoal)]">
+                  Bodyfunction Clinic grew from 8 → 3,822 estimated monthly
+                  organic visitors over two years, according to Ahrefs, Aug
+                  2024–Aug 2026. Those are search figures, not bookings.
+                </p>
+              </div>
+              <Button href="/free-clinic-audit/" size="lg">Get my free clinic audit</Button>
+              <p className="text-body-sm text-[var(--color-muted)] mt-4 max-w-xl">
+                We review your website, Google Business Profile, local rankings
+                and any ads, and come back within two business days. The findings
+                are yours whether or not you go ahead. No obligation.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <div className="lg:sticky lg:top-28 rounded-[var(--radius-panel)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8" aria-label="How a search becomes an enquiry">
+                <ol className="relative flex flex-col gap-6">
+                  {/* 1. The search */}
+                  <li className="relative pl-10">
+                    <span aria-hidden="true" className="absolute left-[11px] top-7 -bottom-6 w-px bg-[var(--color-muted-light)]" />
+                    <span aria-hidden="true" className="absolute left-0 top-0.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-[var(--color-accent)] bg-[var(--color-paper)]">
+                      <span className="h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+                    </span>
+                    <p className="font-display text-[0.95rem] font-semibold text-[var(--color-ink)] mb-3">A local or condition search</p>
+                    <div className="flex flex-col gap-2">
+                      {["osteopath near me", "lower back pain osteopath"].map((q) => (
+                        <div key={q} className="flex items-center gap-3 rounded-[var(--radius-btn)] border border-[var(--color-border)] bg-[var(--color-paper)] px-4 py-2.5 shadow-[var(--shadow-sm)]">
+                          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 text-[var(--color-muted)]">
+                            <circle cx="6" cy="6" r="4.25" stroke="currentColor" strokeWidth="1.5" />
+                            <path d="M9.25 9.25 12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                          </svg>
+                          <span className="text-body-sm text-[var(--color-charcoal)]">{q}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </li>
+
+                  {/* 2. The page */}
+                  <li className="relative pl-10">
+                    <span aria-hidden="true" className="absolute left-[11px] top-7 -bottom-6 w-px bg-[var(--color-muted-light)]" />
+                    <span aria-hidden="true" className="absolute left-0 top-0.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-[var(--color-accent)] bg-[var(--color-paper)]">
+                      <span className="h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+                    </span>
+                    <p className="font-display text-[0.95rem] font-semibold text-[var(--color-ink)] mb-3">A treatment page that answers it</p>
+                    <div className="overflow-hidden rounded-[var(--radius-btn)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
+                      <div className="flex items-center gap-1.5 border-b border-[var(--color-border)] px-4 py-2.5">
+                        <span className="h-2 w-2 rounded-full bg-[var(--color-muted-light)]" />
+                        <span className="h-2 w-2 rounded-full bg-[var(--color-muted-light)]" />
+                        <span className="h-2 w-2 rounded-full bg-[var(--color-muted-light)]" />
+                      </div>
+                      <ul className="flex flex-col divide-y divide-[var(--color-border)]">
+                        {[
+                          "Who you help and what you treat",
+                          "Practitioner qualifications and experience",
+                          "What an appointment involves",
+                          "A straightforward route to contact you",
+                        ].map((item) => (
+                          <li key={item} className="flex items-center gap-3 px-4 py-2.5">
+                            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 text-[var(--color-ink)]">
+                              <path d="M2.5 7.5 5.5 10.5 11.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                            <span className="text-body-sm text-[var(--color-charcoal)]">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <p className="text-body-sm text-[var(--color-muted)] mt-3">
+                      Google Business Profile matching the services, location and
+                      contact details on the site.
+                    </p>
+                  </li>
+
+                  {/* 3. The enquiry */}
+                  <li className="relative pl-10">
+                    <span aria-hidden="true" className="absolute left-0 top-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-ink)]">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" className="text-[var(--color-white)]">
+                        <path d="M2.5 7.5 5.5 10.5 11.5 3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    <p className="font-display text-[0.95rem] font-semibold text-[var(--color-ink)] mb-3">An enquiry, reported monthly</p>
+                    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-btn)] border border-[var(--color-border)] bg-[var(--color-border)]">
+                      {["Enquiries", "Booked appointments"].map((label) => (
+                        <div key={label} className="bg-[var(--color-paper)] px-4 py-3.5">
+                          <p className="text-body-sm font-semibold text-[var(--color-ink)]">{label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
       {/* Services for osteopaths */}
       <section className="section bg-[var(--color-paper)]">
         <div className="cx-main">
@@ -284,7 +415,7 @@ export default function OsteopathMarketingPage() {
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { title: "SEO for Osteopaths", desc: "Technical and content SEO that ranks your practice for local and condition-specific searches.", href: "/seo-for-clinics/", cta: "Explore SEO for Clinics" },
+              { title: "SEO for osteopaths", desc: "Local search and treatment-page improvements to help patients find your practice and take the next step towards an enquiry.", href: "/seo-for-clinics/", cta: "How our clinic SEO works" },
               { title: "Google Ads for Osteopaths", desc: "Patient-ready campaigns targeting people actively searching for osteopathic treatment.", href: "/google-ads-for-clinics/", cta: "Explore Google Ads for Clinics" },
               { title: "Osteopath Website Design", desc: "Fast, trust-building websites designed specifically to convert visitors into new patients.", href: "/website-design-for-clinics/", cta: "Explore Clinic Website Design" },
               { title: "AI Patient Reactivation", desc: "Re-engage patients who haven't visited in months with personalised automated messages.", href: "/ai-integration/", cta: "Explore AI Patient Reactivation" },
