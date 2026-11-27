@@ -114,6 +114,7 @@ export default function ArticlePage() {
             <li>Patient outcomes described (within appropriate professional guidelines)</li>
           </ul>
           <p>A patient who feels they understand who they are booking with is more likely to book, and more likely to return.</p>
+          <p>If you want a <a href="/chiropractic-marketing/">chiropractic marketing agency</a> to handle that work, see how we bring practitioner information, local SEO and the booking journey into the same plan.</p>
         </>
       ),
     },

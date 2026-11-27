@@ -121,6 +121,7 @@ export default function ArticlePage() {
             <li>Optimise for mobile, most local searches happen on phones</li>
           </ul>
           <p>A patient who arrives from an ad has strong intent. The landing page job is to confirm they are in the right place and make it easy to take the next step.</p>
+          <p>For the organic search side of your plan, see how our <a href="/chiropractic-marketing/#chiropractic-seo">chiropractic SEO work</a> connects local visibility with service pages and a clear route to enquire.</p>
         </>
       ),
     },

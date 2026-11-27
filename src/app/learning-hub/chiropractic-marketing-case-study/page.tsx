@@ -93,7 +93,7 @@ export default function ArticlePage() {
       title: "How SEO improvement works for chiropractic clinics",
       content: (
         <>
-          <p><a href="/chiropractic-marketing/">SEO for a chiropractic clinic</a> focuses primarily on local visibility. The goal is to appear in the searches patients make when they are looking for chiropractic care in a specific location.</p>
+          <p>Our approach to <a href="/chiropractic-marketing/#chiropractic-seo">SEO for chiropractors</a> starts with your local visibility and the pages patients reach before they enquire. The method was built and tested at Bodyfunction, a London MSK clinic; this guide describes the approach rather than a measured chiropractic client result.</p>
           <p>For most chiropractic clinics, the highest-priority SEO work includes:</p>
           <ul>
             <li>Creating dedicated pages for each condition and service area</li>

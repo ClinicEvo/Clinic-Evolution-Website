@@ -15,16 +15,14 @@ import ConnectedJourney from "@/components/sections/ConnectedJourney";
 import StatBand from "@/components/sections/StatBand";
 import Image from "next/image";
 import StickyMobileCta from "@/components/ui/StickyMobileCta";
+import Button from "@/components/ui/Button";
 
 export const metadata = buildMetadata({
-  // Carries three researched terms at once: "seo for chiropractors" (200/mo,
-  // KD 2), "chiropractic marketing" (150) and "chiropractic marketing agency"
-  // (150, KD 0). The agency variant was previously untargeted anywhere.
-  title: "SEO for Chiropractors | Chiropractic Marketing Agency",
+  // The root layout's template appends " | Clinic Evo".
+  title: "Chiropractic Marketing Agency & SEO",
   description:
-    "Clinic Evo helps UK chiropractors attract more patients with specialist chiropractic marketing, SEO, clinic website design, Google Ads and patient reactivation.",
+    "We offer chiropractic marketing and SEO exclusively for UK MSK clinics. Request your free clinic audit.",
   path: "/chiropractic-marketing/",
-  absoluteTitle: true,
 });
 
 const faqs = [
@@ -34,9 +32,19 @@ const faqs = [
       "Chiropractic marketing is the strategy used to help chiropractic clinics attract, convert and retain patients. It usually includes SEO, local search, website design, Google Ads, patient education content, reviews, booking optimisation, social media and patient reactivation.",
   },
   {
+    question: "What should a chiropractic marketing agency do for my clinic?",
+    answer:
+      "It should identify where your route from search to enquiry needs work, then explain what to fix first. At Clinic Evo, that can mean SEO and local search, website improvements or Google Ads, depending on your clinic. We also offer paid social and patient reactivation. You should understand why each recommendation belongs in the plan. Start with our free clinic audit: we review your website, Google Business Profile, local rankings and any ads, with findings back within two business days.",
+  },
+  {
     question: "How can SEO help a chiropractic clinic?",
     answer:
       "SEO helps a chiropractic clinic appear when people search for chiropractors, treatment options, condition support and local clinic information. Strong SEO can reduce reliance on referrals and create a more consistent source of patient enquiries over time.",
+  },
+  {
+    question: "How long will SEO take for my chiropractic clinic?",
+    answer:
+      "We cannot give you a reliable date before reviewing your website and local rankings. The evidence we can show is from osteopathy: Lind Street Osteopathy, a new single-practitioner clinic in Ryde, reached page one for its core local searches within twelve months of opening. That is context, not a forecast for your chiropractic clinic. Your starting point and the work needed will differ. Our free clinic audit gives us the basis for discussing priorities and realistic expectations, with no obligation.",
   },
   {
     question: "What is local SEO for chiropractors?",
@@ -116,8 +124,8 @@ export default function ChiropracticMarketingPage() {
 
       <PageHero
         badge="Chiropractic marketing for UK clinics"
-        heading={<>SEO and marketing for chiropractors who want <em className="not-italic text-[var(--color-accent)]">more of the right patients</em></>}
-        subtext="Clinic Evo helps chiropractic clinics improve online visibility, attract better enquiries and build a clearer route from search to booked appointment, built around how people actually choose a chiropractor."
+        heading={<>A chiropractic marketing agency that connects SEO with <em className="not-italic text-[var(--color-accent)]">patient enquiries</em></>}
+        subtext="We help you attract the right patients by making your clinic easier to find and your approach clearer before they book. Our chiropractic SEO and website work connect local searches with pages that explain your treatments and first appointment, with Google Ads where the audit identifies a role for them. We work only with UK MSK clinics."
         bullets={[
           "Local SEO and Google Ads for chiro clinics",
           "Conversion-focused website design",
@@ -295,9 +303,9 @@ export default function ChiropracticMarketingPage() {
             {[
               {
                 title: "SEO for chiropractors",
-                desc: "Improve your organic visibility for local searches, chiropractic services, condition-led searches and high-intent patient queries.",
+                desc: "Local SEO and clear service pages built around your clinic’s treatments, practitioners and route to booking.",
                 href: "/seo-for-clinics/",
-                cta: "Explore SEO for Clinics",
+                cta: "How our clinic SEO works",
               },
               {
                 title: "Chiropractic website design",
@@ -337,6 +345,107 @@ export default function ChiropracticMarketingPage() {
                 </Link>
               </FadeUp>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Chiropractic SEO.
+          Copy left; on the right, the site drawn as the copy describes it: a
+          Google Business Profile that matches the site, and each page with its
+          own job rather than a homepage covering everything. The Bodyfunction
+          figure is not repeated as a big number here; the StatBand and the
+          proof panel already carry it. */}
+      <section id="chiropractic-seo" className="section grain bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+        <div className="cx-main">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-14 lg:gap-20 items-start">
+            <FadeUp>
+              <p className="eyebrow mb-5">Chiropractic SEO</p>
+              <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
+                Chiropractic SEO starts with the questions before booking
+              </h2>
+              <p className="text-body-lg text-[var(--color-charcoal)] mb-5">
+                A local search needs somewhere useful to land. We build
+                chiropractic SEO around the services you actually offer, with
+                condition pages where relevant and clear links to practitioner
+                information and booking.
+              </p>
+              <p className="text-body text-[var(--color-muted)] mb-5">
+                Your Google Business Profile is part of the same work. We review
+                how it describes your clinic and whether its details match your
+                website. On the site, we check technical barriers and give each
+                page a distinct search purpose, rather than asking the homepage to
+                cover everything.
+              </p>
+              <p className="text-body text-[var(--color-muted)] mb-8">
+                The advantage of a specialist chiropractic marketing agency is the
+                starting point. We work only with UK MSK clinics, so the brief
+                starts with your treatments and the decisions patients need to
+                make. We want your pages to explain your approach and first
+                appointment clearly, without promising a clinical outcome.
+              </p>
+              <div className="border-l-2 border-[var(--color-accent)] pl-4 mb-8">
+                <p className="text-body text-[var(--color-charcoal)]">
+                  Our method was built and tested at Bodyfunction Clinic, a London
+                  MSK clinic founded by Clinic Evo co-founder Danny Morgan. That is
+                  evidence from an MSK clinic, not a chiropractic client result. We
+                  report search results in your own Search Console and Ahrefs.
+                </p>
+              </div>
+              <Button href="/free-clinic-audit/" size="lg">Get my free clinic audit</Button>
+              <p className="text-body-sm text-[var(--color-muted)] mt-4 max-w-xl">
+                See what needs attention on your site and in local search. We
+                return the findings within two business days, with no obligation.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <div className="lg:sticky lg:top-28 flex flex-col">
+                {/* Google Business Profile */}
+                <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-5 shadow-[var(--shadow-card)]">
+                  <div className="flex items-center justify-between gap-4 mb-3">
+                    <p className="font-display text-[0.95rem] font-semibold text-[var(--color-ink)]">Google Business Profile</p>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-surface)] px-2.5 py-1 text-xs font-semibold text-[var(--color-charcoal)]">
+                      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 14 14" fill="none">
+                        <path d="M2.5 7.5 5.5 10.5 11.5 3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      Matches the website
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {["Services", "Address", "Phone", "Opening hours"].map((d) => (
+                      <span key={d} className="rounded-[var(--radius-sm)] border border-[var(--color-border)] px-2.5 py-1 text-xs text-[var(--color-muted)]">{d}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <span aria-hidden="true" className="mx-auto h-8 w-px bg-[var(--color-muted-light)]" />
+
+                {/* The website, one job per page */}
+                <div className="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]">
+                  <div className="flex items-center justify-between border-b border-[var(--color-border)] px-5 py-3">
+                    <p className="font-display text-[0.95rem] font-semibold text-[var(--color-ink)]">Your website</p>
+                    <p className="text-xs text-[var(--color-muted)]">One job per page</p>
+                  </div>
+                  <ul className="divide-y divide-[var(--color-border)]">
+                    {[
+                      { page: "Homepage", job: "Who you are and where you are" },
+                      { page: "Service pages", job: "What each treatment involves" },
+                      { page: "Condition pages", job: "Whether you can help with my problem" },
+                      { page: "Practitioners", job: "Who I will see, and their training" },
+                      { page: "First appointment", job: "What happens, and how to book" },
+                    ].map((row) => (
+                      <li key={row.page} className="grid grid-cols-[8.5rem_1fr] items-baseline gap-4 px-5 py-3.5">
+                        <span className="flex items-center gap-2.5 text-body-sm font-semibold text-[var(--color-ink)]">
+                          <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]" />
+                          {row.page}
+                        </span>
+                        <span className="text-body-sm text-[var(--color-muted)]">{row.job}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </FadeUp>
           </div>
         </div>
       </section>
@@ -423,26 +532,18 @@ export default function ChiropracticMarketingPage() {
               <div>
                 <p className="eyebrow mb-5">Proof</p>
                 <h2 className="text-h2 text-[var(--color-ink)] mb-6 leading-tight">
-                  Proof from real clinic growth work
+                  A method proven in a working MSK clinic
                 </h2>
-                <p className="text-body text-[var(--color-muted)] mb-5">
-                  Clinic Evo&apos;s approach is shaped by real work with private
-                  clinics. Bodyfunction Clinic in Angel went from 8 organic visitors
-                  a month to 3,822 over two years, and from no top-three rankings at
-                  all to 332 of them.
+                <p className="text-body text-[var(--color-muted)] mb-6">
+                  Danny Morgan founded Bodyfunction Clinic in Angel, London, and
+                  co-founded Clinic Evo; our methods were tested in his own clinic
+                  first. Bodyfunction grew from 8 → 3,822 estimated monthly organic
+                  visitors over two years, according to Ahrefs, Aug 2024–Aug 2026,
+                  as detailed in the{" "}
+                  <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent-text)] hover:underline">Bodyfunction Clinic case study</a>.
+                  These are search figures from a London MSK clinic, not bookings
+                  or a chiropractic client result.
                 </p>
-                <p className="text-body text-[var(--color-muted)] mb-5">
-                  The <a href="/case-studies/bodyfunction-clinic/" className="text-[var(--color-accent-text)] hover:underline">Bodyfunction Clinic case study</a> sets
-                  out every figure, where it came from, and the local rankings that
-                  are still being worked on.
-                </p>
-                <div className="border-l-2 border-[var(--color-accent)] pl-4 mb-6">
-                  <p className="text-body text-[var(--color-charcoal)]">
-                    Bodyfunction is our own clinic. Danny Morgan founded it and
-                    co-founded Clinic Evo, so this is the practice the method was
-                    built and tested in before we offered it to anyone else.
-                  </p>
-                </div>
                 <ArrowLink href="/case-studies/bodyfunction-clinic/">
                   Read the full clinic story
                 </ArrowLink>
