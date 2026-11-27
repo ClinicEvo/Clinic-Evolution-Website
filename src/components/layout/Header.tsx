@@ -144,7 +144,9 @@ export default function Header() {
             : "bg-[var(--color-paper)] border-b border-[var(--color-border)] py-4 lg:py-5"
         }
       >
-        <div className="cx-main relative">
+        {/* On the draft pill, the CTA sits a little closer to the right
+            edge than the standard gutter. */}
+        <div className={isPreview ? "cx-main relative lg:!pr-4" : "cx-main relative"}>
           <nav
             ref={navRef}
             className="flex items-center justify-between"
@@ -157,11 +159,14 @@ export default function Header() {
               aria-label={`${brandName} home`}
               onClick={() => setMobileOpen(false)}
             >
+              {/* The homepage draft carries the full "Clinic Evolution"
+                  wordmark; live pages keep the short logo until the draft is
+                  approved. */}
               <Image
-                src="/images/cevo_newlogo.png"
+                src={isPreview ? "/images/clinic-evolution-logo-v5.png" : "/images/cevo_newlogo.png"}
                 alt={brandName}
-                width={isPreview ? 140 : 180}
-                height={isPreview ? 40 : 52}
+                width={isPreview ? 191 : 180}
+                height={isPreview ? 24 : 52}
                 style={{ objectFit: "contain" }}
                 priority
               />
