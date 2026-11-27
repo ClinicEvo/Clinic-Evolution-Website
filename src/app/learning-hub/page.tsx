@@ -340,7 +340,7 @@ export default function ResourcesHubPage() {
     },
     {
       icon: svgs.article,
-      title: "Chiropractic marketing case study",
+      title: "Chiropractic marketing guide",
       desc: "The digital marketing approach Clinic Evo applies to chiropractic clinics, covering website structure, SEO and enquiry growth.",
       href: "/learning-hub/chiropractic-marketing-case-study/",
       readTime: "5 min read",

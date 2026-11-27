@@ -2,16 +2,16 @@ import { buildMetadata } from "@/lib/metadata";
 import ArticleLayout from "@/components/layouts/ArticleLayout";
 
 export const metadata = buildMetadata({
-  title: "Chiropractic Marketing Case Study",
+  title: "Chiropractic Marketing Guide",
   description:
-    "An overview of the digital marketing approach Clinic Evo applies to chiropractic clinics, covering website structure, SEO, patient journey and enquiry growth.",
+    "Explore Clinic Evo's approach to chiropractic marketing, covering website structure, local SEO, the patient journey and patient reactivation.",
   path: "/learning-hub/chiropractic-marketing-case-study/",
 });
 
 const crumbs = [
   { label: "Home", href: "/" },
   { label: "Learning Hub", href: "/learning-hub/" },
-  { label: "Chiropractic marketing case study", href: "/learning-hub/chiropractic-marketing-case-study/" },
+  { label: "Chiropractic marketing guide", href: "/learning-hub/chiropractic-marketing-case-study/" },
 ];
 
 const faqs = [
@@ -160,10 +160,10 @@ export default function ArticlePage() {
   return (
     <ArticleLayout
       breadcrumbs={crumbs}
-      schemaDescription={"An overview of the digital marketing approach Clinic Evo applies to chiropractic clinics, covering website structure, SEO, patient journey and enquiry growth."}
+      schemaDescription={"Explore Clinic Evo's approach to chiropractic marketing, covering website structure, local SEO, the patient journey and patient reactivation."}
       heroImage="/images/resources/chiro-case-study.jpg"
       eyebrow="Chiropractic marketing"
-      title="Chiropractic marketing case study"
+      title="Chiropractic marketing guide"
       intro={intro}
       sections={sections}
       faqs={faqs}
